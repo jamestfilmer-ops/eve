@@ -11,10 +11,31 @@ function AuthForm() {
   const [form, setForm] = useState({ email: '', password: '', name: '' })
   const [loading, setLoading] = useState(false)
 
-  function handleSubmit() {
-    setLoading(true)
-    setTimeout(() => setLoading(false), 1200)
+async function handleSubmit() {
+  setLoading(true)
+  try {
+    if (isSignup) {
+      const { error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.password,
+        options: { data: { full_name: form.name } }
+      })
+      if (error) throw error
+      alert('Check your email to confirm your account.')
+    } else {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: form.email,
+        password: form.password,
+      })
+      if (error) throw error
+      window.location.href = '/dashboard'
+    }
+  } catch (err) {
+    alert(err.message)
+  } finally {
+    setLoading(false)
   }
+}
 
   return (
     <div style={{
