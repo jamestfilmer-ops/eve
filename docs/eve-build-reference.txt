@@ -1,0 +1,110 @@
+EVE — BUILD REFERENCE
+Last updated: Session 5
+========================
+
+WHAT EVE IS
+-----------
+A story organization and development workspace for writers.
+No AI calls inside the app. No content generation.
+Eve is a coach, organizer, and craft educator.
+Claude builds the app — it does not run inside it.
+
+TECH STACK
+----------
+Framework:   Next.js App Router (no src/, no TypeScript)
+Language:    JavaScript only
+Styling:     CSS variables in app/globals.css + Tailwind
+Fonts:       Playfair Display (headings) + Source Sans 3 (body)
+Colors:      Forest green (#2D5016) + white (#FAFCF7)
+Database:    Supabase — schema exists, NOT YET WIRED to pages
+Hosting:     Vercel — see docs/deploy-guide.txt to go live
+
+CRITICAL CSS RULE
+-----------------
+Google Fonts @import MUST come BEFORE @import "tailwindcss" in globals.css.
+Swapping the order causes a build error.
+
+ROUTE → FILE MAP (all files must be named page.js)
+----------------------------------------------------
+/                  app/page.js
+/auth              app/auth/page.js
+/dashboard         app/dashboard/page.js
+/projects          app/projects/page.js          ← FIXED in session 5
+/projects/new      app/projects/new/page.js
+/projects/[id]     app/projects/[id]/page.js
+/ideas             app/ideas/page.js
+/profile           app/profile/page.js
+/session           app/session/page.js           ← REBUILT: all 4 frameworks
+/learn             app/learn/page.js
+/learn/[slug]      app/learn/[slug]/page.js      ← 5 lessons written
+/glossary          app/glossary/page.js          ← NEW: 25 terms
+/resources         app/resources/page.js         ← NEW: reading list + podcasts
+/themes            app/themes/page.js            ← NEW: themes + motifs tracker
+not-found          app/not-found.js
+
+COMPONENTS
+----------
+app/components/Nav.js
+  Main links:  Dashboard, Projects, Ideas, Session
+  Learn dropdown: Craft Library, Glossary, Reading List
+  Right side: profile avatar (J), Sign in, Get started
+
+WRITTEN CRAFT LESSONS (/learn/[slug])
+---------------------------------------
+what-a-scene-does    What a scene actually does
+midpoint             The midpoint is the spine
+want-vs-need         Want vs. Need: the engine of every great character
+dialogue-subtext     Nobody talks to have a conversation
+theme                Theme isn't a message — it's a question
+
+COMING SOON (grayed in UI)
+---------------------------
+act-breaks, all-is-lost, ghost, antagonist, secondary-characters,
+subtext, arguments, plant-payoff, motifs
+
+SESSION MODE FRAMEWORKS (all 4 wired)
+---------------------------------------
+save-the-cat    Save the Cat       15 beats
+heros-journey   Hero's Journey     12 stages
+story-circle    Story Circle       8 steps
+freeform        Freeform           8 open questions
+
+FEATURES COMPLETE
+------------------
+Landing page, Auth UI, Dashboard, Projects index + filter/sort,
+New project wizard (framework picker), Individual project view (4 tabs),
+Character Registry (Want/Need/Ghost/Arc), Scene list by act,
+Plot Hole Tracker, Session Mode (all 4 frameworks),
+Idea Bank (capture/pin/filter/promote), Profile page,
+Craft Library (5 lessons live, rest coming soon),
+Individual lesson pages with craft rules + exercises,
+Story Glossary (25 terms), Reading List + Podcasts,
+Themes & Motifs tracker, Custom 404, Learn dropdown nav
+
+NOT YET BUILT
+--------------
+Supabase auth wiring (real login)
+Real data persistence (all data is mock/useState)
+Timeline / chronology view
+Collaboration / share links
+Remaining craft lessons (8 more)
+GitHub push + Vercel deploy (see docs/deploy-guide.txt)
+
+DESIGN TOKENS
+--------------
+--green #2D5016  --green-mid #3D6B1F  --green-light #4E8A28
+--green-pale #EBF2E4  --green-border #C8DDAF
+--white #FAFCF7  --off-white #F2F7EC
+--text-dark #1A2410  --text-mid #4A5C38  --text-soft #7A8F68
+--border #D6E5C0
+
+CSS CLASSES
+-----------
+.card .btn-primary .btn-ghost .input .badge .tip-box
+.tab-bar .tab .tab.active .divider-label
+.fade-up .fade-up-delay-1 through 4
+
+RULES
+-----
+No emojis. No AI inside app. Full files always. Never delete working code.
+npm run build must pass before git push.

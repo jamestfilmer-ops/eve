@@ -1,0 +1,150 @@
+EVE — BUILD REFERENCE
+Last updated: Session 4
+========================
+
+WHAT EVE IS
+-----------
+Eve is a story organization and development workspace for writers.
+No AI calls inside the app. No content generation. Eve is a coach, organizer, and craft educator.
+Claude is used only to BUILD the app — not inside it.
+
+TECH STACK
+----------
+Framework:   Next.js App Router (no src/ directory, no TypeScript)
+Language:    JavaScript only
+Styling:     CSS variables in app/globals.css + Tailwind
+Fonts:       Playfair Display (headings) + Source Sans 3 (body)
+Colors:      Forest green (#2D5016) + white (#FAFCF7)
+Database:    Supabase — NOT YET WIRED. All data is mock/useState.
+Hosting:     Vercel — NOT YET DEPLOYED.
+
+CRITICAL CSS RULE
+-----------------
+Google Fonts @import MUST come before @import "tailwindcss" in globals.css.
+Reversing this order causes a build error.
+
+DESIGN TOKENS (app/globals.css)
+--------------------------------
+--green:        #2D5016   primary, headings, buttons
+--green-mid:    #3D6B1F   button hover
+--green-light:  #4E8A28   accents, progress bars
+--green-pale:   #EBF2E4   pale backgrounds, hover
+--green-border: #C8DDAF   borders on green elements
+--white:        #FAFCF7   page background
+--off-white:    #F2F7EC   section backgrounds
+--text-dark:    #1A2410   body text
+--text-mid:     #4A5C38   secondary text
+--text-soft:    #7A8F68   muted/placeholder
+--border:       #D6E5C0   card borders
+
+REUSABLE CSS CLASSES
+---------------------
+.card              white card with border + shadow
+.btn-primary       green filled button
+.btn-ghost         outlined green button
+.input             form input / textarea / select
+.badge             small uppercase label pill
+.tip-box           green left-border coaching callout
+.tab-bar           horizontal tab container
+.tab               individual tab button
+.tab.active        active tab state
+.divider-label     section label with lines on both sides
+.fade-up           page load animation
+.fade-up-delay-1   through delay-4 for staggered reveals
+
+RULES (never break these)
+--------------------------
+- No emojis anywhere in UI
+- No AI API calls inside the app
+- Full file content every time — no ellipsis, no placeholders
+- Never delete working code to simplify — only add
+- npm run build must pass before git push
+- All data is mock until Supabase is wired
+
+FILE NAMING NOTE
+-----------------
+Next.js requires route files to be named page.js.
+Component functions are named descriptively (e.g. ProjectsPage, IdeasPage).
+Reference files use descriptive names (projects-page.js, learn-page.js) for download clarity.
+When placing in VS Code, the actual file must be named page.js.
+
+PAGES — CURRENT STATE (Session 4)
+-----------------------------------
+ROUTE                  FILE                                  STATUS
+/                      app/page.js                           Built — landing, no emojis
+/auth                  app/auth/page.js                      Built — UI only, no Supabase
+/dashboard             app/dashboard/page.js                 Built — mock data
+/projects              app/projects/projects-page.js         Built — filter, sort, all projects
+/projects/new          app/projects/new/page.js              Built — framework picker + form
+/projects/[id]         app/projects/[id]/page.js             Built — 4 tabs: Overview, Characters, Scenes, Plot Holes
+/ideas                 app/ideas/ideas-page.js               Built — capture, pin, filter, promote
+/profile               app/profile/profile-page.js           Built — stats, bio, quick links
+/session               app/session/page.js                   Built — Save the Cat checklist only
+/learn                 app/learn/learn-page.js               Built — all lessons linked, grayed if unwritten
+/learn/[slug]          app/learn/[slug]/lesson-page.js       Built — 5 lessons written
+not-found              app/not-found.js                      Built — custom 404
+
+WRITTEN LESSONS (/learn/[slug])
+---------------------------------
+what-a-scene-does      What a scene actually does
+midpoint               The midpoint is the spine
+want-vs-need           Want vs. Need: the engine of every great character
+dialogue-subtext       Nobody talks to have a conversation
+theme                  Theme isn't a message — it's a question
+
+UNWRITTEN LESSONS (gray/coming soon in UI)
+-------------------------------------------
+act-breaks, all-is-lost, ghost, antagonist, secondary-characters,
+subtext, arguments, plant-payoff, motifs
+
+COMPONENTS
+-----------
+app/components/Nav.js
+  Links: Dashboard, Projects, Ideas, Session, Learn
+  Right side: profile avatar (links to /profile), Sign in, Get started
+  Active state: green background on current route
+
+FEATURES BUILT
+---------------
+- Framework picker: Save the Cat, Hero's Journey, Story Circle, Freeform (full descriptions)
+- Character Registry: Want / Need / Ghost / Arc fields, add form, expand/collapse
+- Scene list: organized by Act with beat labels
+- Plot Hole Tracker: open/resolved states
+- Session Mode: Save the Cat beat checklist (other frameworks TBD)
+- Idea Bank: capture by type, pin, filter, search, delete, promote to project
+- Craft lessons: 5 fully written, rest grayed out as coming soon
+- Custom 404 page with navigation
+- Staggered fade-up animations throughout
+- Progress bars on all project cards
+
+NOT YET BUILT
+--------------
+- Supabase connection (auth + real data persistence)
+- Timeline / chronology view
+- Themes & Motifs tracker
+- Collaboration / share links
+- Session checklists for Hero's Journey, Story Circle, Freeform
+- Remaining craft lessons
+- GitHub push
+- Vercel deploy
+
+SUPABASE SCHEMA
+----------------
+Full SQL in docs/db-schema-changelog.md
+Tables: profiles, projects, characters, scenes, plot_holes,
+        themes, session_beats, collaborators
+
+FRAMEWORKS
+-----------
+save-the-cat     Save the Cat       Blake Snyder      3 Acts / 15 Beats
+heros-journey    Hero's Journey     Joseph Campbell   3 Acts / 12 Stages
+story-circle     Story Circle       Dan Harmon        1 Circle / 8 Steps
+freeform         Freeform           Your instincts    No template
+
+NEXT PRIORITIES
+----------------
+1. Wire Supabase — auth + real data (biggest unlock)
+2. Timeline / chronology view inside projects
+3. Themes & Motifs tracker inside projects
+4. Session checklists for all frameworks
+5. GitHub push + Vercel deploy
