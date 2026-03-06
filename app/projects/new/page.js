@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { supabase } from '../../../lib/supabase'
 
 // SVG icons — no emoji
 const FrameworkIcon = ({ id, size = 22 }) => {
@@ -22,7 +23,6 @@ const FrameworkIcon = ({ id, size = 22 }) => {
       <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
     </svg>
   )
-  // freeform
   return (
     <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 20h9"/>
@@ -73,13 +73,53 @@ const frameworks = [
 export default function NewProject() {
   const router = useRouter()
   const [selected, setSelected] = useState(null)
-  const [step, setStep] = useState(1)
-  const [form, setForm] = useState({ title: '', type: 'Novel', logline: '' })
+  const [step,     setStep]     = useState(1)
+  const [form,     setForm]     = useState({ title: '', type: 'Novel', logline: '' })
+  const [saving,   setSaving]   = useState(false)
+  const [saveErr,  setSaveErr]  = useState(null)
 
   const fw = frameworks.find(f => f.id === selected)
 
+  async function handleCreate() {
+    if (!form.title || !selected) return
+    setSaving(true)
+    setSaveErr(null)
+
+    // Get current user
+    const { data: { user }, error: authErr } = await supabase.auth.getUser()
+    if (authErr || !user) {
+      setSaveErr('You need to be signed in to create a project.')
+      setSaving(false)
+      return
+    }
+
+    // INSERT project
+    const { data, error } = await supabase
+      .from('projects')
+      .insert({
+        user_id:    user.id,
+        title:      form.title.trim(),
+        type:       form.type,
+        logline:    form.logline.trim() || null,
+        framework:  selected,
+        status:     'seed',
+      })
+      .select()
+      .single()
+
+    if (error) {
+      setSaveErr('Something went wrong saving your project. Try again.')
+      setSaving(false)
+      return
+    }
+
+    // Redirect to the real new project page
+    router.push(`/projects/${data.id}`)
+  }
+
   return (
     <div style={{ maxWidth: '900px', margin: '0 auto', padding: '48px 24px' }}>
+
       {/* Header */}
       <div className="fade-up" style={{ marginBottom: '40px' }}>
         <p style={{ fontSize: '12px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '8px' }}>
@@ -95,6 +135,7 @@ export default function NewProject() {
         </p>
       </div>
 
+      {/* Step 1 — Framework picker */}
       {step === 1 && (
         <>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
@@ -104,8 +145,7 @@ export default function NewProject() {
                 onClick={() => setSelected(f.id)}
                 className="card"
                 style={{
-                  padding: '24px',
-                  cursor: 'pointer',
+                  padding: '24px', cursor: 'pointer',
                   border: selected === f.id ? '2px solid var(--green)' : '1px solid var(--border)',
                   background: selected === f.id ? 'var(--green-pale)' : '#fff',
                 }}
@@ -116,8 +156,7 @@ export default function NewProject() {
                       width: '38px', height: '38px', borderRadius: '8px',
                       background: selected === f.id ? 'var(--green)' : 'var(--green-pale)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: selected === f.id ? '#fff' : 'var(--green)',
-                      flexShrink: 0,
+                      color: selected === f.id ? '#fff' : 'var(--green)', flexShrink: 0,
                     }}>
                       <FrameworkIcon id={f.id} size={18} />
                     </div>
@@ -130,8 +169,7 @@ export default function NewProject() {
                     width: '20px', height: '20px', borderRadius: '50%',
                     border: selected === f.id ? 'none' : '2px solid var(--border)',
                     background: selected === f.id ? 'var(--green)' : 'transparent',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                   }}>
                     {selected === f.id && (
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -152,8 +190,8 @@ export default function NewProject() {
                 {f.beats.length > 0 && (
                   <div style={{ marginTop: '14px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {f.beats.map((b, i) => (
-                      <span key={i} style={{
-                        fontSize: '11px', padding: '2px 8px', borderRadius: '4px',
+                      <span key={i} className="mono" style={{
+                        padding: '2px 8px', borderRadius: '4px',
                         background: '#fff', border: '1px solid var(--green-border)',
                         color: 'var(--text-mid)',
                       }}>{b}</span>
@@ -175,6 +213,7 @@ export default function NewProject() {
         </>
       )}
 
+      {/* Step 2 — Project details */}
       {step === 2 && (
         <div className="fade-up" style={{ maxWidth: '560px' }}>
           <div className="card" style={{ padding: '28px', marginBottom: '24px' }}>
@@ -211,16 +250,13 @@ export default function NewProject() {
                   placeholder="e.g. The Long Road Home"
                   value={form.title}
                   onChange={e => setForm({ ...form, title: e.target.value })}
+                  onKeyDown={e => { if (e.key === 'Enter' && form.title) handleCreate() }}
                 />
               </div>
 
               <div>
                 <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '6px' }}>Format</label>
-                <select
-                  className="input"
-                  value={form.type}
-                  onChange={e => setForm({ ...form, type: e.target.value })}
-                >
+                <select className="input" value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>
                   {['Novel', 'Short Story', 'Screenplay', 'TV Pilot', 'Novella', 'Memoir', 'Other'].map(t => (
                     <option key={t}>{t}</option>
                   ))}
@@ -249,15 +285,21 @@ export default function NewProject() {
             <strong>Don't overthink the title or logline.</strong> Both can change. The point is to give your story a home so you can keep building it.
           </div>
 
+          {saveErr && (
+            <p style={{ fontSize: '13px', color: '#991B1B', marginBottom: '16px', padding: '10px 14px', background: '#FEF2F2', borderRadius: '8px', border: '1px solid #FECACA' }}>
+              {saveErr}
+            </p>
+          )}
+
           <div style={{ display: 'flex', gap: '12px' }}>
-            <button className="btn-ghost" onClick={() => setStep(1)}>← Back</button>
+            <button className="btn-ghost" onClick={() => setStep(1)} disabled={saving}>← Back</button>
             <button
               className="btn-primary"
-              disabled={!form.title}
-              style={{ opacity: form.title ? 1 : 0.4, fontSize: '15px', padding: '12px 28px' }}
-              onClick={() => router.push('/dashboard')}
+              disabled={!form.title || saving}
+              style={{ opacity: (form.title && !saving) ? 1 : 0.4, fontSize: '15px', padding: '12px 28px' }}
+              onClick={handleCreate}
             >
-              Create project →
+              {saving ? 'Creating...' : 'Create project →'}
             </button>
           </div>
         </div>
