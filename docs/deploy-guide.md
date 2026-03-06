@@ -67,8 +67,8 @@ STEP 3 — ADD ENV VARIABLES LOCALLY
 In VS Code, open .env.local (in the root of the eve folder).
 Replace the placeholder values:
 
-  NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-  NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxxxxx...
+  NEXT_PUBLIC_SUPABASE_URL=https://qziatztkkinyzqxvxmik.supabase.co
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6aWF0enRra2lueXpxeHZ4bWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3NjUzMzQsImV4cCI6MjA4ODM0MTMzNH0.iJpVn6TPNqbg4_jCoeKurp9A1sy3R0n7lObeuDd_gdI
 
 Save the file.
 
