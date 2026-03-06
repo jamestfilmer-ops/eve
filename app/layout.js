@@ -1,5 +1,6 @@
 import './globals.css'
 import Nav from './components/Nav'
+import ConsentBanner from './components/ConsentBanner'
 
 export const metadata = {
   title: 'Eve — Your Story Workspace',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <main style={{ minHeight: '100vh', paddingTop: '64px' }}>
           {children}
         </main>
+        <ConsentBanner />
       </body>
     </html>
   )
