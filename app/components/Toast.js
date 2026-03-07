@@ -1,0 +1,234 @@
+'use client'
+import { createContext, useContext, useState, useCallback, useRef } from 'react'
+
+/* ─── Context ──────────────────────────────────────────────── */
+const ToastContext = createContext(null)
+
+/* ─── Provider — wrap in layout.js ────────────────────────── */
+export function ToastProvider({ children }) {
+  const [toasts, setToasts] = useState([])
+  const counterRef = useRef(0)
+
+  const addToast = useCallback(({ message, type = 'info', duration = 3800 }) => {
+    const id = ++counterRef.current
+    setToasts(prev => [...prev, { id, message, type, leaving: false }])
+
+    if (duration > 0) {
+      setTimeout(() => dismiss(id), duration)
+    }
+    return id
+  }, [])
+
+  const dismiss = useCallback((id) => {
+    // Mark as leaving first (triggers exit animation)
+    setToasts(prev => prev.map(t => t.id === id ? { ...t, leaving: true } : t))
+    // Remove after animation
+    setTimeout(() => {
+      setToasts(prev => prev.filter(t => t.id !== id))
+    }, 320)
+  }, [])
+
+  // Convenience methods
+  const toast = {
+    success: (message, opts) => addToast({ message, type: 'success', ...opts }),
+    error:   (message, opts) => addToast({ message, type: 'error',   ...opts }),
+    info:    (message, opts) => addToast({ message, type: 'info',    ...opts }),
+    warning: (message, opts) => addToast({ message, type: 'warning', ...opts }),
+    dismiss,
+  }
+
+  return (
+    <ToastContext.Provider value={toast}>
+      {children}
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
+    </ToastContext.Provider>
+  )
+}
+
+/* ─── Hook ─────────────────────────────────────────────────── */
+export function useToast() {
+  const ctx = useContext(ToastContext)
+  if (!ctx) throw new Error('useToast must be used inside <ToastProvider>')
+  return ctx
+}
+
+/* ─── Icons ─────────────────────────────────────────────────── */
+function IconSuccess() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="rgba(45,80,22,0.15)" stroke="#2D5016" strokeWidth="1.25"/>
+      <path d="M5 8l2 2 4-4" stroke="#2D5016" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+function IconError() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="rgba(159,18,57,0.12)" stroke="#9F1239" strokeWidth="1.25"/>
+      <path d="M5.5 5.5l5 5M10.5 5.5l-5 5" stroke="#9F1239" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  )
+}
+function IconWarning() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="rgba(181,112,10,0.12)" stroke="#B5700A" strokeWidth="1.25"/>
+      <path d="M8 5v4" stroke="#B5700A" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="8" cy="11" r="0.75" fill="#B5700A"/>
+    </svg>
+  )
+}
+function IconInfo() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="rgba(29,78,216,0.10)" stroke="#1D4ED8" strokeWidth="1.25"/>
+      <path d="M8 7.5v4" stroke="#1D4ED8" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="8" cy="5.5" r="0.75" fill="#1D4ED8"/>
+    </svg>
+  )
+}
+function IconClose() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M3.5 3.5l7 7M10.5 3.5l-7 7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
+/* ─── Variant styles ─────────────────────────────────────────── */
+const variants = {
+  success: {
+    border:     '#C3D9A8',
+    accent:     '#2D5016',
+    bg:         '#fff',
+    iconComp:   IconSuccess,
+  },
+  error: {
+    border:     '#FECDD3',
+    accent:     '#9F1239',
+    bg:         '#fff',
+    iconComp:   IconError,
+  },
+  warning: {
+    border:     '#F5C57A',
+    accent:     '#B5700A',
+    bg:         '#fff',
+    iconComp:   IconWarning,
+  },
+  info: {
+    border:     '#BFDBFE',
+    accent:     '#1D4ED8',
+    bg:         '#fff',
+    iconComp:   IconInfo,
+  },
+}
+
+/* ─── Container ─────────────────────────────────────────────── */
+function ToastContainer({ toasts, onDismiss }) {
+  if (!toasts.length) return null
+  return (
+    <>
+      <div style={{
+        position: 'fixed',
+        bottom: '24px',
+        right: '24px',
+        zIndex: 9999,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '10px',
+        alignItems: 'flex-end',
+        pointerEvents: 'none',
+      }}>
+        {toasts.map(t => (
+          <ToastItem key={t.id} toast={t} onDismiss={onDismiss} />
+        ))}
+      </div>
+      <style>{`
+        @keyframes toastIn {
+          from { opacity: 0; transform: translateY(12px) scale(0.96); }
+          to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes toastOut {
+          from { opacity: 1; transform: translateY(0) scale(1); }
+          to   { opacity: 0; transform: translateY(8px) scale(0.95); }
+        }
+        @media (max-width: 639px) {
+          .toast-container-mobile {
+            bottom: 16px !important;
+            right: 16px !important;
+            left: 16px !important;
+            align-items: stretch !important;
+          }
+        }
+      `}</style>
+    </>
+  )
+}
+
+/* ─── Individual toast ───────────────────────────────────────── */
+function ToastItem({ toast, onDismiss }) {
+  const v = variants[toast.type] || variants.info
+  const Icon = v.iconComp
+
+  return (
+    <div
+      style={{
+        pointerEvents: 'all',
+        background: v.bg,
+        border: `1px solid ${v.border}`,
+        borderLeft: `3px solid ${v.accent}`,
+        borderRadius: '12px',
+        boxShadow: '0 4px 16px rgba(26,20,15,0.10), 0 1px 4px rgba(26,20,15,0.07)',
+        padding: '12px 14px',
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '10px',
+        minWidth: '260px',
+        maxWidth: '380px',
+        animation: toast.leaving
+          ? 'toastOut 0.28s cubic-bezier(0.22,1,0.36,1) both'
+          : 'toastIn 0.32s cubic-bezier(0.22,1,0.36,1) both',
+      }}
+    >
+      {/* Icon */}
+      <div style={{ flexShrink: 0, marginTop: '1px' }}>
+        <Icon />
+      </div>
+
+      {/* Message */}
+      <p style={{
+        flex: 1,
+        fontSize: '14px',
+        lineHeight: '1.55',
+        color: '#18140F',
+        margin: 0,
+        fontFamily: 'var(--font-ui, DM Sans, system-ui, sans-serif)',
+      }}>
+        {toast.message}
+      </p>
+
+      {/* Dismiss */}
+      <button
+        onClick={() => onDismiss(toast.id)}
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '1px',
+          color: '#8A837C',
+          flexShrink: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '4px',
+          transition: 'color 0.15s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = '#18140F'}
+        onMouseLeave={e => e.currentTarget.style.color = '#8A837C'}
+        aria-label="Dismiss"
+      >
+        <IconClose />
+      </button>
+    </div>
+  )
+}
