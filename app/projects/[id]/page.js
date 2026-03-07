@@ -205,7 +205,32 @@ export default function ProjectPage() {
 // ─── Overview Tab ──────────────────────────────────────────────────────────────
 
 function OverviewTab({ project, characters, scenes, plotHoles, onUpdate }) {
-  const openHoles = plotHoles.filter(h => h.status === 'open').length
+  const openHoles   = plotHoles.filter(h => h.status === 'open').length
+  const [exporting, setExporting] = useState(false)
+
+  async function exportPDF() {
+    setExporting(true)
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      const res = await fetch('/api/export-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ projectId: project.id, userId: session?.user?.id }),
+      })
+      if (!res.ok) throw new Error('Export failed')
+      const blob = await res.blob()
+      const url  = URL.createObjectURL(blob)
+      const a    = document.createElement('a')
+      a.href     = url
+      a.download = `${(project.title || 'project').replace(/[^a-z0-9]/gi,'-').toLowerCase()}.pdf`
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error(err)
+      alert('Export failed. Try again.')
+    }
+    setExporting(false)
+  }
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
@@ -261,11 +286,28 @@ function OverviewTab({ project, characters, scenes, plotHoles, onUpdate }) {
             ))
         }
       </div>
+      {/* Export */}
+      <div className="card-static" style={{ padding: '22px', gridColumn: '1 / -1', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '4px' }}>Export</p>
+          <p style={{ fontSize: '14px', color: 'var(--text-mid)' }}>Download your outline, scenes, and characters as a formatted PDF.</p>
+        </div>
+        <button
+          onClick={exportPDF}
+          disabled={exporting}
+          className="btn-ghost"
+          style={{ fontSize: '13px', padding: '9px 18px', display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', opacity: exporting ? 0.6 : 1 }}
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1v9m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+          </svg>
+          {exporting ? 'Generating…' : 'Export PDF'}
+        </button>
+      </div>
     </div>
   )
 }
-
-// ── Logline editor ─────────────────────────────────────────────────────────────
 
 function LoglineEditor({ project, onUpdate }) {
   const [editing, setEditing] = useState(false)
@@ -517,12 +559,118 @@ function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
   )
 }
 
+// ─── Beat stubs for auto-fill ──────────────────────────────────────────────────
+
+const frameworkBeatStubs = {
+  'save-the-cat': [
+    { title: 'Opening Image',     act_number: 1, beat_label: 'Opening Image',    notes: 'The very first image — a snapshot of your protagonist\'s problem before anything changes.' },
+    { title: 'Theme Stated',      act_number: 1, beat_label: 'Theme Stated',     notes: 'Someone says something to your protagonist that they don\'t yet understand. This is your theme.' },
+    { title: 'Set-Up',            act_number: 1, beat_label: 'Set-Up',           notes: 'Introduce all the people, flaws, and circumstances that need fixing by the end.' },
+    { title: 'Catalyst',          act_number: 1, beat_label: 'Catalyst',         notes: 'The event around page 12 that disrupts the protagonist\'s world. Done TO them, not by them.' },
+    { title: 'Debate',            act_number: 1, beat_label: 'Debate',           notes: 'The protagonist hesitates. What is the last question they ask before committing to Act 2?' },
+    { title: 'Break into Two',    act_number: 1, beat_label: 'Break into Two',   notes: 'The protagonist CHOOSES to enter Act 2. This is the most important beat — it must be active.' },
+    { title: 'B Story',           act_number: 2, beat_label: 'B Story',          notes: 'The secondary storyline (usually a relationship) that carries the theme.' },
+    { title: 'Fun and Games',     act_number: 2, beat_label: 'Fun and Games',    notes: 'The "promise of the premise." The audience gets what they came for.' },
+    { title: 'Midpoint',          act_number: 2, beat_label: 'Midpoint',         notes: 'False victory or false defeat. After this, the protagonist becomes fully active.' },
+    { title: 'Bad Guys Close In', act_number: 2, beat_label: 'Bad Guys Close In', notes: 'External and internal forces dismantle what the protagonist built in Fun and Games.' },
+    { title: 'All Is Lost',       act_number: 2, beat_label: 'All Is Lost',      notes: 'The lowest point. Something must die here — literal or symbolic.' },
+    { title: 'Dark Night of the Soul', act_number: 2, beat_label: 'Dark Night',  notes: 'The protagonist sits in the wreckage. The solution must come from within them.' },
+    { title: 'Break into Three',  act_number: 3, beat_label: 'Break into Three', notes: 'The A and B stories merge. The protagonist has a new idea — and it comes from the B story.' },
+    { title: 'Finale',            act_number: 3, beat_label: 'Finale',           notes: 'Execute the plan using everything learned. Mirror the setup in new, meaningful ways.' },
+    { title: 'Final Image',       act_number: 3, beat_label: 'Final Image',      notes: 'The opposite of the Opening Image. Proof that change is real and permanent.' },
+  ],
+  'heros-journey': [
+    { title: 'Ordinary World',        act_number: 1, beat_label: 'Ordinary World',       notes: 'The hero\'s normal life — establish what they stand to lose.' },
+    { title: 'Call to Adventure',     act_number: 1, beat_label: 'Call to Adventure',    notes: 'The disruption that presents the challenge ahead.' },
+    { title: 'Refusal of the Call',   act_number: 1, beat_label: 'Refusal',              notes: 'The hero hesitates. What fear holds them back?' },
+    { title: 'Meeting the Mentor',    act_number: 1, beat_label: 'Mentor',               notes: 'Who gives the hero wisdom or a tool to cross the threshold?' },
+    { title: 'Crossing the Threshold',act_number: 1, beat_label: 'Threshold',            notes: 'Point of no return. The Ordinary World is left behind.' },
+    { title: 'Tests, Allies, Enemies',act_number: 2, beat_label: 'Tests / Allies',       notes: 'The hero learns the rules of the Special World and builds relationships.' },
+    { title: 'Approach the Inmost Cave', act_number: 2, beat_label: 'Approach',          notes: 'Preparation for the Ordeal. What is the hero\'s plan?' },
+    { title: 'The Ordeal',            act_number: 2, beat_label: 'Ordeal',               notes: 'The central crisis. The hero must "die" to be reborn with new knowledge.' },
+    { title: 'Reward (Seizing the Sword)', act_number: 2, beat_label: 'Reward',          notes: 'What does the hero claim after surviving the Ordeal?' },
+    { title: 'The Road Back',         act_number: 3, beat_label: 'Road Back',            notes: 'What drives the hero back? What final obstacle appears?' },
+    { title: 'Resurrection',          act_number: 3, beat_label: 'Resurrection',         notes: 'Final transformation. The climax proves the change is real.' },
+    { title: 'Return with the Elixir',act_number: 3, beat_label: 'Return',               notes: 'The hero brings back wisdom, love, or freedom that heals the Ordinary World.' },
+  ],
+  'story-circle': [
+    { title: 'You — Establish the character',   act_number: 1, beat_label: 'You',    notes: 'Who is the protagonist in their comfort zone?' },
+    { title: 'Need — Establish the want',        act_number: 1, beat_label: 'Need',   notes: 'What does the character need or want that they can\'t scratch in their current world?' },
+    { title: 'Go — Enter an unfamiliar world',   act_number: 1, beat_label: 'Go',     notes: 'What threshold do they cross into something new and unfamiliar?' },
+    { title: 'Search — Road of trials',          act_number: 2, beat_label: 'Search', notes: 'What obstacles does the character face while searching for what they need?' },
+    { title: 'Find — The thing they were seeking', act_number: 2, beat_label: 'Find', notes: 'Do they find it? At what cost or complication?' },
+    { title: 'Take — Pay the price',             act_number: 2, beat_label: 'Take',   notes: 'What must the character sacrifice or lose for what they found?' },
+    { title: 'Return — Back to the familiar',    act_number: 3, beat_label: 'Return', notes: 'How do they return to the familiar world, changed?' },
+    { title: 'Change — Transformation complete', act_number: 3, beat_label: 'Change', notes: 'How has the character fundamentally changed? The circle closes.' },
+  ],
+  'sequence-approach': [
+    { title: 'Sequence 1 — Establish & Incite',   act_number: 1, beat_label: 'Sequence 1', notes: 'Establish the world and protagonist. Land the inciting incident (pp. 1–15).' },
+    { title: 'Sequence 2 — Decision & Threshold', act_number: 1, beat_label: 'Sequence 2', notes: 'The protagonist\'s response and the Act 1 decision they cannot unmake (pp. 15–30).' },
+    { title: 'Sequence 3 — New World, Old Methods', act_number: 2, beat_label: 'Sequence 3', notes: 'First attempt. Old tools meet new problems. Ends in setback (pp. 30–45).' },
+    { title: 'Sequence 4 — Progress & Midpoint',  act_number: 2, beat_label: 'Sequence 4', notes: 'Real progress, then the midpoint reversal (pp. 45–60).' },
+    { title: 'Sequence 5 — Reversal & Escalation', act_number: 2, beat_label: 'Sequence 5', notes: 'Midpoint consequences arrive. Resources stripped away (pp. 60–75).' },
+    { title: 'Sequence 6 — All Is Lost & Choice',  act_number: 2, beat_label: 'Sequence 6', notes: 'Lowest point. Something dies. The fundamental choice before Act 3 (pp. 75–90).' },
+    { title: 'Sequence 7 — Climax Begins',         act_number: 3, beat_label: 'Sequence 7', notes: 'Final confrontation begins. Protagonist acts on their Act 2 choice (pp. 90–105).' },
+    { title: 'Sequence 8 — Resolution',            act_number: 3, beat_label: 'Sequence 8', notes: 'Climax resolves. The new state of the world (pp. 105–120).' },
+  ],
+  'kishotenketsu': [
+    { title: 'Ki — Introduction',   act_number: 1, beat_label: 'Ki',    notes: 'Establish the world, characters, and situation. No conflict. Pure immersion.' },
+    { title: 'Shō — Development',   act_number: 1, beat_label: 'Shō',   notes: 'Introduce a second element that seems unrelated. Develop both threads independently.' },
+    { title: 'Ten — Twist',         act_number: 2, beat_label: 'Ten',   notes: 'The unexpected connection between Ki and Shō. A shift in perception, not a plot twist.' },
+    { title: 'Ketsu — Conclusion',  act_number: 3, beat_label: 'Ketsu', notes: 'Reconcile the elements. Let the meaning land without explaining it.' },
+  ],
+  'fichtean': [
+    { title: 'Opening Crisis',         act_number: 1, beat_label: 'Opening Crisis',  notes: 'Drop in mid-action. No setup. The audience will catch up.' },
+    { title: 'Crisis 1 — Escalation',  act_number: 1, beat_label: 'Crisis 1',        notes: 'First crisis after the opening. What does it cost? What backstory does it reveal?' },
+    { title: 'Crisis 2 — Escalation',  act_number: 2, beat_label: 'Crisis 2',        notes: 'Second crisis. Worse than the first. Tighten the spiral.' },
+    { title: 'Crisis 3 — Peak Pressure', act_number: 2, beat_label: 'Crisis 3',      notes: 'Optional. The backstory that unlocks the full weight of the present.' },
+    { title: 'Climax — All Crises Converge', act_number: 3, beat_label: 'Climax',    notes: 'Everything arrives at once. Inevitable in retrospect.' },
+    { title: 'Brief Resolution',       act_number: 3, beat_label: 'Resolution',      notes: 'Keep it short. What matters already happened. One final beat, then close.' },
+  ],
+  'freeform': [
+    { title: 'Opening',       act_number: 1, beat_label: 'Opening',    notes: 'How does the story begin? Why here and not somewhere else?' },
+    { title: 'Protagonist',   act_number: 1, beat_label: 'Protagonist', notes: 'Establish who this person is and what they carry into the story.' },
+    { title: 'Stakes',        act_number: 1, beat_label: 'Stakes',     notes: 'What does the protagonist lose if they fail? Make it concrete.' },
+    { title: 'Central Turn',  act_number: 2, beat_label: 'Turn',       notes: 'The moment everything changes and can\'t go back. What is lost or revealed?' },
+    { title: 'Low Point',     act_number: 2, beat_label: 'Low Point',  notes: 'Darkest moment. What truth must now be faced?' },
+    { title: 'Resolution',    act_number: 3, beat_label: 'Resolution', notes: 'What happens in the final scenes? What does the ending mean?' },
+  ],
+}
+
 // ─── Scenes Tab ────────────────────────────────────────────────────────────────
 
 function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
-  const [adding,  setAdding]  = useState(false)
-  const [form,    setForm]    = useState({ title: '', act_number: 1, beat_label: '', notes: '' })
-  const [saving,  setSaving]  = useState(false)
+  const [adding,      setAdding]      = useState(false)
+  const [form,        setForm]        = useState({ title: '', act_number: 1, beat_label: '', notes: '' })
+  const [saving,      setSaving]      = useState(false)
+  const [autoFilling, setAutoFilling] = useState(false)
+  const [confirmFill, setConfirmFill] = useState(false)
+
+  const stubs = frameworkBeatStubs[framework] || []
+
+  async function autoFill() {
+    if (!stubs.length) return
+    setAutoFilling(true)
+    setConfirmFill(false)
+    const inserts = stubs.map((s, i) => ({
+      project_id:  projectId,
+      title:       s.title,
+      act_number:  s.act_number,
+      beat_label:  s.beat_label,
+      notes:       s.notes,
+      order_index: scenes.length + i,
+      status:      'draft',
+    }))
+    const { data, error } = await supabase.from('scenes').insert(inserts).select()
+    if (data) {
+      setScenes(prev => [...prev, ...data])
+      toast.success(`${data.length} beat stubs added.`)
+    } else {
+      toast.error('Could not auto-fill beats.')
+      console.error(error)
+    }
+    setAutoFilling(false)
+  }
 
   const byAct = scenes.reduce((acc, s) => {
     const act = s.act_number || 1
@@ -565,9 +713,43 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
         <p style={{ fontSize: '15px', color: 'var(--text-mid)' }}>
           {scenes.length} scene{scenes.length !== 1 ? 's' : ''}
         </p>
-        <button className="btn-primary" onClick={() => setAdding(true)} style={{ fontSize: '13px', padding: '8px 16px' }}>
-          + Add scene
-        </button>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          {stubs.length > 0 && scenes.length === 0 && !confirmFill && (
+            <button
+              className="btn-ghost"
+              onClick={() => setConfirmFill(true)}
+              style={{ fontSize: '12px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '6px' }}
+            >
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <path d="M2 8h12M8 2v12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+              Auto-fill {stubs.length} beats
+            </button>
+          )}
+          {confirmFill && (
+            <div style={{ display: 'flex', gap: '6px', alignItems: 'center', background: 'var(--amber-pale, #FEF3C7)', border: '1px solid var(--amber)', borderRadius: '8px', padding: '6px 12px' }}>
+              <span style={{ fontSize: '12px', color: 'var(--amber)' }}>Add {stubs.length} beat stubs?</span>
+              <button
+                className="btn-primary"
+                onClick={autoFill}
+                disabled={autoFilling}
+                style={{ fontSize: '12px', padding: '5px 12px' }}
+              >
+                {autoFilling ? 'Adding…' : 'Yes, add'}
+              </button>
+              <button
+                className="btn-ghost"
+                onClick={() => setConfirmFill(false)}
+                style={{ fontSize: '12px', padding: '5px 10px' }}
+              >
+                Cancel
+              </button>
+            </div>
+          )}
+          <button className="btn-primary" onClick={() => setAdding(true)} style={{ fontSize: '13px', padding: '8px 16px' }}>
+            + Add scene
+          </button>
+        </div>
       </div>
 
       {/* Add form */}
@@ -608,7 +790,7 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
       {scenes.length === 0 && !adding && (
         <div className="empty-state">
           <h3>No scenes yet</h3>
-          <p>Every story is a sequence of scenes. Add your first — it can be any scene, anywhere in the story.</p>
+          <p>Every story is a sequence of scenes. Add your first — or use <strong>Auto-fill beats</strong> above to pre-populate the {stubs.length} structural beats from your {framework ? framework.replace(/-/g,' ') : ''} framework.</p>
         </div>
       )}
 
