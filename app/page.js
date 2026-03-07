@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import Link from 'next/link'
 // ... rest of file unchanged
 
@@ -58,12 +59,83 @@ const pillars = [
 // ─── Pricing Section (used on homepage) ───────────────────────────────────────
 
 function PricingSection() {
+  const [billing, setBilling] = React.useState('annual')
+
+  const plans = [
+    {
+      id: 'free',
+      name: 'Free',
+      badge: 'Free',
+      badgeClass: 'badge',
+      monthly: 0,
+      annual: 0,
+      annualTotal: null,
+      sub: 'Start here. No card needed.',
+      cta: 'Start free',
+      ctaStyle: 'ghost',
+      features: [
+        '1 active project',
+        'Save the Cat framework',
+        'Full craft library — all lessons',
+        'Glossary and reading list',
+        '25 saved ideas',
+        'Character builder',
+        'Scene tracker',
+        'Plot hole log',
+      ],
+    },
+    {
+      id: 'studio',
+      name: 'Studio',
+      badge: 'Most popular',
+      badgeClass: 'popular',
+      monthly: 4.99,
+      annual: 2.50,
+      annualTotal: 30,
+      sub: 'For writers actively working on their stories.',
+      cta: 'Get Studio',
+      ctaStyle: 'primary',
+      popular: true,
+      features: [
+        { label: 'Everything in Free', dim: true },
+        'Unlimited projects',
+        'All 7 frameworks',
+        'Unlimited saved ideas',
+        'Beat sheet auto-fill',
+        'PDF export',
+        'Timeline view',
+        'Themes Map canvas',
+      ],
+    },
+    {
+      id: 'pro',
+      name: 'Professional',
+      badge: 'Pro',
+      badgeClass: 'pro',
+      monthly: 12,
+      annual: 7.50,
+      annualTotal: 90,
+      sub: 'For coaches, consultants, and working pros.',
+      cta: 'Get Professional',
+      ctaStyle: 'inverted',
+      features: [
+        { label: 'Everything in Studio', dim: true },
+        'Priority support',
+        'Early access to new features',
+        'Multiple client projects',
+        'Collaboration (coming soon)',
+        'Usage analytics',
+        'Dedicated workspace',
+      ],
+    },
+  ]
+
   return (
-    <section style={{ background: 'var(--white)', padding: '100px 24px', borderTop: '1px solid var(--border)' }}>
-      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <section style={{ background: 'var(--white)', padding: '100px 24px 80px', borderTop: '1px solid var(--border)' }}>
+      <div style={{ maxWidth: '1080px', margin: '0 auto' }}>
 
         {/* Header */}
-        <div className="fade-up" style={{ textAlign: 'center', marginBottom: '64px' }}>
+        <div className="fade-up" style={{ textAlign: 'center', marginBottom: '52px' }}>
           <div className="badge" style={{ marginBottom: '14px', display: 'inline-flex' }}>Simple pricing</div>
           <h2 style={{
             fontFamily: 'Playfair Display, serif',
@@ -75,225 +147,266 @@ function PricingSection() {
           }}>
             Start free. Upgrade when you're ready.
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto', lineHeight: '1.75' }}>
-            Every writer gets the full craft library and their first story for free. No credit card. No pressure.
+          <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 28px', lineHeight: '1.75' }}>
+            Every writer gets the full craft library free forever. Tools unlock as your story demands them.
           </p>
+
+          {/* Billing toggle */}
+          <div style={{
+            display: 'inline-flex',
+            background: 'var(--off-white)',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            padding: '4px',
+            gap: '2px',
+          }}>
+            {['monthly', 'annual'].map(b => (
+              <button
+                key={b}
+                onClick={() => setBilling(b)}
+                style={{
+                  padding: '7px 18px',
+                  borderRadius: '7px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  fontFamily: 'Source Sans 3, sans-serif',
+                  transition: 'all 0.18s ease',
+                  background: billing === b ? '#fff' : 'transparent',
+                  color: billing === b ? 'var(--green)' : 'var(--text-soft)',
+                  boxShadow: billing === b ? 'var(--shadow-sm)' : 'none',
+                }}
+              >
+                {b === 'monthly' ? 'Monthly' : 'Annual'}
+                {b === 'annual' && (
+                  <span style={{
+                    marginLeft: '6px',
+                    background: 'var(--green)',
+                    color: '#fff',
+                    fontSize: '10px',
+                    fontWeight: '700',
+                    padding: '2px 6px',
+                    borderRadius: '4px',
+                    letterSpacing: '0.04em',
+                  }}>−50%</span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Cards */}
         <div className="fade-up fade-up-delay-1" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '24px',
-          alignItems: 'stretch',
+          gap: '20px',
+          alignItems: 'start',
         }}>
+          {plans.map((plan, idx) => {
+            const price = billing === 'annual' ? plan.annual : plan.monthly
+            const isPopular = plan.popular
+            const isPro = plan.id === 'pro'
 
-          {/* Free */}
-          <div style={{
-            background: '#fff',
-            border: '1px solid var(--border)',
-            borderRadius: '16px',
-            padding: '36px 32px',
-            display: 'flex',
-            flexDirection: 'column',
-            boxShadow: 'var(--shadow-sm)',
-            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
-          }}
-            onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            <div style={{ marginBottom: '28px' }}>
-              <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Free</span>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
-                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: 1 }}>$0</span>
-                <span style={{ fontSize: '14px', color: 'var(--text-soft)' }}>/ forever</span>
-              </div>
-              <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6' }}>
-                Everything you need to start your first story — and learn the craft.
-              </p>
-            </div>
-
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
-              {[
-                '1 active project',
-                'Save the Cat framework',
-                'Full craft library (all lessons)',
-                'Glossary + reading list',
-                '25 saved ideas',
-                'Character builder',
-                'Scene tracker',
-                'Plot hole log',
-              ].map((f, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
-                    <circle cx="8" cy="8" r="7" stroke="var(--green-border)" strokeWidth="1.5" fill="var(--green-pale)" />
-                    <path d="M5 8l2 2 4-4" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span style={{ fontSize: '14px', color: 'var(--text-dark)', lineHeight: '1.5' }}>{f}</span>
-                </div>
-              ))}
-            </div>
-
-            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
-                Start free
-              </button>
-            </a>
-          </div>
-
-          {/* Studio — Middle tier */}
-          <div style={{
-            background: 'var(--off-white)',
-            border: '1px solid var(--green-border)',
-            borderRadius: '16px',
-            padding: '36px 32px',
-            display: 'flex',
-            flexDirection: 'column',
-            boxShadow: '0 4px 16px rgba(45,80,22,0.12), 0 1px 4px rgba(45,80,22,0.08)',
-            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
-            position: 'relative',
-          }}
-            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(45,80,22,0.12), 0 1px 4px rgba(45,80,22,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            {/* Popular badge */}
-            <div style={{
-              position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)',
-              background: 'var(--green)', color: '#fff',
-              fontSize: '11px', fontWeight: '700', letterSpacing: '0.06em', textTransform: 'uppercase',
-              padding: '4px 16px', borderRadius: '20px',
-              fontFamily: 'DM Mono, monospace',
-              whiteSpace: 'nowrap',
-            }}>Most popular</div>
-
-            <div style={{ marginBottom: '28px' }}>
-              <span className="badge badge-amber" style={{ marginBottom: '16px', display: 'inline-flex' }}>Studio</span>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
-                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: 'var(--green)', lineHeight: 1 }}>$4.99</span>
-                <span style={{ fontSize: '14px', color: 'var(--text-soft)' }}>/ month</span>
-              </div>
-              <p style={{ fontSize: '12px', color: 'var(--amber)', fontWeight: '600', marginBottom: '10px' }}>or $30 / year — save 50%</p>
-              <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6' }}>
-                For writers actively working on their stories. Unlimited projects and all frameworks.
-              </p>
-            </div>
-
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
-              {[
-                { text: 'Everything in Free', dim: true },
-                'Unlimited projects',
-                'All 7 frameworks',
-                'Unlimited saved ideas',
-                'Beat sheet auto-fill',
-                'PDF export',
-                'Timeline view',
-                'Themes Map canvas',
-              ].map((f, i) => {
-                const isDim = typeof f === 'object' && f.dim
-                const text = typeof f === 'object' ? f.text : f
-                return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
-                      <circle cx="8" cy="8" r="7" fill="var(--green)" />
-                      <path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span style={{ fontSize: '14px', color: isDim ? 'var(--text-soft)' : 'var(--text-dark)', lineHeight: '1.5', fontStyle: isDim ? 'italic' : 'normal' }}>{text}</span>
-                  </div>
-                )
-              })}
-            </div>
-
-            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button className="btn-primary" style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}>
-                Get Studio
-              </button>
-            </a>
-          </div>
-
-          {/* Pro */}
-          <div style={{
-            background: 'var(--green)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            borderRadius: '16px',
-            padding: '36px 32px',
-            display: 'flex',
-            flexDirection: 'column',
-            boxShadow: 'var(--shadow-green)',
-            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
-          }}
-            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 48px rgba(45,80,22,0.38), 0 2px 8px rgba(45,80,22,0.22)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
-            onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-green)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            <div style={{ marginBottom: '28px' }}>
-              <span style={{
-                display: 'inline-flex', marginBottom: '16px',
-                background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)',
-                border: '1px solid rgba(255,255,255,0.25)',
-                fontSize: '11px', fontWeight: '700', letterSpacing: '0.06em', textTransform: 'uppercase',
-                padding: '4px 10px', borderRadius: '4px',
-                fontFamily: 'DM Mono, monospace',
-              }}>Professional</span>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
-                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: '#fff', lineHeight: 1 }}>$12</span>
-                <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)' }}>/ month</span>
-              </div>
-              <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', fontWeight: '600', marginBottom: '10px' }}>or $90 / year — save 37%</p>
-              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.6' }}>
-                For professional screenwriters, writing coaches, and story consultants.
-              </p>
-            </div>
-
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
-              {[
-                { text: 'Everything in Studio', dim: true },
-                'Priority support',
-                'Early access to new features',
-                'Multiple client projects',
-                'Collaboration (coming soon)',
-                'Usage analytics',
-                'Dedicated workspace',
-              ].map((f, i) => {
-                const isDim = typeof f === 'object' && f.dim
-                const text = typeof f === 'object' ? f.text : f
-                return (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
-                      <circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.2)" />
-                      <path d="M5 8l2 2 4-4" stroke="rgba(255,255,255,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span style={{ fontSize: '14px', color: isDim ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.85)', lineHeight: '1.5', fontStyle: isDim ? 'italic' : 'normal' }}>{text}</span>
-                  </div>
-                )
-              })}
-            </div>
-
-            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button style={{
-                width: '100%', padding: '13px',
-                background: 'rgba(255,255,255,0.15)',
-                border: '1px solid rgba(255,255,255,0.3)',
-                borderRadius: '8px',
-                color: '#fff',
-                fontSize: '14px', fontWeight: '700',
-                cursor: 'pointer',
-                fontFamily: 'Source Sans 3, sans-serif',
-                letterSpacing: '0.01em',
-                transition: 'background 0.2s',
-              }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.22)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
+            return (
+              <div
+                key={plan.id}
+                style={{
+                  background: isPro ? 'var(--green)' : '#fff',
+                  border: isPopular
+                    ? '2px solid var(--green)'
+                    : isPro
+                    ? '1px solid rgba(255,255,255,0.12)'
+                    : '1px solid var(--border)',
+                  borderRadius: '18px',
+                  padding: isPopular ? '38px 30px 30px' : '32px 30px 28px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  boxShadow: isPopular
+                    ? '0 8px 40px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.10)'
+                    : isPro
+                    ? '0 4px 20px rgba(45,80,22,0.28), 0 1px 4px rgba(45,80,22,0.18)'
+                    : 'var(--shadow-sm)',
+                  position: 'relative',
+                  transition: 'box-shadow 0.28s ease, transform 0.28s ease',
+                  transform: isPopular ? 'translateY(-8px)' : 'none',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = isPopular ? 'translateY(-14px)' : 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = isPopular
+                    ? '0 20px 60px rgba(45,80,22,0.22), 0 4px 16px rgba(45,80,22,0.14)'
+                    : isPro
+                    ? '0 16px 56px rgba(45,80,22,0.36), 0 2px 8px rgba(45,80,22,0.22)'
+                    : 'var(--shadow-lg)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = isPopular ? 'translateY(-8px)' : 'none'
+                  e.currentTarget.style.boxShadow = isPopular
+                    ? '0 8px 40px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.10)'
+                    : isPro
+                    ? '0 4px 20px rgba(45,80,22,0.28), 0 1px 4px rgba(45,80,22,0.18)'
+                    : 'var(--shadow-sm)'
+                }}
               >
-                Get Professional
-              </button>
-            </a>
-          </div>
+                {/* Popular label */}
+                {isPopular && (
+                  <div style={{
+                    position: 'absolute', top: '-13px', left: '50%', transform: 'translateX(-50%)',
+                    background: 'var(--green)', color: '#fff',
+                    fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
+                    padding: '4px 14px', borderRadius: '20px',
+                    fontFamily: 'DM Mono, monospace',
+                    whiteSpace: 'nowrap',
+                    boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
+                  }}>Most popular</div>
+                )}
 
+                {/* Tier header */}
+                <div style={{ marginBottom: '24px' }}>
+                  {/* Tier name */}
+                  <div style={{ marginBottom: '18px' }}>
+                    <span style={{
+                      display: 'inline-block',
+                      fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
+                      fontFamily: 'DM Mono, monospace',
+                      padding: '3px 10px', borderRadius: '5px',
+                      background: isPro
+                        ? 'rgba(255,255,255,0.15)'
+                        : isPopular
+                        ? 'var(--green-pale)'
+                        : 'var(--off-white)',
+                      color: isPro
+                        ? 'rgba(255,255,255,0.85)'
+                        : 'var(--green)',
+                      border: isPro
+                        ? '1px solid rgba(255,255,255,0.2)'
+                        : '1px solid var(--green-border)',
+                    }}>{plan.name}</span>
+                  </div>
+
+                  {/* Price */}
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '3px', marginBottom: '4px' }}>
+                    {price === 0 ? (
+                      <span style={{
+                        fontSize: '44px', fontWeight: '800',
+                        fontFamily: 'Playfair Display, serif',
+                        color: isPro ? '#fff' : 'var(--text-dark)',
+                        lineHeight: 1,
+                      }}>Free</span>
+                    ) : (
+                      <>
+                        <span style={{ fontSize: '22px', fontWeight: '700', color: isPro ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', alignSelf: 'flex-start', marginTop: '8px' }}>$</span>
+                        <span style={{
+                          fontSize: '44px', fontWeight: '800',
+                          fontFamily: 'Playfair Display, serif',
+                          color: isPro ? '#fff' : isPopular ? 'var(--green)' : 'var(--text-dark)',
+                          lineHeight: 1,
+                        }}>{price % 1 === 0 ? price : price.toFixed(2)}</span>
+                        <span style={{ fontSize: '14px', color: isPro ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginBottom: '6px', alignSelf: 'flex-end' }}>/mo</span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Annual note */}
+                  {price !== 0 && billing === 'annual' && (
+                    <p style={{ fontSize: '12px', fontWeight: '600', marginBottom: '8px', color: isPro ? 'rgba(255,255,255,0.55)' : 'var(--amber)' }}>
+                      ${plan.annualTotal} billed annually
+                    </p>
+                  )}
+                  {price !== 0 && billing === 'monthly' && (
+                    <p style={{ fontSize: '12px', color: isPro ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginBottom: '8px' }}>
+                      Save 50% with annual billing
+                    </p>
+                  )}
+
+                  <p style={{ fontSize: '14px', lineHeight: '1.6', color: isPro ? 'rgba(255,255,255,0.65)' : 'var(--text-mid)' }}>
+                    {plan.sub}
+                  </p>
+                </div>
+
+                {/* Divider */}
+                <div style={{ height: '1px', background: isPro ? 'rgba(255,255,255,0.12)' : 'var(--border)', marginBottom: '22px' }} />
+
+                {/* Features */}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '11px', marginBottom: '28px' }}>
+                  {plan.features.map((f, fi) => {
+                    const isDim = typeof f === 'object' && f.dim
+                    const text = typeof f === 'object' ? f.label : f
+                    return (
+                      <div key={fi} style={{ display: 'flex', alignItems: 'flex-start', gap: '9px' }}>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                          {isPro ? (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,0.18)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke={isDim ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.9)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          ) : isPopular ? (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" fill="var(--green)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          ) : (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" stroke="var(--green-border)" strokeWidth="1" fill="var(--green-pale)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke={isDim ? "var(--text-soft)" : "var(--green)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          )}
+                        </svg>
+                        <span style={{
+                          fontSize: '14px',
+                          lineHeight: '1.5',
+                          color: isPro
+                            ? (isDim ? 'rgba(255,255,255,0.38)' : 'rgba(255,255,255,0.88)')
+                            : (isDim ? 'var(--text-soft)' : 'var(--text-dark)'),
+                          fontStyle: isDim ? 'italic' : 'normal',
+                        }}>{text}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                {/* CTA button */}
+                {plan.ctaStyle === 'ghost' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
+                      {plan.cta}
+                    </button>
+                  </a>
+                )}
+                {plan.ctaStyle === 'primary' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button className="btn-primary" style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}>
+                      {plan.cta}
+                    </button>
+                  </a>
+                )}
+                {plan.ctaStyle === 'inverted' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button style={{
+                      width: '100%', padding: '13px',
+                      background: 'rgba(255,255,255,0.14)',
+                      border: '1px solid rgba(255,255,255,0.28)',
+                      borderRadius: '8px',
+                      color: '#fff',
+                      fontSize: '14px', fontWeight: '700',
+                      cursor: 'pointer',
+                      fontFamily: 'Source Sans 3, sans-serif',
+                      transition: 'background 0.18s',
+                    }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.22)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
+                    >{plan.cta}</button>
+                  </a>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* Trust line */}
-        <div className="fade-up fade-up-delay-2" style={{ textAlign: 'center', marginTop: '40px' }}>
+        <div className="fade-up fade-up-delay-2" style={{ textAlign: 'center', marginTop: '36px' }}>
           <p style={{ fontSize: '13px', color: 'var(--text-soft)', lineHeight: '1.7' }}>
-            No credit card required to start. Cancel Studio or Professional at any time.{` `}
+            No credit card required to start. Cancel any paid plan at any time.{` `}
             <a href="/terms" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Terms apply.</a>
           </p>
         </div>

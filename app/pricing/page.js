@@ -1,300 +1,518 @@
+'use client'
+import React from 'react'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Pricing — Eve',
-  description: 'Start free. Craft lessons are free forever. Pro tools unlock when your story needs them.',
+const plans = [
+  {
+    id: 'free',
+    name: 'Free',
+    monthly: 0,
+    annual: 0,
+    annualTotal: null,
+    sub: 'Everything you need to start your first story.',
+    cta: 'Start free',
+    ctaStyle: 'ghost',
+    features: [
+      '1 active project',
+      'Save the Cat framework',
+      'Full craft library — all lessons',
+      'Story glossary and reading list',
+      '25 saved ideas',
+      'Character builder',
+      'Scene tracker',
+      'Plot hole log',
+    ],
+  },
+  {
+    id: 'studio',
+    name: 'Studio',
+    monthly: 4.99,
+    annual: 2.50,
+    annualTotal: 30,
+    sub: 'For writers actively working on their stories.',
+    cta: 'Get Studio',
+    ctaStyle: 'primary',
+    popular: true,
+    features: [
+      { label: 'Everything in Free', dim: true },
+      'Unlimited projects',
+      'All 7 frameworks',
+      'Unlimited saved ideas',
+      'Beat sheet auto-fill',
+      'PDF export',
+      'Timeline view',
+      'Themes Map canvas',
+    ],
+  },
+  {
+    id: 'pro',
+    name: 'Professional',
+    monthly: 12,
+    annual: 7.50,
+    annualTotal: 90,
+    sub: 'For coaches, consultants, and working professionals.',
+    cta: 'Get Professional',
+    ctaStyle: 'inverted',
+    features: [
+      { label: 'Everything in Studio', dim: true },
+      'Priority support',
+      'Early access to new features',
+      'Multiple client projects',
+      'Collaboration (coming soon)',
+      'Usage analytics',
+      'Dedicated workspace',
+    ],
+  },
+]
+
+const comparisonRows = [
+  { feature: 'Active projects',        free: '1',        studio: 'Unlimited', pro: 'Unlimited' },
+  { feature: 'Frameworks',             free: 'Save the Cat only', studio: 'All 7', pro: 'All 7' },
+  { feature: 'Craft library (lessons)',free: true,        studio: true,        pro: true },
+  { feature: 'Story glossary',         free: true,        studio: true,        pro: true },
+  { feature: 'Saved ideas',            free: '25',        studio: 'Unlimited', pro: 'Unlimited' },
+  { feature: 'Character builder',      free: true,        studio: true,        pro: true },
+  { feature: 'Scene tracker',          free: true,        studio: true,        pro: true },
+  { feature: 'Plot hole log',          free: true,        studio: true,        pro: true },
+  { feature: 'Beat sheet auto-fill',   free: false,       studio: true,        pro: true },
+  { feature: 'PDF export',             free: false,       studio: true,        pro: true },
+  { feature: 'Timeline view',          free: false,       studio: true,        pro: true },
+  { feature: 'Themes Map canvas',      free: false,       studio: true,        pro: true },
+  { feature: 'Multiple client projects',free: false,      studio: false,       pro: true },
+  { feature: 'Priority support',       free: false,       studio: false,       pro: true },
+  { feature: 'Early access',           free: false,       studio: false,       pro: true },
+  { feature: 'Collaboration',          free: false,       studio: false,       pro: 'Soon' },
+  { feature: 'Usage analytics',        free: false,       studio: false,       pro: true },
+]
+
+function Check({ yes, text }) {
+  if (yes === false) return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="var(--off-white)" />
+      <path d="M5.5 8h5" stroke="var(--border)" strokeWidth="1.5" strokeLinecap="round"/>
+    </svg>
+  )
+  if (typeof yes === 'string' && yes !== 'Soon') return <span style={{ fontSize: '13px', color: 'var(--text-dark)', fontWeight: '500' }}>{yes}</span>
+  if (yes === 'Soon') return <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'DM Mono, monospace', letterSpacing: '0.04em' }}>Soon</span>
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="8" cy="8" r="7" fill="var(--green)" />
+      <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
 }
 
-const tiers = [
-  {
-    name: 'Free',
-    tagline: 'Start your story.',
-    price: { monthly: 0, annual: 0 },
-    highlight: false,
-    badge: null,
-    features: [
-      { text: '1 active project', included: true },
-      { text: 'All 30+ craft lessons', included: true },
-      { text: 'Save the Cat framework', included: true },
-      { text: '25 ideas in your bank', included: true },
-      { text: 'Characters & scenes', included: true },
-      { text: 'Session mode (1 project)', included: true },
-      { text: 'Additional frameworks', included: false },
-      { text: 'Unlimited projects', included: false },
-      { text: 'Beat sheet auto-fill', included: false },
-      { text: 'Export to PDF', included: false },
-      { text: 'Themes Map canvas', included: false },
-      { text: 'Timeline view', included: false },
-    ],
-    cta: 'Create free account',
-    ctaHref: '/auth?signup=true',
-    ctaStyle: 'ghost',
-  },
-  {
-    name: 'Studio',
-    tagline: 'For the serious draft.',
-    price: { monthly: 4.99, annual: 30 },
-    highlight: true,
-    badge: 'Most popular',
-    features: [
-      { text: 'Unlimited projects', included: true },
-      { text: 'All 30+ craft lessons', included: true },
-      { text: 'All 7 frameworks', included: true },
-      { text: 'Unlimited idea bank', included: true },
-      { text: 'Characters & scenes', included: true },
-      { text: 'Session mode (all projects)', included: true },
-      { text: 'Beat sheet auto-fill', included: true },
-      { text: 'Export to PDF', included: true },
-      { text: 'Themes Map canvas', included: true },
-      { text: 'Timeline view', included: true },
-      { text: 'Priority support', included: false },
-      { text: 'Early access features', included: false },
-    ],
-    cta: 'Start Studio — free 7 days',
-    ctaHref: '/auth?signup=true&plan=studio',
-    ctaStyle: 'primary',
-  },
-  {
-    name: 'Pro',
-    tagline: 'For writers who ship.',
-    price: { monthly: 9.99, annual: 72 },
-    highlight: false,
-    badge: 'Coming soon',
-    features: [
-      { text: 'Everything in Studio', included: true },
-      { text: 'Unlimited projects', included: true },
-      { text: 'All 7 frameworks', included: true },
-      { text: 'Unlimited idea bank', included: true },
-      { text: 'Beat sheet auto-fill', included: true },
-      { text: 'Export to PDF + Final Draft', included: true },
-      { text: 'Themes Map canvas', included: true },
-      { text: 'Timeline view', included: true },
-      { text: 'Priority support', included: true },
-      { text: 'Early access to new features', included: true },
-      { text: 'Multiple story bibles', included: true },
-      { text: 'Collaboration (coming)', included: true },
-    ],
-    cta: 'Join the waitlist',
-    ctaHref: '/auth?signup=true&plan=pro',
-    ctaStyle: 'ghost',
-  },
-]
-
-const faqs = [
-  {
-    q: 'What happens to my projects if I downgrade?',
-    a: 'Your work is always safe. If you downgrade to Free, your projects are preserved — you just lose access to editing more than 1 active at a time. Nothing is deleted.'
-  },
-  {
-    q: 'Is the free plan really free forever?',
-    a: 'Yes. All craft lessons, 1 project, Save the Cat framework, 25 ideas — free forever, no credit card required.'
-  },
-  {
-    q: 'When will Stripe / payments be available?',
-    a: 'Studio and Pro tiers are coming soon. Sign up for free and you\'ll be notified when billing is live. Early signups get priority access.'
-  },
-  {
-    q: 'Does Eve use AI to help me write?',
-    a: 'No. Never. Eve contains zero AI. No autocomplete, no suggestions, no generation. Your words are entirely yours.'
-  },
-  {
-    q: 'Can I use Eve for novels, not just screenplays?',
-    a: 'Yes. The frameworks — especially Story Circle, Hero\'s Journey, and Freeform — work for novels, short stories, and any long-form narrative. The craft library covers both mediums.'
-  },
-]
-
 export default function PricingPage() {
-  return (
-    <div style={{ background: 'var(--white)' }}>
+  const [billing, setBilling] = React.useState('annual')
 
-      {/* Hero */}
-      <section style={{
-        background: 'linear-gradient(180deg, var(--green-pale) 0%, var(--white) 100%)',
-        borderBottom: '1px solid var(--green-border)',
-        padding: '80px 24px 48px',
-        textAlign: 'center',
-      }}>
-        <div className="fade-up" style={{ maxWidth: '640px', margin: '0 auto' }}>
-          <div className="badge" style={{ marginBottom: '16px', display: 'inline-block' }}>Pricing</div>
+  return (
+    <div style={{ background: 'var(--white)', minHeight: '100vh' }}>
+
+      {/* Header */}
+      <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '72px 24px 0', textAlign: 'center' }}>
+        <div className="fade-up">
+          <div className="badge" style={{ marginBottom: '14px', display: 'inline-flex' }}>Pricing</div>
           <h1 style={{
             fontFamily: 'Playfair Display, serif',
-            fontSize: 'clamp(30px, 5vw, 52px)',
+            fontSize: 'clamp(32px, 5vw, 52px)',
             fontWeight: '700',
             color: 'var(--green)',
+            marginBottom: '18px',
             lineHeight: '1.15',
-            marginBottom: '16px',
-            letterSpacing: '-0.01em',
           }}>
-            Start free.<br />Write seriously.
+            Start free. Upgrade when you're ready.
           </h1>
-          <p style={{
-            fontSize: '17px',
-            color: 'var(--text-mid)',
-            lineHeight: '1.8',
-            maxWidth: '440px',
-            margin: '0 auto',
-            fontFamily: 'Source Sans 3, sans-serif',
-          }}>
-            All craft lessons are free forever. Pro tools unlock when your story demands them.
+          <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 32px', lineHeight: '1.75' }}>
+            Every writer gets the full craft library free forever. Tools unlock as your story demands them.
           </p>
+
+          {/* Billing toggle */}
+          <div style={{
+            display: 'inline-flex',
+            background: 'var(--off-white)',
+            border: '1px solid var(--border)',
+            borderRadius: '10px',
+            padding: '4px',
+            gap: '2px',
+            marginBottom: '60px',
+          }}>
+            {['monthly', 'annual'].map(b => (
+              <button
+                key={b}
+                onClick={() => setBilling(b)}
+                style={{
+                  padding: '7px 18px',
+                  borderRadius: '7px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  fontFamily: 'Source Sans 3, sans-serif',
+                  transition: 'all 0.18s ease',
+                  background: billing === b ? '#fff' : 'transparent',
+                  color: billing === b ? 'var(--green)' : 'var(--text-soft)',
+                  boxShadow: billing === b ? 'var(--shadow-sm)' : 'none',
+                }}
+              >
+                {b === 'monthly' ? 'Monthly' : 'Annual'}
+                {b === 'annual' && (
+                  <span style={{
+                    marginLeft: '6px',
+                    background: 'var(--green)',
+                    color: '#fff',
+                    fontSize: '10px',
+                    fontWeight: '700',
+                    padding: '2px 6px',
+                    borderRadius: '4px',
+                    letterSpacing: '0.04em',
+                  }}>−50%</span>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Cards */}
-      <section style={{ padding: '80px 24px' }}>
-        <div style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
+      <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 24px 80px' }}>
+        <div className="fade-up fade-up-delay-1" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '24px',
-          alignItems: 'center',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '20px',
+          alignItems: 'start',
         }}>
-          {tiers.map((tier, i) => {
-            const isHighlight = tier.highlight
-            const isSoon = tier.badge === 'Coming soon'
-            return (
-              <div key={i} style={{
-                position: 'relative',
-                background: isHighlight ? 'var(--green)' : '#fff',
-                border: isHighlight ? 'none' : '1px solid var(--border)',
-                borderRadius: '20px',
-                padding: isHighlight ? '40px 36px' : '32px',
-                boxShadow: isHighlight
-                  ? '0 20px 60px rgba(45,80,22,0.28)'
-                  : '0 4px 16px rgba(45,80,22,0.06)',
-                transform: isHighlight ? 'scale(1.04)' : 'scale(1)',
-                display: 'flex',
-                flexDirection: 'column',
-              }}>
+          {plans.map(plan => {
+            const price = billing === 'annual' ? plan.annual : plan.monthly
+            const isPopular = plan.popular
+            const isPro = plan.id === 'pro'
 
-                {tier.badge && (
+            return (
+              <div
+                key={plan.id}
+                style={{
+                  background: isPro ? 'var(--green)' : '#fff',
+                  border: isPopular
+                    ? '2px solid var(--green)'
+                    : isPro
+                    ? '1px solid rgba(255,255,255,0.12)'
+                    : '1px solid var(--border)',
+                  borderRadius: '18px',
+                  padding: isPopular ? '38px 30px 30px' : '32px 30px 28px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  boxShadow: isPopular
+                    ? '0 8px 40px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.10)'
+                    : isPro
+                    ? '0 4px 20px rgba(45,80,22,0.28), 0 1px 4px rgba(45,80,22,0.18)'
+                    : 'var(--shadow-sm)',
+                  position: 'relative',
+                  transition: 'box-shadow 0.28s ease, transform 0.28s ease',
+                  transform: isPopular ? 'translateY(-8px)' : 'none',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = isPopular ? 'translateY(-14px)' : 'translateY(-6px)'
+                  e.currentTarget.style.boxShadow = isPopular
+                    ? '0 20px 60px rgba(45,80,22,0.22), 0 4px 16px rgba(45,80,22,0.14)'
+                    : isPro
+                    ? '0 16px 56px rgba(45,80,22,0.36), 0 2px 8px rgba(45,80,22,0.22)'
+                    : 'var(--shadow-lg)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = isPopular ? 'translateY(-8px)' : 'none'
+                  e.currentTarget.style.boxShadow = isPopular
+                    ? '0 8px 40px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.10)'
+                    : isPro
+                    ? '0 4px 20px rgba(45,80,22,0.28), 0 1px 4px rgba(45,80,22,0.18)'
+                    : 'var(--shadow-sm)'
+                }}
+              >
+                {isPopular && (
                   <div style={{
-                    position: 'absolute',
-                    top: '-14px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    background: isHighlight ? 'var(--amber)' : 'var(--text-soft)',
-                    color: '#fff',
-                    fontSize: '11px',
-                    fontWeight: '700',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    padding: '5px 14px',
-                    borderRadius: '20px',
+                    position: 'absolute', top: '-13px', left: '50%', transform: 'translateX(-50%)',
+                    background: 'var(--green)', color: '#fff',
+                    fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
+                    padding: '4px 14px', borderRadius: '20px',
+                    fontFamily: 'DM Mono, monospace',
                     whiteSpace: 'nowrap',
-                    fontFamily: 'Source Sans 3, sans-serif',
-                  }}>{tier.badge}</div>
+                    boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
+                  }}>Most popular</div>
                 )}
 
-                <div style={{ marginBottom: '20px' }}>
-                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: isHighlight ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', marginBottom: '6px' }}>{tier.name}</p>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '20px', color: isHighlight ? '#fff' : 'var(--green)', marginBottom: '0' }}>{tier.tagline}</h2>
-                </div>
-
                 <div style={{ marginBottom: '24px' }}>
-                  {tier.price.monthly === 0 ? (
-                    <div>
-                      <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '44px', fontWeight: '700', color: isHighlight ? '#fff' : 'var(--green)' }}>Free</span>
-                      <p style={{ fontSize: '13px', color: isHighlight ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginTop: '6px' }}>Always — no credit card</p>
-                    </div>
-                  ) : (
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px' }}>
-                        <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '44px', fontWeight: '700', color: isHighlight ? '#fff' : 'var(--green)', lineHeight: '1' }}>${tier.price.monthly}</span>
-                        <span style={{ fontSize: '14px', color: isHighlight ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', marginBottom: '7px' }}>/mo</span>
-                      </div>
-                      <p style={{ fontSize: '13px', color: isHighlight ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginTop: '6px' }}>
-                        or ${tier.price.annual}/yr — save {Math.round((1 - (tier.price.annual / (tier.price.monthly * 12))) * 100)}%
-                      </p>
-                    </div>
+                  <div style={{ marginBottom: '18px' }}>
+                    <span style={{
+                      display: 'inline-block',
+                      fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
+                      fontFamily: 'DM Mono, monospace',
+                      padding: '3px 10px', borderRadius: '5px',
+                      background: isPro ? 'rgba(255,255,255,0.15)' : isPopular ? 'var(--green-pale)' : 'var(--off-white)',
+                      color: isPro ? 'rgba(255,255,255,0.85)' : 'var(--green)',
+                      border: isPro ? '1px solid rgba(255,255,255,0.2)' : '1px solid var(--green-border)',
+                    }}>{plan.name}</span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '3px', marginBottom: '4px' }}>
+                    {price === 0 ? (
+                      <span style={{
+                        fontSize: '44px', fontWeight: '800',
+                        fontFamily: 'Playfair Display, serif',
+                        color: isPro ? '#fff' : 'var(--text-dark)', lineHeight: 1,
+                      }}>Free</span>
+                    ) : (
+                      <>
+                        <span style={{ fontSize: '22px', fontWeight: '700', color: isPro ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', alignSelf: 'flex-start', marginTop: '8px' }}>$</span>
+                        <span style={{
+                          fontSize: '44px', fontWeight: '800',
+                          fontFamily: 'Playfair Display, serif',
+                          color: isPro ? '#fff' : isPopular ? 'var(--green)' : 'var(--text-dark)', lineHeight: 1,
+                        }}>{price % 1 === 0 ? price : price.toFixed(2)}</span>
+                        <span style={{ fontSize: '14px', color: isPro ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginBottom: '6px', alignSelf: 'flex-end' }}>/mo</span>
+                      </>
+                    )}
+                  </div>
+
+                  {price !== 0 && billing === 'annual' && (
+                    <p style={{ fontSize: '12px', fontWeight: '600', marginBottom: '8px', color: isPro ? 'rgba(255,255,255,0.55)' : 'var(--amber)' }}>
+                      ${plan.annualTotal} billed annually
+                    </p>
                   )}
+                  {price !== 0 && billing === 'monthly' && (
+                    <p style={{ fontSize: '12px', color: isPro ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginBottom: '8px' }}>
+                      Save 50% with annual billing
+                    </p>
+                  )}
+
+                  <p style={{ fontSize: '14px', lineHeight: '1.6', color: isPro ? 'rgba(255,255,255,0.65)' : 'var(--text-mid)' }}>
+                    {plan.sub}
+                  </p>
                 </div>
 
-                <div style={{ height: '1px', background: isHighlight ? 'rgba(255,255,255,0.15)' : 'var(--border)', marginBottom: '24px' }} />
+                <div style={{ height: '1px', background: isPro ? 'rgba(255,255,255,0.12)' : 'var(--border)', marginBottom: '22px' }} />
 
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
-                  {tier.features.map((f, j) => (
-                    <div key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', opacity: f.included ? 1 : 0.38 }}>
-                      <div style={{
-                        width: '16px', height: '16px', flexShrink: 0, marginTop: '2px',
-                        borderRadius: '50%',
-                        background: f.included ? (isHighlight ? 'rgba(255,255,255,0.18)' : 'var(--green-pale)') : 'transparent',
-                        border: f.included ? 'none' : `1px solid ${isHighlight ? 'rgba(255,255,255,0.2)' : 'var(--border)'}`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      }}>
-                        {f.included && (
-                          <svg width="8" height="7" viewBox="0 0 8 7" fill="none">
-                            <path d="M1 3.5L3 5.5L7 1" stroke={isHighlight ? '#fff' : 'var(--green)'} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        )}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '11px', marginBottom: '28px' }}>
+                  {plan.features.map((f, fi) => {
+                    const isDim = typeof f === 'object' && f.dim
+                    const text = typeof f === 'object' ? f.label : f
+                    return (
+                      <div key={fi} style={{ display: 'flex', alignItems: 'flex-start', gap: '9px' }}>
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                          {isPro ? (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,0.18)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke={isDim ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.9)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          ) : isPopular ? (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" fill="var(--green)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          ) : (
+                            <>
+                              <circle cx="7.5" cy="7.5" r="6.5" stroke="var(--green-border)" strokeWidth="1" fill="var(--green-pale)" />
+                              <path d="M4.5 7.5l2 2 4-4" stroke={isDim ? "var(--text-soft)" : "var(--green)"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </>
+                          )}
+                        </svg>
+                        <span style={{
+                          fontSize: '14px', lineHeight: '1.5',
+                          color: isPro ? (isDim ? 'rgba(255,255,255,0.38)' : 'rgba(255,255,255,0.88)') : (isDim ? 'var(--text-soft)' : 'var(--text-dark)'),
+                          fontStyle: isDim ? 'italic' : 'normal',
+                        }}>{text}</span>
                       </div>
-                      <span style={{ fontSize: '14px', color: isHighlight ? (f.included ? 'rgba(255,255,255,0.88)' : 'rgba(255,255,255,0.38)') : (f.included ? 'var(--text-dark)' : 'var(--text-soft)'), lineHeight: '1.5' }}>
-                        {f.text}
-                      </span>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
 
-                <Link href={isSoon ? '#' : tier.ctaHref} style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    width: '100%',
-                    padding: '13px 20px',
-                    borderRadius: '10px',
-                    fontSize: '14px',
-                    fontWeight: '700',
-                    fontFamily: 'Source Sans 3, sans-serif',
-                    textAlign: 'center',
-                    cursor: isSoon ? 'default' : 'pointer',
-                    border: isHighlight ? '2px solid rgba(255,255,255,0.3)' : (tier.ctaStyle === 'primary' ? 'none' : '1.5px solid var(--green-border)'),
-                    background: isHighlight ? 'rgba(255,255,255,0.14)' : (tier.ctaStyle === 'primary' ? 'var(--green)' : 'transparent'),
-                    color: isHighlight ? '#fff' : (tier.ctaStyle === 'primary' ? '#fff' : 'var(--green)'),
-                    opacity: isSoon ? 0.6 : 1,
-                    boxSizing: 'border-box',
-                  }}>{tier.cta}</div>
-                </Link>
-
+                {plan.ctaStyle === 'ghost' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
+                      {plan.cta}
+                    </button>
+                  </a>
+                )}
+                {plan.ctaStyle === 'primary' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button className="btn-primary" style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}>
+                      {plan.cta}
+                    </button>
+                  </a>
+                )}
+                {plan.ctaStyle === 'inverted' && (
+                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                    <button style={{
+                      width: '100%', padding: '13px',
+                      background: 'rgba(255,255,255,0.14)',
+                      border: '1px solid rgba(255,255,255,0.28)',
+                      borderRadius: '8px',
+                      color: '#fff',
+                      fontSize: '14px', fontWeight: '700',
+                      cursor: 'pointer',
+                      fontFamily: 'Source Sans 3, sans-serif',
+                      transition: 'background 0.18s',
+                    }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.22)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
+                    >{plan.cta}</button>
+                  </a>
+                )}
               </div>
             )
           })}
         </div>
-      </section>
 
-      {/* FAQ */}
-      <section style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', padding: '80px 24px' }}>
-        <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 30px)', color: 'var(--green)', marginBottom: '40px', textAlign: 'center' }}>
-            Questions
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
-            {faqs.map((faq, i) => (
-              <div key={i} style={{ borderBottom: '1px solid var(--border)', paddingBottom: '28px' }}>
-                <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '17px', color: 'var(--green)', marginBottom: '10px', fontWeight: '600' }}>{faq.q}</p>
-                <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.75' }}>{faq.a}</p>
+        {/* Trust line */}
+        <div style={{ textAlign: 'center', marginTop: '32px' }}>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
+            No credit card required to start. Cancel any paid plan at any time.{` `}
+            <Link href="/terms" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Terms apply.</Link>
+          </p>
+        </div>
+
+        {/* ── Comparison Table ─────────────────────────────── */}
+        <div style={{ marginTop: '80px' }}>
+          <h2 style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(22px, 3vw, 30px)',
+            color: 'var(--green)',
+            textAlign: 'center',
+            marginBottom: '32px',
+          }}>Full feature comparison</h2>
+
+          <div style={{
+            border: '1px solid var(--border)',
+            borderRadius: '14px',
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-sm)',
+          }}>
+            {/* Table header */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '2fr 1fr 1fr 1fr',
+              background: 'var(--off-white)',
+              borderBottom: '1px solid var(--border)',
+              padding: '0',
+            }}>
+              <div style={{ padding: '16px 20px', fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Feature</div>
+              {['Free', 'Studio', 'Professional'].map((t, i) => (
+                <div key={t} style={{
+                  padding: '16px 20px',
+                  textAlign: 'center',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '11px',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em',
+                  color: i === 1 ? 'var(--green)' : i === 2 ? 'var(--text-dark)' : 'var(--text-soft)',
+                  background: i === 1 ? 'rgba(45,80,22,0.04)' : 'transparent',
+                }}>{t}</div>
+              ))}
+            </div>
+
+            {/* Rows */}
+            {comparisonRows.map((row, ri) => (
+              <div key={ri} style={{
+                display: 'grid',
+                gridTemplateColumns: '2fr 1fr 1fr 1fr',
+                borderBottom: ri < comparisonRows.length - 1 ? '1px solid var(--border)' : 'none',
+                background: ri % 2 === 0 ? '#fff' : 'var(--off-white)',
+              }}>
+                <div style={{ padding: '13px 20px', fontSize: '14px', color: 'var(--text-dark)' }}>{row.feature}</div>
+                {(['free', 'studio', 'pro']).map((tier, ti) => (
+                  <div key={tier} style={{
+                    padding: '13px 20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: ti === 1 ? 'rgba(45,80,22,0.02)' : 'transparent',
+                  }}>
+                    <Check yes={row[tier]} />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* CTA strip */}
-      <section style={{ background: 'var(--green)', padding: '64px 24px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(24px, 3vw, 36px)', color: '#fff', marginBottom: '12px' }}>
-          Your first story starts free.
-        </h2>
-        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', marginBottom: '28px' }}>
-          No credit card. No AI. No shortcuts.
-        </p>
-        <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-          <button style={{
-            background: '#fff', color: 'var(--green)',
-            fontWeight: '700', fontSize: '15px', padding: '13px 32px',
-            borderRadius: '8px', border: 'none', cursor: 'pointer',
-            fontFamily: 'Source Sans 3, sans-serif',
-          }}>Create your free account</button>
-        </Link>
-      </section>
+        {/* FAQ section */}
+        <div style={{ marginTop: '80px', maxWidth: '640px', margin: '80px auto 0' }}>
+          <h2 style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(22px, 3vw, 28px)',
+            color: 'var(--green)',
+            textAlign: 'center',
+            marginBottom: '36px',
+          }}>Common questions</h2>
 
+          {[
+            {
+              q: 'Is the craft library really free forever?',
+              a: 'Yes. Every lesson, the glossary, and the reading list are free for all users, forever. We believe education should not be gated. The paid tiers unlock writing tools, not knowledge.',
+            },
+            {
+              q: 'What happens to my project if I downgrade?',
+              a: 'Your data is never deleted. If you downgrade from Studio to Free, your additional projects are archived and accessible but not editable until you re-subscribe. You keep your first project.',
+            },
+            {
+              q: 'Is there a free trial for Studio or Professional?',
+              a: 'Stripe and payment processing are coming soon. When they launch, we\'ll offer a 7-day free trial for both paid tiers. For now, everything is accessible via the Free tier.',
+            },
+            {
+              q: 'Can I switch between monthly and annual billing?',
+              a: 'Yes. You can switch at any time. If you switch from monthly to annual mid-cycle, we prorate the difference. Annual billing saves 50% — it\'s the better deal for any writer who sticks with it.',
+            },
+          ].map((item, i) => (
+            <div key={i} style={{
+              borderBottom: i < 3 ? '1px solid var(--border)' : 'none',
+              padding: '24px 0',
+            }}>
+              <h3 style={{ fontSize: '16px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '10px' }}>{item.q}</h3>
+              <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75' }}>{item.a}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div style={{
+          marginTop: '72px',
+          textAlign: 'center',
+          padding: '56px 40px',
+          background: 'var(--green)',
+          borderRadius: '20px',
+          boxShadow: 'var(--shadow-green)',
+        }}>
+          <h2 style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(26px, 3.5vw, 36px)',
+            color: '#fff',
+            marginBottom: '14px',
+            lineHeight: '1.2',
+          }}>Your first story starts now.</h2>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', marginBottom: '28px', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.7' }}>
+            Free forever. No card required. Every lesson included.
+          </p>
+          <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+            <button style={{
+              padding: '13px 32px',
+              background: '#fff',
+              border: 'none',
+              borderRadius: '9px',
+              color: 'var(--green)',
+              fontSize: '15px',
+              fontWeight: '700',
+              cursor: 'pointer',
+              fontFamily: 'Source Sans 3, sans-serif',
+              boxShadow: '0 2px 12px rgba(0,0,0,0.14)',
+              transition: 'transform 0.18s ease, box-shadow 0.18s ease',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.18)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.14)'; }}
+            >
+              Start free — no card needed
+            </button>
+          </Link>
+        </div>
+
+      </div>
     </div>
   )
 }
