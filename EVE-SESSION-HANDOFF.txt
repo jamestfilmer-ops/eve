@@ -1,0 +1,141 @@
+EVE — SESSION HANDOFF
+Last updated: Session 5 (March 2026)
+======================================
+
+WHAT EVE IS
+-----------
+Story organization + development workspace for writers.
+No AI inside the app. Claude is used only to BUILD it.
+Live URL: https://eve-screenwriting.vercel.app
+Vercel team slug: jamestfilmer-6127s-projects
+Vercel team ID: team_nuxPJ1rE1CIWppK94MR6I0QD
+
+TECH STACK
+----------
+Next.js App Router | JavaScript only (no TypeScript, no src/)
+Styling: CSS variables (globals.css) + Tailwind
+Fonts: Playfair Display (headings) + Source Sans 3 (body)
+Colors: Forest green (#2D5016) + white (#FAFCF7)
+Database: Supabase — NOT YET WIRED (all mock/useState)
+Hosting: Vercel — DEPLOYED at eve-screenwriting.vercel.app
+
+CRITICAL CSS RULE
+-----------------
+Google Fonts @import MUST come before @import "tailwindcss" in globals.css.
+
+DESIGN TOKENS
+-------------
+--green: #2D5016 | --green-mid: #3D6B1F | --green-light: #4E8A28
+--green-pale: #EBF2E4 | --green-border: #C8DDAF | --white: #FAFCF7
+--off-white: #F2F7EC | --text-dark: #1A2410 | --text-mid: #4A5C38
+--text-soft: #7A8F68 | --border: #D6E5C0
+
+REUSABLE CSS CLASSES
+--------------------
+.card | .btn-primary | .btn-ghost | .input | .badge | .tip-box
+.tab-bar | .tab | .tab.active | .divider-label
+.fade-up | .fade-up-delay-1 through delay-4
+
+HARD RULES
+----------
+- No emojis anywhere in UI
+- No AI API calls inside the app
+- Full file content every time — no ellipsis, no placeholders
+- Never delete working code — only add
+- npm run build must pass before git push
+
+PAGES (all built, all mock data)
+---------------------------------
+/                   Landing page
+/auth               Auth UI only — NO Supabase wired
+/dashboard          Mock data
+/projects           Filter + sort, all projects
+/projects/new       Framework picker + form
+/projects/[id]      4 tabs: Overview, Characters, Scenes, Plot Holes
+/ideas              Capture, pin, filter, promote
+/profile            Stats, bio, quick links
+/session            Save the Cat checklist only
+/learn              All lessons listed, grayed if unwritten
+/learn/[slug]       5 lessons fully written
+not-found           Custom 404
+
+WRITTEN LESSONS
+---------------
+what-a-scene-does | midpoint | want-vs-need | dialogue-subtext | theme
+
+COMPONENTS
+----------
+app/components/Nav.js
+  Links: Dashboard, Projects, Ideas, Session, Learn
+  Right: profile avatar (/profile), Sign in, Get started
+  Active state: green background on current route
+
+FEATURES BUILT
+--------------
+- Framework picker: Save the Cat, Hero's Journey, Story Circle, Freeform
+- Character Registry: Want/Need/Ghost/Arc fields
+- Scene list organized by Act with beat labels
+- Plot Hole Tracker: open/resolved states
+- Session Mode: Save the Cat beat checklist
+- Idea Bank: capture, pin, filter, search, delete, promote
+- 5 craft lessons fully written
+- Custom 404
+- Staggered fade-up animations
+- Progress bars on project cards
+
+SUPABASE SCHEMA (not wired yet)
+--------------------------------
+Tables: profiles, projects, characters, scenes, plot_holes,
+        themes, session_beats, collaborators
+Full SQL: docs/db-schema-changelog.md
+
+FRAMEWORKS
+----------
+save-the-cat | heros-journey | story-circle | freeform
+
+======================================
+SESSION 5 DIAGNOSIS — CRITICAL FINDING
+======================================
+
+PROBLEM: Supabase is completely absent from the codebase.
+Confirmed by scanning all 15 loaded JS chunks on the live site —
+zero chunks contain "supabase", "SUPABASE", or "createClient".
+The Supabase client is never instantiated. Auth page is UI-only shell.
+
+ROOT CAUSE (most likely): @supabase/supabase-js was never installed
+OR lib/supabase.js exists but is never imported anywhere.
+
+FIX — DO THESE IN ORDER:
+--------------------------
+1. In project root terminal:
+   npm install @supabase/supabase-js
+
+2. Create lib/supabase.js:
+   import { createClient } from '@supabase/supabase-js'
+   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+   export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+3. Create .env.local in project root:
+   NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+   (Get both from: Supabase Dashboard > Project > Settings > API)
+
+4. Add same env vars to Vercel:
+   Vercel Dashboard > EVE project > Settings > Environment Variables
+   Add for: Production + Preview + Development
+
+5. Wire auth page first — add to app/auth/page.js:
+   import { supabase } from '@/lib/supabase'
+
+NEXT PRIORITIES (in order)
+---------------------------
+1. Confirm Supabase project exists + get API keys
+2. Complete steps 1-5 above
+3. Wire auth (sign up / sign in / sign out)
+4. Wire real data to projects, ideas, characters, scenes
+5. Timeline / chronology view inside projects
+6. Themes & Motifs tracker inside projects
+7. Session checklists for Hero's Journey, Story Circle, Freeform
+8. Remaining craft lessons
+9. GitHub push

@@ -1,0 +1,295 @@
+EVE — MASTER REFERENCE
+Last updated: March 2026
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUICK REFERENCE
+───────────────
+Live site:     https://eve-screenwriting.vercel.app
+GitHub:        github.com/jamestfilmer-ops/eve  (branch: main)
+Vercel team:   jamestfilmer-6127s-projects
+Vercel team ID: team_nuxPJ1rE1CIWppK94MR6I0QD
+Vercel proj ID: prj_H7UXG4ej1QG4dD4zMw0EssEe1rgR
+Supabase URL:  https://vqtftxerpwpixhmpowvx.supabase.co
+Local path:    ~/Desktop/eve
+Local test:    http://localhost:3000
+
+STACK
+─────
+Next.js 16.1.6 — App Router — NO TypeScript — routes in app/ (no src/)
+Tailwind CSS + CSS variables in app/globals.css
+Supabase (PostgreSQL + Auth + RLS)
+Vercel (auto-deploy from GitHub push)
+Node 24.x
+
+FONTS (as of this session)
+──────────────────────────
+Playfair Display — headings (h1-h4)
+DM Sans         — all UI text, nav, buttons, inputs, body
+DM Mono         — data labels, beat chips, stats, read times (.mono class)
+Loaded via @import in app/globals.css (NOT next/font)
+CSS vars: --font-display, --font-ui, --font-mono
+
+CSS VARIABLES (app/globals.css)
+────────────────────────────────
+--green:        #2D5016   primary, headings, buttons
+--green-mid:    #3D6B1F   button hover
+--green-light:  #4E8A28   accents, progress
+--green-pale:   #EBF2E4   pale backgrounds
+--green-border: #C8DDAF   borders
+--amber:        #B5700A   status badges, Pro tier, "in progress" (NEW)
+--amber-pale:   #FEF3E2
+--amber-border: #F5D9A0
+--white:        #FAFCF7   page background
+--off-white:    #F2F7EC   section backgrounds
+--text-dark:    #1A2410
+--text-mid:     #4A5C38
+--text-soft:    #7A8F68
+--border:       #D6E5C0
+--shadow / --shadow-md / --shadow-lg
+
+CSS CLASSES AVAILABLE
+──────────────────────
+.card           white card, border, refined shadow + border-on-hover
+.btn-primary    green filled
+.btn-ghost      outlined green
+.btn-danger     outlined red
+.input          form input / textarea / select
+.badge          mono font, green pill (use .badge-amber for warm variant)
+.tab-bar / .tab / .tab.active
+.tip-box        green left-border craft callout
+.mono           DM Mono label style
+.empty-state    centered empty placeholder
+.divider-label  section label with lines
+.fade-up + .fade-up-delay-1 through -4  (staggered page load)
+
+NAV STRUCTURE
+─────────────
+Dashboard | Projects | Ideas | Session | Learn ▾
+Learn dropdown: Craft Library (/learn) · Glossary · Reading List
+Right: Profile avatar → /profile | Sign in | Get started
+Nav: backdrop-filter blur(16px), rgba(250,252,247,0.92) bg
+Mobile: .desktop-nav hides at 768px (mobile nav not yet built)
+
+SUPABASE SCHEMA
+───────────────
+profiles       id, email, full_name, subscription_tier (free|pro), created_at
+projects       id, user_id, title, framework, status, created_at, updated_at
+characters     id, project_id, name, want, need, ghost, arc
+scenes         id, project_id, title, act, beat_label, order, notes
+plot_holes     id, project_id, description, status (open|resolved)
+themes         id, project_id, name, description
+session_beats  id, project_id, framework, beat_key, completed
+ideas          id, user_id, content, type, pinned, created_at
+collaborators  id, project_id, user_id, role
+
+RLS: enabled all tables. users write own rows only. public read allowed.
+Auth: supabase.auth.signUp + signInWithPassword both wired.
+emailRedirectTo → https://eve-screenwriting.vercel.app/dashboard
+Custom email confirmation template deployed in Supabase dashboard.
+
+FRAMEWORKS (fixed — do not rename)
+───────────────────────────────────
+save-the-cat    Blake Snyder   3 Acts / 15 Beats
+heros-journey   Joseph Campbell 3 Acts / 12 Stages
+story-circle    Dan Harmon     1 Circle / 8 Steps
+freeform        Your instincts  No template
+
+MONETIZATION PLAN
+──────────────────
+FREE:  1 project, 10 scenes, all lessons, 25 ideas, Save the Cat session
+PRO:   $9/mo or $79/year — unlimited everything, all frameworks
+Stripe: NOT YET BUILT. Build only after 10+ real active users.
+When building: Stripe Checkout hosted page (never custom card form)
+Webhook updates profiles.subscription_tier to 'pro'
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SESSION HISTORY — WHAT WAS BUILT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SESSIONS 1–4: FULL APP SCAFFOLD
+────────────────────────────────
+- All pages created (see page list below)
+- Nav with Learn dropdown
+- Full design system in globals.css
+- Mock data on all interior pages
+- 5 craft lessons written (see below)
+- Custom 404 page
+- Page load animations (.fade-up)
+- Framework picker on /projects/new
+- Save the Cat session mode on /session
+
+SESSIONS 5–6: SUPABASE AUTH
+────────────────────────────
+- Diagnosed: Supabase client was never instantiated in live build
+- Fixed: lib/supabase.js wired to real auth calls
+- signUp with emailRedirectTo → /dashboard
+- signInWithPassword → redirect /dashboard
+- Errors surface via alert(err.message)
+- Supabase dashboard: Site URL + redirect URLs set
+- Custom HTML email confirmation template deployed
+
+SESSIONS 7–8: LANDING PAGE + LEGAL
+─────────────────────────────────────
+- Landing page (app/page.js): hero, pillars, "No AI. Ever." section,
+  4 frameworks preview, pricing (Free vs $79/yr Pro), dark footer
+- /terms page: full Terms of Service
+- /privacy page: full Privacy Policy
+- ConsentBanner component: sticky green footer, dismisses to localStorage
+- ConsentBanner added to app/layout.js
+- Fixed 'use client' build error on landing page
+- Removed rogue ~/package-lock.json causing Turbopack warning
+
+THIS SESSION: POLISH + CONTEXT FILES
+──────────────────────────────────────
+- Full site audit — toured all pages, checked console errors (none found)
+- FIXED: Emoji violation on /projects/new — 🐱 ⚔️ ⭕ ✦ ✓ all removed,
+  replaced with proper inline SVG icons per brand rules
+- UPDATED: app/globals.css
+    · Source Sans 3 → DM Sans (all UI text)
+    · DM Mono added for data/label contexts
+    · --amber + --amber-pale + --amber-border CSS vars added
+    · .badge-amber class added
+    · Paper grain texture on body (SVG, felt not seen)
+    · Card shadows deepened, green border-color on hover
+    · Nav blur bumped to 16px, opacity 0.92
+    · Animation easing updated to cubic-bezier(0.22,1,0.36,1)
+    · .mono utility class added
+    · .divider-label added
+- UPDATED: app/components/Nav.js
+    · All 'Source Sans 3' references → 'var(--font-ui)'
+    · Learn dropdown gets same backdrop-blur treatment
+    · Nav font-weight 600→500 (lighter active state, less heavy)
+- UPDATED: All 6 context files rewritten for Eve (were Banger Ratios)
+    about-me.md / brand-voice.md / engineering-invariants.md /
+    global-instructions.md / regression-avoidance.md / working-style.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALL PAGES — CURRENT STATUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+/                    LIVE — hero, no-AI, pricing, footer, legal links
+/auth                LIVE — Supabase auth wired (signUp + signIn)
+/dashboard           LIVE — mock data only
+/projects            LIVE — mock data only
+/projects/new        LIVE — framework picker + form, emoji fixed (this session)
+/projects/[id]       LIVE — mock data, 4 tabs (Scenes/Characters/Plot Holes/Themes)
+/ideas               LIVE — mock data only
+/profile             LIVE — mock data only
+/session             LIVE — Save the Cat only, mock project
+/learn               LIVE — lesson index, 5 lessons written
+/learn/[slug]        LIVE — individual lesson pages
+/glossary            LIVE
+/resources           LIVE
+/themes              LIVE
+/terms               LIVE — full ToS
+/privacy             LIVE — full Privacy Policy
+app/not-found.js     LIVE — custom 404
+
+WRITTEN LESSONS (app/learn/[slug])
+───────────────────────────────────
+what-a-scene-does
+midpoint
+want-vs-need
+dialogue-subtext
+theme
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ROADMAP — ORDERED PRIORITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 3 — DATA WIRING (current — do this before anything else)
+── The blocker for monetization. Users can sign up but nothing saves. ──
+
+  1. Wire /dashboard
+       SELECT projects WHERE user_id = auth.user.id
+       Show real project cards, real stats (count from DB)
+       Replace all mock useState with Supabase queries
+       Show empty state if no projects yet
+
+  2. Wire /projects/new → INSERT
+       On "Create project →": INSERT INTO projects (user_id, title, framework, status)
+       Redirect to /projects/[newId] with real ID
+       (Currently just pushes to /dashboard and discards input)
+
+  3. Wire /projects/[id]
+       Fetch project, characters, scenes, plot_holes by project ID
+       All 4 tabs pull real rows
+       Add/edit/delete within each tab persists to DB
+
+  4. Wire /ideas
+       Real INSERT on "+ Capture idea"
+       Real DELETE on "Delete"
+       Real UPDATE on "Pin" toggle
+       Persist type filter server-side
+
+  5. Wire /profile
+       Pull from profiles table (full_name, subscription_tier, created_at)
+       Show real project/idea/scene/character counts
+       Edit profile → UPDATE profiles
+
+PHASE 4 — ANALYTICS + REVENUE
+  6. Enable Vercel Analytics (2-min toggle in Vercel dashboard — do before any marketing)
+  7. Stripe Pro tier
+       Create Stripe account + 2 products (monthly + annual)
+       npm install stripe @stripe/stripe-js
+       Add stripe_customer_id to profiles table
+       /api/checkout route → Stripe Checkout hosted page
+       /api/webhook route → update profiles.subscription_tier = 'pro'
+       Gate features by checking subscription_tier
+
+PHASE 5 — FEATURE DEPTH
+  8. Mobile bottom navigation (hamburger is hidden, nothing replaces it)
+  9. Session mode for all 4 frameworks (currently Save the Cat only)
+  10. Timeline / chronology view on /projects/[id]
+  11. Themes & Motifs tracker wired to real DB
+  12. Plot hole status toggle (open → resolved)
+  13. More craft lessons (target: 15 total)
+
+PHASE 6 — GROWTH SURFACE
+  14. Share card generator (writer shares Banger-style card of their story stats)
+  15. Custom domain (eve.so or similar — check availability)
+  16. Public project profiles (read-only shareable URL)
+  17. Press/media kit page
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ENGINEERING RULES (never violate)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Fetch current file from GitHub raw URL before editing — never write from memory
+2. Full file content every time — no ..., no partial snippets
+3. npm run build must pass before git push — always
+4. Add 'use client' to any file using hooks or event handlers
+5. Google Fonts @import must come BEFORE @import "tailwindcss" in globals.css
+6. No new npm packages without asking James first
+7. No emoji anywhere in the app (brand rule — SVG icons only)
+8. No AI calls inside the app — Claude builds it, never runs inside it
+9. No TypeScript — JavaScript only
+10. No src/ directory — routes live directly in app/
+11. Additive changes only — flag anything that removes or alters existing behavior
+12. One logical change per commit
+
+DEPLOY WORKFLOW
+───────────────
+cd ~/Desktop/eve
+npm run build        ← must pass
+git add [files]
+git commit -m "description"
+git push             ← Vercel auto-deploys ~60 seconds
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NEXT SESSION: START HERE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Priority 1: Wire /dashboard to real Supabase data
+  File to edit: app/dashboard/page.js
+  Query: SELECT * FROM projects WHERE user_id = auth.user.id
+  Show real project cards + real stats. Empty state if 0 projects.
+
+Priority 2 (same session if time): Wire /projects/new to INSERT
+  File to edit: app/projects/new/page.js
+  On submit: INSERT into projects, redirect to /projects/[newId]
+
+Say "start dashboard wiring" to begin.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+■ EVE · eve-screenwriting.vercel.app · Built by James Filmer, Nashville

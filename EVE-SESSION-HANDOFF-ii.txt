@@ -1,0 +1,127 @@
+EVE — SESSION HANDOFF
+Last updated: Session 6 (March 2026)
+======================================
+
+WHAT EVE IS
+-----------
+Story organization + development workspace for writers.
+No AI inside the app. Claude is used only to BUILD it.
+Live URL: https://eve-screenwriting.vercel.app
+GitHub: github.com/jamestfilmer-ops/eve (branch: main)
+Vercel team slug: jamestfilmer-6127s-projects
+Vercel team ID: team_nuxPJ1rE1CIWppK94MR6I0QD
+Vercel project ID: prj_H7UXG4ej1QG4dD4zMw0EssEe1rgR
+
+TECH STACK
+----------
+Next.js 16.1.6 App Router | JavaScript only (no TypeScript, no src/)
+Styling: CSS variables (globals.css) + Tailwind
+Fonts: Playfair Display (headings) + Source Sans 3 (body)
+Colors: Forest green (#2D5016) + white (#FAFCF7)
+Database: Supabase — PARTIALLY WIRED (auth only, all other data still mock)
+Hosting: Vercel — LIVE
+
+CRITICAL CSS RULE
+-----------------
+Google Fonts @import MUST come before @import "tailwindcss" in globals.css.
+
+DESIGN TOKENS
+-------------
+--green: #2D5016 | --green-mid: #3D6B1F | --green-light: #4E8A28
+--green-pale: #EBF2E4 | --green-border: #C8DDAF | --white: #FAFCF7
+--off-white: #F2F7EC | --text-dark: #1A2410 | --text-mid: #4A5C38
+--text-soft: #7A8F68 | --border: #D6E5C0
+
+REUSABLE CSS CLASSES
+--------------------
+.card | .btn-primary | .btn-ghost | .input | .badge | .tip-box
+.tab-bar | .tab | .tab.active | .divider-label
+.fade-up | .fade-up-delay-1 through delay-4
+
+HARD RULES
+----------
+- No emojis anywhere in UI
+- No AI API calls inside the app
+- Full file content every time — no ellipsis, no placeholders
+- Never delete working code — only add
+- npm run build must pass before git push
+
+PAGES (all built)
+-----------------
+/                   Landing page
+/auth               Auth — Supabase WIRED (Session 6)
+/dashboard          Mock data
+/projects           Filter + sort
+/projects/new       Framework picker + form
+/projects/[id]      4 tabs: Overview, Characters, Scenes, Plot Holes
+/ideas              Capture, pin, filter, promote
+/profile            Stats, bio, quick links
+/session            Save the Cat checklist only
+/learn              All lessons listed
+/learn/[slug]       5 lessons written
+/glossary           Built (added since Session 4)
+/resources          Built (added since Session 4)
+/themes             Built (added since Session 4)
+not-found           Custom 404
+
+WRITTEN LESSONS
+---------------
+what-a-scene-does | midpoint | want-vs-need | dialogue-subtext | theme
+
+COMPONENTS
+----------
+app/components/Nav.js
+  Links: Dashboard, Projects, Ideas, Session, Learn
+  Right: profile avatar (/profile), Sign in, Get started
+  Active state: green background on current route
+
+SUPABASE STATUS
+---------------
+Package: @supabase/supabase-js ^2.98.0 + @supabase/ssr ^0.9.0 — INSTALLED
+lib/supabase.js — EXISTS + COMMITTED:
+  import { createClient } from '@supabase/supabase-js'
+  export const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+Env vars in Vercel: SET
+Env vars in .env.local: SET locally (not committed — correct)
+
+app/auth/page.js — WIRED (Session 6):
+  Sign up: supabase.auth.signUp({ email, password, options: { data: { full_name } } })
+  Sign in: supabase.auth.signInWithPassword({ email, password }) → redirect /dashboard
+  Errors: surfaced via alert(err.message)
+
+WARNING: Two Supabase accounts exist. Verify env vars point to correct project.
+  Check: Supabase Dashboard > Settings > API > Project URL
+  The project ID in the URL must match NEXT_PUBLIC_SUPABASE_URL exactly.
+
+SUPABASE SCHEMA (tables exist, not wired to UI yet)
+----------------------------------------------------
+Tables: profiles, projects, characters, scenes, plot_holes,
+        themes, session_beats, collaborators
+Full SQL: docs/db-schema-changelog.md
+
+FRAMEWORKS
+----------
+save-the-cat | heros-journey | story-circle | freeform
+
+FEATURES BUILT
+--------------
+Framework picker | Character Registry (Want/Need/Ghost/Arc) | Scene list by Act
+Plot Hole Tracker | Session Mode (Save the Cat) | Idea Bank
+5 craft lessons | Custom 404 | Fade-up animations | Progress bars
+
+NEXT PRIORITIES (in order)
+---------------------------
+1. TEST live auth — sign up real user, confirm in Supabase dashboard,
+   confirm redirect to /dashboard, confirm session persists on refresh
+2. Wire /dashboard to real Supabase data
+3. Wire /projects — real CRUD
+4. Wire /projects/[id] — characters, scenes, plot holes from DB
+5. Wire /ideas — real persistence
+6. Wire /profile — pull from profiles table
+7. Timeline / chronology view
+8. Themes & Motifs tracker
+9. Session checklists for all frameworks
+10. Remaining craft lessons

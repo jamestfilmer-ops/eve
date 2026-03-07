@@ -1,0 +1,306 @@
+EVE — MASTER REFERENCE
+Last updated: Session 8 (March 2026)
+======================================
+
+WHAT EVE IS
+-----------
+Story organization + development workspace for writers.
+No AI inside the app. Claude is used only to BUILD it.
+"Coach, not generator" — Eve structures your thinking, never writes for you.
+
+URLS & IDS
+----------
+Live URL:         https://eve-screenwriting.vercel.app
+GitHub:           github.com/jamestfilmer-ops/eve (branch: main)
+Vercel team slug: jamestfilmer-6127s-projects
+Vercel team ID:   team_nuxPJ1rE1CIWppK94MR6I0QD
+Vercel project ID: prj_H7UXG4ej1QG4dD4zMw0EssEe1rgR
+
+TECH STACK
+----------
+Next.js 16.1.6 App Router | JavaScript only (no TypeScript, no src/)
+Styling: CSS variables (globals.css) + Tailwind
+Fonts: Playfair Display (headings) + Source Sans 3 (body)
+Colors: Forest green (#2D5016) + white (#FAFCF7)
+Database: Supabase — AUTH WIRED, all data pages still mock
+Hosting: Vercel — LIVE and deploying on every git push
+
+CRITICAL CSS RULE
+-----------------
+Google Fonts @import MUST come before @import "tailwindcss" in globals.css.
+Reversing this order causes a build error.
+
+DESIGN TOKENS
+-------------
+--green: #2D5016       primary, headings, buttons
+--green-mid: #3D6B1F   button hover
+--green-light: #4E8A28 accents, progress bars
+--green-pale: #EBF2E4  pale backgrounds
+--green-border: #C8DDAF borders
+--white: #FAFCF7       page background
+--off-white: #F2F7EC   section backgrounds
+--text-dark: #1A2410   body text
+--text-mid: #4A5C38    secondary text
+--text-soft: #7A8F68   muted/placeholder
+--border: #D6E5C0      card borders
+
+REUSABLE CSS CLASSES
+--------------------
+.card | .btn-primary | .btn-ghost | .input | .badge | .tip-box
+.tab-bar | .tab | .tab.active | .divider-label
+.fade-up | .fade-up-delay-1 through delay-4
+
+HARD RULES (never break)
+------------------------
+- No emojis anywhere in UI
+- No AI API calls inside the app
+- Full file content every time — no ellipsis, no placeholders
+- Never delete working code — only add
+- npm run build must pass before git push
+- One logical change per commit — never bundle unrelated edits
+- Always read the current file from GitHub before editing it
+- Add 'use client' to any page that uses event handlers (onClick, onMouseEnter etc.)
+
+======================================
+SECTION 1: PAGES & STATUS
+======================================
+
+ROUTE                FILE                          STATUS
+/                    app/page.js                   LIVE — hero, pillars, No AI section,
+                                                   framework cards, pricing, CTA, footer
+/auth                app/auth/page.js              LIVE — Supabase signUp + signInWithPassword
+/dashboard           app/dashboard/page.js         LIVE — mock data only
+/projects            app/projects/page.js          LIVE — mock data only
+/projects/new        app/projects/new/page.js      LIVE — mock data only
+/projects/[id]       app/projects/[id]/page.js     LIVE — mock data only
+/ideas               app/ideas/page.js             LIVE — mock data only
+/profile             app/profile/page.js           LIVE — mock data only
+/session             app/session/page.js           LIVE — Save the Cat checklist only
+/learn               app/learn/page.js             LIVE — all lessons listed
+/learn/[slug]        app/learn/[slug]/page.js      LIVE — 5 lessons written
+/glossary            app/glossary/page.js          LIVE
+/resources           app/resources/page.js         LIVE
+/themes              app/themes/page.js            LIVE
+/terms               app/terms/page.js             LIVE — full Terms of Service
+/privacy             app/privacy/page.js           LIVE — full Privacy Policy
+not-found            app/not-found.js              LIVE — custom 404
+
+COMPONENTS
+----------
+app/components/Nav.js           Fixed nav, Learn dropdown, active states
+app/components/ConsentBanner.js Green sticky footer, dismisses to localStorage,
+                                 links to /terms and /privacy
+
+WRITTEN LESSONS (/learn/[slug])
+--------------------------------
+what-a-scene-does | midpoint | want-vs-need | dialogue-subtext | theme
+
+UNWRITTEN LESSONS (grayed in UI)
+---------------------------------
+act-breaks | all-is-lost | ghost | antagonist | secondary-characters
+subtext | arguments | plant-payoff | motifs
+
+======================================
+SECTION 2: SUPABASE STATUS
+======================================
+
+Package: @supabase/supabase-js ^2.98.0 + @supabase/ssr ^0.9.0
+lib/supabase.js: COMMITTED
+  import { createClient } from '@supabase/supabase-js'
+  export const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  )
+
+Env vars in Vercel: SET (Production + Preview + Development)
+Env vars in .env.local: SET locally (NOT committed — correct)
+Supabase Site URL: set to https://eve-screenwriting.vercel.app
+Supabase Redirect URLs: https://eve-screenwriting.vercel.app/**
+
+TWO SUPABASE ACCOUNTS EXIST — always verify env vars point to correct project.
+Check: Supabase Dashboard > Settings > API > Project URL must match NEXT_PUBLIC_SUPABASE_URL.
+
+AUTH STATUS (app/auth/page.js):
+  Sign up: supabase.auth.signUp() with emailRedirectTo: .../dashboard
+  Sign in: supabase.auth.signInWithPassword() → redirect /dashboard
+  Email confirmation: custom HTML template deployed in Supabase dashboard
+  Errors: surfaced via alert(err.message)
+
+DATA STATUS: All pages use mock useState data. Nothing persists yet except auth.
+
+SUPABASE SCHEMA (tables exist in DB, not wired to UI)
+-----------------------------------------------------
+Tables: profiles, projects, characters, scenes, plot_holes,
+        themes, session_beats, collaborators
+Full SQL: docs/db-schema-changelog.md
+
+======================================
+SECTION 3: WHAT'S BEEN BUILT (HISTORY)
+======================================
+
+Session 1-4:  Full app scaffolding — all pages, Nav, design system, mock data,
+              5 written lessons, custom 404, animations, framework picker
+
+Session 5-6:  Supabase diagnosis (package was installed but handleSubmit was
+              a fake setTimeout — never called Supabase). Fixed auth wiring.
+              Email redirect pointed to localhost — fixed with emailRedirectTo.
+              Custom HTML confirmation email template built and deployed.
+
+Session 7:    Landing page audit. Built and deployed:
+              - /terms and /privacy pages (legal requirement before charging)
+              - ConsentBanner component (sticky, dismissable, localStorage)
+              - Updated app/layout.js to include ConsentBanner globally
+              - "No AI. Ever." section on landing page with Rachel Carson quote
+              - Pricing section: Free ($0) vs Pro ($6.59/mo, $79/yr)
+              - Dark footer with Product / Learn / Legal columns
+              - Fixed build error: added 'use client' to app/page.js
+                (event handlers like onMouseEnter cannot be in Server Components)
+              - Removed rogue ~/package-lock.json causing Turbopack warning
+
+Session 8:    [current] Wrote this master reference file.
+
+======================================
+SECTION 4: MONETIZATION PLAN
+======================================
+
+PRICING (decided, not yet implemented in code)
+----------------------------------------------
+FREE TIER (forever):
+  1 project | 10 scenes | all lessons | 25 ideas | Save the Cat session
+
+PRO TIER ($9/mo or $79/year = $6.59/mo):
+  Unlimited everything | all 4 frameworks | plot holes | themes | timeline
+
+STRIPE INTEGRATION (not yet built)
+------------------------------------
+1. Create Stripe account + 2 products (Monthly, Annual)
+2. npm install stripe @stripe/stripe-js
+3. Add stripe_customer_id + subscription_tier ('free'|'pro') to profiles table
+4. Use Stripe Checkout hosted page — never build custom card forms
+5. Stripe webhook → updates Supabase profile to 'pro' after payment
+6. Gate features in UI by checking subscription_tier
+
+DO NOT LAUNCH STRIPE until 10+ real active users exist.
+Validate the product first, then monetize.
+
+======================================
+SECTION 5: NEXT PRIORITIES (in strict order)
+======================================
+
+IMMEDIATE — Data persistence (biggest unlock):
+1. Wire /dashboard to real Supabase data
+   - On load: fetch projects from `projects` table where user_id = auth user
+   - Show real project cards with real progress
+   - Replace all mock stats with real counts
+   
+2. Wire /projects/new to save real projects
+   - On submit: INSERT into projects table
+   - Redirect to /projects/[id] with the new real ID
+   
+3. Wire /projects/[id] to load real data
+   - Fetch project, characters, scenes, plot_holes by project ID
+   - All 4 tabs pull from real DB rows
+   
+4. Wire /ideas — real INSERT/DELETE/UPDATE
+
+5. Wire /profile — pull from profiles table
+
+THEN — Growth & product:
+6. Enable Vercel Analytics (2-min toggle in Vercel dashboard — do this NOW)
+7. Stripe integration (after 10+ real users)
+8. Timeline / chronology view inside projects
+9. Themes & Motifs tracker
+10. Session checklists for Hero's Journey, Story Circle, Freeform
+11. Remaining craft lessons (retention driver)
+12. Mobile optimization (after data layer is wired)
+13. Custom domain (eve.app or similar — check availability)
+
+======================================
+SECTION 6: ENGINEERING PRINCIPLES
+======================================
+
+BEFORE WRITING ANY CODE
+------------------------
+1. Run: git status — confirm clean working tree
+2. Fetch the current file from GitHub raw URL before editing
+3. Identify exactly which lines change — nothing else
+4. Ask: will this break any other file that imports this?
+
+MAKING CHANGES
+--------------
+5. One logical change per commit
+6. Always provide full file content — no ellipsis, no shortcuts
+7. npm run build locally before git push — never push broken code
+8. Never rename/move/delete files without updating all imports
+9. Add 'use client' to any page using event handlers or useState
+
+COMMITTING
+----------
+10. Always commit package-lock.json alongside package.json for new installs
+11. After staging: verify git status shows the right files
+12. If git says "nothing to commit" — those files were already committed,
+    check their actual content instead of trying to re-add
+
+DEBUGGING HIERARCHY
+--------------------
+1. git status — are changes actually committed?
+2. Vercel build logs — did deploy succeed?
+3. Fetch raw GitHub file — is the code what you think it is?
+4. Browser JS chunks — is the code in the bundle?
+5. Console errors on live site
+6. Supabase dashboard — are env vars correct, are rows appearing?
+
+SUPABASE RULES
+--------------
+- NEXT_PUBLIC_ prefix required for all client-side env vars
+- .env.local must NOT be committed
+- Vercel env vars set separately from .env.local
+- After new env vars in Vercel: must trigger a new deployment
+- package-lock.json must be committed for Vercel to install new packages
+- emailRedirectTo must be set on signUp or confirmation links go to localhost
+- Two accounts exist — always verify URL matches the right project
+
+REGRESSION PREVENTION
+----------------------
+- Read the file before editing — never write from memory
+- After globals.css change: check fonts still load
+- After Nav.js change: check all 5 nav links work
+- After auth change: test sign in AND sign up
+- Never clean up mock data until Supabase wiring is confirmed working
+
+======================================
+SECTION 7: DESIGN & CONVERSION PRINCIPLES
+======================================
+
+EVE'S IDENTITY
+--------------
+Tool aesthetic, not social app — dense, purposeful, no fluff
+No emojis, no illustrations, no stock photos — typography does the work
+"No AI. Ever." is a premium differentiator, not a limitation
+
+DOPAMINE / RETENTION HOOKS (already built)
+------------------------------------------
+- Progress bars on every project card
+- Stats on dashboard (3 projects, 17 scenes, etc.)
+- "Resume ->" language — implies momentum
+- Beat checklists — each tick is a small win
+- "Act 2 of 3 complete" framing
+- Lesson titles that provoke: "Nobody talks to have a conversation"
+
+CONVERSION PRINCIPLES
+----------------------
+- Hero shows the product in action (mock project card IS the sell)
+- Lead with craft credibility (Snyder, Campbell, Harmon)
+- "Start your first story" beats "Get started" — action not account language
+- Pricing anchor: show monthly equivalent for annual ($6.59/mo)
+- "Most popular" badge on Pro plan
+- Free tier is the hook — not a gate
+
+LEGAL CHECKLIST (now complete)
+--------------------------------
+- /terms — done
+- /privacy — done
+- ConsentBanner — done
+- Stripe PCI handled by Stripe (do not build custom card forms)
+- Refund policy in Terms: 7-day refund window
+- Income must be reported on taxes (Schedule C or LLC)

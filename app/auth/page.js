@@ -18,8 +18,11 @@ async function handleSubmit() {
       const { error } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,
-        options: { data: { full_name: form.name } }
-      })
+        options: {
+        data: { full_name: form.name },
+        emailRedirectTo: 'https://eve-screenwriting.vercel.app/dashboard'
+  }
+})
       if (error) throw error
       alert('Check your email to confirm your account.')
     } else {
