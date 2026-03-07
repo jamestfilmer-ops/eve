@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 const lessons = {
   'what-a-scene-does': {
@@ -340,6 +341,17 @@ const lessons = {
       { type: 'tip', text: "Go through your script and mark the first line in each scene where genuine conflict or meaningful information appears. If it is not the first line — consider whether the scene needs everything before it." },
     ],
   },
+    body_academic: [
+      { type: 'p', text: "The principle of in medias res — beginning in the middle of action — has governed dramatic construction since Aristotle's Poetics. Its application at the scene level is frequently neglected in favor of expository scene-setting that serves the writer's comfort rather than the narrative's momentum." },
+      { type: 'rule', text: "Scenic economy demands that every unit of dramatic action begin at the latest possible moment of relevance and conclude at the earliest moment of dramatic sufficiency." },
+      { type: 'p', text: "Screenwriting theorist Linda Seger describes this as eliminating transitional material — the social conventions that precede conflict in naturalistic discourse but that carry zero dramatic charge. The audience's narrative competence allows them to reconstruct context from in medias action; expository preamble underestimates that competence." },
+      { type: 'h3', text: "Late entry: structural implications" },
+      { type: 'p', text: "Late scene entry is not merely an editing technique — it is an epistemological choice. To open a confrontation scene on 'How long have you known?' is to withhold the same information from the audience that one character withholds from another, creating immediate dramatic irony and forcing active inference. The audience becomes a participant in the scene's logic rather than a passive recipient of its exposition." },
+      { type: 'h3', text: "Early exit: the unresolved ending" },
+      { type: 'p', text: "Early scene exit operates on what David Mamet calls uninflected action — ending before the emotional aftermath, before characters have processed the event they just experienced. This creates what narratologists call an open situation: a gap between scene-end and scene-meaning that the audience must fill. That active participation creates investment." },
+      { type: 'p', text: "The common failure — allowing characters to process on-screen — confuses dramatic event with dramatic consequence. The event belongs in scene; the consequence, handled elliptically, belongs in the white space between scenes and in the next scene's opening emotional condition." },
+      { type: 'tip', text: "Audit each scene: identify the first beat of genuine dramatic weight — conflict, revelation, decision. Everything preceding it is a candidate for removal. Then identify the last beat of irreversible change. Everything following it dilutes forward momentum." },
+    ],
 
   'scene-turn': {
     title: "The scene turn",
@@ -361,6 +373,16 @@ const lessons = {
       { type: 'h3', text: "The value shift" },
       { type: 'p', text: "Story consultant Robert McKee talks about the 'value shift' in a scene — the movement from one emotional or situational pole to its opposite, or somewhere toward its opposite. A scene begins with hope and ends with doubt. Or begins in safety and ends in danger. Map the value at the start of your scene and the value at the end. If they are the same, the scene has not turned." },
       { type: 'tip', text: "For every scene in your script, write two words: the emotional value at the start, and the emotional value at the end. (Safe / Threatened. Confident / Shaken. Apart / Connected.) If the words are the same — or close — the scene may not be earning its place." },
+    ],
+    body_academic: [
+      { type: 'p', text: "Robert McKee's concept of the 'value charge' provides the most rigorous analytical framework for scene construction. Every scene must move along a spectrum of charged values — from positive to negative, or negative to positive — representing a substantive shift in the human experience being dramatized." },
+      { type: 'rule', text: "A scene that begins and ends at the same value charge has not turned — it has tread water. The turn is not optional; it is the definition of a functioning dramatic scene." },
+      { type: 'p', text: "This distinguishes dramatically active scenes from what screenwriter William Goldman calls 'bus scenes' — transitory scenes that exist to move characters from one location to another without advancing the story's value states. Goldman's axiom: if a scene can be summarized as 'character goes from A to B,' it functions as a bus scene and should be cut or reconceived as drama." },
+      { type: 'h3', text: "Aristotle's peripeteia at the scene level" },
+      { type: 'p', text: "Aristotle identified peripeteia — reversal of fortune — as one of the two most powerful elements of plot (the other being anagnorisis, or recognition). At the scene level, these translate into three distinct turn types: reversal (the protagonist's situation inverts), revelation (new information recontextualizes prior events), and decision (a choice forecloses other possibilities). All three embody the irreversibility that defines dramatic action as distinct from mere event." },
+      { type: 'h3', text: "Scene turns and cumulative structure" },
+      { type: 'p', text: "Scene turns do not operate in isolation — they participate in a cumulative value arc across the narrative. Each scene turn advances or retreats along the story's central value axis, and the pattern of these advances and retreats constitutes what McKee calls the 'story design.' A story whose scenes all turn in the same direction becomes monotonous; one whose turns are strategically varied generates the rhythm of engagement and relief that sustains feature-length dramatic investment." },
+      { type: 'tip', text: "Apply McKee's value charge analysis: write the dominant value at scene open (hope, safety, connection, certainty) and at scene close. Map these across your entire script. The resulting value arc is your story's actual emotional argument — and reveals where your structure is working and where it is marking time." },
     ],
   },
 
@@ -385,6 +407,16 @@ const lessons = {
       { type: 'tip', text: "Find a scene in your script that feels flat. Ask: what does the audience know that at least one character does not? If the answer is nothing, you may be missing the source of tension. Consider what information, if given to the audience early — in a previous scene — would make this scene unbearable to watch." },
     ],
   },
+    body_academic: [
+      { type: 'p', text: "Alfred Hitchcock's famous distinction between surprise and suspense constitutes perhaps the most cited formulation in dramatic theory. Surprise — the bomb detonating without warning — generates a maximum of fifteen seconds of shock. Suspense — the audience's knowledge of the bomb's presence throughout an ordinary conversation — generates minutes of sustained dread. The distinction maps onto a fundamental asymmetry of information between audience and character." },
+      { type: 'rule', text: "Dramatic tension is a function of information asymmetry, not physical action. The gap between what the audience knows and what characters know is the structural source of suspense." },
+      { type: 'p', text: "This insight — elaborated by Hitchcock but traceable to Aristotle's concept of dramatic irony — has profound implications for scene construction. A scene depicting physical conflict may be narratively inert if the audience holds no information advantage. Conversely, two characters discussing weather over coffee can generate unbearable tension if the audience is aware of stakes the characters have not yet recognized." },
+      { type: 'h3', text: "The three vectors of scenic tension" },
+      { type: 'p', text: "Theorist Yves Lavandier identifies three structural sources of dramatic tension: suspense (anxiety about future events), surprise (reaction to unexpected events), and curiosity (retrospective puzzlement about past events). Effective tension scenes typically engage at least two of these simultaneously — the audience is curious about what has already happened, anxious about what is about to happen, and the character is unaware of either." },
+      { type: 'h3', text: "Subtext as tension mechanism" },
+      { type: 'p', text: "Harold Pinter's dramatic work provides the canonical case study in subtext-as-tension. The surface transaction of a Pinter scene — two people discussing something mundane — is systematically undermined by what remains unspoken: territorial claims, historical grievances, power dynamics. The tension derives not from what is said but from the audience's recognition of the gap between the ostensible subject and the actual subject." },
+      { type: 'tip', text: "For each scene you write, identify what the audience knows that at least one character does not. This information asymmetry is your primary tension instrument. If no such asymmetry exists, consider what prior scene could establish one — placing dramatic irony's bomb under the table before the scene begins." },
+    ],
 
   'location-as-character': {
     title: "The location is never just a location",
@@ -407,6 +439,16 @@ const lessons = {
       { type: 'tip', text: "Take a scene you have written and ask: what does this location say about this scene before anyone talks? If the answer is 'nothing,' try rewriting the scene in three different locations and see how each one changes what the scene is about." },
     ],
   },
+    body_academic: [
+      { type: 'p', text: "The semiotics of filmic space — the study of how location generates meaning — has produced extensive theoretical literature, from the mise-en-scène analyses of André Bazin to the spatial theory of Edward Soja. For the working screenwriter, the operative principle is simpler: every location choice is an argument made before a character speaks." },
+      { type: 'rule', text: "Location in dramatic writing functions semiotically: it signifies beyond its denotative content, embedding thematic, psychological, and relational meaning into the scene's visual grammar before dialogue begins." },
+      { type: 'p', text: "The Marxist film theorist Raymond Durgnat argued that Hollywood's preference for particular locations — the family home, the office, the diner — reflects ideological assumptions about where significant social transactions occur. The screenwriter who chooses a location unreflectively reproduces those assumptions; the screenwriter who chooses deliberately can deploy them, subvert them, or charge them with meaning the genre did not anticipate." },
+      { type: 'h3', text: "Spatial constraint as dramatic pressure" },
+      { type: 'p', text: "The confined location — the car, the elevator, the small room — has become a genre convention precisely because it operationalizes dramatic pressure architecturally. When characters cannot exit, subtext must be navigated rather than avoided. The location removes the escape hatch that social convention provides. What the mise-en-scène makes impossible, the characters must endure." },
+      { type: 'h3', text: "Location as thematic argument" },
+      { type: 'p', text: "In Carol Reed's The Third Man, the bombed-out ruins of post-war Vienna are not background — they are the film's thesis about moral collapse and historical consequence. In Barry Jenkins' Moonlight, the specific geography of Liberty City — its particular quality of light, its architecture of poverty — carries the film's argument about visibility and invisibility in ways dialogue cannot approximate." },
+      { type: 'tip', text: "For each scene, write a single sentence answering: what does this location argue about the scene before anyone speaks? If you cannot write that sentence, the location is functioning as neutral background rather than as dramatic argument. Consider what location would make the scene's underlying conflict or theme spatially legible." },
+    ],
 
   'scene-endings': {
     title: "How to end a scene so the next one cannot wait",
@@ -431,6 +473,16 @@ const lessons = {
       { type: 'tip', text: "Go through your last five scene endings. For each one, write: what question does this ending leave open? If you cannot name the open question in one sentence, the scene may be closing too much." },
     ],
   },
+    body_academic: [
+      { type: 'p', text: "The problem of scenic closure is one of the central technical challenges of dramatic writing. Closure — the satisfying resolution of a dramatic unit — is simultaneously necessary at the macro level (the story must end) and actively harmful at the micro level (each scene must resist completion to generate forward momentum). The scene ending, properly executed, is a paradox: it must feel complete as a unit while remaining open as a vector." },
+      { type: 'rule', text: "The scene ending should constitute what narratologist Meir Sternberg calls a 'narrative gap' — a moment of productive incompletion that activates the audience's anticipatory engagement with what follows." },
+      { type: 'p', text: "This concept is related to what Russian Formalists called 'retardation' — the deliberate delaying of resolution to sustain reader engagement. At the scene level, retardation operates through strategic incompletion: the scene ends before the expected resolution, forcing the audience to carry their anticipation forward. The next scene inherits that anticipation as a narrative debt." },
+      { type: 'h3', text: "The hook and the gap" },
+      { type: 'p', text: "David Bordwell's cognitive approach to narrative identifies two mechanisms of scene-to-scene engagement: the 'hook' (a new question or development that demands resolution) and the 'dangling cause' (an incomplete causal chain that must be followed through). Effective scene endings deploy at least one of these — typically the hook, since it is immediately perceptible — to ensure that the gap between scenes is experienced as urgency rather than interruption." },
+      { type: 'h3', text: "Resolution as structural error" },
+      { type: 'p', text: "The most common scene-ending failure is what might be called premature closure: the scene resolves its own tension before the cut, releasing the pressure it has built. This is a structural error because it treats the scene as a self-contained dramatic unit rather than as a node in a larger pressure system. Each scene should exit under load — its unresolved tensions transferred to the following scene as inherited obligation." },
+      { type: 'tip', text: "Apply Sternberg's gap analysis to your scene endings: identify the open question each scene leaves at its close. This question should be specific and urgent — not 'what happens next?' (too vague) but 'will she find out before he tells her?' (specific, stakes-defined). If the scene closes without generating a specific open question, it is closing too completely." },
+    ],
 }
 
 function renderBody(body) {
@@ -469,16 +521,32 @@ export default function LessonPage() {
   const params = useParams()
   const slug = params?.slug
   const lesson = lessons[slug]
+  const [tone, setTone] = useState('mentor')
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('eve-lesson-tone')
+      if (saved === 'academic' || saved === 'mentor') setTone(saved)
+    } catch {}
+  }, [])
+
+  function switchTone(t) {
+    setTone(t)
+    try { localStorage.setItem('eve-lesson-tone', t) } catch {}
+  }
 
   const allSlugs = Object.keys(lessons)
   const currentIndex = allSlugs.indexOf(slug)
   const prevSlug = currentIndex > 0 ? allSlugs[currentIndex - 1] : null
   const nextSlug = currentIndex < allSlugs.length - 1 ? allSlugs[currentIndex + 1] : null
 
+  const hasAcademic = lesson && !!lesson.body_academic
+  const activeBody = (tone === 'academic' && hasAcademic) ? lesson.body_academic : lesson?.body
+
   if (!lesson) return (
     <div style={{ maxWidth: '700px', margin: '0 auto', padding: '80px 24px', textAlign: 'center' }}>
       <h1 style={{ fontSize: '28px', marginBottom: '12px' }}>Lesson not found</h1>
-      <p style={{ color: 'var(--text-soft)', marginBottom: '24px', fontSize: '15px' }}>This lesson hasn't been written yet. It's coming.</p>
+      <p style={{ color: 'var(--text-soft)', marginBottom: '24px', fontSize: '15px' }}>This lesson hasn&apos;t been written yet. It&apos;s coming.</p>
       <Link href="/learn" style={{ textDecoration: 'none' }}>
         <button className="btn-primary">Back to craft library</button>
       </Link>
@@ -492,7 +560,7 @@ export default function LessonPage() {
         &larr; Craft library
       </Link>
 
-      <div className="fade-up" style={{ marginBottom: '44px' }}>
+      <div className="fade-up" style={{ marginBottom: '32px' }}>
         <div style={{ display: 'flex', gap: '8px', marginBottom: '18px', alignItems: 'center' }}>
           <span className="badge">{lesson.category}</span>
           <span style={{ fontSize: '12px', color: 'var(--text-soft)' }}>{lesson.time} read</span>
@@ -500,8 +568,44 @@ export default function LessonPage() {
         <h1 style={{ fontSize: 'clamp(24px, 3.5vw, 38px)', lineHeight: '1.2', marginBottom: '0' }}>{lesson.title}</h1>
       </div>
 
+      {/* Tone switcher */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '40px', paddingBottom: '28px', borderBottom: '1px solid var(--border)' }}>
+        <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', marginRight: '4px' }}>Voice:</span>
+        {[
+          { key: 'mentor', label: 'Mentor', desc: 'Conversational' },
+          { key: 'academic', label: 'Academic', desc: 'Theoretical' },
+        ].map(({ key, label, desc }) => {
+          const active = tone === key
+          const available = key === 'mentor' || hasAcademic
+          return (
+            <button
+              key={key}
+              onClick={() => available && switchTone(key)}
+              title={!available ? 'Academic voice coming soon for this lesson' : desc}
+              style={{
+                padding: '6px 14px', borderRadius: '6px', fontSize: '12px', fontWeight: active ? '600' : '400',
+                fontFamily: 'var(--font-mono)', cursor: available ? 'pointer' : 'not-allowed',
+                border: active ? '1.5px solid var(--green)' : '1.5px solid var(--border)',
+                background: active ? 'var(--green-pale)' : 'transparent',
+                color: active ? 'var(--green)' : available ? 'var(--text-mid)' : 'var(--text-soft)',
+                opacity: available ? 1 : 0.45,
+                transition: 'all 0.15s',
+              }}
+            >
+              {label}
+              {!available && <span style={{ marginLeft: '5px', fontSize: '10px' }}>soon</span>}
+            </button>
+          )
+        })}
+        {tone === 'academic' && hasAcademic && (
+          <span style={{ fontSize: '11px', color: 'var(--text-soft)', marginLeft: '4px', fontStyle: 'italic' }}>
+            Theoretical framework mode
+          </span>
+        )}
+      </div>
+
       <div className="fade-up fade-up-delay-1">
-        {renderBody(lesson.body)}
+        {renderBody(activeBody)}
       </div>
 
       {/* Prev / Next */}
