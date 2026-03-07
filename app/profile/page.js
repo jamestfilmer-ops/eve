@@ -1,11 +1,14 @@
 'use client'
+export const dynamic = 'force-dynamic'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { supabase } from '../../lib/supabase'
 import { useRouter } from 'next/navigation'
+import { useToast } from '../components/Toast'
 
 export default function ProfilePage() {
   const router = useRouter()
+  const toast  = useToast()
   const [user, setUser] = useState(null)
   const [profile, setProfile] = useState(null)
   const [stats, setStats] = useState({ projects: 0, ideas: 0, scenes: 0, characters: 0 })
@@ -56,8 +59,10 @@ export default function ProfilePage() {
       .upsert({ id: user.id, full_name: form.name, bio: form.bio, updated_at: new Date().toISOString() })
     if (error) {
       setError(error.message)
+      toast.error('Could not save profile.')
     } else {
       setEditing(false)
+      toast.success('Profile saved.')
     }
     setSaving(false)
   }

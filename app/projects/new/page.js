@@ -1,7 +1,9 @@
 'use client'
+export const dynamic = 'force-dynamic'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '../../../lib/supabase'
+import { useToast } from '../../components/Toast'
 
 // SVG icons — no emoji
 const FrameworkIcon = ({ id, size = 22 }) => {
@@ -89,6 +91,7 @@ export default function NewProject() {
     const { data: { user }, error: authErr } = await supabase.auth.getUser()
     if (authErr || !user) {
       setSaveErr('You need to be signed in to create a project.')
+      toast.error('Sign in to create a project.')
       setSaving(false)
       return
     }
@@ -109,11 +112,12 @@ export default function NewProject() {
 
     if (error) {
       setSaveErr('Something went wrong saving your project. Try again.')
+      toast.error('Could not create project.')
       setSaving(false)
       return
     }
 
-    // Redirect to the real new project page
+    toast.success('Project created.')
     router.push(`/projects/${data.id}`)
   }
 
