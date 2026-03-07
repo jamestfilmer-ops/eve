@@ -14,34 +14,36 @@ export default function RootLayout({ children }) {
         <Nav />
         <main>{children}</main>
         <ConsentBanner />
-        {/* Global scroll-reveal observer */}
+
+        {/* Global scroll-reveal observer — handles .reveal, .reveal-left, .reveal-scale, .section-fade */}
         <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
-            function initReveal() {
-              var els = document.querySelectorAll('.reveal, .section-fade');
-              if (!els.length) return;
-              var io = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    io.unobserve(entry.target);
-                  }
-                });
-              }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-              els.forEach(function(el) { io.observe(el); });
-            }
-            if (document.readyState === 'loading') {
-              document.addEventListener('DOMContentLoaded', initReveal);
-            } else {
-              initReveal();
-            }
-            // Re-run on soft nav (Next.js)
-            var _pushState = history.pushState;
-            history.pushState = function() {
-              _pushState.apply(history, arguments);
-              setTimeout(initReveal, 100);
-            };
-          })();
+(function() {
+  function initReveal() {
+    var els = document.querySelectorAll(
+      '.reveal, .reveal-left, .reveal-scale, .section-fade'
+    );
+    if (!els.length) return;
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -48px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+  var _push = history.pushState;
+  history.pushState = function() {
+    _push.apply(history, arguments);
+    setTimeout(initReveal, 80);
+  };
+})();
         ` }} />
       </body>
     </html>
