@@ -25,13 +25,30 @@ const FrameworkIcon = ({ id, size = 22 }) => {
       <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
     </svg>
   )
+  if (id === 'sequence-approach') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+      <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+    </svg>
+  )
+  if (id === 'kishotenketsu') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+      <path d="M12 8v8M8 12h8"/>
+    </svg>
+  )
+  if (id === 'fichtean') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="2 20 6 12 10 16 14 6 18 10 22 2"/>
+    </svg>
+  )
+  // default
   return (
     <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 20h9"/>
       <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
     </svg>
   )
-}
 
 const frameworks = [
   {
@@ -69,6 +86,33 @@ const frameworks = [
     description: 'No imposed structure. You capture scenes, characters, and themes as they come. Eve organizes and tracks — the shape of the story is entirely yours.',
     beats: [],
     tip: 'Freeform doesn\'t mean unstructured — it means the structure comes from the story, not the other way around. Track your scenes and the pattern will emerge.',
+  },
+  {
+    id: 'sequence-approach',
+    name: 'Sequence Approach',
+    author: 'Frank Daniel',
+    acts: '3 Acts · 8 Sequences',
+    description: 'Divide your screenplay into eight sequences of roughly 12–15 pages each. Each sequence is a mini-film with its own tension and resolution. Solves the second act problem.',
+    beats: ['Sequence 1 (pp. 1–15)', 'Sequence 2 (pp. 15–30)', 'Sequence 3 (pp. 30–45)', 'Sequence 4 (pp. 45–60)', 'Sequence 5 (pp. 60–75)', 'Sequence 6 (pp. 75–90)', 'Sequence 7 (pp. 90–105)', 'Sequence 8 (pp. 105–120)'],
+    tip: 'Give each sequence its own question — a specific dramatic problem that opens and closes the sequence. The feature\'s central question stays open; the sequence questions are the stations along the way.',
+  },
+  {
+    id: 'kishotenketsu',
+    name: 'Kishōtenketsu',
+    author: 'Classical East Asian',
+    acts: '4 Movements · No conflict',
+    description: 'A four-movement structure with no antagonist. Story organized around surprise and revelation: introduce two seemingly unrelated threads, then bring them into unexpected contact.',
+    beats: ['Ki — Introduction', 'Shō — Development', 'Ten — The Twist', 'Ketsu — Reconciliation'],
+    tip: 'The Ten (twist) is not a deception revealed — it is a connection discovered. The audience sees a relationship between things they did not know were related. Design the Ten first, then work backward.',
+  },
+  {
+    id: 'fichtean',
+    name: 'Fichtean Curve',
+    author: 'Janet Burroway',
+    acts: 'Crisis-first · Escalating',
+    description: 'Open in crisis. Skip the setup. Weave backstory in through pressure and revelation. Each crisis should be worse than the last — they converge in a climax, then end swiftly.',
+    beats: ['Opening Crisis', 'Crisis 1 (escalating)', 'Crisis 2 (escalating)', 'Crisis 3 (optional)', 'Climax — all crises converge', 'Brief Resolution'],
+    tip: 'Backstory is a reward, not setup. The audience earns the right to understand your character\'s history by first caring what happens to them. Plant the crisis. Then give them the why.',
   },
 ]
 

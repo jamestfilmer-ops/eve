@@ -50,11 +50,40 @@ const sessionChecklist = {
   ],
 }
 
+  'sequence-approach': [
+    { id: 'seq-1', section: 'Act 1',   label: 'Sequence 1 — Establish & incite',    question: 'What is your sequence question for pp. 1–15? What specific problem opens, and what event closes this sequence?', tip: 'Establish the world and protagonist, then land the inciting incident. The sequence question: "Will the protagonist respond to this disruption?"' },
+    { id: 'seq-2', section: 'Act 1',   label: 'Sequence 2 — Decision & threshold',  question: 'What is your sequence question for pp. 15–30? What decision does the protagonist make that cannot be unmade?',     tip: 'This sequence ends at the Act 1 break. The question closes with the protagonist actively choosing to enter Act 2.' },
+    { id: 'seq-3', section: 'Act 2A',  label: 'Sequence 3 — New world, old methods',question: 'What is your sequence question for pp. 30–45? How does the protagonist try to solve the problem — and why does their approach fail?', tip: 'Old tools meet new problems. The protagonist tries what worked before. It doesn\'t work. The sequence ends in setback.' },
+    { id: 'seq-4', section: 'Act 2A',  label: 'Sequence 4 — Progress & midpoint',   question: 'What is your sequence question for pp. 45–60? What partial success or false victory leads to the midpoint?',       tip: 'The protagonist adapts and makes real progress. The midpoint closes this sequence — a false victory (things look great, then reverse) or false defeat (things look terrible, then rally).' },
+    { id: 'seq-5', section: 'Act 2B',  label: 'Sequence 5 — Reversal & escalation', question: 'What is your sequence question for pp. 60–75? How does the midpoint reversal compound — what does the protagonist lose?', tip: 'The midpoint\'s consequences arrive. Resources, allies, or advantages are stripped away. The protagonist is more vulnerable than before.' },
+    { id: 'seq-6', section: 'Act 2B',  label: 'Sequence 6 — All Is Lost & choice',  question: 'What is your sequence question for pp. 75–90? What is the protagonist\'s lowest point, and what fundamental choice must they make?', tip: 'The All Is Lost beat lives here. Something dies. The protagonist must choose who they are going to be before Act 3 can begin.' },
+    { id: 'seq-7', section: 'Act 3',   label: 'Sequence 7 — Climax begins',         question: 'What is your sequence question for pp. 90–105? How does the protagonist act on their Act 2 choice, and what is the final confrontation?', tip: 'The protagonist moves with new conviction. The final conflict begins. This sequence ends as the climax reaches its peak.' },
+    { id: 'seq-8', section: 'Act 3',   label: 'Sequence 8 — Resolution',            question: 'What is your sequence question for pp. 105–120? How does the climax resolve, and what is the final state of the world?', tip: 'The climax breaks. The protagonist demonstrates their transformation. Close with an image that mirrors — or inverts — your opening.' },
+  ],
+  'kishotenketsu': [
+    { id: 'ki',     section: 'Ki — 起',    label: 'Introduction: establish the world',     question: 'What world, characters, and situation are you establishing? What does the audience need to fully inhabit this reality?', tip: 'Ki is not setup — it is immersion. The goal is to make the audience completely at home in a specific, clearly defined world. Resist the urge to introduce conflict.' },
+    { id: 'sho',    section: 'Shō — 承',   label: 'Development: introduce the second thread', question: 'What second element — character, situation, or idea — seems unrelated to the first? How do you develop both threads naturally?', tip: 'The second thread should feel genuinely separate. Don\'t hint at connection too early. The audience should have no reason to suspect these threads will meet.' },
+    { id: 'ten',    section: 'Ten — 転',   label: 'Twist: the unexpected connection',       question: 'What is your Ten — the pivot that brings your two threads into surprising contact? What does the audience now see that they could not before?', tip: 'The Ten is not a deception revealed — it is a connection discovered. The audience isn\'t fooled and corrected; they are shown something true that they couldn\'t have seen from where they were standing.' },
+    { id: 'ketsu',  section: 'Ketsu — 結', label: 'Reconciliation: a new understanding',    question: 'How does the world settle into its new configuration? What has the audience understood that they could not have understood at the start?', tip: 'The resolution absorbs the tension of the Ten rather than resolving it through victory or defeat. The world is not fixed — it is seen differently.' },
+  ],
+  'fichtean': [
+    { id: 'opening-crisis',  section: 'Opening',         label: 'Opening crisis — begin in the middle', question: 'What crisis does the story open with? What decision or problem drops the audience immediately into action?', tip: 'Do not set up. Drop in. The audience will catch up — and catching up keeps them engaged. The opening crisis should be specific and consequential.' },
+    { id: 'crisis-1',        section: 'Rising Action',   label: 'First escalating crisis',               question: 'What is the first crisis after the opening? What does it cost the protagonist — and what backstory does it reveal?', tip: 'Each crisis should be worse than the last. Ask: what does this crisis force the protagonist to do? What does that action reveal about their history?' },
+    { id: 'crisis-2',        section: 'Rising Action',   label: 'Second escalating crisis',              question: 'What is the second crisis? How does it compound the first — and what new pressure does it add?',              tip: 'Crises should feel like a tightening spiral, not a list. Each one should make the previous one worse in retrospect.' },
+    { id: 'crisis-3',        section: 'Rising Action',   label: 'Third escalating crisis (optional)',    question: 'Is there a third crisis before the climax? What final piece of backstory does it unlock?',                   tip: 'Not every Fichtean structure needs a third pre-climax crisis. Use it if the story needs more rope or if there is essential backstory that has not yet been earned.' },
+    { id: 'climax',          section: 'Climax',          label: 'Climax — all crises converge',          question: 'How do all previous crises converge into a single overwhelming confrontation? What is the protagonist forced to face?', tip: 'The climax is not a new event — it is the sum of everything that came before arriving at once. It should feel inevitable in retrospect.' },
+    { id: 'resolution',      section: 'Resolution',      label: 'Brief resolution',                      question: 'How does the story end — quickly? What is the single final beat that closes the curve?',                    tip: 'Keep the resolution short. The Fichtean Curve does not reward long denouements. Once the climax breaks, end swiftly. What matters has already happened.' },
+  ],
+}
+
 const frameworkLabel = {
-  'save-the-cat':  'Save the Cat',
-  'heros-journey': "Hero's Journey",
-  'story-circle':  'Story Circle',
-  'freeform':      'Freeform',
+  'save-the-cat':       'Save the Cat',
+  'heros-journey':      "Hero's Journey",
+  'story-circle':       'Story Circle',
+  'freeform':           'Freeform',
+  'sequence-approach':  'Sequence Approach',
+  'kishotenketsu':      'Kishōtenketsu',
+  'fichtean':           'Fichtean Curve',
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────

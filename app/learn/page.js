@@ -105,6 +105,57 @@ const lessons = [
       },
     ],
   },
+  {
+    category: 'Visual',
+    items: [
+      {
+        title: 'Color as a storytelling tool',
+        slug: 'color-psychology',
+        time: '7 min',
+        preview: 'Color is not decoration. In the hands of a deliberate filmmaker, it is a language that works on the viewer before a word of dialogue is spoken.',
+      },
+    ],
+  },
+  {
+    category: 'Craft',
+    items: [
+      {
+        title: 'The Tarantino method: pop culture, specificity, and character',
+        slug: 'tarantino-dialogue',
+        time: '7 min',
+        preview: 'Tarantino is the most imitated screenwriter of thirty years. Most imitators miss the point. Every digression works twice: once on the surface, once underneath.',
+      },
+      {
+        title: 'How The Sopranos builds dread',
+        slug: 'sopranos-drama',
+        time: '8 min',
+        preview: 'The show is not about violence — it is about the domestication of it. Dread is not created by showing terrible things. It is the gap between violence and the mundane.',
+      },
+    ],
+  },
+  {
+    category: 'Frameworks',
+    items: [
+      {
+        title: 'The Sequence Approach',
+        slug: 'sequence-approach',
+        time: '8 min',
+        preview: 'Divide your screenplay into eight sequences of fifteen pages each. Solve eight miniature problems instead of one enormous one.',
+      },
+      {
+        title: 'Kishōtenketsu: four acts without conflict',
+        slug: 'kishotenketsu',
+        time: '7 min',
+        preview: 'A classical East Asian structure with no antagonist and no obstacle. Story organized around surprise and revelation rather than conflict and resolution.',
+      },
+      {
+        title: 'The Fichtean Curve: crisis first',
+        slug: 'fichtean-curve',
+        time: '6 min',
+        preview: 'Open in crisis. Weave backstory in through pressure. The audience earns the right to understand your character by first caring what happens to them.',
+      },
+    ],
+  },
 ]
 
 const readingList = [
@@ -127,6 +178,17 @@ const writtenSlugs = [
   'antagonist',
   'dialogue-subtext',
   'theme',
+  'subtext',
+  'arguments',
+  'secondary-characters',
+  'plant-payoff',
+  'motifs',
+  'color-psychology',
+  'tarantino-dialogue',
+  'sopranos-drama',
+  'sequence-approach',
+  'kishotenketsu',
+  'fichtean-curve',
 ]
 
 export default function LearnPage() {
