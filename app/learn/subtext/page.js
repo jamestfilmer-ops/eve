@@ -33,7 +33,7 @@ export default function LessonSubtext() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Why characters don&apos;t say what they mean</h2>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Real people almost never say exactly what they feel. They deflect, hedge, pivot, overexplain, go quiet. They talk about the weather when they mean they&apos;te lonely. They say &ldquo;I&apos;m fine&rdquo; when they mean &ldquo;I need you to ask again.&rdquo; They say &ldquo;you should go&rdquo; when they mean &ldquo;please stay.&rdquo;
+          Real people almost never say exactly what they feel. They deflect, hedge, pivot, overexplain, go quiet. They talk about the weather when they mean they&apos;re lonely. They say &ldquo;I&apos;m fine&rdquo; when they mean &ldquo;I need you to ask again.&rdquo; They say &ldquo;you should go&rdquo; when they mean &ldquo;please stay.&rdquo;
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -98,13 +98,17 @@ export default function LessonSubtext() {
 
         <div style={{ background: 'var(--off-white)', borderRadius: '10px', padding: '22px', marginBottom: '36px' }}>
           <h3 style={{ fontSize: '16px', marginBottom: '12px' }}>Exercise</h3>
-          <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75', marginBottom: '12px' }}>Write a two-person scene with these constraints:</p>
+          <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75', marginBottom: '12px' }}>
+            Write a two-person scene with these constraints:
+          </p>
           <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>One character wants something from the other and cannot ask for it directly.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>The scene must be about something else entirely — a mundane task, a practical problem, a change of plans.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>The real want must never be named. But it must be felt by the end of the scene.</li>
           </ol>
-          <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75', marginTop: '12px' }}>If a reader can identify what the character actually wanted without you telling them, the subtext is working.</p>
+          <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75', marginTop: '12px' }}>
+            If a reader can identify what the character actually wanted without you telling them, the subtext is working.
+          </p>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', paddingTop: '20px', borderTop: '1px solid var(--border)' }}>
