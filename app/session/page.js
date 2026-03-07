@@ -1,6 +1,6 @@
 'use client'
 export const dynamic = 'force-dynamic'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
@@ -59,7 +59,7 @@ const frameworkLabel = {
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 
-export default function Session() {
+function SessionInner() {
   const router       = useRouter()
   const searchParams = useSearchParams()
   const toast        = useToast()
@@ -391,5 +391,21 @@ export default function Session() {
       )}
 
     </div>
+  )
+}
+
+export default function Session() {
+  return (
+    <Suspense fallback={
+      <div style={{ maxWidth: '720px', margin: '0 auto', padding: '48px 24px' }}>
+        <div className="skeleton" style={{ height: '28px', width: '200px', borderRadius: '6px', marginBottom: '8px' }} />
+        <div className="skeleton" style={{ height: '16px', width: '300px', borderRadius: '4px', marginBottom: '40px' }} />
+        {[0,1,2,3].map(i => (
+          <div key={i} className="skeleton" style={{ height: '72px', borderRadius: '10px', marginBottom: '12px' }} />
+        ))}
+      </div>
+    }>
+      <SessionInner />
+    </Suspense>
   )
 }
