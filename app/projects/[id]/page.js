@@ -1,8 +1,10 @@
 'use client'
+export const dynamic = 'force-dynamic'
 import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '../../../lib/supabase'
+import { useToast } from '../../components/Toast'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -49,6 +51,7 @@ export default function ProjectPage() {
   const params  = useParams()
   const router  = useRouter()
   const id      = params.id
+  const toast   = useToast()
 
   const [tab,        setTab]        = useState('Overview')
   const [project,    setProject]    = useState(null)
@@ -75,6 +78,10 @@ export default function ProjectPage() {
       setLoading(false)
       return
     }
+    // surface any partial errors
+    if (charRes.error)  console.error('characters:', charRes.error)
+    if (sceneRes.error) console.error('scenes:', sceneRes.error)
+    if (holeRes.error)  console.error('plot holes:', holeRes.error)
 
     setProject(projRes.data)
     setCharacters(charRes.data || [])
@@ -181,9 +188,9 @@ export default function ProjectPage() {
       {/* ── Tab content ── */}
       <div className="fade-up fade-up-delay-2">
         {tab === 'Overview'    && <OverviewTab    project={project} characters={characters} scenes={scenes} plotHoles={plotHoles} onUpdate={updateProject} />}
-        {tab === 'Characters'  && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} />}
-        {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} />}
-        {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} />}
+        {tab === 'Characters'  && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
+        {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
+        {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
       </div>
     </div>
   )
@@ -306,7 +313,7 @@ function LoglineEditor({ project, onUpdate }) {
 
 // ─── Characters Tab ────────────────────────────────────────────────────────────
 
-function CharactersTab({ projectId, characters, setCharacters }) {
+function CharactersTab({ projectId, characters, setCharacters, toast }) {
   const [expanded, setExpanded] = useState(null)
   const [adding,   setAdding]   = useState(false)
   const [form,     setForm]     = useState({ name: '', role: '', want: '', need: '', ghost: '', arc: '' })
@@ -323,6 +330,9 @@ function CharactersTab({ projectId, characters, setCharacters }) {
       setCharacters(prev => [...prev, data])
       setForm({ name: '', role: '', want: '', need: '', ghost: '', arc: '' })
       setAdding(false)
+      toast.success('Character added.')
+    } else {
+      toast.error('Could not add character.')
     }
     setSaving(false)
   }
@@ -333,9 +343,11 @@ function CharactersTab({ projectId, characters, setCharacters }) {
   }
 
   async function deleteCharacter(charId) {
-    await supabase.from('characters').delete().eq('id', charId)
+    const { error } = await supabase.from('characters').delete().eq('id', charId)
+    if (error) { toast.error('Could not delete character.'); return }
     setCharacters(prev => prev.filter(c => c.id !== charId))
     if (expanded === charId) setExpanded(null)
+    toast.success('Character deleted.')
   }
 
   return (
@@ -501,7 +513,7 @@ function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
 
 // ─── Scenes Tab ────────────────────────────────────────────────────────────────
 
-function ScenesTab({ projectId, scenes, setScenes, framework }) {
+function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
   const [adding,  setAdding]  = useState(false)
   const [form,    setForm]    = useState({ title: '', act_number: 1, beat_label: '', notes: '' })
   const [saving,  setSaving]  = useState(false)
@@ -524,6 +536,9 @@ function ScenesTab({ projectId, scenes, setScenes, framework }) {
       setScenes(prev => [...prev, data])
       setForm({ title: '', act_number: form.act_number, beat_label: '', notes: '' })
       setAdding(false)
+      toast.success('Scene added.')
+    } else {
+      toast.error('Could not add scene.')
     }
     setSaving(false)
   }
@@ -697,7 +712,7 @@ function SceneRow({ scene, onUpdate, onDelete }) {
 
 // ─── Plot Holes Tab ────────────────────────────────────────────────────────────
 
-function PlotHolesTab({ projectId, plotHoles, setPlotHoles }) {
+function PlotHolesTab({ projectId, plotHoles, setPlotHoles, toast }) {
   const [adding,  setAdding]  = useState(false)
   const [form,    setForm]    = useState({ description: '', severity: 'medium' })
   const [saving,  setSaving]  = useState(false)
@@ -716,6 +731,9 @@ function PlotHolesTab({ projectId, plotHoles, setPlotHoles }) {
       setPlotHoles(prev => [...prev, data])
       setForm({ description: '', severity: 'medium' })
       setAdding(false)
+      toast.success('Plot hole flagged.')
+    } else {
+      toast.error('Could not save plot hole.')
     }
     setSaving(false)
   }
@@ -727,8 +745,10 @@ function PlotHolesTab({ projectId, plotHoles, setPlotHoles }) {
   }
 
   async function deleteHole(holeId) {
-    await supabase.from('plot_holes').delete().eq('id', holeId)
+    const { error } = await supabase.from('plot_holes').delete().eq('id', holeId)
+    if (error) { toast.error('Could not delete plot hole.'); return }
     setPlotHoles(prev => prev.filter(h => h.id !== holeId))
+    toast.success('Plot hole removed.')
   }
 
   return (
