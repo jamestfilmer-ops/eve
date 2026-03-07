@@ -312,6 +312,125 @@ const lessons = {
       { type: 'tip', text: "Take your two most important characters. Write the one thing each of them has never said to the other — and needs to. Now ask: does your story create the conditions where that thing might finally be said? If not, consider building toward that moment." },
     ],
   },
+
+  'enter-late-leave-early': {
+    title: "Enter late, leave early",
+    category: "Scene Craft",
+    time: "3 min",
+    body: [
+      { type: 'p', text: "Most scenes have a beginning they do not need and an ending that goes on too long. The real scene — the part that matters — is somewhere in the middle, waiting for you to cut away everything around it." },
+      { type: 'rule', text: "Enter the scene at the last possible moment. Leave at the first possible moment." },
+      { type: 'p', text: "Think about how a conversation actually starts. There is small talk. There is throat-clearing. There is two people finding their footing before they say the thing they actually came to say. You do not need any of that. Start at the thing." },
+      { type: 'h3', text: "What 'enter late' looks like" },
+      { type: 'p', text: "Two characters need to have a confrontation about a betrayal. Most beginning writers open the scene with one character arriving, knocking on the door, small talk, eventually getting to the point. Enter late means you open on the confrontation already underway — 'How long have you known?' — and let the audience catch up." },
+      { type: 'p', text: "The audience is smarter than you think. They do not need the setup. They will assemble context from what is said in the heat of the scene. What feels like missing information is often just tension." },
+      { type: 'h3', text: "What 'leave early' looks like" },
+      { type: 'p', text: "Once the dramatic moment has landed — the revelation, the decision, the break — end the scene. Do not let characters process it on screen. Do not resolve the emotional tension before the cut. Leave on the wound while it is still fresh, and let the next scene carry the aftermath." },
+      { type: 'p', text: "The scene ending is a promise about what comes next. If you let characters wrap things up neatly before the cut, you have released all the tension you built. Cut while the air is still charged." },
+      { type: 'h3', text: "The exercise" },
+      { type: 'list', items: [
+        "Take a scene you have already written.",
+        "Find the first line where something real is at stake.",
+        "Delete everything before it.",
+        "Find the last line where something real happens.",
+        "Delete everything after it.",
+        "Read what remains."
+      ]},
+      { type: 'p', text: "What you will find, most of the time, is a tighter, more alive scene — and nothing important has been lost." },
+      { type: 'tip', text: "Go through your script and mark the first line in each scene where genuine conflict or meaningful information appears. If it is not the first line — consider whether the scene needs everything before it." },
+    ],
+  },
+
+  'scene-turn': {
+    title: "The scene turn",
+    category: "Scene Craft",
+    time: "4 min",
+    body: [
+      { type: 'p', text: "A scene that ends the same way it started is not a scene. It is a photograph. Something must change — in power, in knowledge, in relationship, in the audience's understanding — before the last line." },
+      { type: 'rule', text: "Every scene needs a turn. Not a conclusion. A turn." },
+      { type: 'p', text: "A turn is the moment a scene shifts direction. The protagonist comes in wanting one thing and leaves with something different — either they got it and that turns out to be complicated, or they did not get it and something else happened instead, or they got something they did not ask for." },
+      { type: 'h3', text: "The turn is not the resolution" },
+      { type: 'p', text: "Beginning writers often confuse the scene turn with resolution. Resolution settles things. A turn unsettles them. Resolution lowers the stakes. A turn — even a positive one — raises them." },
+      { type: 'p', text: "In Chinatown, almost every scene ends with Jake Gittes knowing less than he thought he knew. He comes into scenes with information and leaves with questions. That is a consistent scene turn: the protagonist's certainty is undermined. It creates relentless forward momentum — because the audience needs to know what is actually true." },
+      { type: 'h3', text: "Three types of scene turn" },
+      { type: 'list', items: [
+        "Reversal: what the protagonist expected to happen is reversed. They thought they were safe — they are not. They thought they had lost — they have not.",
+        "Revelation: new information changes the meaning of everything that came before it. The audience, or the character, or both, now understand something they did not.",
+        "Decision: the character is forced to choose, and the choice has immediate consequences. The turn is in the choosing — not in what happens next.",
+      ]},
+      { type: 'h3', text: "The value shift" },
+      { type: 'p', text: "Story consultant Robert McKee talks about the 'value shift' in a scene — the movement from one emotional or situational pole to its opposite, or somewhere toward its opposite. A scene begins with hope and ends with doubt. Or begins in safety and ends in danger. Map the value at the start of your scene and the value at the end. If they are the same, the scene has not turned." },
+      { type: 'tip', text: "For every scene in your script, write two words: the emotional value at the start, and the emotional value at the end. (Safe / Threatened. Confident / Shaken. Apart / Connected.) If the words are the same — or close — the scene may not be earning its place." },
+    ],
+  },
+
+  'tension-without-action': {
+    title: "Writing tension without action",
+    category: "Scene Craft",
+    time: "4 min",
+    body: [
+      { type: 'p', text: "Beginning writers often mistake movement for tension. Chase scenes, fights, explosions — these feel tense because something is happening. But the most suffocating tension in cinema is almost always still. Two people at a dinner table. A character walking down a hallway and not finding what they expected. Silence that goes on a beat too long." },
+      { type: 'rule', text: "Tension is not what is happening. It is the gap between what could happen and what the audience is afraid will." },
+      { type: 'h3', text: "The three sources of tension" },
+      { type: 'list', items: [
+        "Information asymmetry: the audience knows something a character does not — or a character knows something the audience does not yet understand. Either gap creates unbearable suspense.",
+        "Unspoken stakes: two characters are having a conversation that appears ordinary, but we know — or sense — that something important is on the line. The stakes are submerged. That pressure is tension.",
+        "Deferred inevitability: we know something is coming. The tension is in the waiting. Hitchcock's bomb under the table. The tension is not the explosion — it is the six minutes before it.",
+      ]},
+      { type: 'h3', text: "What Hitchcock understood" },
+      { type: 'p', text: "Hitchcock made the distinction between surprise and suspense. Surprise is: two characters talk at a table, a bomb goes off, the audience is shocked — fifteen seconds of emotion. Suspense is: two characters talk at a table, but we have seen the bomb under it — and they have not — and for six minutes we watch them talk about baseball, unable to do anything." },
+      { type: 'p', text: "Suspense requires the audience to have more information than the character, or to understand the implications of information the character does not yet grasp. That asymmetry is the engine of tension." },
+      { type: 'h3', text: "Tension in dialogue" },
+      { type: 'p', text: "Two people having a conversation where both want different things, and both know it, and neither will say it directly — that is tension. The subtext is doing the work. What is not being said is louder than what is. The scene is about one thing on the surface and something else entirely underneath. That gap is where the tension lives." },
+      { type: 'tip', text: "Find a scene in your script that feels flat. Ask: what does the audience know that at least one character does not? If the answer is nothing, you may be missing the source of tension. Consider what information, if given to the audience early — in a previous scene — would make this scene unbearable to watch." },
+    ],
+  },
+
+  'location-as-character': {
+    title: "The location is never just a location",
+    category: "Scene Craft",
+    time: "3 min",
+    body: [
+      { type: 'p', text: "Where a scene happens is not a backdrop. It is an argument. The best locations externalize something that is happening internally — in the character, in the relationship, in the story's emotional temperature." },
+      { type: 'rule', text: "Every location choice is a statement about the scene before anyone speaks." },
+      { type: 'p', text: "Think about what it means to set a confrontation scene in a hospital waiting room versus a boxing ring. The content of the confrontation might be identical. But the hospital implies fragility, impermanence, the presence of death. The boxing ring implies combat as spectacle, performance, a fight that has rules. Location is the frame through which we read everything inside it." },
+      { type: 'h3', text: "What location can do" },
+      { type: 'list', items: [
+        "It can externalize interior state. A character falling apart lives in a cluttered, broken-down apartment. A character who is repressing everything lives in a space that is controlled to the point of emptiness.",
+        "It can create contrast. A tender conversation in a violent environment. A brutal confrontation in a beautiful one. The mismatch between setting and content is itself information.",
+        "It can restrict action. A scene in a car, a small room, or a crowded public space forces characters into proximity they would otherwise avoid. Constraint creates pressure.",
+        "It can carry thematic weight. A story about gentrification set in a neighborhood mid-demolition. A story about family legacy set in the family home. The location becomes a symbol without the script ever announcing it.",
+      ]},
+      { type: 'h3', text: "The practical test" },
+      { type: 'p', text: "For every scene you write, ask: why here? Could this scene happen anywhere? If yes — if the location is interchangeable — then you are missing an opportunity. A scene that could happen anywhere usually feels like it happens nowhere." },
+      { type: 'p', text: "The best locations are specific. Not 'a bar' — this bar, with these details, this light, this noise level, this clientele. Specificity is what makes a location feel real. And a location that feels real becomes a presence in the scene — a character that does not speak but shapes everything." },
+      { type: 'tip', text: "Take a scene you have written and ask: what does this location say about this scene before anyone talks? If the answer is 'nothing,' try rewriting the scene in three different locations and see how each one changes what the scene is about." },
+    ],
+  },
+
+  'scene-endings': {
+    title: "How to end a scene so the next one cannot wait",
+    category: "Scene Craft",
+    time: "4 min",
+    body: [
+      { type: 'p', text: "Every scene ending is a bet. You are betting that the audience will stay — that what you have left them with is interesting enough, unresolved enough, urgent enough to keep them watching. Most scenes lose this bet by resolving too much." },
+      { type: 'rule', text: "End scenes on energy, not on closure." },
+      { type: 'h3', text: "The two traps" },
+      { type: 'p', text: "The first trap is the scene that ends when it is done. The characters have said what needed to be said, the situation is settled, there is a natural stopping point — and that is where the scene ends. This is the right instinct for real conversations and the wrong instinct for scenes. Endings that feel complete release tension. You want endings that hold tension forward." },
+      { type: 'p', text: "The second trap is the scene that ends with a character's reaction rather than an action. A character hears something and looks worried. The scene ends on their face. This is not inherently wrong — but it is passive. An ending on an action, a decision, a line of dialogue that opens a new question — these are almost always more alive." },
+      { type: 'h3', text: "What good scene endings do" },
+      { type: 'list', items: [
+        "They leave something unresolved — not vague, but specifically unresolved. The audience knows what question is open. They want the answer.",
+        "They create a consequence that must be dealt with in the next scene. The ending is a setup for what follows.",
+        "They change something. Not gradually — decisively. A door closes. A decision is made. A line is said that cannot be unsaid.",
+        "They end on a specific image, action, or line that lingers. Not a summary. Not a conclusion. Something that the brain keeps turning over.",
+      ]},
+      { type: 'h3', text: "Scene-to-scene momentum" },
+      { type: 'p', text: "The best scripts have a scene-to-scene logic that feels inevitable. Each scene creates a condition — a new problem, a new question, a shift in power — that the next scene must address. This is not the same as plot mechanics. It is about emotional urgency. The audience follows because they need to know how the next scene responds to the conditions the last scene created." },
+      { type: 'p', text: "A useful test: after every scene, ask 'and then?' If the answer feels arbitrary — if the next scene could be almost anything — the scene has not ended with enough forward pressure. You want the ending of every scene to make the next scene feel necessary." },
+      { type: 'tip', text: "Go through your last five scene endings. For each one, write: what question does this ending leave open? If you cannot name the open question in one sentence, the scene may be closing too much." },
+    ],
+  },
 }
 
 function renderBody(body) {
