@@ -52,6 +52,257 @@ const pillars = [
   },
 ]
 
+
+// ─── Pricing Section ───────────────────────────────────────────────────────────
+
+// ─── Pricing Section (used on homepage) ───────────────────────────────────────
+
+function PricingSection() {
+  return (
+    <section style={{ background: 'var(--white)', padding: '100px 24px', borderTop: '1px solid var(--border)' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+
+        {/* Header */}
+        <div className="fade-up" style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div className="badge" style={{ marginBottom: '14px', display: 'inline-flex' }}>Simple pricing</div>
+          <h2 style={{
+            fontFamily: 'Playfair Display, serif',
+            fontSize: 'clamp(30px, 4vw, 44px)',
+            fontWeight: '700',
+            color: 'var(--green)',
+            marginBottom: '16px',
+            lineHeight: '1.15',
+          }}>
+            Start free. Upgrade when you're ready.
+          </h2>
+          <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto', lineHeight: '1.75' }}>
+            Every writer gets the full craft library and their first story for free. No credit card. No pressure.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="fade-up fade-up-delay-1" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '24px',
+          alignItems: 'stretch',
+        }}>
+
+          {/* Free */}
+          <div style={{
+            background: '#fff',
+            border: '1px solid var(--border)',
+            borderRadius: '16px',
+            padding: '36px 32px',
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: 'var(--shadow-sm)',
+            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+          >
+            <div style={{ marginBottom: '28px' }}>
+              <span className="badge" style={{ marginBottom: '16px', display: 'inline-flex' }}>Free</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '8px' }}>
+                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: 1 }}>$0</span>
+                <span style={{ fontSize: '14px', color: 'var(--text-soft)' }}>/ forever</span>
+              </div>
+              <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6' }}>
+                Everything you need to start your first story — and learn the craft.
+              </p>
+            </div>
+
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              {[
+                '1 active project',
+                'Save the Cat framework',
+                'Full craft library (all lessons)',
+                'Glossary + reading list',
+                '25 saved ideas',
+                'Character builder',
+                'Scene tracker',
+                'Plot hole log',
+              ].map((f, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                    <circle cx="8" cy="8" r="7" stroke="var(--green-border)" strokeWidth="1.5" fill="var(--green-pale)" />
+                    <path d="M5 8l2 2 4-4" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span style={{ fontSize: '14px', color: 'var(--text-dark)', lineHeight: '1.5' }}>{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+              <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
+                Start free
+              </button>
+            </a>
+          </div>
+
+          {/* Studio — Middle tier */}
+          <div style={{
+            background: 'var(--off-white)',
+            border: '1px solid var(--green-border)',
+            borderRadius: '16px',
+            padding: '36px 32px',
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: '0 4px 16px rgba(45,80,22,0.12), 0 1px 4px rgba(45,80,22,0.08)',
+            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
+            position: 'relative',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(45,80,22,0.12), 0 1px 4px rgba(45,80,22,0.08)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+          >
+            {/* Popular badge */}
+            <div style={{
+              position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)',
+              background: 'var(--green)', color: '#fff',
+              fontSize: '11px', fontWeight: '700', letterSpacing: '0.06em', textTransform: 'uppercase',
+              padding: '4px 16px', borderRadius: '20px',
+              fontFamily: 'DM Mono, monospace',
+              whiteSpace: 'nowrap',
+            }}>Most popular</div>
+
+            <div style={{ marginBottom: '28px' }}>
+              <span className="badge badge-amber" style={{ marginBottom: '16px', display: 'inline-flex' }}>Studio</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
+                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: 'var(--green)', lineHeight: 1 }}>$4.99</span>
+                <span style={{ fontSize: '14px', color: 'var(--text-soft)' }}>/ month</span>
+              </div>
+              <p style={{ fontSize: '12px', color: 'var(--amber)', fontWeight: '600', marginBottom: '10px' }}>or $30 / year — save 50%</p>
+              <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6' }}>
+                For writers actively working on their stories. Unlimited projects and all frameworks.
+              </p>
+            </div>
+
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              {[
+                { text: 'Everything in Free', dim: true },
+                'Unlimited projects',
+                'All 7 frameworks',
+                'Unlimited saved ideas',
+                'Beat sheet auto-fill',
+                'PDF export',
+                'Timeline view',
+                'Themes Map canvas',
+              ].map((f, i) => {
+                const isDim = typeof f === 'object' && f.dim
+                const text = typeof f === 'object' ? f.text : f
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                      <circle cx="8" cy="8" r="7" fill="var(--green)" />
+                      <path d="M5 8l2 2 4-4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span style={{ fontSize: '14px', color: isDim ? 'var(--text-soft)' : 'var(--text-dark)', lineHeight: '1.5', fontStyle: isDim ? 'italic' : 'normal' }}>{text}</span>
+                  </div>
+                )
+              })}
+            </div>
+
+            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary" style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}>
+                Get Studio
+              </button>
+            </a>
+          </div>
+
+          {/* Pro */}
+          <div style={{
+            background: 'var(--green)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '16px',
+            padding: '36px 32px',
+            display: 'flex',
+            flexDirection: 'column',
+            boxShadow: 'var(--shadow-green)',
+            transition: 'box-shadow 0.28s ease, transform 0.28s ease',
+          }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 12px 48px rgba(45,80,22,0.38), 0 2px 8px rgba(45,80,22,0.22)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow-green)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+          >
+            <div style={{ marginBottom: '28px' }}>
+              <span style={{
+                display: 'inline-flex', marginBottom: '16px',
+                background: 'rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.9)',
+                border: '1px solid rgba(255,255,255,0.25)',
+                fontSize: '11px', fontWeight: '700', letterSpacing: '0.06em', textTransform: 'uppercase',
+                padding: '4px 10px', borderRadius: '4px',
+                fontFamily: 'DM Mono, monospace',
+              }}>Professional</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '4px' }}>
+                <span style={{ fontSize: '42px', fontWeight: '800', fontFamily: 'Playfair Display, serif', color: '#fff', lineHeight: 1 }}>$12</span>
+                <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)' }}>/ month</span>
+              </div>
+              <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', fontWeight: '600', marginBottom: '10px' }}>or $90 / year — save 37%</p>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.6' }}>
+                For professional screenwriters, writing coaches, and story consultants.
+              </p>
+            </div>
+
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '32px' }}>
+              {[
+                { text: 'Everything in Studio', dim: true },
+                'Priority support',
+                'Early access to new features',
+                'Multiple client projects',
+                'Collaboration (coming soon)',
+                'Usage analytics',
+                'Dedicated workspace',
+              ].map((f, i) => {
+                const isDim = typeof f === 'object' && f.dim
+                const text = typeof f === 'object' ? f.text : f
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, marginTop: '2px' }}>
+                      <circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.2)" />
+                      <path d="M5 8l2 2 4-4" stroke="rgba(255,255,255,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span style={{ fontSize: '14px', color: isDim ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.85)', lineHeight: '1.5', fontStyle: isDim ? 'italic' : 'normal' }}>{text}</span>
+                  </div>
+                )
+              })}
+            </div>
+
+            <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+              <button style={{
+                width: '100%', padding: '13px',
+                background: 'rgba(255,255,255,0.15)',
+                border: '1px solid rgba(255,255,255,0.3)',
+                borderRadius: '8px',
+                color: '#fff',
+                fontSize: '14px', fontWeight: '700',
+                cursor: 'pointer',
+                fontFamily: 'Source Sans 3, sans-serif',
+                letterSpacing: '0.01em',
+                transition: 'background 0.2s',
+              }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.22)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
+              >
+                Get Professional
+              </button>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Trust line */}
+        <div className="fade-up fade-up-delay-2" style={{ textAlign: 'center', marginTop: '40px' }}>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)', lineHeight: '1.7' }}>
+            No credit card required to start. Cancel Studio or Professional at any time.{` `}
+            <a href="/terms" style={{ color: 'var(--green)', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Terms apply.</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
 export default function Home() {
   return (
     <div style={{ background: 'var(--white)' }}>
@@ -283,82 +534,8 @@ export default function Home() {
       </section>
 
 
-      {/* Pricing teaser */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>
-            Start free. Upgrade when you're ready.
-          </h2>
-          <p style={{ fontSize: '16px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto', lineHeight: '1.75' }}>
-            Eve's core tools are free forever. Pro unlocks unlimited projects, all frameworks, and every feature we build.
-          </p>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', maxWidth: '760px', margin: '0 auto' }}>
-          {/* Free */}
-          <div className="card" style={{ padding: '32px' }}>
-            <p style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '0.08em', color: 'var(--text-soft)', textTransform: 'uppercase', marginBottom: '8px' }}>Free</p>
-            <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '32px', fontWeight: '700', color: 'var(--green)', marginBottom: '4px' }}>$0</p>
-            <p style={{ fontSize: '13px', color: 'var(--text-soft)', marginBottom: '24px' }}>Forever</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
-              {['1 project', 'Up to 10 scenes', 'All craft lessons', 'Idea bank (25 ideas)', 'Save the Cat session mode'].map((f, i) => (
-                <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--green-light)', flexShrink: 0 }} />
-                  <span style={{ fontSize: '14px', color: 'var(--text-mid)' }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button className="btn-ghost" style={{ width: '100%', justifyContent: 'center', padding: '10px' }}>
-                Get started free
-              </button>
-            </Link>
-          </div>
-
-          {/* Pro */}
-          <div style={{
-            background: 'var(--green)',
-            border: '1px solid var(--green)',
-            borderRadius: '12px',
-            padding: '32px',
-            position: 'relative',
-            boxShadow: '0 8px 32px rgba(45,80,22,0.18)',
-          }}>
-            <div style={{
-              position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)',
-              background: 'var(--green-light)', color: '#fff',
-              fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em',
-              padding: '4px 14px', borderRadius: '20px', textTransform: 'uppercase', whiteSpace: 'nowrap',
-            }}>Most popular</div>
-            <p style={{ fontSize: '12px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', marginBottom: '8px' }}>Pro</p>
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '4px' }}>
-              <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '32px', fontWeight: '700', color: '#fff' }}>$6.59</p>
-              <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)' }}>/mo</p>
-            </div>
-            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', marginBottom: '24px' }}>$79 billed annually</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
-              {['Unlimited projects', 'Unlimited scenes + characters', 'All 4 session frameworks', 'Plot hole tracker', 'Themes & motifs tracker', 'Timeline view (coming soon)', 'Priority support'].map((f, i) => (
-                <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                  <div style={{ width: '15px', height: '15px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ color: '#fff', fontSize: '9px' }}>&#10003;</span>
-                  </div>
-                  <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.9)' }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button style={{
-                width: '100%', background: '#fff', color: 'var(--green)',
-                border: 'none', borderRadius: '8px', padding: '10px',
-                fontSize: '14px', fontWeight: '700', cursor: 'pointer',
-                fontFamily: 'Source Sans 3, sans-serif',
-              }}>
-                Start free, upgrade anytime
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Pricing */}
+      <PricingSection />
 
       {/* CTA */}
       <section style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
@@ -413,6 +590,7 @@ export default function Home() {
               { href: '/projects', label: 'Projects' },
               { href: '/session', label: 'Session Mode' },
               { href: '/ideas', label: 'Idea Bank' },
+              { href: '/pricing', label: 'Pricing' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px', lineHeight: '1.5' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}

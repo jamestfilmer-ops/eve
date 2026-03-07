@@ -192,6 +192,7 @@ export default function Nav() {
             </div>
 
             <NavLink href="/profile" active={isActive('/profile')}>Profile</NavLink>
+            <NavLink href="/pricing" active={isActive('/pricing')}>Pricing</NavLink>
           </div>
 
           {/* ── Desktop right ── */}
@@ -205,6 +206,7 @@ export default function Nav() {
               </>
             ) : (
               <>
+                <NavLink href="/pricing" active={isActive('/pricing')}>Pricing</NavLink>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
                   <button className="btn-ghost" style={{ fontSize: '13px', padding: '7px 15px' }}>Sign in</button>
                 </Link>
