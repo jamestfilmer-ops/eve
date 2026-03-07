@@ -282,6 +282,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Pricing teaser */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>

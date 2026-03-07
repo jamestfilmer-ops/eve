@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
 
+
 const learnLinks = [
   { href: '/learn', label: 'All Lessons' },
   { href: '/learn/tracks', label: 'Learning Paths' },

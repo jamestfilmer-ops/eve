@@ -1,0 +1,204 @@
+EVE — SESSION HANDOFF
+Date: March 6, 2026
+Focus: Toast, Skeleton, animation polish, build fixes
+
+════════════════════════════════════════════════════════════
+WHAT WE BUILT THIS SESSION
+════════════════════════════════════════════════════════════
+
+1. TOAST SYSTEM — app/components/Toast.js
+   Global notification system. 4 variants: success / error / warning / info.
+   Auto-dismisses after 3.8s. Stackable. Animated in/out. X to dismiss.
+   Wired via React Context (ToastProvider + useToast hook).
+   Fixed critical bug: dismiss() must be defined BEFORE addToast() in
+   useCallback chain — otherwise server-side evaluation crashes.
+
+2. SKELETON SYSTEM — app/components/Skeleton.js
+   Animated shimmer placeholders. Variants: line, text, avatar, card,
+   stat, idea. Full-page variants: SkeletonPage dashboard + ideas.
+   Warm green tint shimmer matching Eve's design tokens.
+
+3. PROVIDERS WRAPPER — app/components/Providers.js
+   Thin 'use client' wrapper around ToastProvider. Required because
+   layout.js is a server component and cannot import hooks directly.
+   Pattern: layout.js → Providers.js → ToastProvider.
+
+4. LAYOUT UPDATE — app/layout.js
+   Now imports Providers instead of ToastProvider directly.
+   All other layout content unchanged.
+
+5. DASHBOARD — app/dashboard/page.js
+   Full replacement. Toast wired: error on auth fail, error on load fail.
+   SkeletonPage variant="dashboard" replaces old inline shimmer.
+   export const dynamic = 'force-dynamic' added.
+
+6. IDEAS PAGE — app/ideas/page.js
+   Full replacement. Toast wired:
+     - toast.success('Idea captured.') on save
+     - toast.success('Idea deleted.') on delete
+     - toast.success('Pinned to top.') / 'Unpinned.' on pin toggle
+     - toast.error(...) on all failures
+   SkeletonPage variant="ideas" replaces old loading divs.
+   export const dynamic = 'force-dynamic' added.
+
+7. AUTH PAGE — app/auth/page.js
+   export const dynamic = 'force-dynamic' added.
+   No other changes — just fixed the prerender crash.
+
+8. GLOBALS.CSS — app/globals.css
+   Animation dial-back:
+     - .card:hover translateY(-4px) → (-2px)
+     - .card-elevated:hover translateY(-6px) → (-3px)
+     - .btn-primary:hover translateY(-2px) → (-1px)
+     - .btn-ghost:hover: removed translateY entirely
+     - --ease-spring: cubic-bezier(0.34,1.56,0.64,1) →
+                      cubic-bezier(0.25,1.0,0.5,1) — no bounce
+   New --shadow-dark token for dark green surfaces.
+   New .surface-dark utility class (Pro tile, footer, CTA blocks).
+
+════════════════════════════════════════════════════════════
+BUILD FIX HISTORY (for future reference)
+════════════════════════════════════════════════════════════
+
+Root cause of all build failures this session:
+  Next.js App Router prerenders pages at build time — even 'use client'
+  pages. Any hook (useState, useContext, etc.) that runs at module
+  evaluation time on the server causes a "Invalid hook call" crash.
+
+Three separate fixes required:
+  1. Toast.js: dismiss() defined after addToast() → addToast called
+     undefined dismiss → crash at module eval. Fixed by flipping order.
+  2. layout.js: importing ToastProvider directly into a server component
+     crashes /_not-found. Fixed with Providers.js wrapper.
+  3. Pages: dashboard, ideas, auth all needed export const dynamic =
+     'force-dynamic' to prevent SSR prerender attempts.
+
+Engineering rule going forward:
+  ANY page that uses useToast(), useRouter(), or useSearchParams()
+  needs export const dynamic = 'force-dynamic' at the top.
+
+════════════════════════════════════════════════════════════
+CURRENT STATE OF THE APP
+════════════════════════════════════════════════════════════
+
+AUTH              fully wired — Supabase signUp + signInWithPassword
+DASHBOARD         fully wired — CRUD, stats, skeleton, toast
+NEW PROJECT       fully wired — creates project in Supabase
+PROJECTS/[ID]     fully wired — 4 tabs: scenes, characters, plot holes, themes
+IDEAS             fully wired — save, pin, delete, promote, skeleton, toast
+PROFILE           fully wired — reads from Supabase profiles table
+LEARNING PATHS    live — /learn/tracks
+MOBILE NAV        fixed
+LESSONS           9 of 14 written (see below)
+TOAST             built and wired — dashboard + ideas
+SKELETON          built and wired — dashboard + ideas
+STRIPE            not built — intentionally
+THEMES MAP        not built — next major feature
+
+════════════════════════════════════════════════════════════
+LESSONS STATUS
+════════════════════════════════════════════════════════════
+
+WRITTEN (9):
+  - what-a-scene-does
+  - want-vs-need
+  - midpoint
+  - dialogue-subtext
+  - theme
+  - save-the-cat (framework)
+  - heros-journey (framework)
+  - story-circle (framework)
+  - freeform (framework)
+
+STILL TO WRITE (5 core):
+  - subtext
+  - arguments
+  - secondary-characters
+  - plant-payoff
+  - motifs
+
+NEW LESSONS PLANNED:
+  - Color psychology: Breaking Bad (yellow/blue/red), Godfather (amber/cold blue), Her
+  - Tarantino dialogue: pop culture as character, subtext through specificity
+  - Sopranos drama: therapy as confession, slow consequences, domesticity + violence
+
+NEW FRAMEWORKS PLANNED (3):
+  - The Sequence Approach (8 x ~12 min sequences)
+  - Kishōtenketsu (Japanese 4-act, no conflict, twist-based)
+  - The Fichtean Curve (crisis-first, backstory woven in)
+
+════════════════════════════════════════════════════════════
+NEXT PRIORITIES — IN ORDER
+════════════════════════════════════════════════════════════
+
+1. Write 5 remaining core lessons
+   (subtext, arguments, secondary-characters, plant-payoff, motifs)
+
+2. Wire toast into remaining pages that do saves/deletes
+   (projects/[id] tabs — scenes, characters, plot holes)
+
+3. Color psychology + Tarantino + Sopranos lessons
+
+4. 3 new frameworks (Sequence, Kishōtenketsu, Fichtean)
+
+5. Session mode for all 4 frameworks
+
+6. Timeline view — 5th tab in /projects/[id]
+
+7. Themes Map — visual canvas feature
+   D3.js or custom SVG. Pick primary theme, secondary themes
+   connect like puzzle pieces. Saves to Supabase per project.
+   Nobody else has this. 2-3 sessions to build.
+
+8. Stripe + Pro tier
+   Free: 1 project, full education, 20 ideas, read-only sessions
+   Pro Monthly: $4.99
+   Pro Annual: $30 — target conversion
+   Tagline: "Less than one screenwriting book. For life."
+
+9. Adam — novel writing tool
+   Build as a mode inside Eve first. Same auth/Supabase/design.
+   Spin out when it has its own identity.
+   Check domains: adamwrites.com or writewithadam.com
+
+════════════════════════════════════════════════════════════
+KEY IDENTIFIERS
+════════════════════════════════════════════════════════════
+
+Live URL:       https://eve-screenwriting.vercel.app
+GitHub:         https://github.com/jamestfilmer-ops/eve
+Vercel Team:    jamestfilmer-6127s-projects
+Project ID:     prj_H7UXG4ej1QG4dD4zMw0EssEe1rgR
+Stack:          Next.js 16, JavaScript only, Tailwind, Supabase
+Design tokens:  --green #2D5016, Playfair Display, DM Sans, DM Mono
+
+Supabase tables:
+  profiles, projects, characters, scenes, plot_holes,
+  themes, session_beats, collaborators, ideas
+
+════════════════════════════════════════════════════════════
+ENGINEERING RULES — NON-NEGOTIABLE
+════════════════════════════════════════════════════════════
+
+- Fetch current file from GitHub before editing
+- Full file content every time — no ellipsis, no partials
+- npm run build must pass before git push
+- Run SQL migrations in Supabase BEFORE pushing pages
+  that query new tables
+- 'use client' on any file using hooks or event handlers
+- Google Fonts @import BEFORE @import "tailwindcss"
+- Any page using useToast/useRouter/useSearchParams needs
+  export const dynamic = 'force-dynamic'
+- No emoji anywhere — SVG icons only
+- No AI calls inside the app
+- Additive changes only — flag removals explicitly
+- JavaScript only — no TypeScript
+
+════════════════════════════════════════════════════════════
+NORTH STAR
+════════════════════════════════════════════════════════════
+
+Eve is the Investopedia of screenwriting.
+For people who couldn't afford film school.
+Education always free. Tools worth $30/year.
+No AI. No shortcuts. No fluff.

@@ -196,7 +196,7 @@ export default function ProjectPage() {
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
         {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
         {tab === 'Timeline'    && <TimelineTab    scenes={scenes} />}
-        {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}}
+        {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}
       </div>
     </div>
   )

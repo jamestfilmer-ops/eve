@@ -75,7 +75,6 @@ const sessionChecklist = {
     { id: 'climax',   section: 'Climax',        label: 'Climax — highest crisis point',       question: 'What is the final and definitive crisis? What must the protagonist face, decide, or sacrifice to end it?',             tip: 'The climax should make all previous crises feel like preparation. Everything was building here.' },
     { id: 'resolution', section: 'Resolution',  label: 'Brief resolution — aftermath',        question: 'What is the minimal aftermath needed to let the audience exhale? What has the protagonist become?',                    tip: 'Fichtean resolutions are short. The story has been told in the crises. The resolution just closes the wound.' },
   ],
-}
 
   'sequence-approach': [
     { id: 'seq-1', section: 'Act 1',   label: 'Sequence 1 — Establish & incite',    question: 'What is your sequence question for pp. 1–15? What specific problem opens, and what event closes this sequence?', tip: 'Establish the world and protagonist, then land the inciting incident. The sequence question: "Will the protagonist respond to this disruption?"' },

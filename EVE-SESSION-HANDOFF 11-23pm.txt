@@ -1,0 +1,315 @@
+═══════════════════════════════════════════════════════════════════
+EVE SCREENWRITING APP — FULL PROJECT HANDOFF
+Updated: March 2026
+═══════════════════════════════════════════════════════════════════
+
+LIVE URL:   https://eve-screenwriting.vercel.app
+GITHUB:     https://github.com/jamestfilmer-ops/eve
+VERCEL:     Team: jamestfilmer-6127s-projects
+            Project ID: prj_H7UXG4ej1QG4dD4zMw0EssEe1rgR
+
+STACK
+──────────────────────────────────────────────────────────────────
+- Next.js (latest), JavaScript only — no TypeScript
+- Tailwind CSS
+- Supabase (auth + database)
+- Vercel (hosting, auto-deploys from GitHub main branch)
+- Google Fonts: Playfair Display (display) + DM Sans (UI) + DM Mono
+
+DESIGN TOKENS
+──────────────────────────────────────────────────────────────────
+--green:        #2D5016
+--green-mid:    #3a6b1c
+--green-light:  #4a8a24
+--green-pale:   #EFF6E7
+--green-border: #C3D9A8
+--off-white:    #F5F2EC
+--warm-white:   #FDFCF9
+--border:       #E0D8CE
+--text-dark:    #18140F
+--text-mid:     #56504A
+--text-soft:    #8A837C
+--amber:        #B5700A
+Shadow scale: xs / sm / md / lg / xl / green (5-level warm-tinted)
+Easing: cubic-bezier(0.22, 1, 0.36, 1)
+
+
+═══════════════════════════════════════════════════════════════════
+CURRENT BUILD STATE
+═══════════════════════════════════════════════════════════════════
+
+PAGES — WIRED TO SUPABASE:
+  /                     Landing page (static, fully built)
+  /auth                 Sign in / Sign up (Supabase auth wired)
+  /dashboard            Projects list (real CRUD, RLS)
+  /projects/new         New project form (INSERT to Supabase)
+  /projects/[id]        4-tab project workspace (characters, scenes,
+                        plot holes, session) — all wired
+  /ideas                Ideas capture (wired — requires ideas table SQL)
+  /profile              Profile + stats (wired to profiles table)
+  /learn                Craft library index (9 of 14 lessons written)
+  /learn/tracks         Learning paths by skill level
+  /learn/[slug]         Individual lesson pages
+
+SUPABASE TABLES:
+  profiles, projects, characters, scenes, plot_holes,
+  themes, session_beats, collaborators, ideas
+
+LESSONS WRITTEN (9 of 14):
+  Structure:  what-a-scene-does, midpoint, act-breaks
+  Character:  want-vs-need, ghost, antagonist
+  Dialogue:   dialogue-subtext
+  Theme:      theme
+  All-is-lost: all-is-lost
+
+LESSONS STILL NEEDED (5):
+  subtext, arguments, secondary-characters, plant-payoff, motifs
+
+COMPONENTS BUILT:
+  Nav.js           Sticky nav, dropdown with hover-bridge fix,
+                   mobile hamburger, scroll shadow
+  ConsentBanner.js Cookie consent
+  Toast.js         BUILT — not yet in repo (see below)
+  Skeleton.js      BUILT — not yet in repo (see below)
+
+GLOBAL SYSTEMS:
+  globals.css      Full design system, 5-level shadow scale,
+                   scroll reveal classes (.reveal, .reveal-left,
+                   .reveal-scale, .section-fade)
+  layout.js        IntersectionObserver for scroll reveals,
+                   ToastProvider wrapping (pending Toast.js deploy)
+
+
+═══════════════════════════════════════════════════════════════════
+PENDING DEPLOYS — DO THESE FIRST
+═══════════════════════════════════════════════════════════════════
+
+These files were built but not yet pushed to GitHub:
+
+1. app/components/Toast.js
+   — Global toast notification system
+   — 4 variants: success / error / warning / info
+   — Auto-dismiss, stackable, animated in/out
+   — Usage: const toast = useToast(); toast.success('Saved.')
+
+2. app/components/Skeleton.js
+   — Loading placeholder shapes
+   — Variants: line, text, avatar, card, lesson, idea, stat, profile
+   — Full page skeletons: <SkeletonPage variant="dashboard" />
+   — Swap into every loading state across all pages
+
+3. app/layout.js
+   — Update to wrap everything in <ToastProvider>
+   — Use the "layout-with-toast.js" version from last session
+
+4. SUPABASE SQL — run this in Supabase SQL editor BEFORE pushing
+   ideas page again:
+   → migration-ideas-table.sql (delivered last session)
+   This creates the ideas table + RLS policies.
+   Without it, the build will fail at static generation.
+
+DEPLOY COMMAND (after adding files):
+  npm run build
+  git add -A
+  git commit -m "add Toast and Skeleton components, wire ToastProvider"
+  git push
+
+
+═══════════════════════════════════════════════════════════════════
+QUICK FIXES — SMALL BUT IMPORTANT
+═══════════════════════════════════════════════════════════════════
+
+1. ANIMATION DIAL-BACK (globals.css)
+   Buttons and cards are slightly too bouncy. Changes needed:
+   - .btn-primary:hover  translateY(-2px) → translateY(-1px)
+   - .btn-ghost:hover    remove translateY entirely
+   - .card:hover         translateY(-4px) → translateY(-2px)
+   - .card-elevated:hover translateY(-6px) → translateY(-3px)
+   - --ease-spring: cubic-bezier(0.25, 1.0, 0.5, 1)  (less overshoot)
+
+2. SHADOWS ON FLAT GREEN BLOCKS (landing page — Pro tile + footer)
+   Add to any dark green surface:
+   box-shadow:
+     inset 0 1px 0 rgba(255,255,255,0.08),
+     0 4px 20px rgba(26,20,15,0.18),
+     0 1px 4px rgba(26,20,15,0.12);
+
+
+═══════════════════════════════════════════════════════════════════
+PRODUCT STRATEGY & PRICING
+═══════════════════════════════════════════════════════════════════
+
+FREE TIER (permanent, no credit card ever):
+  - 1 project (all 4 frameworks available)
+  - Full craft library — all lessons, glossary, learning paths
+    (education is ALWAYS free, no exceptions — this is the hook)
+  - Ideas capture up to 20
+  - Read-only session mode
+
+PRO MONTHLY — $4.99/mo:
+  - Unlimited projects
+  - All session frameworks + full checklists
+  - Themes tracker + timeline view
+  - Export to PDF / FDX
+  - Exists for people who won't commit annually
+
+PRO ANNUAL — $30/yr:
+  - Everything in monthly
+  - 2 months free vs monthly ($60 value)
+  - TARGET CONVERSION — this is the number to optimize for
+  - Positioning: "Less than one screenwriting book. For life."
+
+VALUE ANCHOR:
+  The education library is what makes $30 feel trivial.
+  When one lesson saves someone a $300 MasterClass purchase,
+  the math is obvious. Writers share good tools. That's organic growth.
+
+STRIPE: Not built yet. Build after all features above are complete.
+
+
+═══════════════════════════════════════════════════════════════════
+NEXT SESSION PRIORITIES (IN ORDER)
+═══════════════════════════════════════════════════════════════════
+
+PHASE 1 — DEPLOY WHAT'S BUILT
+  [ ] Run migration-ideas-table.sql in Supabase
+  [ ] Add Toast.js to app/components/
+  [ ] Add Skeleton.js to app/components/
+  [ ] Update layout.js with ToastProvider
+  [ ] Wire toast.success/error into ideas/page.js
+  [ ] Wire toast.success/error into dashboard/page.js
+  [ ] Replace all "loading..." states with SkeletonPage variants
+  [ ] Apply animation dial-back in globals.css
+  [ ] Add shadows to Pro tile + footer on landing page
+
+PHASE 2 — COMPLETE THE LESSON LIBRARY
+  [ ] Write 5 remaining core lessons:
+      subtext, arguments, secondary-characters, plant-payoff, motifs
+  [ ] Add color psychology lesson:
+      - Warm vs cool palette and emotional register
+      - Breaking Bad color arc (yellow/blue/red)
+      - The Godfather (amber indoors, cold blue outdoors)
+      - "Her" — warmth draining as connection fades
+      - How to write color into a screenplay without being overbearing
+  [ ] Add Tarantino dialogue lesson:
+      - Pop culture as character revelation
+      - Subtext through specificity
+      - Pulp Fiction, True Romance, Inglourious Basterds
+  [ ] Add Sopranos drama lesson:
+      - Therapy as confession booth / externalizing conflict
+      - Consequences arriving slow
+      - Domesticity making violence land harder
+  [ ] Add real film/TV reference callouts to existing lessons
+
+PHASE 3 — NEW FRAMEWORKS
+  [ ] The Sequence Approach (8 x ~12 min sequences)
+      Common in European film schools, rare in US mainstream
+  [ ] Kishōtenketsu (Japanese 4-act, no conflict — twist-based)
+      Great for literary writers, genuinely unique to teach
+  [ ] The Fichtean Curve (crisis-first, backstory woven in)
+      Used in short fiction, underexplained everywhere
+
+PHASE 4 — THE THEMES MAP (flagship feature)
+  Concept: Visual canvas. Pick a primary theme from ~100.
+  Secondary themes attach like puzzle pieces. Tertiary as sidebar list.
+  Connections are labeled (e.g. "Redemption ↔ Guilt: engine of change").
+  User's map saves to their project in Supabase.
+
+  Tech approach:
+  - D3.js force graph OR custom SVG canvas (no heavy library needed)
+  - Theme data as JSON (100 themes, connection weights, motif lists)
+  - Store user map in Supabase projects table (themes column exists)
+  - Build in 2-3 sessions
+
+  Why it matters: Nobody else has this. It's defensible and shareable.
+
+PHASE 5 — SESSION MODE EXPANSION
+  [ ] Wire session mode for all 4 frameworks
+      (currently Save the Cat only)
+  [ ] Timeline view — 5th tab inside /projects/[id]
+      Scenes arranged by act on a horizontal axis
+
+PHASE 6 — INTERNAL TOOLING
+  [ ] Content pipeline — Python script or CLI tool to add lessons
+      efficiently without writing full JSX every time
+      (templated lesson generator from markdown input)
+  [ ] Admin toggle page (/admin, hidden from nav)
+      Feature flags stored in Supabase
+
+PHASE 7 — MONETIZATION
+  [ ] Stripe integration — Pro Monthly ($4.99) + Pro Annual ($30)
+  [ ] Free tier enforcement (1 project limit, 20 ideas limit)
+  [ ] Upgrade prompts at natural friction points
+
+
+═══════════════════════════════════════════════════════════════════
+FUTURE PRODUCT — ADAM (NOVEL WRITING TOOL)
+═══════════════════════════════════════════════════════════════════
+
+Don't build a separate product yet. Build it as a MODE inside Eve.
+Same auth, same Supabase, same design system.
+
+Differences from Eve:
+  - Chapter tracking instead of scene tracking
+  - POV management panel
+  - Word count goals per chapter/act
+  - World-building tools (locations, timeline, lore)
+  - Literary glossary (not screenplay terminology)
+  - Frameworks: Fichtean Curve, Kishōtenketsu, 3-act literary
+
+When Adam has its own user identity, spin it out as a separate app.
+Check domain: adamwrites.com or writewithadam.com
+
+
+═══════════════════════════════════════════════════════════════════
+ENGINEERING RULES — NON-NEGOTIABLE
+═══════════════════════════════════════════════════════════════════
+
+1. Always fetch the current file from GitHub BEFORE editing
+2. Deliver full file content every time — no ellipsis, no "..." skips
+3. npm run build must pass locally before git push
+4. Run Supabase SQL migrations BEFORE pushing pages that query
+   new tables — otherwise build fails at static generation
+5. 'use client' on any file that uses hooks or event handlers
+6. Google Fonts @import must come BEFORE @import "tailwindcss"
+   in globals.css (order matters for Tailwind v4)
+7. No emoji anywhere in the app — SVG icons only
+8. No AI API calls inside the app — ever
+9. Additive changes only — flag anything being removed before doing it
+10. JavaScript only — no TypeScript, no .tsx files
+
+
+═══════════════════════════════════════════════════════════════════
+WHY DEPLOYMENTS WERE FAILING (for reference)
+═══════════════════════════════════════════════════════════════════
+
+The "mobile nav, supabase wiring" commit and 2 aesthetic commits
+failed because the ideas and profile pages referenced a Supabase
+"ideas" table that hadn't been created yet via SQL migration.
+
+Next.js attempts static generation at build time, which hits
+Supabase — if the table doesn't exist, the build errors out.
+
+FIX: Always run migration SQL in Supabase BEFORE pushing any page
+that queries a new table. The latest aesthetic commit passed clean
+because it only touched globals.css and Nav.js.
+
+
+═══════════════════════════════════════════════════════════════════
+POSITIONING / NORTH STAR
+═══════════════════════════════════════════════════════════════════
+
+Eve is the Investopedia of screenwriting.
+
+For people who couldn't afford film school.
+For writers working on the side, at night, with a newborn in the next room.
+For the person who has a great story but doesn't know why their
+second act collapses — and can't pay $300 to find out.
+
+The education is always free. The tools are worth $30 a year.
+The tone is honest, direct, and respects the craft.
+No AI. No shortcuts. No fluff.
+
+That's the product. That's the pitch.
+
+═══════════════════════════════════════════════════════════════════

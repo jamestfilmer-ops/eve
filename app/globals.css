@@ -33,9 +33,15 @@
   --shadow-xl:    0 8px 24px rgba(26,20,15,0.11), 0 32px 72px rgba(26,20,15,0.12);
   --shadow-green: 0 4px 20px rgba(45,80,22,0.28), 0 1px 4px rgba(45,80,22,0.18);
 
-  /* Easing curves */
+  /* Dark surface shadow — for green blocks, footer, Pro tile */
+  --shadow-dark:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 4px 20px rgba(26,20,15,0.20),
+    0 1px 4px rgba(26,20,15,0.14);
+
+  /* Easing curves — spring dialed back to feel precise, not bouncy */
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.25, 1.0, 0.5, 1);
 }
 
 /* ─── Reset ──────────────────────────────────────────────────── */
@@ -58,7 +64,6 @@ body {
   background-color: var(--warm-white);
   color: var(--text-dark);
   line-height: 1.65;
-  /* Subtle paper grain */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
 }
 
@@ -98,8 +103,8 @@ input, textarea, select, button {
     border-color 0.22s ease;
 }
 .card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px); /* was -4px — dialed back */
   border-color: var(--green-border);
 }
 
@@ -110,7 +115,6 @@ input, textarea, select, button {
   box-shadow: var(--shadow-sm);
 }
 
-/* Elevated variant — used for featured / hero cards */
 .card-elevated {
   background: #fff;
   border: 1px solid var(--border);
@@ -122,8 +126,8 @@ input, textarea, select, button {
     border-color 0.22s ease;
 }
 .card-elevated:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px); /* was -6px — dialed back */
   border-color: var(--green-border);
 }
 
@@ -142,7 +146,7 @@ input, textarea, select, button {
   transition:
     background 0.2s ease,
     box-shadow 0.22s ease,
-    transform 0.18s var(--ease-spring);
+    transform 0.15s var(--ease-spring); /* was 0.18s */
   position: relative;
   overflow: hidden;
 }
@@ -156,10 +160,10 @@ input, textarea, select, button {
 .btn-primary:hover {
   background: var(--green-mid);
   box-shadow: var(--shadow-green);
-  transform: translateY(-2px);
+  transform: translateY(-1px); /* was -2px — dialed back */
 }
 .btn-primary:active {
-  transform: translateY(0px) scale(0.98);
+  transform: translateY(0px) scale(0.99); /* was scale(0.98) */
   box-shadow: var(--shadow-xs);
 }
 
@@ -177,17 +181,17 @@ input, textarea, select, button {
     color 0.2s,
     background 0.2s,
     box-shadow 0.2s,
-    transform 0.18s var(--ease-spring);
+    transform 0.15s var(--ease-spring); /* was 0.18s */
 }
 .btn-ghost:hover {
   border-color: var(--green-border);
   color: var(--green);
   background: var(--green-pale);
   box-shadow: var(--shadow-xs);
-  transform: translateY(-1px);
+  /* no translateY — ghost buttons stay grounded */
 }
 .btn-ghost:active {
-  transform: translateY(0px) scale(0.98);
+  transform: scale(0.99); /* was translateY(0) scale(0.98) */
 }
 
 /* ─── Inputs ─────────────────────────────────────────────────── */
@@ -229,7 +233,7 @@ input, textarea, select, button {
   font-weight: 600;
 }
 
-/* ─── Pull quote / highlight ─────────────────────────────────── */
+/* ─── Pull quote ─────────────────────────────────────────────── */
 .pull-quote {
   border-left: 3px solid var(--green);
   padding: 14px 20px;
@@ -240,6 +244,15 @@ input, textarea, select, button {
   font-style: italic;
   color: var(--green);
   line-height: 1.65;
+}
+
+/* ─── Dark surface — Pro tile, footer, CTA blocks ────────────── */
+/*
+  Apply .surface-dark to any dark green section that feels flat.
+  Adds: inset top highlight + ambient lift shadow.
+*/
+.surface-dark {
+  box-shadow: var(--shadow-dark);
 }
 
 /* ─── Badges ─────────────────────────────────────────────────── */
@@ -253,26 +266,10 @@ input, textarea, select, button {
   padding: 3px 9px;
   border-radius: 5px;
 }
-.badge-green {
-  background: var(--green-pale);
-  color: var(--green);
-  border: 1px solid var(--green-border);
-}
-.badge-amber {
-  background: var(--amber-pale);
-  color: var(--amber);
-  border: 1px solid var(--amber-border);
-}
-.badge-blue {
-  background: #EFF6FF;
-  color: #1D4ED8;
-  border: 1px solid #BFDBFE;
-}
-.badge-emerald {
-  background: #F0FDF4;
-  color: #15803D;
-  border: 1px solid #BBF7D0;
-}
+.badge-green   { background: var(--green-pale);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge-amber   { background: var(--amber-pale);  color: var(--amber);  border: 1px solid var(--amber-border); }
+.badge-blue    { background: #EFF6FF;             color: #1D4ED8;       border: 1px solid #BFDBFE; }
+.badge-emerald { background: #F0FDF4;             color: #15803D;       border: 1px solid #BBF7D0; }
 
 /* ─── Utilities ──────────────────────────────────────────────── */
 .mono {
@@ -384,7 +381,6 @@ input, textarea, select, button {
 .reveal-delay-3         { transition-delay: 0.22s; }
 .reveal-delay-4         { transition-delay: 0.30s; }
 
-/* Slide-in from left */
 .reveal-left {
   opacity: 0;
   transform: translateX(-28px);
@@ -394,7 +390,6 @@ input, textarea, select, button {
 }
 .reveal-left.visible { opacity: 1; transform: translateX(0); }
 
-/* Scale-in */
 .reveal-scale {
   opacity: 0;
   transform: scale(0.95);
