@@ -5,55 +5,54 @@ import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { supabase } from '@/lib/supabase'
 
+export const dynamic = 'force-dynamic'
+
 function AuthForm() {
   const params = useSearchParams()
   const [isSignup, setIsSignup] = useState(params.get('signup') === 'true')
-  const [form, setForm] = useState({ email: '', password: '', name: '' })
+  const [form, setForm]     = useState({ email: '', password: '', name: '' })
   const [loading, setLoading] = useState(false)
 
-async function handleSubmit() {
-  setLoading(true)
-  try {
-    if (isSignup) {
-      const { error } = await supabase.auth.signUp({
-        email: form.email,
-        password: form.password,
-        options: {
-        data: { full_name: form.name },
-        emailRedirectTo: 'https://eve-screenwriting.vercel.app/dashboard'
-  }
-})
-      if (error) throw error
-      alert('Check your email to confirm your account.')
-    } else {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: form.email,
-        password: form.password,
-      })
-      if (error) throw error
-      window.location.href = '/dashboard'
+  async function handleSubmit() {
+    setLoading(true)
+    try {
+      if (isSignup) {
+        const { error } = await supabase.auth.signUp({
+          email: form.email,
+          password: form.password,
+          options: {
+            data: { full_name: form.name },
+            emailRedirectTo: 'https://eve-screenwriting.vercel.app/dashboard'
+          }
+        })
+        if (error) throw error
+        alert('Check your email to confirm your account.')
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({
+          email: form.email,
+          password: form.password,
+        })
+        if (error) throw error
+        window.location.href = '/dashboard'
+      }
+    } catch (err) {
+      alert(err.message)
+    } finally {
+      setLoading(false)
     }
-  } catch (err) {
-    alert(err.message)
-  } finally {
-    setLoading(false)
   }
-}
 
   return (
     <div style={{
-      minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'var(--off-white)', padding: '24px',
+      minHeight: '100vh', display: 'flex', alignItems: 'center',
+      justifyContent: 'center', background: 'var(--off-white)', padding: '24px',
     }}>
       <div style={{ width: '100%', maxWidth: '420px' }}>
 
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{
-              width: '40px', height: '40px', borderRadius: '10px',
-              background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ color: '#fff', fontSize: '20px' }}>✦</span>
             </div>
             <span style={{ fontFamily: 'Lora, serif', fontSize: '24px', fontWeight: '700', color: 'var(--green)' }}>Eve</span>
@@ -71,7 +70,8 @@ async function handleSubmit() {
               return (
                 <button key={i} onClick={() => setIsSignup(i === 1)} style={{
                   flex: 1, padding: '8px', borderRadius: '6px', border: 'none', cursor: 'pointer',
-                  fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: active ? '600' : '400',
+                  fontFamily: 'DM Sans, sans-serif', fontSize: '13px',
+                  fontWeight: active ? '600' : '400',
                   background: active ? '#fff' : 'transparent',
                   color: active ? 'var(--green)' : 'var(--text-soft)',
                   boxShadow: active ? '0 1px 4px rgba(0,0,0,0.08)' : 'none',
@@ -96,7 +96,6 @@ async function handleSubmit() {
               <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '5px' }}>Password</label>
               <input className="input" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} />
             </div>
-
             <button
               className="btn-primary"
               onClick={handleSubmit}

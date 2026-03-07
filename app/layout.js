@@ -1,6 +1,7 @@
 import './globals.css'
 import Nav from './components/Nav'
 import ConsentBanner from './components/ConsentBanner'
+import Providers from './components/Providers'
 
 export const metadata = {
   title: 'Eve — Write Better Stories',
@@ -11,11 +12,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Nav />
-        <main>{children}</main>
-        <ConsentBanner />
+        <Providers>
+          <Nav />
+          <main>{children}</main>
+          <ConsentBanner />
+        </Providers>
 
-        {/* Global scroll-reveal observer — handles .reveal, .reveal-left, .reveal-scale, .section-fade */}
         <script dangerouslySetInnerHTML={{ __html: `
 (function() {
   function initReveal() {
