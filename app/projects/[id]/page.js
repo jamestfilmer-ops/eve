@@ -1,6 +1,6 @@
 'use client'
 export const dynamic = 'force-dynamic'
-import { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '../../../lib/supabase'
@@ -8,7 +8,7 @@ import { useToast } from '../../components/Toast'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes']
+const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map']
 
 const frameworkLabel = {
   'save-the-cat':  'Save the Cat',
@@ -58,6 +58,7 @@ export default function ProjectPage() {
   const [characters, setCharacters] = useState([])
   const [scenes,     setScenes]     = useState([])
   const [plotHoles,  setPlotHoles]  = useState([])
+  const [themes,     setThemes]     = useState([])
   const [loading,    setLoading]    = useState(true)
   const [error,      setError]      = useState(null)
 
@@ -66,11 +67,12 @@ export default function ProjectPage() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { setError('Sign in to view this project.'); setLoading(false); return }
 
-    const [projRes, charRes, sceneRes, holeRes] = await Promise.all([
+    const [projRes, charRes, sceneRes, holeRes, themeRes] = await Promise.all([
       supabase.from('projects').select('*').eq('id', id).eq('user_id', user.id).single(),
       supabase.from('characters').select('*').eq('project_id', id).order('created_at'),
       supabase.from('scenes').select('*').eq('project_id', id).order('act_number').order('order_index'),
       supabase.from('plot_holes').select('*').eq('project_id', id).order('created_at'),
+      supabase.from('themes').select('*').eq('project_id', id).order('created_at'),
     ])
 
     if (projRes.error || !projRes.data) {
@@ -82,11 +84,13 @@ export default function ProjectPage() {
     if (charRes.error)  console.error('characters:', charRes.error)
     if (sceneRes.error) console.error('scenes:', sceneRes.error)
     if (holeRes.error)  console.error('plot holes:', holeRes.error)
+    if (themeRes.error) console.error('themes:', themeRes.error)
 
     setProject(projRes.data)
     setCharacters(charRes.data || [])
     setScenes(sceneRes.data || [])
     setPlotHoles(holeRes.data || [])
+    setThemes(themeRes.data || [])
     setLoading(false)
   }, [id])
 
@@ -191,6 +195,8 @@ export default function ProjectPage() {
         {tab === 'Characters'  && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
         {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
+        {tab === 'Timeline'    && <TimelineTab    scenes={scenes} />}
+        {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}}
       </div>
     </div>
   )
@@ -917,6 +923,535 @@ function ErrorState({ message }) {
           <button className="btn-primary">Back to dashboard</button>
         </Link>
       </div>
+    </div>
+  )
+}
+
+// ─── Timeline Tab ─────────────────────────────────────────────────────────────
+
+function TimelineTab({ scenes }) {
+  const ACT_COLORS = {
+    1: { bg: '#EBF5E4', border: '#6AAF3D', label: 'Act 1' },
+    2: { bg: '#FFF7ED', border: '#B5700A', label: 'Act 2' },
+    3: { bg: '#EEF2FF', border: '#6366F1', label: 'Act 3' },
+  }
+
+  const byAct = scenes.reduce((acc, s) => {
+    const act = s.act_number || 1
+    if (!acc[act]) acc[act] = []
+    acc[act].push(s)
+    return acc
+  }, {})
+
+  const acts = Object.keys(byAct).map(Number).sort()
+
+  if (scenes.length === 0) {
+    return (
+      <div className="empty-state" style={{ marginTop: '40px' }}>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--text-soft)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: '12px' }}>
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <h3>No scenes yet</h3>
+        <p>Add scenes in the Scenes tab — they&apos;ll appear here on the timeline.</p>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ paddingTop: '8px', paddingBottom: '40px' }}>
+      <div style={{ marginBottom: '28px' }}>
+        <h2 style={{ fontSize: '18px', marginBottom: '6px' }}>Story Timeline</h2>
+        <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
+          {scenes.length} scene{scenes.length !== 1 ? 's' : ''} across {acts.length} act{acts.length !== 1 ? 's' : ''} · {scenes.filter(s => s.status === 'complete').length} complete
+        </p>
+      </div>
+
+      {/* Legend */}
+      <div style={{ display: 'flex', gap: '16px', marginBottom: '28px', flexWrap: 'wrap' }}>
+        {[
+          { color: 'var(--green)', label: 'Complete' },
+          { color: 'var(--border)', label: 'Draft' },
+        ].map(({ color, label }) => (
+          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--text-soft)' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: color }} />
+            {label}
+          </div>
+        ))}
+      </div>
+
+      {/* Act lanes */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {acts.map(act => {
+          const actScenes = byAct[act] || []
+          const col = ACT_COLORS[act] || { bg: '#F5F5F5', border: '#999', label: `Act ${act}` }
+          return (
+            <div key={act}>
+              {/* Act label */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                <div style={{
+                  padding: '3px 10px', borderRadius: '20px', fontSize: '11px', fontWeight: '600',
+                  fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', textTransform: 'uppercase',
+                  background: col.bg, color: col.border, border: `1px solid ${col.border}`,
+                }}>
+                  {col.label}
+                </div>
+                <span style={{ fontSize: '12px', color: 'var(--text-soft)' }}>{actScenes.length} scene{actScenes.length !== 1 ? 's' : ''}</span>
+                <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
+              </div>
+
+              {/* Scene track */}
+              <div style={{ overflowX: 'auto', paddingBottom: '8px' }}>
+                <div style={{ display: 'flex', gap: '10px', minWidth: 'max-content', paddingBottom: '4px' }}>
+                  {actScenes.map((scene, idx) => {
+                    const done = scene.status === 'complete'
+                    return (
+                      <div
+                        key={scene.id}
+                        title={scene.notes || scene.title}
+                        style={{
+                          width: '140px', flexShrink: 0,
+                          borderRadius: '8px', padding: '12px',
+                          background: done ? 'var(--green-pale)' : 'var(--off-white)',
+                          border: `1.5px solid ${done ? 'var(--green)' : 'var(--border)'}`,
+                          position: 'relative',
+                          transition: 'transform 0.15s',
+                          cursor: 'default',
+                        }}
+                      >
+                        {/* Scene number badge */}
+                        <div style={{
+                          position: 'absolute', top: '-9px', left: '10px',
+                          background: done ? 'var(--green)' : 'var(--text-soft)',
+                          color: '#fff', fontSize: '10px', fontWeight: '700',
+                          fontFamily: 'var(--font-mono)', borderRadius: '4px',
+                          padding: '1px 6px', letterSpacing: '0.04em',
+                        }}>
+                          {idx + 1}
+                        </div>
+
+                        {/* Connector line */}
+                        {idx < actScenes.length - 1 && (
+                          <div style={{
+                            position: 'absolute', right: '-11px', top: '50%',
+                            width: '10px', height: '2px',
+                            background: done ? 'var(--green-light)' : 'var(--border)',
+                            zIndex: 1,
+                          }} />
+                        )}
+
+                        <p style={{
+                          fontSize: '12px', fontWeight: '600', lineHeight: '1.4',
+                          color: done ? 'var(--green)' : 'var(--text-dark)',
+                          marginBottom: scene.beat_label ? '6px' : '0',
+                          overflow: 'hidden', display: '-webkit-box',
+                          WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
+                        }}>
+                          {scene.title}
+                        </p>
+                        {scene.beat_label && (
+                          <p style={{
+                            fontSize: '10px', color: 'var(--text-soft)',
+                            fontFamily: 'var(--font-mono)', letterSpacing: '0.03em',
+                            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                          }}>
+                            {scene.beat_label}
+                          </p>
+                        )}
+
+                        {/* Complete checkmark */}
+                        {done && (
+                          <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                              <path d="M2 6l3 3 5-5" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <span style={{ fontSize: '10px', color: 'var(--green)', fontWeight: '600' }}>Done</span>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Progress bar */}
+      <div style={{ marginTop: '36px', padding: '20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--off-white)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+          <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)' }}>Overall progress</span>
+          <span style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)' }}>
+            {scenes.filter(s => s.status === 'complete').length} / {scenes.length}
+          </span>
+        </div>
+        <div style={{ height: '8px', borderRadius: '4px', background: 'var(--border)', overflow: 'hidden' }}>
+          <div style={{
+            height: '100%', borderRadius: '4px', background: 'var(--green)',
+            width: `${scenes.length ? (scenes.filter(s => s.status === 'complete').length / scenes.length) * 100 : 0}%`,
+            transition: 'width 0.4s ease',
+          }} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Themes Map Tab ────────────────────────────────────────────────────────────
+
+function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
+  const [adding,    setAdding]    = useState(false)
+  const [newLabel,  setNewLabel]  = useState('')
+  const [newType,   setNewType]   = useState('theme')
+  const [saving,    setSaving]    = useState(false)
+  const [selected,  setSelected]  = useState(null) // { type: 'theme'|'scene', id }
+  const [links,     setLinks]     = useState([])   // [{ theme_id, scene_id }]
+  const [positions, setPositions] = useState({})   // { 'theme-id': {x,y}, 'scene-id': {x,y} }
+  const [dragging,  setDragging]  = useState(null) // { nodeKey, ox, oy }
+  const svgRef = useRef(null)
+
+  // Load saved positions + links from themes metadata
+  useEffect(() => {
+    // Build initial grid positions if none saved
+    const pos = {}
+    themes.forEach((t, i) => {
+      const saved = t.canvas_x != null ? { x: t.canvas_x, y: t.canvas_y } : null
+      pos[`theme-${t.id}`] = saved || { x: 120 + (i % 3) * 220, y: 80 + Math.floor(i / 3) * 160 }
+    })
+    scenes.forEach((s, i) => {
+      pos[`scene-${s.id}`] = { x: 120 + (i % 5) * 160, y: 420 + Math.floor(i / 5) * 120 }
+    })
+    setPositions(pos)
+
+    // Links stored as JSON in theme.linked_scenes — e.g. ["scene-id-1","scene-id-2"]
+    const allLinks = []
+    themes.forEach(t => {
+      const linked = t.linked_scenes ? JSON.parse(t.linked_scenes) : []
+      linked.forEach(sid => allLinks.push({ theme_id: t.id, scene_id: sid }))
+    })
+    setLinks(allLinks)
+  }, [themes.length, scenes.length])
+
+  async function addTheme() {
+    if (!newLabel.trim()) return
+    setSaving(true)
+    const { data, error } = await supabase
+      .from('themes')
+      .insert({ project_id: projectId, label: newLabel.trim(), type: newType, linked_scenes: '[]', canvas_x: null, canvas_y: null })
+      .select().single()
+    setSaving(false)
+    if (error) { toast.error('Failed to add theme'); return }
+    setThemes(prev => [...prev, data])
+    setNewLabel('')
+    setAdding(false)
+    toast.success('Theme added')
+  }
+
+  async function deleteTheme(id) {
+    const { error } = await supabase.from('themes').delete().eq('id', id)
+    if (error) { toast.error('Failed to delete'); return }
+    setThemes(prev => prev.filter(t => t.id !== id))
+    setLinks(prev => prev.filter(l => l.theme_id !== id))
+    toast.success('Theme removed')
+  }
+
+  async function savePosition(themeId, x, y) {
+    await supabase.from('themes').update({ canvas_x: Math.round(x), canvas_y: Math.round(y) }).eq('id', themeId)
+  }
+
+  async function toggleLink(themeId, sceneId) {
+    const existing = links.find(l => l.theme_id === themeId && l.scene_id === sceneId)
+    let newLinks
+    if (existing) {
+      newLinks = links.filter(l => !(l.theme_id === themeId && l.scene_id === sceneId))
+    } else {
+      newLinks = [...links, { theme_id: themeId, scene_id: sceneId }]
+    }
+    setLinks(newLinks)
+
+    // Save back to themes table
+    const themeLinks = newLinks.filter(l => l.theme_id === themeId).map(l => l.scene_id)
+    await supabase.from('themes').update({ linked_scenes: JSON.stringify(themeLinks) }).eq('id', themeId)
+  }
+
+  // Drag handlers
+  function onNodeMouseDown(e, nodeKey) {
+    e.preventDefault()
+    const svg = svgRef.current
+    if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const pos = positions[nodeKey] || { x: 0, y: 0 }
+    setDragging({ nodeKey, ox: e.clientX - rect.left - pos.x, oy: e.clientY - rect.top - pos.y })
+  }
+
+  function onSvgMouseMove(e) {
+    if (!dragging) return
+    const svg = svgRef.current
+    if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const x = e.clientX - rect.left - dragging.ox
+    const y = e.clientY - rect.top - dragging.oy
+    setPositions(prev => ({ ...prev, [dragging.nodeKey]: { x, y } }))
+  }
+
+  function onSvgMouseUp() {
+    if (!dragging) return
+    // Save if it's a theme node
+    if (dragging.nodeKey.startsWith('theme-')) {
+      const themeId = dragging.nodeKey.replace('theme-', '')
+      const pos = positions[dragging.nodeKey]
+      if (pos) savePosition(themeId, pos.x, pos.y)
+    }
+    setDragging(null)
+  }
+
+  const THEME_COLORS = {
+    theme:    { bg: '#2D5016', text: '#fff', border: '#1A3009' },
+    motif:    { bg: '#B5700A', text: '#fff', border: '#7A4C07' },
+    question: { bg: '#4F46E5', text: '#fff', border: '#3730A3' },
+    symbol:   { bg: '#0F766E', text: '#fff', border: '#0D5E57' },
+  }
+
+  const selectedTheme = selected?.type === 'theme' ? themes.find(t => t.id === selected.id) : null
+
+  return (
+    <div style={{ paddingTop: '8px', paddingBottom: '40px' }}>
+      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+        <div>
+          <h2 style={{ fontSize: '18px', marginBottom: '4px' }}>Themes Map</h2>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
+            Drag theme nodes. Click a theme, then click scenes to link them.
+          </p>
+        </div>
+        <button className="btn-primary" onClick={() => setAdding(true)} style={{ flexShrink: 0 }}>
+          + Add theme
+        </button>
+      </div>
+
+      {/* Add theme form */}
+      {adding && (
+        <div className="card" style={{ padding: '18px', marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+          <div style={{ flex: 1, minWidth: '160px' }}>
+            <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Label</label>
+            <input className="input" placeholder="e.g. Identity, Redemption…" value={newLabel}
+              onChange={e => setNewLabel(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && addTheme()}
+              autoFocus
+            />
+          </div>
+          <div style={{ minWidth: '140px' }}>
+            <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Type</label>
+            <select className="input" value={newType} onChange={e => setNewType(e.target.value)}>
+              <option value="theme">Theme</option>
+              <option value="motif">Motif</option>
+              <option value="question">Question</option>
+              <option value="symbol">Symbol</option>
+            </select>
+          </div>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button className="btn-primary" onClick={addTheme} disabled={saving}>{saving ? 'Adding…' : 'Add'}</button>
+            <button className="btn-ghost" onClick={() => { setAdding(false); setNewLabel('') }}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {/* Legend */}
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '16px', flexWrap: 'wrap' }}>
+        {Object.entries(THEME_COLORS).map(([type, c]) => (
+          <div key={type} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: c.bg }} />
+            {type.charAt(0).toUpperCase() + type.slice(1)}
+          </div>
+        ))}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--off-white)', border: '1.5px solid var(--border)' }} />
+          Scene
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+          <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--green-pale)', border: '1.5px solid var(--green)' }} />
+          Linked scene
+        </div>
+      </div>
+
+      {themes.length === 0 && scenes.length === 0 ? (
+        <div className="empty-state" style={{ marginTop: '20px' }}>
+          <h3>Nothing here yet</h3>
+          <p>Add themes above, then add scenes in the Scenes tab.</p>
+        </div>
+      ) : (
+        <>
+          {/* Canvas */}
+          <div style={{ border: '1px solid var(--border)', borderRadius: '12px', background: 'var(--off-white)', overflow: 'hidden', position: 'relative' }}>
+            <svg
+              ref={svgRef}
+              width="100%"
+              style={{ display: 'block', minHeight: '520px', cursor: dragging ? 'grabbing' : 'default', userSelect: 'none' }}
+              onMouseMove={onSvgMouseMove}
+              onMouseUp={onSvgMouseUp}
+              onMouseLeave={onSvgMouseUp}
+            >
+              {/* Grid dots */}
+              <defs>
+                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="var(--border)" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+
+              {/* Links (lines between theme nodes and scene nodes) */}
+              {links.map(link => {
+                const tp = positions[`theme-${link.theme_id}`]
+                const sp = positions[`scene-${link.scene_id}`]
+                if (!tp || !sp) return null
+                return (
+                  <line
+                    key={`${link.theme_id}-${link.scene_id}`}
+                    x1={tp.x + 56} y1={tp.y + 18}
+                    x2={sp.x + 56} y2={sp.y + 18}
+                    stroke="var(--green)" strokeWidth="1.5" strokeDasharray="5,4" opacity="0.6"
+                  />
+                )
+              })}
+
+              {/* Scene nodes */}
+              {scenes.map(scene => {
+                const pos = positions[`scene-${scene.id}`] || { x: 0, y: 0 }
+                const isLinked = selectedTheme
+                  ? links.some(l => l.theme_id === selectedTheme.id && l.scene_id === scene.id)
+                  : false
+                const isAnyLinked = links.some(l => l.scene_id === scene.id)
+                return (
+                  <g
+                    key={scene.id}
+                    transform={`translate(${pos.x}, ${pos.y})`}
+                    onMouseDown={e => onNodeMouseDown(e, `scene-${scene.id}`)}
+                    onClick={() => {
+                      if (selectedTheme) toggleLink(selectedTheme.id, scene.id)
+                    }}
+                    style={{ cursor: selectedTheme ? 'pointer' : 'grab' }}
+                  >
+                    <rect
+                      width="112" height="36" rx="6"
+                      fill={isLinked ? 'var(--green-pale)' : 'white'}
+                      stroke={isLinked ? 'var(--green)' : isAnyLinked ? '#aaa' : 'var(--border)'}
+                      strokeWidth="1.5"
+                    />
+                    <text x="56" y="23" textAnchor="middle"
+                      style={{ fontSize: '11px', fill: isLinked ? 'var(--green)' : 'var(--text-dark)', fontFamily: 'var(--font-sans)', fontWeight: isLinked ? '600' : '400' }}
+                    >
+                      {scene.title.length > 14 ? scene.title.slice(0, 13) + '…' : scene.title}
+                    </text>
+                    {selectedTheme && (
+                      <rect width="112" height="36" rx="6" fill="rgba(45,80,22,0.06)" />
+                    )}
+                  </g>
+                )
+              })}
+
+              {/* Theme nodes */}
+              {themes.map(theme => {
+                const pos = positions[`theme-${theme.id}`] || { x: 0, y: 0 }
+                const col = THEME_COLORS[theme.type] || THEME_COLORS.theme
+                const isSelected = selected?.type === 'theme' && selected?.id === theme.id
+                const linkedCount = links.filter(l => l.theme_id === theme.id).length
+                return (
+                  <g
+                    key={theme.id}
+                    transform={`translate(${pos.x}, ${pos.y})`}
+                    onMouseDown={e => onNodeMouseDown(e, `theme-${theme.id}`)}
+                    onClick={() => setSelected(isSelected ? null : { type: 'theme', id: theme.id })}
+                    style={{ cursor: 'grab' }}
+                  >
+                    <rect
+                      width="112" height="40" rx="8"
+                      fill={col.bg}
+                      stroke={isSelected ? '#fff' : col.border}
+                      strokeWidth={isSelected ? 3 : 1.5}
+                    />
+                    {isSelected && (
+                      <rect width="112" height="40" rx="8" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4,3" />
+                    )}
+                    <text x="56" y="16" textAnchor="middle"
+                      style={{ fontSize: '10px', fill: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase' }}
+                    >
+                      {theme.type}
+                    </text>
+                    <text x="56" y="31" textAnchor="middle"
+                      style={{ fontSize: '12px', fontWeight: '600', fill: col.text, fontFamily: 'var(--font-sans)' }}
+                    >
+                      {theme.label.length > 13 ? theme.label.slice(0, 12) + '…' : theme.label}
+                    </text>
+                    {linkedCount > 0 && (
+                      <>
+                        <circle cx="100" cy="8" r="9" fill="white" />
+                        <text x="100" y="12" textAnchor="middle"
+                          style={{ fontSize: '10px', fontWeight: '700', fill: col.bg, fontFamily: 'var(--font-mono)' }}
+                        >{linkedCount}</text>
+                      </>
+                    )}
+                  </g>
+                )
+              })}
+            </svg>
+          </div>
+
+          {/* Instruction / selected theme panel */}
+          {selectedTheme ? (
+            <div style={{ marginTop: '16px', padding: '14px 18px', borderRadius: '10px', background: 'var(--green-pale)', border: '1px solid var(--green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+              <div>
+                <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--green)' }}>
+                  Linking: &ldquo;{selectedTheme.label}&rdquo;
+                </span>
+                <span style={{ fontSize: '13px', color: 'var(--text-mid)', marginLeft: '8px' }}>
+                  Click scene nodes above to connect them. Click the theme again to deselect.
+                </span>
+              </div>
+              <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 12px' }} onClick={() => setSelected(null)}>
+                Done linking
+              </button>
+            </div>
+          ) : (
+            <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--text-soft)', textAlign: 'center' }}>
+              Click a theme node to start linking it to scenes &middot; Drag any node to reposition
+            </p>
+          )}
+
+          {/* Theme list sidebar */}
+          {themes.length > 0 && (
+            <div style={{ marginTop: '24px' }}>
+              <p style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                All themes ({themes.length})
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {themes.map(t => {
+                  const col = THEME_COLORS[t.type] || THEME_COLORS.theme
+                  const linkedScenes = links.filter(l => l.theme_id === t.id)
+                  return (
+                    <div key={t.id} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--white)' }}>
+                      <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: col.bg, flexShrink: 0 }} />
+                      <div style={{ flex: 1 }}>
+                        <span style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)' }}>{t.label}</span>
+                        <span style={{ fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px', fontFamily: 'var(--font-mono)' }}>{t.type}</span>
+                      </div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                        {linkedScenes.length} scene{linkedScenes.length !== 1 ? 's' : ''}
+                      </span>
+                      <button
+                        className="btn-danger"
+                        style={{ fontSize: '11px', padding: '4px 10px' }}
+                        onClick={() => deleteTheme(t.id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+        </>
+      )}
     </div>
   )
 }
