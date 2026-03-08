@@ -1,8 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
+
 
 // Map Stripe price IDs to plan names
 function getPlanFromPriceId(priceId) {
@@ -16,6 +15,8 @@ function getPlanFromPriceId(priceId) {
 }
 
 export async function POST(req) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
   const body = await req.text()
   const sig = req.headers.get('stripe-signature')
 

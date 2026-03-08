@@ -1,8 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-
 const PRICES = {
   studio_monthly:  process.env.STRIPE_PRICE_STUDIO_MONTHLY,
   studio_annual:   process.env.STRIPE_PRICE_STUDIO_ANNUAL,
@@ -11,6 +9,7 @@ const PRICES = {
 }
 
 export async function POST(req) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
   try {
     const { priceKey, userId, email, billing } = await req.json()
 
