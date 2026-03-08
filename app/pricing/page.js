@@ -379,7 +379,8 @@ export default function PricingPage() {
             marginBottom: '32px',
           }}>Full feature comparison</h2>
 
-          <div className="comparison-table" style={{
+          <div className="comparison-table-wrap">
+          <div className="comparison-table-inner" style={{
             border: '1px solid var(--border)',
             borderRadius: '14px',
             overflow: 'hidden',
@@ -432,6 +433,7 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+          </div>
         </div>
 
         {/* FAQ section */}
@@ -473,7 +475,7 @@ export default function PricingPage() {
         </div>
 
         {/* Bottom CTA */}
-        <div style={{
+        <div className="pricing-bottom-cta" style={{
           marginTop: '72px',
           textAlign: 'center',
           padding: '56px 40px',

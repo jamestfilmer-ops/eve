@@ -206,7 +206,6 @@ export default function Nav() {
               </>
             ) : (
               <>
-                <NavLink href="/pricing" active={isActive('/pricing')}>Pricing</NavLink>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
                   <button className="btn-ghost" style={{ fontSize: '13px', padding: '7px 15px' }}>Sign in</button>
                 </Link>
