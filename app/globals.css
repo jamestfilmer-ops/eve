@@ -482,3 +482,131 @@ input, textarea, select, button {
   h2   { font-size: clamp(20px, 5vw, 26px); }
   .lesson-body p { font-size: 16px; }
 }
+/* ─── Mobile responsive overrides (480px and below) ─────────────── */
+@media (max-width: 480px) {
+  /* Nav */
+  .nav-links { display: none !important; }
+
+  /* Pricing cards — stack vertically */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .pricing-card-popular {
+    transform: none !important;
+  }
+
+  /* Footer grid */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hero section */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-top: 60px !important;
+    padding-bottom: 48px !important;
+  }
+  .hero-mockup {
+    display: none !important;
+  }
+
+  /* No AI section */
+  .split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  /* Pricing cards — stack on mobile */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .pricing-card-popular {
+    transform: none !important;
+  }
+
+  /* Footer grid */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Comparison table — hide on small screens */
+  .comparison-table {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Pricing toggle */
+  .billing-toggle button {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ─── Dashboard + App mobile fixes ──────────────────────────────── */
+@media (max-width: 640px) {
+  /* Dashboard stats row: 4 cols → 2x2 */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Timeline beat grid */
+  .beat-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Full stack on very small screens */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ─── Global mobile padding & overflow fix ───────────────────────── */
+@media (max-width: 767px) {
+  /* Prevent any section from causing horizontal scroll */
+  body { overflow-x: hidden; }
+  
+  /* Section padding reduction on mobile */
+  section { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Button full-width on mobile hero */
+  .hero-cta-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-cta-row a { width: 100% !important; }
+  .hero-cta-row button { width: 100% !important; text-align: center; }
+
+  /* Frameworks card grid — make minWidth smaller */
+  .framework-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  }
+
+  /* Learn page lesson grid */
+  .lesson-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tab bar: make scrollable */
+  .tab-bar {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap !important;
+    padding-bottom: 2px;
+  }
+
+  /* Ideas/session pages: stack inputs */
+  .idea-form-row {
+    flex-direction: column !important;
+  }
+}

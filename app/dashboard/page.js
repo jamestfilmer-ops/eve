@@ -112,7 +112,7 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      <div className="fade-up fade-up-delay-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
+      <div className="fade-up fade-up-delay-1 stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
         {[
           { label: 'Projects',        value: stats.projects   },
           { label: 'Scenes written',  value: stats.scenes     },

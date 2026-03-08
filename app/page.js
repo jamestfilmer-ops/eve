@@ -197,7 +197,7 @@ function PricingSection() {
         </div>
 
         {/* Cards */}
-        <div className="fade-up fade-up-delay-1" style={{
+        <div className="fade-up fade-up-delay-1 pricing-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '20px',
@@ -231,6 +231,7 @@ function PricingSection() {
                   transition: 'box-shadow 0.28s ease, transform 0.28s ease',
                   transform: isPopular ? 'translateY(-8px)' : 'none',
                 }}
+                className={isPopular ? 'pricing-card-popular' : ''}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = isPopular ? 'translateY(-14px)' : 'translateY(-6px)'
                   e.currentTarget.style.boxShadow = isPopular
@@ -421,7 +422,7 @@ export default function Home() {
     <div style={{ background: 'var(--white)' }}>
 
       {/* Hero */}
-      <section style={{
+      <section className="hero-grid" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '100px 24px 80px',
@@ -454,7 +455,7 @@ export default function Home() {
           }}>
             Eve turns a scene, a line of dialogue, or a feeling into a structured story — using frameworks from screenwriting masters, not shortcuts.
           </p>
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div className="hero-cta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
               <button className="btn-primary" style={{ fontSize: '15px', padding: '12px 28px' }}>
                 Start your first story
@@ -469,7 +470,7 @@ export default function Home() {
         </div>
 
         {/* Mockup card */}
-        <div className="fade-up fade-up-delay-2" style={{
+        <div className="fade-up fade-up-delay-2 hero-mockup" style={{
           background: '#fff',
           border: '1px solid var(--border)',
           borderRadius: '16px',
@@ -544,7 +545,7 @@ export default function Home() {
       </section>
 
       {/* No AI section */}
-      <section style={{
+      <section className="split-grid" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '80px 24px',
@@ -630,7 +631,7 @@ export default function Home() {
               Every project in Eve starts with a structure choice. Not sure which? Read the descriptions — you will know.
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+          <div className="framework-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
             {frameworks.map((f, i) => (
               <div key={i} className="card" style={{ padding: '24px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
@@ -680,7 +681,7 @@ export default function Home() {
         background: 'var(--text-dark)',
         padding: '48px 24px',
       }}>
-        <div style={{
+        <div className="footer-grid" style={{
           maxWidth: '1200px', margin: '0 auto',
           display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '48px',
         }}>

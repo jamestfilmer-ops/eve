@@ -175,7 +175,7 @@ export default function PricingPage() {
 
       {/* Cards */}
       <div style={{ maxWidth: '1080px', margin: '0 auto', padding: '0 24px 80px' }}>
-        <div className="fade-up fade-up-delay-1" style={{
+        <div className="fade-up fade-up-delay-1 pricing-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '20px',
@@ -209,6 +209,7 @@ export default function PricingPage() {
                   transition: 'box-shadow 0.28s ease, transform 0.28s ease',
                   transform: isPopular ? 'translateY(-8px)' : 'none',
                 }}
+                className={isPopular ? 'pricing-card-popular' : ''}
                 onMouseEnter={e => {
                   e.currentTarget.style.transform = isPopular ? 'translateY(-14px)' : 'translateY(-6px)'
                   e.currentTarget.style.boxShadow = isPopular
@@ -378,7 +379,7 @@ export default function PricingPage() {
             marginBottom: '32px',
           }}>Full feature comparison</h2>
 
-          <div style={{
+          <div className="comparison-table" style={{
             border: '1px solid var(--border)',
             borderRadius: '14px',
             overflow: 'hidden',
