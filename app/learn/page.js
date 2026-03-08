@@ -1,5 +1,17 @@
 import Link from 'next/link'
 
+export const metadata = {
+  title: "Screenwriting Craft Library — Free Lessons on Structure, Character & Dialogue",
+  description: "Free screenwriting lessons on story structure, character arcs, dialogue subtext, theme, and more. Written by humans. No AI. Covers Save the Cat, Hero's Journey, McKee, Aristotle.",
+  keywords: "screenwriting lessons, story structure, character arc, dialogue subtext, save the cat, hero's journey, screenwriting craft, free screenwriting course",
+  openGraph: {
+    title: "Screenwriting Craft Library — Free Lessons",
+    description: "30+ lessons on structure, character, dialogue, and theme. Free forever.",
+    url: "https://eve-screenwriting.vercel.app/learn",
+  },
+}
+
+
 const lessons = [
   {
     category: 'Structure',

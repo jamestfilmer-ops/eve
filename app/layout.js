@@ -4,8 +4,34 @@ import ConsentBanner from './components/ConsentBanner'
 import Providers from './components/Providers'
 
 export const metadata = {
-  title: 'Eve — Write Better Stories',
-  description: 'The structured writing tool for serious storytellers. No AI. Ever.',
+  metadataBase: new URL('https://eve-screenwriting.vercel.app'),
+  title: {
+    default: 'Eve — Screenwriting Craft & Story Workspace',
+    template: '%s | Eve',
+  },
+  description: 'The screenwriting craft platform for serious storytellers. Free lessons on structure, character, dialogue, and theme. Story workspace with all 7 major frameworks. No AI. Ever.',
+  keywords: 'screenwriting, screenplay, story structure, save the cat, hero\'s journey, screenwriting lessons, screenwriting software, story workspace, script writing',
+  authors: [{ name: 'Eve' }],
+  creator: 'Eve',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://eve-screenwriting.vercel.app',
+    siteName: 'Eve',
+    title: 'Eve — Screenwriting Craft & Story Workspace',
+    description: 'Free screenwriting lessons. Professional story tools. No AI.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Eve — Screenwriting Craft' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Eve — Screenwriting Craft & Story Workspace',
+    description: 'Free screenwriting lessons. Professional story tools. No AI.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
 }
 
 export const viewport = {

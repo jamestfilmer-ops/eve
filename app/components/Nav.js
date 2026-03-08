@@ -5,7 +5,8 @@ import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
 
 const learnLinks = [
-  { href: '/learn',        label: 'All Lessons' },
+  { href: '/learn',        label: 'Craft Library' },
+  { href: '/frameworks',    label: 'Frameworks' },
   { href: '/learn/tracks', label: 'Learning Paths' },
   { href: '/learn/what-a-scene-does', label: 'What a scene does' },
   { href: '/learn/want-vs-need',      label: 'Want vs. Need' },

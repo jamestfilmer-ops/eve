@@ -558,6 +558,48 @@ const lessons = {
     ],
 }
 
+const lessonBooks = {
+  'what-a-scene-does': [
+    { title: 'Techniques of the Selling Writer', author: 'Dwight Swain', url: 'https://www.amazon.com/Techniques-Selling-Writer-Dwight-Swain/dp/0806111917', note: 'Origin of the scene-sequel model cited in this lesson' },
+    { title: 'Making a Good Script Great', author: 'Linda Seger', url: 'https://www.amazon.com/Making-Good-Script-Great-Linda/dp/0935296417', note: 'Multi-function scene analysis' },
+  ],
+  'midpoint': [
+    { title: 'Save the Cat', author: 'Blake Snyder', url: 'https://www.amazon.com/Save-Cat-Last-Screenwriting-Book/dp/1932907009', note: 'False victory vs. false defeat midpoint types' },
+  ],
+  'want-vs-need': [
+    { title: 'Creating Character Arcs', author: 'K.M. Weiland', url: 'https://www.amazon.com/Creating-Character-Arcs-Masterful-Compelling/dp/0985780401', note: 'The clearest book-length treatment of this concept' },
+    { title: 'Story', author: 'Robert McKee', url: 'https://www.amazon.com/Story-Substance-Structure-Principles-Screenwriting/dp/0060391685', note: 'McKee\'s conscious desire vs. unconscious need formulation' },
+  ],
+  'dialogue-subtext': [
+    { title: 'Story', author: 'Robert McKee', url: 'https://www.amazon.com/Story-Substance-Structure-Principles-Screenwriting/dp/0060391685', note: 'McKee on the four functions of dialogue' },
+  ],
+  'theme': [
+    { title: 'Story', author: 'Robert McKee', url: 'https://www.amazon.com/Story-Substance-Structure-Principles-Screenwriting/dp/0060391685', note: 'McKee\'s controlling idea formulation' },
+    { title: 'The Anatomy of Story', author: 'John Truby', url: 'https://www.amazon.com/Anatomy-Story-Steps-Becoming-Master/dp/086547800X', note: 'Theme as structural constraint, not ornament' },
+  ],
+  'act-breaks': [
+    { title: 'Screenplay', author: 'Syd Field', url: 'https://www.amazon.com/Screenplay-Foundations-Screenwriting-Syd-Field/dp/0385339038', note: 'Field\'s original plot point formulation' },
+    { title: 'The Writer\'s Journey', author: 'Christopher Vogler', url: 'https://www.amazon.com/Writers-Journey-Mythic-Structure-Storytellers/dp/1615932283', note: 'The threshold crossing and volitional crossing distinction' },
+    { title: 'Save the Cat', author: 'Blake Snyder', url: 'https://www.amazon.com/Save-Cat-Last-Screenwriting-Book/dp/1932907009', note: 'Break into Two and Break into Three beat placement' },
+  ],
+  'all-is-lost': [
+    { title: 'Save the Cat', author: 'Blake Snyder', url: 'https://www.amazon.com/Save-Cat-Last-Screenwriting-Book/dp/1932907009', note: 'Snyder\'s whiff of death and the All Is Lost beat' },
+  ],
+  'ghost': [
+    { title: 'Creating Character Arcs', author: 'K.M. Weiland', url: 'https://www.amazon.com/Creating-Character-Arcs-Masterful-Compelling/dp/0985780401', note: 'The wound and the ghost as arc engine' },
+  ],
+  'antagonist': [
+    { title: 'Story', author: 'Robert McKee', url: 'https://www.amazon.com/Story-Substance-Structure-Principles-Screenwriting/dp/0060391685', note: 'McKee on the antagonist\'s principle' },
+    { title: 'The Anatomy of Story', author: 'John Truby', url: 'https://www.amazon.com/Anatomy-Story-Steps-Becoming-Master/dp/086547800X', note: 'The opponent and the thematic counter-argument' },
+  ],
+  'subtext': [
+    { title: 'Story', author: 'Robert McKee', url: 'https://www.amazon.com/Story-Substance-Structure-Principles-Screenwriting/dp/0060391685', note: 'McKee on text vs. subtext in scene construction' },
+  ],
+  'plant-payoff': [
+    { title: 'Making a Good Script Great', author: 'Linda Seger', url: 'https://www.amazon.com/Making-Good-Script-Great-Linda/dp/0935296417', note: 'Setup and payoff as structural principle' },
+  ],
+}
+
 function renderBody(body) {
   return body.map((block, i) => {
     if (block.type === 'p') return (
@@ -680,6 +722,25 @@ export default function LessonPage() {
       <div className="fade-up fade-up-delay-1">
         {renderBody(activeBody)}
       </div>
+
+            {/* Books cited */}
+      {lessonBooks[slug] && lessonBooks[slug].length > 0 && (
+        <div style={{ marginTop: '52px', padding: '28px 32px', background: 'var(--amber-pale)', border: '1px solid var(--amber-border)', borderRadius: '12px' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '16px' }}>Further reading</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {lessonBooks[slug].map((book, i) => (
+              <a key={i} href={book.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', textDecoration: 'none' }}>
+                <div>
+                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', color: 'var(--text-dark)' }}>{book.title}</span>
+                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px' }}>{book.author}</span>
+                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-mid)', margin: '3px 0 0', lineHeight: '1.5' }}>{book.note}</p>
+                </div>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--amber)', whiteSpace: 'nowrap', paddingTop: '2px' }}>Amazon ↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Prev / Next */}
       <div style={{ marginTop: '64px', paddingTop: '32px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>

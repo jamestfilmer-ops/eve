@@ -717,8 +717,8 @@ export default function Home() {
             <p style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '14px' }}>Learn</p>
             {[
               { href: '/learn', label: 'Craft Library' },
+              { href: '/frameworks', label: 'Frameworks' },
               { href: '/glossary', label: 'Glossary' },
-              { href: '/resources', label: 'Reading List' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}
@@ -730,6 +730,7 @@ export default function Home() {
           <div>
             <p style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '14px' }}>Legal</p>
             {[
+              { href: '/about', label: 'About' },
               { href: '/terms', label: 'Terms of Service' },
               { href: '/privacy', label: 'Privacy Policy' },
             ].map((l, i) => (
