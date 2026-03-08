@@ -676,3 +676,15 @@ input, textarea, select, button {
   img, video { max-width: 100% !important; }
 }
 
+/* Horizontal framework carousel */
+.framework-carousel::-webkit-scrollbar {
+  display: none;
+}
+.framework-carousel {
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+}
+.framework-carousel:active {
+  cursor: grabbing;
+}
+

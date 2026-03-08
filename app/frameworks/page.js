@@ -167,7 +167,7 @@ export default function FrameworksPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'var(--text-dark)', padding: '88px 24px 72px', textAlign: 'center' }}>
+      <section style={{ background: 'var(--green)', padding: '88px 24px 72px', textAlign: 'center' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '20px' }}>Story Structure</p>
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
@@ -176,7 +176,7 @@ export default function FrameworksPage() {
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.6)', maxWidth: '580px', margin: '0 auto 32px' }}>
             Save the Cat or Hero&apos;s Journey? Story Circle or Sequence Approach? What each framework actually does, what it is best for, and when to use something else.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--amber)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>
             Try all 7 frameworks in Eve — free
           </Link>
         </div>
@@ -204,7 +204,7 @@ export default function FrameworksPage() {
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
                       <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', margin: 0 }}>{f.name}</h2>
-                      <span style={{ display: 'inline-block', padding: '3px 10px', borderRadius: '12px', background: f.diffBg, border: `1px solid ${f.diffBorder}`, fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '700', color: f.diffColor }}>{f.difficulty}</span>
+                      <span style={{ display: 'inline-block', padding: '3px 10px', borderRadius: '12px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{f.difficulty}</span>
                     </div>
                     <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '12px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
                       {f.creator} · {f.year}{f.acts ? ` · ${f.acts} acts` : ''}{f.beats ? ` · ${f.beats} beats` : ''}
@@ -215,7 +215,7 @@ export default function FrameworksPage() {
                       Read the lesson →
                     </Link>
                     {f.bookUrl && (
-                      <a href={f.bookUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '9px 18px', background: 'var(--amber-pale)', border: '1px solid var(--amber-border)', borderRadius: '8px', fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '700', color: 'var(--amber)', textDecoration: 'none' }}>
+                      <a href={f.bookUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '9px 18px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
                         {f.bookTitle} ↗
                       </a>
                     )}
@@ -247,10 +247,10 @@ export default function FrameworksPage() {
                     ))}
                   </div>
                   <div style={{ marginBottom: '20px' }}>
-                    <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '10px' }}>Limitations</p>
+                    <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '10px' }}>Limitations</p>
                     {f.limitations.map((l, j) => (
                       <div key={j} style={{ display: 'flex', gap: '10px', marginBottom: '8px' }}>
-                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--amber)', marginTop: '7px', flexShrink: 0 }} />
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--text-soft)', marginTop: '7px', flexShrink: 0 }} />
                         <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6', margin: 0 }}>{l}</p>
                       </div>
                     ))}

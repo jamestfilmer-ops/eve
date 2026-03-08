@@ -26,6 +26,27 @@ const frameworks = [
     acts: "1 Circle / 8 Steps",
   },
   {
+    name: "Sequence Approach",
+    author: "Frank Daniel",
+    description: "Three-act structure broken into 8 sequences of 10-15 pages each, every one with its own tension arc. Fixes the Act 2 sag problem by making each sequence a mini-film.",
+    best_for: "Complex plots, writers who find 3-act too broad",
+    acts: "3 Acts / 8 Sequences",
+  },
+  {
+    name: "Fichtean Curve",
+    author: "J.G. Fichte",
+    description: "Begins in rising action, not setup. Crisis after crisis, each one raising the stakes, until the climax resolves everything at once. No slow burn allowed.",
+    best_for: "Thrillers, short stories, high-tension drama",
+    acts: "Rising action only",
+  },
+  {
+    name: "Kishōtenketsu",
+    author: "East Asian tradition",
+    description: "Four acts: introduction, development, twist, reconciliation. No conflict required. The story turns on surprise and resonance, not opposition.",
+    best_for: "Literary fiction, non-Western stories, experimental",
+    acts: "4 Acts / No conflict",
+  },
+  {
     name: "Freeform",
     author: "Your instincts",
     description: "No template. You build the structure as you go. Eve tracks your scenes, characters, and themes — the shape is entirely yours.",
@@ -601,22 +622,39 @@ export default function Home() {
           padding: '40px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '24px',
+          gap: '20px',
+          position: 'relative',
+          overflow: 'hidden',
         }}>
+          {/* Decorative large quote mark */}
+          <div style={{
+            position: 'absolute', top: '16px', right: '24px',
+            fontFamily: 'Playfair Display, serif',
+            fontSize: '120px', lineHeight: 1,
+            color: 'rgba(255,255,255,0.07)',
+            fontStyle: 'italic',
+            userSelect: 'none',
+            pointerEvents: 'none',
+          }}>&ldquo;</div>
           <p style={{
             fontFamily: 'Playfair Display, serif',
-            fontSize: '22px',
+            fontSize: 'clamp(18px, 2.2vw, 23px)',
             fontStyle: 'italic',
             color: '#fff',
-            lineHeight: '1.5',
+            lineHeight: '1.6',
+            position: 'relative',
+            zIndex: 1,
           }}>
-            "The discipline of the writer is to learn to be still and listen to what his subject has to tell him."
+            &ldquo;The discipline of the writer is to learn to be still and listen to what his subject has to tell him.&rdquo;
           </p>
-          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', letterSpacing: '0.04em' }}>
-            — Rachel Carson
-          </p>
-          <div style={{ height: '1px', background: 'rgba(255,255,255,0.15)' }} />
-          <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.7' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ width: '28px', height: '1px', background: 'rgba(255,255,255,0.4)' }} />
+            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.06em', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+              Rachel Carson
+            </p>
+          </div>
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.12)' }} />
+          <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75' }}>
             Eve is a thinking tool. It holds your structure so your mind stays free for the only thing that matters — the work.
           </p>
         </div>
@@ -631,18 +669,54 @@ export default function Home() {
               Every project in Eve starts with a structure choice. Not sure which? Read the descriptions — you will know.
             </p>
           </div>
-          <div className="framework-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-            {frameworks.map((f, i) => (
-              <div key={i} className="card" style={{ padding: '24px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                  <h3 style={{ fontSize: '17px', fontFamily: 'Playfair Display, serif' }}>{f.name}</h3>
-                  <span className="badge">{f.acts}</span>
+          {/* Scroll hint arrows */}
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              display: 'flex',
+              gap: '20px',
+              overflowX: 'auto',
+              paddingBottom: '16px',
+              scrollSnapType: 'x mandatory',
+              scrollBehavior: 'smooth',
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
+              cursor: 'grab',
+            }}
+              className="framework-carousel"
+            >
+              {frameworks.map((f, i) => (
+                <div key={i} className="card" style={{
+                  padding: '26px',
+                  minWidth: '290px',
+                  maxWidth: '290px',
+                  scrollSnapAlign: 'start',
+                  flexShrink: 0,
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                    <h3 style={{ fontSize: '17px', fontFamily: 'Playfair Display, serif' }}>{f.name}</h3>
+                    <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0, marginLeft: '8px' }}>{f.acts}</span>
+                  </div>
+                  <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
+                  <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '14px' }}>{f.description}</p>
+                  <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
                 </div>
-                <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
-                <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '14px' }}>{f.description}</p>
-                <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* Fade right edge hint */}
+            <div style={{
+              position: 'absolute', top: 0, right: 0, bottom: '16px',
+              width: '60px', pointerEvents: 'none',
+              background: 'linear-gradient(to right, transparent, var(--off-white))',
+            }} />
+          </div>
+          <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--text-soft)' }}>
+              <path d="M9 4l-4 3 4 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>Scroll to see all 7</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--text-soft)' }}>
+              <path d="M5 4l4 3-4 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
         </div>
       </section>
@@ -718,6 +792,7 @@ export default function Home() {
             {[
               { href: '/learn', label: 'Craft Library' },
               { href: '/frameworks', label: 'Frameworks' },
+              { href: '/road-to-hollywood', label: 'Road to Hollywood' },
               { href: '/glossary', label: 'Glossary' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}

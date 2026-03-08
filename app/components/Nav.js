@@ -5,14 +5,10 @@ import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
 
 const learnLinks = [
-  { href: '/learn',        label: 'Craft Library' },
-  { href: '/frameworks',    label: 'Frameworks' },
-  { href: '/learn/tracks', label: 'Learning Paths' },
-  { href: '/learn/what-a-scene-does', label: 'What a scene does' },
-  { href: '/learn/want-vs-need',      label: 'Want vs. Need' },
-  { href: '/learn/midpoint',          label: 'The midpoint' },
-  { href: '/learn/dialogue-subtext',  label: 'Dialogue & subtext' },
-  { href: '/learn/theme',             label: 'Theme' },
+  { href: '/learn',               label: 'Craft Library' },
+  { href: '/frameworks',          label: 'Frameworks' },
+  { href: '/learn/tracks',        label: 'Learning Paths' },
+  { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
 ]
 
 export default function Nav() {
@@ -104,7 +100,7 @@ export default function Nav() {
             <NavLink href="/dashboard" active={isActive('/dashboard')}>Projects</NavLink>
             <NavLink href="/ideas"     active={isActive('/ideas')}>Ideas</NavLink>
 
-            {/* Craft dropdown — hover with bridge fix */}
+            {/* Learn dropdown — hover with bridge fix */}
             <div
               ref={learnRef}
               style={{ position: 'relative' }}
@@ -113,17 +109,17 @@ export default function Nav() {
             >
               <button
                 style={{
-                  background: learnOpen || isActive('/learn') ? 'var(--green-pale)' : 'none',
+                  background: learnOpen || isActive('/learn') || isActive('/frameworks') ? 'var(--green-pale)' : 'none',
                   border: 'none', cursor: 'pointer',
                   padding: '7px 11px', borderRadius: '8px',
                   fontFamily: 'var(--font-ui)', fontSize: '14px',
-                  fontWeight: isActive('/learn') ? '600' : '400',
-                  color: isActive('/learn') || learnOpen ? 'var(--green)' : 'var(--text-mid)',
+                  fontWeight: isActive('/learn') || isActive('/frameworks') ? '600' : '400',
+                  color: (isActive('/learn') || isActive('/frameworks')) || learnOpen ? 'var(--green)' : 'var(--text-mid)',
                   display: 'flex', alignItems: 'center', gap: '5px',
                   transition: 'color 0.15s, background 0.15s',
                 }}
               >
-                Craft
+                Learn
                 <svg
                   width="11" height="11" viewBox="0 0 11 11" fill="none"
                   style={{ transition: 'transform 0.2s ease', transform: learnOpen ? 'rotate(180deg)' : 'none' }}
@@ -268,7 +264,7 @@ export default function Nav() {
 
           <div style={{ marginTop: '12px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
             <p style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px', paddingLeft: '14px' }}>
-              Craft Library
+              Learn
             </p>
             {learnLinks.map(l => (
               <MobileNavLink key={l.href} href={l.href} active={pathname === l.href}>{l.label}</MobileNavLink>

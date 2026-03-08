@@ -670,8 +670,8 @@ export default function LessonPage() {
 
             {/* Books cited */}
       {lessonBooks[slug] && lessonBooks[slug].length > 0 && (
-        <div style={{ marginTop: '52px', padding: '28px 32px', background: 'var(--amber-pale)', border: '1px solid var(--amber-border)', borderRadius: '12px' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '16px' }}>Further reading</p>
+        <div style={{ marginTop: '52px', padding: '28px 32px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '12px' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '16px' }}>Further reading</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {lessonBooks[slug].map((book, i) => (
               <a key={i} href={book.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', textDecoration: 'none' }}>
@@ -680,7 +680,7 @@ export default function LessonPage() {
                   <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px' }}>{book.author}</span>
                   <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-mid)', margin: '3px 0 0', lineHeight: '1.5' }}>{book.note}</p>
                 </div>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--amber)', whiteSpace: 'nowrap', paddingTop: '2px' }}>Amazon ↗</span>
+                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '2px' }}>Amazon ↗</span>
               </a>
             ))}
           </div>
@@ -691,17 +691,17 @@ export default function LessonPage() {
       <div style={{ marginTop: '64px', paddingTop: '32px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
         {prevSlug && lessons[prevSlug] ? (
           <Link href={`/learn/${prevSlug}`} style={{ textDecoration: 'none' }}>
-            <div className="card" style={{ padding: '16px 18px' }}>
-              <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>&larr; Previous</p>
-              <p style={{ fontSize: '14px', fontFamily: 'Playfair Display, serif', color: 'var(--green)', lineHeight: '1.4' }}>{lessons[prevSlug].title}</p>
+            <div className="card" style={{ padding: '22px 24px' }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>&larr; Previous</p>
+              <p style={{ fontSize: '16px', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[prevSlug].title}</p>
             </div>
           </Link>
         ) : <div />}
         {nextSlug && lessons[nextSlug] ? (
           <Link href={`/learn/${nextSlug}`} style={{ textDecoration: 'none' }}>
-            <div className="card" style={{ padding: '16px 18px', textAlign: 'right' }}>
-              <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Next &rarr;</p>
-              <p style={{ fontSize: '14px', fontFamily: 'Playfair Display, serif', color: 'var(--green)', lineHeight: '1.4' }}>{lessons[nextSlug].title}</p>
+            <div className="card" style={{ padding: '22px 24px', textAlign: 'right' }}>
+              <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>Next &rarr;</p>
+              <p style={{ fontSize: '16px', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[nextSlug].title}</p>
             </div>
           </Link>
         ) : <div />}
