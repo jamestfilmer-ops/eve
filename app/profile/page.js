@@ -182,6 +182,44 @@ export default function ProfilePage() {
         ))}
       </div>
 
+      {/* Plan & Billing */}
+      <div className="fade-up fade-up-delay-2" style={{ marginBottom: '20px' }}>
+        <h3 style={{ fontSize: '16px', marginBottom: '12px' }}>Plan</h3>
+        <div className="card" style={{ padding: '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <p style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '2px', textTransform: 'capitalize' }}>
+              {profile?.plan || 'Free'}
+            </p>
+            <p style={{ fontSize: '12px', color: 'var(--text-soft)' }}>
+              {profile?.plan && profile.plan !== 'free' ? 'Active subscription' : 'Upgrade for unlimited projects and all frameworks'}
+            </p>
+          </div>
+          {profile?.plan && profile.plan !== 'free' ? (
+            <button
+              className="btn-ghost"
+              style={{ fontSize: '13px', padding: '6px 14px', flexShrink: 0 }}
+              onClick={async () => {
+                const res = await fetch('/api/stripe/portal', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ userId: user.id }),
+                })
+                const data = await res.json()
+                if (data.url) window.location.href = data.url
+              }}
+            >
+              Manage billing
+            </button>
+          ) : (
+            <a href="/pricing" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary" style={{ fontSize: '13px', padding: '6px 14px', flexShrink: 0 }}>
+                Upgrade
+              </button>
+            </a>
+          )}
+        </div>
+      </div>
+
       {/* Quick links */}
       <div className="fade-up fade-up-delay-2">
         <h3 style={{ fontSize: '16px', marginBottom: '12px' }}>Quick access</h3>

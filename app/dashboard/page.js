@@ -1,5 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
+import React from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '../../lib/supabase'
 import { useToast } from '../components/Toast'
@@ -30,8 +32,11 @@ function timeAgo(dateStr) {
   return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
-export default function Dashboard() {
+function DashboardInner() {
+  const searchParams = useSearchParams()
+  const upgraded = searchParams.get('upgraded')
   const toast = useToast()
+  const [showUpgradeBanner, setShowUpgradeBanner] = useState(!!upgraded)
   const [projects, setProjects] = useState([])
   const [stats,    setStats]    = useState({ projects: 0, scenes: 0, characters: 0, plotHoles: 0 })
   const [loading,  setLoading]  = useState(true)
@@ -177,5 +182,13 @@ export default function Dashboard() {
       )}
 
     </div>
+  )
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense fallback={null}>
+      <DashboardInner />
+    </Suspense>
   )
 }

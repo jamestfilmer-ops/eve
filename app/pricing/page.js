@@ -1,6 +1,12 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+)
 
 const plans = [
   {
@@ -102,8 +108,46 @@ function Check({ yes, text }) {
   )
 }
 
+export const dynamic = 'force-dynamic'
+
 export default function PricingPage() {
   const [billing, setBilling] = React.useState('annual')
+  const [loading, setLoading] = React.useState(null)
+  const [user, setUser] = React.useState(null)
+
+  React.useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => setUser(data?.user || null))
+  }, [])
+
+  async function handleUpgrade(planId) {
+    if (planId === 'free') {
+      window.location.href = '/auth?signup=true'
+      return
+    }
+    if (!user) {
+      window.location.href = '/auth?signup=true&redirect=/pricing'
+      return
+    }
+    const priceKey = planId + '_' + billing
+    setLoading(planId)
+    try {
+      const res = await fetch('/api/stripe/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceKey, userId: user.id, email: user.email, billing }),
+      })
+      const data = await res.json()
+      if (data.url) {
+        window.location.href = data.url
+      } else {
+        alert('Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setLoading(null)
+    }
+  }
 
   return (
     <div style={{ background: 'var(--white)', minHeight: '100vh' }}>
@@ -325,36 +369,46 @@ export default function PricingPage() {
                 </div>
 
                 {plan.ctaStyle === 'ghost' && (
-                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-                    <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
-                      {plan.cta}
-                    </button>
-                  </a>
+                  <button
+                    className="btn-ghost"
+                    style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}
+                    onClick={() => handleUpgrade(plan.id)}
+                    disabled={loading === plan.id}
+                  >
+                    {loading === plan.id ? 'Loading...' : plan.cta}
+                  </button>
                 )}
                 {plan.ctaStyle === 'primary' && (
-                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-                    <button className="btn-primary" style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}>
-                      {plan.cta}
-                    </button>
-                  </a>
+                  <button
+                    className="btn-primary"
+                    style={{ width: '100%', padding: '13px', fontSize: '14px', fontWeight: '700' }}
+                    onClick={() => handleUpgrade(plan.id)}
+                    disabled={loading === plan.id}
+                  >
+                    {loading === plan.id ? 'Loading...' : plan.cta}
+                  </button>
                 )}
                 {plan.ctaStyle === 'inverted' && (
-                  <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-                    <button style={{
+                  <button
+                    style={{
                       width: '100%', padding: '13px',
                       background: 'rgba(255,255,255,0.14)',
                       border: '1px solid rgba(255,255,255,0.28)',
                       borderRadius: '8px',
                       color: '#fff',
                       fontSize: '14px', fontWeight: '700',
-                      cursor: 'pointer',
+                      cursor: loading === plan.id ? 'not-allowed' : 'pointer',
                       fontFamily: 'Source Sans 3, sans-serif',
                       transition: 'background 0.18s',
+                      opacity: loading === plan.id ? 0.7 : 1,
                     }}
-                      onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.22)'}
-                      onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
-                    >{plan.cta}</button>
-                  </a>
+                    onClick={() => handleUpgrade(plan.id)}
+                    disabled={loading === plan.id}
+                    onMouseEnter={e => { if (!loading) e.currentTarget.style.background = 'rgba(255,255,255,0.22)' }}
+                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.14)'}
+                  >
+                    {loading === plan.id ? 'Loading...' : plan.cta}
+                  </button>
                 )}
               </div>
             )
