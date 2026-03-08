@@ -5,10 +5,10 @@ const lessons = [
     category: 'Structure',
     badge: 'Structure',
     items: [
-      { title: 'What a scene actually does', slug: 'what-a-scene-does', time: '3 min', level: 'Beginner', preview: 'Every scene must do at least two things simultaneously. If it only does one, it is a candidate for the cutting room floor.' },
-      { title: 'The midpoint is the spine', slug: 'midpoint', time: '4 min', level: 'Intermediate', preview: 'Remove your midpoint and your story collapses. It is not a scene in the middle — it is the event that divides your story into a before and an after.' },
-      { title: 'Act breaks: what they are and why they matter', slug: 'act-breaks', time: '5 min', level: 'Beginner', preview: 'An act break is a point of no return. Something must change so completely that your story can never go back to what it was.' },
-      { title: 'The All Is Lost beat', slug: 'all-is-lost', time: '3 min', level: 'Beginner', preview: 'Before your hero can win, they must lose everything. If your hero can recover without changing, the beat is not working.' },
+      { title: 'What a scene actually does', slug: 'what-a-scene-does', time: '6 min', level: 'Beginner', preview: 'Every scene must do at least two things simultaneously. If it only does one, it is a candidate for the cutting room floor.' },
+      { title: 'The midpoint is the spine', slug: 'midpoint', time: '6 min', level: 'Intermediate', preview: 'Remove your midpoint and your story collapses. It is not a scene in the middle — it is the event that divides your story into a before and an after.' },
+      { title: 'Act breaks: what they are and why they matter', slug: 'act-breaks', time: '7 min', level: 'Beginner', preview: 'An act break is a point of no return. Something must change so completely that your story can never go back to what it was.' },
+      { title: 'The All Is Lost beat', slug: 'all-is-lost', time: '6 min', level: 'Beginner', preview: 'Before your hero can win, they must lose everything. If your hero can recover without changing, the beat is not working.' },
     ],
   },
   {
@@ -26,9 +26,9 @@ const lessons = [
     category: 'Character',
     badge: 'Character',
     items: [
-      { title: 'Want vs. Need: the engine of every great character', slug: 'want-vs-need', time: '4 min', level: 'Beginner', preview: 'Your protagonist wants something they can name. They need something they cannot see yet. The gap between those two things is where your story lives.' },
-      { title: 'The ghost: what happened before page one', slug: 'ghost', time: '3 min', level: 'Beginner', preview: 'Every compelling character carries a wound from before the story starts. This ghost shapes every decision they make — even when they do not know it.' },
-      { title: 'Making your antagonist as strong as your hero', slug: 'antagonist', time: '5 min', level: 'Intermediate', preview: 'A weak antagonist makes a weak story. Your antagonist should be the hero of their own story — with a worldview that is internally consistent, even if it is wrong.' },
+      { title: 'Want vs. Need: the engine of every great character', slug: 'want-vs-need', time: '7 min', level: 'Beginner', preview: 'Your protagonist wants something they can name. They need something they cannot see yet. The gap between those two things is where your story lives.' },
+      { title: 'The ghost: what happened before page one', slug: 'ghost', time: '6 min', level: 'Beginner', preview: 'Every compelling character carries a wound from before the story starts. This ghost shapes every decision they make — even when they do not know it.' },
+      { title: 'Making your antagonist as strong as your hero', slug: 'antagonist', time: '7 min', level: 'Intermediate', preview: 'A weak antagonist makes a weak story. Your antagonist should be the hero of their own story — with a worldview that is internally consistent, even if it is wrong.' },
       { title: 'Secondary characters who earn their place', slug: 'secondary-characters', time: '4 min', level: 'Intermediate', preview: 'The best secondary characters challenge the hero. Every person in your story should want something, even if it is just a glass of water.' },
       { title: 'The lie your character believes', slug: 'the-lie', time: '4 min', level: 'Beginner', preview: 'Every great protagonist believes something false — a deep, organizing lie they have built their life around. The story is the process of dismantling it.' },
       { title: 'How a character arc actually works', slug: 'character-arc', time: '5 min', level: 'Intermediate', preview: 'A character arc is not personal growth. It is a forced transformation in how a character understands themselves — resisted until the last possible moment.' },
@@ -41,18 +41,18 @@ const lessons = [
     category: 'Dialogue',
     badge: 'Dialogue',
     items: [
-      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '4 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
-      { title: 'Subtext: what is not being said', slug: 'subtext', time: '5 min', level: 'Beginner', preview: 'The best dialogue is an iceberg. What is spoken is ten percent. Two people talking about the weather can break your heart.' },
-      { title: 'How to write an argument that feels real', slug: 'arguments', time: '3 min', level: 'Intermediate', preview: 'Real arguments are not about what people are arguing about. They are about what people are afraid of. Write the fear, not the fight.' },
+      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '7 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
+      { title: 'Subtext: what is not being said', slug: 'subtext', time: '6 min', level: 'Beginner', preview: 'The best dialogue is an iceberg. What is spoken is ten percent. Two people talking about the weather can break your heart.' },
+      { title: 'How to write an argument that feels real', slug: 'arguments', time: '7 min', level: 'Intermediate', preview: 'Real arguments are not about what people are arguing about. They are about what people are afraid of. Write the fear, not the fight.' },
     ],
   },
   {
     category: 'Theme',
     badge: 'Theme',
     items: [
-      { title: "Theme isn't a message — it's a question", slug: 'theme', time: '4 min', level: 'Beginner', preview: 'The moment your story has a clear answer, it has become a lecture. The best stories ask a question and let the audience wrestle with it.' },
-      { title: 'Planting and payoff', slug: 'plant-payoff', time: '3 min', level: 'Beginner', preview: 'A payoff without a plant feels cheap. A plant without a payoff is dead weight. The art is burying the plant so the payoff feels inevitable.' },
-      { title: 'How motifs work', slug: 'motifs', time: '3 min', level: 'Intermediate', preview: 'A motif is a recurring image or idea that accumulates meaning as your story progresses. Used right, a single object can carry your entire theme.' },
+      { title: "Theme isn't a message — it's a question", slug: 'theme', time: '6 min', level: 'Beginner', preview: 'The moment your story has a clear answer, it has become a lecture. The best stories ask a question and let the audience wrestle with it.' },
+      { title: 'Planting and payoff', slug: 'plant-payoff', time: '6 min', level: 'Beginner', preview: 'A payoff without a plant feels cheap. A plant without a payoff is dead weight. The art is burying the plant so the payoff feels inevitable.' },
+      { title: 'How motifs work', slug: 'motifs', time: '6 min', level: 'Intermediate', preview: 'A motif is a recurring image or idea that accumulates meaning as your story progresses. Used right, a single object can carry your entire theme.' },
     ],
   },
   {
