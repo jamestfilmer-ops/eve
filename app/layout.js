@@ -12,7 +12,7 @@ export const metadata = {
   description: "Free screenwriting lessons, novel writing guides, and story structure frameworks for writers who could not afford film school. Covers Save the Cat, Hero's Journey, three-act structure, character arc, dialogue, theme, and more. No AI. Built by writers.",
   keywords: [
     'screenwriting lessons free', 'how to write a screenplay', 'story structure', 'save the cat beats',
-    'hero's journey steps', 'three act structure', 'character arc', 'dialogue subtext', 'theme in storytelling',
+    'hero\'s journey steps', 'three act structure', 'character arc', 'dialogue subtext', 'theme in storytelling',
     'how to write a novel', 'novel structure', 'point of view fiction', 'literary agent query letter',
     'how to get published', 'screenwriting software free', 'story workspace', 'screenplay format',
     'fichtean curve', 'kishōtenketsu', 'sequence approach screenwriting', 'story circle dan harmon',
