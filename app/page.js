@@ -793,6 +793,8 @@ export default function Home() {
               { href: '/learn', label: 'Craft Library' },
               { href: '/frameworks', label: 'Frameworks' },
               { href: '/road-to-hollywood', label: 'Road to Hollywood' },
+              { href: '/road-to-publishing', label: 'Road to Publishing' },
+              { href: '/scripts', label: 'Famous Scripts' },
               { href: '/glossary', label: 'Glossary' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}

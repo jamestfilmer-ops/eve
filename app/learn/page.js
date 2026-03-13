@@ -1,13 +1,16 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Screenwriting Craft Library — Free Lessons on Structure, Character & Dialogue",
-  description: "Free screenwriting lessons on story structure, character arcs, dialogue subtext, theme, and more. Written by humans. No AI. Covers Save the Cat, Hero's Journey, McKee, Aristotle.",
-  keywords: "screenwriting lessons, story structure, character arc, dialogue subtext, save the cat, hero's journey, screenwriting craft, free screenwriting course",
+  title: "Free Screenwriting & Story Craft Lessons — Structure, Character, Dialogue",
+  description: "Free lessons on screenwriting craft, novel writing, and story structure. Covers three-act structure, character arc, dialogue subtext, theme, point of view, adaptation, and Shakespeare. Written by humans. No AI. Grounded in McKee, Aristotle, Truby, and Weiland.",
+  keywords: "free screenwriting lessons, how to write a screenplay, story structure lessons, character arc, dialogue writing, how to write a novel, point of view fiction, adaptation screenwriting, save the cat beats, hero journey steps, screenwriting course free, film school alternative online",
   openGraph: {
-    title: "Screenwriting Craft Library — Free Lessons",
-    description: "30+ lessons on structure, character, dialogue, and theme. Free forever.",
+    title: "Free Screenwriting & Story Craft Lessons",
+    description: "35+ lessons on structure, character, dialogue, theme, POV, and adaptation. For screenwriters and novelists. Free forever.",
     url: "https://eve-screenwriting.vercel.app/learn",
+  },
+  alternates: {
+    canonical: "https://eve-screenwriting.vercel.app/learn",
   },
 }
 
@@ -92,6 +95,22 @@ const lessons = [
       { title: "The Sequence Approach", slug: 'sequence-approach', time: '5 min', level: 'Intermediate', preview: "Eight sequences, each with its own tension arc. The approach used at USC Film School — and how many working screenwriters actually think." },
       { title: "Kishōtenketsu: story without conflict", slug: 'kishotenketsu', time: '5 min', level: 'Advanced', preview: "The classical East Asian structure that drives stories forward without traditional conflict. Understanding it will change how you see Western storytelling." },
       { title: "The Fichtean Curve", slug: 'fichtean-curve', time: '4 min', level: 'Intermediate', preview: "Start in crisis. Layer crises. End in resolution. The Fichtean Curve throws you into the action immediately — and never lets up." },
+    ],
+  },
+  {
+    category: 'Literary Craft',
+    badge: 'Literary',
+    items: [
+      { title: 'What Shakespeare knew about story that Hollywood relearned', slug: 'shakespeare-structure', time: '8 min', level: 'Intermediate', preview: 'Shakespeare did not invent dramatic structure — he refined it into something so practically useful that four hundred years later it still underlies almost every story told in any medium.' },
+      { title: 'How adaptation works: from source to screen (and page)', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapter's job is not to preserve the source — it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
+    ],
+  },
+  {
+    category: 'Novel Writing',
+    badge: 'Novel',
+    items: [
+      { title: 'Point of view: the decision that controls everything else', slug: 'point-of-view', time: '7 min', level: 'Beginner', preview: 'POV is not a technical choice about pronouns. It is a decision about where consciousness lives in your story — and every other craft decision is downstream of it.' },
+      { title: 'How to structure a novel chapter', slug: 'chapter-structure', time: '7 min', level: 'Beginner', preview: 'A chapter is not a unit of time or a unit of plot. It is a unit of experience. If a chapter ends and nothing has shifted, the chapter has not done its job.' },
     ],
   },
 ]

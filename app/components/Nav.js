@@ -9,6 +9,7 @@ const learnLinks = [
   { href: '/frameworks',          label: 'Frameworks' },
   { href: '/learn/tracks',        label: 'Learning Paths' },
   { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
+  { href: '/road-to-publishing',  label: 'Road to Publishing' },
 ]
 
 export default function Nav() {
