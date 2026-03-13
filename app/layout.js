@@ -9,7 +9,7 @@ export const metadata = {
     default: 'Eve — Screenwriting & Story Craft Platform',
     template: '%s | Eve',
   },
-  description: 'Free screenwriting lessons, novel writing guides, and story structure frameworks for writers who could not afford film school. Covers Save the Cat, Hero's Journey, three-act structure, character arc, dialogue, theme, and more. No AI. Built by writers.',
+  description: "Free screenwriting lessons, novel writing guides, and story structure frameworks for writers who could not afford film school. Covers Save the Cat, Hero's Journey, three-act structure, character arc, dialogue, theme, and more. No AI. Built by writers.",
   keywords: [
     'screenwriting lessons free', 'how to write a screenplay', 'story structure', 'save the cat beats',
     'hero's journey steps', 'three act structure', 'character arc', 'dialogue subtext', 'theme in storytelling',

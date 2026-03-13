@@ -102,7 +102,7 @@ const lessons = [
     badge: 'Literary',
     items: [
       { title: 'What Shakespeare knew about story that Hollywood relearned', slug: 'shakespeare-structure', time: '8 min', level: 'Intermediate', preview: 'Shakespeare did not invent dramatic structure — he refined it into something so practically useful that four hundred years later it still underlies almost every story told in any medium.' },
-      { title: 'How adaptation works: from source to screen (and page)', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapter's job is not to preserve the source — it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
+      { title: 'How adaptation works: from source to screen (and page)', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapter\'s job is not to preserve the source — it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
     ],
   },
   {
