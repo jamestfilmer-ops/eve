@@ -7,6 +7,7 @@ import { supabase } from '../../lib/supabase'
 const learnLinks = [
   { href: '/learn',               label: 'Craft Library' },
   { href: '/frameworks',          label: 'Frameworks' },
+  { href: '/for-beginners',        label: 'Start Here' },
   { href: '/learn/tracks',        label: 'Learning Paths' },
   { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
   { href: '/road-to-publishing',  label: 'Road to Publishing' },

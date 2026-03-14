@@ -24,6 +24,7 @@ const lessons = [
       { title: 'The midpoint is the spine', slug: 'midpoint', time: '6 min', level: 'Intermediate', preview: 'Remove your midpoint and your story collapses. It is not a scene in the middle — it is the event that divides your story into a before and an after.' },
       { title: 'Act breaks: what they are and why they matter', slug: 'act-breaks', time: '7 min', level: 'Beginner', preview: 'An act break is a point of no return. Something must change so completely that your story can never go back to what it was.' },
       { title: 'The All Is Lost beat', slug: 'all-is-lost', time: '6 min', level: 'Beginner', preview: 'Before your hero can win, they must lose everything. If your hero can recover without changing, the beat is not working.' },
+      { title: 'The opening image: first impressions that last', slug: 'opening-image', time: '5 min', level: 'Beginner', preview: 'The opening image is not decoration. It is a thesis statement — a compressed version of the entire story that the audience will only understand in retrospect.' },
     ],
   },
   {
@@ -83,6 +84,8 @@ const lessons = [
     items: [
       { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane — because that specificity is who they are.' },
       { title: "The Sopranos and the dramatic pause", slug: 'sopranos-drama', time: '8 min', level: 'Advanced', preview: 'The Sopranos is a masterclass in what not to rush. Silence, domesticity, and the space between scenes — that is where the show lives.' },
+      { title: 'Pacing and rhythm: how stories breathe', slug: 'pacing-rhythm', time: '6 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight. The allocation of space is meaning.' },
+      { title: 'The rewrite: what first drafts are actually for', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },
     ],
   },
   {
@@ -95,6 +98,25 @@ const lessons = [
       { title: "The Sequence Approach", slug: 'sequence-approach', time: '5 min', level: 'Intermediate', preview: "Eight sequences, each with its own tension arc. The approach used at USC Film School — and how many working screenwriters actually think." },
       { title: "Kishōtenketsu: story without conflict", slug: 'kishotenketsu', time: '5 min', level: 'Advanced', preview: "The classical East Asian structure that drives stories forward without traditional conflict. Understanding it will change how you see Western storytelling." },
       { title: "The Fichtean Curve", slug: 'fichtean-curve', time: '4 min', level: 'Intermediate', preview: "Start in crisis. Layer crises. End in resolution. The Fichtean Curve throws you into the action immediately — and never lets up." },
+    ],
+  },
+  {
+    category: 'Start Here',
+    badge: 'Beginner',
+    items: [
+      { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything — not because they lack talent, but because they start wrong. Here is how to actually begin.' },
+      { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of — and how to write through it instead of around it.' },
+      { title: 'Finding your story: where ideas actually come from', slug: 'finding-your-story', time: '6 min', level: 'Beginner', preview: 'The question every writer gets asked. The honest answer is: everywhere and nowhere. Here is how to develop the habit of noticing.' },
+    ],
+  },
+  {
+    category: 'Masters on Craft',
+    badge: 'Essentials',
+    items: [
+      { title: 'What Kurt Vonnegut knew that every beginner needs to hear', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box — the most useful craft checklist ever written, examined rule by rule.' },
+      { title: 'Stephen King on writing: the lessons that matter for beginners', slug: 'king-on-writing', time: '7 min', level: 'Beginner', preview: 'From On Writing: the toolbox, the closed door, the daily practice, and why story always precedes theme.' },
+      { title: 'Elmore Leonard and the art of invisible writing', slug: 'leonard-on-craft', time: '6 min', level: 'Intermediate', preview: 'Ten rules that add up to one: if it sounds like writing, rewrite it. The case for prose that gets out of the way.' },
+      { title: 'What Pixar teaches about story that applies to everything', slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: 'The 22 story rules that circulated inside Pixar — the ones that actually matter, examined from a writer\'s angle.' },
     ],
   },
   {

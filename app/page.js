@@ -453,7 +453,7 @@ export default function Home() {
         alignItems: 'center',
       }}>
         <div className="fade-up">
-          <div className="badge" style={{ marginBottom: '20px' }}>Writer's workspace</div>
+          <div className="badge" style={{ marginBottom: '20px' }}>Screenwriting & Story Craft</div>
           <h1 style={{
             fontFamily: 'Playfair Display, serif',
             fontSize: 'clamp(36px, 5vw, 58px)',
@@ -463,8 +463,8 @@ export default function Home() {
             marginBottom: '24px',
             letterSpacing: '-0.01em',
           }}>
-            Every story starts<br />
-            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>somewhere small.</em>
+            The craft platform<br />
+            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>for serious writers.</em>
           </h1>
           <p style={{
             fontSize: '18px',
@@ -474,7 +474,7 @@ export default function Home() {
             maxWidth: '460px',
             fontFamily: 'Source Sans 3, sans-serif',
           }}>
-            Eve turns a scene, a line of dialogue, or a feeling into a structured story — using frameworks from screenwriting masters, not shortcuts.
+            Free lessons on screenwriting, novel writing, and story structure — plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
           </p>
           <div className="hero-cta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
@@ -790,6 +790,7 @@ export default function Home() {
           <div>
             <p style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '14px' }}>Learn</p>
             {[
+              { href: '/for-beginners', label: 'Start Here' },
               { href: '/learn', label: 'Craft Library' },
               { href: '/frameworks', label: 'Frameworks' },
               { href: '/road-to-hollywood', label: 'Road to Hollywood' },

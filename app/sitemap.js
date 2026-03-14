@@ -14,6 +14,9 @@ const lessonSlugs = [
   'tarantino-dialogue', 'sopranos-drama',
   'shakespeare-structure', 'point-of-view', 'chapter-structure', 'adaptation',
   'fichtean-curve', 'kishotenketsu', 'sequence-approach',
+  'opening-image', 'pacing-rhythm', 'the-rewrite',
+  'how-to-start', 'fear-and-writing', 'finding-your-story',
+  'vonnegut-craft', 'king-on-writing', 'leonard-on-craft', 'pixar-story-rules',
 ]
 
 const frameworkSlugs = [
@@ -30,6 +33,7 @@ export default function sitemap() {
     { url: `${BASE}/frameworks`,          priority: 0.9,  changeFrequency: 'monthly' },
     { url: `${BASE}/road-to-hollywood`,   priority: 0.9,  changeFrequency: 'monthly' },
     { url: `${BASE}/road-to-publishing`,  priority: 0.9,  changeFrequency: 'monthly' },
+    { url: `${BASE}/for-beginners`,       priority: 0.95, changeFrequency: 'monthly' },
     { url: `${BASE}/scripts`,             priority: 0.85, changeFrequency: 'monthly' },
     { url: `${BASE}/glossary`,            priority: 0.85, changeFrequency: 'monthly' },
     { url: `${BASE}/learn/tracks`,        priority: 0.8,  changeFrequency: 'monthly' },

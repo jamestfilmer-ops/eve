@@ -275,11 +275,143 @@ const terms = [
     definition: 'The construction of the rules, atmosphere, and logic of a story\'s setting. World building is not decoration — it shapes what is possible in the narrative. The world must have consistent internal logic that characters cannot break without consequence. Great world building reveals theme: the world of The Wire is built to argue something about institutions and the people inside them.',
     related: ['Setup', 'Premise', 'Visual Storytelling'],
   },
+  // A (additions)
+  {
+    term: 'Active Voice',
+    definition: 'Sentence construction in which the subject performs the action: "He broke the window" rather than "The window was broken." In screenwriting and prose, active voice creates urgency and clarity. Passive voice diffuses agency — useful occasionally for specific effect, but the default should be active.',
+    related: ['Scene Craft', 'Visual Storytelling'],
+  },
+  {
+    term: 'Advance (Publishing)',
+    definition: 'Money paid by a publisher to an author before the book is published, against future royalty earnings. The advance must be "earned out" — covered by royalty income — before the author receives additional payments. Advances vary enormously, from a few thousand dollars for debut literary fiction to seven figures for commercial properties with auction bidding.',
+    related: ['Query Letter', 'Literary Agent', 'Royalties'],
+  },
+  // C (additions)
+  {
+    term: 'Close Third Person',
+    definition: 'A point of view in which the narrator is technically outside the protagonist but stays tightly bound to their consciousness — reporting their thoughts, perceptions, and feelings as they experience them, without access to other characters\'s interior. The dominant POV of contemporary literary fiction. Allows deep interiority while maintaining narrative flexibility.',
+    related: ['Point of View', 'First Person', 'Omniscient Narrator', 'Free Indirect Discourse'],
+  },
+  {
+    term: 'Comps (Comparable Titles)',
+    definition: 'Books published in the last three to five years that are similar in tone, subject matter, or readership to the manuscript being pitched. Agents and editors use comps to understand the market position of a project. The standard format: "X meets Y" or "For fans of X." Choose comps that are recent, well-known enough to be recognizable, but not so huge that the comparison seems grandiose.',
+    related: ['Query Letter', 'Literary Agent', 'Synopsis'],
+  },
+  // F (additions)
+  {
+    term: 'First Person',
+    definition: 'Narrative perspective in which the protagonist narrates their own story using "I." Creates immediacy and intimacy but limits the reader to what the narrator knows, perceives, and chooses to share. First person is structurally unreliable — the narrator has a perspective, biases, and blind spots. This limitation is also its greatest strength: the gap between what the narrator tells us and what we can infer is where psychological depth lives.',
+    related: ['Point of View', 'Close Third Person', 'Unreliable Narrator'],
+  },
+  {
+    term: 'Free Indirect Discourse',
+    definition: 'A narrative technique that blends third-person narration with first-person interiority — reporting a character\'s thoughts in the narrative voice without using "she thought" or quotation marks. "She looked at the house. It had not changed. Of course it had not changed." The italicized sentence is hers, but the prose does not announce the shift. Jane Austen pioneered it. Most literary fiction relies on it heavily.',
+    related: ['Close Third Person', 'Point of View', 'Interiority'],
+  },
+  // I (additions)
+  {
+    term: 'Inciting Incident',
+    definition: 'The event that launches the main story — the disruption to the protagonist\'s ordinary world that sets the central conflict in motion. Distinct from the opening image (which establishes the before) and the first act break (which commits the protagonist to the journey). The inciting incident creates the question the story must answer. In Save the Cat, this falls around page 12. In most novels, within the first 50 pages.',
+    related: ['Act Breaks', 'Opening Image', 'Save the Cat'],
+  },
+  {
+    term: 'Interiority',
+    definition: 'The representation of a character\'s inner life — thoughts, feelings, perceptions, and memories — as rendered in prose. The primary advantage prose fiction has over film. Interiority can be rendered directly ("She thought of her father") or through free indirect discourse. The challenge is balancing interiority with external action: too much and the story stalls; too little and the reader cannot feel the stakes.',
+    related: ['Free Indirect Discourse', 'Point of View', 'Subtext'],
+  },
+  // L (additions)
+  {
+    term: 'Literary Agent',
+    definition: 'A professional who represents authors in negotiations with publishers, typically taking 15% commission on domestic sales and 20% on foreign rights. In traditional publishing, a literary agent is the gatekeeper to major publishers — most do not accept unagented submissions. Agents also provide editorial guidance, manage subsidiary rights, and advise on career strategy. Finding an agent requires querying.',
+    related: ['Query Letter', 'Comps', 'Advance'],
+  },
+  {
+    term: 'Logline',
+    definition: 'A one or two-sentence summary of a story that conveys the protagonist, their goal, the central conflict, and the stakes. Used in film pitching and increasingly in book proposals. A strong logline contains an implicit question — the dramatic irony that makes the story worth telling. "A shark attacks a beach town and the sheriff who is afraid of water must kill it" is a logline. The best loglines are about character under pressure, not about plot.',
+    related: ['Premise', 'Pitch', 'High Concept'],
+  },
+  // N (additions)
+  {
+    term: 'Narrative Distance',
+    definition: 'How close or far the narrator is from the character\'s experience at any given moment. High distance: "During the summer of his fortieth year, John came to understand that he had wasted his life." Low distance: "Forty years. Forty wasted years. God, what had he done." Narrative distance is a dial, not a switch. The best prose writers modulate it fluidly — pulling close for emotional weight, pulling back for context and perspective.',
+    related: ['Point of View', 'Free Indirect Discourse', 'Interiority'],
+  },
+  // O (additions)
+  {
+    term: 'Omniscient Narrator',
+    definition: 'A narrative perspective in which the narrator has access to all characters\'s thoughts, all places, and all times in the story world. The dominant mode of nineteenth-century fiction (Tolstoy, Dickens, Eliot). Less common in contemporary fiction, where close third person has largely replaced it. True omniscience is rarer than it seems: most "omniscient" novels limit themselves to a small number of POV characters and move between them in structured ways.',
+    related: ['Point of View', 'Close Third Person', 'Free Indirect Discourse'],
+  },
+  // P (additions)
+  {
+    term: 'Partial Manuscript',
+    definition: 'The first chapters of a novel submitted alongside a query letter or proposal when an agent requests more material. For fiction, agents typically request 10-50 pages or 3 chapters. The partial must begin with the first page of the manuscript — agents read in order and will not skip ahead. The partial is the writing sample; it must be the best-written portion of the book.',
+    related: ['Query Letter', 'Literary Agent', 'Synopsis'],
+  },
+  {
+    term: 'Point of View',
+    definition: 'The perspective from which a story is told — who is telling it, what they can know, and how they relate to the events being narrated. The four primary POVs: first person (I), second person (you, rare), close third person (she, but bound tightly to her consciousness), and omniscient (the narrator moves freely). POV is not a technical choice — it is a decision about where consciousness lives in the story, and every other craft decision is downstream of it.',
+    related: ['First Person', 'Close Third Person', 'Omniscient Narrator', 'Unreliable Narrator'],
+  },
+  // Q (additions)
+  {
+    term: 'Query Letter',
+    definition: 'A one-page letter sent to literary agents to pitch a novel for representation. Contains: a hook sentence or logline, a 250-300 word description of the book (similar to back cover copy), comparable titles (comps), a brief author bio, and word count and genre. The query is the first writing sample — its prose quality signals the manuscript\'s quality. Research each agent\'s specific submission requirements before querying.',
+    related: ['Literary Agent', 'Comps', 'Partial Manuscript', 'Synopsis'],
+  },
+  // R (additions)
+  {
+    term: 'Royalties',
+    definition: 'The percentage of book sales paid to an author by a publisher, typically ranging from 8 to 15 percent of cover price for print and 25 percent for ebooks in traditional publishing. Royalties are applied against the advance until it is earned out — after which the author receives ongoing royalty checks. Self-published authors receive higher royalties (typically 35-70 percent on ebook platforms) but are responsible for all production costs.',
+    related: ['Advance', 'Literary Agent'],
+  },
+  // S (additions)
+  {
+    term: 'Scene vs. Summary',
+    definition: 'The two fundamental modes of prose narrative. Scene renders events in real time — with dialogue, sensory detail, and moment-to-moment action. Summary compresses time — "Three months passed" or "She had done this every morning for forty years." The balance between scene and summary is one of the core pacing decisions in fiction. Important events deserve scene. Everything else can be summary. Beginning writers over-scene and under-summarize.',
+    related: ['Pacing', 'Compression', 'Interiority'],
+  },
+  {
+    term: 'Show vs. Tell',
+    definition: 'The directive to dramatize rather than report — to render a character\'s anger through what they say and do rather than "She was angry." Useful as a starting point but widely misunderstood. Telling is not always wrong: summary, interiority, and authorial commentary are all forms of telling and all have legitimate uses. The real principle: show what the reader needs to see; tell what the reader can be trusted to absorb quickly.',
+    related: ['Interiority', 'Scene vs. Summary', 'Visual Storytelling'],
+  },
+  {
+    term: 'Story Bible',
+    definition: 'A reference document, usually internal, containing all established facts about a story world — character backstory, timeline, setting details, rules of magic systems, and anything else that needs to remain consistent across a long work. Essential for series novels and television writing. The story bible prevents continuity errors and serves as a resource when returning to a project after time away.',
+    related: ['World Building', 'Character Arc'],
+  },
+  {
+    term: 'Synopsis',
+    definition: 'A prose summary of a complete novel, typically one to three pages, requested by literary agents alongside or after a query letter. Unlike jacket copy, a synopsis reveals the ending. It must convey the emotional journey of the protagonist, the key turning points, and the resolution. Writing a synopsis forces clarity about what the story is actually doing — many writers discover structural problems when they cannot summarize what happens and why it matters.',
+    related: ['Query Letter', 'Literary Agent', 'Partial Manuscript'],
+  },
+  // T (additions)
+  {
+    term: 'Tense',
+    definition: 'The grammatical time frame of a narrative: past tense ("she ran") or present tense ("she runs"). Past tense is the traditional default in fiction — it implies retrospective narration and allows the narrator distance from events. Present tense creates immediacy but can feel relentless over a full novel. The choice of tense should be conscious, not default: present tense works well for thrillers and stories focused on real-time sensation; past tense works well for reflection, memory, and complex interiority.',
+    related: ['Point of View', 'Narrative Distance'],
+  },
+  // U (additions)
+  {
+    term: 'Unreliable Narrator',
+    definition: 'A first-person (or close third-person) narrator whose account of events the reader cannot fully trust — due to self-deception, incomplete knowledge, mental instability, or deliberate deception. The reader must read between the lines, inferring what actually happened from what the narrator fails to notice or consciously suppresses. Steven in The Remains of the Day, Nick in Gone Girl, Humbert in Lolita. The gap between what the narrator claims and what the reader perceives is the story.',
+    related: ['First Person', 'Point of View', 'Subtext'],
+  },
 ]
 
 export const metadata = {
-  title: 'Story Glossary — Eve',
-  description: 'The vocabulary of craft. Every story term a working screenwriter encounters — defined precisely, with context, and linked to related concepts.',
+  title: "Story Glossary — Screenwriting & Novel Writing Terms Defined",
+  description: "75+ screenwriting and novel writing terms defined precisely — from three-act structure and character arc to query letters, POV, free indirect discourse, and narrative distance. For screenwriters and novelists at every level.",
+  keywords: "screenwriting terms glossary, screenplay terminology, novel writing terms, story structure vocabulary, query letter definition, literary agent terms, point of view types, unreliable narrator, free indirect discourse, narrative distance, story craft glossary",
+  openGraph: {
+    title: "Story Craft Glossary — Screenwriting & Novel Writing Terms",
+    description: "75+ craft terms defined — from act breaks and subtext to query letters, POV types, and free indirect discourse.",
+    url: "https://eve-screenwriting.vercel.app/glossary",
+  },
+  alternates: {
+    canonical: "https://eve-screenwriting.vercel.app/glossary",
+  },
 }
 
 export default function GlossaryPage() {
