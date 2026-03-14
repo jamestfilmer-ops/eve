@@ -766,8 +766,7 @@ const lessons = {
       { type: 'tip', text: 'Try the story spine on any story idea you are developing: Once upon a time there was ___. Every day, ___. One day ___. Because of that, ___. Because of that, ___. Until finally ___. If you cannot complete all six steps in a way that feels causally connected, your idea may not yet be a story. It may still be a premise, a character, or a situation — all of which can become a story, but need the causal structure that the spine requires.' },
     ],
   },
-  'opening-image': {  'opening-image': {
-
+  'opening-image': {
     title: "The opening image: first impressions that last",
     category: "Structure",
     time: "5 min",
