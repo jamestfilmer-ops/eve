@@ -228,7 +228,7 @@ export default function ProfilePage() {
             { label: 'Idea Bank', description: 'Your captured fragments, one-liners, and half-formed scenes.', href: '/ideas' },
             { label: 'Active Projects', description: 'Pick up where you left off.', href: '/dashboard' },
             { label: 'Craft Library', description: 'Short lessons on structure, character, dialogue, and theme.', href: '/learn' },
-            { label: 'Learning Paths', description: 'Beginner to advanced — know where you are, know where to go.', href: '/learn/tracks' },
+            { label: 'Learning Paths', description: 'Beginner to advanced  -- know where you are, know where to go.', href: '/learn/tracks' },
             { label: 'Session Mode', description: 'Work through your story beat by beat.', href: '/session' },
           ].map((item, i) => (
             <Link key={i} href={item.href} style={{ textDecoration: 'none' }}>

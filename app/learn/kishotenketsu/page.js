@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Kishōtenketsu: conflict-free structure — Eve',
+  title: 'Kishōtenketsu: conflict-free structure  -- Eve',
 }
 
 export default function LessonKishotenketsu() {
@@ -25,7 +25,7 @@ export default function LessonKishotenketsu() {
         </h1>
 
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          Western narrative structure is built on conflict: a protagonist wants something, something opposes them, the opposition is overcome or defeats them. Kishōtenketsu — a classical East Asian four-act structure used in Chinese poetry, Japanese manga, and Nintendo game design — works on an entirely different principle. The engine is not conflict but revelation.
+          Western narrative structure is built on conflict: a protagonist wants something, something opposes them, the opposition is overcome or defeats them. Kishōtenketsu  -- a classical East Asian four-act structure used in Chinese poetry, Japanese manga, and Nintendo game design  -- works on an entirely different principle. The engine is not conflict but revelation.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -36,22 +36,22 @@ export default function LessonKishotenketsu() {
           {[
             {
               kanji: '起', romaji: 'Ki', label: 'Introduction',
-              desc: 'Establish the world and its characters without introducing any problem. This is purely setup — lay the ground carefully, because everything that follows depends on it.',
+              desc: 'Establish the world and its characters without introducing any problem. This is purely setup  -- lay the ground carefully, because everything that follows depends on it.',
               note: 'Resist the urge to introduce conflict here. Western writers find this uncomfortable. The discomfort is the point.'
             },
             {
               kanji: '承', romaji: 'Shō', label: 'Development',
-              desc: 'Continue developing the world introduced in Ki. Deepen the characters, add texture, introduce a second element — but still no conflict. The story is simply becoming more itself.',
+              desc: 'Continue developing the world introduced in Ki. Deepen the characters, add texture, introduce a second element  -- but still no conflict. The story is simply becoming more itself.',
               note: 'The second element you introduce in Shō will seem unrelated to Ki. That apparent unrelatedness is load-bearing.'
             },
             {
               kanji: '転', romaji: 'Ten', label: 'Twist',
-              desc: 'The most important act. An unexpected development recontextualizes everything established in Ki and Shō. The twist does not create conflict — it creates a new way of seeing what was already there.',
+              desc: 'The most important act. An unexpected development recontextualizes everything established in Ki and Shō. The twist does not create conflict  -- it creates a new way of seeing what was already there.',
               note: 'The Ten is not a plot twist in the thriller sense. It is a pivot that makes the audience suddenly understand the relationship between two things they thought were separate.'
             },
             {
               kanji: '結', romaji: 'Ketsu', label: 'Conclusion',
-              desc: 'Reconcile the elements of Ki, Shō, and Ten. The ending reveals the meaning of the twist — how the world of Ki and the development of Shō are unified by what the Ten revealed.',
+              desc: 'Reconcile the elements of Ki, Shō, and Ten. The ending reveals the meaning of the twist  -- how the world of Ki and the development of Shō are unified by what the Ten revealed.',
               note: 'A good Ketsu should feel both surprising and inevitable. The connection was always there. The story showed you how to see it.'
             },
           ].map((act) => (
@@ -82,7 +82,7 @@ export default function LessonKishotenketsu() {
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Slice-of-life stories, certain kinds of literary drama, films like Lost in Translation or Paterson — these resist the conflict-resolution model because their emotional effect depends on accumulation and revelation rather than obstacle and victory. Kishōtenketsu gives these stories a structural logic that makes them coherent rather than merely atmospheric.
+          Slice-of-life stories, certain kinds of literary drama, films like Lost in Translation or Paterson  -- these resist the conflict-resolution model because their emotional effect depends on accumulation and revelation rather than obstacle and victory. Kishōtenketsu gives these stories a structural logic that makes them coherent rather than merely atmospheric.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -90,7 +90,7 @@ export default function LessonKishotenketsu() {
         </p>
 
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>The Nintendo example:</strong> Shigeru Miyamoto has credited Kishōtenketsu as a structural influence on Super Mario level design — establish a mechanic, develop it, introduce a variation that recontextualizes it, and then present the mastery challenge. The same four moves, applied to interactive design.
+          <strong>The Nintendo example:</strong> Shigeru Miyamoto has credited Kishōtenketsu as a structural influence on Super Mario level design  -- establish a mechanic, develop it, introduce a variation that recontextualizes it, and then present the mastery challenge. The same four moves, applied to interactive design.
         </div>
 
         <div style={{ background: 'var(--off-white)', borderRadius: '10px', padding: '22px', marginBottom: '36px' }}>
@@ -100,7 +100,7 @@ export default function LessonKishotenketsu() {
           </p>
           <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Ki: A person doing something ordinary in a specific place. Two to three beats of pure establishment.</li>
-            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Shō: Introduce a second, apparently unrelated element — a detail, another person, a memory. Develop it without connecting it.</li>
+            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Shō: Introduce a second, apparently unrelated element  -- a detail, another person, a memory. Develop it without connecting it.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Ten: A single line or image that makes the connection between Ki and Shō suddenly visible. Do not explain it.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Ketsu: A final beat that allows the connection to land. The reader should feel something shift in their understanding.</li>
           </ol>

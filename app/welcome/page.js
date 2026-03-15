@@ -10,14 +10,14 @@ const steps = [
     id: 'hello',
     title: "Welcome to Eve.",
     subtitle: "The craft platform for serious writers.",
-    body: "Eve is two things: a craft library and a story workspace. You can use both for free. This takes 60 seconds — then you'll be writing.",
+    body: "Eve is two things: a craft library and a story workspace. You can use both for free. This takes 60 seconds  -- then you'll be writing.",
     cta: "Let's go",
   },
   {
     id: 'learn',
     title: "Start with the craft library.",
     subtitle: "45+ lessons. No AI. No fluff.",
-    body: "Every lesson on Eve is grounded in what the best writers — King, Vonnegut, Pixar, Sorkin — have said about how stories actually work. Read a lesson, then put it into practice in your project.",
+    body: "Every lesson on Eve is grounded in what the best writers  -- King, Vonnegut, Pixar, Sorkin  -- have said about how stories actually work. Read a lesson, then put it into practice in your project.",
     cta: "Got it",
     links: [
       { label: 'If you have never written before', href: '/for-beginners', desc: 'Start Here' },
@@ -29,10 +29,10 @@ const steps = [
     id: 'workspace',
     title: "Your story workspace.",
     subtitle: "Built around frameworks that actually work.",
-    body: "When you create a project, you choose a framework — Save the Cat, Hero's Journey, Story Circle, and four more. Eve organizes your scenes, characters, and plot holes around that framework automatically.",
+    body: "When you create a project, you choose a framework  -- Save the Cat, Hero's Journey, Story Circle, and four more. Eve organizes your scenes, characters, and plot holes around that framework automatically.",
     cta: "Makes sense",
     features: [
-      { icon: '⬡', label: 'Characters', desc: 'Want, need, ghost, arc — for every character' },
+      { icon: '⬡', label: 'Characters', desc: 'Want, need, ghost, arc  -- for every character' },
       { icon: '⬡', label: 'Scenes', desc: 'Organized by act, with framework beat labels' },
       { icon: '⬡', label: 'Plot Holes', desc: 'Track and close the gaps as you draft' },
       { icon: '⬡', label: 'Themes Map', desc: 'Visual canvas for the ideas underneath your story' },
@@ -48,7 +48,7 @@ const steps = [
       {
         icon: '📖',
         label: 'Learn the craft',
-        desc: 'Start with the beginner path — nine lessons, 55 minutes.',
+        desc: 'Start with the beginner path  -- nine lessons, 55 minutes.',
         href: '/for-beginners',
         primary: false,
       },

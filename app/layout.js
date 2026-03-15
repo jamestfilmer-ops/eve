@@ -6,7 +6,7 @@ import Providers from './components/Providers'
 export const metadata = {
   metadataBase: new URL('https://eve-screenwriting.vercel.app'),
   title: {
-    default: 'Eve — Screenwriting & Story Craft Platform',
+    default: 'Eve  -- Screenwriting & Story Craft Platform',
     template: '%s | Eve',
   },
   description: "Free screenwriting lessons, novel writing guides, and story structure frameworks for writers who could not afford film school. Covers Save the Cat, Hero's Journey, three-act structure, character arc, dialogue, theme, and more. No AI. Built by writers.",
@@ -26,13 +26,13 @@ export const metadata = {
     locale: 'en_US',
     url: 'https://eve-screenwriting.vercel.app',
     siteName: 'Eve',
-    title: 'Eve — Screenwriting & Story Craft Platform',
+    title: 'Eve  -- Screenwriting & Story Craft Platform',
     description: 'Free lessons on story structure, character, dialogue, and theme. Plus novel writing guides, frameworks, and a full project workspace. No AI. No fluff.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Eve — Screenwriting and Story Craft Platform' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Eve  -- Screenwriting and Story Craft Platform' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Eve — Screenwriting & Story Craft Platform',
+    title: 'Eve  -- Screenwriting & Story Craft Platform',
     description: 'Free screenwriting lessons, novel guides, and story frameworks. No AI. Built for writers.',
   },
   robots: {
@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
           <ConsentBanner />
         </Providers>
 
-        {/* JSON-LD structured data — WebSite + Organization + EducationalOrganization */}
+        {/* JSON-LD structured data  -- WebSite + Organization + EducationalOrganization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({

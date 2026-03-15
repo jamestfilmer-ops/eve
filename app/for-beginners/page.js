@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "How to Start Writing — A Guide for Beginners | Eve",
-  description: "Everything a beginning writer needs to know before they start. How to find story ideas, how to get through a first draft, what the masters say about fear and finishing — distilled into a practical guide for writers at the start of the journey.",
+  title: "How to Start Writing  -- A Guide for Beginners | Eve",
+  description: "Everything a beginning writer needs to know before they start. How to find story ideas, how to get through a first draft, what the masters say about fear and finishing  -- distilled into a practical guide for writers at the start of the journey.",
   keywords: "how to start writing, beginner writing guide, how to write a story for beginners, first draft advice, writing tips beginners, how to find story ideas, Stephen King writing advice, overcome writer's block, how to finish a story",
   openGraph: {
-    title: "How to Start Writing — A Beginner's Guide",
+    title: "How to Start Writing  -- A Beginner's Guide",
     description: "What the masters say, what the research shows, and what actually helps. For writers who are just starting out.",
     url: "https://eve-screenwriting.vercel.app/for-beginners",
   },
@@ -18,12 +18,12 @@ const truths = [
   {
     number: "01",
     title: "You do not need a great idea to start",
-    body: "Every working writer has a hundred ideas they abandoned for every one they developed. The quality of the initial idea matters far less than your ability to develop it. Start with any idea that genuinely interests you — not the idea you think sounds impressive, but the one you actually want to spend time with. The story will reveal itself through the writing.",
+    body: "Every working writer has a hundred ideas they abandoned for every one they developed. The quality of the initial idea matters far less than your ability to develop it. Start with any idea that genuinely interests you  -- not the idea you think sounds impressive, but the one you actually want to spend time with. The story will reveal itself through the writing.",
   },
   {
     number: "02",
     title: "The first draft is supposed to be bad",
-    body: "Anne Lamott calls it the shitty first draft. Stephen King calls it writing with the door closed. Every professional writer who has ever spoken honestly about their process describes the same thing: a first draft that is worse than they expected, full of wrong turns and weak scenes. This is not a sign that you are a bad writer. It is the normal experience of writing a first draft. The draft is not the story — it is the material from which the story is made.",
+    body: "Anne Lamott calls it the shitty first draft. Stephen King calls it writing with the door closed. Every professional writer who has ever spoken honestly about their process describes the same thing: a first draft that is worse than they expected, full of wrong turns and weak scenes. This is not a sign that you are a bad writer. It is the normal experience of writing a first draft. The draft is not the story  -- it is the material from which the story is made.",
   },
   {
     number: "03",
@@ -43,7 +43,7 @@ const truths = [
   {
     number: "06",
     title: "Reading is half the work",
-    body: "King reads 70 to 80 books a year. He does not do this to study craft — he does it because he loves to read. The effect is the same: you cannot hear language that you have not encountered. You cannot feel the rhythm of a good sentence without having read thousands of good sentences. Read widely, read outside your comfort zone, and read as a reader first — let the student come second.",
+    body: "King reads 70 to 80 books a year. He does not do this to study craft  -- he does it because he loves to read. The effect is the same: you cannot hear language that you have not encountered. You cannot feel the rhythm of a good sentence without having read thousands of good sentences. Read widely, read outside your comfort zone, and read as a reader first  -- let the student come second.",
   },
 ]
 
@@ -58,7 +58,7 @@ const firstSteps = [
   {
     step: "2",
     title: "Use the story spine",
-    desc: "Once upon a time there was ___. Every day, ___. One day ___. Because of that, ___. Because of that, ___. Until finally ___. If you can fill in all six blanks in a way that makes causal sense, you have a story. If you cannot, you have a premise — which can become a story once you find the causal chain.",
+    desc: "Once upon a time there was ___. Every day, ___. One day ___. Because of that, ___. Because of that, ___. Until finally ___. If you can fill in all six blanks in a way that makes causal sense, you have a story. If you cannot, you have a premise  -- which can become a story once you find the causal chain.",
     link: "/learn/pixar-story-rules",
     linkLabel: "Read: Pixar on story",
   },
@@ -79,7 +79,7 @@ const firstSteps = [
   {
     step: "5",
     title: "Finish the draft before you fix it",
-    desc: "When your inner critic says the scene is wrong, bracket it with [FIX THIS] and keep going. The goal of the first draft is to reach the end. Every revision note is a gift to your future self — but stopping mid-draft to revise is one of the most reliable ways to never finish.",
+    desc: "When your inner critic says the scene is wrong, bracket it with [FIX THIS] and keep going. The goal of the first draft is to reach the end. Every revision note is a gift to your future self  -- but stopping mid-draft to revise is one of the most reliable ways to never finish.",
     link: "/learn/the-rewrite",
     linkLabel: "Read: The rewrite",
   },
@@ -117,7 +117,7 @@ const masterQuotes = [
     link: "/learn/king-on-writing",
   },
   {
-    quote: "Every sentence must do one of two things — reveal character or advance the action.",
+    quote: "Every sentence must do one of two things  -- reveal character or advance the action.",
     person: "Kurt Vonnegut",
     source: "Bagombo Snuff Box",
     link: "/learn/vonnegut-craft",
@@ -152,14 +152,14 @@ export default function ForBeginners() {
             <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>What nobody tells you first.</em>
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
-            Every writer starts somewhere. This is where Eve starts you — with the things that actually matter before anything else: finishing, fear, story, and the wisdom of the writers who figured it out before you.
+            Every writer starts somewhere. This is where Eve starts you  -- with the things that actually matter before anything else: finishing, fear, story, and the wisdom of the writers who figured it out before you.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/learn/how-to-start" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Start the first lesson
             </Link>
             <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
-              Begin your story — free
+              Begin your story  -- free
             </Link>
           </div>
         </div>
@@ -171,7 +171,7 @@ export default function ForBeginners() {
           Six things every beginning writer needs to know
         </h2>
         <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
-          These are not platitudes. Each one is grounded in what professional writers — from King to Vonnegut to the Pixar story team — have said about the craft from the inside.
+          These are not platitudes. Each one is grounded in what professional writers  -- from King to Vonnegut to the Pixar story team  -- have said about the craft from the inside.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: '16px' }}>
           {truths.map(t => (
@@ -190,7 +190,7 @@ export default function ForBeginners() {
           Your first five steps
         </h2>
         <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
-          Not a complete education — a way in. Five things you can do right now that will move you from the blank page to a story in progress.
+          Not a complete education  -- a way in. Five things you can do right now that will move you from the blank page to a story in progress.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', border: '1px solid var(--border)', borderRadius: '14px', overflow: 'hidden' }}>
           {firstSteps.map((step, i) => (
@@ -268,10 +268,10 @@ export default function ForBeginners() {
             The best time to start was yesterday.
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
-            Eve gives you a workspace built around the same frameworks the masters use — free, without AI, without shortcuts. Start your first project today.
+            Eve gives you a workspace built around the same frameworks the masters use  -- free, without AI, without shortcuts. Start your first project today.
           </p>
           <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none' }}>
-            Start writing — free
+            Start writing  -- free
           </Link>
         </div>
       </section>

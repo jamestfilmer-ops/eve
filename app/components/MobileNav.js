@@ -241,7 +241,7 @@ export default function Nav() {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
-                  <button className="btn-primary" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>Get started — free</button>
+                  <button className="btn-primary" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>Get started  -- free</button>
                 </Link>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
                   <button className="btn-ghost" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>Sign in</button>

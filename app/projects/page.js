@@ -206,7 +206,7 @@ export default function ProjectsPage() {
                       }}>{chip.label}</span>
                     ))}
                     {charCount === 0 && sceneCount === 0 && (
-                      <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontStyle: 'italic' }}>Empty project — open to begin</span>
+                      <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontStyle: 'italic' }}>Empty project  -- open to begin</span>
                     )}
                   </div>
                 </div>

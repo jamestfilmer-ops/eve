@@ -1,4 +1,4 @@
-// app/robots.js — tells Google exactly what to crawl
+// app/robots.js  -- tells Google exactly what to crawl
 export default function robots() {
   return {
     rules: [

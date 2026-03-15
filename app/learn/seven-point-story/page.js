@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Dan Wells' Seven-Point Story Structure — Eve",
+  title: "Dan Wells' Seven-Point Story Structure  -- Eve",
   description: "Dan Wells' Seven-Point Story Structure: Hook, Plot Turn 1, Pinch Points, Midpoint, Plot Turn 2, Resolution. Build from the ending backward for tighter plots.",
 }
 
@@ -27,12 +27,12 @@ export default function LessonSevenPoint() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The seven points</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
           {[
-            { n: '1', label: 'Hook', desc: 'Who the protagonist is at the start — the mirror opposite of the Resolution. The further apart, the more arc you have.' },
+            { n: '1', label: 'Hook', desc: 'Who the protagonist is at the start  -- the mirror opposite of the Resolution. The further apart, the more arc you have.' },
             { n: '2', label: 'Plot Turn 1', desc: 'The inciting incident. Pulls the protagonist out of their ordinary world and into the story.' },
-            { n: '3', label: 'Pinch Point 1', desc: 'The antagonistic force shows its power. Not a plot event — a demonstration of the threat.' },
+            { n: '3', label: 'Pinch Point 1', desc: 'The antagonistic force shows its power. Not a plot event  -- a demonstration of the threat.' },
             { n: '4', label: 'Midpoint', desc: 'The protagonist shifts from reacting to acting. They choose to engage rather than survive.' },
             { n: '5', label: 'Pinch Point 2', desc: 'The darkest moment. The antagonistic force delivers its strongest blow. Something is lost.' },
-            { n: '6', label: 'Plot Turn 2', desc: 'The protagonist gains the key — insight, tool, or decision — that comes from their internal transformation.' },
+            { n: '6', label: 'Plot Turn 2', desc: 'The protagonist gains the key  -- insight, tool, or decision  -- that comes from their internal transformation.' },
             { n: '7', label: 'Resolution', desc: 'Final confrontation and its aftermath. The mirror of the Hook, proving transformation is real.' },
           ].map(p => (
             <div key={p.n} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
@@ -45,7 +45,7 @@ export default function LessonSevenPoint() {
           ))}
         </div>
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>Build backward.</strong> Write your Resolution first — who is your protagonist at the end? Then write the Hook as its exact opposite. Work inward from both ends until the seven points connect causally.
+          <strong>Build backward.</strong> Write your Resolution first  -- who is your protagonist at the end? Then write the Hook as its exact opposite. Work inward from both ends until the seven points connect causally.
         </div>
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>

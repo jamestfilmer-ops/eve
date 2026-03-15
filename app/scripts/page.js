@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Famous Screenplays to Read — Free & Legal Script Downloads",
-  description: "Read the screenplays that defined modern cinema. Free and legal PDF downloads of famous scripts: Chinatown, Pulp Fiction, Parasite, Network, Moonlight, The Godfather, and 40+ more — with what each one teaches.",
+  title: "Famous Screenplays to Read  -- Free & Legal Script Downloads",
+  description: "Read the screenplays that defined modern cinema. Free and legal PDF downloads of famous scripts: Chinatown, Pulp Fiction, Parasite, Network, Moonlight, The Godfather, and 40+ more  -- with what each one teaches.",
   keywords: "famous screenplays PDF free download, read scripts online free legal, Chinatown screenplay PDF, Pulp Fiction script, Parasite script PDF, best screenplays to read, how to learn screenwriting by reading scripts, WGA script library, IMSDB scripts",
   openGraph: {
     title: "Famous Screenplays to Read Free & Legal",
-    description: "40+ famous scripts with free legal sources — and what each one actually teaches about craft.",
+    description: "40+ famous scripts with free legal sources  -- and what each one actually teaches about craft.",
     url: "https://eve-screenwriting.vercel.app/scripts",
   },
   alternates: {
@@ -24,7 +24,7 @@ const categories = [
         writer: "Robert Towne",
         year: 1974,
         logline: "A private detective investigating a routine adultery case stumbles into a conspiracy involving water rights and something far darker.",
-        teaches: "Perfect three-act structure, escalating reveals, a protagonist who cannot win — and the rare screenplay where the ending exists in the beginning. Every scene advances plot and character simultaneously.",
+        teaches: "Perfect three-act structure, escalating reveals, a protagonist who cannot win  -- and the rare screenplay where the ending exists in the beginning. Every scene advances plot and character simultaneously.",
         url: "https://www.imsdb.com/scripts/Chinatown.html",
         source: "IMSDB",
         lessonLink: "/learn/act-breaks",
@@ -35,7 +35,7 @@ const categories = [
         writer: "Paddy Chayefsky",
         year: 1976,
         logline: "A news anchor's on-air breakdown turns him into a TV sensation, as a ruthless programmer uses him to save the ratings.",
-        teaches: "How to carry a theme through every scene without it ever feeling like a lecture. Chayefsky's dialogue is dense with argument — characters talk at cross-purposes while exposing a thesis about media and human dignity that is, if anything, more relevant now than in 1976.",
+        teaches: "How to carry a theme through every scene without it ever feeling like a lecture. Chayefsky's dialogue is dense with argument  -- characters talk at cross-purposes while exposing a thesis about media and human dignity that is, if anything, more relevant now than in 1976.",
         url: "https://www.imsdb.com/scripts/Network.html",
         source: "IMSDB",
         lessonLink: "/learn/theme",
@@ -45,7 +45,7 @@ const categories = [
         title: "Moonlight",
         writer: "Barry Jenkins",
         year: 2016,
-        logline: "A young Black man in Miami grows up in three chapters — as a child, a teenager, and an adult — finding his identity under the shadow of a difficult mother and an emerging sense of self.",
+        logline: "A young Black man in Miami grows up in three chapters  -- as a child, a teenager, and an adult  -- finding his identity under the shadow of a difficult mother and an emerging sense of self.",
         teaches: "The three-chapter structure as a full film architecture. How to carry emotional continuity across time jumps. How visual language and restraint in dialogue can carry more weight than exposition.",
         url: "https://deadline.com/wp-content/uploads/2017/01/moonlight.pdf",
         source: "Deadline (PDF)",
@@ -57,7 +57,7 @@ const categories = [
         writer: "Bong Joon-ho & Han Jin-won",
         year: 2019,
         logline: "A poor Korean family infiltrates the household of a wealthy family, setting off consequences neither could have anticipated.",
-        teaches: "Genre pivoting — how to shift from comedy to thriller to tragedy without rupturing the world. Also: how to plant information so casually that the audience doesn't register it until the payoff.",
+        teaches: "Genre pivoting  -- how to shift from comedy to thriller to tragedy without rupturing the world. Also: how to plant information so casually that the audience doesn't register it until the payoff.",
         url: "https://deadline.com/wp-content/uploads/2020/01/parasite-script.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/plant-payoff",
@@ -85,7 +85,7 @@ const categories = [
         writer: "Quentin Tarantino",
         year: 1994,
         logline: "Interlocking crime stories unfold out of chronological order across a single day in Los Angeles.",
-        teaches: "Dialogue as character revelation, tone control, and rhythm. Tarantino's characters never get to the point directly — and the indirectness is the point. Also: non-linear structure and how to use it to build meaning through juxtaposition rather than gimmick.",
+        teaches: "Dialogue as character revelation, tone control, and rhythm. Tarantino's characters never get to the point directly  -- and the indirectness is the point. Also: non-linear structure and how to use it to build meaning through juxtaposition rather than gimmick.",
         url: "https://www.imsdb.com/scripts/Pulp-Fiction.html",
         source: "IMSDB",
         lessonLink: "/learn/tarantino-dialogue",
@@ -96,7 +96,7 @@ const categories = [
         writer: "David Mamet",
         year: 1992,
         logline: "Real estate salesmen under pressure to close deals or lose their jobs over the course of two days.",
-        teaches: "Subtext carried entirely by dialogue. Mamet's characters almost never say what they mean — the gap between what is said and what is meant is where all the drama lives. Essential reading for anyone who wants to write scenes where people talk around things.",
+        teaches: "Subtext carried entirely by dialogue. Mamet's characters almost never say what they mean  -- the gap between what is said and what is meant is where all the drama lives. Essential reading for anyone who wants to write scenes where people talk around things.",
         url: "https://www.imsdb.com/scripts/Glengarry-Glen-Ross.html",
         source: "IMSDB",
         lessonLink: "/learn/dialogue-subtext",
@@ -168,7 +168,7 @@ const categories = [
         writer: "Damien Chazelle",
         year: 2014,
         logline: "A young jazz drummer at an elite conservatory pushes himself to the limit under a terrifying instructor who may be trying to make him great or destroy him.",
-        teaches: "The antagonist as mirror. Fletcher is everything Andrew wants to be and is afraid of becoming. The script is also a study in escalation — each scene raises the stakes incrementally until the climax feels both inevitable and shocking.",
+        teaches: "The antagonist as mirror. Fletcher is everything Andrew wants to be and is afraid of becoming. The script is also a study in escalation  -- each scene raises the stakes incrementally until the climax feels both inevitable and shocking.",
         url: "https://www.screenplaydb.com/film/scripts/whiplash/",
         source: "ScreenplayDB",
         lessonLink: "/learn/antagonist",
@@ -185,7 +185,7 @@ const categories = [
         writer: "Jordan Peele",
         year: 2017,
         logline: "A Black man visits his white girlfriend's family and discovers something profoundly wrong beneath the surface of their liberal hospitality.",
-        teaches: "Layered genre — horror as social critique without sacrificing either. Every scene works on two levels simultaneously. Also: plant and payoff executed with clockwork precision across the whole film.",
+        teaches: "Layered genre  -- horror as social critique without sacrificing either. Every scene works on two levels simultaneously. Also: plant and payoff executed with clockwork precision across the whole film.",
         url: "https://deadline.com/wp-content/uploads/2018/02/get-out-script.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/plant-payoff",
@@ -207,7 +207,7 @@ const categories = [
         writer: "Spike Jonze",
         year: 2013,
         logline: "A lonely man falls in love with an AI operating system, and the relationship is more real than anything else in his life.",
-        teaches: "How to write interiority in a visual medium. Theodore's emotional world is shown almost entirely through behavior and environment — the screenplay tells us almost nothing directly. Also: how to write a love story in which one character is disembodied.",
+        teaches: "How to write interiority in a visual medium. Theodore's emotional world is shown almost entirely through behavior and environment  -- the screenplay tells us almost nothing directly. Also: how to write a love story in which one character is disembodied.",
         url: "https://www.screenplaydb.com/film/scripts/her/",
         source: "ScreenplayDB",
         lessonLink: "/learn/subtext",
@@ -218,7 +218,7 @@ const categories = [
         writer: "Pete Docter, Meg LeFauve & Josh Cooley",
         year: 2015,
         logline: "The personified emotions inside an 11-year-old girl's mind navigate a crisis as her family moves to a new city.",
-        teaches: "Concept as metaphor. The screenplay externalizes interior emotional processes into visual story — which is the entire job of cinema. Also: how to run two parallel storylines (inside and outside) so each illuminates the other.",
+        teaches: "Concept as metaphor. The screenplay externalizes interior emotional processes into visual story  -- which is the entire job of cinema. Also: how to run two parallel storylines (inside and outside) so each illuminates the other.",
         url: "https://www.screenplaydb.com/film/scripts/inside-out/",
         source: "ScreenplayDB",
         lessonLink: "/learn/theme",
@@ -235,7 +235,7 @@ const categories = [
         writer: "Joel & Ethan Coen",
         year: 2007,
         logline: "A hunter stumbles onto drug money in the Texas desert and is pursued by a relentless, philosophically assured killer.",
-        teaches: "How to structure a film around absence and refusal. The Coens deny the audience every conventional expectation — the hero doesn't confront the villain, the villain doesn't get a final scene, the sheriff doesn't win. The film is about what happens when a story refuses to obey the rules of stories.",
+        teaches: "How to structure a film around absence and refusal. The Coens deny the audience every conventional expectation  -- the hero doesn't confront the villain, the villain doesn't get a final scene, the sheriff doesn't win. The film is about what happens when a story refuses to obey the rules of stories.",
         url: "https://www.imsdb.com/scripts/No-Country-for-Old-Men.html",
         source: "IMSDB",
         lessonLink: "/learn/antagonist",
@@ -246,7 +246,7 @@ const categories = [
         writer: "Paul Thomas Anderson",
         year: 2007,
         logline: "An oil prospector builds an empire in early twentieth-century California while slowly shedding every human connection he has.",
-        teaches: "Negative arc. Daniel Plainview does not change for the better — he becomes more completely himself. The screenplay shows how a character's flaw, pursued to its logical extreme, becomes their definition.",
+        teaches: "Negative arc. Daniel Plainview does not change for the better  -- he becomes more completely himself. The screenplay shows how a character's flaw, pursued to its logical extreme, becomes their definition.",
         url: "https://www.imsdb.com/scripts/There-Will-Be-Blood.html",
         source: "IMSDB",
         lessonLink: "/learn/character-arc",
@@ -257,7 +257,7 @@ const categories = [
         writer: "Joel & Ethan Coen",
         year: 1996,
         logline: "A hapless car salesman hires two criminals to kidnap his wife, and a pregnant small-town police chief unravels the ensuing chaos.",
-        teaches: "Tonal control — the Coens write comedy and violence with equal facility, in the same scene, without rupturing the world. Also: how to write a protagonist whose decency is itself heroic without making the film preachy.",
+        teaches: "Tonal control  -- the Coens write comedy and violence with equal facility, in the same scene, without rupturing the world. Also: how to write a protagonist whose decency is itself heroic without making the film preachy.",
         url: "https://www.imsdb.com/scripts/Fargo.html",
         source: "IMSDB",
         lessonLink: "/learn/theme",
@@ -268,7 +268,7 @@ const categories = [
         writer: "Hubert Selby Jr. & Darren Aronofsky",
         year: 2000,
         logline: "Four people in Brooklyn are consumed by their addictions over the course of a single year.",
-        teaches: "Parallel structure — four storylines running simultaneously, each escalating at the same rate toward a convergent collapse. How to use structure to embody theme: the film's form mirrors the rhythms of addiction.",
+        teaches: "Parallel structure  -- four storylines running simultaneously, each escalating at the same rate toward a convergent collapse. How to use structure to embody theme: the film's form mirrors the rhythms of addiction.",
         url: "https://www.imsdb.com/scripts/Requiem-for-a-Dream.html",
         source: "IMSDB",
         lessonLink: "/learn/act-breaks",
@@ -279,7 +279,7 @@ const categories = [
         writer: "James Vanderbilt",
         year: 2007,
         logline: "A cartoonist at the San Francisco Chronicle becomes obsessed with identifying the Zodiac killer over more than a decade.",
-        teaches: "How to sustain narrative tension across a long timeline without resolution. The film denies its protagonist a definitive answer — and makes that denial the point. Also: procedural storytelling and the obsession structure.",
+        teaches: "How to sustain narrative tension across a long timeline without resolution. The film denies its protagonist a definitive answer  -- and makes that denial the point. Also: procedural storytelling and the obsession structure.",
         url: "https://www.imsdb.com/scripts/Zodiac.html",
         source: "IMSDB",
         lessonLink: "/learn/want-vs-need",
@@ -296,7 +296,7 @@ const categories = [
         writer: "Billy Wilder & I.A.L. Diamond",
         year: 1959,
         logline: "Two musicians witness a gangland massacre and flee Chicago disguised as women to join an all-female band.",
-        teaches: "Comic mechanics — how to construct a situation with maximum logical pressure and then work every angle of it. Wilder believed a comedy should have three big laughs per page. Study the structure of every joke.",
+        teaches: "Comic mechanics  -- how to construct a situation with maximum logical pressure and then work every angle of it. Wilder believed a comedy should have three big laughs per page. Study the structure of every joke.",
         url: "https://www.imsdb.com/scripts/Some-Like-It-Hot.html",
         source: "IMSDB",
         lessonLink: "/learn/what-a-scene-does",
@@ -307,7 +307,7 @@ const categories = [
         writer: "Joel & Ethan Coen",
         year: 1998,
         logline: "A case of mistaken identity pulls a lazy Los Angeles bowler into a kidnapping plot he has no interest in solving.",
-        teaches: "Anti-structure as structure. The Dude is a detective who doesn't want to detect, in a mystery that doesn't resolve cleanly. The film works because its voice is so consistent — every scene sounds like the Dude sees the world.",
+        teaches: "Anti-structure as structure. The Dude is a detective who doesn't want to detect, in a mystery that doesn't resolve cleanly. The film works because its voice is so consistent  -- every scene sounds like the Dude sees the world.",
         url: "https://www.imsdb.com/scripts/Big-Lebowski,-The.html",
         source: "IMSDB",
         lessonLink: "/learn/character-voice",
@@ -318,7 +318,7 @@ const categories = [
         writer: "Alexander Payne & Jim Taylor",
         year: 2004,
         logline: "Two middle-aged friends take a week-long road trip through California wine country before one of them gets married.",
-        teaches: "Character as comedy. Every joke in Sideways comes from who Miles and Jack are — not from plot contrivance. The film is also a study in want vs. need: Miles wants Pinot; what he needs is to stop punishing himself.",
+        teaches: "Character as comedy. Every joke in Sideways comes from who Miles and Jack are  -- not from plot contrivance. The film is also a study in want vs. need: Miles wants Pinot; what he needs is to stop punishing himself.",
         url: "https://www.imsdb.com/scripts/Sideways.html",
         source: "IMSDB",
         lessonLink: "/learn/want-vs-need",
@@ -329,7 +329,7 @@ const categories = [
         writer: "Danny Rubin & Harold Ramis",
         year: 1993,
         logline: "A cynical TV weatherman is trapped in a time loop, forced to relive the same day in a small Pennsylvania town until he changes.",
-        teaches: "Premise as moral structure. The loop is not a sci-fi gimmick — it is a mechanism that forces the character to confront who he is, repeatedly, until he becomes someone worth the story. The screenplay is a perfect machine.",
+        teaches: "Premise as moral structure. The loop is not a sci-fi gimmick  -- it is a mechanism that forces the character to confront who he is, repeatedly, until he becomes someone worth the story. The screenplay is a perfect machine.",
         url: "https://www.imsdb.com/scripts/Groundhog-Day.html",
         source: "IMSDB",
         lessonLink: "/learn/character-arc",
@@ -346,7 +346,7 @@ const categories = [
         writer: "Kenneth Lonergan",
         year: 2016,
         logline: "A handyman becomes guardian of his nephew after his brother dies, forcing him to return to the town where he was once destroyed.",
-        teaches: "The ghost as the whole story. Lee Chandler cannot change — not because the screenplay is pessimistic, but because what happened to him exceeds what narrative can fix. Lonergan refuses the conventional redemption arc and the film is devastating because of it.",
+        teaches: "The ghost as the whole story. Lee Chandler cannot change  -- not because the screenplay is pessimistic, but because what happened to him exceeds what narrative can fix. Lonergan refuses the conventional redemption arc and the film is devastating because of it.",
         url: "https://www.imsdb.com/scripts/Manchester-by-the-Sea.html",
         source: "IMSDB",
         lessonLink: "/learn/ghost",
@@ -357,7 +357,7 @@ const categories = [
         writer: "Greta Gerwig",
         year: 2017,
         logline: "A headstrong Sacramento teenager navigates her senior year of high school, her relationship with her mother, and her desire to leave.",
-        teaches: "How to write specificity as universality. Lady Bird is absolutely particular to Sacramento, to 2002, to that family — and that precision is what makes it universal. Also: how to write a mother-daughter relationship where both characters are fully right.",
+        teaches: "How to write specificity as universality. Lady Bird is absolutely particular to Sacramento, to 2002, to that family  -- and that precision is what makes it universal. Also: how to write a mother-daughter relationship where both characters are fully right.",
         url: "https://deadline.com/wp-content/uploads/2018/03/lady-bird-script-greta-gerwig.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/relationship-pairs",
@@ -368,7 +368,7 @@ const categories = [
         writer: "Richard Linklater",
         year: 2014,
         logline: "A boy grows up in Texas across twelve years, filmed with the same actors over the actual duration of his childhood.",
-        teaches: "Anti-plot as structure. Boyhood has no protagonist goal, no antagonist, no conventional arc — and holds the audience completely because the emotional stakes (watching a person grow up) are enough. A study in what story actually requires.",
+        teaches: "Anti-plot as structure. Boyhood has no protagonist goal, no antagonist, no conventional arc  -- and holds the audience completely because the emotional stakes (watching a person grow up) are enough. A study in what story actually requires.",
         url: "https://deadline.com/wp-content/uploads/2014/07/boyhood-screenplay.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/theme",
@@ -379,7 +379,7 @@ const categories = [
         writer: "Sofia Coppola",
         year: 2003,
         logline: "A fading movie star and a young woman both adrift in Tokyo form an unexpected connection.",
-        teaches: "Mood as structure. The film barely has plot — it has atmosphere, loneliness, and two precise performances. Coppola writes environment as character: Tokyo is not a backdrop, it is pressure. Study how she uses space and silence.",
+        teaches: "Mood as structure. The film barely has plot  -- it has atmosphere, loneliness, and two precise performances. Coppola writes environment as character: Tokyo is not a backdrop, it is pressure. Study how she uses space and silence.",
         url: "https://www.imsdb.com/scripts/Lost-in-Translation.html",
         source: "IMSDB",
         lessonLink: "/learn/subtext",
@@ -390,7 +390,7 @@ const categories = [
         writer: "Wes Anderson & Roman Coppola",
         year: 2012,
         logline: "Two twelve-year-olds fall in love and run away together on a New England island, causing a community-wide search.",
-        teaches: "Voice as world-building. Anderson's scripts are inseparable from his visual style — the deadpan dialogue, the precise formality, the emotional honesty buried in artifice. Study how a consistent authorial perspective creates a coherent world.",
+        teaches: "Voice as world-building. Anderson's scripts are inseparable from his visual style  -- the deadpan dialogue, the precise formality, the emotional honesty buried in artifice. Study how a consistent authorial perspective creates a coherent world.",
         url: "https://deadline.com/wp-content/uploads/2013/10/moonrise-kingdom.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/character-voice",
@@ -407,7 +407,7 @@ const categories = [
         writer: "Dan O'Bannon",
         year: 1979,
         logline: "The crew of a commercial space freighter investigates a distress signal and brings something terrible back aboard.",
-        teaches: "Economy and withholding. O'Bannon describes the creature in fragments — we never see it whole until late in the film. How to build dread through suggestion and the exploitation of what the audience cannot see.",
+        teaches: "Economy and withholding. O'Bannon describes the creature in fragments  -- we never see it whole until late in the film. How to build dread through suggestion and the exploitation of what the audience cannot see.",
         url: "https://www.imsdb.com/scripts/Alien.html",
         source: "IMSDB",
         lessonLink: "/learn/tension-without-action",
@@ -418,7 +418,7 @@ const categories = [
         writer: "Ted Tally",
         year: 1991,
         logline: "An FBI trainee seeks help from an imprisoned cannibal psychiatrist to catch a serial killer who skins his victims.",
-        teaches: "Dialogue as threat. Every conversation between Clarice and Hannibal is a negotiation with multiple layers — what is said, what is withheld, what is offered, and what is taken. Also: how to make the helper more frightening than the antagonist.",
+        teaches: "Dialogue as threat. Every conversation between Clarice and Hannibal is a negotiation with multiple layers  -- what is said, what is withheld, what is offered, and what is taken. Also: how to make the helper more frightening than the antagonist.",
         url: "https://www.imsdb.com/scripts/Silence-of-the-Lambs,-The.html",
         source: "IMSDB",
         lessonLink: "/learn/dialogue-subtext",
@@ -429,7 +429,7 @@ const categories = [
         writer: "Ari Aster",
         year: 2018,
         logline: "A family unravels after the death of their secretive grandmother, as terrifying evidence of a dark inheritance emerges.",
-        teaches: "Genre as grief. Hereditary works as horror and as a precise portrait of a family destroying itself under unbearable loss. Aster understands that true horror is not the supernatural — it is the damage families do to each other.",
+        teaches: "Genre as grief. Hereditary works as horror and as a precise portrait of a family destroying itself under unbearable loss. Aster understands that true horror is not the supernatural  -- it is the damage families do to each other.",
         url: "https://deadline.com/wp-content/uploads/2018/06/hereditary_script.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/ghost",
@@ -440,7 +440,7 @@ const categories = [
         writer: "Martin McDonagh",
         year: 2017,
         logline: "A grieving mother rents three billboards to challenge the local police chief over the unsolved murder of her daughter.",
-        teaches: "Moral complexity without resolution. McDonagh refuses to make any character simply right or wrong — each person who seems monstrous turns out to have depth, and each person who seems righteous turns out to have a cost. The film changes who you're rooting for three times.",
+        teaches: "Moral complexity without resolution. McDonagh refuses to make any character simply right or wrong  -- each person who seems monstrous turns out to have depth, and each person who seems righteous turns out to have a cost. The film changes who you're rooting for three times.",
         url: "https://deadline.com/wp-content/uploads/2017/12/three_billboards_script_martin_mcdonagh.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/antagonist",
@@ -448,18 +448,16 @@ const categories = [
       },
     ],
   },
-]
-
   {
     label: "Classics",
-    description: "Screenplays that defined what cinema could do. These are the texts that screenwriting teachers quote — read them as primary sources, not summaries.",
+    description: "Screenplays that defined what cinema could do. These are the texts that screenwriting teachers quote  -- read them as primary sources, not summaries.",
     scripts: [
       {
         title: "Sunset Boulevard",
         writer: "Billy Wilder, Charles Brackett & D.M. Marshman Jr.",
         year: 1950,
         logline: "A faded silent film star takes in a desperate screenwriter and plots her return to Hollywood as his situation grows increasingly dangerous.",
-        teaches: "Unreliable narrator in a visual medium — the film is narrated by a dead man. How to build noir atmosphere through production design described in prose. Wilder's script is also a ruthless study of self-delusion as character.",
+        teaches: "Unreliable narrator in a visual medium  -- the film is narrated by a dead man. How to build noir atmosphere through production design described in prose. Wilder's script is also a ruthless study of self-delusion as character.",
         url: "https://www.imsdb.com/scripts/Sunset-Blvd..html",
         source: "IMSDB",
         lessonLink: "/learn/ghost",
@@ -470,7 +468,7 @@ const categories = [
         writer: "Julius J. Epstein, Philip G. Epstein & Howard Koch",
         year: 1942,
         logline: "A cynical American nightclub owner in wartime Casablanca must choose between his love for a woman and helping her Resistance leader husband escape the Nazis.",
-        teaches: "The most quoted film for a reason: every scene has a subtext. Rick never says what he feels — everything is inference, deflection, and action. Study especially the cafe scene and the airport finale for how to write maximum emotional content with minimum words.",
+        teaches: "The most quoted film for a reason: every scene has a subtext. Rick never says what he feels  -- everything is inference, deflection, and action. Study especially the cafe scene and the airport finale for how to write maximum emotional content with minimum words.",
         url: "https://www.imsdb.com/scripts/Casablanca.html",
         source: "IMSDB",
         lessonLink: "/learn/dialogue-subtext",
@@ -481,7 +479,7 @@ const categories = [
         writer: "Joseph L. Mankiewicz",
         year: 1950,
         logline: "An aging Broadway actress is slowly usurped by her seemingly devoted young fan.",
-        teaches: "The long scene. Mankiewicz wrote dialogue that would be considered impossibly dense by modern standards — and it works because the wit is precise and every line reveals character. A master class in theatrical dialogue transplanted to film.",
+        teaches: "The long scene. Mankiewicz wrote dialogue that would be considered impossibly dense by modern standards  -- and it works because the wit is precise and every line reveals character. A master class in theatrical dialogue transplanted to film.",
         url: "https://www.imsdb.com/scripts/All-About-Eve.html",
         source: "IMSDB",
         lessonLink: "/learn/dialogue-subtext",
@@ -492,7 +490,7 @@ const categories = [
         writer: "John Michael Hayes",
         year: 1954,
         logline: "A photographer confined to a wheelchair after breaking his leg suspects his neighbor of murder.",
-        teaches: "Constraint as creative engine. The entire film takes place from a single location. Hayes solves the problem of a static protagonist by making the window itself the narrative device — every scene is a frame within a frame.",
+        teaches: "Constraint as creative engine. The entire film takes place from a single location. Hayes solves the problem of a static protagonist by making the window itself the narrative device  -- every scene is a frame within a frame.",
         url: "https://www.imsdb.com/scripts/Rear-Window.html",
         source: "IMSDB",
         lessonLink: "/learn/location-as-character",
@@ -520,7 +518,7 @@ const categories = [
         writer: "Jeb Stuart & Steven de Souza",
         year: 1988,
         logline: "A New York cop visiting his estranged wife in Los Angeles becomes the only hope when terrorists seize her office building.",
-        teaches: "The unity of place thriller. Die Hard works because it solves the problem of containment — every escalation emerges logically from the space. Also: a protagonist whose flaw (stubbornness) is simultaneously his greatest strength.",
+        teaches: "The unity of place thriller. Die Hard works because it solves the problem of containment  -- every escalation emerges logically from the space. Also: a protagonist whose flaw (stubbornness) is simultaneously his greatest strength.",
         url: "https://www.imsdb.com/scripts/Die-Hard.html",
         source: "IMSDB",
         lessonLink: "/learn/location-as-character",
@@ -530,8 +528,8 @@ const categories = [
         title: "Aliens",
         writer: "James Cameron",
         year: 1986,
-        logline: "Ripley returns to the planet where her crew found the alien with a unit of Marines — and the situation is worse than anyone expected.",
-        teaches: "The sequel that surpasses the original by changing the genre. Cameron's script notes describe action with a precision that borders on poetry. Also: Ripley's transformation from survivor to warrior — a character arc earned entirely through action, not dialogue.",
+        logline: "Ripley returns to the planet where her crew found the alien with a unit of Marines  -- and the situation is worse than anyone expected.",
+        teaches: "The sequel that surpasses the original by changing the genre. Cameron's script notes describe action with a precision that borders on poetry. Also: Ripley's transformation from survivor to warrior  -- a character arc earned entirely through action, not dialogue.",
         url: "https://www.imsdb.com/scripts/Aliens.html",
         source: "IMSDB",
         lessonLink: "/learn/character-arc",
@@ -542,7 +540,7 @@ const categories = [
         writer: "Jeb Stuart & David Twohy",
         year: 1993,
         logline: "A doctor wrongly convicted of his wife's murder escapes while being transported to prison and races to find the real killer.",
-        teaches: "Parallel protagonists — the fugitive and the marshal pursuing him are equally sympathetic and equally committed to their goals. The script also demonstrates how to write continuous momentum: almost no scene ends without a new complication.",
+        teaches: "Parallel protagonists  -- the fugitive and the marshal pursuing him are equally sympathetic and equally committed to their goals. The script also demonstrates how to write continuous momentum: almost no scene ends without a new complication.",
         url: "https://www.imsdb.com/scripts/Fugitive,-The.html",
         source: "IMSDB",
         lessonLink: "/learn/want-vs-need",
@@ -553,7 +551,7 @@ const categories = [
         writer: "Graham Yost",
         year: 1994,
         logline: "A cop must prevent a bomb on a city bus from exploding by keeping it above 50 mph.",
-        teaches: "Premise as structure. The concept contains its own dramatic logic — the speed limit is the ticking clock, the bus is the arena, and every complication must emerge from those constraints. A study in how a strong premise solves most plotting problems.",
+        teaches: "Premise as structure. The concept contains its own dramatic logic  -- the speed limit is the ticking clock, the bus is the arena, and every complication must emerge from those constraints. A study in how a strong premise solves most plotting problems.",
         url: "https://www.imsdb.com/scripts/Speed.html",
         source: "IMSDB",
         lessonLink: "/learn/tension-without-action",
@@ -592,7 +590,7 @@ const categories = [
         writer: "The Wachowskis",
         year: 1999,
         logline: "A computer programmer discovers that reality is a simulation and joins a rebellion against the machines that created it.",
-        teaches: "Concept and action working in tandem. Every action sequence in The Matrix is also a philosophical statement about the nature of the world. The Wachowskis never let the spectacle outrun the idea — each fight is also an argument.",
+        teaches: "Concept and action working in tandem. Every action sequence in The Matrix is also a philosophical statement about the nature of the world. The Wachowskis never let the spectacle outrun the idea  -- each fight is also an argument.",
         url: "https://www.imsdb.com/scripts/Matrix,-The.html",
         source: "IMSDB",
         lessonLink: "/learn/theme",
@@ -603,7 +601,7 @@ const categories = [
         writer: "Eric Heisserer",
         year: 2016,
         logline: "A linguist is recruited to communicate with aliens who have landed on Earth, and the process changes her understanding of time.",
-        teaches: "Structure as theme. The film is about how language shapes perception of time — and the screenplay's structure embodies that: the ending recontextualizes everything that came before. Read it twice. The second reading is different.",
+        teaches: "Structure as theme. The film is about how language shapes perception of time  -- and the screenplay's structure embodies that: the ending recontextualizes everything that came before. Read it twice. The second reading is different.",
         url: "https://deadline.com/wp-content/uploads/2017/01/arrival-script.pdf",
         source: "Deadline (PDF)",
         lessonLink: "/learn/plant-payoff",
@@ -613,8 +611,8 @@ const categories = [
         title: "Ex Machina",
         writer: "Alex Garland",
         year: 2015,
-        logline: "A programmer is selected to administer the Turing test to an AI with a humanoid robot body — and begins to question who is testing whom.",
-        teaches: "Chamber drama — the whole film is three characters in a contained space. Garland uses architecture to control information: what each character knows, and when. Also a study in how to write an antagonist whose menace is entirely ambiguous until the end.",
+        logline: "A programmer is selected to administer the Turing test to an AI with a humanoid robot body  -- and begins to question who is testing whom.",
+        teaches: "Chamber drama  -- the whole film is three characters in a contained space. Garland uses architecture to control information: what each character knows, and when. Also a study in how to write an antagonist whose menace is entirely ambiguous until the end.",
         url: "https://www.imsdb.com/scripts/Ex-Machina.html",
         source: "IMSDB",
         lessonLink: "/learn/dialogue-subtext",
@@ -630,8 +628,8 @@ const categories = [
         title: "12 Angry Men",
         writer: "Reginald Rose",
         year: 1957,
-        logline: "Twelve jurors deliberate the murder case of a teenager — and one man's reasonable doubt forces them all to confront their assumptions.",
-        teaches: "The single location drama. Every dramatic element — tension, reversal, revelation, transformation — is achieved through people talking in a room. Study how Rose staggers revelations and manages the gradual shifting of power.",
+        logline: "Twelve jurors deliberate the murder case of a teenager  -- and one man's reasonable doubt forces them all to confront their assumptions.",
+        teaches: "The single location drama. Every dramatic element  -- tension, reversal, revelation, transformation  -- is achieved through people talking in a room. Study how Rose staggers revelations and manages the gradual shifting of power.",
         url: "https://www.imsdb.com/scripts/12-Angry-Men.html",
         source: "IMSDB",
         lessonLink: "/learn/arguments",
@@ -642,7 +640,7 @@ const categories = [
         writer: "Matt Damon & Ben Affleck",
         year: 1997,
         logline: "A janitor at MIT with a genius IQ resists his own potential while a therapist slowly breaks through his defenses.",
-        teaches: "The mentor relationship as story engine. Every session between Will and Sean is a negotiation with specific dramatic stakes. Also: a case study in Want vs. Need — Will wants to be left alone; what he needs is permission to be loved.",
+        teaches: "The mentor relationship as story engine. Every session between Will and Sean is a negotiation with specific dramatic stakes. Also: a case study in Want vs. Need  -- Will wants to be left alone; what he needs is permission to be loved.",
         url: "https://www.imsdb.com/scripts/Good-Will-Hunting.html",
         source: "IMSDB",
         lessonLink: "/learn/want-vs-need",
@@ -653,7 +651,7 @@ const categories = [
         writer: "Alan Ball",
         year: 1999,
         logline: "A middle-aged suburbanite undergoes a midlife crisis as his family disintegrates around him.",
-        teaches: "The circular ending done correctly. The film opens with its ending and earns it. Ball also demonstrates how to give every character a fully coherent (if delusional) worldview — nobody in American Beauty is simply wrong, they are wrong in precise and specific ways.",
+        teaches: "The circular ending done correctly. The film opens with its ending and earns it. Ball also demonstrates how to give every character a fully coherent (if delusional) worldview  -- nobody in American Beauty is simply wrong, they are wrong in precise and specific ways.",
         url: "https://www.imsdb.com/scripts/American-Beauty.html",
         source: "IMSDB",
         lessonLink: "/learn/the-ending",
@@ -664,7 +662,7 @@ const categories = [
         writer: "Paul Haggis & Bobby Moresco",
         year: 2004,
         logline: "Multiple strangers in Los Angeles intersect over 36 hours in a web of racial tension, violence, and unexpected grace.",
-        teaches: "Ensemble structure and the ensemble pivot — how to run parallel storylines so they illuminate each other rather than competing. Every character has a clear want, need, and ghost. Study how Haggis manages the emotional temperature across so many threads.",
+        teaches: "Ensemble structure and the ensemble pivot  -- how to run parallel storylines so they illuminate each other rather than competing. Every character has a clear want, need, and ghost. Study how Haggis manages the emotional temperature across so many threads.",
         url: "https://www.imsdb.com/scripts/Crash.html",
         source: "IMSDB",
         lessonLink: "/learn/theme",
@@ -675,7 +673,7 @@ const categories = [
 ]
 
 const scriptSources = [
-  { name: "IMSDB — Internet Movie Script Database", url: "https://www.imsdb.com/", note: "The largest free library of produced screenplays. Thousands of scripts, no cost." },
+  { name: "IMSDB  -- Internet Movie Script Database", url: "https://www.imsdb.com/", note: "The largest free library of produced screenplays. Thousands of scripts, no cost." },
   { name: "Simply Scripts", url: "https://www.simplyscripts.com/", note: "Produced films, unproduced specs, and original scripts. Useful for studying spec format." },
   { name: "ScreenplayDB", url: "https://www.screenplaydb.com/", note: "Clean, readable format. Good for mobile reading. Curated selection." },
   { name: "WGA Script Archive", url: "https://www.wga.org/", note: "The Writers Guild of America maintains resources for member scripts. Registration required for some." },
@@ -697,7 +695,7 @@ export default function FamousScripts() {
             Famous Screenplays to Read
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', margin: '0 auto 12px' }}>
-            Reading produced scripts is how working writers learn. Every script here is free and legal. Every annotation explains what the script actually teaches — not just what happens in it.
+            Reading produced scripts is how working writers learn. Every script here is free and legal. Every annotation explains what the script actually teaches  -- not just what happens in it.
           </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.45)', marginBottom: '36px' }}>
             40+ scripts across structure, dialogue, character, genre, and more.
@@ -707,7 +705,7 @@ export default function FamousScripts() {
               Read the craft lessons
             </Link>
             <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
-              Write your own — free
+              Write your own  -- free
             </Link>
           </div>
         </div>
@@ -727,14 +725,14 @@ export default function FamousScripts() {
         </div>
       </section>
 
-      {/* How to read a script — SEO content block */}
+      {/* How to read a script  -- SEO content block */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '56px 24px 0' }}>
         <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '32px 36px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--green)', marginBottom: '14px' }}>
             How to read a screenplay
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
-            Reading a script is different from reading a novel, and different again from watching a film. A screenplay is a blueprint — it describes only what can be seen or heard. Reading it trains your eye to see how structure, scene work, and dialogue function in isolation from performance, cinematography, and score.
+            Reading a script is different from reading a novel, and different again from watching a film. A screenplay is a blueprint  -- it describes only what can be seen or heard. Reading it trains your eye to see how structure, scene work, and dialogue function in isolation from performance, cinematography, and score.
           </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
             The most useful practice: read a scene from a script, then watch the scene in the film. Notice what the script communicates that didn't make it to screen. Notice what the director added that wasn't in the script. The gap between the two is where craft lives.
@@ -767,7 +765,7 @@ export default function FamousScripts() {
                         {script.title}
                       </h3>
                       <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
-                        {script.writer} — {script.year}
+                        {script.writer}  -- {script.year}
                       </p>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
@@ -811,7 +809,7 @@ export default function FamousScripts() {
             Where to find screenplays online
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '640px', marginBottom: '24px' }}>
-            These are the legitimate, free sources used by working screenwriters. Avoid PDFs from unknown sites — scripts circulate in corrupted or watermarked forms that are hard to read. These sources are clean.
+            These are the legitimate, free sources used by working screenwriters. Avoid PDFs from unknown sites  -- scripts circulate in corrupted or watermarked forms that are hard to read. These sources are clean.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
             {scriptSources.map(s => (
@@ -836,11 +834,11 @@ export default function FamousScripts() {
             Reading is half of writing.
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
-            The other half is putting what you've learned into practice. Eve gives you the workspace to outline, develop characters, track scenes, and build your story — organized around the same frameworks the scripts above use.
+            The other half is putting what you've learned into practice. Eve gives you the workspace to outline, develop characters, track scenes, and build your story  -- organized around the same frameworks the scripts above use.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
-              Start your screenplay — free
+              Start your screenplay  -- free
             </Link>
             <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Study the craft

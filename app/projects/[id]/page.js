@@ -32,7 +32,7 @@ const statusStyle = {
 }
 
 function timeAgo(dateStr) {
-  if (!dateStr) return '—'
+  if (!dateStr) return ' --'
   const diff = Date.now() - new Date(dateStr).getTime()
   const mins  = Math.floor(diff / 60000)
   const hours = Math.floor(diff / 3600000)
@@ -267,7 +267,7 @@ function OverviewTab({ project, characters, scenes, plotHoles, onUpdate }) {
           : characters.slice(0, 4).map(c => (
               <div key={c.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px solid var(--off-white)', fontSize: '14px' }}>
                 <span style={{ fontWeight: '500' }}>{c.name}</span>
-                <span style={{ color: 'var(--text-soft)', fontSize: '12px' }}>{c.role || '—'}</span>
+                <span style={{ color: 'var(--text-soft)', fontSize: '12px' }}>{c.role || ' --'}</span>
               </div>
             ))
         }
@@ -571,24 +571,24 @@ function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
 
 const frameworkBeatStubs = {
   'save-the-cat': [
-    { title: 'Opening Image',     act_number: 1, beat_label: 'Opening Image',    notes: 'The very first image — a snapshot of your protagonist\'s problem before anything changes.' },
+    { title: 'Opening Image',     act_number: 1, beat_label: 'Opening Image',    notes: 'The very first image  -- a snapshot of your protagonist\'s problem before anything changes.' },
     { title: 'Theme Stated',      act_number: 1, beat_label: 'Theme Stated',     notes: 'Someone says something to your protagonist that they don\'t yet understand. This is your theme.' },
     { title: 'Set-Up',            act_number: 1, beat_label: 'Set-Up',           notes: 'Introduce all the people, flaws, and circumstances that need fixing by the end.' },
     { title: 'Catalyst',          act_number: 1, beat_label: 'Catalyst',         notes: 'The event around page 12 that disrupts the protagonist\'s world. Done TO them, not by them.' },
     { title: 'Debate',            act_number: 1, beat_label: 'Debate',           notes: 'The protagonist hesitates. What is the last question they ask before committing to Act 2?' },
-    { title: 'Break into Two',    act_number: 1, beat_label: 'Break into Two',   notes: 'The protagonist CHOOSES to enter Act 2. This is the most important beat — it must be active.' },
+    { title: 'Break into Two',    act_number: 1, beat_label: 'Break into Two',   notes: 'The protagonist CHOOSES to enter Act 2. This is the most important beat  -- it must be active.' },
     { title: 'B Story',           act_number: 2, beat_label: 'B Story',          notes: 'The secondary storyline (usually a relationship) that carries the theme.' },
     { title: 'Fun and Games',     act_number: 2, beat_label: 'Fun and Games',    notes: 'The "promise of the premise." The audience gets what they came for.' },
     { title: 'Midpoint',          act_number: 2, beat_label: 'Midpoint',         notes: 'False victory or false defeat. After this, the protagonist becomes fully active.' },
     { title: 'Bad Guys Close In', act_number: 2, beat_label: 'Bad Guys Close In', notes: 'External and internal forces dismantle what the protagonist built in Fun and Games.' },
-    { title: 'All Is Lost',       act_number: 2, beat_label: 'All Is Lost',      notes: 'The lowest point. Something must die here — literal or symbolic.' },
+    { title: 'All Is Lost',       act_number: 2, beat_label: 'All Is Lost',      notes: 'The lowest point. Something must die here  -- literal or symbolic.' },
     { title: 'Dark Night of the Soul', act_number: 2, beat_label: 'Dark Night',  notes: 'The protagonist sits in the wreckage. The solution must come from within them.' },
-    { title: 'Break into Three',  act_number: 3, beat_label: 'Break into Three', notes: 'The A and B stories merge. The protagonist has a new idea — and it comes from the B story.' },
+    { title: 'Break into Three',  act_number: 3, beat_label: 'Break into Three', notes: 'The A and B stories merge. The protagonist has a new idea  -- and it comes from the B story.' },
     { title: 'Finale',            act_number: 3, beat_label: 'Finale',           notes: 'Execute the plan using everything learned. Mirror the setup in new, meaningful ways.' },
     { title: 'Final Image',       act_number: 3, beat_label: 'Final Image',      notes: 'The opposite of the Opening Image. Proof that change is real and permanent.' },
   ],
   'heros-journey': [
-    { title: 'Ordinary World',        act_number: 1, beat_label: 'Ordinary World',       notes: 'The hero\'s normal life — establish what they stand to lose.' },
+    { title: 'Ordinary World',        act_number: 1, beat_label: 'Ordinary World',       notes: 'The hero\'s normal life  -- establish what they stand to lose.' },
     { title: 'Call to Adventure',     act_number: 1, beat_label: 'Call to Adventure',    notes: 'The disruption that presents the challenge ahead.' },
     { title: 'Refusal of the Call',   act_number: 1, beat_label: 'Refusal',              notes: 'The hero hesitates. What fear holds them back?' },
     { title: 'Meeting the Mentor',    act_number: 1, beat_label: 'Mentor',               notes: 'Who gives the hero wisdom or a tool to cross the threshold?' },
@@ -602,37 +602,37 @@ const frameworkBeatStubs = {
     { title: 'Return with the Elixir',act_number: 3, beat_label: 'Return',               notes: 'The hero brings back wisdom, love, or freedom that heals the Ordinary World.' },
   ],
   'story-circle': [
-    { title: 'You — Establish the character',   act_number: 1, beat_label: 'You',    notes: 'Who is the protagonist in their comfort zone?' },
-    { title: 'Need — Establish the want',        act_number: 1, beat_label: 'Need',   notes: 'What does the character need or want that they can\'t scratch in their current world?' },
-    { title: 'Go — Enter an unfamiliar world',   act_number: 1, beat_label: 'Go',     notes: 'What threshold do they cross into something new and unfamiliar?' },
-    { title: 'Search — Road of trials',          act_number: 2, beat_label: 'Search', notes: 'What obstacles does the character face while searching for what they need?' },
-    { title: 'Find — The thing they were seeking', act_number: 2, beat_label: 'Find', notes: 'Do they find it? At what cost or complication?' },
-    { title: 'Take — Pay the price',             act_number: 2, beat_label: 'Take',   notes: 'What must the character sacrifice or lose for what they found?' },
-    { title: 'Return — Back to the familiar',    act_number: 3, beat_label: 'Return', notes: 'How do they return to the familiar world, changed?' },
-    { title: 'Change — Transformation complete', act_number: 3, beat_label: 'Change', notes: 'How has the character fundamentally changed? The circle closes.' },
+    { title: 'You  -- Establish the character',   act_number: 1, beat_label: 'You',    notes: 'Who is the protagonist in their comfort zone?' },
+    { title: 'Need  -- Establish the want',        act_number: 1, beat_label: 'Need',   notes: 'What does the character need or want that they can\'t scratch in their current world?' },
+    { title: 'Go  -- Enter an unfamiliar world',   act_number: 1, beat_label: 'Go',     notes: 'What threshold do they cross into something new and unfamiliar?' },
+    { title: 'Search  -- Road of trials',          act_number: 2, beat_label: 'Search', notes: 'What obstacles does the character face while searching for what they need?' },
+    { title: 'Find  -- The thing they were seeking', act_number: 2, beat_label: 'Find', notes: 'Do they find it? At what cost or complication?' },
+    { title: 'Take  -- Pay the price',             act_number: 2, beat_label: 'Take',   notes: 'What must the character sacrifice or lose for what they found?' },
+    { title: 'Return  -- Back to the familiar',    act_number: 3, beat_label: 'Return', notes: 'How do they return to the familiar world, changed?' },
+    { title: 'Change  -- Transformation complete', act_number: 3, beat_label: 'Change', notes: 'How has the character fundamentally changed? The circle closes.' },
   ],
   'sequence-approach': [
-    { title: 'Sequence 1 — Establish & Incite',   act_number: 1, beat_label: 'Sequence 1', notes: 'Establish the world and protagonist. Land the inciting incident (pp. 1–15).' },
-    { title: 'Sequence 2 — Decision & Threshold', act_number: 1, beat_label: 'Sequence 2', notes: 'The protagonist\'s response and the Act 1 decision they cannot unmake (pp. 15–30).' },
-    { title: 'Sequence 3 — New World, Old Methods', act_number: 2, beat_label: 'Sequence 3', notes: 'First attempt. Old tools meet new problems. Ends in setback (pp. 30–45).' },
-    { title: 'Sequence 4 — Progress & Midpoint',  act_number: 2, beat_label: 'Sequence 4', notes: 'Real progress, then the midpoint reversal (pp. 45–60).' },
-    { title: 'Sequence 5 — Reversal & Escalation', act_number: 2, beat_label: 'Sequence 5', notes: 'Midpoint consequences arrive. Resources stripped away (pp. 60–75).' },
-    { title: 'Sequence 6 — All Is Lost & Choice',  act_number: 2, beat_label: 'Sequence 6', notes: 'Lowest point. Something dies. The fundamental choice before Act 3 (pp. 75–90).' },
-    { title: 'Sequence 7 — Climax Begins',         act_number: 3, beat_label: 'Sequence 7', notes: 'Final confrontation begins. Protagonist acts on their Act 2 choice (pp. 90–105).' },
-    { title: 'Sequence 8 — Resolution',            act_number: 3, beat_label: 'Sequence 8', notes: 'Climax resolves. The new state of the world (pp. 105–120).' },
+    { title: 'Sequence 1  -- Establish & Incite',   act_number: 1, beat_label: 'Sequence 1', notes: 'Establish the world and protagonist. Land the inciting incident (pp. 1–15).' },
+    { title: 'Sequence 2  -- Decision & Threshold', act_number: 1, beat_label: 'Sequence 2', notes: 'The protagonist\'s response and the Act 1 decision they cannot unmake (pp. 15–30).' },
+    { title: 'Sequence 3  -- New World, Old Methods', act_number: 2, beat_label: 'Sequence 3', notes: 'First attempt. Old tools meet new problems. Ends in setback (pp. 30–45).' },
+    { title: 'Sequence 4  -- Progress & Midpoint',  act_number: 2, beat_label: 'Sequence 4', notes: 'Real progress, then the midpoint reversal (pp. 45–60).' },
+    { title: 'Sequence 5  -- Reversal & Escalation', act_number: 2, beat_label: 'Sequence 5', notes: 'Midpoint consequences arrive. Resources stripped away (pp. 60–75).' },
+    { title: 'Sequence 6  -- All Is Lost & Choice',  act_number: 2, beat_label: 'Sequence 6', notes: 'Lowest point. Something dies. The fundamental choice before Act 3 (pp. 75–90).' },
+    { title: 'Sequence 7  -- Climax Begins',         act_number: 3, beat_label: 'Sequence 7', notes: 'Final confrontation begins. Protagonist acts on their Act 2 choice (pp. 90–105).' },
+    { title: 'Sequence 8  -- Resolution',            act_number: 3, beat_label: 'Sequence 8', notes: 'Climax resolves. The new state of the world (pp. 105–120).' },
   ],
   'kishotenketsu': [
-    { title: 'Ki — Introduction',   act_number: 1, beat_label: 'Ki',    notes: 'Establish the world, characters, and situation. No conflict. Pure immersion.' },
-    { title: 'Shō — Development',   act_number: 1, beat_label: 'Shō',   notes: 'Introduce a second element that seems unrelated. Develop both threads independently.' },
-    { title: 'Ten — Twist',         act_number: 2, beat_label: 'Ten',   notes: 'The unexpected connection between Ki and Shō. A shift in perception, not a plot twist.' },
-    { title: 'Ketsu — Conclusion',  act_number: 3, beat_label: 'Ketsu', notes: 'Reconcile the elements. Let the meaning land without explaining it.' },
+    { title: 'Ki  -- Introduction',   act_number: 1, beat_label: 'Ki',    notes: 'Establish the world, characters, and situation. No conflict. Pure immersion.' },
+    { title: 'Shō  -- Development',   act_number: 1, beat_label: 'Shō',   notes: 'Introduce a second element that seems unrelated. Develop both threads independently.' },
+    { title: 'Ten  -- Twist',         act_number: 2, beat_label: 'Ten',   notes: 'The unexpected connection between Ki and Shō. A shift in perception, not a plot twist.' },
+    { title: 'Ketsu  -- Conclusion',  act_number: 3, beat_label: 'Ketsu', notes: 'Reconcile the elements. Let the meaning land without explaining it.' },
   ],
   'fichtean': [
     { title: 'Opening Crisis',         act_number: 1, beat_label: 'Opening Crisis',  notes: 'Drop in mid-action. No setup. The audience will catch up.' },
-    { title: 'Crisis 1 — Escalation',  act_number: 1, beat_label: 'Crisis 1',        notes: 'First crisis after the opening. What does it cost? What backstory does it reveal?' },
-    { title: 'Crisis 2 — Escalation',  act_number: 2, beat_label: 'Crisis 2',        notes: 'Second crisis. Worse than the first. Tighten the spiral.' },
-    { title: 'Crisis 3 — Peak Pressure', act_number: 2, beat_label: 'Crisis 3',      notes: 'Optional. The backstory that unlocks the full weight of the present.' },
-    { title: 'Climax — All Crises Converge', act_number: 3, beat_label: 'Climax',    notes: 'Everything arrives at once. Inevitable in retrospect.' },
+    { title: 'Crisis 1  -- Escalation',  act_number: 1, beat_label: 'Crisis 1',        notes: 'First crisis after the opening. What does it cost? What backstory does it reveal?' },
+    { title: 'Crisis 2  -- Escalation',  act_number: 2, beat_label: 'Crisis 2',        notes: 'Second crisis. Worse than the first. Tighten the spiral.' },
+    { title: 'Crisis 3  -- Peak Pressure', act_number: 2, beat_label: 'Crisis 3',      notes: 'Optional. The backstory that unlocks the full weight of the present.' },
+    { title: 'Climax  -- All Crises Converge', act_number: 3, beat_label: 'Climax',    notes: 'Everything arrives at once. Inevitable in retrospect.' },
     { title: 'Brief Resolution',       act_number: 3, beat_label: 'Resolution',      notes: 'Keep it short. What matters already happened. One final beat, then close.' },
   ],
   'freeform': [
@@ -798,7 +798,7 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
       {scenes.length === 0 && !adding && (
         <div className="empty-state">
           <h3>No scenes yet</h3>
-          <p>Every story is a sequence of scenes. Add your first — or use <strong>Auto-fill beats</strong> above to pre-populate the {stubs.length} structural beats from your {framework ? framework.replace(/-/g,' ') : ''} framework.</p>
+          <p>Every story is a sequence of scenes. Add your first  -- or use <strong>Auto-fill beats</strong> above to pre-populate the {stubs.length} structural beats from your {framework ? framework.replace(/-/g,' ') : ''} framework.</p>
         </div>
       )}
 
@@ -1142,7 +1142,7 @@ function TimelineTab({ scenes }) {
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
         <h3>No scenes yet</h3>
-        <p>Add scenes in the Scenes tab — they&apos;ll appear here on the timeline.</p>
+        <p>Add scenes in the Scenes tab  -- they&apos;ll appear here on the timeline.</p>
       </div>
     )
   }
@@ -1313,7 +1313,7 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
     })
     setPositions(pos)
 
-    // Links stored as JSON in theme.linked_scenes — e.g. ["scene-id-1","scene-id-2"]
+    // Links stored as JSON in theme.linked_scenes  -- e.g. ["scene-id-1","scene-id-2"]
     const allLinks = []
     themes.forEach(t => {
       const linked = t.linked_scenes ? JSON.parse(t.linked_scenes) : []

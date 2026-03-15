@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Michael Hauge's Six-Stage Plot Structure — Eve",
+  title: "Michael Hauge's Six-Stage Plot Structure  -- Eve",
   description: "Michael Hauge's Six-Stage Plot Structure maps outer journey (plot) against inner journey (transformation) with precise percentage markers. Essential for character-driven stories.",
 }
 
@@ -27,7 +27,7 @@ export default function LessonHauge() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The two journeys</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '28px' }}>
           {[
-            { label: 'Outer Journey', desc: 'The external goal — visible, concrete, measurable. What the protagonist is trying to accomplish.', color: 'var(--green-pale)', border: 'var(--green-border)', text: 'var(--green)' },
+            { label: 'Outer Journey', desc: 'The external goal  -- visible, concrete, measurable. What the protagonist is trying to accomplish.', color: 'var(--green-pale)', border: 'var(--green-border)', text: 'var(--green)' },
             { label: 'Inner Journey', desc: 'Identity → Essence. The character moves from their false self (who they pretend to be) to their true self (who they are).', color: '#EFF6FF', border: '#BFDBFE', text: '#1D4ED8' },
           ].map(j => (
             <div key={j.label} style={{ background: j.color, border: `1px solid ${j.border}`, borderRadius: '10px', padding: '16px' }}>
@@ -40,7 +40,7 @@ export default function LessonHauge() {
         {[
           { pct: '0–10%', stage: 'Setup', turn: 'Opportunity', desc: "Everyday life. Protagonist's outer motivation and inner wound established." },
           { pct: '10–25%', stage: 'New Situation', turn: 'Change of Plans', desc: 'Response to opportunity. Outer goal defined. Protagonist adapts to new world.' },
-          { pct: '25–50%', stage: 'Progress', turn: 'Point of No Return', desc: 'Things go well. Relationships form. Protagonist commits fully — no retreat.' },
+          { pct: '25–50%', stage: 'Progress', turn: 'Point of No Return', desc: 'Things go well. Relationships form. Protagonist commits fully  -- no retreat.' },
           { pct: '50–75%', stage: 'Complications & Higher Stakes', turn: 'Major Setback', desc: 'Everything goes wrong. Antagonist escalates. Identity is stripped away.' },
           { pct: '75–90%', stage: 'Final Push', turn: 'Climax', desc: 'Acting from essence, not identity. Final attempt from the true self.' },
           { pct: '90–100%', stage: 'Aftermath', turn: 'End', desc: 'Consequences shown. New state confirmed. Both journeys complete.' },
@@ -56,7 +56,7 @@ export default function LessonHauge() {
           </div>
         ))}
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>Map both journeys in parallel columns.</strong> Left: the six external events. Right: where the protagonist sits on the identity-to-essence scale. The two should feel causally connected — external events forcing internal transformation, not running alongside it.
+          <strong>Map both journeys in parallel columns.</strong> Left: the six external events. Right: where the protagonist sits on the identity-to-essence scale. The two should feel causally connected  -- external events forcing internal transformation, not running alongside it.
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
           <Link href="/learn/snowflake-method" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>← Snowflake Method</Link>

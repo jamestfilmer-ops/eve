@@ -165,7 +165,7 @@ export default function IdeasPage() {
             placeholder={
               newIdea.type === 'Dialogue'   ? 'Write the line exactly as you heard it in your head...' :
               newIdea.type === 'One-liner'  ? 'A single sentence that captures the whole story...' :
-              newIdea.type === 'Scene'      ? 'Describe the scene — what happens, what it feels like...' :
+              newIdea.type === 'Scene'      ? 'Describe the scene  -- what happens, what it feels like...' :
               newIdea.type === 'Character'  ? "Who is this person? What's the one thing that makes them interesting?" :
               newIdea.type === 'Theme'      ? 'A statement, a question, or a contradiction...' :
               'Write it down...'
@@ -235,7 +235,7 @@ export default function IdeasPage() {
                   { type: 'Scene', spark: 'A conversation where both people are lying, and both know the other is lying, and neither says so.' },
                   { type: 'Theme', spark: 'What does it cost to be the person everyone needs you to be?' },
                   { type: 'Character', spark: 'Someone trying to escape a version of themselves they no longer believe in.' },
-                  { type: 'One-liner', spark: 'A person who finally gets what they have wanted for twenty years — on the day it no longer matters.' },
+                  { type: 'One-liner', spark: 'A person who finally gets what they have wanted for twenty years  -- on the day it no longer matters.' },
                 ].map((spark, i) => {
                   const col = typeColors[spark.type] || { bg: 'var(--green-pale)', color: 'var(--green)' }
                   return (

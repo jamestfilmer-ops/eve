@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'The Sopranos method: how to write slow drama — Eve',
+  title: 'The Sopranos method: how to write slow drama  -- Eve',
 }
 
 export default function LessonSopranosDrama() {
@@ -25,7 +25,7 @@ export default function LessonSopranosDrama() {
         </h1>
 
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          The Sopranos changed what television drama could be. But the techniques David Chase perfected — therapy as confession, consequences that arrive slowly, the collision of domesticity and violence — are not limited to prestige TV. They are tools for any writer trying to build sustained, psychologically honest drama.
+          The Sopranos changed what television drama could be. But the techniques David Chase perfected  -- therapy as confession, consequences that arrive slowly, the collision of domesticity and violence  -- are not limited to prestige TV. They are tools for any writer trying to build sustained, psychologically honest drama.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -37,7 +37,7 @@ export default function LessonSopranosDrama() {
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The therapy sessions are confessionals in the Catholic sense — spaces where truth is theoretically possible, but where the confessant cannot quite bring themselves to say what they know. Tony almost reaches self-knowledge in these scenes. He circles it, approaches it, and then retreats. That near-miss is what makes them dramatically alive: the audience sees the truth Tony is avoiding, and the gap between what Tony says and what Tony means is the space where the show lives.
+          The therapy sessions are confessionals in the Catholic sense  -- spaces where truth is theoretically possible, but where the confessant cannot quite bring themselves to say what they know. Tony almost reaches self-knowledge in these scenes. He circles it, approaches it, and then retreats. That near-miss is what makes them dramatically alive: the audience sees the truth Tony is avoiding, and the gap between what Tony says and what Tony means is the space where the show lives.
         </p>
 
         <div className="tip-box" style={{ marginBottom: '28px' }}>
@@ -49,15 +49,15 @@ export default function LessonSopranosDrama() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Slow consequences</h2>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Most drama works on an accelerated timeline: cause, then effect, usually within the same episode or sequence. The Sopranos works on the timeline of real psychological life, where consequences arrive months or years after their causes — sometimes so late that the character has forgotten what they caused.
+          Most drama works on an accelerated timeline: cause, then effect, usually within the same episode or sequence. The Sopranos works on the timeline of real psychological life, where consequences arrive months or years after their causes  -- sometimes so late that the character has forgotten what they caused.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          This is not just a formal choice — it is a moral one. The show argues that the damage people do is real and permanent, even when the doer has moved on. Tony orders something terrible and spends three episodes barely thinking about it, and then — in a scene about something else entirely — the consequence arrives, wearing a different face than expected.
+          This is not just a formal choice  -- it is a moral one. The show argues that the damage people do is real and permanent, even when the doer has moved on. Tony orders something terrible and spends three episodes barely thinking about it, and then  -- in a scene about something else entirely  -- the consequence arrives, wearing a different face than expected.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The structural challenge this creates for the writer is significant: you must plant consequences long before they pay off, in scenes that do not signal their own importance. A conversation in episode four becomes the fulcrum of episode nine. The audience does not know they are watching the cause when it happens — only in retrospect does it acquire its weight.
+          The structural challenge this creates for the writer is significant: you must plant consequences long before they pay off, in scenes that do not signal their own importance. A conversation in episode four becomes the fulcrum of episode nine. The audience does not know they are watching the cause when it happens  -- only in retrospect does it acquire its weight.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -65,15 +65,15 @@ export default function LessonSopranosDrama() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Domesticity as counterweight to violence</h2>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The Sopranos spends enormous amounts of screen time on the ordinary textures of family life — breakfast, school runs, arguments about contractors, birthday parties. This is not padding. It is the engine of the show&apos;s emotional effect.
+          The Sopranos spends enormous amounts of screen time on the ordinary textures of family life  -- breakfast, school runs, arguments about contractors, birthday parties. This is not padding. It is the engine of the show&apos;s emotional effect.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The violence in The Sopranos is shocking not because it is graphic — though it sometimes is — but because of its juxtaposition with the domestic. When Tony comes home for dinner after committing something terrible, the horror is not in the terrible thing itself but in the contrast: the same hands that did that are now helping Meadow with her homework. The domesticity makes the violence real in a way that pure action drama never can.
+          The violence in The Sopranos is shocking not because it is graphic  -- though it sometimes is  -- but because of its juxtaposition with the domestic. When Tony comes home for dinner after committing something terrible, the horror is not in the terrible thing itself but in the contrast: the same hands that did that are now helping Meadow with her homework. The domesticity makes the violence real in a way that pure action drama never can.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Chase borrowed this technique directly from life: most people who do terrible things have ordinary lives around them. The ordinariness is not a mask for the violence — it coexists with it, which is far more disturbing. To write this well, you must resist the urge to use the ordinary scenes as relief. Let them carry the weight of everything the audience knows about what surrounds them.
+          Chase borrowed this technique directly from life: most people who do terrible things have ordinary lives around them. The ordinariness is not a mask for the violence  -- it coexists with it, which is far more disturbing. To write this well, you must resist the urge to use the ordinary scenes as relief. Let them carry the weight of everything the audience knows about what surrounds them.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -81,11 +81,11 @@ export default function LessonSopranosDrama() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The show that refuses to resolve</h2>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The Sopranos consistently refuses what audiences expect from drama: catharsis, transformation, justice. Tony does not change. The consequences never quite catch him. The therapy does not work. This is not nihilism — it is realism about the nature of deep character, and about how rarely dramatic internal transformation actually occurs in human beings.
+          The Sopranos consistently refuses what audiences expect from drama: catharsis, transformation, justice. Tony does not change. The consequences never quite catch him. The therapy does not work. This is not nihilism  -- it is realism about the nature of deep character, and about how rarely dramatic internal transformation actually occurs in human beings.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          For writers, this is permission to write characters who do not learn. Not every story needs a character arc in the traditional sense. Some of the most powerful stories are about characters whose inability to change is the point — where the tragedy is not what happens to them, but the gap between who they could be and who they insist on remaining.
+          For writers, this is permission to write characters who do not learn. Not every story needs a character arc in the traditional sense. Some of the most powerful stories are about characters whose inability to change is the point  -- where the tragedy is not what happens to them, but the gap between who they could be and who they insist on remaining.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
@@ -98,8 +98,8 @@ export default function LessonSopranosDrama() {
             Write two scenes back-to-back that use the domesticity-violence contrast:
           </p>
           <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Scene one: your protagonist does something they cannot take back — a betrayal, a lie, a harm. Write it plainly, without commentary.</li>
-            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Scene two, set immediately after: the same protagonist in a completely ordinary domestic context — a meal, a phone call with family, feeding a pet. Do not reference scene one.</li>
+            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Scene one: your protagonist does something they cannot take back  -- a betrayal, a lie, a harm. Write it plainly, without commentary.</li>
+            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Scene two, set immediately after: the same protagonist in a completely ordinary domestic context  -- a meal, a phone call with family, feeding a pet. Do not reference scene one.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>The reader&apos;s discomfort should come entirely from juxtaposition. If you feel the urge to add a guilt beat or a meaningful look, cut it. Trust the contrast.</li>
           </ol>
         </div>
