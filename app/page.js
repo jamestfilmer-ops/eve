@@ -565,6 +565,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Content depth signal */}
+      <section style={{ background: 'var(--green)', padding: '56px 24px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
+            What's inside the library
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2px' }}>
+            {[
+              { number: '45+', label: 'Craft lessons', sub: 'Structure, character, dialogue, theme', href: '/learn' },
+              { number: '7', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
+              { number: '75+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
+              { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
+              { number: '2', label: 'Industry guides', sub: 'Hollywood and publishing', href: '/road-to-hollywood' },
+              { number: '18+', label: 'Famous scripts', sub: 'Free legal sources + craft notes', href: '/scripts' },
+            ].map((s, i) => (
+              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '20px 24px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
+              >
+                <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '28px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '6px' }}>{s.number}</div>
+                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', marginBottom: '4px' }}>{s.label}</div>
+                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '11px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.4' }}>{s.sub}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* No AI section */}
       <section className="split-grid" style={{
         maxWidth: '1200px',

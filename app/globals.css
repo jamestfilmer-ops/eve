@@ -688,3 +688,6 @@ input, textarea, select, button {
   cursor: grabbing;
 }
 
+
+.track-lesson-row { transition: background 0.12s; }
+.track-lesson-row:hover { background: var(--off-white); }

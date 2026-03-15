@@ -64,7 +64,7 @@ const plans = [
       'Priority support',
       'Early access to new features',
       'Multiple client projects',
-      'Collaboration (coming soon)',
+      'Advanced export formats',
       'Usage analytics',
       'Dedicated workspace',
     ],
@@ -87,7 +87,7 @@ const comparisonRows = [
   { feature: 'Multiple client projects',free: false,      studio: false,       pro: true },
   { feature: 'Priority support',       free: false,       studio: false,       pro: true },
   { feature: 'Early access',           free: false,       studio: false,       pro: true },
-  { feature: 'Collaboration',          free: false,       studio: false,       pro: 'Soon' },
+  { feature: 'Advanced export formats',   free: false,       studio: true,        pro: true },
   { feature: 'Usage analytics',        free: false,       studio: false,       pro: true },
 ]
 
@@ -511,7 +511,7 @@ export default function PricingPage() {
             },
             {
               q: 'Is there a free trial for Studio or Professional?',
-              a: 'Stripe and payment processing are coming soon. When they launch, we\'ll offer a 7-day free trial for both paid tiers. For now, everything is accessible via the Free tier.',
+              a: 'We offer a 7-day free trial on both paid tiers — no credit card required to start. If you\'re not satisfied, cancel any time and your projects remain accessible on the Free tier.',
             },
             {
               q: 'Can I switch between monthly and annual billing?',
