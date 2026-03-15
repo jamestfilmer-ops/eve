@@ -84,7 +84,7 @@ const cinematographyLessons = [
     sub: 'High, low, Dutch, eye-level -- what each says about who has control',
     time: '10 min',
     level: 'Beginner',
-    status: 'coming',
+    status: 'live',
     preview: 'The camera angle is always a point of view. A character shot from below is powerful. Shot from above, they are diminished. The angle tells the audience how to feel before the actor speaks.',
   },
   {
@@ -93,7 +93,7 @@ const cinematographyLessons = [
     sub: 'Dolly, zoom, handheld, steadicam -- what each communicates',
     time: '12 min',
     level: 'Intermediate',
-    status: 'coming',
+    status: 'live',
     preview: 'A dolly-in builds tension. A zoom-in is paranoid. A handheld camera is raw and present. A locked-off camera creates dread. The camera\'s movement -- or stillness -- is always a choice.',
   },
   {
@@ -111,7 +111,7 @@ const cinematographyLessons = [
     sub: 'Hard light, soft light, motivated sources, shadow',
     time: '13 min',
     level: 'Intermediate',
-    status: 'coming',
+    status: 'live',
     preview: 'Noir lives in shadow. Horror uses a single motivated source to make the ordinary threatening. Romantic comedies use soft diffused light to make everything feel safe. Lighting is emotional weather.',
   },
   {

@@ -107,6 +107,9 @@ const lessons = [
       { title: 'Color psychology in visual storytelling', slug: 'color-psychology', time: '7 min', level: 'Intermediate', preview: 'The colors in a frame do not decorate the story. They are the story  -- communicating mood, power, and character before a single word is spoken.' },
       { title: 'Color theory in film and fiction', slug: 'color-theory', time: '12 min', level: 'Intermediate', preview: 'Red, blue, yellow, green, white, black -- what each color communicates, how filmmakers use contrast and restraint, and how to write for color without directing on the page.' },
       { title: 'Cinematography: shot types, angles, and movement', slug: 'cinematography', time: '14 min', level: 'Beginner', preview: 'Every framing decision is a storytelling decision. The complete vocabulary of shot types, camera angles, and movement -- with examples from the films that defined each technique.' },
+      { title: 'Camera angles and power dynamics', slug: 'camera-angles', time: '10 min', level: 'Beginner', preview: 'Eye level, low angle, high angle, Dutch angle, bird's eye -- what each angle communicates about power, vulnerability, and psychological state.' },
+      { title: 'Camera movement and emotional meaning', slug: 'camera-movement', time: '12 min', level: 'Intermediate', preview: 'Static, dolly, handheld, steadicam, crane -- how the camera moves, or refuses to move, is an argument about what the story feels like from inside.' },
+      { title: 'Lighting as storytelling', slug: 'lighting-and-story', time: '13 min', level: 'Intermediate', preview: 'Hard light, soft light, chiaroscuro, motivated sources, practical lights -- lighting is emotional weather. It tells you how to feel before an actor speaks.' },
     ],
   },
   {
@@ -182,6 +185,7 @@ const writtenSlugs = [
   'location-as-character', 'scene-endings',
   'short-story-craft', 'short-story-markets', 'flash-fiction',
   'color-theory', 'cinematography',
+  'camera-angles', 'camera-movement', 'lighting-and-story',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
