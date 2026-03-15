@@ -114,6 +114,92 @@ const frameworkLabel = {
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 
+// ─── Daily writing prompts ────────────────────────────────────────────────────
+
+const writingPrompts = [
+  { category: 'Character', prompt: 'Write a scene where your protagonist does something that contradicts what everyone thinks they believe. No explanation. Just action.' },
+  { category: 'Dialogue', prompt: 'Two characters who need to talk about something serious talk about something completely unrelated instead. The real subject must be felt but never named.' },
+  { category: 'Scene Craft', prompt: 'Write a scene where the location itself is the antagonist. The physical space fights the character.' },
+  { category: 'Structure', prompt: 'Start your scene at the moment of maximum tension — not the buildup. Drop the reader into the middle of impact.' },
+  { category: 'Character', prompt: 'Write the scene your protagonist is most afraid to be in. Put them there. See who they become.' },
+  { category: 'Dialogue', prompt: 'A character asks a direct question. The other person answers a different question entirely. Neither acknowledges this.' },
+  { category: 'Theme', prompt: 'Write a scene where a minor object — a mug, a photograph, a door — carries the full emotional weight of the moment.' },
+  { category: 'Scene Craft', prompt: 'Enter the scene three lines later than you think you should. Cut the last three lines you wrote. Does the scene work better?' },
+  { category: 'Character', prompt: 'Write the backstory scene you have never shown — the one that explains everything. Then decide whether it belongs in the story at all.' },
+  { category: 'Structure', prompt: 'Write your midpoint scene: the moment when everything your protagonist thought they wanted turns out to be the wrong thing.' },
+  { category: 'Dialogue', prompt: 'Two characters argue about something small. The argument is actually about something irreparable. Neither says what it is really about.' },
+  { category: 'Theme', prompt: 'Find the image that recurs in your story — even if you have not written it yet. Write a scene where it appears for the second time, changed.' },
+  { category: 'Character', prompt: 'Write a scene where your protagonist wants something so badly they are willing to be cruel to get it. Let them be cruel.' },
+  { category: 'Scene Craft', prompt: 'Write a scene between two characters where no one speaks. Convey the full emotional content through action, movement, and space.' },
+  { category: 'Structure', prompt: 'Write the moment just after your All Is Lost beat. Your protagonist is alone. What do they do with their hands?' },
+  { category: 'Dialogue', prompt: 'Write a scene where the most important line is the one the character almost says but stops. What they stop themselves from saying is the scene.' },
+  { category: 'Character', prompt: 'Write the scene where your protagonist lies to someone they love. Make the lie convincing. Make us understand why.' },
+  { category: 'Scene Craft', prompt: 'Take a scene that is not working and write it from a different character\'s point of view — someone watching from outside.' },
+  { category: 'Theme', prompt: 'Your protagonist has a want and a need that are different. Write the scene where they choose the want over the need, and it costs them.' },
+  { category: 'Structure', prompt: 'Write your opening image: the single frame that contains your whole story in miniature. What does the audience see before anything happens?' },
+  { category: 'Character', prompt: 'Write a scene where your antagonist is completely right. Give them the best possible argument. Let them win the scene.' },
+  { category: 'Dialogue', prompt: 'Write a scene where a character tells the truth, but in a way that functions as a lie. The words are accurate. The impression is false.' },
+  { category: 'Scene Craft', prompt: 'Cut the first and last paragraph from a scene you have already written. Does anything essential disappear? If not, leave them cut.' },
+  { category: 'Character', prompt: 'Write the scene your protagonist has been avoiding for ten years. Not around it — into it.' },
+  { category: 'Theme', prompt: 'Every story is about a lie the protagonist believes. Write the scene where they first learned that lie was true.' },
+]
+
+const promptCategoryColors = {
+  'Character': { bg: 'var(--green-pale)', color: 'var(--green)', border: 'var(--green-border)' },
+  'Dialogue':  { bg: '#EFF6FF', color: '#1D4ED8', border: '#BFDBFE' },
+  'Scene Craft': { bg: '#FEF3C7', color: '#92400E', border: '#FDE68A' },
+  'Structure': { bg: '#F3E8FF', color: '#7C3AED', border: '#DDD6FE' },
+  'Theme':     { bg: '#ECFDF5', color: '#065F46', border: '#A7F3D0' },
+}
+
+function DailyPrompt() {
+  const [promptIdx, setPromptIdx] = useState(() => {
+    // Pick a consistent prompt for today based on date
+    const today = new Date()
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
+    return dayOfYear % writingPrompts.length
+  })
+  const [revealed, setRevealed] = useState(false)
+  const prompt = writingPrompts[promptIdx]
+  const colors = promptCategoryColors[prompt.category] || promptCategoryColors['Character']
+
+  return (
+    <div style={{ border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden', marginBottom: '32px' }}>
+      <div style={{ padding: '14px 20px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--off-white)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Writing Prompt</span>
+          <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 8px', borderRadius: '20px', background: colors.bg, color: colors.color, border: '1px solid ' + colors.border, fontFamily: 'DM Sans, sans-serif' }}>{prompt.category}</span>
+        </div>
+        <button
+          onClick={() => setPromptIdx(i => (i + 1) % writingPrompts.length)}
+          style={{ background: 'none', border: '1px solid var(--border)', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', color: 'var(--text-soft)', cursor: 'pointer', fontFamily: 'DM Sans, sans-serif' }}
+        >
+          Next prompt
+        </button>
+      </div>
+      <div style={{ padding: '18px 20px' }}>
+        {!revealed ? (
+          <div>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-soft)', marginBottom: '12px', fontStyle: 'italic' }}>
+              A prompt to start the session. Use it or ignore it.
+            </p>
+            <button
+              onClick={() => setRevealed(true)}
+              style={{ background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '7px', padding: '9px 18px', fontSize: '13px', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', cursor: 'pointer' }}
+            >
+              Reveal prompt
+            </button>
+          </div>
+        ) : (
+          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.75', margin: 0 }}>
+            {prompt.prompt}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
+
 function SessionInner() {
   const router       = useRouter()
   const searchParams = useSearchParams()
@@ -351,6 +437,9 @@ function SessionInner() {
           <div style={{ width: `${pct}%`, height: '100%', background: 'var(--green)', borderRadius: '3px', transition: 'width 0.5s ease' }} />
         </div>
       </div>
+
+      {/* Daily prompt */}
+      <DailyPrompt />
 
       {/* Beat checklist */}
       <div className="fade-up fade-up-delay-1" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>

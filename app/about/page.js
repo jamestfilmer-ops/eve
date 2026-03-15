@@ -95,7 +95,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section style={{ background: 'var(--text-dark)', padding: '96px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '24px' }}>About Eve</p>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '24px' }}>About Eve</p>
           <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '28px' }}>
             Built for writers who couldn&apos;t afford film school
           </h1>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             Eve is a craft platform and story workspace. The lessons are free. The tools are worth paying for. There is no AI anywhere in the product.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'var(--amber)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
             <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>Create free account</Link>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function AboutPage() {
                 </div>
                 <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6', margin: 0 }}>{book.note}</p>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--amber)', whiteSpace: 'nowrap', paddingTop: '4px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '4px' }}>
                 Amazon
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -191,7 +191,7 @@ export default function AboutPage() {
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginBottom: '32px' }}>
             One project, the full Craft Library, all the fundamentals. No credit card.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--amber)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '15px', padding: '14px 36px', borderRadius: '8px', textDecoration: 'none' }}>Create your free account</Link>
+          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '15px', padding: '14px 36px', borderRadius: '8px', textDecoration: 'none' }}>Create your free account</Link>
         </div>
       </section>
     </div>

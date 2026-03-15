@@ -4,14 +4,28 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
 
-const learnLinks = [
-  { href: '/learn',               label: 'Craft Library' },
-  { href: '/frameworks',          label: 'Frameworks' },
-  { href: '/for-beginners',        label: 'Start Here' },
-  { href: '/learn/tracks',        label: 'Learning Paths' },
-  { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
-  { href: '/road-to-publishing',  label: 'Road to Publishing' },
+const learnGroups = [
+  {
+    heading: 'Learn',
+    links: [
+      { href: '/for-beginners',       label: 'Start Here' },
+      { href: '/learn',               label: 'Craft Library' },
+      { href: '/learn/tracks',        label: 'Learning Paths' },
+      { href: '/frameworks',          label: 'Frameworks' },
+      { href: '/glossary',            label: 'Glossary' },
+    ],
+  },
+  {
+    heading: 'Guides',
+    links: [
+      { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
+      { href: '/road-to-publishing',  label: 'Road to Publishing' },
+      { href: '/scripts',             label: 'Famous Scripts' },
+    ],
+  },
 ]
+// flat list for mobile
+const learnLinks = learnGroups.flatMap(g => g.links)
 
 export default function Nav() {
   const pathname  = usePathname()
@@ -155,36 +169,46 @@ export default function Nav() {
                     border: '1px solid var(--border)',
                     borderRadius: '12px',
                     boxShadow: '0 8px 32px rgba(26,20,15,0.13), 0 2px 8px rgba(26,20,15,0.07)',
-                    padding: '6px', minWidth: '230px', zIndex: 200,
+                    padding: '8px', minWidth: '210px', zIndex: 200,
                     animation: 'dropIn 0.18s var(--ease-out) both',
                   }}
                 >
-                  {learnLinks.map(l => (
-                    <Link key={l.href} href={l.href} style={{ textDecoration: 'none', display: 'block' }}>
-                      <div style={{
-                        padding: '9px 13px', borderRadius: '7px', fontSize: '13.5px',
-                        color: pathname === l.href ? 'var(--green)' : 'var(--text-mid)',
-                        fontWeight: pathname === l.href ? '500' : '400',
-                        background: pathname === l.href ? 'var(--green-pale)' : 'transparent',
-                        transition: 'background 0.12s, color 0.12s',
-                        cursor: 'pointer',
-                      }}
-                        onMouseEnter={e => {
-                          if (pathname !== l.href) {
-                            e.currentTarget.style.background = 'var(--off-white)'
-                            e.currentTarget.style.color = 'var(--text-dark)'
-                          }
-                        }}
-                        onMouseLeave={e => {
-                          if (pathname !== l.href) {
-                            e.currentTarget.style.background = 'transparent'
-                            e.currentTarget.style.color = 'var(--text-mid)'
-                          }
-                        }}
-                      >
-                        {l.label}
+                  {learnGroups.map((group, gi) => (
+                    <div key={gi} style={{ marginBottom: gi < learnGroups.length - 1 ? '6px' : '0' }}>
+                      <div style={{ padding: '7px 13px 4px', fontSize: '10px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', fontWeight: '600' }}>
+                        {group.heading}
                       </div>
-                    </Link>
+                      {group.links.map(l => (
+                        <Link key={l.href} href={l.href} style={{ textDecoration: 'none', display: 'block' }}>
+                          <div style={{
+                            padding: '8px 13px', borderRadius: '7px', fontSize: '13.5px',
+                            color: pathname === l.href ? 'var(--green)' : 'var(--text-mid)',
+                            fontWeight: pathname === l.href ? '500' : '400',
+                            background: pathname === l.href ? 'var(--green-pale)' : 'transparent',
+                            transition: 'background 0.12s, color 0.12s',
+                            cursor: 'pointer',
+                          }}
+                            onMouseEnter={e => {
+                              if (pathname !== l.href) {
+                                e.currentTarget.style.background = 'var(--off-white)'
+                                e.currentTarget.style.color = 'var(--text-dark)'
+                              }
+                            }}
+                            onMouseLeave={e => {
+                              if (pathname !== l.href) {
+                                e.currentTarget.style.background = 'transparent'
+                                e.currentTarget.style.color = 'var(--text-mid)'
+                              }
+                            }}
+                          >
+                            {l.label}
+                          </div>
+                        </Link>
+                      ))}
+                      {gi < learnGroups.length - 1 && (
+                        <div style={{ height: '1px', background: 'var(--border)', margin: '6px 6px 0' }} />
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
