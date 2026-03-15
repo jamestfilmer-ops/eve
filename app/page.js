@@ -573,8 +573,8 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2px' }}>
             {[
-              { number: '45+', label: 'Craft lessons', sub: 'Structure, character, dialogue, theme', href: '/learn' },
-              { number: '7', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
+              { number: '58+', label: 'Craft lessons', sub: 'Structure, character, dialogue, theme', href: '/learn' },
+              { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
               { number: '75+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
               { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
               { number: '2', label: 'Industry guides', sub: 'Hollywood and publishing', href: '/road-to-hollywood' },

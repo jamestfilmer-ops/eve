@@ -146,7 +146,7 @@ export default function TracksPage() {
       </section>
 
       {/* Tracks */}
-      <main style={{ maxWidth: '900px', margin: '0 auto', padding: '56px 24px 80px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
+      <main className="tracks-main" style={{ maxWidth: '900px', margin: '0 auto', padding: '56px 24px 80px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
         {tracks.map(track => (
           <section key={track.id} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden' }}>
 

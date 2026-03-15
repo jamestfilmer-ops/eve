@@ -1032,7 +1032,7 @@ export default function LessonPage() {
   }
 
   return (
-    <div style={{ maxWidth: '740px', margin: '0 auto', padding: '48px 24px' }}>
+    <div className="lesson-page-wrap" style={{ maxWidth: '740px', margin: '0 auto', padding: '48px 24px' }}>
 
       {/* Lesson-level structured data injected into head via dangerouslySetInnerHTML */}
       <script
@@ -1112,7 +1112,7 @@ export default function LessonPage() {
       )}
 
       {/* Prev / Next */}
-      <div style={{ marginTop: '64px', paddingTop: '32px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+      <div className="lesson-nav-grid" style={{ marginTop: '64px', paddingTop: '32px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
         {prevSlug && lessons[prevSlug] ? (
           <Link href={`/learn/${prevSlug}`} style={{ textDecoration: 'none' }}>
             <div className="card" style={{ padding: '22px 24px' }}>

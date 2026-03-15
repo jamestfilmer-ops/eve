@@ -719,3 +719,209 @@ input, textarea, select, button {
 
 .track-lesson-row { transition: background 0.12s; }
 .track-lesson-row:hover { background: var(--off-white); }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE REOPTIMIZATION — comprehensive pass
+   Covers every inline grid/flex not handled by existing classes
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── App pages: project workspace ─────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Projects/[id]: overview sidebar + main stack to single col */
+  .project-overview-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Projects/[id]: stats row 4-col → 2x2 */
+  .project-stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* Projects/[id]: character / scene / plot-hole form 2-col → 1-col */
+  .form-2col {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Projects/[id]: scene form 3-col (title/act/status) → stack */
+  .form-3col {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Projects page list: stats counters 4-col → 2x2 */
+  .project-list-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Dashboard stats 4-col → 2x2 (already handled by .stats-grid but reinforce) */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Themes map: full width canvas */
+  .themes-canvas {
+    width: 100% !important;
+    min-height: 360px !important;
+  }
+}
+
+/* ── Homepage: inline grids not covered by named classes ──────── */
+@media (max-width: 767px) {
+
+  /* Content depth stats bar: 3-col → single scrollable row */
+  .depth-stats-bar {
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+  .depth-stats-bar > * {
+    min-width: 130px !important;
+    flex-shrink: 0 !important;
+  }
+  .depth-stats-bar::-webkit-scrollbar { display: none; }
+
+  /* No-AI section: text + visual 2-col → single col (reinforcement) */
+  .no-ai-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Testimonial / quote section padding */
+  .quote-section {
+    padding: 48px 20px !important;
+  }
+}
+
+/* ── Learn & lesson pages ─────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Lesson prev/next nav: 2-col → stacked */
+  .lesson-nav-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Learn page category header: shrink text */
+  .learn-category-header h2 {
+    font-size: 16px !important;
+  }
+
+  /* Lesson body: tighten padding */
+  .lesson-page-wrap {
+    padding: 32px 18px !important;
+  }
+
+  /* Lesson tip-box: tighten padding */
+  .tip-box {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ── Frameworks page ──────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Framework card inner grid: 2-col → 1-col */
+  .framework-card-grid {
+    grid-template-columns: 1fr !important;
+    padding: 20px !important;
+  }
+}
+
+/* ── Welcome / onboarding page ────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Feature preview 2x2 grid → 1-col */
+  .welcome-features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+/* ── Glossary page ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Letter index: tighten */
+  .glossary-letter-index {
+    gap: 4px !important;
+  }
+  .glossary-letter-index button {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ── Session page ─────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Beat checklist expanded panel: tighten */
+  .beat-expanded {
+    padding: 14px !important;
+  }
+  /* Session header: stack project name + framework label */
+  .session-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+}
+
+/* ── Global micro-fixes ────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Ensure no card or modal exceeds viewport */
+  .card, .card-elevated, .card-static {
+    border-radius: 10px !important;
+  }
+
+  /* Slightly reduce section vertical padding */
+  section {
+    padding-top: max(40px, var(--section-pt, 40px)) !important;
+    padding-bottom: max(40px, var(--section-pb, 40px)) !important;
+  }
+
+  /* Tighter empty state on tiny screens */
+  .empty-state {
+    padding: 48px 16px !important;
+  }
+
+  /* Road to Hollywood / Publishing: stage nav wrapping */
+  .stage-nav {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  /* Reduce h1 font on very small screens */
+  h1 { font-size: clamp(24px, 9vw, 36px) !important; }
+}
+
+/* ── Touch targets: enforce 44px minimum on key interactive elements ── */
+@media (max-width: 767px) {
+  .btn-primary, .btn-ghost, .btn-secondary {
+    min-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  input.input, textarea.input, select.input {
+    min-height: 44px !important;
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+  }
+}
+
+/* ── Prevent iOS input zoom on mobile: 16px minimum ─────────── */
+@media (max-width: 767px) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .tracks-main {
+    padding: 32px 18px 56px !important;
+    gap: 28px !important;
+  }
+}

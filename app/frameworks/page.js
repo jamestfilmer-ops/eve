@@ -224,7 +224,7 @@ export default function FrameworksPage() {
               </div>
 
               {/* Body */}
-              <div style={{ padding: '28px 36px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
+              <div className="framework-card-grid" style={{ padding: '28px 36px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
                 <div>
                   <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-mid)', marginBottom: '20px' }}>{f.summary}</p>
                   <div style={{ marginBottom: '16px' }}>

@@ -178,7 +178,7 @@ export default function WelcomePage() {
 
           {/* Features (step 3) */}
           {current.features && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
+            <div className="welcome-features-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
               {current.features.map((feat, i) => (
                 <div key={i} style={{ padding: '14px', border: '1px solid var(--border)', borderRadius: '10px', background: 'var(--off-white)' }}>
                   <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '4px' }}>{feat.label}</p>
