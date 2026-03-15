@@ -576,7 +576,7 @@ export default function Home() {
               { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
               { number: '87+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
               { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
-              { number: '2', label: 'Industry guides', sub: 'Hollywood and publishing', href: '/road-to-hollywood' },
+              { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short fiction', href: '/road-to-hollywood' },
               { number: '18+', label: 'Famous scripts', sub: 'Free legal sources + craft notes', href: '/scripts' },
             ].map((s, i) => (
               <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '20px 24px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
@@ -824,7 +824,6 @@ export default function Home() {
               { href: '/road-to-publishing', label: 'Road to Publishing' },
               { href: '/road-to-short-story', label: 'Road to Short Story' },
               { href: '/reading-list', label: 'Reading List' },
-              { href: '/road-to-short-story', label: 'Road to Short Story' },
               { href: '/scripts', label: 'Famous Scripts' },
               { href: '/glossary', label: 'Glossary' },
             ].map((l, i) => (
