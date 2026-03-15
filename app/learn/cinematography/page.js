@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { ShotScaleDiagram } from '../../../components/ShotDiagram'
+import { WikiImage } from '../../../components/CraftImage'
 
 export const metadata = {
   title: 'Cinematography: Shot Types, Angles and Camera Movement | Eve',
@@ -227,6 +229,8 @@ export default function CinematographyLesson() {
               Shot scale -- how much of the world the frame contains -- is the most fundamental visual decision. The relationship between the character and the space around them determines whether the audience feels intimate, distant, powerful, or overwhelmed. Every scene makes this choice with every shot.
             </p>
           </div>
+
+          <ShotScaleDiagram />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {shotTypes.map((shot, i) => (

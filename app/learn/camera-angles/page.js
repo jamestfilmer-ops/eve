@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import { AngleDiagram, DutchAngleDiagram } from '../../../components/ShotDiagram'
+import { WikiImage } from '../../../components/CraftImage'
 
 export const metadata = {
   title: 'Camera Angles and Power -- Visual Storytelling | Eve',
@@ -156,6 +158,9 @@ export default function CameraAnglesLesson() {
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         {/* The 7 angles */}
+        <AngleDiagram />
+        <DutchAngleDiagram />
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '60px' }}>
           {angles.map((angle, i) => (
             <div key={angle.name} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '26px 28px' }}>
@@ -219,6 +224,39 @@ export default function CameraAnglesLesson() {
                 <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-dark)', lineHeight: '1.75', margin: 0 }}>{point}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Public domain examples */}
+        <section style={{ marginBottom: '48px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px', paddingBottom: '14px', borderBottom: '2px solid var(--green)' }}>
+            Camera angles in the public domain
+          </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '20px' }}>
+            These pre-1928 films are fully in the public domain. They are also where many of cinema's angle conventions were invented. Study them as primary sources.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px' }}>
+            <WikiImage
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Nosferatu_Orlok.jpg/480px-Nosferatu_Orlok.jpg"
+              alt="Nosferatu 1922 - extreme Dutch angle and shadow"
+              caption="Nosferatu (1922) -- F.W. Murnau. German Expressionism invented the horror film's visual grammar: deep shadows, extreme angles, distorted sets."
+              credit={true}
+              aspectRatio="4/5"
+            />
+            <WikiImage
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/440px-Metropolis_movie_image.jpg"
+              alt="Metropolis 1927 - low angle industrial scale"
+              caption="Metropolis (1927) -- Fritz Lang. Low angles and extreme wide shots established visual language for depicting systems larger than individuals."
+              credit={true}
+              aspectRatio="4/5"
+            />
+            <WikiImage
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/The_Cabinet_of_Dr_Caligari_1920.jpg/480px-The_Cabinet_of_Dr_Caligari_1920.jpg"
+              alt="Cabinet of Dr Caligari 1920 - expressionist angles"
+              caption="The Cabinet of Dr. Caligari (1920) -- painted sets with built-in angular distortion. The Dutch angle is the world, not the camera."
+              credit={true}
+              aspectRatio="4/5"
+            />
           </div>
         </section>
 
