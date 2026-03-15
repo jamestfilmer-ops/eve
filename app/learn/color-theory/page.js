@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage, ImagePair } from '../../../components/CraftImage'
+import { UnsplashImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Theory in Film and Fiction -- Visual Storytelling | Eve',

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage, WikiImage, ImagePair } from '../../../components/CraftImage'
+import { UnsplashImage, WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Lighting as Storytelling -- Hard Light, Soft Light, Shadow | Eve',

@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { AngleDiagram, DutchAngleDiagram } from '../../../components/ShotDiagram'
-import { WikiImage } from '../../../components/CraftImage'
+import { AngleDiagram, DutchAngleDiagram } from '../../components/ShotDiagram'
+import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Camera Angles and Power -- Visual Storytelling | Eve',

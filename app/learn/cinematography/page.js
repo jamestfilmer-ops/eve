@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { ShotScaleDiagram } from '../../../components/ShotDiagram'
-import { WikiImage } from '../../../components/CraftImage'
+import { ShotScaleDiagram } from '../../components/ShotDiagram'
+import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Cinematography: Shot Types, Angles and Camera Movement | Eve',
