@@ -16,6 +16,7 @@ const lessonSlugs = [
   'fichtean-curve', 'kishotenketsu', 'sequence-approach',
   'seven-point-story', 'freytags-pyramid', 'snowflake-method', 'hauge-six-stage',
   'save-the-cat', 'heros-journey', 'story-circle',
+  'show-dont-tell', 'the-ending', 'writing-villains',
   'opening-image', 'pacing-rhythm', 'the-rewrite',
   'how-to-start', 'fear-and-writing', 'finding-your-story',
   'vonnegut-craft', 'king-on-writing', 'leonard-on-craft', 'pixar-story-rules',
