@@ -576,8 +576,8 @@ export default function Home() {
               { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
               { number: '87+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
               { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
-              { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short fiction', href: '/road-to-hollywood' },
-              { number: '18+', label: 'Famous scripts', sub: 'Free legal sources + craft notes', href: '/scripts' },
+              { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading list', href: '/road-to-hollywood' },
+              { number: '53+', label: 'Famous scripts', sub: 'With direct links to every source', href: '/scripts' },
             ].map((s, i) => (
               <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '20px 24px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
@@ -784,7 +784,7 @@ export default function Home() {
       }}>
         <div className="footer-grid" style={{
           maxWidth: '1200px', margin: '0 auto',
-          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '48px',
+          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: '48px',
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
@@ -819,13 +819,25 @@ export default function Home() {
             {[
               { href: '/for-beginners', label: 'Start Here' },
               { href: '/learn', label: 'Craft Library' },
+              { href: '/learn/tracks', label: 'Learning Paths' },
               { href: '/frameworks', label: 'Frameworks' },
+              { href: '/glossary', label: 'Glossary' },
+            ].map((l, i) => (
+              <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#fff'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+              >{l.label}</a>
+            ))}
+          </div>
+
+          <div>
+            <p style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '14px' }}>Guides</p>
+            {[
               { href: '/road-to-hollywood', label: 'Road to Hollywood' },
               { href: '/road-to-publishing', label: 'Road to Publishing' },
               { href: '/road-to-short-story', label: 'Road to Short Story' },
               { href: '/reading-list', label: 'Reading List' },
               { href: '/scripts', label: 'Famous Scripts' },
-              { href: '/glossary', label: 'Glossary' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}
