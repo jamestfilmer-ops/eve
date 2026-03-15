@@ -432,12 +432,16 @@ export default function ReadingList() {
 
         {sections.map((section) => (
           <section key={section.id} id={section.id} style={{ marginBottom: "80px", scrollMarginTop: "100px" }}>
-            <div style={{ marginBottom: "36px" }}>
-              <div className="badge" style={{ marginBottom: "10px", display: "inline-flex" }}>{section.label}</div>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 3vw, 30px)", fontWeight: "700", color: "var(--text-dark)", marginBottom: "8px" }}>
-                {section.label}
-              </h2>
-              <p style={{ fontFamily: "var(--font-ui)", fontSize: "15px", color: "var(--text-mid)", fontStyle: "italic" }}>
+            <div style={{ marginBottom: "36px", paddingBottom: "20px", borderBottom: "2px solid var(--green)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4vw, 36px)", fontWeight: "700", color: "var(--text-dark)", margin: 0 }}>
+                  {section.label}
+                </h2>
+                <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "11px", color: "var(--green)", background: "var(--green-pale)", border: "1px solid var(--green-border)", padding: "3px 9px", borderRadius: "4px", whiteSpace: "nowrap" }}>
+                  {[...section.films, ...section.books].length} works
+                </span>
+              </div>
+              <p style={{ fontFamily: "var(--font-ui)", fontSize: "15px", color: "var(--text-mid)", fontStyle: "italic", margin: 0 }}>
                 {section.tagline}
               </p>
             </div>
@@ -447,9 +451,10 @@ export default function ReadingList() {
                 <div key={item.title} style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: "12px", padding: "24px 28px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
                     <div>
-                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: "700", color: "var(--text-dark)", marginBottom: "4px" }}>
-                        {item.title} <span style={{ fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "400", color: "var(--text-soft)" }}>({item.year})</span>
+                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: "700", color: "var(--text-dark)", marginBottom: "4px" }}>
+                        {item.title}
                       </h3>
+                      <p style={{ fontFamily: "var(--font-ui)", fontSize: "13px", color: "var(--text-soft)", margin: "0 0 4px 0" }}>{item.year}</p>
                       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                         <span style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "10px", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--green)", background: "var(--green-pale)", border: "1px solid var(--green-border)", padding: "2px 8px", borderRadius: "4px" }}>
                           {item.type}
