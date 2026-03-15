@@ -38,7 +38,7 @@ export default function LessonHauge() {
         </div>
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The six stages with percentages</h2>
         {[
-          { pct: '0–10%', stage: 'Setup', turn: 'Opportunity', desc: 'Everyday life. Protagonist\\'s outer motivation and inner wound established.' },
+          { pct: '0–10%', stage: 'Setup', turn: 'Opportunity', desc: "Everyday life. Protagonist's outer motivation and inner wound established." },
           { pct: '10–25%', stage: 'New Situation', turn: 'Change of Plans', desc: 'Response to opportunity. Outer goal defined. Protagonist adapts to new world.' },
           { pct: '25–50%', stage: 'Progress', turn: 'Point of No Return', desc: 'Things go well. Relationships form. Protagonist commits fully — no retreat.' },
           { pct: '50–75%', stage: 'Complications & Higher Stakes', turn: 'Major Setback', desc: 'Everything goes wrong. Antagonist escalates. Identity is stripped away.' },
