@@ -211,19 +211,58 @@ export default function IdeasPage() {
 
       {/* Ideas list */}
       <div className="fade-up fade-up-delay-2" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        {filtered.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-soft)' }}>
-            <p style={{ fontFamily: 'var(--font-display)', fontSize: '18px', marginBottom: '8px', color: 'var(--text-mid)' }}>
-              {ideas.length === 0 ? 'Your idea bank is empty.' : 'Nothing matches.'}
-            </p>
-            <p style={{ fontSize: '14px' }}>
-              {ideas.length === 0 ? 'Every great story started as a fragment. Capture yours.' : 'Try a different search or filter.'}
-            </p>
-            {ideas.length === 0 && (
-              <button className="btn-primary" onClick={() => setShowForm(true)} style={{ marginTop: '20px' }}>
+        {filtered.length === 0 && ideas.length === 0 && (
+          <div>
+            <div style={{ textAlign: 'center', padding: '40px 20px 24px', color: 'var(--text-soft)' }}>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '20px', marginBottom: '8px', color: 'var(--text-mid)' }}>
+                Nothing here yet.
+              </p>
+              <p style={{ fontSize: '14px', marginBottom: '20px' }}>
+                Every great story started as a fragment. Capture yours.
+              </p>
+              <button className="btn-primary" onClick={() => setShowForm(true)}>
                 Capture your first idea
               </button>
-            )}
+            </div>
+            <div style={{ borderTop: '1px solid var(--border)', paddingTop: '28px', marginTop: '8px' }}>
+              <p style={{ fontSize: '11px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '16px', textAlign: 'center' }}>
+                Need a spark? React to one of these.
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '10px' }}>
+                {[
+                  { type: 'Character', spark: 'Someone who is very good at the wrong thing.' },
+                  { type: 'One-liner', spark: 'Two strangers who share a secret that should destroy their relationship but instead saves it.' },
+                  { type: 'Scene', spark: 'A conversation where both people are lying, and both know the other is lying, and neither says so.' },
+                  { type: 'Theme', spark: 'What does it cost to be the person everyone needs you to be?' },
+                  { type: 'Character', spark: 'Someone trying to escape a version of themselves they no longer believe in.' },
+                  { type: 'One-liner', spark: 'A person who finally gets what they have wanted for twenty years — on the day it no longer matters.' },
+                ].map((spark, i) => {
+                  const col = typeColors[spark.type] || { bg: 'var(--green-pale)', color: 'var(--green)' }
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => { setNewIdea({ ...newIdea, text: spark.spark, type: spark.type }); setShowForm(true) }}
+                      style={{
+                        textAlign: 'left', background: '#fff', border: '1px solid var(--border)',
+                        borderRadius: '10px', padding: '14px 16px', cursor: 'pointer',
+                        transition: 'border-color 0.15s, box-shadow 0.15s',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(26,20,15,0.07)' }}
+                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none' }}
+                    >
+                      <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 7px', borderRadius: '20px', background: col.bg, color: col.color, fontFamily: 'DM Sans, sans-serif', display: 'inline-block', marginBottom: '8px' }}>{spark.type}</span>
+                      <p style={{ fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.55', margin: 0, fontStyle: 'italic' }}>{spark.spark}</p>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+        {filtered.length === 0 && ideas.length > 0 && (
+          <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-soft)' }}>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: '18px', marginBottom: '8px', color: 'var(--text-mid)' }}>Nothing matches.</p>
+            <p style={{ fontSize: '14px' }}>Try a different search or filter.</p>
           </div>
         )}
 

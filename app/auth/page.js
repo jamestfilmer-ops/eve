@@ -26,7 +26,9 @@ function AuthForm() {
           }
         })
         if (error) throw error
-        alert('Check your email to confirm your account.')
+        // For simplicity and to avoid email confirm delays, redirect straight to onboarding
+        // Supabase will auto-confirm if email confirm is disabled in project settings
+        window.location.href = '/welcome'
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email: form.email,

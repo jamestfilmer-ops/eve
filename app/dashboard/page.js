@@ -16,7 +16,7 @@ const statusColor = {
   'complete':    { bg: '#F0FDF4',            color: '#15803D',        border: '#BBF7D0' },
 }
 const statusLabel    = { 'seed': 'Seed', 'in_progress': 'In Progress', 'drafting': 'Drafting', 'complete': 'Complete' }
-const frameworkLabel = { 'save-the-cat': 'Save the Cat', 'heros-journey': "Hero's Journey", 'story-circle': 'Story Circle', 'freeform': 'Freeform' }
+const frameworkLabel = { 'save-the-cat': 'Save the Cat', 'heros-journey': "Hero's Journey", 'story-circle': 'Story Circle', 'freeform': 'Freeform', 'sequence-approach': 'Sequence Approach', 'kishotenketsu': 'Kishōtenketsu', 'fichtean': 'Fichtean Curve' }
 
 function timeAgo(dateStr) {
   if (!dateStr) return 'Never'
