@@ -398,15 +398,87 @@ const terms = [
     definition: 'A first-person (or close third-person) narrator whose account of events the reader cannot fully trust — due to self-deception, incomplete knowledge, mental instability, or deliberate deception. The reader must read between the lines, inferring what actually happened from what the narrator fails to notice or consciously suppresses. Steven in The Remains of the Day, Nick in Gone Girl, Humbert in Lolita. The gap between what the narrator claims and what the reader perceives is the story.',
     related: ['First Person', 'Point of View', 'Subtext'],
   },
+  {
+    term: 'All Is Lost',
+    definition: "The lowest point of a story — the moment when everything the protagonist has been working toward is destroyed, lost, or revealed to be impossible. Something must die here, literal or symbolic. The protagonist\'s external goal collapses, their false belief is exposed, and the path forward is invisible. Save the Cat identifies this as a beat at roughly page 75. The All Is Lost moment must be earned through escalation — it cannot arrive arbitrarily. It is not a setback; it is the bottom.",
+    related: ['Dark Night of the Soul', 'Act Breaks', 'Save the Cat'],
+  },
+  {
+    term: 'Dark Night of the Soul',
+    definition: 'The emotional aftermath of the All Is Lost moment — the space in which the protagonist processes their lowest point and, from within it, finds the will or insight to attempt a final solution. Nothing external drives the Dark Night: the protagonist is alone with their failure. The solution that emerges must come from within them, not from a helpful coincidence. It is the moment between the wound and the response.',
+    related: ['All Is Lost', 'Character Arc', 'Ghost'],
+  },
+  {
+    term: 'Denouement',
+    definition: "From the French, meaning \'untying\'. The final section of a story following the climax — where the conflict is settled, characters reach their new states, and the world comes to rest. The denouement proves whether the climax\'s resolution is permanent. In tragedy, it shows the full weight of what was lost. In comedy, it confirms the new equilibrium. It should be brief: what has not been resolved by the climax will not be resolved in the denouement.",
+    related: ['Climax', 'Resolution', "Freytag's Pyramid"],
+  },
+  {
+    term: 'Hook (opening)',
+    definition: 'The opening image, scene, or line that captures the reader\'s attention and establishes the world, tone, and stakes of the story. A strong hook creates an immediate question in the reader\'s mind — not necessarily a plot question, but a question about the world or the character. In Dan Wells\' Seven-Point Structure, the Hook is the character\'s starting state — the mirror opposite of the Resolution.',
+    related: ['Opening Image', 'Inciting Incident', 'Seven-Point Structure'],
+  },
+  {
+    term: 'Identity vs. Essence',
+    definition: 'In Michael Hauge\'s Six-Stage Structure, Identity is the false self a character hides behind — the persona they have constructed to protect themselves from their wound. Essence is the true self underneath the protection. The outer journey (external plot) forces the character to shed their Identity and act from their Essence. A story\'s emotional power comes from the distance between who a character pretends to be and who they actually are.',
+    related: ['Character Arc', 'Ghost', "Hauge's Six-Stage"],
+  },
+  {
+    term: 'Midpoint',
+    definition: "The scene or event at the exact structural center of a story — typically around page 55 in a 110-page screenplay — where the protagonist shifts from reacting to actively pursuing. In Save the Cat, the midpoint is either a False Victory (things seem great, then get worse) or a False Defeat (things seem terrible, then rally). After the midpoint, the story\'s stakes are fully established and the protagonist is no longer passive. A weak midpoint is one of the most common structural failures in first drafts.",
+    related: ['Act Breaks', 'Save the Cat', 'Story Structure'],
+  },
+  {
+    term: 'Negative Arc',
+    definition: 'A character arc in which the protagonist moves in the wrong direction — toward a worse version of themselves — over the course of the story. Not a failed positive arc (a character who tries to change but fails), but an arc in which the character\'s choices progressively narrow their humanity. Daniel Plainview in There Will Be Blood. Amy Dunne in Gone Girl. The negative arc requires as much structural care as a positive arc; the reader must believe each step toward destruction was the character\'s genuine choice.',
+    related: ['Character Arc', 'Ghost', 'The Lie'],
+  },
+  {
+    term: 'Pinch Point',
+    definition: "In Dan Wells\' Seven-Point Structure, a Pinch Point is a scene that demonstrates the power and nature of the antagonistic force — not a plot turn, but a demonstration. Pinch Point 1 shows the threat (roughly at the first quarter of the story). Pinch Point 2 delivers the threat at its strongest (roughly at the third quarter). The Pinch Points give the antagonist a structural role: they are not just obstacles but reminders of what is at stake.",
+    related: ['Antagonist', 'Seven-Point Structure', 'All Is Lost'],
+  },
+  {
+    term: 'Pitch',
+    definition: 'A concise, persuasive verbal or written summary of a story intended to sell it to a producer, agent, editor, or publisher. A pitch is not a synopsis — it is designed to create excitement, not comprehension. A good pitch communicates concept, character, conflict, and stakes in as few sentences as possible. In screenwriting, a logline is a one-sentence pitch. A treatment is a longer written pitch. The elevator pitch is the version you deliver in ninety seconds.',
+    related: ['Logline', 'Treatment', 'Query Letter'],
+  },
+  {
+    term: 'Plot Turn',
+    definition: "In Dan Wells\' Seven-Point Structure, a Plot Turn is a major structural event that changes the direction of the story. Plot Turn 1 (the inciting incident) pulls the protagonist out of their ordinary world and into the unfamiliar. Plot Turn 2 (late in the story) gives the protagonist the insight, tool, or decision needed to resolve the story — and must emerge from their internal transformation, not from external luck. The two Plot Turns bracket the protagonist\'s central journey.",
+    related: ['Inciting Incident', 'Seven-Point Structure', 'Act Breaks'],
+  },
+  {
+    term: 'Resolution',
+    definition: 'The conclusion of a story\'s central conflict — what happens after the climax determines the outcome. In Dan Wells\' Seven-Point Structure, the Resolution is written first: it defines who the protagonist is at the end, which then dictates who they must be at the beginning (the Hook). Resolution is not the same as Denouement: the Resolution is the outcome of the climax; the Denouement is the aftermath that confirms it.',
+    related: ['Climax', 'Denouement', 'The Ending'],
+  },
+  {
+    term: 'Scene Description',
+    definition: 'The action lines in a screenplay — prose written in present tense that describes what the camera sees and what characters do. Scene description should be active, visual, and specific. It should never describe interior states the camera cannot capture (she thought about her mother), and should avoid directing the camera (we see, the camera moves to). Good scene description creates a vivid mental image in the minimum number of words. William Goldman and Aaron Sorkin are cited for economy; Quentin Tarantino for voice.',
+    related: ['Screenplay Format', 'Show vs. Tell', 'Action Lines'],
+  },
+  {
+    term: 'Snowflake Method',
+    definition: 'A novel-plotting technique developed by Randy Ingermanson in which the writer expands the story outward from a single core sentence — like a snowflake growing from a simple triangular lattice. Step 1 is a one-sentence summary. Step 2 expands to five sentences. Step 3 is a character summary page for each major character. Steps 4–10 continue expanding until a scene-by-scene blueprint exists. The method is designed for plotters writing complex genre fiction who need complete structural clarity before drafting.',
+    related: ['Outline', 'Plotting vs. Discovery Writing', 'Character Summary'],
+  },
+  {
+    term: 'Voice (authorial)',
+    definition: 'The recognizable quality of a writer\'s prose that makes their work identifiable even without attribution — the accumulation of word choice, rhythm, tone, subject matter, and perspective that is uniquely theirs. Voice is not style (the technical features of how someone writes) but the personality those features express. Elmore Leonard\'s voice is laconic, amoral, darkly funny. Toni Morrison\'s is layered, mythic, rhythmically precise. Voice is developed over years of writing and reading, not by following rules.',
+    related: ['Character Voice', 'Style', 'Show vs. Tell'],
+  },
 ]
 
 export const metadata = {
+
+export const metadata = {
   title: "Story Glossary — Screenwriting & Novel Writing Terms Defined",
-  description: "75+ screenwriting and novel writing terms defined precisely — from three-act structure and character arc to query letters, POV, free indirect discourse, and narrative distance. For screenwriters and novelists at every level.",
+  description: "87+ screenwriting and novel writing terms defined precisely — from three-act structure and character arc to query letters, POV, free indirect discourse, and narrative distance. For screenwriters and novelists at every level.",
   keywords: "screenwriting terms glossary, screenplay terminology, novel writing terms, story structure vocabulary, query letter definition, literary agent terms, point of view types, unreliable narrator, free indirect discourse, narrative distance, story craft glossary",
   openGraph: {
     title: "Story Craft Glossary — Screenwriting & Novel Writing Terms",
-    description: "75+ craft terms defined — from act breaks and subtext to query letters, POV types, and free indirect discourse.",
+    description: "87+ craft terms defined — from act breaks and subtext to query letters, POV types, and free indirect discourse.",
     url: "https://eve-screenwriting.vercel.app/glossary",
   },
   alternates: {

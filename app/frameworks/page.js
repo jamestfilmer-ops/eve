@@ -152,6 +152,66 @@ const frameworks = [
     bookUrl: null,
     bookTitle: null,
   },
+  {
+    id: 'seven-point-story',
+    name: "Dan Wells' Seven-Point",
+    difficulty: 'Beginner',
+    creator: 'Dan Wells',
+    acts: '3',
+    beats: '7',
+    bestFor: 'Novelists struggling with second acts',
+    summary: "Build from the ending backward. The Hook is the mirror opposite of the Resolution. Two Plot Turns move the protagonist in and out of the unfamiliar world. Two Pinch Points demonstrate the antagonistic force. Write your Resolution first — then find the Hook.",
+    strengths: ['Backward-build method clarifies structure fast', 'Pinch Points give the antagonist a structural role', 'Midpoint explicitly marks the reaction-to-action shift'],
+    limitations: ['Less granular than Save the Cat for scene-level work', 'Requires knowing your ending before you can plot', 'Seven beats may feel sparse for complex long-form stories'],
+    films: ['Used in fantasy and genre novel writing — less common in produced screenplays'],
+    bookUrl: null,
+    bookTitle: null,
+  },
+  {
+    id: 'freytags-pyramid',
+    name: "Freytag's Pyramid",
+    difficulty: 'Beginner',
+    creator: 'Gustav Freytag',
+    acts: '5',
+    beats: '5',
+    bestFor: 'Diagnosing structural problems in existing drafts',
+    summary: "The 1863 five-stage arc — Exposition, Rising Action, Climax, Falling Action, Denouement — that underpins every Western story structure since. Most useful as a diagnostic lens rather than an active planning tool. Draw the pyramid for any story to see where your structural problems are.",
+    strengths: ['Universal — applies to any story in any medium', 'Excellent diagnostic tool for finished or in-progress drafts', 'Simple enough to apply in minutes', 'Makes climax-placement problems immediately visible'],
+    limitations: ['Too broad for active scene-level plotting', 'No character arc guidance built in', 'Does not distinguish between types of climax or midpoints'],
+    films: ['All classical drama', 'Most films — it describes rather than prescribes'],
+    bookUrl: null,
+    bookTitle: null,
+  },
+  {
+    id: 'snowflake-method',
+    name: 'Snowflake Method',
+    difficulty: 'Intermediate',
+    creator: 'Randy Ingermanson',
+    acts: 'Design-first',
+    beats: '10 steps',
+    bestFor: 'Novelists who need scaffolding before they write',
+    summary: "Design outward from the core: one sentence, then a paragraph, then character summaries, then a full scene list. Ingermanson's system front-loads every hard structural decision so the actual writing is clean. Stop at Step 3 and you already have enough to begin.",
+    strengths: ['Eliminates the blank-page problem', 'Character and plot developed simultaneously', 'Scalable — use only the steps you need', 'Produces a detailed blueprint before the first draft'],
+    limitations: ['Time-intensive pre-writing phase', 'Can produce over-plotted drafts', 'Not suited for discovery writers or experimental work'],
+    films: ['Not a screenplay tool — designed specifically for novelists and genre fiction'],
+    bookUrl: null,
+    bookTitle: null,
+  },
+  {
+    id: 'hauge-six-stage',
+    name: "Hauge's Six-Stage",
+    difficulty: 'Intermediate',
+    creator: 'Michael Hauge',
+    acts: '6',
+    beats: '6 + 5 turning points',
+    bestFor: 'Character-driven stories where transformation is the whole point',
+    summary: "Maps the outer journey (what happens) against the inner journey (who the protagonist becomes) with precise percentage markers. Every protagonist hides behind an Identity — a false self — and must reach their Essence. The story is the mechanism that forces that movement.",
+    strengths: ['Identity vs. Essence is a precise diagnostic for hollow characters', 'Percentage markers make pacing problems visible immediately', 'Forces plot and character arc to connect causally rather than run in parallel'],
+    limitations: ['Less beat-granular than Save the Cat', 'Requires a strong pre-existing character concept to work with', 'Less useful for action-driven stories without deep character transformation'],
+    films: ['Good Will Hunting', 'Forrest Gump', 'Legally Blonde', 'Most romantic dramas and coming-of-age films'],
+    bookUrl: 'https://www.amazon.com/Writing-Screenplays-That-Sell-Anniversary/dp/0062071017',
+    bookTitle: 'Writing Screenplays That Sell',
+  },
 ]
 
 const comparisonRows = [
@@ -171,7 +231,7 @@ export default function FrameworksPage() {
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '20px' }}>Story Structure</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
-            7 screenwriting frameworks, compared honestly
+            11 screenwriting frameworks, compared honestly
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.6)', maxWidth: '580px', margin: '0 auto 32px' }}>
             Save the Cat or Hero&apos;s Journey? Story Circle or Sequence Approach? What each framework actually does, what it is best for, and when to use something else.

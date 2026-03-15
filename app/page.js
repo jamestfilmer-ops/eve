@@ -144,7 +144,6 @@ function PricingSection() {
         'Priority support',
         'Early access to new features',
         'Multiple client projects',
-        'Collaboration (coming soon)',
         'Usage analytics',
         'Dedicated workspace',
       ],
@@ -575,7 +574,7 @@ export default function Home() {
             {[
               { number: '58+', label: 'Craft lessons', sub: 'Structure, character, dialogue, theme', href: '/learn' },
               { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
-              { number: '75+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
+              { number: '87+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
               { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
               { number: '2', label: 'Industry guides', sub: 'Hollywood and publishing', href: '/road-to-hollywood' },
               { number: '18+', label: 'Famous scripts', sub: 'Free legal sources + craft notes', href: '/scripts' },

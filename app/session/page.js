@@ -100,6 +100,40 @@ const sessionChecklist = {
     { id: 'climax',          section: 'Climax',          label: 'Climax — all crises converge',          question: 'How do all previous crises converge into a single overwhelming confrontation? What is the protagonist forced to face?', tip: 'The climax is not a new event — it is the sum of everything that came before arriving at once. It should feel inevitable in retrospect.' },
     { id: 'resolution',      section: 'Resolution',      label: 'Brief resolution',                      question: 'How does the story end — quickly? What is the single final beat that closes the curve?',                    tip: 'Keep the resolution short. The Fichtean Curve does not reward long denouements. Once the climax breaks, end swiftly. What matters has already happened.' },
   ],
+
+  'seven-point-story': [
+    { id: 'hook',        section: 'Opening',  label: 'Hook defined',           question: "Who is your protagonist right now — before anything changes? Describe the state that is the opposite of where they will end up.", tip: "The Hook and Resolution should be mirror images. The further apart they are, the more arc you have to work with." },
+    { id: 'plot-turn-1', section: 'Act 1',    label: 'Plot Turn 1',            question: "What event pulls your protagonist out of their ordinary world and into the story? This is not what they choose — it happens to them.", tip: "Plot Turn 1 is the inciting incident. It makes the ordinary world impossible to return to unchanged." },
+    { id: 'pinch-1',     section: 'Act 1→2',  label: 'Pinch Point 1',          question: "How does the antagonistic force demonstrate its power? This is not a plot twist — it is a show of strength that reveals what your protagonist is up against.", tip: "The Pinch Point shows the teeth of the antagonist. The audience should feel the threat clearly." },
+    { id: 'midpoint',    section: 'Act 2',    label: 'Midpoint (reaction→action)', question: "At what moment does your protagonist shift from reacting to the story to actively pursuing a goal? What makes them commit?", tip: "Before the midpoint the protagonist is driven by events. After it they drive events. The midpoint is that pivot." },
+    { id: 'pinch-2',     section: 'Act 2→3',  label: 'Pinch Point 2',          question: "What is the darkest moment — the strongest blow the antagonistic force delivers? What does your protagonist lose here?", tip: "Unlike Pinch Point 1 (which showed the threat), Pinch Point 2 delivers it. Something real is lost." },
+    { id: 'plot-turn-2', section: 'Act 3',    label: 'Plot Turn 2',            question: "What insight, tool, or decision gives your protagonist what they need to win? Where does it come from — and why can only they have it now?", tip: "Plot Turn 2 should emerge from the protagonist\'s transformation arc. It mirrors Plot Turn 1 — what pulled them in now gives them the means to finish." },
+    { id: 'resolution',  section: 'Act 3',    label: 'Resolution defined',     question: "Who is your protagonist at the end? How does this mirror the Hook — and what does the difference prove?", tip: "Write this beat before any other. The Resolution is the destination. Everything else is the route." },
+  ],
+
+  'freytags-pyramid': [
+    { id: 'exposition',    section: 'Stage 1', label: 'Exposition set',       question: "What is the world, who are the characters, and what is the conflict that will drive the story? What is the \'exciting force\' — the event that begins the story\'s movement?", tip: "Exposition ends with the inciting incident. The setup exists to make that disruption meaningful." },
+    { id: 'rising-action', section: 'Stage 2', label: 'Rising action mapped', question: "What sequence of causally linked events escalates the conflict toward the climax? Each complication should emerge from the one before it — not from coincidence.", tip: "Rising Action is the longest part of the pyramid. Check each complication: does it follow causally from the last?" },
+    { id: 'climax',        section: 'Stage 3', label: 'Climax identified',    question: "What is the turning point — the moment of highest tension where the conflict\'s outcome is determined? Note: this is the pivot, not the ending.", tip: "The climax should be the peak of your pyramid. If tension has already peaked earlier, your climax is misplaced." },
+    { id: 'falling-action',section: 'Stage 4', label: 'Falling action',      question: "What are the consequences of the climax? How does tension unravel and what do the characters face because of the turning point?", tip: "Falling action is often compressed in modern stories. Keep it moving — the audience already knows the outcome; now they need to see the cost." },
+    { id: 'denouement',    section: 'Stage 5', label: 'Denouement',          question: "How is the conflict finally settled? What is the characters\' new state? What equilibrium — tragic or comic — does the world reach?", tip: "Denouement means \'untying\'. The knot of conflict is released. Be brief — what has not been resolved by now will not be." },
+  ],
+
+  'snowflake-method': [
+    { id: 'one-sentence',  section: 'Step 1', label: 'One-sentence summary', question: "Write your story in one sentence under 25 words. It must contain: protagonist, goal, conflict, and stakes. If you cannot fit these four things, your story is not focused yet.", tip: "This is the hardest step. A clean one-sentence summary means you understand your story. A vague one means you do not yet." },
+    { id: 'paragraph',     section: 'Step 2', label: 'Five-sentence outline', question: "Expand to five sentences: setup, first disaster, second disaster, third disaster, ending. Write the ending first — then find the disasters that make it inevitable.", tip: "These five sentences are your structural pillars. Everything else builds between them." },
+    { id: 'characters',    section: 'Step 3', label: 'Character summaries',  question: "For each major character: name, one-sentence summary, motivation (what they want), goal (what they pursue), conflict (what stops them), epiphany (what they learn). One page each.", tip: "Steps 1-3 are enough to start writing. The rest of the Snowflake builds from here only if you need more scaffolding." },
+    { id: 'scene-list',    section: 'Step 4', label: 'Scene list begun',     question: "List every scene you know the story needs. Each scene: whose POV, location, what changes (beginning vs end state), and how it moves the story forward.", tip: "A scene where nothing changes is not a scene — it is summary. Every scene must alter the situation." },
+  ],
+
+  'hauge-six-stage': [
+    { id: 'setup',         section: 'Stage 1 (0–10%)',   label: 'Setup: everyday life',    question: "Who is your protagonist before anything disrupts them? What outer motivation and inner wound are visible in their ordinary life? What is the Opportunity that ends this stage?", tip: "The Setup ends with the Opportunity — the inciting event that presents the outer journey. Plant the wound clearly here." },
+    { id: 'new-situation', section: 'Stage 2 (10–25%)',  label: 'New situation',           question: "How does your protagonist respond to the Opportunity? What specific outer goal do they identify — and what is the Change of Plans that ends this stage?", tip: "By the end of Stage 2, the outer goal must be specific and concrete. Vague goals produce vague stories." },
+    { id: 'progress',      section: 'Stage 3 (25–50%)',  label: 'Progress',                question: "Things go relatively well. What relationships form? What brings your protagonist closer to their goal — and what is the Point of No Return that ends this stage?", tip: "The Point of No Return is the moment the protagonist commits fully — no retreat is possible. It should feel irreversible." },
+    { id: 'complications', section: 'Stage 4 (50–75%)',  label: 'Complications',           question: "Everything that can go wrong does. How is the antagonistic force escalating? What is the Major Setback that strips away the protagonist\'s identity — ending this stage?", tip: "The Major Setback should force the protagonist out of their false self (Identity) and toward their true self (Essence)." },
+    { id: 'final-push',    section: 'Stage 5 (75–90%)',  label: 'Final push',              question: "Acting from their Essence rather than their Identity, how does your protagonist make one final attempt? What is the Climax that ends this stage?", tip: "The Final Push should feel different from everything before — because the protagonist has changed. They act from who they actually are." },
+    { id: 'aftermath',     section: 'Stage 6 (90–100%)', label: 'Aftermath',               question: "What are the consequences of the Climax? How does the protagonist\'s new state manifest? How do both the outer journey and inner journey reach completion?", tip: "Show, don\'t summarize. The aftermath should be a scene, not narration. Let the audience see the new state." },
+  ],
 }
 
 const frameworkLabel = {
@@ -110,6 +144,10 @@ const frameworkLabel = {
   'sequence-approach':  'Sequence Approach',
   'kishotenketsu':      'Kishōtenketsu',
   'fichtean':           'Fichtean Curve',
+  'seven-point-story':  "Dan Wells' Seven-Point",
+  'freytags-pyramid':   "Freytag's Pyramid",
+  'snowflake-method':   'Snowflake Method',
+  'hauge-six-stage':    "Hauge's Six-Stage",
 }
 
 // ─── Main Component ────────────────────────────────────────────────────────────

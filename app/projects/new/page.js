@@ -115,6 +115,42 @@ const frameworks = [
     beats: ['Opening Crisis', 'Crisis 1 (escalating)', 'Crisis 2 (escalating)', 'Crisis 3 (optional)', 'Climax — all crises converge', 'Brief Resolution'],
     tip: 'Backstory is a reward, not setup. The audience earns the right to understand your character\'s history by first caring what happens to them. Plant the crisis. Then give them the why.',
   },
+  {
+    id: 'seven-point-story',
+    name: "Dan Wells' Seven-Point",
+    author: 'Dan Wells',
+    acts: '7 Points · Build backward',
+    description: "Build from the ending backward. Your Hook should be the mirror opposite of your Resolution. Plot Turns 1 and 2 drive the character in and out of the unfamiliar world. Pinch Points show the threat.",
+    beats: ['Hook', 'Plot Turn 1', 'Pinch Point 1', 'Midpoint (reaction→action)', 'Pinch Point 2', 'Plot Turn 2', 'Resolution'],
+    tip: "Write your Resolution first — who is your protagonist at the end? Then write the Hook as its exact opposite. Everything else fills the distance between them.",
+  },
+  {
+    id: 'freytags-pyramid',
+    name: "Freytag's Pyramid",
+    author: 'Gustav Freytag',
+    acts: '5 Stages · Classic arc',
+    description: "The 1863 dramatic arc underpinning every story structure since. Tension rises through exposition and rising action to the climax — the pivot point — then falls through consequence to resolution.",
+    beats: ['Exposition', 'Rising Action', 'Climax', 'Falling Action', 'Denouement'],
+    tip: "Use it as a diagnostic: draw the pyramid for your story and mark your major beats. If the climax is not at the peak, you\'ve found your structural problem.",
+  },
+  {
+    id: 'snowflake-method',
+    name: 'Snowflake Method',
+    author: 'Randy Ingermanson',
+    acts: 'Design-first · Expand outward',
+    description: "Start with one sentence. Expand to five. Write character summaries. Keep expanding until you have a scene-by-scene blueprint. Designed for novelists who need structure before they write.",
+    beats: ['Step 1: One-sentence summary', 'Step 2: One-paragraph (5 sentences)', 'Step 3: Character summaries', 'Step 4: Expanded synopsis', 'Step 5: Scene list', 'Step 6: Draft'],
+    tip: "You only need the first three steps to start writing with confidence. One sentence, five sentences, character pages. The rest of the Snowflake builds from there.",
+  },
+  {
+    id: 'hauge-six-stage',
+    name: "Hauge's Six-Stage",
+    author: 'Michael Hauge',
+    acts: '6 Stages · Outer + inner journey',
+    description: "Maps plot (outer journey) against character transformation (inner journey) with precise % markers. Every character hides behind an Identity and must reach their Essence. The story is that movement.",
+    beats: ['Stage 1: Setup (0–10%)', 'Stage 2: New Situation (10–25%)', 'Stage 3: Progress (25–50%)', 'Stage 4: Complications (50–75%)', 'Stage 5: Final Push (75–90%)', 'Stage 6: Aftermath (90–100%)'],
+    tip: "Map both journeys in parallel columns. The external events should be forcing the internal transformation — not running alongside it independently.",
+  },
 ]
 
 export default function NewProject() {
