@@ -838,6 +838,7 @@ export default function Home() {
               { href: '/road-to-short-story', label: 'Road to Short Story' },
               { href: '/reading-list', label: 'Reading List' },
               { href: '/scripts', label: 'Famous Scripts' },
+              { href: '/genres', label: 'Genre Guide' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}

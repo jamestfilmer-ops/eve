@@ -27,6 +27,7 @@ const learnGroups = [
     heading: 'Reference',
     links: [
       { href: '/reading-list',      label: 'Reading List' },
+      { href: '/genres',              label: 'Genre Guide' },
       { href: '/scripts',           label: 'Famous Scripts' },
     ],
   },

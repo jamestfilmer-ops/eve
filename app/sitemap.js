@@ -39,6 +39,7 @@ export default function sitemap() {
     { url: `${BASE}/road-to-short-story`, priority: 0.9,  changeFrequency: 'monthly' },
     { url: `${BASE}/learn/flash-fiction`,    priority: 0.7,  changeFrequency: 'monthly' },
     { url: `${BASE}/reading-list`,         priority: 0.8,  changeFrequency: 'monthly' },
+    { url: `${BASE}/genres`,               priority: 0.8,  changeFrequency: 'monthly' },
     { url: `${BASE}/road-to-short-story`, priority: 0.9,  changeFrequency: 'monthly' },
     { url: `${BASE}/for-beginners`,       priority: 0.95, changeFrequency: 'monthly' },
     { url: `${BASE}/scripts`,             priority: 0.85, changeFrequency: 'monthly' },
