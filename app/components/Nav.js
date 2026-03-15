@@ -8,22 +8,26 @@ const learnGroups = [
   {
     heading: 'Learn',
     links: [
-      { href: '/for-beginners',       label: 'Start Here' },
-      { href: '/learn',               label: 'Craft Library' },
-      { href: '/learn/tracks',        label: 'Learning Paths' },
-      { href: '/frameworks',          label: 'Frameworks' },
-      { href: '/glossary',            label: 'Glossary' },
+      { href: '/for-beginners',     label: 'Start Here' },
+      { href: '/learn',             label: 'Craft Library' },
+      { href: '/learn/tracks',      label: 'Learning Paths' },
+      { href: '/frameworks',        label: 'Frameworks' },
+      { href: '/glossary',          label: 'Glossary' },
     ],
   },
   {
-    heading: 'Guides',
+    heading: 'Career Guides',
     links: [
-      { href: '/road-to-hollywood',   label: 'Road to Hollywood' },
-      { href: '/road-to-publishing',  label: 'Road to Publishing' },
-      { href: '/road-to-short-story',   label: 'Road to Short Story' },
-      { href: '/reading-list',             label: 'Reading List' },
-      { href: '/road-to-short-story',   label: 'Road to Short Story' },
-      { href: '/scripts',             label: 'Famous Scripts' },
+      { href: '/road-to-hollywood',    label: 'Road to Hollywood' },
+      { href: '/road-to-publishing',   label: 'Road to Publishing' },
+      { href: '/road-to-short-story',  label: 'Road to Short Story' },
+    ],
+  },
+  {
+    heading: 'Reference',
+    links: [
+      { href: '/reading-list',      label: 'Reading List' },
+      { href: '/scripts',           label: 'Famous Scripts' },
     ],
   },
 ]
