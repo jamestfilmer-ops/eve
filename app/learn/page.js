@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: "Free Screenwriting & Story Craft Lessons  -- Structure, Character, Dialogue",
-  description: "Free lessons on screenwriting craft, novel writing, and story structure. Covers three-act structure, character arc, dialogue subtext, theme, point of view, adaptation, and Shakespeare. Written by humans. No AI. Grounded in McKee, Aristotle, Truby, and Weiland.",
+  description: "Free craft lessons for screenwriters, novelists, and short story writers. Structure, character arc, dialogue, theme, scene work, frameworks, and short fiction publication.",
   keywords: "free screenwriting lessons, how to write a screenplay, story structure lessons, character arc, dialogue writing, how to write a novel, point of view fiction, adaptation screenwriting, save the cat beats, hero journey steps, screenwriting course free, film school alternative online",
   openGraph: {
     title: "Free Screenwriting & Story Craft Lessons",
@@ -16,6 +16,25 @@ export const metadata = {
 
 
 const lessons = [
+  {
+    category: 'Start Here',
+    badge: 'Beginner',
+    items: [
+      { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything  -- not because they lack talent, but because they start wrong. Here is how to actually begin.' },
+      { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of  -- and how to write through it instead of around it.' },
+      { title: 'Finding your story: where ideas actually come from', slug: 'finding-your-story', time: '6 min', level: 'Beginner', preview: 'The question every writer gets asked. The honest answer is: everywhere and nowhere. Here is how to develop the habit of noticing.' },
+    ],
+  },
+  {
+    category: 'Masters on Craft',
+    badge: 'Essentials',
+    items: [
+      { title: 'What Kurt Vonnegut knew that every beginner needs to hear', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box  -- the most useful craft checklist ever written, examined rule by rule.' },
+      { title: 'Stephen King on writing: the lessons that matter for beginners', slug: 'king-on-writing', time: '7 min', level: 'Beginner', preview: 'From On Writing: the toolbox, the closed door, the daily practice, and why story always precedes theme.' },
+      { title: 'Elmore Leonard and the art of invisible writing', slug: 'leonard-on-craft', time: '6 min', level: 'Intermediate', preview: 'Ten rules that add up to one: if it sounds like writing, rewrite it. The case for prose that gets out of the way.' },
+      { title: 'What Pixar teaches about story that applies to everything', slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: 'The 22 story rules that circulated inside Pixar  -- the ones that actually matter, examined from a writer\'s angle.' },
+    ],
+  },
   {
     category: 'Structure',
     badge: 'Structure',
@@ -105,25 +124,6 @@ const lessons = [
       { title: "Freytag's Pyramid", slug: 'freytags-pyramid', time: '5 min', level: 'Beginner', preview: "The 1863 five-stage arc that every modern framework descended from. Exposition, Rising Action, Climax, Falling Action, Denouement. Use it to diagnose structural problems." },
       { title: "The Snowflake Method", slug: 'snowflake-method', time: '6 min', level: 'Intermediate', preview: "Randy Ingermanson's system for novelists: expand from one sentence outward to a full blueprint. Best for plotters writing complex fiction across many scenes." },
       { title: "Hauge's Six-Stage Structure", slug: 'hauge-six-stage', time: '6 min', level: 'Intermediate', preview: "Hollywood consultant Michael Hauge maps plot against character transformation with percentage markers. The structure that makes emotional arcs precise." },
-    ],
-  },
-  {
-    category: 'Start Here',
-    badge: 'Beginner',
-    items: [
-      { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything  -- not because they lack talent, but because they start wrong. Here is how to actually begin.' },
-      { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of  -- and how to write through it instead of around it.' },
-      { title: 'Finding your story: where ideas actually come from', slug: 'finding-your-story', time: '6 min', level: 'Beginner', preview: 'The question every writer gets asked. The honest answer is: everywhere and nowhere. Here is how to develop the habit of noticing.' },
-    ],
-  },
-  {
-    category: 'Masters on Craft',
-    badge: 'Essentials',
-    items: [
-      { title: 'What Kurt Vonnegut knew that every beginner needs to hear', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box  -- the most useful craft checklist ever written, examined rule by rule.' },
-      { title: 'Stephen King on writing: the lessons that matter for beginners', slug: 'king-on-writing', time: '7 min', level: 'Beginner', preview: 'From On Writing: the toolbox, the closed door, the daily practice, and why story always precedes theme.' },
-      { title: 'Elmore Leonard and the art of invisible writing', slug: 'leonard-on-craft', time: '6 min', level: 'Intermediate', preview: 'Ten rules that add up to one: if it sounds like writing, rewrite it. The case for prose that gets out of the way.' },
-      { title: 'What Pixar teaches about story that applies to everything', slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: 'The 22 story rules that circulated inside Pixar  -- the ones that actually matter, examined from a writer\'s angle.' },
     ],
   },
   {
