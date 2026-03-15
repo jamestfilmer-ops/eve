@@ -27,7 +27,7 @@ const colorLessons = [
     sub: 'How a film\'s palette shifts as the story shifts',
     time: '10 min',
     level: 'Intermediate',
-    status: 'coming',
+    status: 'live',
     preview: 'The palette of act one should not match the palette of act three. Study how color arcs work in Parasite, Schindler\'s List, and Her.',
   },
   {

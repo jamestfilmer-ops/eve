@@ -46,6 +46,7 @@ export default function sitemap() {
     { url: `${BASE}/learn/camera-angles`,     priority: 0.8,  changeFrequency: 'monthly' },
     { url: `${BASE}/learn/camera-movement`,   priority: 0.8,  changeFrequency: 'monthly' },
     { url: `${BASE}/learn/lighting-and-story`, priority: 0.8, changeFrequency: 'monthly' },
+    { url: `${BASE}/learn/color-palettes`,    priority: 0.8, changeFrequency: 'monthly' },
     { url: `${BASE}/road-to-short-story`, priority: 0.9,  changeFrequency: 'monthly' },
     { url: `${BASE}/for-beginners`,       priority: 0.95, changeFrequency: 'monthly' },
     { url: `${BASE}/scripts`,             priority: 0.85, changeFrequency: 'monthly' },

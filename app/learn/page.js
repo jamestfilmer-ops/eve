@@ -186,6 +186,7 @@ const writtenSlugs = [
   'short-story-craft', 'short-story-markets', 'flash-fiction',
   'color-theory', 'cinematography',
   'camera-angles', 'camera-movement', 'lighting-and-story',
+  'color-palettes',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
