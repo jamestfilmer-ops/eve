@@ -879,11 +879,11 @@ function renderBody(body) {
       <p key={i} style={{ fontSize: '16px', color: 'var(--text-dark)', lineHeight: '1.85', marginBottom: '22px', fontFamily: 'Source Sans 3, sans-serif' }}>{block.text}</p>
     )
     if (block.type === 'h3') return (
-      <h3 key={i} style={{ fontSize: '19px', fontFamily: 'Playfair Display, serif', color: 'var(--green)', marginTop: '36px', marginBottom: '14px' }}>{block.text}</h3>
+      <h3 key={i} style={{ fontSize: '19px', fontFamily: 'var(--font-display)', color: 'var(--green)', marginTop: '36px', marginBottom: '14px' }}>{block.text}</h3>
     )
     if (block.type === 'rule') return (
       <div key={i} style={{ margin: '28px 0', padding: '20px 26px', borderLeft: '4px solid var(--green)', background: 'var(--green-pale)', borderRadius: '0 10px 10px 0' }}>
-        <p style={{ fontSize: '17px', fontFamily: 'Playfair Display, serif', color: 'var(--green)', lineHeight: '1.65', fontStyle: 'italic', margin: 0 }}>{block.text}</p>
+        <p style={{ fontSize: '17px', fontFamily: 'var(--font-display)', color: 'var(--green)', lineHeight: '1.65', fontStyle: 'italic', margin: 0 }}>{block.text}</p>
       </div>
     )
     if (block.type === 'list') return (
@@ -1029,16 +1029,16 @@ export default function LessonPage() {
             {/* Books cited */}
       {lessonBooks[slug] && lessonBooks[slug].length > 0 && (
         <div style={{ marginTop: '52px', padding: '28px 32px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '12px' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '16px' }}>Further reading</p>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '16px' }}>Further reading</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {lessonBooks[slug].map((book, i) => (
               <a key={i} href={book.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', textDecoration: 'none' }}>
                 <div>
-                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', color: 'var(--text-dark)' }}>{book.title}</span>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px' }}>{book.author}</span>
-                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-mid)', margin: '3px 0 0', lineHeight: '1.5' }}>{book.note}</p>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', color: 'var(--text-dark)' }}>{book.title}</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px' }}>{book.author}</span>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)', margin: '3px 0 0', lineHeight: '1.5' }}>{book.note}</p>
                 </div>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '2px' }}>Amazon ↗</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '2px' }}>Amazon ↗</span>
               </a>
             ))}
           </div>
@@ -1051,7 +1051,7 @@ export default function LessonPage() {
           <Link href={`/learn/${prevSlug}`} style={{ textDecoration: 'none' }}>
             <div className="card" style={{ padding: '22px 24px' }}>
               <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>&larr; Previous</p>
-              <p style={{ fontSize: '16px', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[prevSlug].title}</p>
+              <p style={{ fontSize: '16px', fontFamily: 'var(--font-display)', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[prevSlug].title}</p>
             </div>
           </Link>
         ) : <div />}
@@ -1059,7 +1059,7 @@ export default function LessonPage() {
           <Link href={`/learn/${nextSlug}`} style={{ textDecoration: 'none' }}>
             <div className="card" style={{ padding: '22px 24px', textAlign: 'right' }}>
               <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>Next &rarr;</p>
-              <p style={{ fontSize: '16px', fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[nextSlug].title}</p>
+              <p style={{ fontSize: '16px', fontFamily: 'var(--font-display)', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[nextSlug].title}</p>
             </div>
           </Link>
         ) : <div />}

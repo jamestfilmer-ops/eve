@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 /* ─── Design Tokens ──────────────────────────────────────────── */
@@ -23,7 +23,7 @@
   --text-soft:    #8A837C;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-ui:      'DM Sans', system-ui, sans-serif;
-  --font-mono:    'DM Mono', 'Courier New', monospace;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
   /* Layered shadow system */
   --shadow-xs:    0 1px 2px rgba(26,20,15,0.07);
@@ -86,6 +86,11 @@ p {
 }
 
 a { color: inherit; }
+
+/* Normalize inline elements to prevent browser-default line-height creep */
+span, strong, em, small {
+  line-height: inherit;
+}
 
 input, textarea, select, button {
   font-family: var(--font-ui);
@@ -215,6 +220,17 @@ input, textarea, select, button {
 }
 .input::placeholder {
   color: var(--text-soft);
+}
+
+/* ─── Lesson card title ──────────────────────────────────────── */
+/* Use instead of h3 in card contexts to avoid global heading override */
+.card-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.45;
+  margin-bottom: 8px;
 }
 
 /* ─── Tip / callout box ──────────────────────────────────────── */
@@ -460,6 +476,18 @@ input, textarea, select, button {
   border: none;
   border-top: 1px solid var(--border);
   margin: 36px 0;
+}
+
+/* ─── Card grid equal-height rows ────────────────────────────── */
+/* Grids that use auto-fill with cards should stretch to fill row height */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+.card-grid > * {
+  height: 100%;
 }
 
 /* ─── Accessibility ──────────────────────────────────────────── */

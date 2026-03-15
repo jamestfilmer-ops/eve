@@ -70,7 +70,7 @@ export default function ResourcesPage() {
               <div key={i} className="card" style={{ padding: '22px 26px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '16px' }}>
                   <div>
-                    <h3 style={{ fontSize: '17px', fontFamily: 'Playfair Display, serif', marginBottom: '3px' }}>{book.title}</h3>
+                    <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', marginBottom: '3px' }}>{book.title}</h3>
                     <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>{book.author} &middot; {book.year}</p>
                   </div>
                   <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
@@ -94,7 +94,7 @@ export default function ResourcesPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
           {podcasts.map((p, i) => (
             <div key={i} className="card" style={{ padding: '18px 22px' }}>
-              <h3 style={{ fontSize: '15px', fontFamily: 'Playfair Display, serif', marginBottom: '4px' }}>{p.name}</h3>
+              <h3 style={{ fontSize: '15px', fontFamily: 'var(--font-display)', marginBottom: '4px' }}>{p.name}</h3>
               <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '8px' }}>{p.hosts}</p>
               <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.65' }}>{p.description}</p>
             </div>
@@ -105,7 +105,7 @@ export default function ResourcesPage() {
       {/* Internal links */}
       <div style={{ background: 'var(--green)', borderRadius: '14px', padding: '36px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', alignItems: 'center' }}>
         <div>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', color: '#fff', fontSize: '22px', marginBottom: '10px' }}>Keep learning inside Eve</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', color: '#fff', fontSize: '22px', marginBottom: '10px' }}>Keep learning inside Eve</h2>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', lineHeight: '1.7' }}>
             The Craft Library and Story Glossary are built around the same books and frameworks listed here.
           </p>

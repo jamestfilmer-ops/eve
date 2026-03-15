@@ -244,23 +244,23 @@ export default function FamousScripts() {
       {/* Hero */}
       <section style={{ background: 'var(--green)', padding: '96px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
             Script Library
           </p>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.12', marginBottom: '24px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.12', marginBottom: '24px' }}>
             Famous Screenplays to Read
           </h1>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', margin: '0 auto 12px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', margin: '0 auto 12px' }}>
             Reading produced scripts is how working writers learn. Every script here is free and legal. Every annotation explains what the script actually teaches — not just what happens in it.
           </p>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'rgba(255,255,255,0.45)', marginBottom: '36px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.45)', marginBottom: '36px' }}>
             40+ scripts across structure, dialogue, character, and genre.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+            <Link href="/learn" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Read the craft lessons
             </Link>
-            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Write your own — free
             </Link>
           </div>
@@ -271,11 +271,11 @@ export default function FamousScripts() {
       <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '60px', zIndex: 10 }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px' }}>
           {categories.map(cat => (
-            <a key={cat.label} href={`#cat-${cat.label.toLowerCase()}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none' }}>
+            <a key={cat.label} href={`#cat-${cat.label.toLowerCase()}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none' }}>
               {cat.label}
             </a>
           ))}
-          <a href="#sources" style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none' }}>
+          <a href="#sources" style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none' }}>
             Where to find scripts
           </a>
         </div>
@@ -284,16 +284,16 @@ export default function FamousScripts() {
       {/* How to read a script — SEO content block */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '56px 24px 0' }}>
         <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '32px 36px' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '22px', color: 'var(--green)', marginBottom: '14px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--green)', marginBottom: '14px' }}>
             How to read a screenplay
           </h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
             Reading a script is different from reading a novel, and different again from watching a film. A screenplay is a blueprint — it describes only what can be seen or heard. Reading it trains your eye to see how structure, scene work, and dialogue function in isolation from performance, cinematography, and score.
           </p>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>
             The most useful practice: read a scene from a script, then watch the scene in the film. Notice what the script communicates that didn't make it to screen. Notice what the director added that wasn't in the script. The gap between the two is where craft lives.
           </p>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)' }}>
             Read one script per week. Take notes on what the writer does with scene transitions, how they enter and exit scenes, and how much each line of dialogue does. After ten scripts, you'll have internalized more about screenwriting craft than any textbook can teach. See our <Link href="/learn" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>craft library</Link> for the principles behind what you're reading.
           </p>
         </div>
@@ -304,10 +304,10 @@ export default function FamousScripts() {
         {categories.map(cat => (
           <section key={cat.label} id={`cat-${cat.label.toLowerCase()}`} style={{ marginBottom: '72px' }}>
             <div style={{ marginBottom: '24px' }}>
-              <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
                 {cat.label}
               </h2>
-              <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '640px' }}>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '640px' }}>
                 {cat.description}
               </p>
             </div>
@@ -317,20 +317,20 @@ export default function FamousScripts() {
                 <article key={script.title} className="script-card" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '28px 32px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap', marginBottom: '10px' }}>
                     <div>
-                      <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '3px' }}>
+                      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '3px' }}>
                         {script.title}
                       </h3>
-                      <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
+                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
                         {script.writer} — {script.year}
                       </p>
                     </div>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
                       {script.lessonLink && (
-                        <Link href={script.lessonLink} style={{ display: 'inline-block', background: 'var(--green-pale)', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '11px', padding: '5px 11px', borderRadius: '20px', textDecoration: 'none', border: '1px solid var(--green-border)', whiteSpace: 'nowrap' }}>
+                        <Link href={script.lessonLink} style={{ display: 'inline-block', background: 'var(--green-pale)', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '11px', padding: '5px 11px', borderRadius: '20px', textDecoration: 'none', border: '1px solid var(--green-border)', whiteSpace: 'nowrap' }}>
                           Study: {script.lessonLabel}
                         </Link>
                       )}
-                      <a href={script.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '12px', padding: '6px 13px', borderRadius: '7px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                      <a href={script.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '12px', padding: '6px 13px', borderRadius: '7px', textDecoration: 'none', whiteSpace: 'nowrap' }}>
                         Read script
                         <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
                           <path d="M2 9L9 2M9 2H5M9 2V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -339,18 +339,18 @@ export default function FamousScripts() {
                     </div>
                   </div>
 
-                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', marginBottom: '12px', fontStyle: 'italic' }}>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', marginBottom: '12px', fontStyle: 'italic' }}>
                     {script.logline}
                   </p>
 
                   <div style={{ borderLeft: '3px solid var(--green-light)', paddingLeft: '14px' }}>
-                    <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '5px' }}>What it teaches</p>
-                    <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7' }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '5px' }}>What it teaches</p>
+                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7' }}>
                       {script.teaches}
                     </p>
                   </div>
 
-                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: 'var(--text-soft)', marginTop: '12px', letterSpacing: '0.04em' }}>
+                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'var(--text-soft)', marginTop: '12px', letterSpacing: '0.04em' }}>
                     Source: {script.source}
                   </p>
                 </article>
@@ -361,22 +361,22 @@ export default function FamousScripts() {
 
         {/* Where to find more scripts */}
         <section id="sources" style={{ marginBottom: '0' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
             Where to find screenplays online
           </h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '640px', marginBottom: '24px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '640px', marginBottom: '24px' }}>
             These are the legitimate, free sources used by working screenwriters. Avoid PDFs from unknown sites — scripts circulate in corrupted or watermarked forms that are hard to read. These sources are clean.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
             {scriptSources.map(s => (
               <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="source-link" style={{ display: 'block', background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '18px 20px', textDecoration: 'none' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '6px' }}>
-                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.4' }}>{s.name}</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.4' }}>{s.name}</span>
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, color: 'var(--text-soft)', marginTop: '2px' }}>
                     <path d="M2.5 9.5L9.5 2.5M9.5 2.5H5.5M9.5 2.5V6.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.5' }}>{s.note}</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.5' }}>{s.note}</span>
               </a>
             ))}
           </div>
@@ -386,17 +386,17 @@ export default function FamousScripts() {
       {/* CTA */}
       <section style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
             Reading is half of writing.
           </h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
             The other half is putting what you've learned into practice. Eve gives you the workspace to outline, develop characters, track scenes, and build your story — organized around the same frameworks the scripts above use.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Start your screenplay — free
             </Link>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Study the craft
             </Link>
           </div>

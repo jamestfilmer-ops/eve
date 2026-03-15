@@ -138,20 +138,20 @@ export default function RoadToPublishing() {
       {/* Hero */}
       <section style={{ background: 'var(--green)', padding: '96px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
             The Publishing Guide
           </p>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.12', marginBottom: '24px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.12', marginBottom: '24px' }}>
             Road to Publishing
           </h1>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
             From manuscript to bookshelf. The publishing industry explained honestly: how to finish a novel worth submitting, find a literary agent, query publishers, submit short stories to magazines, and enter the contests that actually matter.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Start writing — free
             </Link>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Study the craft
             </Link>
           </div>
@@ -162,7 +162,7 @@ export default function RoadToPublishing() {
       <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '60px', zIndex: 10 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px' }}>
           {stages.map((s) => (
-            <a key={s.number} href={`#stage-${s.number}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 12px', borderRadius: '16px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'DM Mono, monospace', fontSize: '11px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none', letterSpacing: '0.04em' }}>
+            <a key={s.number} href={`#stage-${s.number}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 12px', borderRadius: '16px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none', letterSpacing: '0.04em' }}>
               {s.number}
             </a>
           ))}
@@ -179,16 +179,16 @@ export default function RoadToPublishing() {
                   width: '48px', height: '48px', borderRadius: '12px',
                   background: 'var(--green)', color: '#fff',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'DM Mono, monospace', fontSize: '14px', fontWeight: '700',
+                  fontFamily: 'JetBrains Mono, monospace', fontSize: '14px', fontWeight: '700',
                   flexShrink: 0,
                 }}>
                   {stage.number}
                 </div>
                 <div>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '4px', lineHeight: '1.2' }}>
+                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '4px', lineHeight: '1.2' }}>
                     {stage.title}
                   </h2>
-                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                  <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                     {stage.subtitle}
                   </p>
                 </div>
@@ -197,7 +197,7 @@ export default function RoadToPublishing() {
               <div style={{ paddingLeft: '68px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
                   {stage.content.map((para, j) => (
-                    <p key={j} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)' }}>
+                    <p key={j} style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)' }}>
                       {para}
                     </p>
                   ))}
@@ -205,11 +205,11 @@ export default function RoadToPublishing() {
 
                 {stage.action && (
                   <div style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '10px', padding: '18px 20px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
-                    <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--green)', lineHeight: '1.6', margin: 0 }}>
+                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--green)', lineHeight: '1.6', margin: 0 }}>
                       {stage.action}
                     </p>
                     {stage.actionLink && (
-                      <Link href={stage.actionLink} style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '13px', padding: '9px 18px', borderRadius: '7px', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                      <Link href={stage.actionLink} style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', padding: '9px 18px', borderRadius: '7px', textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0 }}>
                         {stage.actionLabel}
                       </Link>
                     )}
@@ -219,13 +219,13 @@ export default function RoadToPublishing() {
                 {stage.resources && stage.resources.length > 0 && (
                   <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
                     <div style={{ padding: '12px 18px', borderBottom: '1px solid var(--border)', background: 'var(--off-white)' }}>
-                      <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', margin: 0 }}>Resources</p>
+                      <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', margin: 0 }}>Resources</p>
                     </div>
                     {stage.resources.map((r, k) => (
                       <a key={k} href={r.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px', borderBottom: k < stage.resources.length - 1 ? '1px solid var(--border)' : 'none', textDecoration: 'none', gap: '16px' }}>
                         <div style={{ flex: 1 }}>
-                          <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', color: 'var(--text-dark)', display: 'block' }}>{r.label}</span>
-                          <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.5' }}>{r.note}</span>
+                          <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', color: 'var(--text-dark)', display: 'block' }}>{r.label}</span>
+                          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.5' }}>{r.note}</span>
                         </div>
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0, color: 'var(--text-soft)' }}>
                           <path d="M3 11L11 3M11 3H6M11 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -247,17 +247,17 @@ export default function RoadToPublishing() {
       {/* Bottom CTA */}
       <section style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 4vw, 38px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
             The manuscript comes first.
           </h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
             Every step on this page is downstream of a manuscript that works. Eve helps you build structure, track chapters, develop characters, and catch problems before they compound. Free to start.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+            <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Start writing for free
             </Link>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Study the craft
             </Link>
           </div>

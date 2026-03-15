@@ -98,6 +98,10 @@ const lessons = [
       { title: "The Sequence Approach", slug: 'sequence-approach', time: '5 min', level: 'Intermediate', preview: "Eight sequences, each with its own tension arc. The approach used at USC Film School — and how many working screenwriters actually think." },
       { title: "Kishōtenketsu: story without conflict", slug: 'kishotenketsu', time: '5 min', level: 'Advanced', preview: "The classical East Asian structure that drives stories forward without traditional conflict. Understanding it will change how you see Western storytelling." },
       { title: "The Fichtean Curve", slug: 'fichtean-curve', time: '4 min', level: 'Intermediate', preview: "Start in crisis. Layer crises. End in resolution. The Fichtean Curve throws you into the action immediately — and never lets up." },
+      { title: "Dan Wells' Seven-Point Structure", slug: 'seven-point-story', time: '6 min', level: 'Beginner', preview: "Build from the ending backward. The hook is the mirror opposite of the resolution — and everything between them is designed to bridge that distance." },
+      { title: "Freytag's Pyramid", slug: 'freytags-pyramid', time: '5 min', level: 'Beginner', preview: "The 1863 five-stage arc that every modern framework descended from. Exposition, Rising Action, Climax, Falling Action, Denouement. Use it to diagnose structural problems." },
+      { title: "The Snowflake Method", slug: 'snowflake-method', time: '6 min', level: 'Intermediate', preview: "Randy Ingermanson's system for novelists: expand from one sentence outward to a full blueprint. Best for plotters writing complex fiction across many scenes." },
+      { title: "Hauge's Six-Stage Structure", slug: 'hauge-six-stage', time: '6 min', level: 'Intermediate', preview: "Hollywood consultant Michael Hauge maps plot against character transformation with percentage markers. The structure that makes emotional arcs precise." },
     ],
   },
   {
@@ -235,7 +239,7 @@ export default function LearnPage() {
             </div>
 
             {/* Cards grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '14px' }}>
+            <div className="card-grid" style={{}}>
               {cat.items.map((item, i) => {
                 const isWritten = writtenSlugs.includes(item.slug)
                 const levelStyle = LEVEL_COLORS[item.level] || LEVEL_COLORS['Beginner']
@@ -257,7 +261,7 @@ export default function LearnPage() {
                       </div>
 
                       <h3 style={{
-                        fontSize: '14px', fontFamily: 'Playfair Display, serif',
+                        fontSize: '14px', fontFamily: 'var(--font-display)',
                         color: 'var(--text-dark)', lineHeight: '1.45',
                         marginBottom: '8px', flex: 0,
                       }}>
@@ -291,7 +295,7 @@ export default function LearnPage() {
                       <span style={{ fontSize: '10px', color: 'var(--text-soft)', fontStyle: 'italic' }}>Coming soon</span>
                     </div>
                     <h3 style={{
-                      fontSize: '14px', fontFamily: 'Playfair Display, serif',
+                      fontSize: '14px', fontFamily: 'var(--font-display)',
                       color: 'var(--text-dark)', lineHeight: '1.45', marginBottom: '8px',
                     }}>
                       {item.title}
@@ -319,7 +323,7 @@ export default function LearnPage() {
           These are the books worth reading. Not all of them agree with each other — that is the point. Read two with conflicting views and form your own.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
+        <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
           {readingList.map((b, i) => (
             <div key={i} className="card-static" style={{ padding: '16px 18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
               <div style={{ width: '3px', minHeight: '36px', background: 'var(--green-light)', borderRadius: '2px', flexShrink: 0, marginTop: '2px' }} />

@@ -95,16 +95,16 @@ export default function AboutPage() {
       {/* Hero */}
       <section style={{ background: 'var(--text-dark)', padding: '96px 24px 80px', textAlign: 'center' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '24px' }}>About Eve</p>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '28px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '24px' }}>About Eve</p>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '28px' }}>
             Built for writers who couldn&apos;t afford film school
           </h1>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.65)', maxWidth: '540px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.65)', maxWidth: '540px', margin: '0 auto 36px' }}>
             Eve is a craft platform and story workspace. The lessons are free. The tools are worth paying for. There is no AI anywhere in the product.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
-            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>Create free account</Link>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
+            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>Create free account</Link>
           </div>
         </div>
       </section>
@@ -112,8 +112,8 @@ export default function AboutPage() {
       {/* Three tracks */}
       <section style={{ padding: '80px 24px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '52px' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>Where to start</h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'var(--text-mid)', maxWidth: '460px', margin: '0 auto', lineHeight: '1.7' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>Where to start</h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'var(--text-mid)', maxWidth: '460px', margin: '0 auto', lineHeight: '1.7' }}>
             Different writers need different things. Pick the track that matches where you are right now.
           </p>
         </div>
@@ -122,19 +122,19 @@ export default function AboutPage() {
             <div key={i} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', padding: '32px', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: track.bg, border: `1px solid ${track.border}`, borderRadius: '20px', padding: '5px 14px', marginBottom: '20px', width: 'fit-content' }}>
                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: track.color, flexShrink: 0 }} />
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '12px', color: track.color, letterSpacing: '0.02em' }}>{track.level}</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '12px', color: track.color, letterSpacing: '0.02em' }}>{track.level}</span>
               </div>
-              <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px', lineHeight: '1.3' }}>{track.headline}</h3>
-              <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65', marginBottom: '20px' }}>{track.description}</p>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px', lineHeight: '1.3' }}>{track.headline}</h3>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65', marginBottom: '20px' }}>{track.description}</p>
               <div style={{ flex: 1 }}>
                 {track.steps.map((step, j) => (
                   <Link key={j} href={step.href} style={{ display: 'block', padding: '12px 0', borderTop: '1px solid var(--border)', textDecoration: 'none' }}>
-                    <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', color: 'var(--text-dark)', marginBottom: '3px' }}>{step.label}</div>
-                    <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)' }}>{step.note}</div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', color: 'var(--text-dark)', marginBottom: '3px' }}>{step.label}</div>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)' }}>{step.note}</div>
                   </Link>
                 ))}
               </div>
-              <Link href={track.ctaHref} style={{ display: 'block', marginTop: '20px', padding: '11px 20px', background: track.bg, border: `1px solid ${track.border}`, borderRadius: '8px', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '13px', color: track.color, textDecoration: 'none', textAlign: 'center' }}>{track.cta} →</Link>
+              <Link href={track.ctaHref} style={{ display: 'block', marginTop: '20px', padding: '11px 20px', background: track.bg, border: `1px solid ${track.border}`, borderRadius: '8px', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', color: track.color, textDecoration: 'none', textAlign: 'center' }}>{track.cta} →</Link>
             </div>
           ))}
         </div>
@@ -143,12 +143,12 @@ export default function AboutPage() {
       {/* What Eve believes */}
       <section style={{ padding: '72px 24px', background: 'var(--green-pale)', borderTop: '1px solid var(--green-border)', borderBottom: '1px solid var(--green-border)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '48px', textAlign: 'center' }}>What Eve believes</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '48px', textAlign: 'center' }}>What Eve believes</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '36px' }}>
             {values.map((v, i) => (
               <div key={i}>
-                <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: '700', color: 'var(--green)', marginBottom: '10px' }}>{v.title}</h3>
-                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-mid)' }}>{v.body}</p>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--green)', marginBottom: '10px' }}>{v.title}</h3>
+                <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-mid)' }}>{v.body}</p>
               </div>
             ))}
           </div>
@@ -158,8 +158,8 @@ export default function AboutPage() {
       {/* Reading list */}
       <section style={{ padding: '80px 24px', maxWidth: '860px', margin: '0 auto' }}>
         <div style={{ marginBottom: '44px' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '12px' }}>The reading list</h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.7', color: 'var(--text-mid)', maxWidth: '540px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '12px' }}>The reading list</h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.7', color: 'var(--text-mid)', maxWidth: '540px' }}>
             The books the Craft Library draws from. When a lesson cites McKee or Aristotle, this is where to go deeper. No affiliate links.
           </p>
         </div>
@@ -168,12 +168,12 @@ export default function AboutPage() {
             <a key={i} href={book.url} target="_blank" rel="noopener noreferrer" style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '16px', alignItems: 'start', padding: '20px 0', borderBottom: '1px solid var(--border)', textDecoration: 'none' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '5px', flexWrap: 'wrap' }}>
-                  <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '17px', fontWeight: '700', color: 'var(--text-dark)' }}>{book.title}</span>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em' }}>{book.author} · {book.year}</span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--text-dark)' }}>{book.title}</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em' }}>{book.author} · {book.year}</span>
                 </div>
-                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6', margin: 0 }}>{book.note}</p>
+                <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.6', margin: 0 }}>{book.note}</p>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '4px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)', whiteSpace: 'nowrap', paddingTop: '4px' }}>
                 Amazon
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                   <path d="M2.5 9.5l7-7M4 2.5h5.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -187,11 +187,11 @@ export default function AboutPage() {
       {/* CTA */}
       <section style={{ padding: '72px 24px', background: 'var(--text-dark)', textAlign: 'center' }}>
         <div style={{ maxWidth: '520px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>Start writing. For free.</h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginBottom: '32px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>Start writing. For free.</h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', marginBottom: '32px' }}>
             One project, the full Craft Library, all the fundamentals. No credit card.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '15px', padding: '14px 36px', borderRadius: '8px', textDecoration: 'none' }}>Create your free account</Link>
+          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '14px 36px', borderRadius: '8px', textDecoration: 'none' }}>Create your free account</Link>
         </div>
       </section>
     </div>

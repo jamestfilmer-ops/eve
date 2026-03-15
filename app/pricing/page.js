@@ -99,7 +99,7 @@ function Check({ yes, text }) {
     </svg>
   )
   if (typeof yes === 'string' && yes !== 'Soon') return <span style={{ fontSize: '13px', color: 'var(--text-dark)', fontWeight: '500' }}>{yes}</span>
-  if (yes === 'Soon') return <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'DM Mono, monospace', letterSpacing: '0.04em' }}>Soon</span>
+  if (yes === 'Soon') return <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.04em' }}>Soon</span>
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
       <circle cx="8" cy="8" r="7" fill="var(--green)" />
@@ -157,7 +157,7 @@ export default function PricingPage() {
         <div className="fade-up">
           <div className="badge" style={{ marginBottom: '14px', display: 'inline-flex' }}>Pricing</div>
           <h1 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(32px, 5vw, 52px)',
             fontWeight: '700',
             color: 'var(--green)',
@@ -277,7 +277,7 @@ export default function PricingPage() {
                     background: 'var(--green)', color: '#fff',
                     fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
                     padding: '4px 14px', borderRadius: '20px',
-                    fontFamily: 'DM Mono, monospace',
+                    fontFamily: 'JetBrains Mono, monospace',
                     whiteSpace: 'nowrap',
                     boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
                   }}>Most popular</div>
@@ -288,7 +288,7 @@ export default function PricingPage() {
                     <span style={{
                       display: 'inline-block',
                       fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
-                      fontFamily: 'DM Mono, monospace',
+                      fontFamily: 'JetBrains Mono, monospace',
                       padding: '3px 10px', borderRadius: '5px',
                       background: isPro ? 'rgba(255,255,255,0.15)' : isPopular ? 'var(--green-pale)' : 'var(--off-white)',
                       color: isPro ? 'rgba(255,255,255,0.85)' : 'var(--green)',
@@ -300,7 +300,7 @@ export default function PricingPage() {
                     {price === 0 ? (
                       <span style={{
                         fontSize: '44px', fontWeight: '800',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-display)',
                         color: isPro ? '#fff' : 'var(--text-dark)', lineHeight: 1,
                       }}>Free</span>
                     ) : (
@@ -308,7 +308,7 @@ export default function PricingPage() {
                         <span style={{ fontSize: '22px', fontWeight: '700', color: isPro ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', alignSelf: 'flex-start', marginTop: '8px' }}>$</span>
                         <span style={{
                           fontSize: '44px', fontWeight: '800',
-                          fontFamily: 'Playfair Display, serif',
+                          fontFamily: 'var(--font-display)',
                           color: isPro ? '#fff' : isPopular ? 'var(--green)' : 'var(--text-dark)', lineHeight: 1,
                         }}>{price % 1 === 0 ? price : price.toFixed(2)}</span>
                         <span style={{ fontSize: '14px', color: isPro ? 'rgba(255,255,255,0.5)' : 'var(--text-soft)', marginBottom: '6px', alignSelf: 'flex-end' }}>/mo</span>
@@ -426,7 +426,7 @@ export default function PricingPage() {
         {/* ── Comparison Table ─────────────────────────────── */}
         <div style={{ marginTop: '80px' }}>
           <h2 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 30px)',
             color: 'var(--green)',
             textAlign: 'center',
@@ -493,7 +493,7 @@ export default function PricingPage() {
         {/* FAQ section */}
         <div style={{ marginTop: '80px', maxWidth: '640px', margin: '80px auto 0' }}>
           <h2 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 28px)',
             color: 'var(--green)',
             textAlign: 'center',
@@ -538,7 +538,7 @@ export default function PricingPage() {
           boxShadow: 'var(--shadow-green)',
         }}>
           <h2 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(26px, 3.5vw, 36px)',
             color: '#fff',
             marginBottom: '14px',

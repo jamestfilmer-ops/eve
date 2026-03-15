@@ -153,13 +153,17 @@ const promptCategoryColors = {
 }
 
 function DailyPrompt() {
-  const [promptIdx, setPromptIdx] = useState(() => {
-    // Pick a consistent prompt for today based on date
+  const [promptIdx, setPromptIdx] = useState(0)
+  const [revealed, setRevealed] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    // Set date-based prompt after mount to avoid hydration mismatch
     const today = new Date()
     const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000)
-    return dayOfYear % writingPrompts.length
-  })
-  const [revealed, setRevealed] = useState(false)
+    setPromptIdx(dayOfYear % writingPrompts.length)
+    setMounted(true)
+  }, [])
   const prompt = writingPrompts[promptIdx]
   const colors = promptCategoryColors[prompt.category] || promptCategoryColors['Character']
 
@@ -167,12 +171,12 @@ function DailyPrompt() {
     <div style={{ border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden', marginBottom: '32px' }}>
       <div style={{ padding: '14px 20px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--off-white)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Writing Prompt</span>
-          <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 8px', borderRadius: '20px', background: colors.bg, color: colors.color, border: '1px solid ' + colors.border, fontFamily: 'DM Sans, sans-serif' }}>{prompt.category}</span>
+          <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Writing Prompt</span>
+          <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 8px', borderRadius: '20px', background: colors.bg, color: colors.color, border: '1px solid ' + colors.border, fontFamily: 'var(--font-ui)' }}>{prompt.category}</span>
         </div>
         <button
           onClick={() => setPromptIdx(i => (i + 1) % writingPrompts.length)}
-          style={{ background: 'none', border: '1px solid var(--border)', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', color: 'var(--text-soft)', cursor: 'pointer', fontFamily: 'DM Sans, sans-serif' }}
+          style={{ background: 'none', border: '1px solid var(--border)', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', color: 'var(--text-soft)', cursor: 'pointer', fontFamily: 'var(--font-ui)' }}
         >
           Next prompt
         </button>
@@ -180,18 +184,18 @@ function DailyPrompt() {
       <div style={{ padding: '18px 20px' }}>
         {!revealed ? (
           <div>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-soft)', marginBottom: '12px', fontStyle: 'italic' }}>
+            <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-soft)', marginBottom: '12px', fontStyle: 'italic' }}>
               A prompt to start the session. Use it or ignore it.
             </p>
             <button
               onClick={() => setRevealed(true)}
-              style={{ background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '7px', padding: '9px 18px', fontSize: '13px', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', cursor: 'pointer' }}
+              style={{ background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '7px', padding: '9px 18px', fontSize: '13px', fontFamily: 'var(--font-ui)', fontWeight: '600', cursor: 'pointer' }}
             >
               Reveal prompt
             </button>
           </div>
         ) : (
-          <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.75', margin: 0 }}>
+          <p style={{ fontFamily: 'var(--font-display)', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.75', margin: 0 }}>
             {prompt.prompt}
           </p>
         )}

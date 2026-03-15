@@ -175,7 +175,7 @@ export default function Nav() {
                 >
                   {learnGroups.map((group, gi) => (
                     <div key={gi} style={{ marginBottom: gi < learnGroups.length - 1 ? '6px' : '0' }}>
-                      <div style={{ padding: '7px 13px 4px', fontSize: '10px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', fontWeight: '600' }}>
+                      <div style={{ padding: '7px 13px 4px', fontSize: '10px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', fontWeight: '600' }}>
                         {group.heading}
                       </div>
                       {group.links.map(l => (

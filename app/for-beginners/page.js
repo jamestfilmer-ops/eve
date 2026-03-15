@@ -145,20 +145,20 @@ export default function ForBeginners() {
       <section style={{ background: 'var(--green)', padding: '88px 24px 80px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '5px 14px', marginBottom: '24px' }}>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Start Here</span>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Start Here</span>
           </div>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(30px, 5vw, 52px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, 5vw, 52px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
             How to start writing.<br />
             <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>What nobody tells you first.</em>
           </h1>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '18px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
             Every writer starts somewhere. This is where Eve starts you — with the things that actually matter before anything else: finishing, fear, story, and the wisdom of the writers who figured it out before you.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn/how-to-start" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+            <Link href="/learn/how-to-start" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Start the first lesson
             </Link>
-            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'DM Sans, sans-serif', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Begin your story — free
             </Link>
           </div>
@@ -167,18 +167,18 @@ export default function ForBeginners() {
 
       {/* Six truths */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 0' }}>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
           Six things every beginning writer needs to know
         </h2>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
+        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
           These are not platitudes. Each one is grounded in what professional writers — from King to Vonnegut to the Pixar story team — have said about the craft from the inside.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: '16px' }}>
           {truths.map(t => (
             <div key={t.number} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '28px 28px 24px' }}>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--green)', letterSpacing: '0.1em', marginBottom: '12px' }}>{t.number}</div>
-              <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '12px', lineHeight: '1.3' }}>{t.title}</h3>
-              <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75' }}>{t.body}</p>
+              <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--green)', letterSpacing: '0.1em', marginBottom: '12px' }}>{t.number}</div>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '12px', lineHeight: '1.3' }}>{t.title}</h3>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75' }}>{t.body}</p>
             </div>
           ))}
         </div>
@@ -186,22 +186,22 @@ export default function ForBeginners() {
 
       {/* First five steps */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 0' }}>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
           Your first five steps
         </h2>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
+        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
           Not a complete education — a way in. Five things you can do right now that will move you from the blank page to a story in progress.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', border: '1px solid var(--border)', borderRadius: '14px', overflow: 'hidden' }}>
           {firstSteps.map((step, i) => (
             <div key={step.step} style={{ background: '#fff', padding: '24px 28px', borderBottom: i < firstSteps.length - 1 ? '1px solid var(--border)' : 'none', display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
               <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--green-pale)', border: '1px solid var(--green-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', fontWeight: '700', color: 'var(--green)' }}>{step.step}</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', fontWeight: '700', color: 'var(--green)' }}>{step.step}</span>
               </div>
               <div style={{ flex: 1 }}>
-                <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>{step.title}</h3>
-                <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '10px' }}>{step.desc}</p>
-                <Link href={step.link} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <h3 style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>{step.title}</h3>
+                <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '10px' }}>{step.desc}</p>
+                <Link href={step.link} style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                   {step.linkLabel}
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </Link>
@@ -213,10 +213,10 @@ export default function ForBeginners() {
 
       {/* Master quotes */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 0' }}>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
           What the masters say
         </h2>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
+        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
           The condensed wisdom. Each quote links to a full lesson that unpacks the idea in depth.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
@@ -224,13 +224,13 @@ export default function ForBeginners() {
             <Link key={i} href={q.link} style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '22px 24px', transition: 'border-color 0.2s' }}
               onMouseEnter={undefined} onMouseLeave={undefined}
             >
-              <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.65', marginBottom: '14px', fontStyle: 'italic' }}>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.65', marginBottom: '14px', fontStyle: 'italic' }}>
                 "{q.quote}"
               </p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{q.person}</span>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: 'var(--text-soft)', marginLeft: '8px' }}>{q.source}</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{q.person}</span>
+                  <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'var(--text-soft)', marginLeft: '8px' }}>{q.source}</span>
                 </div>
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="var(--green)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
               </div>
@@ -241,19 +241,19 @@ export default function ForBeginners() {
 
       {/* Beginner lesson list */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 24px 0' }}>
-        <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
           Your beginner reading list
         </h2>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '32px' }}>
+        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '32px' }}>
           Ten lessons, in a recommended order. Read them once, then go write something.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '10px' }}>
           {beginnerLessons.map((l, i) => (
             <Link key={l.slug} href={`/learn/${l.slug}`} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', padding: '14px 16px', textDecoration: 'none' }}>
-              <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', minWidth: '20px' }}>{String(i + 1).padStart(2, '0')}</span>
+              <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', minWidth: '20px' }}>{String(i + 1).padStart(2, '0')}</span>
               <div style={{ flex: 1 }}>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)', display: 'block', lineHeight: '1.4' }}>{l.title}</span>
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: 'var(--text-soft)' }}>{l.time} read</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)', display: 'block', lineHeight: '1.4' }}>{l.title}</span>
+                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', color: 'var(--text-soft)' }}>{l.time} read</span>
               </div>
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5 2l3 3-3 3" stroke="var(--text-soft)" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </Link>
@@ -264,13 +264,13 @@ export default function ForBeginners() {
       {/* CTA */}
       <section style={{ background: 'var(--green)', margin: '72px 0 0', padding: '80px 24px', textAlign: 'center' }}>
         <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
             The best time to start was yesterday.
           </h2>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
             Eve gives you a workspace built around the same frameworks the masters use — free, without AI, without shortcuts. Start your first project today.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '15px', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none' }}>
+          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none' }}>
             Start writing — free
           </Link>
         </div>

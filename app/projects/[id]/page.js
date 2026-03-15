@@ -437,6 +437,10 @@ function CharactersTab({ projectId, characters, setCharacters, toast }) {
             <div>
               <label style={labelStyle}>Arc</label>
               <input className="input" value={form.arc} onChange={e => setForm({...form, arc: e.target.value})} placeholder="How do they change?" />
+              <label style={labelStyle}>Flaw <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(surface behaviour)</span></label>
+              <input className="input" value={form.flaw || ''} onChange={e => setForm({...form, flaw: e.target.value})} placeholder="What bad habit or pattern gets them in trouble?" />
+              <label style={labelStyle}>Voice <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(how they speak)</span></label>
+              <input className="input" value={form.voice || ''} onChange={e => setForm({...form, voice: e.target.value})} placeholder="If you covered the names, how would you know it was them?" />
             </div>
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -518,6 +522,8 @@ function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
                   { key: 'need',  label: 'Need' },
                   { key: 'ghost', label: 'Ghost' },
                   { key: 'arc',   label: 'Arc' },
+                  { key: 'flaw',  label: 'Flaw' },
+                  { key: 'voice', label: 'Voice' },
                 ].map(f => (
                   <div key={f.key}>
                     <label style={labelStyle}>{f.label}</label>
@@ -538,6 +544,8 @@ function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
                   { label: 'Need',  value: character.need },
                   { label: 'Ghost', value: character.ghost },
                   { label: 'Arc',   value: character.arc },
+                  character.flaw  && { label: 'Flaw',  value: character.flaw },
+                  character.voice && { label: 'Voice', value: character.voice },
                 ].map((f, i) => (
                   <div key={i}>
                     <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>{f.label}</p>

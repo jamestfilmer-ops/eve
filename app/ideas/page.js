@@ -225,7 +225,7 @@ export default function IdeasPage() {
               </button>
             </div>
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '28px', marginTop: '8px' }}>
-              <p style={{ fontSize: '11px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '16px', textAlign: 'center' }}>
+              <p style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '16px', textAlign: 'center' }}>
                 Need a spark? React to one of these.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '10px' }}>
@@ -250,7 +250,7 @@ export default function IdeasPage() {
                       onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(26,20,15,0.07)' }}
                       onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none' }}
                     >
-                      <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 7px', borderRadius: '20px', background: col.bg, color: col.color, fontFamily: 'DM Sans, sans-serif', display: 'inline-block', marginBottom: '8px' }}>{spark.type}</span>
+                      <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 7px', borderRadius: '20px', background: col.bg, color: col.color, fontFamily: 'var(--font-ui)', display: 'inline-block', marginBottom: '8px' }}>{spark.type}</span>
                       <p style={{ fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.55', margin: 0, fontStyle: 'italic' }}>{spark.spark}</p>
                     </button>
                   )

@@ -159,7 +159,7 @@ function PricingSection() {
         <div className="fade-up" style={{ textAlign: 'center', marginBottom: '52px' }}>
           <div className="badge" style={{ marginBottom: '14px', display: 'inline-flex' }}>Simple pricing</div>
           <h2 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(30px, 4vw, 44px)',
             fontWeight: '700',
             color: 'var(--green)',
@@ -277,7 +277,7 @@ function PricingSection() {
                     background: 'var(--green)', color: '#fff',
                     fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
                     padding: '4px 14px', borderRadius: '20px',
-                    fontFamily: 'DM Mono, monospace',
+                    fontFamily: 'JetBrains Mono, monospace',
                     whiteSpace: 'nowrap',
                     boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
                   }}>Most popular</div>
@@ -290,7 +290,7 @@ function PricingSection() {
                     <span style={{
                       display: 'inline-block',
                       fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
-                      fontFamily: 'DM Mono, monospace',
+                      fontFamily: 'JetBrains Mono, monospace',
                       padding: '3px 10px', borderRadius: '5px',
                       background: isPro
                         ? 'rgba(255,255,255,0.15)'
@@ -311,7 +311,7 @@ function PricingSection() {
                     {price === 0 ? (
                       <span style={{
                         fontSize: '44px', fontWeight: '800',
-                        fontFamily: 'Playfair Display, serif',
+                        fontFamily: 'var(--font-display)',
                         color: isPro ? '#fff' : 'var(--text-dark)',
                         lineHeight: 1,
                       }}>Free</span>
@@ -320,7 +320,7 @@ function PricingSection() {
                         <span style={{ fontSize: '22px', fontWeight: '700', color: isPro ? 'rgba(255,255,255,0.6)' : 'var(--text-soft)', alignSelf: 'flex-start', marginTop: '8px' }}>$</span>
                         <span style={{
                           fontSize: '44px', fontWeight: '800',
-                          fontFamily: 'Playfair Display, serif',
+                          fontFamily: 'var(--font-display)',
                           color: isPro ? '#fff' : isPopular ? 'var(--green)' : 'var(--text-dark)',
                           lineHeight: 1,
                         }}>{price % 1 === 0 ? price : price.toFixed(2)}</span>
@@ -455,7 +455,7 @@ export default function Home() {
         <div className="fade-up">
           <div className="badge" style={{ marginBottom: '20px' }}>Screenwriting & Story Craft</div>
           <h1 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(36px, 5vw, 58px)',
             fontWeight: '700',
             lineHeight: '1.15',
@@ -501,7 +501,7 @@ export default function Home() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <div>
               <p style={{ fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '4px' }}>Story Project</p>
-              <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', color: 'var(--green)' }}>The Long Road Home</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--green)' }}>The Long Road Home</h3>
             </div>
             <span className="badge">Act 2 of 3</span>
           </div>
@@ -558,7 +558,7 @@ export default function Home() {
           {pillars.map((p, i) => (
             <div key={i}>
               <div style={{ width: '24px', height: '2px', background: 'var(--green)', marginBottom: '12px' }} />
-              <p style={{ fontFamily: 'Playfair Display, serif', fontWeight: '600', fontSize: '15px', color: 'var(--green)', marginBottom: '6px' }}>{p.title}</p>
+              <p style={{ fontFamily: 'var(--font-display)', fontWeight: '600', fontSize: '15px', color: 'var(--green)', marginBottom: '6px' }}>{p.title}</p>
               <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7' }}>{p.body}</p>
             </div>
           ))}
@@ -568,7 +568,7 @@ export default function Home() {
       {/* Content depth signal */}
       <section style={{ background: 'var(--green)', padding: '56px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2px' }}>
@@ -584,9 +584,9 @@ export default function Home() {
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
               >
-                <div style={{ fontFamily: 'Playfair Display, serif', fontSize: '28px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '6px' }}>{s.number}</div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', marginBottom: '4px' }}>{s.label}</div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '11px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.4' }}>{s.sub}</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '6px' }}>{s.number}</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', marginBottom: '4px' }}>{s.label}</div>
+                <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.4' }}>{s.sub}</div>
               </a>
             ))}
           </div>
@@ -608,7 +608,7 @@ export default function Home() {
             No AI. Ever.
           </div>
           <h2 style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(26px, 3vw, 38px)',
             fontWeight: '700',
             color: 'var(--green)',
@@ -657,7 +657,7 @@ export default function Home() {
           {/* Decorative large quote mark */}
           <div style={{
             position: 'absolute', top: '16px', right: '24px',
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: '120px', lineHeight: 1,
             color: 'rgba(255,255,255,0.07)',
             fontStyle: 'italic',
@@ -665,7 +665,7 @@ export default function Home() {
             pointerEvents: 'none',
           }}>&ldquo;</div>
           <p style={{
-            fontFamily: 'Playfair Display, serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(18px, 2.2vw, 23px)',
             fontStyle: 'italic',
             color: '#fff',
@@ -692,7 +692,7 @@ export default function Home() {
       <section style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ maxWidth: '560px', marginBottom: '48px' }}>
-            <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>Choose your framework</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>Choose your framework</h2>
             <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
               Every project in Eve starts with a structure choice. Not sure which? Read the descriptions — you will know.
             </p>
@@ -721,7 +721,7 @@ export default function Home() {
                   flexShrink: 0,
                 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <h3 style={{ fontSize: '17px', fontFamily: 'Playfair Display, serif' }}>{f.name}</h3>
+                    <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)' }}>{f.name}</h3>
                     <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0, marginLeft: '8px' }}>{f.acts}</span>
                   </div>
                   <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
@@ -756,7 +756,7 @@ export default function Home() {
       {/* CTA */}
       <section style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
         <h2 style={{
-          fontFamily: 'Playfair Display, serif',
+          fontFamily: 'var(--font-display)',
           fontSize: 'clamp(28px, 4vw, 42px)',
           color: '#fff', marginBottom: '16px',
         }}>Your story is waiting.</h2>
@@ -790,9 +790,9 @@ export default function Home() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <div style={{ width: '28px', height: '28px', borderRadius: '6px', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ color: '#fff', fontSize: '12px', fontWeight: '700', fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>E</span>
+                <span style={{ color: '#fff', fontSize: '12px', fontWeight: '700', fontFamily: 'var(--font-display)', fontStyle: 'italic' }}>E</span>
               </div>
-              <span style={{ fontFamily: 'Playfair Display, serif', fontSize: '18px', fontWeight: '600', color: '#fff' }}>Eve</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '600', color: '#fff' }}>Eve</span>
             </div>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.7', maxWidth: '260px' }}>
               A story workspace for writers who believe structure serves the work — not the other way around. No AI. No shortcuts.

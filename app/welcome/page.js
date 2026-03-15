@@ -134,7 +134,7 @@ export default function WelcomePage() {
           {/* Badge */}
           <div style={{ marginBottom: '20px' }}>
             <span style={{
-              fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em',
+              fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em',
               textTransform: 'uppercase', color: 'var(--green)',
               background: 'var(--green-pale)', border: '1px solid var(--green-border)',
               padding: '4px 10px', borderRadius: '20px',
@@ -145,19 +145,19 @@ export default function WelcomePage() {
 
           {/* Title */}
           <h1 style={{
-            fontFamily: 'Playfair Display, serif', fontSize: 'clamp(22px, 4vw, 30px)',
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)',
             fontWeight: '700', color: 'var(--text-dark)', lineHeight: '1.2',
             marginBottom: '8px',
           }}>
             {current.title}
           </h1>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '12px', color: 'var(--text-soft)', marginBottom: '20px' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--text-soft)', marginBottom: '20px' }}>
             {current.subtitle}
           </p>
 
           {current.body && (
             <p style={{
-              fontFamily: 'DM Sans, sans-serif', fontSize: '15px', lineHeight: '1.8',
+              fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8',
               color: 'var(--text-mid)', marginBottom: '24px',
             }}>
               {current.body}
@@ -169,8 +169,8 @@ export default function WelcomePage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
               {current.links.map((link, i) => (
                 <Link key={i} href={link.href} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', border: '1px solid var(--border)', borderRadius: '10px', background: 'var(--off-white)' }}>
-                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'var(--text-mid)' }}>{link.label}</span>
-                  <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{link.desc} →</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)' }}>{link.label}</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{link.desc} →</span>
                 </Link>
               ))}
             </div>
@@ -181,8 +181,8 @@ export default function WelcomePage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
               {current.features.map((feat, i) => (
                 <div key={i} style={{ padding: '14px', border: '1px solid var(--border)', borderRadius: '10px', background: 'var(--off-white)' }}>
-                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '4px' }}>{feat.label}</p>
-                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{feat.desc}</p>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '4px' }}>{feat.label}</p>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{feat.desc}</p>
                 </div>
               ))}
             </div>
@@ -202,14 +202,14 @@ export default function WelcomePage() {
                   }}>
                     <span style={{ fontSize: '22px', flexShrink: 0 }}>{choice.icon}</span>
                     <div>
-                      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '14px', fontWeight: '700', color: choice.primary ? 'var(--green)' : 'var(--text-dark)', marginBottom: '2px' }}>{choice.label}</p>
-                      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{choice.desc}</p>
+                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: choice.primary ? 'var(--green)' : 'var(--text-dark)', marginBottom: '2px' }}>{choice.label}</p>
+                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{choice.desc}</p>
                     </div>
                   </div>
                 </Link>
               ))}
               <Link href="/dashboard" style={{ textDecoration: 'none', textAlign: 'center', display: 'block', paddingTop: '4px' }}>
-                <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)' }}>Or go to the dashboard →</span>
+                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)' }}>Or go to the dashboard →</span>
               </Link>
             </div>
           )}
@@ -221,7 +221,7 @@ export default function WelcomePage() {
               style={{
                 width: '100%', background: 'var(--green)', color: '#fff',
                 border: 'none', borderRadius: '10px', padding: '14px',
-                fontFamily: 'DM Sans, sans-serif', fontWeight: '700', fontSize: '15px',
+                fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px',
                 cursor: 'pointer', transition: 'opacity 0.15s',
               }}
               onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
@@ -235,7 +235,7 @@ export default function WelcomePage() {
         {/* Skip */}
         {step < steps.length - 1 && (
           <div style={{ textAlign: 'center', marginTop: '16px' }}>
-            <Link href="/dashboard" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '12px', color: 'var(--text-soft)', textDecoration: 'none' }}>
+            <Link href="/dashboard" style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', textDecoration: 'none' }}>
               Skip intro → go to dashboard
             </Link>
           </div>
