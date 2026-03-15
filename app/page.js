@@ -473,7 +473,7 @@ export default function Home() {
             maxWidth: '460px',
             fontFamily: 'Source Sans 3, sans-serif',
           }}>
-            Free lessons on screenwriting, novel writing, and story structure  -- plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
+            Free lessons on screenwriting, novel writing, and short fiction  -- plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
           </p>
           <div className="hero-cta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
@@ -572,9 +572,9 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2px' }}>
             {[
-              { number: '58+', label: 'Craft lessons', sub: 'Structure, character, dialogue, theme', href: '/learn' },
+              { number: '58+', label: 'Craft lessons', sub: 'Screenwriting, novels, and short fiction', href: '/learn' },
               { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
-              { number: '87+', label: 'Glossary terms', sub: 'Screenwriting and novel writing', href: '/glossary' },
+              { number: '87+', label: 'Glossary terms', sub: 'Screenwriting, novels, and short fiction', href: '/glossary' },
               { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
               { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading list', href: '/road-to-hollywood' },
               { number: '53+', label: 'Famous scripts', sub: 'With direct links to every source', href: '/scripts' },
@@ -784,7 +784,7 @@ export default function Home() {
       }}>
         <div className="footer-grid" style={{
           maxWidth: '1200px', margin: '0 auto',
-          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: '48px',
+          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr 1fr', gap: '48px',
         }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
