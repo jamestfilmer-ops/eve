@@ -28,6 +28,7 @@ const learnGroups = [
     links: [
       { href: '/reading-list',      label: 'Reading List' },
       { href: '/genres',              label: 'Genre Guide' },
+      { href: '/visual-craft',         label: 'Visual Craft' },
       { href: '/scripts',           label: 'Famous Scripts' },
     ],
   },

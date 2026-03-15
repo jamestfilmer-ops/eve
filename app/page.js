@@ -822,6 +822,7 @@ export default function Home() {
               { href: '/learn/tracks', label: 'Learning Paths' },
               { href: '/frameworks', label: 'Frameworks' },
               { href: '/glossary', label: 'Glossary' },
+              { href: '/visual-craft', label: 'Visual Craft' },
             ].map((l, i) => (
               <a key={i} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.6)', textDecoration: 'none', marginBottom: '10px' }}
                 onMouseEnter={e => e.currentTarget.style.color = '#fff'}

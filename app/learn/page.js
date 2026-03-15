@@ -105,6 +105,8 @@ const lessons = [
     badge: 'Visual',
     items: [
       { title: 'Color psychology in visual storytelling', slug: 'color-psychology', time: '7 min', level: 'Intermediate', preview: 'The colors in a frame do not decorate the story. They are the story  -- communicating mood, power, and character before a single word is spoken.' },
+      { title: 'Color theory in film and fiction', slug: 'color-theory', time: '12 min', level: 'Intermediate', preview: 'Red, blue, yellow, green, white, black -- what each color communicates, how filmmakers use contrast and restraint, and how to write for color without directing on the page.' },
+      { title: 'Cinematography: shot types, angles, and movement', slug: 'cinematography', time: '14 min', level: 'Beginner', preview: 'Every framing decision is a storytelling decision. The complete vocabulary of shot types, camera angles, and movement -- with examples from the films that defined each technique.' },
     ],
   },
   {
@@ -179,6 +181,7 @@ const writtenSlugs = [
   'enter-late-leave-early', 'scene-turn', 'tension-without-action',
   'location-as-character', 'scene-endings',
   'short-story-craft', 'short-story-markets', 'flash-fiction',
+  'color-theory', 'cinematography',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
