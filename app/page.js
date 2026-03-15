@@ -822,6 +822,7 @@ export default function Home() {
               { href: '/frameworks', label: 'Frameworks' },
               { href: '/road-to-hollywood', label: 'Road to Hollywood' },
               { href: '/road-to-publishing', label: 'Road to Publishing' },
+              { href: '/road-to-short-story', label: 'Road to Short Story' },
               { href: '/scripts', label: 'Famous Scripts' },
               { href: '/glossary', label: 'Glossary' },
             ].map((l, i) => (
