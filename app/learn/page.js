@@ -142,6 +142,15 @@ const lessons = [
       { title: 'How to structure a novel chapter', slug: 'chapter-structure', time: '7 min', level: 'Beginner', preview: 'A chapter is not a unit of time or a unit of plot. It is a unit of experience. If a chapter ends and nothing has shifted, the chapter has not done its job.' },
     ],
   },
+  {
+    category: 'Short Fiction',
+    badge: 'Short Story',
+    items: [
+      { title: 'Writing short stories: compression, iceberg, and form', slug: 'short-story-craft', time: '8 min', level: 'Intermediate', preview: 'The short story is not a compressed novel. It is a form with its own logic -- one character, one change, one precisely loaded moment. Everything else is negotiable.' },
+      { title: 'Short story markets: where to submit and how to get read', slug: 'short-story-markets', time: '6 min', level: 'Intermediate', preview: 'The New Yorker, Ploughshares, SmokeLong, Clarkesworld  -- 19 serious markets with direct submission links and honest notes on what each one actually wants.' },
+      { title: 'Flash fiction: writing stories under 1000 words', slug: 'flash-fiction', time: '5 min', level: 'Beginner', preview: 'Flash forces every craft principle into a single page. Constraint is the teacher. What makes flash fiction work is the same thing that makes all fiction work  -- only with no room to hide.' },
+    ],
+  },
 ]
 
 const LEVEL_COLORS = {
@@ -168,6 +177,7 @@ const writtenSlugs = [
   'sequence-approach', 'kishotenketsu', 'fichtean-curve',
   'enter-late-leave-early', 'scene-turn', 'tension-without-action',
   'location-as-character', 'scene-endings',
+  'short-story-craft', 'short-story-markets', 'flash-fiction',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
