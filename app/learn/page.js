@@ -192,6 +192,8 @@ const writtenSlugs = [
   'color-palettes',
   'color-contrast', 'color-symbolism', 'color-grading', 'writing-for-color',
   'lenses-and-depth', 'composition-and-meaning', 'mise-en-scene',
+  'tracks', 'story-circle', 'save-the-cat', 'hauge-six-stage',
+  'snowflake-method', 'heros-journey', 'seven-point-story', 'freytags-pyramid',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
