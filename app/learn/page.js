@@ -110,6 +110,9 @@ const lessons = [
       { title: 'Camera angles and power dynamics', slug: 'camera-angles', time: '10 min', level: 'Beginner', preview: "Eye level, low angle, high angle, Dutch angle, bird's eye -- what each angle communicates about power, vulnerability, and psychological state." },
       { title: 'Camera movement and emotional meaning', slug: 'camera-movement', time: '12 min', level: 'Intermediate', preview: 'Static, dolly, handheld, steadicam, crane -- how the camera moves, or refuses to move, is an argument about what the story feels like from inside.' },
       { title: 'Lighting as storytelling', slug: 'lighting-and-story', time: '13 min', level: 'Intermediate', preview: 'Hard light, soft light, chiaroscuro, motivated sources, practical lights -- lighting is emotional weather. It tells you how to feel before an actor speaks.' },
+      { title: 'Color contrast as dramatic tension', slug: 'color-contrast', time: '9 min', level: 'Intermediate', preview: 'Warm vs cool, saturated vs desaturated, complementary contrast -- the mechanics of visual conflict and the emotional arguments they make.' },
+      { title: 'Composition: the frame as argument', slug: 'composition-and-meaning', time: '10 min', level: 'Beginner', preview: 'Rule of thirds, headroom, negative space, symmetry -- where a character sits in the frame is always a statement about their world.' },
+      { title: 'Mise-en-scene: the frame as total argument', slug: 'mise-en-scene', time: '15 min', level: 'Advanced', preview: 'Set, costume, light, performance, composition -- everything visible working as one system. The directors who master it cannot be imitated.' },
     ],
   },
   {
