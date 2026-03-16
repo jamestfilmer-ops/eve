@@ -33,7 +33,7 @@ const lessons = [
       { title: 'What Kurt Vonnegut knew that every beginner needs to hear', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box  -- the most useful craft checklist ever written, examined rule by rule.' },
       { title: 'Stephen King on writing: the lessons that matter for beginners', slug: 'king-on-writing', time: '7 min', level: 'Beginner', preview: 'From On Writing: the toolbox, the closed door, the daily practice, and why story always precedes theme.' },
       { title: 'Elmore Leonard and the art of invisible writing', slug: 'leonard-on-craft', time: '6 min', level: 'Intermediate', preview: 'Ten rules that add up to one: if it sounds like writing, rewrite it. The case for prose that gets out of the way.' },
-      { title: 'What Pixar teaches about story that applies to everything', slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: 'The 22 story rules that circulated inside Pixar  -- the ones that actually matter, examined from a writer\'s angle.' },
+      { title: 'What Pixar teaches about story that applies to everything', slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: "The 22 story rules that circulated inside Pixar  -- the ones that actually matter, examined from a writer's angle." },
     ],
   },
   {
@@ -123,8 +123,8 @@ const lessons = [
       { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane  -- because that specificity is who they are.' },
       { title: "The Sopranos and the dramatic pause", slug: 'sopranos-drama', time: '8 min', level: 'Advanced', preview: 'The Sopranos is a masterclass in what not to rush. Silence, domesticity, and the space between scenes  -- that is where the show lives.' },
       { title: 'Pacing and rhythm: how stories breathe', slug: 'pacing-rhythm', time: '6 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight. The allocation of space is meaning.' },
-      { title: 'The rewrite: what first drafts are actually for', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },,
-      { title: "Show, don\'t tell", slug: 'show-dont-tell', time: '6 min', level: 'Beginner', preview: 'The most repeated instruction in writing and the least understood. What it actually means: let the reader do the work.' },
+      { title: 'The rewrite: what first drafts are actually for', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },
+      { title: "Show, don't tell", slug: 'show-dont-tell', time: '6 min', level: 'Beginner', preview: 'The most repeated instruction in writing and the least understood. What it actually means: let the reader do the work.' },
       { title: 'How to end a story', slug: 'the-ending', time: '7 min', level: 'Intermediate', preview: 'Endings prove what the story was about. Resolution wraps the plot. Conclusion answers the question.' }
     ],
   },
@@ -149,7 +149,7 @@ const lessons = [
     badge: 'Literary',
     items: [
       { title: 'What Shakespeare knew about story that Hollywood relearned', slug: 'shakespeare-structure', time: '8 min', level: 'Intermediate', preview: 'Shakespeare did not invent dramatic structure  -- he refined it into something so practically useful that four hundred years later it still underlies almost every story told in any medium.' },
-      { title: 'How adaptation works: from source to screen (and page)', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapter\'s job is not to preserve the source  -- it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
+      { title: 'How adaptation works: from source to screen (and page)', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapters job is not to preserve the source  -- it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
     ],
   },
   {
