@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Show, Don\'t Tell: What It Actually Means | Eve',
-  description: 'Show, don\'t tell is the most quoted piece of writing advice and the most misunderstood. Used incorrectly, it produces airless, over-describ',
+  title: "Show, Don't Tell: What It Actually Means | Eve",
+  description: "Show, don't tell is the most quoted piece of writing advice and the most misunderstood. Used incorrectly, it produces airless, over-describ',
 }
 
 export default function Lesson() {

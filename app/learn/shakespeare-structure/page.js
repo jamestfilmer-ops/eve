@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Shakespeare\'s Structure: Five Acts and Why They Still Work | Eve',
+  title: "Shakespeare's Structure: Five Acts and Why They Still Work | Eve",
   description: 'Shakespeare did not invent the five-act structure, but he used it with such precision and variety that studying it is still one of the most ',
 }
 
