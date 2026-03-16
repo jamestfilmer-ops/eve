@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: "Show, Don't Tell: What It Actually Means | Eve",
-  description: "Show, don't tell is the most quoted piece of writing advice and the most misunderstood. Used incorrectly, it produces airless, over-describ',
+  description: "The most quoted and most misunderstood piece of writing advice. It means: do not tell the reader what to feel -- show them the evidence and let them arrive at the feeling themselves.",
 }
 
 export default function Lesson() {
