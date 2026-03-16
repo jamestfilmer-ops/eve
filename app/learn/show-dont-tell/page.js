@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: "Show, Don't Tell: What It Actually Means | Eve",
-  description: "The most quoted and most misunderstood piece of writing advice. It means: do not tell the reader what to feel -- show them the evidence and let them arrive at the feeling themselves.",
+  description: "The most quoted and most misunderstood piece of writing advice. It means: do not tell the reader what to feel—show them the evidence and let them arrive at the feeling themselves.",
 }
 
 export default function Lesson() {
@@ -43,7 +43,7 @@ export default function Lesson() {
             What it actually means
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Show, don't tell does not mean describe everything in detail instead of summarizing. It means: do not tell the reader what to feel. She was sad tells the reader how to feel about the character. A specific image -- the thing she does, the way she holds herself, the thing she says that reveals her state without naming it -- shows the reader the evidence and lets them arrive at the feeling themselves. The reader who makes the emotional leap independently is far more engaged than the reader who is instructed what to feel.
+            Show, don't tell does not mean describe everything in detail instead of summarizing. It means: do not tell the reader what to feel. She was sad tells the reader how to feel about the character. A specific image—the thing she does, the way she holds herself, the thing she says that reveals her state without naming it—shows the reader the evidence and lets them arrive at the feeling themselves. The reader who makes the emotional leap independently is far more engaged than the reader who is instructed what to feel.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             The specific vs the abstract
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The real principle behind show, don't tell is specificity. She was angry is abstract. She set the cup down so carefully that it did not make a sound is specific -- and more frightening than any direct statement of anger could be. Specific details activate the reader's imagination in a way that abstractions do not. The reader sees the cup. They see the care. They feel the anger without being told what to call it.
+            The real principle behind show, don't tell is specificity. She was angry is abstract. She set the cup down so carefully that it did not make a sound is specific—and more frightening than any direct statement of anger could be. Specific details activate the reader's imagination in a way that abstractions do not. The reader sees the cup. They see the care. They feel the anger without being told what to call it.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             The diagnostic
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Read your work and highlight every sentence that tells the reader what to feel rather than showing them what to see. These will often be the sentences that contain abstract emotional words: sad, angry, happy, frightened, lonely, excited. Not all of these sentences are wrong -- some are necessary transitions. But the ones in scenes that matter, in moments where the story is doing its most important work, should be examined. Can the specific image do what the abstract word is doing? If yes, replace it.
+            Read your work and highlight every sentence that tells the reader what to feel rather than showing them what to see. These will often be the sentences that contain abstract emotional words: sad, angry, happy, frightened, lonely, excited. Not all of these sentences are wrong—some are necessary transitions. But the ones in scenes that matter, in moments where the story is doing its most important work, should be examined. Can the specific image do what the abstract word is doing? If yes, replace it.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             The exception: interiority
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            One place where telling is not only acceptable but necessary is direct access to a character's thoughts and feelings. She had been afraid of this moment for years is telling, but it is also direct access to a character's inner state in a way that no external image can fully provide. The reader cannot always observe from outside what a character has been carrying for years. Sometimes the telling is the point -- the direct statement of the internal experience is the most economical way to give the reader access.
+            One place where telling is not only acceptable but necessary is direct access to a character's thoughts and feelings. She had been afraid of this moment for years is telling, but it is also direct access to a character's inner state in a way that no external image can fully provide. The reader cannot always observe from outside what a character has been carrying for years. Sometimes the telling is the point—the direct statement of the internal experience is the most economical way to give the reader access.
           </p>
         </div>
 

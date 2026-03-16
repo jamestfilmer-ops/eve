@@ -1,20 +1,20 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "The Story Circle: Dan Harmon's 8-Step Structure  -- Eve",
+  title: "The Story Circle: Dan Harmon's 8-Step Structure —Eve",
   description: "Dan Harmon's Story Circle distills Joseph Campbell's monomyth to 8 steps arranged in a circle. The framework that built Community, Rick and Morty, and modern episodic television.",
 }
 
 export default function LessonStoryCircle() {
   const steps = [
-    { n: 1, label: 'A character is in a zone of comfort', short: 'You', desc: 'Establish who the protagonist is and where they live. The comfort zone is not necessarily happy  -- it is simply familiar. This is what they have to lose.' },
-    { n: 2, label: 'But they want something', short: 'Need', desc: 'The character has a desire  -- conscious or unconscious. This want drives the story. Without want, nothing moves.' },
+    { n: 1, label: 'A character is in a zone of comfort', short: 'You', desc: 'Establish who the protagonist is and where they live. The comfort zone is not necessarily happy —it is simply familiar. This is what they have to lose.' },
+    { n: 2, label: 'But they want something', short: 'Need', desc: 'The character has a desire —conscious or unconscious. This want drives the story. Without want, nothing moves.' },
     { n: 3, label: 'They enter an unfamiliar situation', short: 'Go', desc: 'Crossing the threshold into a new world, a new relationship, a new responsibility. The comfort zone is left behind.' },
-    { n: 4, label: 'Adapt to it', short: 'Search', desc: 'The character struggles to operate in the unfamiliar. They try, fail, try again. This is the bulk of the story  -- the messy middle.' },
+    { n: 4, label: 'Adapt to it', short: 'Search', desc: 'The character struggles to operate in the unfamiliar. They try, fail, try again. This is the bulk of the story —the messy middle.' },
     { n: 5, label: 'Get what they wanted', short: 'Find', desc: 'The character achieves the goal they set out for. This is the midpoint, not the ending. Getting what you want is never enough.' },
     { n: 6, label: 'Pay a heavy price for it', short: 'Take', desc: 'Getting what you wanted costs something. The price is often the revelation that what you wanted was not what you needed. Everything falls apart.' },
-    { n: 7, label: 'Return to where they started', short: 'Return', desc: 'The character makes their way back  -- physically or emotionally. The road back is different from the road out, because the character has changed.' },
-    { n: 8, label: 'Having changed', short: 'Change', desc: 'The character is not the same. The change can be positive, negative, or ambiguous  -- but it must be real and earned by what happened in the circle.' },
+    { n: 7, label: 'Return to where they started', short: 'Return', desc: 'The character makes their way back —physically or emotionally. The road back is different from the road out, because the character has changed.' },
+    { n: 8, label: 'Having changed', short: 'Change', desc: 'The character is not the same. The change can be positive, negative, or ambiguous —but it must be real and earned by what happened in the circle.' },
   ]
 
   return (
@@ -55,10 +55,10 @@ export default function LessonStoryCircle() {
           The Story Circle
         </h1>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '24px' }}>
-          Dan Harmon, creator of <em>Community</em> and <em>Rick and Morty</em>, spent years studying Joseph Campbell&#39;s monomyth and Dramatica theory before distilling what he found into an eight-step circle. His goal was a framework simple enough to use in a writers&#39; room on deadline  -- something that could be drawn on a whiteboard and checked against any story in a few minutes.
+          Dan Harmon, creator of <em>Community</em> and <em>Rick and Morty</em>, spent years studying Joseph Campbell&#39;s monomyth and Dramatica theory before distilling what he found into an eight-step circle. His goal was a framework simple enough to use in a writers&#39; room on deadline —something that could be drawn on a whiteboard and checked against any story in a few minutes.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          The circle is drawn as a clock face divided into eight positions. The top half is the conscious world  -- the familiar, the comfortable, the known. The bottom half is the unconscious world  -- the unfamiliar, the dangerous, the transformative. Every story worth telling requires a descent and a return.
+          The circle is drawn as a clock face divided into eight positions. The top half is the conscious world —the familiar, the comfortable, the known. The bottom half is the unconscious world —the unfamiliar, the dangerous, the transformative. Every story worth telling requires a descent and a return.
         </p>
 
         {/* Visual circle diagram */}
@@ -108,7 +108,7 @@ export default function LessonStoryCircle() {
           ))}
         </div>
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>The circle is recursive.</strong> Harmon used it for every episode of Community, every act, sometimes every scene. Any unit of story  -- a sequence, an episode, a film  -- can be mapped to the circle. The power is in its scalability: what works for a season arc works for a five-minute short.
+          <strong>The circle is recursive.</strong> Harmon used it for every episode of Community, every act, sometimes every scene. Any unit of story —a sequence, an episode, a film —can be mapped to the circle. The power is in its scalability: what works for a season arc works for a five-minute short.
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
           <Link href="/learn/heros-journey" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>← Hero&#39;s Journey</Link>

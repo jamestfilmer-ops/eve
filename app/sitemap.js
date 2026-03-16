@@ -1,4 +1,4 @@
-// app/sitemap.js  -- auto-generated sitemap for Google indexing
+// app/sitemap.js —auto-generated sitemap for Google indexing
 // Covers every lesson, framework, and static page with accurate priorities
 
 const BASE = 'https://eve-screenwriting.vercel.app'

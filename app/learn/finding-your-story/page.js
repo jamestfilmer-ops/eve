@@ -43,7 +43,7 @@ export default function Lesson() {
             The question is wrong
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Where do you get your ideas is the question every writer is asked, and almost every writer finds it difficult to answer honestly. The difficulty is that the question implies ideas arrive as discrete, complete packages -- a story idea, a character, a plot. Real creative material is less legible than that. It arrives as fragments, images, feelings, overheard conversations, questions that will not resolve. The writer's job is not to wait for a complete idea but to develop the habit of noticing these fragments.
+            Where do you get your ideas is the question every writer is asked, and almost every writer finds it difficult to answer honestly. The difficulty is that the question implies ideas arrive as discrete, complete packages—a story idea, a character, a plot. Real creative material is less legible than that. It arrives as fragments, images, feelings, overheard conversations, questions that will not resolve. The writer's job is not to wait for a complete idea but to develop the habit of noticing these fragments.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             Observation as practice
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The writers who consistently generate strong material are almost always careful observers of the specific and particular. Not people are sad about loss but the specific thing a specific person did at a specific funeral. Not cities are lonely but the exact detail of a particular apartment at a particular time of day. Specificity is not just a stylistic preference -- it is where emotional truth lives. You cannot generate specific material without paying close, slow attention to the world as it actually is.
+            The writers who consistently generate strong material are almost always careful observers of the specific and particular. Not people are sad about loss but the specific thing a specific person did at a specific funeral. Not cities are lonely but the exact detail of a particular apartment at a particular time of day. Specificity is not just a stylistic preference—it is where emotional truth lives. You cannot generate specific material without paying close, slow attention to the world as it actually is.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Writing from obsession
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The material that produces the best work is usually material the writer is already obsessed with -- not material they think will be interesting to readers, not material they have been told they should write about, but the thing they cannot stop thinking about. Stephen King writes horror because he is genuinely frightened by the things in his books. Toni Morrison wrote about the trauma of slavery because it was the unresolved truth she needed to examine. Follow the obsession.
+            The material that produces the best work is usually material the writer is already obsessed with—not material they think will be interesting to readers, not material they have been told they should write about, but the thing they cannot stop thinking about. Stephen King writes horror because he is genuinely frightened by the things in his books. Toni Morrison wrote about the trauma of slavery because it was the unresolved truth she needed to examine. Follow the obsession.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,14 +75,14 @@ export default function Lesson() {
             The file drawer method
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Keep a physical or digital file of fragments -- images, lines of dialogue, situations, observations -- that interest you without yet forming a whole. Do not try to immediately develop each fragment into a story. Let them accumulate. Come back to the file periodically. When a fragment suddenly connects to another, or when a fragment that was sitting dormant for months suddenly opens into something larger, you have found something.
+            Keep a physical or digital file of fragments—images, lines of dialogue, situations, observations—that interest you without yet forming a whole. Do not try to immediately develop each fragment into a story. Let them accumulate. Come back to the file periodically. When a fragment suddenly connects to another, or when a fragment that was sitting dormant for months suddenly opens into something larger, you have found something.
           </p>
         </div>
 
         <div className="reveal" style={{ background: 'var(--green)', borderRadius: '12px', padding: '24px 28px', marginTop: '8px' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '10px' }}>Key takeaway</p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: '#fff', margin: 0, fontWeight: '500' }}>
-            Ideas are not received whole -- they are accumulated as fragments. Develop the habit of close observation. Follow genuine obsession, not what you think should interest you.
+            Ideas are not received whole—they are accumulated as fragments. Develop the habit of close observation. Follow genuine obsession, not what you think should interest you.
           </p>
         </div>
 

@@ -31,7 +31,7 @@ export default function Lesson() {
             Pacing and Rhythm: How to Control the Speed of a Story
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            Pacing is not about how fast things happen. It is about how fast the reader experiences things. A story can cover a decade in a paragraph and a minute in twenty pages -- and both can feel exactly right.
+            Pacing is not about how fast things happen. It is about how fast the reader experiences things. A story can cover a decade in a paragraph and a minute in twenty pages—and both can feel exactly right.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Lesson() {
             The mechanics of pace
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Pace is controlled primarily by sentence length, paragraph length, and scene density. Short sentences and short paragraphs increase pace -- the eye moves faster, the breath shortens, the experience feels urgent. Long sentences and long paragraphs slow pace -- they invite the reader to linger, to absorb, to be present in a moment rather than moving through it. This is not a formula. It is a tool. The question is always: what pace does this moment require?
+            Pace is controlled primarily by sentence length, paragraph length, and scene density. Short sentences and short paragraphs increase pace—the eye moves faster, the breath shortens, the experience feels urgent. Long sentences and long paragraphs slow pace—they invite the reader to linger, to absorb, to be present in a moment rather than moving through it. This is not a formula. It is a tool. The question is always: what pace does this moment require?
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             Scene vs summary
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The fundamental pacing choice in fiction is whether to render a moment as scene (dramatized in real-time, with dialogue and specific action) or summary (told at a remove, compressing time). Scene is slow and present. Summary is fast and distant. Most stories use both: scenes for the moments that matter most, summary to cover the ground between them. The pacing error most beginners make is to render everything as scene -- treating every moment as equally important, refusing to compress anything.
+            The fundamental pacing choice in fiction is whether to render a moment as scene (dramatized in real-time, with dialogue and specific action) or summary (told at a remove, compressing time). Scene is slow and present. Summary is fast and distant. Most stories use both: scenes for the moments that matter most, summary to cover the ground between them. The pacing error most beginners make is to render everything as scene—treating every moment as equally important, refusing to compress anything.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             White space and breathing room
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            In prose, white space -- paragraph breaks, scene breaks, chapter endings -- is as much a part of pacing as the words. A scene break says: time is passing, something is shifting. A chapter break says: stop here, absorb this, come back. A short paragraph surrounded by longer ones creates emphasis through space. Poetry understands this better than most prose: the line break, the white space on the page, is not the absence of content. It is content.
+            In prose, white space—paragraph breaks, scene breaks, chapter endings—is as much a part of pacing as the words. A scene break says: time is passing, something is shifting. A chapter break says: stop here, absorb this, come back. A short paragraph surrounded by longer ones creates emphasis through space. Poetry understands this better than most prose: the line break, the white space on the page, is not the absence of content. It is content.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Tension and release
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Good pacing is not uniformly fast or uniformly slow. It is a rhythm of tension and release. Build tension through compression, acceleration, short sentences, unresolved questions. Release it through longer sentences, summary, description, stillness. The reader can only sustain maximum tension for a short time -- after that it becomes noise. The releases make the tensions possible. Hitchcock understood this: the shower scene in Psycho is frightening partly because of what precedes it -- the leisurely normality of Marion's motel room.
+            Good pacing is not uniformly fast or uniformly slow. It is a rhythm of tension and release. Build tension through compression, acceleration, short sentences, unresolved questions. Release it through longer sentences, summary, description, stillness. The reader can only sustain maximum tension for a short time—after that it becomes noise. The releases make the tensions possible. Hitchcock understood this: the shower scene in Psycho is frightening partly because of what precedes it—the leisurely normality of Marion's motel room.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Slow down before the end
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            One of the most powerful pacing choices in fiction is to slow down just before the climax -- to take extra time with the scene that immediately precedes the story's most significant moment. The reader wants you to hurry. You slow down instead. This creates unbearable tension and, when the moment finally arrives, makes it feel genuinely significant. Hemingway does this in Hills Like White Elephants -- the entire story is that slow, loaded scene before whatever irreversible decision the characters make.
+            One of the most powerful pacing choices in fiction is to slow down just before the climax—to take extra time with the scene that immediately precedes the story's most significant moment. The reader wants you to hurry. You slow down instead. This creates unbearable tension and, when the moment finally arrives, makes it feel genuinely significant. Hemingway does this in Hills Like White Elephants—the entire story is that slow, loaded scene before whatever irreversible decision the characters make.
           </p>
         </div>
 

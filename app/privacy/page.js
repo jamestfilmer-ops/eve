@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Privacy Policy  -- Eve',
+  title: 'Privacy Policy —Eve',
   description: 'Privacy Policy for Eve, the story workspace for writers.',
 }
 
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
               <li style={li}><strong>Account data:</strong> Your email address and display name when you create an account.</li>
               <li style={li}><strong>Story content:</strong> Projects, scenes, characters, ideas, and notes you create inside Eve. This is stored securely in our database and is only accessible by you.</li>
               <li style={li}><strong>Usage data:</strong> Aggregate, anonymized data about feature usage (e.g., how many sessions are started) to help us improve the product. This is never tied to your identity.</li>
-              <li style={li}><strong>Payment data:</strong> If you subscribe to Eve Pro, payment is processed by Stripe. We never store your card details  -- Stripe handles all payment data under their own privacy policy.</li>
+              <li style={li}><strong>Payment data:</strong> If you subscribe to Eve Pro, payment is processed by Stripe. We never store your card details —Stripe handles all payment data under their own privacy policy.</li>
             </ul>
           </section>
 

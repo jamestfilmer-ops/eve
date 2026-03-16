@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { UnsplashImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
-  title: 'Color Theory in Film and Fiction -- Visual Storytelling | Eve',
-  description: 'How color functions as storytelling language in film and fiction. Red, blue, yellow, green, white, black -- what each communicates, famous examples, and how to use color deliberately in your writing.',
+  title: 'Color Theory in Film and Fiction—Visual Storytelling | Eve',
+  description: 'How color functions as storytelling language in film and fiction. Red, blue, yellow, green, white, black—what each communicates, famous examples, and how to use color deliberately in your writing.',
   keywords: 'color theory film, color symbolism storytelling, color psychology cinema, color in film narrative, red in film meaning, blue in film meaning',
 }
 
@@ -11,12 +11,12 @@ const colors = [
   {
     name: 'Red',
     hex: '#C0392B',
-    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Saturated red -- the most physiologically arousing color, earning its power through contrast' },
+    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Saturated red—the most physiologically arousing color, earning its power through contrast' },
     light: '#fdf2f2',
     border: '#f5c6c6',
     primary: 'Danger, passion, violence, love, power, warning',
     secondary: 'Revolution, sin, life force, anger, obsession',
-    howItWorks: 'Red is the most physiologically arousing color -- it actually raises heart rate and blood pressure. In storytelling, this makes it the most emotionally loaded choice available. But red only works when it is used with restraint and specificity. A film drenched in red stops being dangerous and starts being decorative. Red earns its power through contrast: a red coat in a grey world, a red door in a white house, a red dress at a black-tie funeral.',
+    howItWorks: 'Red is the most physiologically arousing color—it actually raises heart rate and blood pressure. In storytelling, this makes it the most emotionally loaded choice available. But red only works when it is used with restraint and specificity. A film drenched in red stops being dangerous and starts being decorative. Red earns its power through contrast: a red coat in a grey world, a red door in a white house, a red dress at a black-tie funeral.',
     examples: [
       {
         work: 'Schindler\'s List',
@@ -26,12 +26,12 @@ const colors = [
       {
         work: 'Don\'t Look Now',
         year: 1973,
-        detail: 'Nicolas Roeg uses a red raincoat to link a drowned child to the figure John keeps glimpsing through the canals of Venice. Red here is haunting rather than danger -- it is grief made visible. The color carries the film\'s central mystery: is the red figure his daughter\'s ghost, or a warning?',
+        detail: 'Nicolas Roeg uses a red raincoat to link a drowned child to the figure John keeps glimpsing through the canals of Venice. Red here is haunting rather than danger—it is grief made visible. The color carries the film\'s central mystery: is the red figure his daughter\'s ghost, or a warning?',
       },
       {
         work: 'The Sixth Sense',
         year: 1999,
-        detail: "Shyamalan plants red in every scene involving the supernatural -- a doorknob, a sweater, a tent, a dress. The audience doesn't notice consciously, but they feel it. On second viewing, red functions as a map of every moment where death and the supernatural intrude on the living world.",
+        detail: "Shyamalan plants red in every scene involving the supernatural—a doorknob, a sweater, a tent, a dress. The audience doesn't notice consciously, but they feel it. On second viewing, red functions as a map of every moment where death and the supernatural intrude on the living world.",
       },
       {
         work: 'Her',
@@ -44,27 +44,27 @@ const colors = [
   {
     name: 'Blue',
     hex: '#2471A3',
-    photo: { id: 'photo-1531306728370-e2ebd9d7bb99', credit: 'Josh Hild', creditUrl: 'https://unsplash.com/@joshhild', caption: 'Cool blue hour -- distance, isolation, the receding quality of blue in a frame' },
+    photo: { id: 'photo-1531306728370-e2ebd9d7bb99', credit: 'Josh Hild', creditUrl: 'https://unsplash.com/@joshhild', caption: 'Cool blue hour—distance, isolation, the receding quality of blue in a frame' },
     light: '#f0f6fc',
     border: '#c5dff8',
     primary: 'Cold, isolation, melancholy, trust, technology, authority',
     secondary: 'Calm, distance, the past, masculinity (in contemporary coding), death',
-    howItWorks: 'Blue is the receding color -- it creates psychological distance, making subjects feel farther away or more isolated. In film, blue has become the dominant shorthand for two contradictory things: corporate authority (suits, boardrooms, police) and emotional desolation (the cold house of an unhappy marriage, the empty flat of someone who has lost everything). The teal-orange look that dominated blockbusters from roughly 2008-2020 uses blue-shifted shadows to make the orange skin tones of actors pop -- but it also creates a world that feels slightly inhuman.',
+    howItWorks: 'Blue is the receding color—it creates psychological distance, making subjects feel farther away or more isolated. In film, blue has become the dominant shorthand for two contradictory things: corporate authority (suits, boardrooms, police) and emotional desolation (the cold house of an unhappy marriage, the empty flat of someone who has lost everything). The teal-orange look that dominated blockbusters from roughly 2008-2020 uses blue-shifted shadows to make the orange skin tones of actors pop—but it also creates a world that feels slightly inhuman.',
     examples: [
       {
         work: 'Three Colors: Blue',
         year: 1993,
-        detail: "Kieslowski's film uses blue so systematically that it becomes the film's argument: the character is trying to isolate herself in grief, and the entire world has turned the color of her attempt. The blue lighting, blue water, blue sugar cube -- all become the film's emotional language.",
+        detail: "Kieslowski's film uses blue so systematically that it becomes the film's argument: the character is trying to isolate herself in grief, and the entire world has turned the color of her attempt. The blue lighting, blue water, blue sugar cube—all become the film's emotional language.",
       },
       {
         work: 'Moonlight',
         year: 2016,
-        detail: "Barry Jenkins uses blue for Chiron's childhood and vulnerability -- the most intimate, frightened moments of his life are bathed in a cool blue light that feels like exposure. As Chiron armors himself in adulthood, the palette warms.",
+        detail: "Barry Jenkins uses blue for Chiron's childhood and vulnerability—the most intimate, frightened moments of his life are bathed in a cool blue light that feels like exposure. As Chiron armors himself in adulthood, the palette warms.",
       },
       {
         work: 'Blade Runner 2049',
         year: 2017,
-        detail: "Roger Deakins uses blue-grey for the industrial wastelands and cold environments that define the film's dehumanized world. The few moments of warmth -- the hologram of Joi, the memory sequences -- are specifically not blue. Color marks the boundary between what is human and what is system.",
+        detail: "Roger Deakins uses blue-grey for the industrial wastelands and cold environments that define the film's dehumanized world. The few moments of warmth—the hologram of Joi, the memory sequences—are specifically not blue. Color marks the boundary between what is human and what is system.",
       },
       {
         work: 'Parasite',
@@ -72,37 +72,37 @@ const colors = [
         detail: "Bong Joon-ho uses the cool, desaturated blue of the Park family's glass house to signal their world's antiseptic privilege. The Kim family's basement lives in warm, dirty amber. The class argument is embedded in the palette before a word is spoken.",
       },
     ],
-    writersNote: 'Blue in fiction often works through temperature: cold rooms, cold mornings, cold water. The prose equivalent of blue lighting is environmental temperature and the quality of light -- "the thin grey light of a February morning" is blue without the word.',
+    writersNote: 'Blue in fiction often works through temperature: cold rooms, cold mornings, cold water. The prose equivalent of blue lighting is environmental temperature and the quality of light—"the thin grey light of a February morning" is blue without the word.',
   },
   {
     name: 'Yellow / Amber',
     hex: '#D4AC0D',
-    photo: { id: 'photo-1500534314209-a25ddb2bd429', credit: 'Alvin Engler', creditUrl: 'https://unsplash.com/@alvin_engler', caption: 'Golden hour amber -- warmth and nostalgia versus the sickly chartreuse of unease' },
+    photo: { id: 'photo-1500534314209-a25ddb2bd429', credit: 'Alvin Engler', creditUrl: 'https://unsplash.com/@alvin_engler', caption: 'Golden hour amber—warmth and nostalgia versus the sickly chartreuse of unease' },
     light: '#fefbea',
     border: '#f7e68e',
     primary: 'Unease, caution, cowardice, warmth, nostalgia, madness',
     secondary: 'Sickness, decay, gold, autumn, sunlight, the past',
-    howItWorks: 'Yellow is the most psychologically complex color in film. Pure, saturated yellow creates unease -- it is the color of warning signs, caution tape, and the sickly fluorescent light of institutions. But warm amber-yellow (the color of firelight, late afternoon sun, old photographs) creates nostalgia and longing. The difference is saturation and hue: sickly chartreuse-yellow signals wrongness; warm gold signals beauty and loss. Horror and thriller directors have long known that yellow fluorescent light makes audiences deeply uncomfortable in a way they cannot articulate.',
+    howItWorks: 'Yellow is the most psychologically complex color in film. Pure, saturated yellow creates unease—it is the color of warning signs, caution tape, and the sickly fluorescent light of institutions. But warm amber-yellow (the color of firelight, late afternoon sun, old photographs) creates nostalgia and longing. The difference is saturation and hue: sickly chartreuse-yellow signals wrongness; warm gold signals beauty and loss. Horror and thriller directors have long known that yellow fluorescent light makes audiences deeply uncomfortable in a way they cannot articulate.',
     examples: [
       {
         work: 'No Country for Old Men',
         year: 2007,
-        detail: "The Coens and Roger Deakins fill the film with the parched, bleached yellow of the West Texas landscape -- a yellow that communicates desolation and moral emptiness. The landscape is not beautiful; it is inhuman. The color choice makes the argument before Chigurh appears.",
+        detail: "The Coens and Roger Deakins fill the film with the parched, bleached yellow of the West Texas landscape—a yellow that communicates desolation and moral emptiness. The landscape is not beautiful; it is inhuman. The color choice makes the argument before Chigurh appears.",
       },
       {
         work: 'Gone Girl',
         year: 2014,
-        detail: 'Fincher uses amber and gold for the flashback "perfect marriage" sequences -- warmth and nostalgia are Amy\'s greatest weapon and her greatest lie. The color palette tells you not to trust the memories before you know to question them.',
+        detail: 'Fincher uses amber and gold for the flashback "perfect marriage" sequences—warmth and nostalgia are Amy\'s greatest weapon and her greatest lie. The color palette tells you not to trust the memories before you know to question them.',
       },
       {
         work: 'Drive',
         year: 2011,
-        detail: "Nicolas Winding Refn uses neon yellow and pink against black for Los Angeles at night -- making the city look like a fever dream. The yellow of the Driver's scorpion jacket functions as both a warning and an emblem of the film's mythological register.",
+        detail: "Nicolas Winding Refn uses neon yellow and pink against black for Los Angeles at night—making the city look like a fever dream. The yellow of the Driver's scorpion jacket functions as both a warning and an emblem of the film's mythological register.",
       },
       {
         work: 'The Shining',
         year: 1980,
-        detail: "Kubrick fills the Overlook's interior with a sickly yellow-green that makes every room feel wrong. The yellow of the hedge maze, the yellow of the bathroom where Jack goes mad, the yellow of the 1920s photograph at the film's close -- it is the color of the hotel's poisonous nostalgia.",
+        detail: "Kubrick fills the Overlook's interior with a sickly yellow-green that makes every room feel wrong. The yellow of the hedge maze, the yellow of the bathroom where Jack goes mad, the yellow of the 1920s photograph at the film's close—it is the color of the hotel's poisonous nostalgia.",
       },
     ],
     writersNote: 'In fiction, yellow unease is written through quality of light: fluorescent, flickering, jaundiced, the color of old newspaper. Gold and amber are written through objects: candlelight, photographs, honey, the last hour before sunset. The specific noun carries what the color adjective cannot.',
@@ -110,22 +110,22 @@ const colors = [
   {
     name: 'Green',
     hex: '#1E8449',
-    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Dark forest green -- the tension between natural abundance and the uncanny' },
+    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Dark forest green—the tension between natural abundance and the uncanny' },
     light: '#f0fbf4',
     border: '#a9dfbf',
     primary: 'Nature, growth, envy, poison, the uncanny, money',
     secondary: 'Alien, sickness, surveillance, the supernatural, decay',
-    howItWorks: 'Green in film splits almost perfectly between its natural connotations (growth, life, the organic world) and its artificial ones (poison, surveillance, the uncanny). This is partly a historical accident of cinematography: early two-strip color and later Technicolor rendered greens with a slightly toxic quality, and filmmakers learned to use this. The Matrix\'s green tint coded the artificial world as inhuman. The Joker\'s green is theatrical decay. But the green of fairy tales and enchanted forests is abundance and magic. Green almost always signals that the natural world is present -- the question is whether that presence is welcoming or threatening.',
+    howItWorks: 'Green in film splits almost perfectly between its natural connotations (growth, life, the organic world) and its artificial ones (poison, surveillance, the uncanny). This is partly a historical accident of cinematography: early two-strip color and later Technicolor rendered greens with a slightly toxic quality, and filmmakers learned to use this. The Matrix\'s green tint coded the artificial world as inhuman. The Joker\'s green is theatrical decay. But the green of fairy tales and enchanted forests is abundance and magic. Green almost always signals that the natural world is present—the question is whether that presence is welcoming or threatening.',
     examples: [
       {
         work: 'The Matrix',
         year: 1999,
-        detail: "The Wachowskis tinted all of the Matrix sequences green -- a subtle but pervasive quality that codes the artificial world as inhuman before the narrative explains it. The real world has no green tint. The color division IS the film's argument about reality and simulation.",
+        detail: "The Wachowskis tinted all of the Matrix sequences green—a subtle but pervasive quality that codes the artificial world as inhuman before the narrative explains it. The real world has no green tint. The color division IS the film's argument about reality and simulation.",
       },
       {
         work: 'Vertigo',
         year: 1958,
-        detail: "Hitchcock dresses Madeleine/Judy in grey-green throughout, and when Scottie forces her transformation, the key sequence is lit entirely in the green light coming through the hotel window. The color becomes the film's argument about obsession -- Scottie is not seeing a person, he is seeing a color.",
+        detail: "Hitchcock dresses Madeleine/Judy in grey-green throughout, and when Scottie forces her transformation, the key sequence is lit entirely in the green light coming through the hotel window. The color becomes the film's argument about obsession—Scottie is not seeing a person, he is seeing a color.",
       },
       {
         work: 'Pan\'s Labyrinth',
@@ -135,7 +135,7 @@ const colors = [
       {
         work: 'Parasite',
         year: 2019,
-        detail: "The peach fuzz plant that Mr. Park guards obsessively is a deep, unnatural green that becomes one of the film's central symbols. The color of the garden -- lush, maintained, artificial -- is the color of the Park family's performed naturalness.",
+        detail: "The peach fuzz plant that Mr. Park guards obsessively is a deep, unnatural green that becomes one of the film's central symbols. The color of the garden—lush, maintained, artificial—is the color of the Park family's performed naturalness.",
       },
     ],
     writersNote: 'Green in prose functions almost entirely through botanical imagery: the specific plants, the quality of the light through leaves, the smell of cut grass or decay. A room "painted green" is interior design; "the smell of mold under the floorboards" is uncanny green without the word.',
@@ -147,17 +147,17 @@ const colors = [
     border: '#e0e0e0',
     primary: 'Purity, emptiness, clinical, sterile, death (in Asian cinema), innocence',
     secondary: 'Cold, technology, the void, blank slate, hospital, Arctic',
-    howItWorks: 'White is the most culturally variable color in film storytelling. In Western tradition, white signals purity and innocence -- the bridal dress, the baptism, the blank page. But white also signals the absence of information: the blizzard that makes you lose your way, the hospital where identity is erased, the empty room that refuses to tell you what it is. In East Asian cinema (and increasingly in global horror), white is the color of death and ghosts -- mourning clothes are white, the supernatural is pale. A filmmaker using white must decide which tradition they are working in, or consciously colliding both.',
+    howItWorks: 'White is the most culturally variable color in film storytelling. In Western tradition, white signals purity and innocence—the bridal dress, the baptism, the blank page. But white also signals the absence of information: the blizzard that makes you lose your way, the hospital where identity is erased, the empty room that refuses to tell you what it is. In East Asian cinema (and increasingly in global horror), white is the color of death and ghosts—mourning clothes are white, the supernatural is pale. A filmmaker using white must decide which tradition they are working in, or consciously colliding both.',
     examples: [
       {
         work: 'The Shining',
         year: 1980,
-        detail: "The Overlook's white bathroom -- where Jack types, where the woman in room 237 manifests, where Jack eventually loses his mind -- uses white not as purity but as erasure. The white walls and white surfaces make the gore more shocking and the absence before the gore more threatening.",
+        detail: "The Overlook's white bathroom—where Jack types, where the woman in room 237 manifests, where Jack eventually loses his mind—uses white not as purity but as erasure. The white walls and white surfaces make the gore more shocking and the absence before the gore more threatening.",
       },
       {
         work: '2001: A Space Odyssey',
         year: 1968,
-        detail: 'Kubrick uses the brilliant white of HAL\'s corridors and the sterile white of the ship\'s interior to signal the dehumanized future. When Dave enters the room beyond the stargate -- a white, neoclassically furnished room -- it signals that he is outside the known entirely.',
+        detail: 'Kubrick uses the brilliant white of HAL\'s corridors and the sterile white of the ship\'s interior to signal the dehumanized future. When Dave enters the room beyond the stargate—a white, neoclassically furnished room—it signals that he is outside the known entirely.',
       },
       {
         work: 'Black Swan',
@@ -167,40 +167,40 @@ const colors = [
       {
         work: 'Oldboy',
         year: 2003,
-        detail: 'Park Chan-wook uses white in the hallway of Oh Dae-su\'s prison and in the corridor fight sequence -- clinical, institutional white that drains the violence of context, making it feel more dreamlike and more horrible simultaneously.',
+        detail: 'Park Chan-wook uses white in the hallway of Oh Dae-su\'s prison and in the corridor fight sequence—clinical, institutional white that drains the violence of context, making it feel more dreamlike and more horrible simultaneously.',
       },
     ],
-    writersNote: 'White in prose is often a sign of being in a transitional space: airports, hospitals, newly fallen snow, the blank page. It functions as the before -- the condition that will be disrupted. When you want to signal that something is about to be ruined or revealed, white is the preparation.',
+    writersNote: 'White in prose is often a sign of being in a transitional space: airports, hospitals, newly fallen snow, the blank page. It functions as the before—the condition that will be disrupted. When you want to signal that something is about to be ruined or revealed, white is the preparation.',
   },
   {
     name: 'Black',
     hex: '#2C3E50',
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'A single light source in darkness -- black as the condition of possibility, not absence' },
+    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'A single light source in darkness—black as the condition of possibility, not absence' },
     light: '#f4f6f7',
     border: '#d5dbdf',
     primary: 'Death, authority, elegance, absence, grief, nihilism, the unknown',
     secondary: 'Evil, power, sophistication, void, the unconscious, night',
-    howItWorks: 'Black in film works differently from other colors because it is often not a choice but a default -- the absence of light. But when used deliberately, black carries enormous weight. The black clothing of villains, executioners, and widows. The black of the screen before a film begins, which is the condition of possibility. The black of noir -- the parts of the frame that withhold information. Black is what you do not know and what cannot be seen, which makes it the most useful color for suggesting threat. In a brightly lit world, pockets of black are always menacing.',
+    howItWorks: 'Black in film works differently from other colors because it is often not a choice but a default—the absence of light. But when used deliberately, black carries enormous weight. The black clothing of villains, executioners, and widows. The black of the screen before a film begins, which is the condition of possibility. The black of noir—the parts of the frame that withhold information. Black is what you do not know and what cannot be seen, which makes it the most useful color for suggesting threat. In a brightly lit world, pockets of black are always menacing.',
     examples: [
       {
         work: 'Psycho',
         year: 1960,
-        detail: "Hitchcock shot Psycho in black and white partly for budget, partly for censorship (the shower scene would never have passed in color), but the black-and-white palette creates a moral world stripped of warmth and comfort. The Bates house against the grey sky, the black blood in the drain -- monochrome as moral emptiness.",
+        detail: "Hitchcock shot Psycho in black and white partly for budget, partly for censorship (the shower scene would never have passed in color), but the black-and-white palette creates a moral world stripped of warmth and comfort. The Bates house against the grey sky, the black blood in the drain—monochrome as moral emptiness.",
       },
       {
         work: 'Double Indemnity',
         year: 1944,
-        detail: "Wilder and cinematographer John Seitz use the Venetian blind light -- horizontal stripes of light and shadow on characters' faces -- to trap them in a cage of their own making. The shadows are prison bars the characters have built for themselves.",
+        detail: "Wilder and cinematographer John Seitz use the Venetian blind light—horizontal stripes of light and shadow on characters' faces—to trap them in a cage of their own making. The shadows are prison bars the characters have built for themselves.",
       },
       {
         work: 'Mad Max: Fury Road',
         year: 2015,
-        detail: "George Miller uses black -- the black of the War Boys' bodies, the black of the Citadel -- against the orange of the desert to make the human world look like a pathology against the natural world. Black here is not absence but corruption.",
+        detail: "George Miller uses black—the black of the War Boys' bodies, the black of the Citadel—against the orange of the desert to make the human world look like a pathology against the natural world. Black here is not absence but corruption.",
       },
       {
         work: 'Frances Ha',
         year: 2012,
-        detail: "Baumbach shoots in black and white not to signal death or moral emptiness but to place Frances in the tradition of French New Wave -- the black-and-white is a genre claim, situating a story about millennial urban failure in the cinematic tradition of Godard and Truffaut.",
+        detail: "Baumbach shoots in black and white not to signal death or moral emptiness but to place Frances in the tradition of French New Wave—the black-and-white is a genre claim, situating a story about millennial urban failure in the cinematic tradition of Godard and Truffaut.",
       },
     ],
     writersNote: 'Black in prose is written through absence of light and the specific conditions of night: the quality of darkness, the sounds that replace sight, the feeling of existing in a world that cannot be seen. "It was dark" is not black. "She could not see her hand in front of her face" is black used as narrative pressure.',
@@ -210,19 +210,19 @@ const colors = [
 const colorInPractice = [
   {
     title: 'The Monochromatic Scene',
-    body: 'Some of the most powerful sequences in film are monochromatic -- a single color dominates so completely that it becomes the atmosphere itself. The blue room, the red hallway, the all-white hospital. When every element in a frame shares a color, the color stops being a detail and becomes the world the character is inside. Use it sparingly: one monochromatic scene in a film is a statement; a whole film in one color can feel suffocating.',
+    body: 'Some of the most powerful sequences in film are monochromatic—a single color dominates so completely that it becomes the atmosphere itself. The blue room, the red hallway, the all-white hospital. When every element in a frame shares a color, the color stops being a detail and becomes the world the character is inside. Use it sparingly: one monochromatic scene in a film is a statement; a whole film in one color can feel suffocating.',
   },
   {
     title: 'The Color Arc',
-    body: "A film's palette should change as the story changes. The warm, saturated world of the first act is not the desaturated, cold world of the third -- unless the film argues for stasis. Study how Parasite, Moonlight, and The Wizard of Oz all shift their palette at the exact moment the story shifts. Color is not a constant backdrop -- it is a variable that tracks emotional and narrative temperature.",
+    body: "A film's palette should change as the story changes. The warm, saturated world of the first act is not the desaturated, cold world of the third—unless the film argues for stasis. Study how Parasite, Moonlight, and The Wizard of Oz all shift their palette at the exact moment the story shifts. Color is not a constant backdrop—it is a variable that tracks emotional and narrative temperature.",
   },
   {
     title: 'The Planted Color',
-    body: 'The most sophisticated color work in film is planted so early and so quietly that the audience does not register it as significant -- and then, later, it arrives with enormous force. The red coat in Schindler\'s List, the red in The Sixth Sense, the specific green of Pan\'s Labyrinth\'s fairy world. For a screenwriter, this means thinking in images: what object in act one will return in act three carrying new weight?',
+    body: 'The most sophisticated color work in film is planted so early and so quietly that the audience does not register it as significant—and then, later, it arrives with enormous force. The red coat in Schindler\'s List, the red in The Sixth Sense, the specific green of Pan\'s Labyrinth\'s fairy world. For a screenwriter, this means thinking in images: what object in act one will return in act three carrying new weight?',
   },
   {
     title: 'Color Contradiction',
-    body: 'When a story wants to signal that something is wrong with a surface -- that the beautiful is dangerous, the warm is actually cold, the promising actually threatening -- one of the most effective tools is color contradiction. A warm, welcoming color palette over a scene of violence or deception. A cold, sterile palette during a moment of genuine connection. The dissonance creates unease the dialogue cannot produce.',
+    body: 'When a story wants to signal that something is wrong with a surface—that the beautiful is dangerous, the warm is actually cold, the promising actually threatening—one of the most effective tools is color contradiction. A warm, welcoming color palette over a scene of violence or deception. A cold, sterile palette during a moment of genuine connection. The dissonance creates unease the dialogue cannot produce.',
   },
   {
     title: 'Writing for Color Without Directing',
@@ -274,13 +274,13 @@ export default function ColorTheoryLesson() {
               The fundamental rule of color in storytelling
             </h2>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-dark)', marginBottom: '14px' }}>
-              Color only works when it is earned. A single red coat in a black-and-white film carries the weight of a life. A film drenched in red carries nothing. The power of color in storytelling is almost entirely a function of contrast and specificity -- where the color appears, how often, and what surrounds it.
+              Color only works when it is earned. A single red coat in a black-and-white film carries the weight of a life. A film drenched in red carries nothing. The power of color in storytelling is almost entirely a function of contrast and specificity—where the color appears, how often, and what surrounds it.
             </p>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-dark)', marginBottom: '14px' }}>
-              Color psychology in film is not a system of fixed meanings -- "red always means danger" is useful as a starting point and wrong as a rule. The same color communicates differently depending on its saturation, its context, its contrast with surrounding colors, and the cultural tradition the film is working in. What color theory gives you is a vocabulary, not a code.
+              Color psychology in film is not a system of fixed meanings—"red always means danger" is useful as a starting point and wrong as a rule. The same color communicates differently depending on its saturation, its context, its contrast with surrounding colors, and the cultural tradition the film is working in. What color theory gives you is a vocabulary, not a code.
             </p>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-dark)', margin: '0' }}>
-              Study the films below not to memorize what colors "mean" but to understand how filmmakers deploy color as a deliberate system -- planted in act one, developed through the middle, resolved or violated at the end.
+              Study the films below not to memorize what colors "mean" but to understand how filmmakers deploy color as a deliberate system—planted in act one, developed through the middle, resolved or violated at the end.
             </p>
           </div>
         </section>

@@ -43,7 +43,7 @@ export default function Lesson() {
             Let it sit
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The single most important thing you can do before revising is wait. The longer the better. A week minimum for a short piece, six months minimum for a novel. The reason is that revision requires a different relationship to the material than writing -- you need to be able to read what is actually on the page, not what you intended to put there. When the work is fresh, you cannot see what is missing because you supply the missing information from memory. Distance creates the necessary estrangement.
+            The single most important thing you can do before revising is wait. The longer the better. A week minimum for a short piece, six months minimum for a novel. The reason is that revision requires a different relationship to the material than writing—you need to be able to read what is actually on the page, not what you intended to put there. When the work is fresh, you cannot see what is missing because you supply the missing information from memory. Distance creates the necessary estrangement.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             The diagnostic questions
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Before revising line by line, read the whole piece and ask: What is this actually about? Who is the most interesting character? What is the clearest moment -- and why does it work? What is the most confusing moment -- and why does it not? Where did you stop caring? These questions locate the structural problems before you fix the sentence-level problems. There is no point polishing prose in a scene that should be cut.
+            Before revising line by line, read the whole piece and ask: What is this actually about? Who is the most interesting character? What is the clearest moment—and why does it work? What is the most confusing moment—and why does it not? Where did you stop caring? These questions locate the structural problems before you fix the sentence-level problems. There is no point polishing prose in a scene that should be cut.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Reading aloud
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Read your work aloud before you consider it finished. The ear catches what the eye misses. The sentence that looked fine on the page reads as awkward when spoken. The dialogue that seemed natural looks stilted when said aloud. The rhythm that seemed right turns out to have a hitch in the third beat. Read slowly. If you stumble over a phrase, rewrite it. If you find yourself speeding through a passage, the prose may be too easy -- may be saying less than you think it is.
+            Read your work aloud before you consider it finished. The ear catches what the eye misses. The sentence that looked fine on the page reads as awkward when spoken. The dialogue that seemed natural looks stilted when said aloud. The rhythm that seemed right turns out to have a hitch in the third beat. Read slowly. If you stumble over a phrase, rewrite it. If you find yourself speeding through a passage, the prose may be too easy—may be saying less than you think it is.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Cut the best sentence
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The last pass of revision should include a question about every sentence you are especially proud of: does this need to be here? The most beloved sentences are often the most dangerous -- they call attention to themselves, they slow down the scene, they are evidence of the writer's presence in the prose. Chekhov cut the first and last paragraphs of everything he wrote, believing the writer took the longest to get started and the longest to know they were done. Find your equivalent of the first and last paragraph.
+            The last pass of revision should include a question about every sentence you are especially proud of: does this need to be here? The most beloved sentences are often the most dangerous—they call attention to themselves, they slow down the scene, they are evidence of the writer's presence in the prose. Chekhov cut the first and last paragraphs of everything he wrote, believing the writer took the longest to get started and the longest to know they were done. Find your equivalent of the first and last paragraph.
           </p>
         </div>
 

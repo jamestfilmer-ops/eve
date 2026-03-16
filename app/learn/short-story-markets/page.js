@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Where to Publish Short Stories -- Literary Magazines & Markets | Eve',
+  title: 'Where to Publish Short Stories—Literary Magazines & Markets | Eve',
   description: 'The top literary magazines accepting short fiction, from the Paris Review to Tin House. Submission guidelines, pay rates, and what each publication actually wants.',
 }
 
 export default function LessonShortStoryMarkets() {
   const tiers = [
     {
-      label: 'Top tier -- career-making',
+      label: 'Top tier—career-making',
       color: 'var(--green)',
       bg: 'var(--green-pale)',
       border: 'var(--green-border)',
@@ -21,7 +21,7 @@ export default function LessonShortStoryMarkets() {
       ],
     },
     {
-      label: 'Strong -- respected and widely read',
+      label: 'Strong—respected and widely read',
       color: '#1D4ED8',
       bg: '#EFF6FF',
       border: '#BFDBFE',
@@ -47,21 +47,21 @@ export default function LessonShortStoryMarkets() {
       ],
     },
     {
-      label: 'Online -- fast responses, wide reach',
+      label: 'Online—fast responses, wide reach',
       color: '#065F46',
       bg: '#ECFDF5',
       border: '#A7F3D0',
       markets: [
         { name: 'Electric Literature', url: 'https://electricliterature.com/submit-to-recommended-reading/', pays: 'Pays $300', length: 'Under 7,000 words', note: 'Very widely read online literary publication. A single story in Electric Lit reaches more readers than many print journals. Fast turnaround.' },
         { name: 'Longreads', url: 'https://longreads.com/submissions/', pays: 'Pays', length: 'Flexible', note: 'Strong focus on narrative nonfiction but also publishes fiction. Very widely read. Useful for reaching readers outside the traditional literary fiction audience.' },
-        { name: 'CRAFT Literary', url: 'https://www.craftliterary.com/submissions/', pays: 'Pays', length: 'Up to 5,000 words', note: 'Focused on craft excellence. Publishes the story alongside a craft essay about what makes it work -- which means acceptance comes with pedagogical attention paid to your writing.' },
+        { name: 'CRAFT Literary', url: 'https://www.craftliterary.com/submissions/', pays: 'Pays', length: 'Up to 5,000 words', note: 'Focused on craft excellence. Publishes the story alongside a craft essay about what makes it work—which means acceptance comes with pedagogical attention paid to your writing.' },
         { name: 'Narrative Magazine', url: 'https://www.narrativemagazine.com/submit', pays: 'Pays up to $4,000', length: 'Flexible', note: 'One of the highest-paying online literary markets. Runs frequent contests. Submission fee required but prize money is significant. Tends toward accessible literary fiction.' },
       ],
     },
   ]
 
   const tips = [
-    'Read the magazine before submitting. Not the submission guidelines -- the actual stories. If you cannot describe what the magazine values in a sentence, you are not ready to submit to it.',
+    'Read the magazine before submitting. Not the submission guidelines—the actual stories. If you cannot describe what the magazine values in a sentence, you are not ready to submit to it.',
     'Simultaneous submissions are now accepted by most markets. Send the same story to multiple places, withdraw immediately if accepted elsewhere, and notify politely.',
     'Response times range from two weeks to two years. Set a reminder. If a story has been out for six months with no response, it is acceptable to send a polite query.',
     'Rejections are not commentary on the story. Most form rejections tell you nothing. A personalized rejection with a note is worth treating as information.',
@@ -107,7 +107,7 @@ export default function LessonShortStoryMarkets() {
           Where to publish short stories
         </h1>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          Getting a short story published in a respected literary magazine is how most fiction writers build a career before -- or instead of -- publishing a novel. The markets below are organized by tier, with direct submission links and notes on what each publication actually values.
+          Getting a short story published in a respected literary magazine is how most fiction writers build a career before—or instead of—publishing a novel. The markets below are organized by tier, with direct submission links and notes on what each publication actually values.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />

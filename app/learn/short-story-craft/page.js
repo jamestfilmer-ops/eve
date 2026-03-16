@@ -1,18 +1,18 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Writing Short Stories -- Craft, Form, and Getting Published | Eve',
+  title: 'Writing Short Stories—Craft, Form, and Getting Published | Eve',
   description: 'How short stories work. The compressed form, the single effect, the ending that recontextualizes everything. A guide to writing and publishing short fiction.',
 }
 
 export default function LessonShortStoryCraft() {
   const masters = [
     { name: 'Anton Chekhov', note: 'The standard for compression and emotional truth without sentimentality' },
-    { name: 'Alice Munro', note: 'Nobel laureate -- entire lives compressed into 30 pages without losing complexity' },
-    { name: 'Raymond Carver', note: 'Minimalism as method -- what is left out is as important as what is included' },
-    { name: "Flannery O'Connor", note: 'Violence as revelation -- the moment of grace arrives through shock' },
-    { name: 'Jorge Luis Borges', note: 'Idea as story -- concept and narrative as inseparable elements' },
-    { name: 'Lorrie Moore', note: "Voice as structure -- the narrator's way of speaking IS the story's meaning" },
+    { name: 'Alice Munro', note: 'Nobel laureate—entire lives compressed into 30 pages without losing complexity' },
+    { name: 'Raymond Carver', note: 'Minimalism as method—what is left out is as important as what is included' },
+    { name: "Flannery O'Connor", note: 'Violence as revelation—the moment of grace arrives through shock' },
+    { name: 'Jorge Luis Borges', note: 'Idea as story—concept and narrative as inseparable elements' },
+    { name: 'Lorrie Moore', note: "Voice as structure—the narrator's way of speaking IS the story's meaning" },
   ]
 
   return (
@@ -64,16 +64,16 @@ export default function LessonShortStoryCraft() {
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>What the form requires</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          A short story enters at the last possible moment. Unlike a novel, which can afford to establish a world before disturbing it, a story begins in the disturbance itself -- or just before it. Chekhov enters at the moment something is about to change. Carver enters in the middle of a situation already under pressure.
+          A short story enters at the last possible moment. Unlike a novel, which can afford to establish a world before disturbing it, a story begins in the disturbance itself—or just before it. Chekhov enters at the moment something is about to change. Carver enters in the middle of a situation already under pressure.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The story ends shortly after the change -- or the refusal of change. The ending does not need to resolve the situation. It needs to shift the meaning of everything that came before it. The best endings recontextualize the opening. When you reach the last line, you understand the first line differently.
+          The story ends shortly after the change—or the refusal of change. The ending does not need to resolve the situation. It needs to shift the meaning of everything that came before it. The best endings recontextualize the opening. When you reach the last line, you understand the first line differently.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          Character in short fiction works differently than in novels. You do not have space to build a full biography. What you have is space for a single precise detail that makes a person real. Not a description -- a revelation. One gesture, one choice, one thing someone says that could only be said by this person.
+          Character in short fiction works differently than in novels. You do not have space to build a full biography. What you have is space for a single precise detail that makes a person real. Not a description—a revelation. One gesture, one choice, one thing someone says that could only be said by this person.
         </p>
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>The compression test.</strong> After drafting, read each sentence and ask: does this earn its place? Not is it good writing -- does it serve the single effect the story is building toward? Short fiction cannot carry passengers.
+          <strong>The compression test.</strong> After drafting, read each sentence and ask: does this earn its place? Not is it good writing—does it serve the single effect the story is building toward? Short fiction cannot carry passengers.
         </div>
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The iceberg principle</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -87,7 +87,7 @@ export default function LessonShortStoryCraft() {
         </div>
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Voice</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          More than any other form, the short story depends on voice. In a novel, the reader has hundreds of pages to warm to a narrator. In a story, you have a paragraph -- sometimes a sentence. The voice must be immediate, specific, and distinctly itself from the first line.
+          More than any other form, the short story depends on voice. In a novel, the reader has hundreds of pages to warm to a narrator. In a story, you have a paragraph—sometimes a sentence. The voice must be immediate, specific, and distinctly itself from the first line.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
           Read your first line aloud. Does it sound like anyone else's first line? If it could have been written by a different writer in a different story, it is not specific enough yet.

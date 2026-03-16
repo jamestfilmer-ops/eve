@@ -43,7 +43,7 @@ export default function Lesson() {
             The cardinal rule
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Leonard's 10 rules all point to a single principle: the prose should not call attention to itself. Not because style is unimportant -- Leonard's style is extremely distinctive -- but because the moment a reader notices the prose as prose, they are no longer inside the story. The writer's presence in the sentence pulls the reader out. Leonard's goal was always to remove the evidence of the writer from the page.
+            Leonard's 10 rules all point to a single principle: the prose should not call attention to itself. Not because style is unimportant—Leonard's style is extremely distinctive—but because the moment a reader notices the prose as prose, they are no longer inside the story. The writer's presence in the sentence pulls the reader out. Leonard's goal was always to remove the evidence of the writer from the page.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             On adverbs and said
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Never use an adverb to modify the verb said. He said quietly, she said enthusiastically -- these are signs that the dialogue itself is not doing what you want it to do. Said is nearly invisible. The reader's eye passes through it. Any other dialogue attribution -- whispered, exclaimed, declared -- makes the reader aware of the machinery. Use said. Cut the adverb. Fix the dialogue if it needs fixing.
+            Never use an adverb to modify the verb said. He said quietly, she said enthusiastically—these are signs that the dialogue itself is not doing what you want it to do. Said is nearly invisible. The reader's eye passes through it. Any other dialogue attribution—whispered, exclaimed, declared—makes the reader aware of the machinery. Use said. Cut the adverb. Fix the dialogue if it needs fixing.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             On weather and exclamation
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Never open a book with weather, Leonard said, unless the weather is doing something unusual. This rule is actually about throat-clearing -- starting a scene before the scene has started, filling the air with neutral material while you work up to the actual subject. The same goes for exclamation points: you are allowed one per 100,000 words of prose. Exclamation points signal that the writer is doing the work the sentence should be doing itself.
+            Never open a book with weather, Leonard said, unless the weather is doing something unusual. This rule is actually about throat-clearing—starting a scene before the scene has started, filling the air with neutral material while you work up to the actual subject. The same goes for exclamation points: you are allowed one per 100,000 words of prose. Exclamation points signal that the writer is doing the work the sentence should be doing itself.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             On regional dialect
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Never use regional dialect phonetically. Writing wuz for was, gonna for going to, capturing speech in spelling -- this calls attention to itself and makes reading laborious. Leonard's dialogue carries voice through word choice and rhythm, not spelling. The reader should hear the character's regional identity through the words they choose and the way they arrange them, not through the way those words are misspelled.
+            Never use regional dialect phonetically. Writing wuz for was, gonna for going to, capturing speech in spelling—this calls attention to itself and makes reading laborious. Leonard's dialogue carries voice through word choice and rhythm, not spelling. The reader should hear the character's regional identity through the words they choose and the way they arrange them, not through the way those words are misspelled.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Leave out the boring parts
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            If it sounds like writing, I rewrite it. This is Leonard's summary statement. The test is simple: does this passage read like writing rather than experience? If it does, something is wrong. The part you are most proud of -- the beautiful descriptive passage, the elaborate simile, the sentence you reread and admire -- is often the part that needs to go. Good prose is invisible. When you can see it, that is a problem.
+            If it sounds like writing, I rewrite it. This is Leonard's summary statement. The test is simple: does this passage read like writing rather than experience? If it does, something is wrong. The part you are most proud of—the beautiful descriptive passage, the elaborate simile, the sentence you reread and admire—is often the part that needs to go. Good prose is invisible. When you can see it, that is a problem.
           </p>
         </div>
 

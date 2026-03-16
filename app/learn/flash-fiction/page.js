@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Flash Fiction -- Writing Stories Under 1000 Words | Eve',
+  title: 'Flash Fiction—Writing Stories Under 1000 Words | Eve',
   description: 'How flash fiction works. The single moment, the compression, the ending that carries everything. Writing and publishing stories under 1000 words.',
 }
 
@@ -47,31 +47,31 @@ export default function LessonFlashFiction() {
           Flash fiction
         </h1>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '24px' }}>
-          Flash fiction -- stories under 1,000 words, sometimes under 500 -- is not a lesser form than the full short story. It is a different discipline, one that isolates and intensifies the craft problems that longer fiction allows writers to dilute across more pages.
+          Flash fiction—stories under 1,000 words, sometimes under 500—is not a lesser form than the full short story. It is a different discipline, one that isolates and intensifies the craft problems that longer fiction allows writers to dilute across more pages.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          If a short story is a compression of a novel, flash fiction is a compression of a short story. The same principles apply -- one character, one problem, one moment of change -- but with no room for setup, backstory, or development that is not also doing something else simultaneously.
+          If a short story is a compression of a novel, flash fiction is a compression of a short story. The same principles apply—one character, one problem, one moment of change—but with no room for setup, backstory, or development that is not also doing something else simultaneously.
         </p>
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
 
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>What flash demands</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          In flash fiction, every sentence must carry at least two things simultaneously -- character and atmosphere, action and subtext, present and implication of past. A sentence that carries only one thing is a sentence that cannot afford to exist.
+          In flash fiction, every sentence must carry at least two things simultaneously—character and atmosphere, action and subtext, present and implication of past. A sentence that carries only one thing is a sentence that cannot afford to exist.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
           The opening line does the work that a short story's first page does: establishes voice, situation, stakes, and world. If the opening line of your flash piece only introduces the character or only sets the scene, it has not yet done its job.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          The ending carries proportionally more weight in flash than in any other form. In a 700-word story, the last 50 words represent more than 7% of the total. Those words recontextualize everything. The reader leaves the story from the ending and the ending is what they carry. Write the ending before the beginning if you need to -- knowing where you are going is the only way to make every sentence point toward it.
+          The ending carries proportionally more weight in flash than in any other form. In a 700-word story, the last 50 words represent more than 7% of the total. Those words recontextualize everything. The reader leaves the story from the ending and the ending is what they carry. Write the ending before the beginning if you need to—knowing where you are going is the only way to make every sentence point toward it.
         </p>
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
 
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The iceberg principle at full compression</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Hemingway's iceberg theory -- that the dignity of movement comes from what is left out -- is not optional in flash fiction. It is the only way flash works. The story you show is the surface. The story the reader infers is the iceberg.
+          Hemingway's iceberg theory—that the dignity of movement comes from what is left out—is not optional in flash fiction. It is the only way flash works. The story you show is the surface. The story the reader infers is the iceberg.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The writer of flash fiction has to know the full story -- the history, the context, the before and after -- and then show almost none of it. The specific detail that is included creates the impression of the whole. One exact detail is worth ten paragraphs of explanation. "She left her wedding ring on the kitchen counter" tells you a marriage, a decision, and a morning without explaining any of them.
+          The writer of flash fiction has to know the full story—the history, the context, the before and after—and then show almost none of it. The specific detail that is included creates the impression of the whole. One exact detail is worth ten paragraphs of explanation. "She left her wedding ring on the kitchen counter" tells you a marriage, a decision, and a morning without explaining any of them.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
           The question to ask about every sentence in flash: what does the reader infer from this that I have not stated? If the sentence only conveys what it explicitly says, cut it or rewrite it so it implies something beyond its surface.
@@ -80,19 +80,19 @@ export default function LessonFlashFiction() {
 
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Structure in 700 words</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Flash fiction still requires structure -- but structure in flash is not acts and midpoints. It is the movement from one state to another. Something must be different at the end of the story than at the beginning. The change can be small. It can be entirely internal. It can be a change in the reader's understanding rather than in the character. But something must move.
+          Flash fiction still requires structure—but structure in flash is not acts and midpoints. It is the movement from one state to another. Something must be different at the end of the story than at the beginning. The change can be small. It can be entirely internal. It can be a change in the reader's understanding rather than in the character. But something must move.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          A useful flash structure: enter the story at the moment of maximum pressure. Do not set up context -- the context arrives through the action. End at the moment of change, not after it. The reader does not need the aftermath; the aftermath is theirs to construct.
+          A useful flash structure: enter the story at the moment of maximum pressure. Do not set up context—the context arrives through the action. End at the moment of change, not after it. The reader does not need the aftermath; the aftermath is theirs to construct.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          Micro-fiction -- stories under 100 words -- extends this further. At that length, the story is almost entirely implication. One scene, one image, one sentence that contains a world. These are closer to prose poems than to conventional stories, and the line between the two is productively blurry.
+          Micro-fiction—stories under 100 words—extends this further. At that length, the story is almost entirely implication. One scene, one image, one sentence that contains a world. These are closer to prose poems than to conventional stories, and the line between the two is productively blurry.
         </p>
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
 
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>Flash markets worth knowing</h2>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          Flash fiction has developed a robust publication ecosystem. Acceptance rates at dedicated flash markets are meaningfully higher than literary fiction journals, and response times are faster -- weeks rather than months. They are a genuine entry point.
+          Flash fiction has developed a robust publication ecosystem. Acceptance rates at dedicated flash markets are meaningfully higher than literary fiction journals, and response times are faster—weeks rather than months. They are a genuine entry point.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
           {[

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { supabase } from '../../../lib/supabase'
 import { useToast } from '../../components/Toast'
 
-// SVG icons  -- no emoji
+// SVG icons —no emoji
 const FrameworkIcon = ({ id, size = 22 }) => {
   const style = { width: size, height: size, flexShrink: 0 }
   if (id === 'save-the-cat') return (
@@ -57,25 +57,25 @@ const frameworks = [
     name: 'Save the Cat',
     author: 'Blake Snyder',
     acts: '3 Acts · 15 Beats',
-    description: 'The most widely used Hollywood structure. Blake Snyder mapped 15 specific "beats" to exact page numbers in a screenplay. It\'s prescriptive by design  -- and it works.',
+    description: 'The most widely used Hollywood structure. Blake Snyder mapped 15 specific "beats" to exact page numbers in a screenplay. It\'s prescriptive by design —and it works.',
     beats: ['Opening Image', 'Theme Stated', 'Set-Up', 'Catalyst', 'Debate', 'Break into Two', 'B Story', 'Fun & Games', 'Midpoint', 'Bad Guys Close In', 'All Is Lost', 'Dark Night of the Soul', 'Break into Three', 'Finale', 'Final Image'],
-    tip: 'The "Save the Cat" moment  -- an early scene where your hero does something likeable  -- is what hooks your audience before the story kicks in.',
+    tip: 'The "Save the Cat" moment —an early scene where your hero does something likeable —is what hooks your audience before the story kicks in.',
   },
   {
     id: 'heros-journey',
     name: "Hero's Journey",
     author: 'Joseph Campbell',
     acts: '3 Acts · 12 Stages',
-    description: 'The mythic structure Campbell identified across thousands of years of storytelling  -- from ancient myths to Star Wars. Not a formula, but a map of human transformation.',
+    description: 'The mythic structure Campbell identified across thousands of years of storytelling —from ancient myths to Star Wars. Not a formula, but a map of human transformation.',
     beats: ['Ordinary World', 'Call to Adventure', 'Refusal of the Call', 'Meeting the Mentor', 'Crossing the Threshold', 'Tests, Allies, Enemies', 'Approach to the Inmost Cave', 'The Ordeal', 'Reward', 'The Road Back', 'Resurrection', 'Return with the Elixir'],
-    tip: 'The "Ordinary World" is not boring setup  -- it\'s the baseline you\'ll destroy. Make it specific and lovable so the loss means something.',
+    tip: 'The "Ordinary World" is not boring setup —it\'s the baseline you\'ll destroy. Make it specific and lovable so the loss means something.',
   },
   {
     id: 'story-circle',
     name: 'Story Circle',
     author: 'Dan Harmon',
     acts: '1 Circle · 8 Steps',
-    description: 'Harmon distilled Campbell into 8 steps that loop  -- character needs something, goes to get it, pays a price, comes back changed. Used on Community, Rick & Morty, and countless TV pilots.',
+    description: 'Harmon distilled Campbell into 8 steps that loop —character needs something, goes to get it, pays a price, comes back changed. Used on Community, Rick & Morty, and countless TV pilots.',
     beats: ['You (character in zone of comfort)', 'Need (they want something)', 'Go (into unfamiliar situation)', 'Search (adapt, struggle, work)', 'Find (get what they wanted)', 'Take (pay a price for it)', 'Return (back to familiar)', 'Change (they are different)'],
     tip: 'Every episode of a great TV show is its own complete Story Circle. So is every scene. The smaller you apply it, the tighter your writing gets.',
   },
@@ -84,9 +84,9 @@ const frameworks = [
     name: 'Freeform',
     author: 'Your instincts',
     acts: 'No template',
-    description: 'No imposed structure. You capture scenes, characters, and themes as they come. Eve organizes and tracks  -- the shape of the story is entirely yours.',
+    description: 'No imposed structure. You capture scenes, characters, and themes as they come. Eve organizes and tracks —the shape of the story is entirely yours.',
     beats: [],
-    tip: 'Freeform doesn\'t mean unstructured  -- it means the structure comes from the story, not the other way around. Track your scenes and the pattern will emerge.',
+    tip: 'Freeform doesn\'t mean unstructured —it means the structure comes from the story, not the other way around. Track your scenes and the pattern will emerge.',
   },
   {
     id: 'sequence-approach',
@@ -95,7 +95,7 @@ const frameworks = [
     acts: '3 Acts · 8 Sequences',
     description: 'Divide your screenplay into eight sequences of roughly 12–15 pages each. Each sequence is a mini-film with its own tension and resolution. Solves the second act problem.',
     beats: ['Sequence 1 (pp. 1–15)', 'Sequence 2 (pp. 15–30)', 'Sequence 3 (pp. 30–45)', 'Sequence 4 (pp. 45–60)', 'Sequence 5 (pp. 60–75)', 'Sequence 6 (pp. 75–90)', 'Sequence 7 (pp. 90–105)', 'Sequence 8 (pp. 105–120)'],
-    tip: 'Give each sequence its own question  -- a specific dramatic problem that opens and closes the sequence. The feature\'s central question stays open; the sequence questions are the stations along the way.',
+    tip: 'Give each sequence its own question —a specific dramatic problem that opens and closes the sequence. The feature\'s central question stays open; the sequence questions are the stations along the way.',
   },
   {
     id: 'kishotenketsu',
@@ -103,16 +103,16 @@ const frameworks = [
     author: 'Classical East Asian',
     acts: '4 Movements · No conflict',
     description: 'A four-movement structure with no antagonist. Story organized around surprise and revelation: introduce two seemingly unrelated threads, then bring them into unexpected contact.',
-    beats: ['Ki  -- Introduction', 'Shō  -- Development', 'Ten  -- The Twist', 'Ketsu  -- Reconciliation'],
-    tip: 'The Ten (twist) is not a deception revealed  -- it is a connection discovered. The audience sees a relationship between things they did not know were related. Design the Ten first, then work backward.',
+    beats: ['Ki —Introduction', 'Shō —Development', 'Ten —The Twist', 'Ketsu —Reconciliation'],
+    tip: 'The Ten (twist) is not a deception revealed —it is a connection discovered. The audience sees a relationship between things they did not know were related. Design the Ten first, then work backward.',
   },
   {
     id: 'fichtean',
     name: 'Fichtean Curve',
     author: 'Janet Burroway',
     acts: 'Crisis-first · Escalating',
-    description: 'Open in crisis. Skip the setup. Weave backstory in through pressure and revelation. Each crisis should be worse than the last  -- they converge in a climax, then end swiftly.',
-    beats: ['Opening Crisis', 'Crisis 1 (escalating)', 'Crisis 2 (escalating)', 'Crisis 3 (optional)', 'Climax  -- all crises converge', 'Brief Resolution'],
+    description: 'Open in crisis. Skip the setup. Weave backstory in through pressure and revelation. Each crisis should be worse than the last —they converge in a climax, then end swiftly.',
+    beats: ['Opening Crisis', 'Crisis 1 (escalating)', 'Crisis 2 (escalating)', 'Crisis 3 (optional)', 'Climax —all crises converge', 'Brief Resolution'],
     tip: 'Backstory is a reward, not setup. The audience earns the right to understand your character\'s history by first caring what happens to them. Plant the crisis. Then give them the why.',
   },
   {
@@ -122,14 +122,14 @@ const frameworks = [
     acts: '7 Points · Build backward',
     description: "Build from the ending backward. Your Hook should be the mirror opposite of your Resolution. Plot Turns 1 and 2 drive the character in and out of the unfamiliar world. Pinch Points show the threat.",
     beats: ['Hook', 'Plot Turn 1', 'Pinch Point 1', 'Midpoint (reaction→action)', 'Pinch Point 2', 'Plot Turn 2', 'Resolution'],
-    tip: "Write your Resolution first  -- who is your protagonist at the end? Then write the Hook as its exact opposite. Everything else fills the distance between them.",
+    tip: "Write your Resolution first —who is your protagonist at the end? Then write the Hook as its exact opposite. Everything else fills the distance between them.",
   },
   {
     id: 'freytags-pyramid',
     name: "Freytag's Pyramid",
     author: 'Gustav Freytag',
     acts: '5 Stages · Classic arc',
-    description: "The 1863 dramatic arc underpinning every story structure since. Tension rises through exposition and rising action to the climax  -- the pivot point  -- then falls through consequence to resolution.",
+    description: "The 1863 dramatic arc underpinning every story structure since. Tension rises through exposition and rising action to the climax —the pivot point —then falls through consequence to resolution.",
     beats: ['Exposition', 'Rising Action', 'Climax', 'Falling Action', 'Denouement'],
     tip: "Use it as a diagnostic: draw the pyramid for your story and mark your major beats. If the climax is not at the peak, you\'ve found your structural problem.",
   },
@@ -149,7 +149,7 @@ const frameworks = [
     acts: '6 Stages · Outer + inner journey',
     description: "Maps plot (outer journey) against character transformation (inner journey) with precise % markers. Every character hides behind an Identity and must reach their Essence. The story is that movement.",
     beats: ['Stage 1: Setup (0–10%)', 'Stage 2: New Situation (10–25%)', 'Stage 3: Progress (25–50%)', 'Stage 4: Complications (50–75%)', 'Stage 5: Final Push (75–90%)', 'Stage 6: Aftermath (90–100%)'],
-    tip: "Map both journeys in parallel columns. The external events should be forcing the internal transformation  -- not running alongside it independently.",
+    tip: "Map both journeys in parallel columns. The external events should be forcing the internal transformation —not running alongside it independently.",
   },
 ]
 
@@ -216,11 +216,11 @@ export default function NewProject() {
         <p style={{ color: 'var(--text-mid)', fontSize: '15px' }}>
           {step === 1
             ? 'Read the descriptions. Pick the one that feels right. You can always change it later.'
-            : 'Just the basics  -- you can fill everything else in as you go.'}
+            : 'Just the basics —you can fill everything else in as you go.'}
         </p>
       </div>
 
-      {/* Step 1  -- Framework picker */}
+      {/* Step 1 —Framework picker */}
       {step === 1 && (
         <>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
@@ -298,7 +298,7 @@ export default function NewProject() {
         </>
       )}
 
-      {/* Step 2  -- Project details */}
+      {/* Step 2 —Project details */}
       {step === 2 && (
         <div className="fade-up" style={{ maxWidth: '560px' }}>
           <div className="card" style={{ padding: '28px', marginBottom: '24px' }}>
@@ -350,7 +350,7 @@ export default function NewProject() {
 
               <div>
                 <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '4px' }}>
-                  Logline <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(optional  -- one sentence)</span>
+                  Logline <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(optional —one sentence)</span>
                 </label>
                 <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '6px' }}>
                   A logline answers: who wants what, and what stands in the way?

@@ -125,7 +125,7 @@ export default function Nav() {
             <NavLink href="/dashboard" active={isActive('/dashboard')}>Projects</NavLink>
             <NavLink href="/ideas"     active={isActive('/ideas')}>Ideas</NavLink>
 
-            {/* Learn dropdown  -- hover with bridge fix */}
+            {/* Learn dropdown —hover with bridge fix */}
             <div
               ref={learnRef}
               style={{ position: 'relative' }}
@@ -153,7 +153,7 @@ export default function Nav() {
                 </svg>
               </button>
 
-              {/* Invisible hover bridge  -- fills the gap so mouse can reach dropdown */}
+              {/* Invisible hover bridge —fills the gap so mouse can reach dropdown */}
               {learnOpen && (
                 <div
                   onMouseEnter={cancelClose}
@@ -315,7 +315,7 @@ export default function Nav() {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
-                  <button className="btn-primary" style={{ width: '100%', padding: '13px 20px', fontSize: '15px' }}>Get started  -- free</button>
+                  <button className="btn-primary" style={{ width: '100%', padding: '13px 20px', fontSize: '15px' }}>Get started —free</button>
                 </Link>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
                   <button className="btn-ghost" style={{ width: '100%', padding: '13px 20px', fontSize: '15px' }}>Sign in</button>

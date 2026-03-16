@@ -3,32 +3,32 @@ import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Grading as Storytelling | Eve',
-  description: 'What the digital intermediate suite does to meaning. Teal-orange, bleach-bypass, hyper-saturation, silver retention -- how post-production color decisions rewrite a film.',
+  description: 'What the digital intermediate suite does to meaning. Teal-orange, bleach-bypass, hyper-saturation, silver retention—how post-production color decisions rewrite a film.',
 }
 
 const gradingStyles = [
   {
     name: 'Teal-Orange (The Blockbuster Look)',
-    period: '2008 -- 2022, now fading',
+    period: '2008—2022, now fading',
     description: 'Push shadows toward teal, push skin tones toward orange. The complementary contrast maximizes the pop of human faces against backgrounds.',
-    howItWorks: "The teal-orange grade exploits the complementary color relationship between orange (warm skin tones) and teal (cool shadows). By pushing these in opposite directions in post, the colorist creates maximum contrast between the human figure and the world around them -- faces literally glow against environments. Every Marvel film, most major action releases, and a significant proportion of studio drama from 2008-2020 use this look to some degree. The look became so ubiquitous that audiences began registering it as 'cinematic' -- which is exactly when it stopped being a stylistic choice and became default wallpaper. The best recent films actively push back against it.",
+    howItWorks: "The teal-orange grade exploits the complementary color relationship between orange (warm skin tones) and teal (cool shadows). By pushing these in opposite directions in post, the colorist creates maximum contrast between the human figure and the world around them—faces literally glow against environments. Every Marvel film, most major action releases, and a significant proportion of studio drama from 2008-2020 use this look to some degree. The look became so ubiquitous that audiences began registering it as 'cinematic'—which is exactly when it stopped being a stylistic choice and became default wallpaper. The best recent films actively push back against it.",
     arguments: [
       'Makes faces more vivid and commercially appealing',
       'Creates consistent visual grammar across a franchise or studio slate',
       'Exploits the hardwired human attention to faces against contrasting backgrounds',
     ],
-    counter: "The teal-orange look makes every film feel like every other film. Roger Deakins and Emmanuel Lubezki both actively resist it -- their films have natural, specific palettes that belong to the specific story. The problem with the blockbuster look is not that it is wrong but that it is generic: it optimizes for face-popping at the cost of a specific visual argument.",
+    counter: "The teal-orange look makes every film feel like every other film. Roger Deakins and Emmanuel Lubezki both actively resist it—their films have natural, specific palettes that belong to the specific story. The problem with the blockbuster look is not that it is wrong but that it is generic: it optimizes for face-popping at the cost of a specific visual argument.",
     examples: [
-      { film: 'Most MCU films (2008-2022)', note: 'The house style. Each film is individually graded but the teal-orange signature is consistent across the franchise -- a visual brand rather than a story-specific choice.' },
-      { film: 'The Dark Knight (2008)', note: "Wally Pfister uses a desaturated, naturalistic palette -- explicitly resisting the teal-orange trend for a more grounded look. Nolan's insistence on practical effects extended to refusing the standard digital grade." },
+      { film: 'Most MCU films (2008-2022)', note: 'The house style. Each film is individually graded but the teal-orange signature is consistent across the franchise—a visual brand rather than a story-specific choice.' },
+      { film: 'The Dark Knight (2008)', note: "Wally Pfister uses a desaturated, naturalistic palette—explicitly resisting the teal-orange trend for a more grounded look. Nolan's insistence on practical effects extended to refusing the standard digital grade." },
     ],
-    photo: { id: 'photo-1542204165-65bf26472b9b', credit: 'Roberto Nickson', creditUrl: 'https://unsplash.com/@rpnickson', caption: 'The warm-cool complementary relationship that the teal-orange blockbuster grade exploits -- faces pop against cool environments' },
+    photo: { id: 'photo-1542204165-65bf26472b9b', credit: 'Roberto Nickson', creditUrl: 'https://unsplash.com/@rpnickson', caption: 'The warm-cool complementary relationship that the teal-orange blockbuster grade exploits—faces pop against cool environments' },
   },
   {
     name: 'Bleach Bypass / Silver Retention',
     period: 'Developed in the 1990s, still used',
     description: 'A process (originally photochemical, now digital) that retains the silver in the film, creating desaturated, high-contrast images with crushed blacks and bleached highlights.',
-    howItWorks: "Bleach bypass was originally a darkroom technique where the bleach step of film processing is skipped, leaving silver deposits in the emulsion alongside the color dyes. The result is a desaturated, gritty, high-contrast image that feels simultaneously overexposed and underexposed. Digitally, it is replicated by desaturating, increasing contrast, crushing blacks, and lifting shadows simultaneously. The look communicates: harshness, war, reality, the opposite of cinematic beauty. It says this is what things actually look like -- stripped of color's glamorizing effect.",
+    howItWorks: "Bleach bypass was originally a darkroom technique where the bleach step of film processing is skipped, leaving silver deposits in the emulsion alongside the color dyes. The result is a desaturated, gritty, high-contrast image that feels simultaneously overexposed and underexposed. Digitally, it is replicated by desaturating, increasing contrast, crushing blacks, and lifting shadows simultaneously. The look communicates: harshness, war, reality, the opposite of cinematic beauty. It says this is what things actually look like—stripped of color's glamorizing effect.",
     arguments: [
       'Creates a specific photographic quality that reads as documentary truth',
       'Removes color saturation that might make violence or suffering visually beautiful',
@@ -36,47 +36,47 @@ const gradingStyles = [
     ],
     counter: "Bleach bypass has become a war film cliche. The moment you desaturate and crunch the contrast, the audience thinks 'war film.' Used for its own sake rather than for a specific argument, it is as much a default as teal-orange.",
     examples: [
-      { film: 'Saving Private Ryan (1998)', note: "Janusz Kaminski used a modified bleach bypass on the Omaha Beach sequence -- the desaturation and harsh contrast strip the combat of its cinematic beauty, making it feel more like newsreel footage." },
+      { film: 'Saving Private Ryan (1998)', note: "Janusz Kaminski used a modified bleach bypass on the Omaha Beach sequence—the desaturation and harsh contrast strip the combat of its cinematic beauty, making it feel more like newsreel footage." },
       { film: 'Se7en (1995)', note: "Darius Khondji's bleach bypass for the rainy, oppressive city. The crushed blacks and bleached skin tones give the film its specific grimy texture." },
-      { film: '1917 (2019)', note: "Roger Deakins uses a naturalistic palette rather than bleach bypass for the WWI film -- a deliberate choice to make the beauty of the landscape visible alongside its horror." },
+      { film: '1917 (2019)', note: "Roger Deakins uses a naturalistic palette rather than bleach bypass for the WWI film—a deliberate choice to make the beauty of the landscape visible alongside its horror." },
     ],
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Bleach bypass: crushed blacks, bleached highlights, stripped saturation -- the look of harsh reality, war, unvarnished truth' },
+    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Bleach bypass: crushed blacks, bleached highlights, stripped saturation—the look of harsh reality, war, unvarnished truth' },
   },
   {
     name: 'Hyper-Saturation',
-    period: 'Associated with specific auteurs -- Wes Anderson, Park Chan-wook, Baz Luhrmann',
+    period: 'Associated with specific auteurs—Wes Anderson, Park Chan-wook, Baz Luhrmann',
     description: 'Pushing saturation beyond naturalistic levels to create a heightened, artificial, emotionally intensified world.',
-    howItWorks: "Hyper-saturation says: this world is more vivid than the real world. The colors are brighter, more primary, more themselves. This is the visual register of fairy tales, childhood memory, intensified desire, and sometimes horror -- because the hyper-saturated world is also a world that has been arranged too carefully, controlled too completely. Wes Anderson's hyper-saturation creates the feeling of a diorama -- a world preserved in glass. Park Chan-wook's lush palette places extreme violence inside extreme beauty, making both more disturbing by contrast. The technique is the opposite of bleach bypass: where bypass strips color to signal reality, hyper-saturation adds color to signal the departure from it.",
+    howItWorks: "Hyper-saturation says: this world is more vivid than the real world. The colors are brighter, more primary, more themselves. This is the visual register of fairy tales, childhood memory, intensified desire, and sometimes horror—because the hyper-saturated world is also a world that has been arranged too carefully, controlled too completely. Wes Anderson's hyper-saturation creates the feeling of a diorama—a world preserved in glass. Park Chan-wook's lush palette places extreme violence inside extreme beauty, making both more disturbing by contrast. The technique is the opposite of bleach bypass: where bypass strips color to signal reality, hyper-saturation adds color to signal the departure from it.",
     arguments: [
       'Creates immediately distinctive visual identity',
       'Establishes emotional register before any dialogue',
       'Places the film in a specific relationship to reality (fairy tale, memory, fantasy)',
     ],
-    counter: "Hyper-saturation can feel like a substitute for content -- if everything is beautiful, nothing is urgent. The filmmakers who use it best (Anderson, Park) have iron control over every other element; the look is one instrument in a fully orchestrated system. Used carelessly, it produces Instagram aesthetics: color as decoration rather than argument.",
+    counter: "Hyper-saturation can feel like a substitute for content—if everything is beautiful, nothing is urgent. The filmmakers who use it best (Anderson, Park) have iron control over every other element; the look is one instrument in a fully orchestrated system. Used carelessly, it produces Instagram aesthetics: color as decoration rather than argument.",
     examples: [
-      { film: 'The Grand Budapest Hotel (2014)', note: "Anderson pushes saturation and uses flat, primary colors to create a storybook world -- the visual intensity matches the film's argument about beauty as a form of resistance against historical catastrophe." },
-      { film: 'Oldboy (2003)', note: "Park Chan-wook's lush palette places graphic violence inside gorgeous compositions. The beauty does not soften the violence -- it makes both elements more disturbing." },
-      { film: 'Amélie (2001)', note: "Bruno Delbonnel and Jeunet removed blues and whites, leaving only the warm spectrum. The result is a Paris that exists in Amélie's imagination rather than reality -- hyper-saturation as the visualization of a specific interior world." },
+      { film: 'The Grand Budapest Hotel (2014)', note: "Anderson pushes saturation and uses flat, primary colors to create a storybook world—the visual intensity matches the film's argument about beauty as a form of resistance against historical catastrophe." },
+      { film: 'Oldboy (2003)', note: "Park Chan-wook's lush palette places graphic violence inside gorgeous compositions. The beauty does not soften the violence—it makes both elements more disturbing." },
+      { film: 'Amélie (2001)', note: "Bruno Delbonnel and Jeunet removed blues and whites, leaving only the warm spectrum. The result is a Paris that exists in Amélie's imagination rather than reality—hyper-saturation as the visualization of a specific interior world." },
     ],
-    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Hyper-saturation pushes color beyond naturalism -- the world becomes more vivid than reality, signaling fairy tale, memory, or heightened desire' },
+    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Hyper-saturation pushes color beyond naturalism—the world becomes more vivid than reality, signaling fairy tale, memory, or heightened desire' },
   },
   {
     name: 'Naturalistic / Available Light Grade',
-    period: 'Always current -- the rejection of all the above',
+    period: 'Always current—the rejection of all the above',
     description: 'Minimal grade, preserving the look of the actual light that existed on set or location.',
-    howItWorks: "The naturalistic grade is not the absence of color decisions -- it is a specific decision to resist the gravitational pull toward the standardized looks above. The colorist works to preserve the specific quality of the actual light: the blue of the overcast English sky, the amber of the afternoon in New Mexico, the green-grey of winter. Each location and each scene has its own light, and the naturalistic grade works to honor that specificity rather than imposing a consistent palette over it. This is Deakins's approach: each of his films has a distinct look because each film's world has a distinct light. No Country for Old Men looks like West Texas. The Revenant looks like the Canadian wilderness in winter. The look is the place.",
+    howItWorks: "The naturalistic grade is not the absence of color decisions—it is a specific decision to resist the gravitational pull toward the standardized looks above. The colorist works to preserve the specific quality of the actual light: the blue of the overcast English sky, the amber of the afternoon in New Mexico, the green-grey of winter. Each location and each scene has its own light, and the naturalistic grade works to honor that specificity rather than imposing a consistent palette over it. This is Deakins's approach: each of his films has a distinct look because each film's world has a distinct light. No Country for Old Men looks like West Texas. The Revenant looks like the Canadian wilderness in winter. The look is the place.",
     arguments: [
-      'Creates visual specificity -- each scene looks like itself rather than like a grade',
+      'Creates visual specificity—each scene looks like itself rather than like a grade',
       'Preserves the documentary quality of real locations',
       'Allows the palette to shift naturally as environments and times of day shift',
     ],
-    counter: "Naturalistic grading requires shooting in genuinely specific locations with genuinely specific light -- it cannot be applied in post to footage shot on a soundstage under fluorescent practicals. The approach demands production design, location scouting, and cinematographic discipline that the other approaches can bypass.",
+    counter: "Naturalistic grading requires shooting in genuinely specific locations with genuinely specific light—it cannot be applied in post to footage shot on a soundstage under fluorescent practicals. The approach demands production design, location scouting, and cinematographic discipline that the other approaches can bypass.",
     examples: [
-      { film: 'No Country for Old Men (2007)', note: "Deakins's West Texas palette is parched, slightly desaturated, bleached by the actual sun. The grade is minimal -- what you see is what the landscape actually looks like at that time of year." },
+      { film: 'No Country for Old Men (2007)', note: "Deakins's West Texas palette is parched, slightly desaturated, bleached by the actual sun. The grade is minimal—what you see is what the landscape actually looks like at that time of year." },
       { film: 'The Revenant (2015)', note: "Shot entirely in natural light. The winter palette shifts with the actual weather. The beauty is earned by waiting for the right light." },
-      { film: 'Moonlight (2016)', note: "James Laxton and Jody Lee Lipes use naturalistic, warm Miami light throughout -- the warmth is the actual warmth of that climate. The grade honors the specific quality of light in the specific place." },
+      { film: 'Moonlight (2016)', note: "James Laxton and Jody Lee Lipes use naturalistic, warm Miami light throughout—the warmth is the actual warmth of that climate. The grade honors the specific quality of light in the specific place." },
     ],
-    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Naturalistic grade -- the specific light of the actual location, preserved rather than overwritten by post-production' },
+    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Naturalistic grade—the specific light of the actual location, preserved rather than overwritten by post-production' },
   },
 ]
 
@@ -107,7 +107,7 @@ export default function ColorGradingLesson() {
             Color Grading as Storytelling
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '600px', margin: 0 }}>
-            Color grading is post-production rewriting. The digital intermediate suite can transform a film shot in natural light into a genre statement, a historical document, or a dream. Understanding what grading choices communicate -- and what they have become cliched -- makes you a more literate viewer and a more deliberate writer.
+            Color grading is post-production rewriting. The digital intermediate suite can transform a film shot in natural light into a genre statement, a historical document, or a dream. Understanding what grading choices communicate—and what they have become cliched—makes you a more literate viewer and a more deliberate writer.
           </p>
         </div>
       </section>

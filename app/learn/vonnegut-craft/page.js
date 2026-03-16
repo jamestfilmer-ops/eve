@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'What Kurt Vonnegut Knew That Every Beginner Needs to Hear | Eve',
-  description: 'Eight rules from Bagombo Snuff Box -- the most useful craft checklist ever written, examined rule by rule. Vonnegut distilled decades of wri',
+  description: 'Eight rules from Bagombo Snuff Box—the most useful craft checklist ever written, examined rule by rule. Vonnegut distilled decades of wri',
 }
 
 export default function Lesson() {
@@ -31,7 +31,7 @@ export default function Lesson() {
             What Kurt Vonnegut Knew That Every Beginner Needs to Hear
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            Eight rules from Bagombo Snuff Box -- the most useful craft checklist ever written, examined rule by rule. Vonnegut distilled decades of writing and editing into principles that hold at every level.
+            Eight rules from Bagombo Snuff Box—the most useful craft checklist ever written, examined rule by rule. Vonnegut distilled decades of writing and editing into principles that hold at every level.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Lesson() {
             Rule 1: Use the time of a total stranger wisely
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Every sentence you write is borrowing time from a reader who has other things to do. This is not a moral claim but a practical one. The reader has no obligation to continue. They will stop the moment they decide their time is being wasted. Every unnecessary word, every scene that does not earn its place, every digression that does not return something -- these are ways of wasting the time of a total stranger. The question is not do I like this sentence but is this sentence earning its place?
+            Every sentence you write is borrowing time from a reader who has other things to do. This is not a moral claim but a practical one. The reader has no obligation to continue. They will stop the moment they decide their time is being wasted. Every unnecessary word, every scene that does not earn its place, every digression that does not return something—these are ways of wasting the time of a total stranger. The question is not do I like this sentence but is this sentence earning its place?
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             Rule 2 and 3: Care and want
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Give the reader at least one character to root for -- not necessarily to like, but to care about, to be invested in what happens to them. A character the reader feels nothing about is the worst case. Then: every character should want something. Even if it is only a glass of water. This rule is about motivation at the sentence level, not just the plot level. A character who wants nothing is inert. Wanting organizes attention and gives every scene a direction.
+            Give the reader at least one character to root for—not necessarily to like, but to care about, to be invested in what happens to them. A character the reader feels nothing about is the worst case. Then: every character should want something. Even if it is only a glass of water. This rule is about motivation at the sentence level, not just the plot level. A character who wants nothing is inert. Wanting organizes attention and gives every scene a direction.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             Rules 4 and 5: Reveal and begin close to the end
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Every sentence should either reveal character or advance the action. A sentence that does neither is a sentence to cut. Start as close to the end as possible -- begin your story with the tension already present, not before it arrives. These rules together produce a kind of narrative economy: every sentence is doing double duty, and the story begins at the moment it needs to begin.
+            Every sentence should either reveal character or advance the action. A sentence that does neither is a sentence to cut. Start as close to the end as possible—begin your story with the tension already present, not before it arrives. These rules together produce a kind of narrative economy: every sentence is doing double duty, and the story begins at the moment it needs to begin.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Rule 6: Be a sadist
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            No matter how sweet and innocent your leading characters, make awful things happen to them -- in order that the reader may see what they are made of. This is the most important craft principle in the list: comfort is not interesting. Difficulty is where character is revealed. The story that never tests its characters is not discovering anything.
+            No matter how sweet and innocent your leading characters, make awful things happen to them—in order that the reader may see what they are made of. This is the most important craft principle in the list: comfort is not interesting. Difficulty is where character is revealed. The story that never tests its characters is not discovering anything.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Rules 7 and 8: One person, as much information as possible
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Write to please just one person. If you open a window and make love to the world, so to speak, your story will get pneumonia. The specificity that makes a story feel universal comes from writing for one specific imagined reader. Then: give your readers as much information as possible as soon as possible. Readers are not passive -- they actively construct the story in their imagination. Give them what they need to do this well.
+            Write to please just one person. If you open a window and make love to the world, so to speak, your story will get pneumonia. The specificity that makes a story feel universal comes from writing for one specific imagined reader. Then: give your readers as much information as possible as soon as possible. Readers are not passive—they actively construct the story in their imagination. Give them what they need to do this well.
           </p>
         </div>
 

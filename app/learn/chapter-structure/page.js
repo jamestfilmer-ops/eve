@@ -51,7 +51,7 @@ export default function Lesson() {
             The chapter opening
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Every chapter needs to immediately establish: where we are, when we are, who we are following, and what the pressure is. Not necessarily in that order, and not necessarily explicitly -- but the reader should be oriented within the first paragraph. The chapter opening also needs to create a reason to continue: a question raised, a situation that demands resolution, an image that is intriguing without being confusing. The chapter opening is a smaller version of the story's opening: it must give the reader a reason to stay.
+            Every chapter needs to immediately establish: where we are, when we are, who we are following, and what the pressure is. Not necessarily in that order, and not necessarily explicitly—but the reader should be oriented within the first paragraph. The chapter opening also needs to create a reason to continue: a question raised, a situation that demands resolution, an image that is intriguing without being confusing. The chapter opening is a smaller version of the story's opening: it must give the reader a reason to stay.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             The chapter ending
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The chapter ending is the craft writer's most powerful tool for controlling pace. An ending that resolves nothing keeps the reader in the story -- they must start the next chapter to find out what happens. An ending that provides resolution invites the reader to stop. This is not a simple formula: too many unresolved chapter endings produce the sensation of being propelled forward without satisfaction. The balance between resolution and irresolution within chapter structure is what generates sustainable reading pace.
+            The chapter ending is the craft writer's most powerful tool for controlling pace. An ending that resolves nothing keeps the reader in the story—they must start the next chapter to find out what happens. An ending that provides resolution invites the reader to stop. This is not a simple formula: too many unresolved chapter endings produce the sensation of being propelled forward without satisfaction. The balance between resolution and irresolution within chapter structure is what generates sustainable reading pace.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Chapter length and what it communicates
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            There is no right chapter length, but every chapter length communicates something. Short chapters (1-5 pages) create urgency. Medium chapters (10-20 pages) are the norm for contemporary literary fiction. Long chapters (30+ pages) create immersion -- the reader is being asked to commit to an extended experience. When a novel's chapter lengths are inconsistent, it should be because the variation is communicating something, not because the writer lost track.
+            There is no right chapter length, but every chapter length communicates something. Short chapters (1-5 pages) create urgency. Medium chapters (10-20 pages) are the norm for contemporary literary fiction. Long chapters (30+ pages) create immersion—the reader is being asked to commit to an extended experience. When a novel's chapter lengths are inconsistent, it should be because the variation is communicating something, not because the writer lost track.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Multi-POV chapter structure
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Novels with multiple point-of-view characters must make decisions about when to switch perspective and what each switch accomplishes. The most common error is to switch perspectives at the moment of maximum tension in the current POV -- cutting away just when the reader is most invested. The more sophisticated move is to make the perspective switch itself an argument: to move to a different character at the moment when their perspective adds something essential that the current POV cannot provide.
+            Novels with multiple point-of-view characters must make decisions about when to switch perspective and what each switch accomplishes. The most common error is to switch perspectives at the moment of maximum tension in the current POV—cutting away just when the reader is most invested. The more sophisticated move is to make the perspective switch itself an argument: to move to a different character at the moment when their perspective adds something essential that the current POV cannot provide.
           </p>
         </div>
 

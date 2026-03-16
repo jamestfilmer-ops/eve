@@ -43,7 +43,7 @@ export default function Lesson() {
             The villain believes they are right
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Every villain who functions in serious fiction has a logic. Anton Chigurh believes in fate and the coin toss as its purest expression -- and within that belief, his violence is consistent. Amy Dunne believes she has been wronged and that her intelligence entitles her to retribution -- and within that belief, her cruelty is logical. Hannibal Lecter believes in the beauty of superior minds and the ugliness of rudeness -- and within that belief, his murders are aesthetic acts. The villain's coherence is what makes them frightening.
+            Every villain who functions in serious fiction has a logic. Anton Chigurh believes in fate and the coin toss as its purest expression—and within that belief, his violence is consistent. Amy Dunne believes she has been wronged and that her intelligence entitles her to retribution—and within that belief, her cruelty is logical. Hannibal Lecter believes in the beauty of superior minds and the ugliness of rudeness—and within that belief, his murders are aesthetic acts. The villain's coherence is what makes them frightening.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             The villain as counter-argument
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The best villains are not simply obstacles. They are arguments. They hold a position that the story takes seriously enough to actually engage with. In No Country for Old Men, Chigurh's fatalism is not obviously wrong -- the Sheriff spends the whole film trying and failing to refute it. When the villain has a position that is at least partly coherent, the conflict becomes genuinely dramatic rather than a simple contest of good versus evil.
+            The best villains are not simply obstacles. They are arguments. They hold a position that the story takes seriously enough to actually engage with. In No Country for Old Men, Chigurh's fatalism is not obviously wrong—the Sheriff spends the whole film trying and failing to refute it. When the villain has a position that is at least partly coherent, the conflict becomes genuinely dramatic rather than a simple contest of good versus evil.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             Give the villain a want
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            A villain who only exists to oppose the protagonist is a mechanism, not a character. Give the villain something they want that has nothing to do with the protagonist. Hannibal Lecter wants to engage with an interesting mind, to eat well, to appreciate art -- all of these wants exist whether or not Clarice is in the room. This is what makes him feel real and present even when he is not on screen. The villain is living their life. The protagonist has entered it.
+            A villain who only exists to oppose the protagonist is a mechanism, not a character. Give the villain something they want that has nothing to do with the protagonist. Hannibal Lecter wants to engage with an interesting mind, to eat well, to appreciate art—all of these wants exist whether or not Clarice is in the room. This is what makes him feel real and present even when he is not on screen. The villain is living their life. The protagonist has entered it.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             The moment of sympathy
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Almost every enduring villain has at least one moment when the audience understands them -- not approves of them, but understands how they became what they are. The abused child who becomes the abuser. The idealist whose idealism curdled into fanaticism. The person who was right about something important and let being right become an excuse for everything. This moment does not excuse the villain. It makes them human, which is more frightening than making them a monster.
+            Almost every enduring villain has at least one moment when the audience understands them—not approves of them, but understands how they became what they are. The abused child who becomes the abuser. The idealist whose idealism curdled into fanaticism. The person who was right about something important and let being right become an excuse for everything. This moment does not excuse the villain. It makes them human, which is more frightening than making them a monster.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             What the villain reveals about the hero
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The villain is often the most efficient tool for revealing what the protagonist values, because conflict under pressure strips away pretense. What the protagonist is willing to do to stop the villain -- what lines they will cross, what they will sacrifice, what compromise they will accept -- reveals who they actually are. The hero's response to the villain is a character test. Design the villain to ask the specific question the hero most needs to answer.
+            The villain is often the most efficient tool for revealing what the protagonist values, because conflict under pressure strips away pretense. What the protagonist is willing to do to stop the villain—what lines they will cross, what they will sacrifice, what compromise they will accept—reveals who they actually are. The hero's response to the villain is a character test. Design the villain to ask the specific question the hero most needs to answer.
           </p>
         </div>
 

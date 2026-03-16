@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Terms of Service  -- Eve',
+  title: 'Terms of Service —Eve',
   description: 'Terms of Service for Eve, the story workspace for writers.',
 }
 
@@ -42,7 +42,7 @@ export default function TermsPage() {
 
           <section>
             <h2 style={h2}>4. Your Content</h2>
-            <p style={p}>You own everything you create in Eve  -- your stories, characters, scenes, and notes. We do not claim ownership of your creative work. You grant Eve a limited license to store and display your content solely for the purpose of providing the Service to you.</p>
+            <p style={p}>You own everything you create in Eve —your stories, characters, scenes, and notes. We do not claim ownership of your creative work. You grant Eve a limited license to store and display your content solely for the purpose of providing the Service to you.</p>
             <p style={{ ...p, marginTop: '12px' }}>We will never use your story content to train AI models or share it with third parties without your explicit consent.</p>
           </section>
 

@@ -1,5 +1,5 @@
 // SVG diagram showing shot scale from EWS to ECU
-// Pure SVG -- no external dependencies, no copyright issues
+// Pure SVG—no external dependencies, no copyright issues
 
 export function ShotScaleDiagram() {
   const shots = [
@@ -30,7 +30,7 @@ export function ShotScaleDiagram() {
             <g key={shot.label}>
               {/* Frame rectangle */}
               <rect x={x} y={frameY} width={w} height={frameH} rx="4" fill={shot.fill} stroke={shot.stroke} strokeWidth="1.5"/>
-              {/* Stylized person silhouette -- gets more cropped as we zoom in */}
+              {/* Stylized person silhouette—gets more cropped as we zoom in */}
               {/* Head circle */}
               {i < 4 && (
                 <circle
@@ -51,11 +51,11 @@ export function ShotScaleDiagram() {
                   fill={shot.stroke} opacity="0.5"
                 />
               )}
-              {/* CU -- just face oval */}
+              {/* CU—just face oval */}
               {i === 4 && (
                 <ellipse cx={x + w/2} cy={frameY + 55} rx={28} ry={38} fill={shot.stroke} opacity="0.55"/>
               )}
-              {/* ECU -- just eyes region */}
+              {/* ECU—just eyes region */}
               {i === 5 && (
                 <>
                   <rect x={x + 8} y={frameY} width={w - 16} height={frameH} rx="4" fill={shot.fill}/>
@@ -65,7 +65,7 @@ export function ShotScaleDiagram() {
                   <ellipse cx={x + w/2 + 18} cy={frameY + 52} rx={10} ry={8} fill="#fff" opacity="0.9"/>
                 </>
               )}
-              {/* Crop lines -- getting tighter */}
+              {/* Crop lines—getting tighter */}
               {i > 0 && i < 5 && (
                 <>
                   <line x1={x} y1={frameY + frameH - (i * 12)} x2={x + w} y2={frameY + frameH - (i * 12)} stroke={shot.stroke} strokeWidth="1" strokeDasharray="4,3" opacity="0.6"/>
@@ -95,7 +95,7 @@ export function AngleDiagram() {
   return (
     <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
       <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '14px' }}>
-        Camera Angle and Power -- same subject, three perspectives
+        Camera Angle and Power—same subject, three perspectives
       </p>
       <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
 
@@ -108,7 +108,7 @@ export function AngleDiagram() {
           <line x1="0" y1="8" x2="0" y2="35" stroke="#2471A3" strokeWidth="1.5" strokeDasharray="3,2" opacity="0.7"/>
           <polygon points="0,35 -4,28 4,28" fill="#2471A3" opacity="0.7"/>
         </g>
-        {/* Small figure below -- diminished */}
+        {/* Small figure below—diminished */}
         <g transform="translate(95, 110)">
           <circle cx="0" cy="-22" r="9" fill="#2471A3" opacity="0.5"/>
           <rect x="-8" y="-12" width="16" height="35" rx="3" fill="#2471A3" opacity="0.35"/>
@@ -142,7 +142,7 @@ export function AngleDiagram() {
           <line x1="0" y1="-8" x2="0" y2="-45" stroke="#8B4513" strokeWidth="1.5" strokeDasharray="3,2" opacity="0.7"/>
           <polygon points="0,-45 -4,-38 4,-38" fill="#8B4513" opacity="0.7"/>
         </g>
-        {/* Large figure above -- dominant */}
+        {/* Large figure above—dominant */}
         <g transform="translate(485, 60)">
           <circle cx="0" cy="-28" r="16" fill="#8B4513" opacity="0.5"/>
           <rect x="-14" y="-11" width="28" height="60" rx="4" fill="#8B4513" opacity="0.35"/>
@@ -159,7 +159,7 @@ export function DutchAngleDiagram() {
   return (
     <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', padding: '20px', marginBottom: '20px' }}>
       <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '14px' }}>
-        Dutch Angle -- the tilted frame signals psychological disorder
+        Dutch Angle—the tilted frame signals psychological disorder
       </p>
       <svg viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
 

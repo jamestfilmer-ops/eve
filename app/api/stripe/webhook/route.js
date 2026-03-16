@@ -92,7 +92,7 @@ export async function POST(req) {
       }
 
       default:
-        // Unhandled event type  -- ignore
+        // Unhandled event type —ignore
         break
     }
   } catch (err) {

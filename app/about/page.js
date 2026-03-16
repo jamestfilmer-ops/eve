@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'About Eve  -- The Story Behind the Tool',
+  title: 'About Eve —The Story Behind the Tool',
   description: 'Eve is a screenwriting craft platform built for writers who believe structure serves the work. No AI. No shortcuts. Just the fundamentals that professionals have used for decades.',
   openGraph: {
-    title: 'About Eve  -- The Story Behind the Tool',
+    title: 'About Eve —The Story Behind the Tool',
     description: 'Eve is a screenwriting craft platform built for writers who believe structure serves the work. No AI. No shortcuts.',
     url: 'https://eve-screenwriting.vercel.app/about',
   },
@@ -19,8 +19,8 @@ const tracks = [
     headline: 'Start with the fundamentals',
     description: 'Every professional writer learned the same foundations. Three things before anything else.',
     steps: [
-      { label: 'What a scene actually does', href: '/learn/what-a-scene-does', note: '6 min  -- the most important thing to understand first' },
-      { label: 'Want vs. Need', href: '/learn/want-vs-need', note: '7 min  -- the engine of every character worth watching' },
+      { label: 'What a scene actually does', href: '/learn/what-a-scene-does', note: '6 min —the most important thing to understand first' },
+      { label: 'Want vs. Need', href: '/learn/want-vs-need', note: '7 min —the engine of every character worth watching' },
       { label: 'Save the Cat framework', href: '/learn/save-the-cat', note: 'The most beginner-friendly structure in the craft' },
     ],
     cta: 'Start the beginner track',
@@ -34,9 +34,9 @@ const tracks = [
     headline: 'Diagnose what is not working',
     description: 'Most stuck writers have the same three problems. These lessons identify them.',
     steps: [
-      { label: 'The midpoint is the spine', href: '/learn/midpoint', note: '6 min  -- why your Act 2 feels like it is going nowhere' },
-      { label: 'The ghost', href: '/learn/ghost', note: '6 min  -- why your protagonist feels thin' },
-      { label: 'Subtext', href: '/learn/subtext', note: '6 min  -- why your dialogue feels on-the-nose' },
+      { label: 'The midpoint is the spine', href: '/learn/midpoint', note: '6 min —why your Act 2 feels like it is going nowhere' },
+      { label: 'The ghost', href: '/learn/ghost', note: '6 min —why your protagonist feels thin' },
+      { label: 'Subtext', href: '/learn/subtext', note: '6 min —why your dialogue feels on-the-nose' },
     ],
     cta: 'Read the intermediate lessons',
     ctaHref: '/learn/tracks',
@@ -49,8 +49,8 @@ const tracks = [
     headline: 'The academic voice',
     description: 'Every lesson has an Academic mode. Aristotle, McKee, Brecht, Bordwell. The theoretical underpinning of what you already do by instinct.',
     steps: [
-      { label: 'Theme  -- Aristotle vs. Brecht on thematic transparency', href: '/learn/theme', note: 'Toggle Academic mode on any lesson page' },
-      { label: 'Act breaks  -- Syd Field\'s plot point formalized', href: '/learn/act-breaks', note: 'With full source citations' },
+      { label: 'Theme —Aristotle vs. Brecht on thematic transparency', href: '/learn/theme', note: 'Toggle Academic mode on any lesson page' },
+      { label: 'Act breaks —Syd Field\'s plot point formalized', href: '/learn/act-breaks', note: 'With full source citations' },
       { label: 'The Fichtean Curve', href: '/learn/fichtean-curve', note: 'For writers who feel constrained by Save the Cat' },
     ],
     cta: 'Explore advanced lessons',
@@ -61,7 +61,7 @@ const tracks = [
 const values = [
   {
     title: 'No AI. Ever.',
-    body: 'Every word in the Craft Library was written by a human. Every lesson takes a position. AI-generated craft advice is average by design  -- it reflects the statistical center of every mediocre screenplay ever written. Eve does not do that.',
+    body: 'Every word in the Craft Library was written by a human. Every lesson takes a position. AI-generated craft advice is average by design —it reflects the statistical center of every mediocre screenplay ever written. Eve does not do that.',
   },
   {
     title: 'Structure serves the work.',
@@ -73,7 +73,7 @@ const values = [
   },
   {
     title: 'Education is always free.',
-    body: 'The entire Craft Library  -- every lesson, the glossary, the frameworks  -- is free forever. The tools are what the Studio tier funds. You should never have to pay to learn.',
+    body: 'The entire Craft Library —every lesson, the glossary, the frameworks —is free forever. The tools are what the Studio tier funds. You should never have to pay to learn.',
   },
 ]
 

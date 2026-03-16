@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Writing for Color -- How to Indicate Visual Intent Without Directing | Eve',
+  title: 'Writing for Color—How to Indicate Visual Intent Without Directing | Eve',
   description: 'How to write a world that demands specific color choices without writing a shooting script. The techniques screenwriters and novelists use to embed visual intent in prose.',
 }
 
@@ -21,25 +21,25 @@ const techniques = [
   {
     number: '03',
     title: 'Use temperature, not color names',
-    body: "The vocabulary of temperature maps almost perfectly onto the vocabulary of warm and cool color. A cold room, a warm kitchen, the chill of a hospital corridor, the heat of an argument in July -- these temperature references direct the cinematographer's palette choices without locking them to specific colors. Temperature language also communicates emotional register in a way that color adjectives do not. 'Cold' carries connotation that 'blue' does not. 'Warm' carries safety that 'orange' does not. Use the emotional vocabulary of temperature to set the register and let the color follow.",
-    example: "The kitchen was the only warm room in the house. Everything else -- the hallway, the front bedroom, the study where her father worked -- had the particular chill of rooms that are heated but not inhabited.",
+    body: "The vocabulary of temperature maps almost perfectly onto the vocabulary of warm and cool color. A cold room, a warm kitchen, the chill of a hospital corridor, the heat of an argument in July—these temperature references direct the cinematographer's palette choices without locking them to specific colors. Temperature language also communicates emotional register in a way that color adjectives do not. 'Cold' carries connotation that 'blue' does not. 'Warm' carries safety that 'orange' does not. Use the emotional vocabulary of temperature to set the register and let the color follow.",
+    example: "The kitchen was the only warm room in the house. Everything else—the hallway, the front bedroom, the study where her father worked—had the particular chill of rooms that are heated but not inhabited.",
   },
   {
     number: '04',
     title: 'Specify season and time of day precisely',
-    body: "Every season has a palette. Every time of day has a light. A scene set in January at 4pm in a northern city will be blue-grey and failing. A scene set in late July at 7pm will be golden and horizontal. These are not decorative choices -- they are structural ones. The season and time of day you choose for a scene determines the light that falls on your characters and the visual temperature of the world they inhabit. Screenplay writers often underspecify these because they seem like production details. They are not. They are palette choices.",
-    example: "INT. KITCHEN -- FEBRUARY MORNING\nNot the grey, grudging light of February at 7am. The kind of morning that tells you the next three months will be exactly like this one.",
+    body: "Every season has a palette. Every time of day has a light. A scene set in January at 4pm in a northern city will be blue-grey and failing. A scene set in late July at 7pm will be golden and horizontal. These are not decorative choices—they are structural ones. The season and time of day you choose for a scene determines the light that falls on your characters and the visual temperature of the world they inhabit. Screenplay writers often underspecify these because they seem like production details. They are not. They are palette choices.",
+    example: "INT. KITCHEN—FEBRUARY MORNING\nNot the grey, grudging light of February at 7am. The kind of morning that tells you the next three months will be exactly like this one.",
   },
   {
     number: '05',
     title: 'Track your color as you would track a motif',
-    body: "If red appears in your story -- a red coat, a red door, a red wine stain that never quite came out -- plant it early and let it accumulate. The first appearance should be unremarkable. The second, slightly more noted. By the third, the audience has learned to pay attention. Color works best as a system, not as a single moment. The screenwriter who plants a red object in act one and pays it off in act three is using color the way a musician uses a motif -- a recognizable element that returns transformed.",
+    body: "If red appears in your story—a red coat, a red door, a red wine stain that never quite came out—plant it early and let it accumulate. The first appearance should be unremarkable. The second, slightly more noted. By the third, the audience has learned to pay attention. Color works best as a system, not as a single moment. The screenwriter who plants a red object in act one and pays it off in act three is using color the way a musician uses a motif—a recognizable element that returns transformed.",
     example: "ACT ONE: The child in the red coat, barely glimpsed in the crowd.\nACT TWO: The red coat on a chair. Nobody home.\nACT THREE: The red coat in the police report photograph.",
   },
   {
     number: '06',
     title: 'For novelists: color lives in the specific object',
-    body: "Prose that names colors directly is usually weaker than prose that names specific objects whose colors the reader already knows. 'A green car' is visual shorthand. 'A bottle-green Triumph Spitfire, the paint starting to flake at the wheel arches' is specific. The specificity of the object carries the color more vividly than the adjective does, and it does additional work -- it tells you something about the owner, the decade, the class register of the world. In prose, color is almost always best delivered through specific nouns rather than color adjectives.",
+    body: "Prose that names colors directly is usually weaker than prose that names specific objects whose colors the reader already knows. 'A green car' is visual shorthand. 'A bottle-green Triumph Spitfire, the paint starting to flake at the wheel arches' is specific. The specificity of the object carries the color more vividly than the adjective does, and it does additional work—it tells you something about the owner, the decade, the class register of the world. In prose, color is almost always best delivered through specific nouns rather than color adjectives.",
     example: "WEAK: The red carpet was faded and worn.\nSTRONG: The carpet had been red once. Now it was the color of something that had tried for a long time and given up.",
   },
 ]
@@ -71,7 +71,7 @@ export default function WritingForColorLesson() {
             Writing for Color
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '600px', margin: 0 }}>
-            You cannot write "shoot this in blue." But you can write a world that makes blue inevitable. Six techniques for embedding visual color intent in prose -- for screenwriters who want to suggest without directing, and novelists who want to use color as a structural tool.
+            You cannot write "shoot this in blue." But you can write a world that makes blue inevitable. Six techniques for embedding visual color intent in prose—for screenwriters who want to suggest without directing, and novelists who want to use color as a structural tool.
           </p>
         </div>
       </section>

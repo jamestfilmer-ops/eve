@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'The Opening Image: First Impressions That Last | Eve',
-  description: 'The opening image is not decoration. It is a thesis statement -- a compressed version of the entire story that the audience will only unders',
+  description: 'The opening image is not decoration. It is a thesis statement—a compressed version of the entire story that the audience will only unders',
 }
 
 export default function Lesson() {
@@ -31,7 +31,7 @@ export default function Lesson() {
             The Opening Image: First Impressions That Last
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            The opening image is not decoration. It is a thesis statement -- a compressed version of the entire story that the audience will only understand in retrospect.
+            The opening image is not decoration. It is a thesis statement—a compressed version of the entire story that the audience will only understand in retrospect.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Lesson() {
             What the opening image actually does
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The opening image establishes the emotional and thematic register of everything that follows. It tells the audience what kind of story this is and what kind of attention to bring. The best opening images do something more: they contain, in compressed form, the central argument of the story. When you see the opening of Citizen Kane -- the dying word, the snow globe, the camera pulling back from the window of Xanadu -- you are seeing the film's entire argument about wealth, isolation, and the impossibility of recovering what was lost. You do not understand this yet, but you feel it.
+            The opening image establishes the emotional and thematic register of everything that follows. It tells the audience what kind of story this is and what kind of attention to bring. The best opening images do something more: they contain, in compressed form, the central argument of the story. When you see the opening of Citizen Kane—the dying word, the snow globe, the camera pulling back from the window of Xanadu—you are seeing the film's entire argument about wealth, isolation, and the impossibility of recovering what was lost. You do not understand this yet, but you feel it.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             The save the cat moment
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Blake Snyder's principle: your opening must make the audience invest in your protagonist before the story proper begins. Show them doing something that reveals character -- something specific and particular that makes them a person rather than a function. The save the cat moment does not have to be heroic. It can be petty, or funny, or quietly sad. It just has to be specific enough to make the protagonist real. Abstract characters do not generate investment.
+            Blake Snyder's principle: your opening must make the audience invest in your protagonist before the story proper begins. Show them doing something that reveals character—something specific and particular that makes them a person rather than a function. The save the cat moment does not have to be heroic. It can be petty, or funny, or quietly sad. It just has to be specific enough to make the protagonist real. Abstract characters do not generate investment.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             The bookend
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Many strong stories rhyme the opening and closing images -- returning at the end to the same location or situation as the opening, transformed. The character at the same kitchen table, but now the light is different. The same dialogue, but now one of them means something different. The bookend only works if the story has actually changed something. A false bookend -- the same image, no real change -- is the most hollow ending in fiction.
+            Many strong stories rhyme the opening and closing images—returning at the end to the same location or situation as the opening, transformed. The character at the same kitchen table, but now the light is different. The same dialogue, but now one of them means something different. The bookend only works if the story has actually changed something. A false bookend—the same image, no real change—is the most hollow ending in fiction.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>

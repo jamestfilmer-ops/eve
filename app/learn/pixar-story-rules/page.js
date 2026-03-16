@@ -43,7 +43,7 @@ export default function Lesson() {
             Admire someone more than the outcome
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            You admire a character for trying more than for their successes. This is the rule that explains why competent, successful characters are often less interesting than flawed, struggling ones. Competence does not generate empathy -- effort generates empathy, especially effort that fails. The character who tries and fails, who tries again and fails differently, who keeps going anyway -- that is the character the audience attaches to.
+            You admire a character for trying more than for their successes. This is the rule that explains why competent, successful characters are often less interesting than flawed, struggling ones. Competence does not generate empathy—effort generates empathy, especially effort that fails. The character who tries and fails, who tries again and fails differently, who keeps going anyway—that is the character the audience attaches to.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             The story spine
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Once upon a time there was blank. Every day blank. One day blank. Because of that blank. Because of that blank. Until finally blank. Ever since then blank. This is the Pixar story spine, and it forces you to find the causality. One day is the inciting incident. Because of that repeated -- each consequence leading to the next -- is the plot. Until finally is the climax. This structure works because it describes how causality actually functions in story.
+            Once upon a time there was blank. Every day blank. One day blank. Because of that blank. Because of that blank. Until finally blank. Ever since then blank. This is the Pixar story spine, and it forces you to find the causality. One day is the inciting incident. Because of that repeated—each consequence leading to the next—is the plot. Until finally is the climax. This structure works because it describes how causality actually functions in story.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             What your character wants vs needs
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Come up with your ending before you figure out your middle. Endings are hard -- get yours working up front. This rule is related to a deeper Pixar principle: the difference between what a character wants and what they need. In most Pixar films, what the character wants is not the same as what they need. The story is the journey from wanting the wrong thing to understanding the right thing. That journey requires an ending that honors the need, not just the want.
+            Come up with your ending before you figure out your middle. Endings are hard—get yours working up front. This rule is related to a deeper Pixar principle: the difference between what a character wants and what they need. In most Pixar films, what the character wants is not the same as what they need. The story is the journey from wanting the wrong thing to understanding the right thing. That journey requires an ending that honors the need, not just the want.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Discount your first idea
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Your first idea is the easy one -- the one everyone would think of. Push past it. What is the second idea? The third? The most distinctive material usually comes from the ideas that required more work to reach. Emma Coats: Rule 11 says putting it on paper lets you start fixing it. If it stays in your head, a perfect idea, you will never share it with anyone. The idea that is never written is the idea that is never improved.
+            Your first idea is the easy one—the one everyone would think of. Push past it. What is the second idea? The third? The most distinctive material usually comes from the ideas that required more work to reach. Emma Coats: Rule 11 says putting it on paper lets you start fixing it. If it stays in your head, a perfect idea, you will never share it with anyone. The idea that is never written is the idea that is never improved.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Try, fail, try again
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            What are the stakes? Give us reason to root for the character. What happens if they don't succeed? Stack the odds against them. This is the structure of every Pixar film's second act: the character tries to solve the problem, fails, tries differently, fails worse, tries again -- the attempts and failures compressing the story toward the point where the character must finally change to break through. The sequence of try-fail cycles is the mechanism by which character is revealed under pressure.
+            What are the stakes? Give us reason to root for the character. What happens if they don't succeed? Stack the odds against them. This is the structure of every Pixar film's second act: the character tries to solve the problem, fails, tries differently, fails worse, tries again—the attempts and failures compressing the story toward the point where the character must finally change to break through. The sequence of try-fail cycles is the mechanism by which character is revealed under pressure.
           </p>
         </div>
 

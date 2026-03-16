@@ -11,49 +11,49 @@ const colorSystems = [
     color: 'White',
     western: 'Purity, innocence, bridal, blank slate, clinical sterility',
     eastern: 'Death, mourning, ghosts, the supernatural (East Asian traditions)',
-    collision: "The collision of white-as-purity and white-as-death is one of the most productive tensions in contemporary cinema. Japanese horror films (Ring, The Grudge) use white -- pallid skin, white burial clothing, bleached sets -- as the visual language of the supernatural precisely because Western audiences read it as innocence, making the horror more disorienting. Wong Kar-wai uses white against the Eastern mourning tradition. Sofia Coppola's use of white in The Virgin Suicides draws from both: purity and death are the same thing for the Lisbon girls.",
+    collision: "The collision of white-as-purity and white-as-death is one of the most productive tensions in contemporary cinema. Japanese horror films (Ring, The Grudge) use white—pallid skin, white burial clothing, bleached sets—as the visual language of the supernatural precisely because Western audiences read it as innocence, making the horror more disorienting. Wong Kar-wai uses white against the Eastern mourning tradition. Sofia Coppola's use of white in The Virgin Suicides draws from both: purity and death are the same thing for the Lisbon girls.",
     examples: [
-      { film: 'The Ring (2002)', note: 'Verbinski translates Japanese horror conventions for Western audiences -- the white ghostly pallor codes as death in both systems, but the mechanism is different.' },
-      { film: 'Black Swan (2010)', note: 'The white Swan is coded as purity and innocence in Western ballet tradition -- which is exactly why its corruption is so disturbing. The white must be violated for the black to emerge.' },
+      { film: 'The Ring (2002)', note: 'Verbinski translates Japanese horror conventions for Western audiences—the white ghostly pallor codes as death in both systems, but the mechanism is different.' },
+      { film: 'Black Swan (2010)', note: 'The white Swan is coded as purity and innocence in Western ballet tradition—which is exactly why its corruption is so disturbing. The white must be violated for the black to emerge.' },
     ],
-    photo: { id: 'photo-1555529771-7888783a18d3', credit: 'Pawel Czerwinski', creditUrl: 'https://unsplash.com/@pawel_czerwinski', caption: 'White carries opposite meanings across cultures -- purity in the West, mourning and the supernatural in East Asian traditions' },
+    photo: { id: 'photo-1555529771-7888783a18d3', credit: 'Pawel Czerwinski', creditUrl: 'https://unsplash.com/@pawel_czerwinski', caption: 'White carries opposite meanings across cultures—purity in the West, mourning and the supernatural in East Asian traditions' },
   },
   {
     color: 'Red',
     western: 'Danger, passion, violence, love, warning, blood',
     eastern: 'Luck, prosperity, celebration, marriage, joy (Chinese tradition); danger and blood (shared)',
-    collision: "Red as luck and celebration is entirely absent from Western cinema's default coding. This creates a specific problem and opportunity for cross-cultural filmmaking. A red wedding dress in a Western film reads as wrong, transgressive, dangerous. In a Chinese cultural context it reads as auspicious. Zhang Yimou's films (Raise the Red Lantern, Red Sorghum) use red's dual coding deliberately -- the celebratory red of Chinese tradition is always undercut by the danger and violence the Western symbolic layer adds. The color communicates simultaneously in both registers.",
+    collision: "Red as luck and celebration is entirely absent from Western cinema's default coding. This creates a specific problem and opportunity for cross-cultural filmmaking. A red wedding dress in a Western film reads as wrong, transgressive, dangerous. In a Chinese cultural context it reads as auspicious. Zhang Yimou's films (Raise the Red Lantern, Red Sorghum) use red's dual coding deliberately—the celebratory red of Chinese tradition is always undercut by the danger and violence the Western symbolic layer adds. The color communicates simultaneously in both registers.",
     examples: [
-      { film: 'Raise the Red Lantern (1991)', note: "Zhang Yimou uses the red lanterns as symbols of desire, privilege, and doom simultaneously -- both the celebratory Chinese red and the blood-danger Western red." },
+      { film: 'Raise the Red Lantern (1991)', note: "Zhang Yimou uses the red lanterns as symbols of desire, privilege, and doom simultaneously—both the celebratory Chinese red and the blood-danger Western red." },
       { film: 'Crouching Tiger Hidden Dragon (2000)', note: 'The red of the wedding sequences codes as both Chinese celebration and Western danger. The film exists in both registers at once.' },
     ],
-    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Red is danger and passion in the West; luck and celebration in East Asian traditions -- films exploit both registers' },
+    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Red is danger and passion in the West; luck and celebration in East Asian traditions—films exploit both registers' },
   },
   {
     color: 'Black',
     western: 'Death, evil, authority, elegance, nihilism, mourning',
-    eastern: 'Varying -- in some East Asian traditions black is associated with water and the north rather than death; mourning clothes in many cultures are white rather than black',
-    collision: "The global dominance of Western cinema has spread Western color symbolism into global film culture -- black villains, white brides, grey moral ambiguity. But filmmakers who work within non-Western traditions find that these imported conventions sit uneasily over their own symbolic systems. The Japanese horror tradition uses white, not black, for supernatural dread. Chinese cinema uses white for mourning. The filmmaker who understands both systems can use the collision itself as a subject.",
+    eastern: 'Varying—in some East Asian traditions black is associated with water and the north rather than death; mourning clothes in many cultures are white rather than black',
+    collision: "The global dominance of Western cinema has spread Western color symbolism into global film culture—black villains, white brides, grey moral ambiguity. But filmmakers who work within non-Western traditions find that these imported conventions sit uneasily over their own symbolic systems. The Japanese horror tradition uses white, not black, for supernatural dread. Chinese cinema uses white for mourning. The filmmaker who understands both systems can use the collision itself as a subject.",
     examples: [
-      { film: 'Black Panther (2018)', note: "Ryan Coogler uses black as power and pride rather than menace -- the suit, the nation, the identity. The film recodes black's Western symbolism within an Afrofuturist framework." },
+      { film: 'Black Panther (2018)', note: "Ryan Coogler uses black as power and pride rather than menace—the suit, the nation, the identity. The film recodes black's Western symbolism within an Afrofuturist framework." },
       { film: 'The Handmaiden (2016)', note: "Park Chan-wook uses black against white in ways that collide Western elegance/death associations with Korean cultural contexts around mourning and corruption." },
     ],
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Black carries different symbolic weights across cultures -- death in some traditions, neutrality or water in others' },
+    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Black carries different symbolic weights across cultures—death in some traditions, neutrality or water in others' },
   },
   {
     color: 'Yellow / Gold',
     western: 'Cowardice (yellow-belly), caution, sickness, but also gold, value, sunlight, royalty',
-    eastern: 'Imperial authority, sacred (Buddhism -- saffron and gold), prosperity, but also pornography (Chinese slang)',
-    collision: "Yellow's split between cowardice and imperial authority is one of the most culturally divided color meanings. The Emperor's yellow, the Buddhist saffron robe, and the yellow warning sign come from entirely different symbolic systems that happen to share a color. Contemporary Asian cinema often uses gold to signal both sacred authority and corruption -- the two registers exist simultaneously, which Western color theory cannot accommodate.",
+    eastern: 'Imperial authority, sacred (Buddhism—saffron and gold), prosperity, but also pornography (Chinese slang)',
+    collision: "Yellow's split between cowardice and imperial authority is one of the most culturally divided color meanings. The Emperor's yellow, the Buddhist saffron robe, and the yellow warning sign come from entirely different symbolic systems that happen to share a color. Contemporary Asian cinema often uses gold to signal both sacred authority and corruption—the two registers exist simultaneously, which Western color theory cannot accommodate.",
     examples: [
-      { film: 'Hero (2002)', note: "Zhang Yimou uses yellow for the flashback kingdom scenes -- imperial authority, also the color of desert and the eternal. The yellow segments are both the most visually spectacular and the most morally ambiguous." },
-      { film: 'Kill Bill (2003)', note: "Tarantino dresses the Bride in yellow -- simultaneously cowardice/warning and the yellow of Bruce Lee's tracksuit (homage/strength). He is deliberately colliding both Western associations." },
+      { film: 'Hero (2002)', note: "Zhang Yimou uses yellow for the flashback kingdom scenes—imperial authority, also the color of desert and the eternal. The yellow segments are both the most visually spectacular and the most morally ambiguous." },
+      { film: 'Kill Bill (2003)', note: "Tarantino dresses the Bride in yellow—simultaneously cowardice/warning and the yellow of Bruce Lee's tracksuit (homage/strength). He is deliberately colliding both Western associations." },
     ],
-    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Yellow and gold -- cowardice in Western tradition, imperial and sacred authority in East Asian contexts' },
+    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Yellow and gold—cowardice in Western tradition, imperial and sacred authority in East Asian contexts' },
   },
 ]
 
-const principleForWriters = "Color symbolism is not a code to be memorized but a conversation to be understood. The writer who wants to use color symbolically must know which tradition they are working in -- and must know when their character or reader might be working in a different one. The most interesting color work happens in the collision zone: the immigrant daughter who chooses a red wedding dress, the ghost who wears white, the emperor who is afraid of yellow. The symbol works hardest when it means two things at once."
+const principleForWriters = "Color symbolism is not a code to be memorized but a conversation to be understood. The writer who wants to use color symbolically must know which tradition they are working in—and must know when their character or reader might be working in a different one. The most interesting color work happens in the collision zone: the immigrant daughter who chooses a red wedding dress, the ghost who wears white, the emperor who is afraid of yellow. The symbol works hardest when it means two things at once."
 
 export default function ColorSymbolismLesson() {
   return (
@@ -82,7 +82,7 @@ export default function ColorSymbolismLesson() {
             Color Symbolism Across Cultures
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '600px', margin: 0 }}>
-            White is not always pure. Red is not always danger. The symbolic meaning of color is not fixed -- it shifts across traditions, and the filmmaker who understands both systems can use that collision as the argument itself.
+            White is not always pure. Red is not always danger. The symbolic meaning of color is not fixed—it shifts across traditions, and the filmmaker who understands both systems can use that collision as the argument itself.
           </p>
         </div>
       </section>

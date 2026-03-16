@@ -11,27 +11,27 @@ const paletteStudies = [
     film: 'Parasite (2019)',
     director: 'Bong Joon-ho',
     dp: 'Hong Kyung-pyo',
-    thesis: 'Class hierarchy rendered in warm vs. cool palette -- the same color means different things depending on who inhabits it.',
+    thesis: 'Class hierarchy rendered in warm vs. cool palette—the same color means different things depending on who inhabits it.',
     palette: [
       { zone: 'The Kim basement', color: '#7B6A55', colorName: 'Warm amber, dirty', meaning: 'Cramped warmth. Life lived in proximity, in smell, in noise. The Kim family\'s warmth is biological and involuntary.' },
       { zone: 'The Park house (exterior)', color: '#B8C4B8', colorName: 'Cool grey-green', meaning: 'Antiseptic privilege. The architecture is white and glass; the palette is the architecture. The Parks\' coolness is designed.' },
       { zone: 'The underground bunker', color: '#3D3530', colorName: 'Deep brown-black', meaning: 'The secret below the secret. The warmth of the Kim basement exists above this further darkness.' },
       { zone: 'The flooding sequence', color: '#4A6741', colorName: 'Grey-green water', meaning: 'The literal submersion of the warm world in the cold system. The flood is the class argument made physical.' },
     ],
-    craftNote: 'Bong uses palette to argue that class is not just economic but environmental -- you carry it in the light around you. The Kims in the Park house look wrong partly because the cool palette does not suit their warmth. Watch for the moments when a warm person enters a cool space and how the visual dissonance communicates the social dissonance.',
+    craftNote: 'Bong uses palette to argue that class is not just economic but environmental—you carry it in the light around you. The Kims in the Park house look wrong partly because the cool palette does not suit their warmth. Watch for the moments when a warm person enters a cool space and how the visual dissonance communicates the social dissonance.',
   },
   {
     film: 'Her (2013)',
     director: 'Spike Jonze',
     dp: 'Hoyte van Hoytema',
-    thesis: 'A world saturated in warmth to communicate what Theodore is seeking -- before the film makes the argument that warmth is insufficient.',
+    thesis: 'A world saturated in warmth to communicate what Theodore is seeking—before the film makes the argument that warmth is insufficient.',
     palette: [
       { zone: 'Theodore\'s wardrobe', color: '#C4593A', colorName: 'Reds, oranges, warm earth', meaning: 'Longing made visible. Theodore literally wears his emotional need.' },
-      { zone: 'The future LA', color: '#F0D9B5', colorName: 'Warm cream and amber', meaning: 'A designed future that has prioritized human comfort -- and may have over-corrected.' },
-      { zone: 'Theodore and Samantha (interior)', color: '#E8A87C', colorName: 'Deep warm amber', meaning: 'The relationship is lit as romance -- the color does not distinguish between human and AI love.' },
-      { zone: 'The ending', color: '#B8C8D8', colorName: 'Cooler, open blue-grey', meaning: 'After Samantha\'s departure, the palette opens to something cooler and emptier -- and more real.' },
+      { zone: 'The future LA', color: '#F0D9B5', colorName: 'Warm cream and amber', meaning: 'A designed future that has prioritized human comfort—and may have over-corrected.' },
+      { zone: 'Theodore and Samantha (interior)', color: '#E8A87C', colorName: 'Deep warm amber', meaning: 'The relationship is lit as romance—the color does not distinguish between human and AI love.' },
+      { zone: 'The ending', color: '#B8C8D8', colorName: 'Cooler, open blue-grey', meaning: 'After Samantha\'s departure, the palette opens to something cooler and emptier—and more real.' },
     ],
-    craftNote: 'Jonze and van Hoytema discuss wanting the future to feel emotionally warm but slightly over-designed -- a world that has solved comfort but may have created a different problem. The red-and-amber palette is literally the warmth Theodore needs surrounding him before he understands what warmth requires.',
+    craftNote: 'Jonze and van Hoytema discuss wanting the future to feel emotionally warm but slightly over-designed—a world that has solved comfort but may have created a different problem. The red-and-amber palette is literally the warmth Theodore needs surrounding him before he understands what warmth requires.',
   },
   {
     film: 'Three Colors: Blue (1993)',
@@ -40,45 +40,45 @@ const paletteStudies = [
     thesis: 'A single color so systematically deployed that it becomes the film\'s argument rather than its atmosphere.',
     palette: [
       { zone: 'The entire film', color: '#1A4A6B', colorName: 'Pervasive deep blue', meaning: 'Julie\'s grief made environmental. She cannot escape it because it is everywhere.' },
-      { zone: 'Blue glass objects', color: '#5B9FD4', colorName: 'Translucent sky blue', meaning: 'The specific objects that carry the film\'s emotional weight -- a chandelier, a candy wrapper, a swimming pool.' },
-      { zone: 'The warm intrusions', color: '#C47B3A', colorName: 'Amber interruptions', meaning: 'The moments of other people\'s lives that break through Julie\'s isolation -- brief and temporary.' },
+      { zone: 'Blue glass objects', color: '#5B9FD4', colorName: 'Translucent sky blue', meaning: 'The specific objects that carry the film\'s emotional weight—a chandelier, a candy wrapper, a swimming pool.' },
+      { zone: 'The warm intrusions', color: '#C47B3A', colorName: 'Amber interruptions', meaning: 'The moments of other people\'s lives that break through Julie\'s isolation—brief and temporary.' },
     ],
-    craftNote: 'This film demonstrates the most extreme use of a monochromatic palette in serious cinema. Blue is not used symbolically here -- it IS the film. Kieslowski does not use blue to mean grief; he makes blue the medium in which grief exists. The difference is crucial: symbol can be decoded, medium cannot be escaped.',
+    craftNote: 'This film demonstrates the most extreme use of a monochromatic palette in serious cinema. Blue is not used symbolically here—it IS the film. Kieslowski does not use blue to mean grief; he makes blue the medium in which grief exists. The difference is crucial: symbol can be decoded, medium cannot be escaped.',
   },
   {
     film: 'Mad Max: Fury Road (2015)',
     director: 'George Miller',
     dp: 'John Seale',
-    thesis: 'Day-for-night shooting and digital grading used to create a world that exists outside normal time -- the teal-and-orange pushed to mythological extremes.',
+    thesis: 'Day-for-night shooting and digital grading used to create a world that exists outside normal time—the teal-and-orange pushed to mythological extremes.',
     palette: [
       { zone: 'The Citadel and wasteland (day)', color: '#C28B3A', colorName: 'Burning orange-gold', meaning: 'The hostile sun, the rust of the world, the color of power and domination.' },
-      { zone: 'Night sequences', color: '#1A3A5C', colorName: 'Deep blue-teal', meaning: 'The brief respite of darkness -- the world is less hostile when it cannot see.' },
-      { zone: 'The green oasis (recalled)', color: '#3A7A3A', colorName: 'Remembered green', meaning: 'The Many Mothers\' green place is remembered in a desaturated, dream-like palette -- something that existed before the world broke.' },
+      { zone: 'Night sequences', color: '#1A3A5C', colorName: 'Deep blue-teal', meaning: 'The brief respite of darkness—the world is less hostile when it cannot see.' },
+      { zone: 'The green oasis (recalled)', color: '#3A7A3A', colorName: 'Remembered green', meaning: 'The Many Mothers\' green place is remembered in a desaturated, dream-like palette—something that existed before the world broke.' },
       { zone: 'The Wives\' white', color: '#F5F0E8', colorName: 'Pure worn white', meaning: 'The Wives\' white clothing in the orange desert is the film\'s central visual argument: these are people trying to stay clean in a world designed to dirty them.' },
     ],
-    craftNote: 'Miller and Seale had discussions about whether the film should be "day for night" throughout -- the decision to shoot in actual daylight and grade it into a hyper-real orange gave the film its mythological quality. It does not look like any place on Earth, which is the argument: this is mythology, not prediction.',
+    craftNote: 'Miller and Seale had discussions about whether the film should be "day for night" throughout—the decision to shoot in actual daylight and grade it into a hyper-real orange gave the film its mythological quality. It does not look like any place on Earth, which is the argument: this is mythology, not prediction.',
   },
   {
     film: 'Amélie (2001)',
     director: 'Jean-Pierre Jeunet',
     dp: 'Bruno Delbonnel',
-    thesis: 'A hyper-saturated palette that communicates the protagonist\'s way of seeing the world -- and makes her isolation feel like enchantment rather than pathology.',
+    thesis: 'A hyper-saturated palette that communicates the protagonist\'s way of seeing the world—and makes her isolation feel like enchantment rather than pathology.',
     palette: [
-      { zone: 'Paris (Amélie\'s version)', color: '#D4913A', colorName: 'Warm amber-gold', meaning: 'The city as it exists in a romantic imagination -- every surface warm, every shadow soft.' },
-      { zone: 'Red and green accents', color: '#C43A3A', colorName: 'Saturated red', meaning: 'The film uses red and green as complementary accents throughout -- the colors of traditional French street signs and markets, but pushed to a fairy-tale intensity.' },
-      { zone: 'Nino\'s world', color: '#8B6545', colorName: 'Slightly cooler, more real', meaning: 'The person Amélie is trying to reach is slightly less saturated than her fantasy world -- he exists in a more real register.' },
+      { zone: 'Paris (Amélie\'s version)', color: '#D4913A', colorName: 'Warm amber-gold', meaning: 'The city as it exists in a romantic imagination—every surface warm, every shadow soft.' },
+      { zone: 'Red and green accents', color: '#C43A3A', colorName: 'Saturated red', meaning: 'The film uses red and green as complementary accents throughout—the colors of traditional French street signs and markets, but pushed to a fairy-tale intensity.' },
+      { zone: 'Nino\'s world', color: '#8B6545', colorName: 'Slightly cooler, more real', meaning: 'The person Amélie is trying to reach is slightly less saturated than her fantasy world—he exists in a more real register.' },
     ],
-    craftNote: 'Delbonnel and Jeunet removed the blues and whites from the film\'s palette in post-production, leaving only the warm spectrum. This is one of the most discussed color decisions in recent European cinema -- it creates a Paris that never existed, which is exactly the point. Amélie\'s world is how she sees it, not how it is.',
+    craftNote: 'Delbonnel and Jeunet removed the blues and whites from the film\'s palette in post-production, leaving only the warm spectrum. This is one of the most discussed color decisions in recent European cinema—it creates a Paris that never existed, which is exactly the point. Amélie\'s world is how she sees it, not how it is.',
   },
   {
     film: 'The Godfather trilogy (1972-90)',
     director: 'Francis Ford Coppola',
     dp: 'Gordon Willis',
-    thesis: 'A palette that darkens across three films as the family\'s moral world darkens -- corruption rendered in shadow.',
+    thesis: 'A palette that darkens across three films as the family\'s moral world darkens—corruption rendered in shadow.',
     palette: [
       { zone: 'The Godfather Part I', color: '#8B6A3A', colorName: 'Warm amber, deep shadow', meaning: 'The first film\'s warmth is the warmth of a functioning (if corrupt) family. The light is amber, the shadows are deep but not total.' },
       { zone: 'The Godfather Part II', color: '#5A4A35', colorName: 'Cooler, darker amber', meaning: 'Michael\'s world has cooled. The warmth of Part I is draining from the family.' },
-      { zone: 'The Godfather Part III', color: '#3A3530', colorName: 'Almost monochrome', meaning: 'The third film is nearly drained of color -- the world has gone cold. The final shot is a study in grey.' },
+      { zone: 'The Godfather Part III', color: '#3A3530', colorName: 'Almost monochrome', meaning: 'The third film is nearly drained of color—the world has gone cold. The final shot is a study in grey.' },
       { zone: 'The Sicily flashbacks (Part II)', color: '#C4A070', colorName: 'Golden-warm', meaning: 'The past is always warmer in this trilogy. Vito\'s world is amber; Michael\'s is shadow.' },
     ],
     craftNote: 'This is the most extended color arc in American cinema. Gordon Willis\'s deliberate darkening across the three films tracks the moral arc of the Corleone family more precisely than any dialogue. You can watch the trilogy with the sound off and understand what is happening to Michael by watching the color temperature.',
@@ -92,15 +92,15 @@ const howToReadPalette = [
   },
   {
     principle: 'Warm and cool are not good and evil',
-    body: 'The most common error in thinking about film palettes is reading warm as positive and cool as negative. Her uses warmth to communicate longing that is ultimately insufficient. Three Colors: Blue uses cool for grief that the protagonist will eventually work through. Parasite uses the contrast between warm and cool as a class argument, not a moral one. Palette communicates register and temperature -- what those mean depends on the specific film.',
+    body: 'The most common error in thinking about film palettes is reading warm as positive and cool as negative. Her uses warmth to communicate longing that is ultimately insufficient. Three Colors: Blue uses cool for grief that the protagonist will eventually work through. Parasite uses the contrast between warm and cool as a class argument, not a moral one. Palette communicates register and temperature—what those mean depends on the specific film.',
   },
   {
     principle: 'The palette break is a plot event',
-    body: 'When a film\'s consistent palette suddenly shifts -- a warm film going cold, a desaturated film suddenly saturated -- this is a structural event equivalent to a plot turn. The moment in Parasite when the flood takes over, the palette shifts. The moment in Her when Theodore processes Samantha\'s departure, the palette opens to cooler tones. The filmmaker who understands palette uses these breaks deliberately, not as grading decisions made in post-production.',
+    body: 'When a film\'s consistent palette suddenly shifts—a warm film going cold, a desaturated film suddenly saturated—this is a structural event equivalent to a plot turn. The moment in Parasite when the flood takes over, the palette shifts. The moment in Her when Theodore processes Samantha\'s departure, the palette opens to cooler tones. The filmmaker who understands palette uses these breaks deliberately, not as grading decisions made in post-production.',
   },
   {
     principle: 'Desaturation is not the same as no palette',
-    body: 'A desaturated film still has a palette -- it has chosen grey, blue-grey, or brown-grey as its register. The desaturated palette communicates a world drained of vitality, fantasy, or warmth. Schindler\'s List (mostly black-and-white with a single color exception) uses its desaturation to place historical horror in a register that feels documentary rather than cinematic. No Country for Old Men\'s slightly desaturated natural palette communicates that this is a world without beauty to spare.',
+    body: 'A desaturated film still has a palette—it has chosen grey, blue-grey, or brown-grey as its register. The desaturated palette communicates a world drained of vitality, fantasy, or warmth. Schindler\'s List (mostly black-and-white with a single color exception) uses its desaturation to place historical horror in a register that feels documentary rather than cinematic. No Country for Old Men\'s slightly desaturated natural palette communicates that this is a world without beauty to spare.',
   },
 ]
 
@@ -134,7 +134,7 @@ export default function ColorPalettesLesson() {
             Color Palettes and Emotional Arcs
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '600px', margin: 0 }}>
-            The palette of act one should not match the palette of act three. A film\'s color temperature tracks its emotional temperature -- when the story changes, the palette changes with it. These are six films that use palette as a structural tool, not decoration.
+            The palette of act one should not match the palette of act three. A film\'s color temperature tracks its emotional temperature—when the story changes, the palette changes with it. These are six films that use palette as a structural tool, not decoration.
           </p>
         </div>
       </section>

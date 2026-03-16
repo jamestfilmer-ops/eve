@@ -2,50 +2,50 @@ import Link from 'next/link'
 import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
-  title: 'Composition and Meaning -- Framing, Rule of Thirds, Negative Space | Eve',
-  description: 'How where a character sits in the frame tells a story. Rule of thirds, headroom, lead room, symmetry, negative space -- the grammar of visual composition in film and photography.',
+  title: 'Composition and Meaning—Framing, Rule of Thirds, Negative Space | Eve',
+  description: 'How where a character sits in the frame tells a story. Rule of thirds, headroom, lead room, symmetry, negative space—the grammar of visual composition in film and photography.',
 }
 
 const principles = [
   {
     name: 'Rule of Thirds',
     description: 'Place subjects on the intersections of a 3x3 grid, not at the center.',
-    explanation: 'The rule of thirds divides the frame into a 3x3 grid with four intersection points. Subjects placed at these intersections create tension and interest; subjects at the center feel static and expected. A character placed at the left third of a frame with empty space to their right is looking into possibility, into the future. Placed at the right third with space to their left, they are moving away from something, or trapped against an edge. The rule is not rigid -- it is a starting point that teaches you to think about where weight falls in a frame.',
-    filmApplication: 'Placing a character off-center creates psychological unease or interest that centered composition cannot. The Coen Brothers frequently use off-center composition to make characters seem slightly wrong in their environment -- slightly misaligned with the world they inhabit.',
-    photo: { id: 'photo-1477959858617-67f85cf4f1df', credit: 'Benjamin Davies', creditUrl: 'https://unsplash.com/@bendavisual', caption: 'Subject placed at the left third with lead space -- composition communicates direction and possibility' },
+    explanation: 'The rule of thirds divides the frame into a 3x3 grid with four intersection points. Subjects placed at these intersections create tension and interest; subjects at the center feel static and expected. A character placed at the left third of a frame with empty space to their right is looking into possibility, into the future. Placed at the right third with space to their left, they are moving away from something, or trapped against an edge. The rule is not rigid—it is a starting point that teaches you to think about where weight falls in a frame.',
+    filmApplication: 'Placing a character off-center creates psychological unease or interest that centered composition cannot. The Coen Brothers frequently use off-center composition to make characters seem slightly wrong in their environment—slightly misaligned with the world they inhabit.',
+    photo: { id: 'photo-1477959858617-67f85cf4f1df', credit: 'Benjamin Davies', creditUrl: 'https://unsplash.com/@bendavisual', caption: 'Subject placed at the left third with lead space—composition communicates direction and possibility' },
   },
   {
     name: 'Headroom and Lead Room',
     description: 'The space above a character\'s head and in front of their gaze.',
-    explanation: 'Headroom is the space between the top of the frame and the top of the subject\'s head. Too little headroom feels cramped and trapped; too much feels unmoored and unstable. Lead room (or nose room) is the space in front of a character\'s face in the direction they are looking. A character looking left needs space to the left of them -- without it, they appear trapped or blocked. A character looking right with space to the right is open, moving forward, with something ahead. These are among the most powerful and least consciously noticed conventions in cinema: audiences feel the wrongness of a badly composed frame before they can articulate what is wrong.',
-    filmApplication: 'Removing lead room deliberately creates claustrophobia. Hitchcock, in his close-up coverage of Psycho, repeatedly removes lead room from both Marion and Norman -- neither has anywhere to look. The frame boxes them in. The composition is the psychology.',
+    explanation: 'Headroom is the space between the top of the frame and the top of the subject\'s head. Too little headroom feels cramped and trapped; too much feels unmoored and unstable. Lead room (or nose room) is the space in front of a character\'s face in the direction they are looking. A character looking left needs space to the left of them—without it, they appear trapped or blocked. A character looking right with space to the right is open, moving forward, with something ahead. These are among the most powerful and least consciously noticed conventions in cinema: audiences feel the wrongness of a badly composed frame before they can articulate what is wrong.',
+    filmApplication: 'Removing lead room deliberately creates claustrophobia. Hitchcock, in his close-up coverage of Psycho, repeatedly removes lead room from both Marion and Norman—neither has anywhere to look. The frame boxes them in. The composition is the psychology.',
     photo: null,
   },
   {
     name: 'Symmetry and Asymmetry',
-    description: 'Balanced vs unbalanced frames -- control vs chaos, comfort vs unease.',
-    explanation: 'Perfect symmetry in a frame communicates control, order, formality, and often a degree of coldness. The symmetrical frame is the frame of institutions, of systems, of things that have been arranged. Wes Anderson uses symmetry to create his storybook worlds of enforced order. Kubrick uses symmetry in the Overlook Hotel to make the corridors feel wrong -- too perfectly ordered, inhuman. Asymmetrical composition is the natural world: organic, alive, slightly unpredictable. The asymmetrical frame is how things actually look. The choice between them is a choice about what kind of world the film inhabits.',
+    description: 'Balanced vs unbalanced frames—control vs chaos, comfort vs unease.',
+    explanation: 'Perfect symmetry in a frame communicates control, order, formality, and often a degree of coldness. The symmetrical frame is the frame of institutions, of systems, of things that have been arranged. Wes Anderson uses symmetry to create his storybook worlds of enforced order. Kubrick uses symmetry in the Overlook Hotel to make the corridors feel wrong—too perfectly ordered, inhuman. Asymmetrical composition is the natural world: organic, alive, slightly unpredictable. The asymmetrical frame is how things actually look. The choice between them is a choice about what kind of world the film inhabits.',
     filmApplication: 'A single asymmetrical element in an otherwise symmetrical frame (a character standing off-center in a perfectly symmetric corridor) creates maximum visual tension at minimum cost. The perfection makes the deviation worse.',
-    photo: { id: 'photo-1486325212027-8081e485255e', credit: 'Sean Pollock', creditUrl: 'https://unsplash.com/@seanpollock', caption: 'Symmetry creates order -- buildings and corridors that have been designed, not grown' },
+    photo: { id: 'photo-1486325212027-8081e485255e', credit: 'Sean Pollock', creditUrl: 'https://unsplash.com/@seanpollock', caption: 'Symmetry creates order—buildings and corridors that have been designed, not grown' },
   },
   {
     name: 'Negative Space',
-    description: 'The empty space around a subject -- as significant as the subject itself.',
-    explanation: 'Negative space is the empty area surrounding the subject of a composition. In cinema, negative space is not emptiness -- it is potential, isolation, possibility, or threat. A character surrounded by negative space is alone, exposed, or overwhelmed. A character who fills the entire frame has power but also nowhere to go. The most emotionally precise compositions use negative space deliberately: the lone figure in a vast landscape (insignificance and freedom simultaneously), the face with a dark void behind it (something the audience is waiting to fill), the character with negative space to one side and a wall to the other (trapped, with only one direction to go).',
+    description: 'The empty space around a subject—as significant as the subject itself.',
+    explanation: 'Negative space is the empty area surrounding the subject of a composition. In cinema, negative space is not emptiness—it is potential, isolation, possibility, or threat. A character surrounded by negative space is alone, exposed, or overwhelmed. A character who fills the entire frame has power but also nowhere to go. The most emotionally precise compositions use negative space deliberately: the lone figure in a vast landscape (insignificance and freedom simultaneously), the face with a dark void behind it (something the audience is waiting to fill), the character with negative space to one side and a wall to the other (trapped, with only one direction to go).',
     filmApplication: 'Negative space in a close-up functions differently than negative space in a wide shot. A face with large areas of empty dark around it is isolated and ominous. The same empty space around a landscape is grandeur. The subject\'s scale relative to the space changes the emotion entirely.',
-    photo: { id: 'photo-1519619091416-f5d458c7c5b0', credit: 'Sasha • Stories', creditUrl: 'https://unsplash.com/@sashastories', caption: 'Negative space -- the empty areas are as meaningful as the subject they surround' },
+    photo: { id: 'photo-1519619091416-f5d458c7c5b0', credit: 'Sasha • Stories', creditUrl: 'https://unsplash.com/@sashastories', caption: 'Negative space—the empty areas are as meaningful as the subject they surround' },
   },
   {
     name: 'Foreground and Depth',
     description: 'Layering the frame with near and far elements creates a three-dimensional visual argument.',
-    explanation: 'Film is a two-dimensional medium presenting a three-dimensional world. Foreground elements -- objects or people in the near portion of the frame -- create depth, context, and relationship. A character in the background of a frame filled by a foreground object is being observed, contextualized, or diminished by what is in front of them. A character who moves from background to foreground is gaining power or presence. The two most historically significant uses of foreground depth in cinema are Gregg Toland\'s deep-focus work for Orson Welles in Citizen Kane (entire scenes in sharp focus from foreground to background, making every element equally present and equally accusatory) and Kubrick\'s wide-angle perspectives that stretch space.',
-    filmApplication: 'Shooting through a foreground object (a plant, a doorframe, a crowd) to a character in the background creates the sense that the character is being watched without knowing it -- surveillance without a POV shot.',
+    explanation: 'Film is a two-dimensional medium presenting a three-dimensional world. Foreground elements—objects or people in the near portion of the frame—create depth, context, and relationship. A character in the background of a frame filled by a foreground object is being observed, contextualized, or diminished by what is in front of them. A character who moves from background to foreground is gaining power or presence. The two most historically significant uses of foreground depth in cinema are Gregg Toland\'s deep-focus work for Orson Welles in Citizen Kane (entire scenes in sharp focus from foreground to background, making every element equally present and equally accusatory) and Kubrick\'s wide-angle perspectives that stretch space.',
+    filmApplication: 'Shooting through a foreground object (a plant, a doorframe, a crowd) to a character in the background creates the sense that the character is being watched without knowing it—surveillance without a POV shot.',
     photo: null,
   },
   {
     name: 'Lines and Vectors',
     description: 'Diagonal, horizontal, and vertical lines in the frame direct the eye and communicate stability or dynamism.',
-    explanation: 'Horizontal lines communicate calm, stability, and rest -- the horizon, the bed, the table. Vertical lines communicate power and permanence -- pillars, trees, standing figures. Diagonal lines are the most dynamic: they create movement, instability, and energy. A frame full of diagonals is kinetic and potentially chaotic. A frame of horizontals is at peace. A single diagonal cutting across a field of horizontals is an intrusion. Great cinematographers design their frames around these directional forces: the converging lines of a railroad track or corridor create a powerful central vector that pulls the eye to a vanishing point, and placing a figure at that point makes them the destiny of the composition.',
+    explanation: 'Horizontal lines communicate calm, stability, and rest—the horizon, the bed, the table. Vertical lines communicate power and permanence—pillars, trees, standing figures. Diagonal lines are the most dynamic: they create movement, instability, and energy. A frame full of diagonals is kinetic and potentially chaotic. A frame of horizontals is at peace. A single diagonal cutting across a field of horizontals is an intrusion. Great cinematographers design their frames around these directional forces: the converging lines of a railroad track or corridor create a powerful central vector that pulls the eye to a vanishing point, and placing a figure at that point makes them the destiny of the composition.',
     filmApplication: 'The key insight: lines do not need to be drawn explicitly. Sight lines (where characters look), movement paths, architectural elements, and even the implied lines between objects all create vectors that the eye follows. A character looking at another character creates a line between them that the eye traces.',
     photo: null,
   },
@@ -79,7 +79,7 @@ export default function CompositionLesson() {
             Composition: The Frame as Argument
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '600px', margin: 0 }}>
-            Where a character sits in the frame is always a statement about their relationship to their world. Rule of thirds, headroom, negative space, symmetry -- these are not technical guidelines but a vocabulary for saying something specific before anyone speaks.
+            Where a character sits in the frame is always a statement about their relationship to their world. Rule of thirds, headroom, negative space, symmetry—these are not technical guidelines but a vocabulary for saying something specific before anyone speaks.
           </p>
         </div>
       </section>

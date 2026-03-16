@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Point of View: The Most Important Technical Choice in Fiction | Eve',
-  description: 'Point of view is not just a technical choice about pronoun -- it is a fundamental decision about what knowledge is available to the narrativ',
+  description: 'Point of view is not just a technical choice about pronoun—it is a fundamental decision about what knowledge is available to the narrativ',
 }
 
 export default function Lesson() {
@@ -31,7 +31,7 @@ export default function Lesson() {
             Point of View: The Most Important Technical Choice in Fiction
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            Point of view is not just a technical choice about pronoun -- it is a fundamental decision about what knowledge is available to the narrative and how close the reader gets to a character's inner life.
+            Point of view is not just a technical choice about pronoun—it is a fundamental decision about what knowledge is available to the narrative and how close the reader gets to a character's inner life.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Lesson() {
             First person
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            First-person narration is the most intimate and the most limited. The reader has access to one consciousness and only one consciousness. Everything outside that consciousness must be inferred or observed. The first-person narrator is also a character -- their way of seeing the world is itself a subject of the story. Unreliability in first person is the condition rather than the exception: the narrator is always telling us as much about themselves as about what they are narrating.
+            First-person narration is the most intimate and the most limited. The reader has access to one consciousness and only one consciousness. Everything outside that consciousness must be inferred or observed. The first-person narrator is also a character—their way of seeing the world is itself a subject of the story. Unreliability in first person is the condition rather than the exception: the narrator is always telling us as much about themselves as about what they are narrating.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             Third-person limited
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Third-person limited -- she said, he thought, access to one character's interior -- is the workhorse of contemporary literary fiction. It has the intimacy of first person without the radical limitation on knowledge. The reader is inside one character's head, but the prose can shift between direct interiority and more observational distance. The choice of whose interiority to inhabit determines everything about the story: the same events mean entirely different things depending on whose consciousness frames them.
+            Third-person limited—she said, he thought, access to one character's interior—is the workhorse of contemporary literary fiction. It has the intimacy of first person without the radical limitation on knowledge. The reader is inside one character's head, but the prose can shift between direct interiority and more observational distance. The choice of whose interiority to inhabit determines everything about the story: the same events mean entirely different things depending on whose consciousness frames them.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             Third-person omniscient
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Omniscient narration -- the narrator who can access any character's thoughts, comment on the action, move freely through time -- is the oldest narrative mode and the one most contemporary writers are most uncertain about. Used well, it produces the density of the 19th-century novel: the sense of a fully imagined world examined from multiple angles. Used poorly, it produces headhopping -- moving between perspectives within a scene without control, disorienting the reader.
+            Omniscient narration—the narrator who can access any character's thoughts, comment on the action, move freely through time—is the oldest narrative mode and the one most contemporary writers are most uncertain about. Used well, it produces the density of the 19th-century novel: the sense of a fully imagined world examined from multiple angles. Used poorly, it produces headhopping—moving between perspectives within a scene without control, disorienting the reader.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Second person
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Second-person narration -- you as the protagonist -- is the rarest and the most destabilizing mode. It forces the reader into the character's position and refuses the comfortable distance of third person. Used for the length of a short story, it can create an intensity that no other POV mode produces. The most famous recent use is in Mohsin Hamid's Exit West, where it is used selectively to create moments of sudden intimacy within a more distanced narrative.
+            Second-person narration—you as the protagonist—is the rarest and the most destabilizing mode. It forces the reader into the character's position and refuses the comfortable distance of third person. Used for the length of a short story, it can create an intensity that no other POV mode produces. The most famous recent use is in Mohsin Hamid's Exit West, where it is used selectively to create moments of sudden intimacy within a more distanced narrative.
           </p>
         </div>
 

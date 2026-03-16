@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'How to Start: The First Thing Every Beginner Needs to Know | Eve',
-  description: 'Most beginning writers never finish anything -- not because they lack talent, but because they start wrong. The problem is almost never abil',
+  description: 'Most beginning writers never finish anything—not because they lack talent, but because they start wrong. The problem is almost never abil',
 }
 
 export default function Lesson() {
@@ -31,7 +31,7 @@ export default function Lesson() {
             How to Start: The First Thing Every Beginner Needs to Know
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            Most beginning writers never finish anything -- not because they lack talent, but because they start wrong. The problem is almost never ability. It is almost always approach.
+            Most beginning writers never finish anything—not because they lack talent, but because they start wrong. The problem is almost never ability. It is almost always approach.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Lesson() {
             The real reason beginners stop
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The most common reason new writers stop is not writer's block. It is the gap between their taste and their ability. You know what good writing looks like. Your first drafts don't look like that. The gap is real and uncomfortable. Ira Glass called this the taste gap -- and the only way through it is to produce a large volume of work. You have to write badly for a while. There is no shortcut past this stage. The writers who eventually get good are the ones who kept going anyway.
+            The most common reason new writers stop is not writer's block. It is the gap between their taste and their ability. You know what good writing looks like. Your first drafts don't look like that. The gap is real and uncomfortable. Ira Glass called this the taste gap—and the only way through it is to produce a large volume of work. You have to write badly for a while. There is no shortcut past this stage. The writers who eventually get good are the ones who kept going anyway.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             Start in the middle
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Most beginning writers start at the wrong place. They begin with backstory, with exposition, with the character waking up or arriving somewhere. These are warm-ups -- the writer figuring out the scene before the scene starts. The real scene almost always begins later, in the middle of a situation already in motion. Find where the actual tension begins and cut everything before it. If your story starts with your character in a car, start when something happens in the car. If it starts at a party, start in a specific conversation, not with arrival.
+            Most beginning writers start at the wrong place. They begin with backstory, with exposition, with the character waking up or arriving somewhere. These are warm-ups—the writer figuring out the scene before the scene starts. The real scene almost always begins later, in the middle of a situation already in motion. Find where the actual tension begins and cut everything before it. If your story starts with your character in a car, start when something happens in the car. If it starts at a party, start in a specific conversation, not with arrival.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             The one-sentence test
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Before you write a scene, a chapter, or a whole story, you should be able to answer: what changes in this scene? Not what happens -- what changes. A scene in which two people talk and nothing is different at the end is not a scene. It is a sketch waiting to become a scene. If you cannot state the change, you do not yet know what the scene is about. Knowing what changes is how you find the scene's beginning and end.
+            Before you write a scene, a chapter, or a whole story, you should be able to answer: what changes in this scene? Not what happens—what changes. A scene in which two people talk and nothing is different at the end is not a scene. It is a sketch waiting to become a scene. If you cannot state the change, you do not yet know what the scene is about. Knowing what changes is how you find the scene's beginning and end.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Write the draft nobody will read
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The first draft exists for one reason: to find out what you are trying to say. Not to be read. Not to be shown to anyone. Not to be good. Giving yourself permission to write a bad first draft is not lowering your standards -- it is understanding what a first draft is for. Anne Lamott called it the shitty first draft, and she was right. The first draft is research. You find out what the story is by writing it. The second draft is when you actually write it.
+            The first draft exists for one reason: to find out what you are trying to say. Not to be read. Not to be shown to anyone. Not to be good. Giving yourself permission to write a bad first draft is not lowering your standards—it is understanding what a first draft is for. Anne Lamott called it the shitty first draft, and she was right. The first draft is research. You find out what the story is by writing it. The second draft is when you actually write it.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             The daily minimum
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The most useful writing practice is the smallest one you will actually do. Not the ambitious one you plan but abandon. If you write one sentence a day, you will have 365 sentences in a year -- probably more, because one sentence usually becomes two. The practice of sitting down matters more than the amount you produce when you sit. Consistency beats quantity. Find the minimum you will actually honor, and honor it every day.
+            The most useful writing practice is the smallest one you will actually do. Not the ambitious one you plan but abandon. If you write one sentence a day, you will have 365 sentences in a year—probably more, because one sentence usually becomes two. The practice of sitting down matters more than the amount you produce when you sit. Consistency beats quantity. Find the minimum you will actually honor, and honor it every day.
           </p>
         </div>
 

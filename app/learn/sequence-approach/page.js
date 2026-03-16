@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'The Sequence Approach: eight acts in disguise  -- Eve',
+  title: 'The Sequence Approach: eight acts in disguise —Eve',
 }
 
 export default function LessonSequenceApproach() {
@@ -48,7 +48,7 @@ export default function LessonSequenceApproach() {
         </h1>
 
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          Three-act structure tells you where the big breaks are. The Sequence Approach tells you what goes in between them. Developed by Frank Daniel and popularized by Paul Gulino, it divides a screenplay into eight sequences of roughly 10–15 minutes each  -- a practical tool that solves the most common structural problem writers face: sagging middles.
+          Three-act structure tells you where the big breaks are. The Sequence Approach tells you what goes in between them. Developed by Frank Daniel and popularized by Paul Gulino, it divides a screenplay into eight sequences of roughly 10–15 minutes each —a practical tool that solves the most common structural problem writers face: sagging middles.
         </p>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -56,15 +56,15 @@ export default function LessonSequenceApproach() {
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>What a sequence is</h2>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          A sequence is a mini-story within the larger story. It has its own inciting incident, its own tension that builds, and its own climax that resolves something  -- but creates or raises a new question that drives the next sequence. Think of each sequence as a short film embedded in your feature, complete with its own beginning, middle, and end.
+          A sequence is a mini-story within the larger story. It has its own inciting incident, its own tension that builds, and its own climax that resolves something —but creates or raises a new question that drives the next sequence. Think of each sequence as a short film embedded in your feature, complete with its own beginning, middle, and end.
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '20px' }}>
-          The key requirement: each sequence must end with a scene that closes one question and opens another. If your sequence ends with a scene that simply advances the plot without resolving a tension and raising a new one, the sequence has no architecture  -- it is just scenes in a row.
+          The key requirement: each sequence must end with a scene that closes one question and opens another. If your sequence ends with a scene that simply advances the plot without resolving a tension and raising a new one, the sequence has no architecture —it is just scenes in a row.
         </p>
 
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>The question mechanism:</strong> At the start of each sequence, the audience should have a clear question. By the end, that question is answered  -- but the answer generates a new, more urgent question. The momentum of a well-structured screenplay is the momentum of questions resolving into new questions.
+          <strong>The question mechanism:</strong> At the start of each sequence, the audience should have a clear question. By the end, that question is answered —but the answer generates a new, more urgent question. The momentum of a well-structured screenplay is the momentum of questions resolving into new questions.
         </div>
 
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
@@ -79,8 +79,8 @@ export default function LessonSequenceApproach() {
           {[
             { num: '1', label: 'Status quo and inciting incident', desc: 'Establish the world, introduce the protagonist, deliver the event that makes the story necessary.' },
             { num: '2', label: 'Protagonist reacts and stakes are set', desc: 'The protagonist responds to the inciting incident. The central dramatic question is locked in.' },
-            { num: '3', label: 'First attempt and first failure', desc: 'The protagonist pursues their goal using their existing tools. Those tools are insufficient  -- the first approach fails.' },
-            { num: '4', label: 'Complications deepen', desc: 'The midpoint arrives. Something appears to change everything  -- a revelation, a reversal, a new obstacle that raises the stakes completely.' },
+            { num: '3', label: 'First attempt and first failure', desc: 'The protagonist pursues their goal using their existing tools. Those tools are insufficient —the first approach fails.' },
+            { num: '4', label: 'Complications deepen', desc: 'The midpoint arrives. Something appears to change everything —a revelation, a reversal, a new obstacle that raises the stakes completely.' },
             { num: '5', label: 'Pressure intensifies', desc: 'The second half of Act 2 begins. The protagonist is deeper in, more committed, and the cost of failure is clearer than ever.' },
             { num: '6', label: 'All is lost', desc: 'The worst has happened. The protagonist has failed, been betrayed, or lost what mattered most. This is the dark night of the soul.' },
             { num: '7', label: 'Resolution of A story', desc: 'The protagonist makes their final approach with new understanding. The central conflict reaches its climax.' },
@@ -107,7 +107,7 @@ export default function LessonSequenceApproach() {
         </p>
 
         <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          The practical test: can you write one sentence for each sequence that captures its central tension? If you cannot state the tension for a given sequence, that section of your script has no architecture  -- and the audience will feel it as drift.
+          The practical test: can you write one sentence for each sequence that captures its central tension? If you cannot state the tension for a given sequence, that section of your script has no architecture —and the audience will feel it as drift.
         </p>
 
         <div style={{ background: 'var(--off-white)', borderRadius: '10px', padding: '22px', marginBottom: '36px' }}>
@@ -116,7 +116,7 @@ export default function LessonSequenceApproach() {
             For a film you admire, try to identify the eight sequences:
           </p>
           <ol style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Watch with a notepad and mark every scene that feels like a meaningful resolution  -- tension discharged.</li>
+            <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Watch with a notepad and mark every scene that feels like a meaningful resolution —tension discharged.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Group the scenes between those resolution points into sequences.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>For each sequence, write: the opening question, the closing answer, and the new question that emerges.</li>
             <li style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.65' }}>Apply the same analysis to your own script. Where are the sequences with no question? That is where your rewrite begins.</li>

@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Road to Hollywood  -- How to Write, Format, and Sell a Screenplay",
+  title: "Road to Hollywood —How to Write, Format, and Sell a Screenplay",
   description: "A complete guide to writing a professional screenplay, formatting it correctly, finding agents and managers, entering competitions, and getting your script in front of people who can make it.",
   keywords: "how to sell a screenplay, screenplay format, find a screenwriting agent, WGA, query letters, screenwriting competitions, road to hollywood, get your script read",
   openGraph: {
-    title: "Road to Hollywood  -- From Your Couch to the Studios",
+    title: "Road to Hollywood —From Your Couch to the Studios",
     description: "Everything nobody tells you about getting a script made. Format, agents, competitions, query letters, and what actually works.",
     url: "https://eve-screenwriting.vercel.app/road-to-hollywood",
   },
@@ -37,10 +37,10 @@ const stages = [
     subtitle: "Readers notice immediately",
     color: "#2D5016",
     content: [
-      "Screenplay format is not arbitrary. It evolved to communicate specific information to specific departments  -- production, casting, locations, budget. A script that is formatted incorrectly signals that the writer does not understand the industry they are trying to enter.",
+      "Screenplay format is not arbitrary. It evolved to communicate specific information to specific departments —production, casting, locations, budget. A script that is formatted incorrectly signals that the writer does not understand the industry they are trying to enter.",
       "The industry standard: 12-point Courier font, specific margin widths, slug lines in caps, action in present tense, no directing on the page. One page roughly equals one minute of screen time. A feature screenplay is 90-120 pages. A one-hour television drama is 45-65 pages.",
-      "The most common formatting mistakes: overwriting action lines (three paragraphs where two sentences would do), indicating camera shots (not your job  -- that is the director's job), writing in past tense, and underlining or bolding text for emphasis. None of these belong in a spec script.",
-      "Parentheticals  -- the (beat) or (quietly) instructions before dialogue  -- should be used almost never. If you need to tell the actor how to say the line, the line is not doing its job. Rewrite the line.",
+      "The most common formatting mistakes: overwriting action lines (three paragraphs where two sentences would do), indicating camera shots (not your job —that is the director's job), writing in past tense, and underlining or bolding text for emphasis. None of these belong in a spec script.",
+      "Parentheticals —the (beat) or (quietly) instructions before dialogue —should be used almost never. If you need to tell the actor how to say the line, the line is not doing its job. Rewrite the line.",
     ],
     action: "Recommended software: Final Draft (industry standard), Highland 2 (Mac, cleaner interface), WriterDuet (free, browser-based, real-time collaboration). All auto-format correctly.",
     resources: [
@@ -53,7 +53,7 @@ const stages = [
   {
     number: "03",
     title: "Learn the industry structure",
-    subtitle: "Agents, managers, producers  -- who does what",
+    subtitle: "Agents, managers, producers —who does what",
     color: "#2D5016",
     content: [
       "Hollywood has a specific professional structure that is not intuitive. Getting it wrong in a query letter marks you as an outsider immediately.",
@@ -66,7 +66,7 @@ const stages = [
     resources: [
       { label: "IMDbPro", url: "https://pro.imdb.com/", note: "Research producers and managers. Find who made the films you love." },
       { label: "WGA Agency List", url: "https://www.wga.org/contracts/contracts/mba/agency-regulations", note: "The official list of WGA-franchised agencies." },
-      { label: "The Black List  -- Manager List", url: "https://blcklist.com/", note: "Find managers who represent the genre you write." },
+      { label: "The Black List —Manager List", url: "https://blcklist.com/", note: "Find managers who represent the genre you write." },
     ]
   },
   {
@@ -94,9 +94,9 @@ const stages = [
     color: "#2D5016",
     content: [
       "Screenwriting competitions are not vanity. The top competitions are actively read by agents and managers who use the finalist lists as a scouting tool. Placing in the right competition is one of the fastest ways to get legitimate industry attention as an unrepresented writer.",
-      "The competitions that matter: The Nicholl Fellowship is the most prestigious  -- run by the Academy of Motion Picture Arts and Sciences, it produces more industry attention per placement than almost anything else. Austin Film Festival is the most industry-connected  -- winners and finalists are invited to pitch meetings as part of the festival. The Black List annual survey identifies the most liked unproduced scripts in circulation and makes them visible to the industry.",
+      "The competitions that matter: The Nicholl Fellowship is the most prestigious —run by the Academy of Motion Picture Arts and Sciences, it produces more industry attention per placement than almost anything else. Austin Film Festival is the most industry-connected —winners and finalists are invited to pitch meetings as part of the festival. The Black List annual survey identifies the most liked unproduced scripts in circulation and makes them visible to the industry.",
       "The competitions that do not matter: There are hundreds of screenwriting competitions with entry fees and no industry recognition. Research before entering. Ask: Does this competition produce any verifiable success stories? Are the judges current industry professionals? Is the winner's list something an agent would recognize?",
-      "Sundance Episodic Lab and Screenwriters Lab accept unproduced writers and provide mentorship with working industry professionals. These are not competitions  -- they are career-launching programs. Application is free. The caliber of the experience is exceptional.",
+      "Sundance Episodic Lab and Screenwriters Lab accept unproduced writers and provide mentorship with working industry professionals. These are not competitions —they are career-launching programs. Application is free. The caliber of the experience is exceptional.",
       "A Nicholl Fellowship semifinalist credit in a query letter will get a response from most managers. A finalist credit will get a response from most agents. A winner is news. This is a real and achievable path.",
     ],
     resources: [
@@ -113,10 +113,10 @@ const stages = [
     color: "#2D5016",
     content: [
       "When a manager or producer Googles your name after receiving a query, they will find what you have put there. Make that work for you.",
-      "A minimal, clean personal site with your bio, a brief description of your work (no loglines or PDFs  -- you do not want unsolicited submissions policy issues), and a contact form. That is all you need.",
+      "A minimal, clean personal site with your bio, a brief description of your work (no loglines or PDFs —you do not want unsolicited submissions policy issues), and a contact form. That is all you need.",
       "IMDbPro: If you have any produced work, any short film, any produced play, register it on IMDb. Professionals use IMDbPro constantly. Having a professional presence there signals seriousness.",
       "Twitter and Threads have genuine screenwriting communities where working professionals participate. This is not career-making, but it is relationship-building. Engage with the work of writers you respect. Occasionally, this matters.",
-      "What not to do: Do not post your loglines asking for feedback from strangers. Do not tweet about your difficult writing day. Do not announce competition results until they are official. Do not make your online presence about your process  -- make it about your work.",
+      "What not to do: Do not post your loglines asking for feedback from strangers. Do not tweet about your difficult writing day. Do not announce competition results until they are official. Do not make your online presence about your process —make it about your work.",
     ],
     resources: [
       { label: "Stage 32", url: "https://www.stage32.com/", note: "The largest online community for film professionals. Webinars, pitch sessions, networking." },
@@ -130,17 +130,17 @@ const stages = [
     color: "#2D5016",
     content: [
       "The path from finished script to produced film is long, nonlinear, and survivable if you understand it clearly.",
-      "Most scripts are optioned, not purchased. An option is a bet. The producer is betting they can get the script made. Most options expire without producing anything. This is normal. An optioned script is a working script  -- it is in the game.",
-      "A spec sale (selling a finished script without a prior commitment) is rare. Most working screenwriters work on assignment  -- they are hired to write something that already has a buyer attached. Building toward assignment work means building relationships, demonstrating craft, and being known as someone who can solve problems.",
-      "The independent path is different. A low-budget independent film can be made for under $1 million. Many important careers  -- David Lynch, Kevin Smith, Ari Aster  -- started with a very small film that demonstrated what they could do at feature length. If you can produce, direct, or find someone who can, a small film on screen is worth a hundred unproduced scripts.",
+      "Most scripts are optioned, not purchased. An option is a bet. The producer is betting they can get the script made. Most options expire without producing anything. This is normal. An optioned script is a working script —it is in the game.",
+      "A spec sale (selling a finished script without a prior commitment) is rare. Most working screenwriters work on assignment —they are hired to write something that already has a buyer attached. Building toward assignment work means building relationships, demonstrating craft, and being known as someone who can solve problems.",
+      "The independent path is different. A low-budget independent film can be made for under $1 million. Many important careers —David Lynch, Kevin Smith, Ari Aster —started with a very small film that demonstrated what they could do at feature length. If you can produce, direct, or find someone who can, a small film on screen is worth a hundred unproduced scripts.",
       "Television is not the consolation prize. It is its own craft, with its own career track. A pilot that showcases distinctive voice can move faster than a feature script. The streaming explosion created demand that has not fully settled. Understanding the difference between broadcast, cable, and streaming markets matters.",
-      "The most honest summary: most scripts do not get made. Most careers in Hollywood are built on persistence, craft development, and relationships over years  -- not on one breakthrough moment. The writers who get made are the writers who kept writing, kept improving, and stayed in the room long enough for their shot.",
+      "The most honest summary: most scripts do not get made. Most careers in Hollywood are built on persistence, craft development, and relationships over years —not on one breakthrough moment. The writers who get made are the writers who kept writing, kept improving, and stayed in the room long enough for their shot.",
     ],
     resources: [
       { label: "Go Into The Story", url: "https://gointothestory.blcklist.com/", note: "The Black List's official blog. The most useful free resource for working screenwriters." },
       { label: "John August's blog", url: "https://johnaugust.com/", note: "Big Fish, Charlie's Angels, Aladdin. Working writer talking about working writing." },
       { label: "Script Magazine", url: "https://scriptmag.com/", note: "Industry interviews, craft essays, competition coverage." },
-      { label: "WGA  -- Become a Member", url: "https://www.wga.org/the-guild/about-the-wga/about-the-wga", note: "Understand what guild membership means, what it costs, and what it protects." },
+      { label: "WGA —Become a Member", url: "https://www.wga.org/the-guild/about-the-wga/about-the-wga", note: "Understand what guild membership means, what it costs, and what it protects." },
     ]
   },
 ]
@@ -163,7 +163,7 @@ export default function RoadToHollywood() {
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
-              Start writing  -- free
+              Start writing —free
             </Link>
             <Link href="/learn" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
               Learn the craft first

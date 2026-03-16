@@ -49,7 +49,7 @@ const frameworks = [
   {
     name: "Freeform",
     author: "Your instincts",
-    description: "No template. You build the structure as you go. Eve tracks your scenes, characters, and themes  -- the shape is entirely yours.",
+    description: "No template. You build the structure as you go. Eve tracks your scenes, characters, and themes —the shape is entirely yours.",
     best_for: "Literary fiction, experimental work",
     acts: "No template",
   },
@@ -58,7 +58,7 @@ const frameworks = [
 const pillars = [
   {
     title: "Start anywhere",
-    body: "A single line of dialogue is enough to begin. Eve helps you build outward from any seed  -- scene, character, or feeling."
+    body: "A single line of dialogue is enough to begin. Eve helps you build outward from any seed —scene, character, or feeling."
   },
   {
     title: "Characters first",
@@ -66,7 +66,7 @@ const pillars = [
   },
   {
     title: "Track what's missing",
-    body: "Plot holes are normal. Flag them, name them, return to them. Every first draft has them  -- tracking is the cure."
+    body: "Plot holes are normal. Flag them, name them, return to them. Every first draft has them —tracking is the cure."
   },
   {
     title: "Pick up where you left off",
@@ -97,7 +97,7 @@ function PricingSection() {
       features: [
         '1 active project',
         'Save the Cat framework',
-        'Full craft library  -- all lessons',
+        'Full craft library —all lessons',
         'Glossary and reading list',
         '25 saved ideas',
         'Character builder',
@@ -473,7 +473,7 @@ export default function Home() {
             maxWidth: '460px',
             fontFamily: 'Source Sans 3, sans-serif',
           }}>
-            Free lessons on screenwriting, novel writing, and short fiction  -- plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
+            Free lessons on screenwriting, novel writing, and short fiction —plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
           </p>
           <div className="hero-cta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
@@ -516,7 +516,7 @@ export default function Home() {
             {[
               { done: true, text: 'Inciting incident defined' },
               { done: true, text: 'Protagonist goal established' },
-              { done: false, text: 'Midpoint reversal  -- what changes?' },
+              { done: false, text: 'Midpoint reversal —what changes?' },
               { done: false, text: 'Antagonist motivation fleshed out' },
               { done: false, text: 'Act 2 low point identified' },
             ].map((item, i) => (
@@ -538,7 +538,7 @@ export default function Home() {
             ))}
           </div>
           <div className="tip-box" style={{ marginTop: '20px' }}>
-            <strong>Session note:</strong> Your midpoint is the spine of the story. Something must change irreversibly here  -- your protagonist cannot go back.
+            <strong>Session note:</strong> Your midpoint is the spine of the story. Something must change irreversibly here —your protagonist cannot go back.
           </div>
         </div>
       </section>
@@ -682,7 +682,7 @@ export default function Home() {
           </div>
           <div style={{ height: '1px', background: 'rgba(255,255,255,0.12)' }} />
           <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75' }}>
-            Eve is a thinking tool. It holds your structure so your mind stays free for the only thing that matters  -- the work.
+            Eve is a thinking tool. It holds your structure so your mind stays free for the only thing that matters —the work.
           </p>
         </div>
       </section>
@@ -693,7 +693,7 @@ export default function Home() {
           <div style={{ maxWidth: '560px', marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>Choose your framework</h2>
             <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
-              Every project in Eve starts with a structure choice. Not sure which? Read the descriptions  -- you will know.
+              Every project in Eve starts with a structure choice. Not sure which? Read the descriptions —you will know.
             </p>
           </div>
           {/* Scroll hint arrows */}
@@ -794,7 +794,7 @@ export default function Home() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '600', color: '#fff' }}>Eve</span>
             </div>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.7', maxWidth: '260px' }}>
-              A story workspace for writers who believe structure serves the work  -- not the other way around. No AI. No shortcuts.
+              A story workspace for writers who believe structure serves the work —not the other way around. No AI. No shortcuts.
             </p>
           </div>
 

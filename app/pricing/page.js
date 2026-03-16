@@ -21,7 +21,7 @@ const plans = [
     features: [
       '1 active project',
       'Save the Cat framework',
-      'Full craft library  -- all lessons',
+      'Full craft library —all lessons',
       'Story glossary and reading list',
       '25 saved ideas',
       'Character builder',
@@ -511,11 +511,11 @@ export default function PricingPage() {
             },
             {
               q: 'Is there a free trial for Studio or Professional?',
-              a: 'We offer a 7-day free trial on both paid tiers  -- no credit card required to start. If you\'re not satisfied, cancel any time and your projects remain accessible on the Free tier.',
+              a: 'We offer a 7-day free trial on both paid tiers —no credit card required to start. If you\'re not satisfied, cancel any time and your projects remain accessible on the Free tier.',
             },
             {
               q: 'Can I switch between monthly and annual billing?',
-              a: 'Yes. You can switch at any time. If you switch from monthly to annual mid-cycle, we prorate the difference. Annual billing saves 50%  -- it\'s the better deal for any writer who sticks with it.',
+              a: 'Yes. You can switch at any time. If you switch from monthly to annual mid-cycle, we prorate the difference. Annual billing saves 50% —it\'s the better deal for any writer who sticks with it.',
             },
           ].map((item, i) => (
             <div key={i} style={{
@@ -564,7 +564,7 @@ export default function PricingPage() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.18)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.14)'; }}
             >
-              Start free  -- no card needed
+              Start free —no card needed
             </button>
           </Link>
         </div>

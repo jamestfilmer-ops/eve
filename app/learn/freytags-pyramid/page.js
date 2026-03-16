@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Freytag's Pyramid  -- The Original Dramatic Structure | Eve",
+  title: "Freytag's Pyramid —The Original Dramatic Structure | Eve",
   description: "Freytag's Pyramid: the 1863 five-stage dramatic arc (Exposition, Rising Action, Climax, Falling Action, Denouement) that underpins every story structure since.",
 }
 
@@ -75,11 +75,11 @@ export default function LessonFreytag() {
 
         <h2 style={{ fontSize: '20px', marginBottom: '16px' }}>The five stages</h2>
         {[
-          { stage: 'Exposition', desc: 'Establish the world, the characters, and the conflict. Freytag called this the "exciting force"  -- the setup that makes the inciting incident meaningful.' },
-          { stage: 'Rising Action', desc: 'Escalating conflict  -- each complication emerging causally from the last. This is the longest section: where most of the story lives.' },
-          { stage: 'Climax', desc: 'The turning point. Highest tension, outcome determined. Not the ending  -- the pivot. Everything after is resolution.' },
+          { stage: 'Exposition', desc: 'Establish the world, the characters, and the conflict. Freytag called this the "exciting force" —the setup that makes the inciting incident meaningful.' },
+          { stage: 'Rising Action', desc: 'Escalating conflict —each complication emerging causally from the last. This is the longest section: where most of the story lives.' },
+          { stage: 'Climax', desc: 'The turning point. Highest tension, outcome determined. Not the ending —the pivot. Everything after is resolution.' },
           { stage: 'Falling Action', desc: 'Consequences of the climax. Tension unravels. Secondary characters face what the protagonist set in motion.' },
-          { stage: 'Denouement', desc: 'The "untying"  -- conflict settled, characters in their new state, world reaching equilibrium.' },
+          { stage: 'Denouement', desc: 'The "untying" —conflict settled, characters in their new state, world reaching equilibrium.' },
         ].map(s => (
           <div key={s.stage} style={{ paddingBottom: '16px', marginBottom: '16px', borderBottom: '1px solid var(--border)' }}>
             <p style={{ fontSize: '14px', fontWeight: '700', color: 'var(--green)', marginBottom: '4px' }}>{s.stage}</p>
@@ -87,7 +87,7 @@ export default function LessonFreytag() {
           </div>
         ))}
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>Use it as a diagnostic.</strong> Draw the pyramid for your story. Mark your inciting incident, midpoint, All Is Lost, and climax. If the climax is not the highest point  -- if tension peaked too early or too late  -- you&#39;ve found your structural problem.
+          <strong>Use it as a diagnostic.</strong> Draw the pyramid for your story. Mark your inciting incident, midpoint, All Is Lost, and climax. If the climax is not the highest point —if tension peaked too early or too late —you&#39;ve found your structural problem.
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
           <Link href="/learn/seven-point-story" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>← Seven-Point Structure</Link>

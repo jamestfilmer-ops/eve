@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Visual Craft -- Color Theory and Cinematography for Writers | Eve',
+  title: 'Visual Craft—Color Theory and Cinematography for Writers | Eve',
   description: 'How color and camera work tell stories. Lessons on color psychology, color grading, shot types, camera angles, lens choice, and lighting for screenwriters and visual storytellers.',
   keywords: 'color theory film, cinematography for writers, shot types storytelling, camera angles meaning, color psychology narrative, visual storytelling, film color grading',
   openGraph: {
-    title: 'Visual Craft -- Color and Cinematography for Storytellers',
+    title: 'Visual Craft—Color and Cinematography for Storytellers',
     description: 'Every color choice and camera angle is a storytelling decision. Learn how visual language works.',
     url: 'https://eve-screenwriting.vercel.app/visual-craft',
   },
@@ -15,11 +15,11 @@ const colorLessons = [
   {
     slug: 'color-theory',
     title: 'Color Theory in Film and Fiction',
-    sub: 'What every color communicates -- and how filmmakers use it deliberately',
+    sub: 'What every color communicates—and how filmmakers use it deliberately',
     time: '12 min',
     level: 'Intermediate',
     status: 'live',
-    preview: 'Red is danger, blue is cold, yellow is unease -- but only when the filmmaker earns it. Study how the greatest films use color as a second layer of storytelling running beneath the dialogue.',
+    preview: 'Red is danger, blue is cold, yellow is unease—but only when the filmmaker earns it. Study how the greatest films use color as a second layer of storytelling running beneath the dialogue.',
   },
   {
     slug: 'color-palettes',
@@ -37,7 +37,7 @@ const colorLessons = [
     time: '8 min',
     level: 'Beginner',
     status: 'live',
-    preview: 'The most powerful color choices in film are often contrasts -- a warm figure in a cold world, a desaturated past against a saturated present.',
+    preview: 'The most powerful color choices in film are often contrasts—a warm figure in a cold world, a desaturated past against a saturated present.',
   },
   {
     slug: 'color-symbolism',
@@ -46,7 +46,7 @@ const colorLessons = [
     time: '9 min',
     level: 'Intermediate',
     status: 'live',
-    preview: 'Western color symbolism is not universal. Study how non-Western cinema uses color differently -- and how contemporary filmmakers exploit the collision of both systems.',
+    preview: 'Western color symbolism is not universal. Study how non-Western cinema uses color differently—and how contemporary filmmakers exploit the collision of both systems.',
   },
   {
     slug: 'color-grading',
@@ -81,7 +81,7 @@ const cinematographyLessons = [
   {
     slug: 'camera-angles',
     title: 'Camera Angles and Power',
-    sub: 'High, low, Dutch, eye-level -- what each says about who has control',
+    sub: 'High, low, Dutch, eye-level—what each says about who has control',
     time: '10 min',
     level: 'Beginner',
     status: 'live',
@@ -90,11 +90,11 @@ const cinematographyLessons = [
   {
     slug: 'camera-movement',
     title: 'Camera Movement and Emotional Meaning',
-    sub: 'Dolly, zoom, handheld, steadicam -- what each communicates',
+    sub: 'Dolly, zoom, handheld, steadicam—what each communicates',
     time: '12 min',
     level: 'Intermediate',
     status: 'live',
-    preview: 'A dolly-in builds tension. A zoom-in is paranoid. A handheld camera is raw and present. A locked-off camera creates dread. The camera\'s movement -- or stillness -- is always a choice.',
+    preview: 'A dolly-in builds tension. A zoom-in is paranoid. A handheld camera is raw and present. A locked-off camera creates dread. The camera\'s movement—or stillness—is always a choice.',
   },
   {
     slug: 'lenses-and-depth',
@@ -121,7 +121,7 @@ const cinematographyLessons = [
     time: '10 min',
     level: 'Beginner',
     status: 'live',
-    preview: 'A character at the center of the frame is in control. At the edge, they are marginalized. Headroom and lead room, symmetry and asymmetry -- all of it means something.',
+    preview: 'A character at the center of the frame is in control. At the edge, they are marginalized. Headroom and lead room, symmetry and asymmetry—all of it means something.',
   },
   {
     slug: 'mise-en-scene',
@@ -130,7 +130,7 @@ const cinematographyLessons = [
     time: '15 min',
     level: 'Advanced',
     status: 'live',
-    preview: 'Mise-en-scene is the total visual argument of a frame: set, costume, performance, lighting, composition, camera. The directors who master it -- Kubrick, Tati, Kubrick, Wes Anderson -- cannot be imitated because every element is inseparable.',
+    preview: 'Mise-en-scene is the total visual argument of a frame: set, costume, performance, lighting, composition, camera. The directors who master it—Kubrick, Tati, Kubrick, Wes Anderson—cannot be imitated because every element is inseparable.',
   },
 ]
 
@@ -139,31 +139,31 @@ const featuredFilmmakers = [
     name: 'Roger Deakins',
     role: 'Director of Photography',
     known: 'Blade Runner 2049, 1917, No Country for Old Men, Skyfall',
-    note: 'Deakins uses natural light sources as foundations -- every artificial light in his frames is motivated by something that would plausibly exist in the scene. Study how he uses a single window, a single lamp, or a single flame to build an entire scene\'s light logic.',
+    note: 'Deakins uses natural light sources as foundations—every artificial light in his frames is motivated by something that would plausibly exist in the scene. Study how he uses a single window, a single lamp, or a single flame to build an entire scene\'s light logic.',
   },
   {
     name: 'Wes Anderson',
     role: 'Director',
     known: 'The Grand Budapest Hotel, Moonrise Kingdom, The Royal Tenenbaums',
-    note: 'Anderson\'s symmetrical compositions and pastel palettes are not decorative -- they create a specific emotional world of order that barely contains disorder. The color palette shifts as the emotional temperature shifts. Every frame is a controlled argument about beauty and loss.',
+    note: 'Anderson\'s symmetrical compositions and pastel palettes are not decorative—they create a specific emotional world of order that barely contains disorder. The color palette shifts as the emotional temperature shifts. Every frame is a controlled argument about beauty and loss.',
   },
   {
     name: 'Emmanuel Lubezki',
     role: 'Director of Photography',
     known: 'Gravity, The Revenant, Children of Men, Birdman',
-    note: 'Lubezki pioneered naturalistic digital cinematography -- shooting in actual daylight, using unbroken takes, keeping the camera inside the action. The result is a visceral presence that studio-lit films cannot achieve. Study Children of Men for how unbroken takes build catastrophic dread.',
+    note: 'Lubezki pioneered naturalistic digital cinematography—shooting in actual daylight, using unbroken takes, keeping the camera inside the action. The result is a visceral presence that studio-lit films cannot achieve. Study Children of Men for how unbroken takes build catastrophic dread.',
   },
   {
     name: 'Stanley Kubrick',
     role: 'Director',
     known: 'The Shining, 2001, Barry Lyndon, Full Metal Jacket',
-    note: 'Kubrick shot Barry Lyndon with NASA lenses capable of filming by candlelight -- giving every frame the look of an 18th-century oil painting. In The Shining, the tracking shot through hotel corridors creates unease without cutting. Kubrick uses the camera as a controlling intelligence that makes the audience feel watched.',
+    note: 'Kubrick shot Barry Lyndon with NASA lenses capable of filming by candlelight—giving every frame the look of an 18th-century oil painting. In The Shining, the tracking shot through hotel corridors creates unease without cutting. Kubrick uses the camera as a controlling intelligence that makes the audience feel watched.',
   },
   {
     name: 'Park Chan-wook',
     role: 'Director',
     known: 'Oldboy, The Handmaiden, Decision to Leave',
-    note: "Park's color palette is deliberately lush and saturated -- a beautiful surface over morally rotten content. The tension between the visual pleasure his films offer and the horror of what they show is itself the argument. Study The Handmaiden for how color codes the difference between deception and truth.",
+    note: "Park's color palette is deliberately lush and saturated—a beautiful surface over morally rotten content. The tension between the visual pleasure his films offer and the horror of what they show is itself the argument. Study The Handmaiden for how color codes the difference between deception and truth.",
   },
 ]
 
@@ -264,7 +264,7 @@ export default function VisualCraftPage() {
             Color and Camera as Storytelling Language
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', marginBottom: '36px' }}>
-            Every color choice and every camera angle is a storytelling decision. Not decoration -- argument. This section breaks down the visual vocabulary of film and teaches you to use it deliberately, whether you are writing for the screen or trying to understand why certain films feel the way they do.
+            Every color choice and every camera angle is a storytelling decision. Not decoration—argument. This section breaks down the visual vocabulary of film and teaches you to use it deliberately, whether you are writing for the screen or trying to understand why certain films feel the way they do.
           </p>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/learn/color-theory" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 24px', borderRadius: '8px', textDecoration: 'none' }}>
@@ -310,7 +310,7 @@ export default function VisualCraftPage() {
             </Link>
           </div>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '24px' }}>
-            Color is not mood board decoration -- it is a second layer of narrative running below the dialogue. Every deliberate film uses color to reinforce, contradict, or complicate what the characters are saying. These lessons move from fundamental color psychology to the practical craft of writing for color and understanding the choices directors make.
+            Color is not mood board decoration—it is a second layer of narrative running below the dialogue. Every deliberate film uses color to reinforce, contradict, or complicate what the characters are saying. These lessons move from fundamental color psychology to the practical craft of writing for color and understanding the choices directors make.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {colorLessons.map((lesson) => (
@@ -333,7 +333,7 @@ export default function VisualCraftPage() {
             </Link>
           </div>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '24px' }}>
-            The camera is not a neutral recorder. Every shot type, angle, movement, and lens choice is a conscious argument about what the audience should feel. Understanding cinematography makes you a better screenwriter -- you stop writing directions and start writing worlds that demand specific visual choices.
+            The camera is not a neutral recorder. Every shot type, angle, movement, and lens choice is a conscious argument about what the audience should feel. Understanding cinematography makes you a better screenwriter—you stop writing directions and start writing worlds that demand specific visual choices.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {cinematographyLessons.map((lesson) => (
@@ -351,7 +351,7 @@ export default function VisualCraftPage() {
             </h2>
           </div>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '24px' }}>
-            The best education in visual storytelling is watching the right films with the right questions. These directors and cinematographers have built the most coherent visual languages in cinema -- study them not to imitate but to understand what deliberate visual thinking looks like.
+            The best education in visual storytelling is watching the right films with the right questions. These directors and cinematographers have built the most coherent visual languages in cinema—study them not to imitate but to understand what deliberate visual thinking looks like.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {featuredFilmmakers.map((person) => (
@@ -382,9 +382,9 @@ export default function VisualCraftPage() {
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             {[
-              'Understanding color psychology makes your scene descriptions richer -- you stop writing "it was dark and ominous" and start writing a world whose physical details create the feeling without the adjective.',
-              'Understanding shot grammar helps you know what your dialogue must carry and what the camera can be trusted to do. A scene you write as two people talking at a table reads differently if you understand that a standard coverage setup cannot create dread -- that requires a specific visual choice.',
-              'For novelists: cinematography is a precise vocabulary for the choices you make about narrative distance, perspective, and where to put attention. The close-up, the long shot, the cut -- all have prose equivalents.',
+              'Understanding color psychology makes your scene descriptions richer—you stop writing "it was dark and ominous" and start writing a world whose physical details create the feeling without the adjective.',
+              'Understanding shot grammar helps you know what your dialogue must carry and what the camera can be trusted to do. A scene you write as two people talking at a table reads differently if you understand that a standard coverage setup cannot create dread—that requires a specific visual choice.',
+              'For novelists: cinematography is a precise vocabulary for the choices you make about narrative distance, perspective, and where to put attention. The close-up, the long shot, the cut—all have prose equivalents.',
               'The best screenwriters think visually before they write words. They know which scenes are dialogue scenes and which are image scenes. These lessons will help you tell the difference.',
             ].map((point, i) => (
               <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
@@ -406,7 +406,7 @@ export default function VisualCraftPage() {
             Use Eve to build the scene structure, character arcs, and visual cues into your project. Free to start.
           </p>
           <Link href="/auth?signup=true" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '13px 30px', borderRadius: '8px', textDecoration: 'none' }}>
-            Start writing -- free
+            Start writing—free
           </Link>
         </section>
 

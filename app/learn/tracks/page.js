@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Learning Paths  -- Eve Craft Library",
-  description: "Structured learning paths for screenwriters, novelists, and beginning writers. Follow a curated sequence of lessons from intro to advanced  -- or build your own path through the craft library.",
+  title: "Learning Paths —Eve Craft Library",
+  description: "Structured learning paths for screenwriters, novelists, and beginning writers. Follow a curated sequence of lessons from intro to advanced —or build your own path through the craft library.",
   keywords: "screenwriting learning path, how to learn screenwriting, novel writing course free, story structure course, beginner writer lessons, screenplay structure tutorial",
   openGraph: {
-    title: "Learning Paths  -- Eve Craft Library",
+    title: "Learning Paths —Eve Craft Library",
     description: "Curated lesson sequences from beginner to advanced. Follow the path or build your own.",
     url: "https://eve-screenwriting.vercel.app/learn/tracks",
   },
@@ -24,7 +24,7 @@ const tracks = [
     time: '55 min total',
     lessons: [
       { slug: 'how-to-start', title: 'How to start', time: '7 min', note: 'The most important lesson on this site. Read first.' },
-      { slug: 'fear-and-writing', title: 'Fear and writing', time: '6 min', note: 'Why most writers stop  -- and how not to.' },
+      { slug: 'fear-and-writing', title: 'Fear and writing', time: '6 min', note: 'Why most writers stop —and how not to.' },
       { slug: 'finding-your-story', title: 'Finding your story', time: '6 min', note: 'Where ideas actually come from.' },
       { slug: 'vonnegut-craft', title: 'Vonnegut on craft', time: '6 min', note: 'Eight rules that cover most of what matters.' },
       { slug: 'what-a-scene-does', title: 'What a scene actually does', time: '6 min', note: 'The atomic unit of story.' },
@@ -42,7 +42,7 @@ const tracks = [
     description: "Structure, scene craft, and the specific demands of writing for the screen. Grounded in the frameworks that professional writers actually use.",
     time: '90 min total',
     lessons: [
-      { slug: 'act-breaks', title: 'Act breaks', time: '7 min', note: 'Where the story pivots  -- and why.' },
+      { slug: 'act-breaks', title: 'Act breaks', time: '7 min', note: 'Where the story pivots —and why.' },
       { slug: 'midpoint', title: 'The midpoint', time: '6 min', note: 'The spine of your screenplay.' },
       { slug: 'all-is-lost', title: 'The All Is Lost beat', time: '6 min', note: 'Before your hero can win, they must lose everything.' },
       { slug: 'opening-image', title: 'The opening image', time: '5 min', note: 'First impressions are the whole story compressed.' },
@@ -75,7 +75,7 @@ const tracks = [
       { slug: 'flaw-vs-wound', title: 'Flaw vs. wound', time: '4 min', note: 'The difference between surface and source.' },
       { slug: 'character-voice', title: 'Character voice', time: '4 min', note: 'Cover the names. Can you tell who\'s speaking?' },
       { slug: 'relationship-pairs', title: 'Relationship pairs', time: '4 min', note: 'Characters define each other.' },
-      { slug: 'theme', title: 'Theme', time: '6 min', note: 'Good fiction asks  -- it never answers.' },
+      { slug: 'theme', title: 'Theme', time: '6 min', note: 'Good fiction asks —it never answers.' },
       { slug: 'motifs', title: 'Motifs', time: '6 min', note: 'Recurring images that accumulate meaning.' },
       { slug: 'pacing-rhythm', title: 'Pacing and rhythm', time: '6 min', note: 'Length implies importance.' },
       { slug: 'adaptation', title: 'Adaptation', time: '8 min', note: 'Moving between mediums.' },
@@ -99,8 +99,8 @@ const tracks = [
       { slug: 'kishotenketsu', title: 'Kishōtenketsu', time: '5 min', note: 'Story without conflict.' },
       { slug: 'fichtean-curve',   title: 'The Fichtean Curve',              time: '4 min', note: 'Start in crisis. Layer crises.' },
       { slug: 'seven-point-story', title: "Dan Wells\' Seven-Point Structure",   time: '6 min', note: 'Build from the resolution backward to the hook' },
-      { slug: 'freytags-pyramid',  title: "Freytag\'s Pyramid",                 time: '5 min', note: 'The 1863 original  -- diagnose any structural problem' },
-      { slug: 'snowflake-method',  title: 'The Snowflake Method',               time: '6 min', note: 'Ingermanson\'s novel outlining system  -- expand from core outward' },
+      { slug: 'freytags-pyramid',  title: "Freytag\'s Pyramid",                 time: '5 min', note: 'The 1863 original —diagnose any structural problem' },
+      { slug: 'snowflake-method',  title: 'The Snowflake Method',               time: '6 min', note: 'Ingermanson\'s novel outlining system —expand from core outward' },
       { slug: 'hauge-six-stage',   title: "Hauge\'s Six-Stage Structure",       time: '6 min', note: 'Maps outer journey against inner transformation' },
       { slug: 'opening-image', title: 'The opening image', time: '5 min', note: 'The whole story in miniature.' },
     ],
@@ -110,7 +110,7 @@ const tracks = [
     level: 'Frameworks',
     levelColor: '#0891B2',
     title: "I want to understand story frameworks",
-    description: "Every major structural framework in one track. Learn them all, then pick the one that fits how you think. No framework is the only right one  -- but knowing several is better than knowing one.",
+    description: "Every major structural framework in one track. Learn them all, then pick the one that fits how you think. No framework is the only right one —but knowing several is better than knowing one.",
     time: '35 min total',
     lessons: [
       { slug: 'save-the-cat', title: 'Save the Cat', time: '6 min', note: 'Blake Snyder\'s 15 beats. Start here.' },
@@ -137,7 +137,7 @@ export default function TracksPage() {
             Five paths through the craft library.
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '540px', margin: '0 auto 28px' }}>
-            Each path is a curated sequence  -- ordered so that each lesson builds on the last. Pick the one that fits where you are, or browse the full library.
+            Each path is a curated sequence —ordered so that each lesson builds on the last. Pick the one that fits where you are, or browse the full library.
           </p>
           <Link href="/learn" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', padding: '9px 20px', borderRadius: '8px', textDecoration: 'none' }}>
             Browse the full library →
@@ -197,7 +197,7 @@ export default function TracksPage() {
                       </span>
                       {lesson.note && (
                         <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', marginLeft: '10px' }}>
-                           -- {lesson.note}
+                          —{lesson.note}
                         </span>
                       )}
                     </div>
@@ -243,7 +243,7 @@ export default function TracksPage() {
             The other half is putting the lessons to work on a real project. Eve gives you the workspace to do exactly that.
           </p>
           <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>
-            Start writing  -- free
+            Start writing —free
           </Link>
         </div>
       </section>

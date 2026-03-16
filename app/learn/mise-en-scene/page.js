@@ -3,38 +3,38 @@ import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Mise-en-Scene: The Frame as Total Argument | Eve',
-  description: 'Mise-en-scene is everything visible in the frame working together -- costume, set, light, performance, composition, camera. How the greatest directors use the whole frame as a single controlled argument.',
+  description: 'Mise-en-scene is everything visible in the frame working together—costume, set, light, performance, composition, camera. How the greatest directors use the whole frame as a single controlled argument.',
 }
 
 const elements = [
   {
     name: 'Setting and Production Design',
     role: 'The world the characters inhabit',
-    detail: 'The set is never neutral. Every production design decision -- the color of the walls, the objects on the table, the state of repair or disrepair of a building -- communicates the social and psychological world the characters live in. The Overlook Hotel in The Shining has been designed with a specific carpet pattern, a specific wallpaper, a specific color palette: all of it communicates that this is a world of surfaces containing rot. The Park family\'s house in Parasite has been designed to communicate wealth as transparency and control: glass walls, clean surfaces, expensive objects. The Kim family\'s basement apartment communicates compression and proximity: low ceilings, small windows, things stacked on top of other things. Neither family\'s home could be the other\'s. The design is the class argument.',
+    detail: 'The set is never neutral. Every production design decision—the color of the walls, the objects on the table, the state of repair or disrepair of a building—communicates the social and psychological world the characters live in. The Overlook Hotel in The Shining has been designed with a specific carpet pattern, a specific wallpaper, a specific color palette: all of it communicates that this is a world of surfaces containing rot. The Park family\'s house in Parasite has been designed to communicate wealth as transparency and control: glass walls, clean surfaces, expensive objects. The Kim family\'s basement apartment communicates compression and proximity: low ceilings, small windows, things stacked on top of other things. Neither family\'s home could be the other\'s. The design is the class argument.',
     examples: 'The Shining (Overlook), Parasite (Park house vs Kim basement), Grand Budapest Hotel (the hotel itself), Alien (the Nostromo vs the alien ship)',
   },
   {
     name: 'Costume and Wardrobe',
     role: 'The body as visual argument',
-    detail: 'Costume communicates character, status, psychology, and arc. A character\'s wardrobe in the first act should be visually different from their wardrobe in the third -- if their arc is genuine, their clothes will show it. Color psychology applies to costume as much as to lighting: the character who enters in red is not the same as the character who enters in grey. Beyond color: fabric communicates. Heavy, structured clothing communicates armor and control. Loose, soft clothing communicates vulnerability or ease. Damaged or ill-fitting clothing communicates someone who does not belong where they are, or someone who has lost what they had. The best costume designers make these choices invisible: the audience should feel the character without noticing the clothes.',
+    detail: 'Costume communicates character, status, psychology, and arc. A character\'s wardrobe in the first act should be visually different from their wardrobe in the third—if their arc is genuine, their clothes will show it. Color psychology applies to costume as much as to lighting: the character who enters in red is not the same as the character who enters in grey. Beyond color: fabric communicates. Heavy, structured clothing communicates armor and control. Loose, soft clothing communicates vulnerability or ease. Damaged or ill-fitting clothing communicates someone who does not belong where they are, or someone who has lost what they had. The best costume designers make these choices invisible: the audience should feel the character without noticing the clothes.',
     examples: 'The red dress in Schindler\'s List, Joker\'s purple suit (Batman, 1989), the Wives\' white in Mad Max: Fury Road, Mad Men\'s period wardrobe as character revelation',
   },
   {
     name: 'Lighting',
     role: 'The emotional weather of the frame',
-    detail: "Lighting is the most adjustable element of mise-en-scene and the most powerful for creating emotional atmosphere. The same room, the same actors, the same costumes -- in hard light from above, it is a place of revelation and judgment; in warm candlelight, it is intimate; in cold fluorescent light, it is institutional and draining. The cinematographer's job is to choose not just where the light comes from but what it means that it comes from there. See the Lighting lesson for a full breakdown of individual techniques -- here the point is that lighting is always in dialogue with every other element in the frame. The same costume reads differently in different light. The same face is different people depending on whether the fill is warm or cool.",
+    detail: "Lighting is the most adjustable element of mise-en-scene and the most powerful for creating emotional atmosphere. The same room, the same actors, the same costumes—in hard light from above, it is a place of revelation and judgment; in warm candlelight, it is intimate; in cold fluorescent light, it is institutional and draining. The cinematographer's job is to choose not just where the light comes from but what it means that it comes from there. See the Lighting lesson for a full breakdown of individual techniques—here the point is that lighting is always in dialogue with every other element in the frame. The same costume reads differently in different light. The same face is different people depending on whether the fill is warm or cool.",
     examples: 'The entire film noir tradition, Barry Lyndon (candlelight as historical argument), The Godfather (shadow as moral argument)',
   },
   {
     name: 'Performance and Blocking',
     role: 'The body in space',
-    detail: 'Where actors stand relative to each other, to the camera, and to the environment is blocking -- and blocking is as much a visual argument as any other element of mise-en-scene. A director who places an actor at the center of the frame in full-body framing is making a different argument than one who places them to the side in a medium close-up with their back partially to the camera. The physical relationship between two characters -- their proximity, their facing, which one is seated and which is standing -- encodes the power structure of the scene before a word is spoken. Kubrick rehearsed blocking exhaustively because he understood that the spatial argument of the frame was as important as the dialogue argument.',
+    detail: 'Where actors stand relative to each other, to the camera, and to the environment is blocking—and blocking is as much a visual argument as any other element of mise-en-scene. A director who places an actor at the center of the frame in full-body framing is making a different argument than one who places them to the side in a medium close-up with their back partially to the camera. The physical relationship between two characters—their proximity, their facing, which one is seated and which is standing—encodes the power structure of the scene before a word is spoken. Kubrick rehearsed blocking exhaustively because he understood that the spatial argument of the frame was as important as the dialogue argument.',
     examples: '12 Angry Men (entire film communicates power shifts through blocking in a single room), The Social Network (Sorkin and Fincher\'s dialogue-blocking relationship), Children of Men (blocking around the baby)',
   },
   {
     name: 'Camera and Composition',
     role: 'The argument about what to see',
-    detail: 'In strict mise-en-scene analysis, the camera itself is excluded -- mise-en-scene refers to what is placed in front of the camera, not the camera\'s angle or movement. But in practice, every director who thinks about mise-en-scene thinks about how the camera will see it. The elements placed in the frame only exist in relation to how the camera frames them. A performance that looks one way in a wide shot looks entirely different in a close-up. The production design of the Overlook Hotel is visible only because of Kubrick\'s specific camera choices. Mise-en-scene as a concept is most useful when understood as the total visual argument of a frame: everything that goes into creating the image, with the camera as the final editorial decision about which parts of that argument to show.',
+    detail: 'In strict mise-en-scene analysis, the camera itself is excluded—mise-en-scene refers to what is placed in front of the camera, not the camera\'s angle or movement. But in practice, every director who thinks about mise-en-scene thinks about how the camera will see it. The elements placed in the frame only exist in relation to how the camera frames them. A performance that looks one way in a wide shot looks entirely different in a close-up. The production design of the Overlook Hotel is visible only because of Kubrick\'s specific camera choices. Mise-en-scene as a concept is most useful when understood as the total visual argument of a frame: everything that goes into creating the image, with the camera as the final editorial decision about which parts of that argument to show.',
     examples: 'Any Kubrick film for the relationship between design and camera, Tati\'s Playtime for the total visual argument of every frame',
   },
 ]
@@ -43,22 +43,22 @@ const directors = [
   {
     name: 'Stanley Kubrick',
     approach: 'Control as total argument',
-    note: 'Kubrick is the canonical master of mise-en-scene precisely because he controlled every element simultaneously. He supervised costume, production design, lighting, and performance as a single integrated system. The Overlook Hotel in The Shining is not a backdrop -- it is a character whose visual logic is as carefully constructed as Jack Nicholson\'s performance. Every shot in Barry Lyndon required natural or period-accurate light; every costume was historically researched; every location was chosen for visual argument. The result is films where no element is accidental.',
+    note: 'Kubrick is the canonical master of mise-en-scene precisely because he controlled every element simultaneously. He supervised costume, production design, lighting, and performance as a single integrated system. The Overlook Hotel in The Shining is not a backdrop—it is a character whose visual logic is as carefully constructed as Jack Nicholson\'s performance. Every shot in Barry Lyndon required natural or period-accurate light; every costume was historically researched; every location was chosen for visual argument. The result is films where no element is accidental.',
   },
   {
     name: 'Jacques Tati',
     approach: 'The total frame as comedy',
-    note: 'In Playtime, Tati builds entire city blocks as a set and fills them with action at every level of the frame simultaneously. The comedy is always happening in multiple places at once -- you cannot watch it once and see everything. The mise-en-scene is the joke: a world so perfectly designed that being human in it becomes absurd. Tati proves that mise-en-scene is not just for drama -- the visual argument can be comic.',
+    note: 'In Playtime, Tati builds entire city blocks as a set and fills them with action at every level of the frame simultaneously. The comedy is always happening in multiple places at once—you cannot watch it once and see everything. The mise-en-scene is the joke: a world so perfectly designed that being human in it becomes absurd. Tati proves that mise-en-scene is not just for drama—the visual argument can be comic.',
   },
   {
     name: 'Bong Joon-ho',
     approach: 'Social argument through spatial design',
-    note: "Bong designs his films around spatial hierarchy. In Parasite, above and below ground are moral states before they are physical ones -- the architecture of the film IS the class argument. In Snowpiercer, the train\'s cars move from back to front in a literal journey from poverty to power. The mise-en-scene is always structural: the space the characters inhabit determines what they can know and what they can do.",
+    note: "Bong designs his films around spatial hierarchy. In Parasite, above and below ground are moral states before they are physical ones—the architecture of the film IS the class argument. In Snowpiercer, the train\'s cars move from back to front in a literal journey from poverty to power. The mise-en-scene is always structural: the space the characters inhabit determines what they can know and what they can do.",
   },
   {
     name: 'Wes Anderson',
     approach: 'The controlled frame as emotional argument',
-    note: "Anderson's mise-en-scene is the most visually distinctive in contemporary cinema precisely because every element -- costume color, set design, prop placement, actor position -- is coordinated into a total aesthetic system. This makes his films divisive: some find the control beautiful, others find it airless. But Anderson's defense is that the visual control communicates something specific about his characters: they are trying to impose order on a world that will not be ordered, and the beauty of their effort is exactly as moving as its futility.",
+    note: "Anderson's mise-en-scene is the most visually distinctive in contemporary cinema precisely because every element—costume color, set design, prop placement, actor position—is coordinated into a total aesthetic system. This makes his films divisive: some find the control beautiful, others find it airless. But Anderson's defense is that the visual control communicates something specific about his characters: they are trying to impose order on a world that will not be ordered, and the beauty of their effort is exactly as moving as its futility.",
   },
 ]
 
@@ -140,10 +140,10 @@ export default function MiseEnSceneLesson() {
             What mise-en-scene means for writers
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', lineHeight: '1.8', color: 'var(--text-dark)', marginBottom: '12px' }}>
-            You cannot control mise-en-scene as a writer -- that is the director and production designer\'s domain. But understanding it changes how you write the worlds your characters inhabit. A scene described in precise physical detail -- the specific objects on a table, the quality of the light through a window, what the character is wearing and whether it fits them -- generates mise-en-scene rather than requiring the director to invent it from nothing.
+            You cannot control mise-en-scene as a writer—that is the director and production designer\'s domain. But understanding it changes how you write the worlds your characters inhabit. A scene described in precise physical detail—the specific objects on a table, the quality of the light through a window, what the character is wearing and whether it fits them—generates mise-en-scene rather than requiring the director to invent it from nothing.
           </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', lineHeight: '1.8', color: 'var(--text-dark)', margin: 0 }}>
-            The best screenwriters write worlds, not locations. The Coens do not write "INT. MOTEL ROOM -- NIGHT." They write the specific, weighted, particular details of a motel room that communicates the emotional and social world their characters inhabit. That specificity is mise-en-scene on the page -- it is not describing what the camera sees, it is building the world that demands a particular visual treatment.
+            The best screenwriters write worlds, not locations. The Coens do not write "INT. MOTEL ROOM—NIGHT." They write the specific, weighted, particular details of a motel room that communicates the emotional and social world their characters inhabit. That specificity is mise-en-scene on the page—it is not describing what the camera sees, it is building the world that demands a particular visual treatment.
           </p>
         </section>
 

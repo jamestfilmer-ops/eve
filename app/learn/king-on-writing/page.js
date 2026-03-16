@@ -43,7 +43,7 @@ export default function Lesson() {
             The toolbox
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            King uses the image of a toolbox to describe the technical resources of writing. On the bottom: vocabulary and grammar. Not fancy vocabulary -- the exact right word, often the simpler one. On the second level: style and usage. On the upper levels: the elements of specific craft -- dialogue, character, setting, theme. The important point is that the lower levels must be solid before the upper levels are useful. A writer who cannot construct a clear sentence cannot build a scene, no matter how sophisticated their ideas about theme.
+            King uses the image of a toolbox to describe the technical resources of writing. On the bottom: vocabulary and grammar. Not fancy vocabulary—the exact right word, often the simpler one. On the second level: style and usage. On the upper levels: the elements of specific craft—dialogue, character, setting, theme. The important point is that the lower levels must be solid before the upper levels are useful. A writer who cannot construct a clear sentence cannot build a scene, no matter how sophisticated their ideas about theme.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             The closed door
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            King writes first drafts with the door closed -- for an audience of one, himself, without considering what readers will think. The second draft is written with the door open -- for an actual reader, usually his wife Tabitha, who is his first reader. This distinction is crucial. The first draft is discovery. The second draft is communication. Trying to communicate while you are still discovering produces neither thing well. Close the door first.
+            King writes first drafts with the door closed—for an audience of one, himself, without considering what readers will think. The second draft is written with the door open—for an actual reader, usually his wife Tabitha, who is his first reader. This distinction is crucial. The first draft is discovery. The second draft is communication. Trying to communicate while you are still discovering produces neither thing well. Close the door first.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             Read a lot. Write a lot.
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            This is the most repeated piece of advice in On Writing and the most practically useful: if you want to write, you need to read everything you can get your hands on -- including things that are bad, because bad writing teaches you what not to do. And you need to write every day, a minimum of a thousand words. Not because a thousand words is the right amount, but because the commitment to a daily practice is more important than any particular session's output.
+            This is the most repeated piece of advice in On Writing and the most practically useful: if you want to write, you need to read everything you can get your hands on—including things that are bad, because bad writing teaches you what not to do. And you need to write every day, a minimum of a thousand words. Not because a thousand words is the right amount, but because the commitment to a daily practice is more important than any particular session's output.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             Story first, theme second
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Theme is what your story is about in the deepest sense -- the argument it is making, the question it is exploring. King's consistent position is that theme emerges from story rather than preceding it. If you decide in advance what your story is about thematically, you tend to write a story that serves the theme rather than a story that is genuinely alive. Let the story happen. Find out what it is. Then ask what it seems to be saying. Theme is discovered, not imposed.
+            Theme is what your story is about in the deepest sense—the argument it is making, the question it is exploring. King's consistent position is that theme emerges from story rather than preceding it. If you decide in advance what your story is about thematically, you tend to write a story that serves the theme rather than a story that is genuinely alive. Let the story happen. Find out what it is. Then ask what it seems to be saying. Theme is discovered, not imposed.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             The adverb is not your friend
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            He said angrily, she walked quickly -- the adverb is almost always a sign that the verb or the dialogue itself is not doing its job. He said angrily means the dialogue is not angry enough. She walked quickly means the verb should be strode or hurried or bolted. When you find yourself reaching for an adverb, it is a signal to look more carefully at what the adverb is patching over.
+            He said angrily, she walked quickly—the adverb is almost always a sign that the verb or the dialogue itself is not doing its job. He said angrily means the dialogue is not angry enough. She walked quickly means the verb should be strode or hurried or bolted. When you find yourself reaching for an adverb, it is a signal to look more carefully at what the adverb is patching over.
           </p>
         </div>
 

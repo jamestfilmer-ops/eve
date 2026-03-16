@@ -43,7 +43,7 @@ export default function Lesson() {
             What survives adaptation
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The things that survive adaptation from one form to another are not scenes, not dialogue, not even characters in their original form. What survives is situation -- the basic dramatic premise and its pressure. The character's desire and the obstacles to it. The emotional truth of the central relationships. Specific scenes may survive, specific dialogue may survive, but they do so because they carry the situation efficiently, not because they are scenes or dialogue. The adapter's job is to identify what is essentially the story and find the best cinematic expression of that essence.
+            The things that survive adaptation from one form to another are not scenes, not dialogue, not even characters in their original form. What survives is situation—the basic dramatic premise and its pressure. The character's desire and the obstacles to it. The emotional truth of the central relationships. Specific scenes may survive, specific dialogue may survive, but they do so because they carry the situation efficiently, not because they are scenes or dialogue. The adapter's job is to identify what is essentially the story and find the best cinematic expression of that essence.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -51,7 +51,7 @@ export default function Lesson() {
             What the source material does that film cannot
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Novels can access interiority directly -- the character's thoughts and feelings and memories, rendered with precision. Film cannot do this without voiceover, which is often a sign that the adaptation has not found its visual equivalent of the interior state. The novel can also move through time nonlinearly with minimal explanation -- a paragraph break can span decades. Film can do this too, but it requires visual cues that must be designed rather than simply stated.
+            Novels can access interiority directly—the character's thoughts and feelings and memories, rendered with precision. Film cannot do this without voiceover, which is often a sign that the adaptation has not found its visual equivalent of the interior state. The novel can also move through time nonlinearly with minimal explanation—a paragraph break can span decades. Film can do this too, but it requires visual cues that must be designed rather than simply stated.
           </p>
         </div>
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             What film does that novels cannot
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Film can create an immediate, sensory present-tense experience that prose must work hard to approximate. The specific quality of a light, the texture of a face, the rhythm of a physical gesture -- film conveys these instantaneously and precisely. The adaptation's opportunity is to find the visual equivalent of what the novel was doing in language -- to find the image that does the work the words were doing. When the adaptation is great, it is usually because the filmmaker found a visual language for the source material's interior world.
+            Film can create an immediate, sensory present-tense experience that prose must work hard to approximate. The specific quality of a light, the texture of a face, the rhythm of a physical gesture—film conveys these instantaneously and precisely. The adaptation's opportunity is to find the visual equivalent of what the novel was doing in language—to find the image that does the work the words were doing. When the adaptation is great, it is usually because the filmmaker found a visual language for the source material's interior world.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             The problem of fidelity
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Fidelity to the source material is not a virtue in adaptation. It is a constraint. The most faithful adaptations are often the worst -- they attempt to include everything from the source, which means the adaptation has no perspective, no argument about what the story is. The best adaptations often most dramatically reimagine the source material, because they have understood what is essential and made a strong decision about how to express it. Coppola's Apocalypse Now is one of the great American films and a radical departure from Conrad's novella -- the fidelity is to the moral argument, not the plot.
+            Fidelity to the source material is not a virtue in adaptation. It is a constraint. The most faithful adaptations are often the worst—they attempt to include everything from the source, which means the adaptation has no perspective, no argument about what the story is. The best adaptations often most dramatically reimagine the source material, because they have understood what is essential and made a strong decision about how to express it. Coppola's Apocalypse Now is one of the great American films and a radical departure from Conrad's novella—the fidelity is to the moral argument, not the plot.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             The adapter as critic
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The first thing an adapter must do is become a critic of the source material -- to identify what is working and why, what is not working and why, what is essential and what is the source's specific solution to a problem the adaptation will solve differently. This critical act is not disrespectful. It is the respect the source material deserves: to be examined seriously enough to understand it before the work of translation begins.
+            The first thing an adapter must do is become a critic of the source material—to identify what is working and why, what is not working and why, what is essential and what is the source's specific solution to a problem the adaptation will solve differently. This critical act is not disrespectful. It is the respect the source material deserves: to be examined seriously enough to understand it before the work of translation begins.
           </p>
         </div>
 

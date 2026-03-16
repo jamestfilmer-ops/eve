@@ -43,7 +43,7 @@ export default function Lesson() {
             Resolution vs conclusion
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Not all stories need to be resolved. Resolution means the central conflict is answered -- the detective solves the case, the lovers unite or part, the war ends. Conclusion means the story has arrived at a point of rest -- the reader understands what has changed and what the story was about. A story can conclude without resolving. The best short fiction often works this way: the situation does not change, but something is understood that was not understood before.
+            Not all stories need to be resolved. Resolution means the central conflict is answered—the detective solves the case, the lovers unite or part, the war ends. Conclusion means the story has arrived at a point of rest—the reader understands what has changed and what the story was about. A story can conclude without resolving. The best short fiction often works this way: the situation does not change, but something is understood that was not understood before.
           </p>
         </div>
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -59,7 +59,7 @@ export default function Lesson() {
             The circular ending
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            One of the most satisfying structural moves is returning to the opening image or situation at the end -- but transformed. The same place, the same words, the same situation, but the story has changed what it means. The circular ending pays off what the opening established and tells the reader: you have been changed by this story in the way the protagonist was changed. It only works when the change is genuine.
+            One of the most satisfying structural moves is returning to the opening image or situation at the end—but transformed. The same place, the same words, the same situation, but the story has changed what it means. The circular ending pays off what the opening established and tells the reader: you have been changed by this story in the way the protagonist was changed. It only works when the change is genuine.
           </p>
         </div>
         <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -67,7 +67,7 @@ export default function Lesson() {
             The last line
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The last line of a story is doing more work than any other single sentence. It is the note the story ends on, and it is the note that will echo in the reader's memory. The last line should be in some tension with the ending -- not contradiction, but complexity. If the ending is hopeful, the last line might contain something that acknowledges the fragility of the hope. The last line should feel inevitable and slightly surprising simultaneously.
+            The last line of a story is doing more work than any other single sentence. It is the note the story ends on, and it is the note that will echo in the reader's memory. The last line should be in some tension with the ending—not contradiction, but complexity. If the ending is hopeful, the last line might contain something that acknowledges the fragility of the hope. The last line should feel inevitable and slightly surprising simultaneously.
           </p>
         </div>
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -75,7 +75,7 @@ export default function Lesson() {
             Open endings and their dangers
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Open endings -- endings that deliberately refuse to resolve -- require more skill than closed endings, not less. A closed ending that answers all questions is easy to write badly but harder to write well. An open ending that raises questions without answering them requires that the questions be the right questions, precisely stated, with enough weight that the reader cares about living with them. The open ending that feels like the writer ran out of story is not an open ending. It is an unfinished draft.
+            Open endings—endings that deliberately refuse to resolve—require more skill than closed endings, not less. A closed ending that answers all questions is easy to write badly but harder to write well. An open ending that raises questions without answering them requires that the questions be the right questions, precisely stated, with enough weight that the reader cares about living with them. The open ending that feels like the writer ran out of story is not an open ending. It is an unfinished draft.
           </p>
         </div>
 

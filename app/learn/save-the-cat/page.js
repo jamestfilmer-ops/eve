@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: "Save the Cat: Blake Snyder's 15-Beat Structure  -- Eve",
+  title: "Save the Cat: Blake Snyder's 15-Beat Structure —Eve",
   description: "Blake Snyder's Save the Cat breaks every Hollywood film into 15 specific beats at precise page numbers. The most widely used story structure framework in professional screenwriting.",
 }
 
@@ -12,14 +12,14 @@ export default function LessonSaveTheCat() {
     { act: 1, beat: 'Set-Up', page: '1–10', desc: 'Introduce the world, the characters, and the flaws and circumstances that will need to change. Plant everything that pays off later.' },
     { act: 1, beat: 'Catalyst', page: '12', desc: 'The event that disrupts the protagonist\'s world. Done TO them, not by them. Forces a response.' },
     { act: 1, beat: 'Debate', page: '12–25', desc: 'The protagonist hesitates. Should they accept the challenge? This is their last chance to choose safety.' },
-    { act: '1→2', beat: 'Break into Two', page: '25', desc: 'The protagonist actively CHOOSES to enter Act 2. This is the most important beat  -- it cannot happen to them. They must choose it.' },
+    { act: '1→2', beat: 'Break into Two', page: '25', desc: 'The protagonist actively CHOOSES to enter Act 2. This is the most important beat —it cannot happen to them. They must choose it.' },
     { act: 2, beat: 'B Story', page: '30', desc: 'A secondary story, usually a relationship, that carries the theme. The B Story character is the one who will help the protagonist change.' },
     { act: 2, beat: 'Fun and Games', page: '30–55', desc: 'The "promise of the premise." The audience gets what they came for. Things are going relatively well.' },
     { act: 2, beat: 'Midpoint', page: '55', desc: 'False victory (things seem great) or false defeat (things seem terrible). After this, the stakes raise and the protagonist becomes fully active.' },
     { act: 2, beat: 'Bad Guys Close In', page: '55–75', desc: 'External and internal forces dismantle what the protagonist built in Fun and Games. The antagonist\'s plan accelerates.' },
-    { act: 2, beat: 'All Is Lost', page: '75', desc: 'The lowest point. Something must die here  -- literal or symbolic. The protagonist loses everything they were fighting for.' },
-    { act: 2, beat: 'Dark Night of the Soul', page: '75–85', desc: 'The protagonist sits in the wreckage. The solution must come from inside them  -- not from external help.' },
-    { act: '2→3', beat: 'Break into Three', page: '85', desc: 'The A and B stories merge. The protagonist has a new idea  -- and it comes from what they learned in the B Story.' },
+    { act: 2, beat: 'All Is Lost', page: '75', desc: 'The lowest point. Something must die here —literal or symbolic. The protagonist loses everything they were fighting for.' },
+    { act: 2, beat: 'Dark Night of the Soul', page: '75–85', desc: 'The protagonist sits in the wreckage. The solution must come from inside them —not from external help.' },
+    { act: '2→3', beat: 'Break into Three', page: '85', desc: 'The A and B stories merge. The protagonist has a new idea —and it comes from what they learned in the B Story.' },
     { act: 3, beat: 'Finale', page: '85–110', desc: 'Execute the plan. Mirror the setup. Use characters, locations, and objects from Act 1 in new, meaningful ways. The protagonist proves they\'ve changed.' },
     { act: 3, beat: 'Final Image', page: '110', desc: 'The mirror of the Opening Image. Proof that change is real and permanent.' },
   ]
@@ -65,10 +65,10 @@ export default function LessonSaveTheCat() {
           Save the Cat: Blake Snyder&#39;s 15-beat structure
         </h1>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '24px' }}>
-          In 2005, screenwriter Blake Snyder published <em>Save the Cat!</em>  -- a book that mapped every successful Hollywood film to exactly fifteen beats at precise page numbers. It became the most widely used story structure framework in professional screenwriting, not because it is the only way to tell a story, but because it works with unusual reliability.
+          In 2005, screenwriter Blake Snyder published <em>Save the Cat!</em> —a book that mapped every successful Hollywood film to exactly fifteen beats at precise page numbers. It became the most widely used story structure framework in professional screenwriting, not because it is the only way to tell a story, but because it works with unusual reliability.
         </p>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-          The title comes from Snyder&#39;s observation that the audience needs to like the protagonist before anything else happens. The cheapest way to make someone likeable is to show them doing something generous  -- saving a cat. It is a simple, almost embarrassingly mechanical insight. Like most of Snyder&#39;s insights, it works.
+          The title comes from Snyder&#39;s observation that the audience needs to like the protagonist before anything else happens. The cheapest way to make someone likeable is to show them doing something generous —saving a cat. It is a simple, almost embarrassingly mechanical insight. Like most of Snyder&#39;s insights, it works.
         </p>
         <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '28px 0' }} />
         <h2 style={{ fontSize: '20px', marginBottom: '20px' }}>The 15 beats</h2>
@@ -90,11 +90,11 @@ export default function LessonSaveTheCat() {
           })}
         </div>
         <div className="tip-box" style={{ marginBottom: '28px' }}>
-          <strong>How to use it.</strong> Don&#39;t start at Beat 1. Start at Break into Two (p.25)  -- who is your protagonist and what do they choose? Then work backwards to find the Catalyst that forced the choice, and the Opening Image that shows who they were before it.
+          <strong>How to use it.</strong> Don&#39;t start at Beat 1. Start at Break into Two (p.25) —who is your protagonist and what do they choose? Then work backwards to find the Catalyst that forced the choice, and the Opening Image that shows who they were before it.
         </div>
         <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '16px 20px', marginBottom: '28px' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px' }}>Further reading</p>
-          <a href="https://www.amazon.com/Save-Cat-Last-Screenwriting-Book/dp/1932907009" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--green)', fontWeight: '600', textDecoration: 'none' }}>Save the Cat!  -- Blake Snyder →</a>
+          <a href="https://www.amazon.com/Save-Cat-Last-Screenwriting-Book/dp/1932907009" target="_blank" rel="noopener noreferrer" style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--green)', fontWeight: '600', textDecoration: 'none' }}>Save the Cat! —Blake Snyder →</a>
         </div>
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
           <Link href="/learn/hauge-six-stage" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>← Hauge&#39;s Six-Stage</Link>
