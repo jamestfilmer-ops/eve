@@ -36,7 +36,7 @@ const colorLessons = [
     sub: 'Warm vs. cool, saturated vs. desaturated',
     time: '8 min',
     level: 'Beginner',
-    status: 'coming',
+    status: 'live',
     preview: 'The most powerful color choices in film are often contrasts -- a warm figure in a cold world, a desaturated past against a saturated present.',
   },
   {
@@ -45,7 +45,7 @@ const colorLessons = [
     sub: 'White is not always pure, red is not always danger',
     time: '9 min',
     level: 'Intermediate',
-    status: 'coming',
+    status: 'live',
     preview: 'Western color symbolism is not universal. Study how non-Western cinema uses color differently -- and how contemporary filmmakers exploit the collision of both systems.',
   },
   {
@@ -54,7 +54,7 @@ const colorLessons = [
     sub: 'What the DI suite does to meaning',
     time: '11 min',
     level: 'Advanced',
-    status: 'coming',
+    status: 'live',
     preview: 'Color grading is post-production rewriting. Study how the teal-orange blockbuster look, the bleach-bypass of war films, and the hyper-saturation of Wes Anderson all communicate before a word is spoken.',
   },
   {
@@ -63,7 +63,7 @@ const colorLessons = [
     sub: 'How to indicate visual intent without directing on the page',
     time: '7 min',
     level: 'Advanced',
-    status: 'coming',
+    status: 'live',
     preview: 'You cannot write "shoot this in blue." But you can write a world that demands it. Study how the best screenwriters indicate visual language through description, not direction.',
   },
 ]
@@ -102,7 +102,7 @@ const cinematographyLessons = [
     sub: 'What focal length communicates psychologically',
     time: '11 min',
     level: 'Advanced',
-    status: 'coming',
+    status: 'live',
     preview: 'Wide lenses exaggerate space and distance. Long lenses compress and isolate. Shallow depth of field separates a character from their world. Deep focus implicates the whole frame in the story.',
   },
   {
@@ -120,7 +120,7 @@ const cinematographyLessons = [
     sub: 'Why where a character sits in the frame tells a story',
     time: '10 min',
     level: 'Beginner',
-    status: 'coming',
+    status: 'live',
     preview: 'A character at the center of the frame is in control. At the edge, they are marginalized. Headroom and lead room, symmetry and asymmetry -- all of it means something.',
   },
   {
@@ -129,7 +129,7 @@ const cinematographyLessons = [
     sub: 'How everything visible in a shot works together',
     time: '15 min',
     level: 'Advanced',
-    status: 'coming',
+    status: 'live',
     preview: 'Mise-en-scene is the total visual argument of a frame: set, costume, performance, lighting, composition, camera. The directors who master it -- Kubrick, Tati, Kubrick, Wes Anderson -- cannot be imitated because every element is inseparable.',
   },
 ]

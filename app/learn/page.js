@@ -187,6 +187,8 @@ const writtenSlugs = [
   'color-theory', 'cinematography',
   'camera-angles', 'camera-movement', 'lighting-and-story',
   'color-palettes',
+  'color-contrast', 'color-symbolism', 'color-grading', 'writing-for-color',
+  'lenses-and-depth', 'composition-and-meaning', 'mise-en-scene',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
