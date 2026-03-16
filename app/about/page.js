@@ -103,7 +103,7 @@ export default function AboutPage() {
             Eve is a craft platform and story workspace. The lessons are free. The tools are worth paying for. There is no AI anywhere in the product.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
             <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>Create free account</Link>
           </div>
         </div>

@@ -62,7 +62,7 @@ export default function ResourcesPage() {
       {books.map((cat, ci) => (
         <div key={ci} className={`fade-up fade-up-delay-${Math.min(ci + 1, 4)}`} style={{ marginBottom: '48px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-            <div style={{ width: '4px', height: '24px', background: 'var(--green)', borderRadius: '2px' }} />
+            <div style={{ width: '4px', height: '24px', background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', borderRadius: '2px' }} />
             <h2 style={{ fontSize: '20px' }}>{cat.category}</h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
