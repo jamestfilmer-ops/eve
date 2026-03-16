@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CategoryList from './CategoryList'
 
 export const metadata = {
   title: "Free Screenwriting & Story Craft Lessons  -- Structure, Character, Dialogue",
@@ -201,173 +202,60 @@ const writtenCount = writtenSlugs.length
 
 export default function LearnPage() {
   return (
-    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px' }}>
+    <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
-      {/* Header */}
-      <div className="fade-up" style={{ marginBottom: '40px', maxWidth: '640px' }}>
-        <div className="badge" style={{ marginBottom: '14px' }}>Craft library</div>
-        <h1 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '14px', lineHeight: '1.2' }}>Learn the craft.</h1>
-        <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
-          Short lessons on screenwriting, novel writing, and short fiction  -- drawn from master classes, craft books, and the writers who figured this out before us. Read one before a session. Read all of them on a slow afternoon.
-        </p>
-      </div>
-
-      {/* Stats bar */}
-      <div className="fade-up fade-up-delay-1" style={{ display: 'flex', gap: '32px', marginBottom: '40px', paddingBottom: '32px', borderBottom: '1px solid var(--border)', flexWrap: 'wrap' }}>
-        <div>
-          <p style={{ fontSize: '28px', fontWeight: '700', fontFamily: 'var(--font-mono)', color: 'var(--green)', lineHeight: 1 }}>{writtenCount}</p>
-          <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginTop: '4px' }}>lessons written</p>
-        </div>
-        <div>
-          <p style={{ fontSize: '28px', fontWeight: '700', fontFamily: 'var(--font-mono)', color: 'var(--text-mid)', lineHeight: 1 }}>{totalLessons}</p>
-          <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginTop: '4px' }}>total planned</p>
-        </div>
-        <div>
-          <p style={{ fontSize: '28px', fontWeight: '700', fontFamily: 'var(--font-mono)', color: 'var(--text-mid)', lineHeight: 1 }}>8</p>
-          <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginTop: '4px' }}>categories</p>
-        </div>
-        <div style={{ flex: 1, minWidth: '160px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-            <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>library progress</span>
-            <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{Math.round(writtenCount / totalLessons * 100)}%</span>
-          </div>
-          <div style={{ height: '6px', borderRadius: '3px', background: 'var(--border)', overflow: 'hidden' }}>
-            <div style={{ height: '100%', borderRadius: '3px', background: 'var(--green)', width: `${(writtenCount / totalLessons) * 100}%` }} />
+      {/* Hero */}
+      <section style={{
+        background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)',
+        padding: '72px 24px 60px',
+      }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }} className="fade-up">
+          <div className="badge" style={{
+            marginBottom: '16px', background: 'rgba(255,255,255,0.15)',
+            color: '#fff', border: '1px solid rgba(255,255,255,0.25)',
+          }}>Craft library</div>
+          <h1 style={{
+            fontSize: 'clamp(28px, 4vw, 44px)', marginBottom: '16px',
+            lineHeight: '1.15', color: '#fff',
+          }}>
+            Learn the craft.
+          </h1>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.75', maxWidth: '560px', marginBottom: '32px' }}>
+            Short lessons on screenwriting, novel writing, and short fiction -- drawn from master classes, craft books, and the writers who figured this out before us.
+          </p>
+          {/* Stats pills */}
+          <div className="fade-up fade-up-delay-1" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <span className="stat-pill">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8 5h3.5L9 7.5l1 3.5-3.5-2L3 11l1-3.5L1.5 5H5z" fill="currentColor"/></svg>
+              {writtenCount} lessons written
+            </span>
+            <span className="stat-pill">{totalLessons} total planned</span>
+            <span className="stat-pill">{lessons.length} categories</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Start here tip */}
-      <div className="tip-box fade-up fade-up-delay-1" style={{ marginBottom: '48px', maxWidth: '700px' }}>
-        <strong>New to writing?</strong> Start with &ldquo;Want vs. Need&rdquo; under Character and &ldquo;What a scene actually does&rdquo; under Structure. Those two lessons will change how you read and write everything else.
-      </div>
-
-      {/* Level key */}
-      <div className="fade-up" style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap' }}>
-        {Object.entries(LEVEL_COLORS).map(([level, c]) => (
-          <div key={level} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--text-soft)' }}>
-            <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: c.bg, border: `1px solid ${c.color}` }} />
-            {level}
-          </div>
-        ))}
-      </div>
-
-      {/* Lesson categories */}
-      {lessons.map((cat, ci) => {
-        const writtenInCat = cat.items.filter(i => writtenSlugs.includes(i.slug)).length
-        return (
-          <div key={ci} className={`fade-up fade-up-delay-${Math.min(ci + 1, 4)}`} style={{ marginBottom: '52px' }}>
-            {/* Category header */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-              <div style={{ width: '4px', height: '22px', background: 'var(--green)', borderRadius: '2px', flexShrink: 0 }} />
-              <h2 style={{ fontSize: '18px', color: 'var(--green)', margin: 0 }}>{cat.category}</h2>
-              <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
-                {writtenInCat}/{cat.items.length}
-              </span>
-              <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
-            </div>
-
-            {/* Cards grid */}
-            <div className="card-grid" style={{}}>
-              {cat.items.map((item, i) => {
-                const isWritten = writtenSlugs.includes(item.slug)
-                const levelStyle = LEVEL_COLORS[item.level] || LEVEL_COLORS['Beginner']
-
-                return isWritten ? (
-                  <Link key={i} href={`/learn/${item.slug}`} style={{ textDecoration: 'none' }}>
-                    <div className="card" style={{ padding: '18px 20px', height: '100%', display: 'flex', flexDirection: 'column', gap: '0' }}>
-                      {/* Top row: level pill + time */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                        <span style={{
-                          fontSize: '10px', fontWeight: '600', fontFamily: 'var(--font-mono)',
-                          letterSpacing: '0.06em', textTransform: 'uppercase',
-                          padding: '2px 8px', borderRadius: '4px',
-                          background: levelStyle.bg, color: levelStyle.color,
-                        }}>
-                          {item.level}
-                        </span>
-                        <span style={{ fontSize: '11px', color: 'var(--text-soft)' }}>{item.time}</span>
-                      </div>
-
-                      <h3 style={{
-                        fontSize: '14px', fontFamily: 'var(--font-display)',
-                        color: 'var(--text-dark)', lineHeight: '1.45',
-                        marginBottom: '8px', flex: 0,
-                      }}>
-                        {item.title}
-                      </h3>
-
-                      <p style={{ fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.6', flex: 1, margin: 0 }}>
-                        {item.preview}
-                      </p>
-
-                      <p style={{ fontSize: '12px', color: 'var(--green)', marginTop: '14px', fontWeight: '600', margin: '14px 0 0' }}>
-                        Read &rarr;
-                      </p>
-                    </div>
-                  </Link>
-                ) : (
-                  <div key={i} style={{
-                    padding: '18px 20px', height: '100%', display: 'flex', flexDirection: 'column',
-                    border: '1px solid var(--border)', borderRadius: '12px',
-                    background: 'var(--off-white)', opacity: 0.5,
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                      <span style={{
-                        fontSize: '10px', fontWeight: '600', fontFamily: 'var(--font-mono)',
-                        letterSpacing: '0.06em', textTransform: 'uppercase',
-                        padding: '2px 8px', borderRadius: '4px',
-                        background: levelStyle.bg, color: levelStyle.color,
-                      }}>
-                        {item.level}
-                      </span>
-                      <span style={{ fontSize: '10px', color: 'var(--text-soft)', fontStyle: 'italic' }}>Coming soon</span>
-                    </div>
-                    <h3 style={{
-                      fontSize: '14px', fontFamily: 'var(--font-display)',
-                      color: 'var(--text-dark)', lineHeight: '1.45', marginBottom: '8px',
-                    }}>
-                      {item.title}
-                    </h3>
-                    <p style={{ fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.6', flex: 1, margin: 0 }}>
-                      {item.preview}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        )
-      })}
-
-      {/* Go Deeper  -- reading list */}
-      <div className="fade-up" style={{ marginTop: '16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-          <div style={{ width: '4px', height: '22px', background: 'var(--green)', borderRadius: '2px' }} />
-          <h2 style={{ fontSize: '18px', color: 'var(--green)', margin: 0 }}>Go deeper</h2>
-          <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
-        </div>
-
-        <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75', marginBottom: '24px', maxWidth: '600px' }}>
-          These are the books worth reading. Not all of them agree with each other  -- that is the point. Read two with conflicting views and form your own.
-        </p>
-
-        <div className="card-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
-          {readingList.map((b, i) => (
-            <div key={i} className="card-static" style={{ padding: '16px 18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '3px', minHeight: '36px', background: 'var(--green-light)', borderRadius: '2px', flexShrink: 0, marginTop: '2px' }} />
-              <div>
-                <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '2px' }}>
-                  {b.title}
-                  <span style={{ fontWeight: '400', color: 'var(--text-soft)', marginLeft: '6px' }}> -- {b.author}</span>
-                </p>
-                <p style={{ fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.55', margin: 0 }}>{b.note}</p>
-              </div>
+      {/* Level legend */}
+      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '12px 24px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Level</span>
+          {Object.entries(LEVEL_COLORS).filter(([k]) => ['Beginner','Intermediate','Advanced'].includes(k)).map(([level, c]) => (
+            <div key={level} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: c.bg, border: `1px solid ${c.color}` }} />
+              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-mid)' }}>{level}</span>
             </div>
           ))}
+          <div style={{ flex: 1 }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>
+            Click a category to expand
+          </span>
         </div>
       </div>
 
+      {/* Category accordions */}
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '36px 24px 80px' }}>
+        <CategoryList lessons={lessons} writtenSlugs={writtenSlugs} />
+      </div>
     </div>
   )
 }

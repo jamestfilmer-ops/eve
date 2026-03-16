@@ -544,7 +544,7 @@ export default function Home() {
       </section>
 
       {/* Pillars */}
-      <section style={{
+      <section className="section-fade" style={{
         background: 'var(--green-pale)',
         borderTop: '1px solid var(--green-border)',
         borderBottom: '1px solid var(--green-border)',
@@ -565,7 +565,7 @@ export default function Home() {
       </section>
 
       {/* Content depth signal */}
-      <section style={{ background: 'var(--green)', padding: '56px 24px' }}>
+      <section className="section-fade" style={{ background: 'var(--green)', padding: '56px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
@@ -593,7 +593,7 @@ export default function Home() {
       </section>
 
       {/* No AI section */}
-      <section className="split-grid" style={{
+      <section className="split-grid section-fade" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '80px 24px',
@@ -688,7 +688,7 @@ export default function Home() {
       </section>
 
       {/* Frameworks */}
-      <section style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 24px' }}>
+      <section className="section-fade" style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ maxWidth: '560px', marginBottom: '48px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>Choose your framework</h2>
@@ -753,7 +753,7 @@ export default function Home() {
       <PricingSection />
 
       {/* CTA */}
-      <section style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
+      <section className="section-fade" style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(28px, 4vw, 42px)',

@@ -104,7 +104,7 @@ export default function RootLayout({ children }) {
 (function() {
   function initReveal() {
     var els = document.querySelectorAll(
-      '.reveal, .reveal-left, .reveal-scale, .section-fade'
+      '.reveal, .reveal-left, .reveal-scale, .reveal-card, .section-fade'
     );
     if (!els.length) return;
     var io = new IntersectionObserver(function(entries) {

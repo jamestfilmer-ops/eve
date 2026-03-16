@@ -467,7 +467,7 @@ function GenreCard({ genre }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div style={{
+    <div className="reveal" style={{
       background: '#fff',
       border: '1px solid var(--border)',
       borderRadius: '12px',

@@ -925,3 +925,131 @@ input, textarea, select, button {
     gap: 28px !important;
   }
 }
+
+/* ── Scroll-reveal stagger helpers ─────────────────────────────── */
+.reveal-delay-5         { transition-delay: 0.38s; }
+.reveal-delay-6         { transition-delay: 0.46s; }
+
+/* Section-level fade -- softer than .reveal, for whole sections */
+.section-fade {
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+}
+.section-fade.visible { opacity: 1; }
+
+/* Slide up from below with scale -- for cards */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+}
+.reveal-card.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Horizontal rule reveal */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* ── Lesson page depth ──────────────────────────────────────────── */
+.lesson-section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Accordion / collapsible ────────────────────────────────────── */
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  font-family: var(--font-display);
+  color: var(--text-dark);
+}
+.accordion-trigger:hover .accordion-icon {
+  color: var(--green);
+}
+.accordion-chevron {
+  flex-shrink: 0;
+  transition: transform 0.28s var(--ease-out);
+  color: var(--text-soft);
+}
+.accordion-chevron.open {
+  transform: rotate(180deg);
+  color: var(--green);
+}
+.accordion-body {
+  overflow: hidden;
+  transition: max-height 0.38s var(--ease-out), opacity 0.28s ease;
+  opacity: 1;
+}
+.accordion-body.closed {
+  max-height: 0 !important;
+  opacity: 0;
+}
+
+/* ── Homepage section depth ─────────────────────────────────────── */
+.depth-section {
+  position: relative;
+}
+.depth-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Lesson nav cards ───────────────────────────────────────────── */
+.lesson-card-hover {
+  transition:
+    box-shadow 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    border-color 0.2s ease;
+}
+.lesson-card-hover:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--green-border);
+}
+
+/* ── Green hero gradient overlay ───────────────────────────────── */
+.hero-green {
+  background:
+    linear-gradient(160deg, #1e3a0c 0%, var(--green) 45%, #3a6b1c 100%);
+}
+
+/* ── Subtle grain on green sections ────────────────────────────── */
+.green-grain {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ── Stat pill / badge ──────────────────────────────────────────── */
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+  backdrop-filter: blur(4px);
+}
