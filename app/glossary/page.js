@@ -488,15 +488,22 @@ export default function GlossaryPage() {
   const letters = [...new Set(terms.map(t => t.term[0]))].sort()
 
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '48px 24px' }}>
+    <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
-      <div className="fade-up" style={{ marginBottom: '48px' }}>
-        <div className="badge" style={{ marginBottom: '14px' }}>Reference</div>
-        <h1 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '12px' }}>Story Glossary</h1>
-        <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75', maxWidth: '600px' }}>
-          The vocabulary of craft. {terms.length} terms every working writer encounters  -- defined precisely, with context, and linked to related concepts.
-        </p>
-      </div>
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '72px 24px 60px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }} className="fade-up">
+          <div className="badge" style={{ marginBottom: '14px', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Reference</div>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '16px' }}>
+            Story Glossary
+          </h1>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '560px', margin: 0 }}>
+            87 craft terms defined clearly -- from act breaks to unreliable narrators. Essential vocabulary for screenwriters, novelists, and short story writers.
+          </p>
+        </div>
+      </section>
+
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '48px 24px' }}>
+
 
       {/* Letter index */}
       <div className="fade-up fade-up-delay-1" style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '48px', padding: '16px 20px', background: 'var(--off-white)', borderRadius: '10px', border: '1px solid var(--border)' }}>
@@ -539,6 +546,8 @@ export default function GlossaryPage() {
         <strong>Using the glossary:</strong> Terms are more useful in context than in isolation. When you encounter a term in Session Mode or the Craft Library, look it up here  -- then go back and apply it to your own story.
       </div>
 
+    </div>
+      </div>
     </div>
   )
 }

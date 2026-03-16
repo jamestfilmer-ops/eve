@@ -27,12 +27,35 @@ export default function LessonSaveTheCat() {
   const actColor = { 1: { bg: '#EBF5E4', border: '#6AAF3D', text: '#2D5016' }, '1→2': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 2: { bg: '#FFF7ED', border: '#B5700A', text: '#78350F' }, '2→3': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 3: { bg: '#EEF2FF', border: '#6366F1', text: '#4338CA' } }
 
   return (
-    <div style={{ maxWidth: '720px', margin: '0 auto', padding: '48px 20px' }}>
-      <Link href="/learn" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--text-soft)', fontSize: '13px', marginBottom: '32px' }}>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        All lessons
-      </Link>
-      <div className="fade-up">
+    <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
+
+      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '16px 24px' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+          <a href="/learn" style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-soft)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            All lessons
+          </a>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#F0F2FF', color: '#3D52C4' }}>Framework</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>9 min</span>
+            <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+          </div>
+        </div>
+      </div>
+
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '72px 24px 60px' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
+            Save the Cat: Blake Snyder's 15-Beat Structure
+          </h1>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
+            Blake Snyder
+          </p>
+        </div>
+      </section>
+
+      <div style={{ maxWidth: '760px', margin: '0 auto', padding: '44px 24px 80px' }}>
+<div className="fade-up">
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' }}>
           <span className="badge badge-green">Frameworks</span>
           <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>6 min</span>
@@ -77,6 +100,8 @@ export default function LessonSaveTheCat() {
           <Link href="/learn/hauge-six-stage" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>← Hauge&#39;s Six-Stage</Link>
           <Link href="/learn/heros-journey" style={{ fontSize: '13px', color: 'var(--green)', textDecoration: 'none' }}>The Hero&#39;s Journey →</Link>
         </div>
+      </div>
+    </div>
       </div>
     </div>
   )

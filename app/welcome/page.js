@@ -219,7 +219,7 @@ export default function WelcomePage() {
             <button
               onClick={advance}
               style={{
-                width: '100%', background: 'var(--green)', color: '#fff',
+                width: '100%', background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', color: '#fff',
                 border: 'none', borderRadius: '10px', padding: '14px',
                 fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px',
                 cursor: 'pointer', transition: 'opacity 0.15s',

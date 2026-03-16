@@ -227,7 +227,7 @@ function DailyPrompt() {
             </p>
             <button
               onClick={() => setRevealed(true)}
-              style={{ background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '7px', padding: '9px 18px', fontSize: '13px', fontFamily: 'var(--font-ui)', fontWeight: '600', cursor: 'pointer' }}
+              style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', color: '#fff', border: 'none', borderRadius: '7px', padding: '9px 18px', fontSize: '13px', fontFamily: 'var(--font-ui)', fontWeight: '600', cursor: 'pointer' }}
             >
               Reveal prompt
             </button>
