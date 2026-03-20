@@ -95,7 +95,6 @@ export default function LessonFreytag() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

@@ -177,7 +177,6 @@ export default function LessonShortStoryMarkets() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }
