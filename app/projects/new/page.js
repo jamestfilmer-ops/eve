@@ -177,22 +177,42 @@ export default function NewProject() {
       return
     }
 
-    // INSERT project
-    const { data, error } = await supabase
-      .from('projects')
-      .insert({
-        user_id:    user.id,
-        title:      form.title.trim(),
-        type:       form.type,
-        logline:    form.logline.trim() || null,
-        framework:  selected,
-        status:     'seed',
-      })
-      .select()
-      .single()
+    // INSERT project — with 8s timeout so button never freezes forever
+    let data, error
+    try {
+      const result = await Promise.race([
+        supabase
+          .from('projects')
+          .insert({
+            user_id:    user.id,
+            title:      form.title.trim(),
+            type:       form.type,
+            logline:    form.logline.trim() || null,
+            framework:  selected,
+            status:     'seed',
+          })
+          .select()
+          .single(),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('timeout')), 8000)
+        ),
+      ])
+      data  = result.data
+      error = result.error
+    } catch (e) {
+      setSaveErr(
+        e.message === 'timeout'
+          ? 'Request timed out. Check your connection and try again.'
+          : 'Something went wrong. Try again.'
+      )
+      toast.error('Could not create project.')
+      setSaving(false)
+      return
+    }
 
     if (error) {
-      setSaveErr('Something went wrong saving your project. Try again.')
+      console.error('Supabase insert error:', error)
+      setSaveErr(`Could not save project: ${error.message}`)
       toast.error('Could not create project.')
       setSaving(false)
       return
