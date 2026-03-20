@@ -32,7 +32,7 @@ export default function Skeleton({ variant = 'line', width, height, lines = 3, s
         </div>
       )}
       {variant === 'card' && (
-        <div style={{ background: '#fff', border: '1px solid #E0D8CE', borderRadius: '14px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '12px', ...style }}>
+        <div style={{ background: '#fff', border: '1px solid #e8d89a', borderRadius: '14px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '12px', ...style }}>
           <style>{STYLE_TAG}</style>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span style={{ ...BASE, width: 40, height: 40, borderRadius: '10px' }} />
@@ -47,14 +47,14 @@ export default function Skeleton({ variant = 'line', width, height, lines = 3, s
         </div>
       )}
       {variant === 'stat' && (
-        <div style={{ background: '#fff', border: '1px solid #E0D8CE', borderRadius: '14px', padding: '18px 20px', textAlign: 'center', ...style }}>
+        <div style={{ background: '#fff', border: '1px solid #e8d89a', borderRadius: '14px', padding: '18px 20px', textAlign: 'center', ...style }}>
           <style>{STYLE_TAG}</style>
           <span style={{ ...BASE, height: 32, width: '48px', margin: '0 auto 8px', display: 'block' }} />
           <span style={{ ...BASE, height: 12, width: '60px', margin: '0 auto', display: 'block' }} />
         </div>
       )}
       {variant === 'idea' && (
-        <div style={{ background: '#fff', border: '1px solid #E0D8CE', borderRadius: '12px', padding: '18px 20px', display: 'flex', gap: '14px', ...style }}>
+        <div style={{ background: '#fff', border: '1px solid #e8d89a', borderRadius: '12px', padding: '18px 20px', display: 'flex', gap: '14px', ...style }}>
           <style>{STYLE_TAG}</style>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '2px' }}>

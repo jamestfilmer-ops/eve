@@ -54,7 +54,7 @@ function AuthForm() {
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ color: '#fff', fontSize: '20px' }}>✦</span>
             </div>
             <span style={{ fontFamily: 'Lora, serif', fontSize: '24px', fontWeight: '700', color: 'var(--green)' }}>Eve</span>

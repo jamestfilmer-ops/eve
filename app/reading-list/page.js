@@ -391,7 +391,7 @@ export default function ReadingList() {
     <div style={{ background: "var(--off-white)", minHeight: "100vh" }}>
 
       {/* Hero */}
-      <section style={{ background: "linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)", padding: "96px 24px 80px", textAlign: "center" }}>
+      <section style={{ background: "linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)", padding: "96px 24px 80px", textAlign: "center" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto" }}>
           <p style={{ fontFamily: "JetBrains Mono, monospace", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.55)", marginBottom: "20px" }}>
             Reference

@@ -1397,7 +1397,7 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
   }
 
   const THEME_COLORS = {
-    theme:    { bg: '#2D5016', text: '#fff', border: '#1A3009' },
+    theme:    { bg: '#e8a800', text: '#fff', border: '#1A3009' },
     motif:    { bg: '#B5700A', text: '#fff', border: '#7A4C07' },
     question: { bg: '#4F46E5', text: '#fff', border: '#3730A3' },
     symbol:   { bg: '#0F766E', text: '#fff', border: '#0D5E57' },
@@ -1652,7 +1652,7 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
 const SM_NODE = {
   scene:     { w: 148, h: 48, rx: 8,  bg: '#0D9488', stroke: '#0F766E', fg: '#fff' },
   character: { w: 136, h: 44, rx: 22, bg: '#7C3AED', stroke: '#6D28D9', fg: '#fff' },
-  theme:     { w: 128, h: 40, rx: 6,  bg: '#2D5016', stroke: '#1A3009', fg: '#fff' },
+  theme:     { w: 128, h: 40, rx: 6,  bg: '#e8a800', stroke: '#1A3009', fg: '#fff' },
   subplot:   { w: 136, h: 44, rx: 6,  bg: '#B5700A', stroke: '#7A4C07', fg: '#fff' },
 }
 
@@ -2197,7 +2197,7 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
             {[
               { color: '#0D9488', label: 'Scene' },
               { color: '#7C3AED', label: 'Character' },
-              { color: '#2D5016', label: 'Theme' },
+              { color: '#e8a800', label: 'Theme' },
               { color: '#B5700A', label: 'Subplot' },
             ].map(({ color, label }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>

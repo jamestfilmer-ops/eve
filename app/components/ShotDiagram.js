@@ -3,11 +3,11 @@
 
 export function ShotScaleDiagram() {
   const shots = [
-    { label: 'EWS', name: 'Extreme Wide', fill: '#e8f5e9', stroke: '#2D5016' },
-    { label: 'WS',  name: 'Wide Shot',   fill: '#c8e6c9', stroke: '#2D5016' },
-    { label: 'MS',  name: 'Mid Shot',    fill: '#a5d6a7', stroke: '#2D5016' },
-    { label: 'MCU', name: 'Med Close',   fill: '#81c784', stroke: '#2D5016' },
-    { label: 'CU',  name: 'Close-Up',    fill: '#66bb6a', stroke: '#2D5016' },
+    { label: 'EWS', name: 'Extreme Wide', fill: '#e8f5e9', stroke: '#e8a800' },
+    { label: 'WS',  name: 'Wide Shot',   fill: '#c8e6c9', stroke: '#e8a800' },
+    { label: 'MS',  name: 'Mid Shot',    fill: '#a5d6a7', stroke: '#e8a800' },
+    { label: 'MCU', name: 'Med Close',   fill: '#81c784', stroke: '#e8a800' },
+    { label: 'CU',  name: 'Close-Up',    fill: '#66bb6a', stroke: '#e8a800' },
     { label: 'ECU', name: 'Extreme CU',  fill: '#4caf50', stroke: '#1a3a0a' },
   ]
 
@@ -73,7 +73,7 @@ export function ShotScaleDiagram() {
                 </>
               )}
               {/* Label */}
-              <text x={x + w/2} y={frameY + frameH + 14} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--green, #2D5016)" fontFamily="monospace">{shot.label}</text>
+              <text x={x + w/2} y={frameY + frameH + 14} textAnchor="middle" fontSize="11" fontWeight="700" fill="var(--green, #e8a800)" fontFamily="monospace">{shot.label}</text>
               <text x={x + w/2} y={frameY + frameH + 25} textAnchor="middle" fontSize="9" fill="#666" fontFamily="sans-serif">{shot.name}</text>
             </g>
           )
@@ -81,10 +81,10 @@ export function ShotScaleDiagram() {
         {/* Arrow showing zoom direction */}
         <defs>
           <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L8,3 z" fill="#2D5016"/>
+            <path d="M0,0 L0,6 L8,3 z" fill="#e8a800"/>
           </marker>
         </defs>
-        <line x1="18" y1="165" x2="682" y2="165" stroke="#2D5016" strokeWidth="1.5" markerEnd="url(#arrow)" opacity="0.5"/>
+        <line x1="18" y1="165" x2="682" y2="165" stroke="#e8a800" strokeWidth="1.5" markerEnd="url(#arrow)" opacity="0.5"/>
         <text x="340" y="175" textAnchor="middle" fontSize="9" fill="#666" fontFamily="monospace">zoom in / tighter frame</text>
       </svg>
     </div>
@@ -117,20 +117,20 @@ export function AngleDiagram() {
         <text x="95" y="187" textAnchor="middle" fontSize="9" fill="#666" fontFamily="sans-serif">Subject diminished</text>
 
         {/* EYE LEVEL panel */}
-        <rect x="205" y="10" width="170" height="150" rx="6" fill="#f0fbf4" stroke="#2D5016" strokeWidth="1.5"/>
+        <rect x="205" y="10" width="170" height="150" rx="6" fill="#f0fbf4" stroke="#e8a800" strokeWidth="1.5"/>
         {/* Camera at same level */}
         <g transform="translate(290, 80)">
-          <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#2D5016" opacity="0.8"/>
+          <rect x="-12" y="-8" width="24" height="16" rx="3" fill="#e8a800" opacity="0.8"/>
           <circle cx="0" cy="0" r="5" fill="#1a3a0a"/>
-          <line x1="12" y1="0" x2="45" y2="0" stroke="#2D5016" strokeWidth="1.5" strokeDasharray="3,2" opacity="0.7"/>
-          <polygon points="45,0 38,-4 38,4" fill="#2D5016" opacity="0.7"/>
+          <line x1="12" y1="0" x2="45" y2="0" stroke="#e8a800" strokeWidth="1.5" strokeDasharray="3,2" opacity="0.7"/>
+          <polygon points="45,0 38,-4 38,4" fill="#e8a800" opacity="0.7"/>
         </g>
         {/* Figure at same level */}
         <g transform="translate(222, 80)">
-          <circle cx="0" cy="-22" r="12" fill="#2D5016" opacity="0.5"/>
-          <rect x="-10" y="-9" width="20" height="50" rx="3" fill="#2D5016" opacity="0.35"/>
+          <circle cx="0" cy="-22" r="12" fill="#e8a800" opacity="0.5"/>
+          <rect x="-10" y="-9" width="20" height="50" rx="3" fill="#e8a800" opacity="0.35"/>
         </g>
-        <text x="290" y="175" textAnchor="middle" fontSize="11" fontWeight="700" fill="#2D5016" fontFamily="monospace">EYE LEVEL</text>
+        <text x="290" y="175" textAnchor="middle" fontSize="11" fontWeight="700" fill="#e8a800" fontFamily="monospace">EYE LEVEL</text>
         <text x="290" y="187" textAnchor="middle" fontSize="9" fill="#666" fontFamily="sans-serif">Neutral, democratic</text>
 
         {/* LOW ANGLE panel */}
@@ -165,14 +165,14 @@ export function DutchAngleDiagram() {
 
         {/* Normal frame */}
         <g transform="translate(50, 20)">
-          <rect x="0" y="0" width="200" height="120" rx="6" fill="#f0fbf4" stroke="#2D5016" strokeWidth="1.5"/>
-          <line x1="0" y1="60" x2="200" y2="60" stroke="#2D5016" strokeWidth="0.5" strokeDasharray="4,4" opacity="0.4"/>
-          <line x1="100" y1="0" x2="100" y2="120" stroke="#2D5016" strokeWidth="0.5" strokeDasharray="4,4" opacity="0.4"/>
+          <rect x="0" y="0" width="200" height="120" rx="6" fill="#f0fbf4" stroke="#e8a800" strokeWidth="1.5"/>
+          <line x1="0" y1="60" x2="200" y2="60" stroke="#e8a800" strokeWidth="0.5" strokeDasharray="4,4" opacity="0.4"/>
+          <line x1="100" y1="0" x2="100" y2="120" stroke="#e8a800" strokeWidth="0.5" strokeDasharray="4,4" opacity="0.4"/>
           <g transform="translate(100, 60)">
-            <circle cx="0" cy="-28" r="14" fill="#2D5016" opacity="0.45"/>
-            <rect x="-12" y="-13" width="24" height="55" rx="3" fill="#2D5016" opacity="0.3"/>
+            <circle cx="0" cy="-28" r="14" fill="#e8a800" opacity="0.45"/>
+            <rect x="-12" y="-13" width="24" height="55" rx="3" fill="#e8a800" opacity="0.3"/>
           </g>
-          <text x="100" y="138" textAnchor="middle" fontSize="10" fontWeight="700" fill="#2D5016" fontFamily="monospace">NORMAL FRAME</text>
+          <text x="100" y="138" textAnchor="middle" fontSize="10" fontWeight="700" fill="#e8a800" fontFamily="monospace">NORMAL FRAME</text>
           <text x="100" y="150" textAnchor="middle" fontSize="9" fill="#666" fontFamily="sans-serif">World feels ordered</text>
         </g>
 

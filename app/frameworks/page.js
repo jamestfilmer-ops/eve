@@ -20,8 +20,8 @@ const frameworks = [
     acts: 3,
     beats: 15,
     difficulty: 'Beginner',
-    diffColor: '#2D5016',
-    diffBg: '#EFF6E7',
+    diffColor: '#e8a800',
+    diffBg: '#F8E890',
     diffBorder: '#C5DFA8',
     bestFor: 'Feature films, genre films, first screenplays',
     notFor: 'Experimental work, non-Western stories, literary drama',
@@ -60,8 +60,8 @@ const frameworks = [
     acts: 2,
     beats: 8,
     difficulty: 'Beginner',
-    diffColor: '#2D5016',
-    diffBg: '#EFF6E7',
+    diffColor: '#e8a800',
+    diffBg: '#F8E890',
     diffBorder: '#C5DFA8',
     bestFor: 'Television episodes, short stories, contained narratives',
     notFor: 'Epic narratives, multiple protagonist stories',
@@ -227,7 +227,7 @@ export default function FrameworksPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '12px' }}>Story Structure</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>

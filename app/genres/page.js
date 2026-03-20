@@ -693,7 +693,7 @@ export default function GenresPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '16px' }}>
             Reference
