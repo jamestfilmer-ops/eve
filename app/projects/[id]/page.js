@@ -8,7 +8,7 @@ import { useToast } from '../../components/Toast'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map']
+const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map', 'Story Map']
 
 const frameworkLabel = {
   'save-the-cat':  'Save the Cat',
@@ -197,6 +197,7 @@ export default function ProjectPage() {
         {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
         {tab === 'Timeline'    && <TimelineTab    scenes={scenes} />}
         {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}
+        {tab === 'Story Map'   && <StoryMapTab    projectId={id} project={project} scenes={scenes} setScenes={setScenes} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} onUpdateProject={updateProject} toast={toast} />}
       </div>
     </div>
   )
@@ -1640,6 +1641,574 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
               </div>
             </div>
           )}
+        </>
+      )}
+    </div>
+  )
+}
+
+// ─── Story Map Tab ─────────────────────────────────────────────────────────────
+
+const SM_NODE = {
+  scene:     { w: 148, h: 48, rx: 8,  bg: '#0D9488', stroke: '#0F766E', fg: '#fff' },
+  character: { w: 136, h: 44, rx: 22, bg: '#7C3AED', stroke: '#6D28D9', fg: '#fff' },
+  theme:     { w: 128, h: 40, rx: 6,  bg: '#2D5016', stroke: '#1A3009', fg: '#fff' },
+  subplot:   { w: 136, h: 44, rx: 6,  bg: '#B5700A', stroke: '#7A4C07', fg: '#fff' },
+}
+
+const ACT_ZONE = {
+  1: { fill: 'rgba(239,246,231,0.7)', stroke: '#C5DFA8' },
+  2: { fill: 'rgba(254,243,226,0.7)', stroke: '#F5C57A' },
+  3: { fill: 'rgba(238,242,255,0.7)', stroke: '#C7D2FE' },
+}
+
+function smNodeType(key) {
+  if (key.startsWith('scene-'))   return 'scene'
+  if (key.startsWith('char-'))    return 'character'
+  if (key.startsWith('theme-'))   return 'theme'
+  if (key.startsWith('subplot-')) return 'subplot'
+  return 'scene'
+}
+
+function smCenter(pos, key) {
+  const nt = SM_NODE[smNodeType(key)] || SM_NODE.scene
+  return { x: pos.x + nt.w / 2, y: pos.y + nt.h / 2 }
+}
+
+function smPath(from, to) {
+  const dx = to.x - from.x
+  const cx1 = from.x + dx * 0.45
+  const cx2 = to.x  - dx * 0.45
+  return `M ${from.x} ${from.y} C ${cx1} ${from.y} ${cx2} ${to.y} ${to.x} ${to.y}`
+}
+
+function tryParseMap(str) {
+  try { return JSON.parse(str) } catch { return null }
+}
+
+function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCharacters, themes, setThemes, onUpdateProject, toast }) {
+  const svgRef     = React.useRef(null)
+  const saveTimer  = React.useRef(null)
+
+  const [positions,   setPositions]   = React.useState({})
+  const [edges,       setEdges]       = React.useState([])
+  const [dragging,    setDragging]    = React.useState(null)
+  const [connectMode, setConnectMode] = React.useState(false)
+  const [connectFrom, setConnectFrom] = React.useState(null)
+  const [mousePos,    setMousePos]    = React.useState({ x: 0, y: 0 })
+  const [selected,    setSelected]    = React.useState(null)
+  const [showAdd,     setShowAdd]     = React.useState(null)
+  const [addForm,     setAddForm]     = React.useState({})
+  const [saving,      setSaving]      = React.useState(false)
+  const [initialized, setInitialized] = React.useState(false)
+  const [canvasW,     setCanvasW]     = React.useState(900)
+
+  // Measure canvas width
+  React.useEffect(() => {
+    if (svgRef.current) setCanvasW(svgRef.current.clientWidth || 900)
+  }, [])
+
+  // All displayable nodes
+  const allNodes = React.useMemo(() => [
+    ...scenes.map(s     => ({ key: `scene-${s.id}`,     label: s.title,   sub: s.beat_label ? s.beat_label : `Act ${s.act_number || 1}`, type: 'scene' })),
+    ...characters.map(c => ({ key: `char-${c.id}`,      label: c.name,    sub: c.role || '',                                             type: 'character' })),
+    ...themes.filter(t => t.type !== 'subplot').map(t => ({ key: `theme-${t.id}`,   label: t.label, sub: t.type,    type: 'theme' })),
+    ...themes.filter(t => t.type === 'subplot').map(t => ({ key: `subplot-${t.id}`, label: t.label, sub: 'subplot', type: 'subplot' })),
+  ], [scenes, characters, themes])
+
+  // Auto-layout: acts as columns, chars at top, themes at bottom
+  const buildAutoLayout = React.useCallback(() => {
+    const W = canvasW || 900
+    const pos = {}
+
+    // Characters: top row
+    characters.forEach((c, i) => {
+      pos[`char-${c.id}`] = { x: 60 + i * 170, y: 32 }
+    })
+
+    // Scenes: grouped by act in columns
+    const byAct = {}
+    scenes.forEach(s => {
+      const a = s.act_number || 1
+      if (!byAct[a]) byAct[a] = []
+      byAct[a].push(s)
+    })
+    const acts = Object.keys(byAct).map(Number).sort()
+    const actW = Math.max(200, Math.floor((W - 80) / Math.max(acts.length, 1)))
+    acts.forEach((act, ai) => {
+      byAct[act].forEach((s, si) => {
+        pos[`scene-${s.id}`] = { x: 50 + ai * actW, y: 140 + si * 92 }
+      })
+    })
+
+    // Themes + subplots: bottom row
+    const maxRows = Math.max(...Object.values(byAct).map(a => a.length), 0)
+    const bottomY = 140 + maxRows * 92 + 56
+    themes.forEach((t, i) => {
+      const key = t.type === 'subplot' ? `subplot-${t.id}` : `theme-${t.id}`
+      pos[key] = { x: 60 + i * 158, y: bottomY }
+    })
+
+    // Auto-edges: sequential within acts + act breaks between acts
+    const autoEdges = []
+    acts.forEach((act, ai) => {
+      const as = byAct[act] || []
+      as.forEach((s, si) => {
+        if (si < as.length - 1) {
+          autoEdges.push({ id: `seq-${s.id}`, from: `scene-${s.id}`, to: `scene-${as[si+1].id}`, type: 'sequence', label: '' })
+        }
+      })
+      if (ai < acts.length - 1) {
+        const thisAct = byAct[act], nextAct = byAct[acts[ai+1]]
+        if (thisAct?.length && nextAct?.length) {
+          autoEdges.push({
+            id: `act-${act}-${acts[ai+1]}`,
+            from: `scene-${thisAct[thisAct.length - 1].id}`,
+            to:   `scene-${nextAct[0].id}`,
+            type: 'act-break',
+            label: `Act ${acts[ai+1]}`,
+          })
+        }
+      }
+    })
+    return { pos, edges: autoEdges }
+  }, [scenes, characters, themes, canvasW])
+
+  // Load saved layout or auto-arrange
+  React.useEffect(() => {
+    if (initialized) return
+    const saved = project?.story_map_json ? tryParseMap(project.story_map_json) : null
+    if (saved?.positions && Object.keys(saved.positions).length > 0) {
+      setPositions(saved.positions)
+      setEdges(saved.edges || [])
+    } else {
+      const { pos, edges: ae } = buildAutoLayout()
+      setPositions(pos)
+      setEdges(ae)
+    }
+    setInitialized(true)
+  }, [initialized, buildAutoLayout, project])
+
+  // Debounced save
+  function queueSave(pos, eds) {
+    clearTimeout(saveTimer.current)
+    saveTimer.current = setTimeout(() => doSave(pos, eds), 1400)
+  }
+
+  async function doSave(pos, eds) {
+    setSaving(true)
+    try {
+      await supabase.from('projects').update({
+        story_map_json: JSON.stringify({ positions: pos, edges: eds }),
+        updated_at: new Date().toISOString(),
+      }).eq('id', projectId)
+    } catch (e) {
+      console.warn('Story map save failed (run migration):', e)
+      try { localStorage.setItem(`eve_sm_${projectId}`, JSON.stringify({ positions: pos, edges: eds })) } catch {}
+    }
+    setSaving(false)
+  }
+
+  // Drag
+  function onNodeMouseDown(e, key) {
+    if (connectMode) return
+    e.preventDefault(); e.stopPropagation()
+    const svg = svgRef.current; if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const p = positions[key] || { x: 0, y: 0 }
+    setDragging({ key, ox: e.clientX - rect.left - p.x, oy: e.clientY - rect.top - p.y })
+  }
+
+  function onSvgMouseMove(e) {
+    const svg = svgRef.current; if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const x = e.clientX - rect.left, y = e.clientY - rect.top
+    setMousePos({ x, y })
+    if (!dragging) return
+    setPositions(prev => ({ ...prev, [dragging.key]: { x: x - dragging.ox, y: y - dragging.oy } }))
+  }
+
+  function onSvgMouseUp() {
+    if (dragging) { queueSave(positions, edges); setDragging(null) }
+  }
+
+  // Connect
+  function onNodeClick(e, key) {
+    e.stopPropagation()
+    if (!connectMode) { setSelected(selected === key ? null : key); return }
+    if (!connectFrom) { setConnectFrom(key); return }
+    if (connectFrom === key) { setConnectFrom(null); return }
+    const newEdge = { id: `e-${Date.now()}`, from: connectFrom, to: key, type: 'custom', label: '' }
+    const newEdges = [...edges, newEdge]
+    setEdges(newEdges); setConnectFrom(null)
+    queueSave(positions, newEdges)
+  }
+
+  function deleteEdge(edgeId) {
+    const newEdges = edges.filter(e => e.id !== edgeId)
+    setEdges(newEdges); setSelected(null)
+    queueSave(positions, newEdges)
+  }
+
+  // Auto-arrange reset
+  function doAutoArrange() {
+    const { pos, edges: ae } = buildAutoLayout()
+    setPositions(pos); setEdges(ae)
+    queueSave(pos, ae)
+  }
+
+  // Add nodes from canvas
+  async function submitAdd() {
+    if (!showAdd) return
+    setSaving(true)
+    try {
+      if (showAdd === 'scene') {
+        const { data, error } = await supabase.from('scenes')
+          .insert({ project_id: projectId, title: addForm.title || 'New Scene', act_number: Number(addForm.act) || 1, order_index: scenes.length })
+          .select().single()
+        if (!error && data) {
+          setScenes(prev => [...prev, data])
+          const key = `scene-${data.id}`
+          const np = { ...positions, [key]: { x: 180 + Math.random() * 220, y: 200 + Math.random() * 80 } }
+          setPositions(np); queueSave(np, edges)
+          toast.success('Scene added')
+        }
+      } else if (showAdd === 'character') {
+        const { data, error } = await supabase.from('characters')
+          .insert({ project_id: projectId, name: addForm.name || 'New Character', role: addForm.role || '' })
+          .select().single()
+        if (!error && data) {
+          setCharacters(prev => [...prev, data])
+          const key = `char-${data.id}`
+          const np = { ...positions, [key]: { x: 180 + Math.random() * 220, y: 32 } }
+          setPositions(np); queueSave(np, edges)
+          toast.success('Character added')
+        }
+      } else if (showAdd === 'subplot') {
+        const { data, error } = await supabase.from('themes')
+          .insert({ project_id: projectId, label: addForm.label || 'New Subplot', type: 'subplot', linked_scenes: '[]' })
+          .select().single()
+        if (!error && data) {
+          setThemes(prev => [...prev, data])
+          const key = `subplot-${data.id}`
+          const np = { ...positions, [key]: { x: 180 + Math.random() * 220, y: 480 } }
+          setPositions(np); queueSave(np, edges)
+          toast.success('Subplot added')
+        }
+      }
+    } catch (e) { toast.error('Failed to add') }
+    setSaving(false); setShowAdd(null); setAddForm({})
+  }
+
+  // Dynamic canvas height
+  const canvasH = Math.max(560, ...Object.values(positions).map(p => p.y + 80))
+
+  // Act zones for background shading
+  const actZones = React.useMemo(() => {
+    const byAct = {}
+    scenes.forEach(s => {
+      const a = s.act_number || 1
+      if (!byAct[a]) byAct[a] = []
+      byAct[a].push(s)
+    })
+    return Object.keys(byAct).map(Number).sort().map(act => {
+      const actScenes = byAct[act].map(s => positions[`scene-${s.id}`]).filter(Boolean)
+      if (!actScenes.length) return null
+      const nt = SM_NODE.scene
+      const pad = 22
+      return {
+        act,
+        x: Math.min(...actScenes.map(p => p.x)) - pad,
+        y: Math.min(...actScenes.map(p => p.y)) - pad,
+        w: Math.max(...actScenes.map(p => p.x)) + nt.w - Math.min(...actScenes.map(p => p.x)) + pad * 2,
+        h: Math.max(...actScenes.map(p => p.y)) + nt.h - Math.min(...actScenes.map(p => p.y)) + pad * 2,
+      }
+    }).filter(Boolean)
+  }, [scenes, positions])
+
+  return (
+    <div style={{ paddingTop: '8px', paddingBottom: '40px' }}>
+      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
+        <div>
+          <h2 style={{ fontSize: '18px', marginBottom: '3px' }}>Story Map</h2>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
+            {scenes.length} scene{scenes.length !== 1 ? 's' : ''} &middot; {characters.length} character{characters.length !== 1 ? 's' : ''} &middot; {themes.length} theme{themes.length !== 1 ? 's' : ''}
+            {saving && <span style={{ marginLeft: '10px', color: 'var(--green)', fontFamily: 'var(--font-mono)', fontSize: '11px' }}>Saving&hellip;</span>}
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 13px' }} onClick={doAutoArrange}>
+            Auto-arrange
+          </button>
+          <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 13px' }} onClick={() => { setShowAdd('scene'); setAddForm({ act: 1 }) }}>
+            + Scene
+          </button>
+          <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 13px' }} onClick={() => { setShowAdd('character'); setAddForm({}) }}>
+            + Character
+          </button>
+          <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 13px' }} onClick={() => { setShowAdd('subplot'); setAddForm({}) }}>
+            + Subplot
+          </button>
+          <button
+            onClick={() => { setConnectMode(v => !v); setConnectFrom(null) }}
+            style={{
+              fontSize: '12px', padding: '6px 13px', cursor: 'pointer',
+              fontFamily: 'var(--font-ui)', borderRadius: 'var(--radius-btn)',
+              border: '1px solid', transition: 'all 0.15s',
+              background: connectMode ? 'var(--green)'         : 'transparent',
+              color:      connectMode ? '#fff'                  : 'var(--text-mid)',
+              borderColor: connectMode ? 'var(--green)'         : 'var(--border)',
+            }}>
+            {connectMode ? (connectFrom ? 'Pick target...' : 'Pick source...') : 'Draw line'}
+          </button>
+        </div>
+      </div>
+
+      {/* Add node form */}
+      {showAdd && (
+        <div style={{ padding: '16px 18px', marginBottom: '14px', background: 'var(--green-pale)', borderRadius: '10px', border: '1px solid var(--green-border)', display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
+          {showAdd === 'scene' && (
+            <>
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', display: 'block', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Scene title</label>
+                <input className="input" placeholder="e.g. Opening argument" value={addForm.title || ''} onChange={e => setAddForm(f => ({ ...f, title: e.target.value }))} autoFocus onKeyDown={e => e.key === 'Enter' && submitAdd()} />
+              </div>
+              <div style={{ minWidth: '110px' }}>
+                <label style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', display: 'block', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Act</label>
+                <select className="input" value={addForm.act || 1} onChange={e => setAddForm(f => ({ ...f, act: e.target.value }))}>
+                  <option value={1}>Act 1</option>
+                  <option value={2}>Act 2</option>
+                  <option value={3}>Act 3</option>
+                </select>
+              </div>
+            </>
+          )}
+          {showAdd === 'character' && (
+            <>
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', display: 'block', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Name</label>
+                <input className="input" placeholder="Character name" value={addForm.name || ''} onChange={e => setAddForm(f => ({ ...f, name: e.target.value }))} autoFocus onKeyDown={e => e.key === 'Enter' && submitAdd()} />
+              </div>
+              <div style={{ flex: 1, minWidth: '140px' }}>
+                <label style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', display: 'block', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Role</label>
+                <input className="input" placeholder="e.g. Protagonist" value={addForm.role || ''} onChange={e => setAddForm(f => ({ ...f, role: e.target.value }))} onKeyDown={e => e.key === 'Enter' && submitAdd()} />
+              </div>
+            </>
+          )}
+          {showAdd === 'subplot' && (
+            <div style={{ flex: 1, minWidth: '200px' }}>
+              <label style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', display: 'block', marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Subplot name</label>
+              <input className="input" placeholder="e.g. The love story" value={addForm.label || ''} onChange={e => setAddForm(f => ({ ...f, label: e.target.value }))} autoFocus onKeyDown={e => e.key === 'Enter' && submitAdd()} />
+            </div>
+          )}
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button className="btn-primary" style={{ padding: '9px 18px', fontSize: '13px' }} onClick={submitAdd} disabled={saving}>
+              {saving ? 'Adding...' : 'Add to map'}
+            </button>
+            <button className="btn-ghost" style={{ padding: '9px 14px', fontSize: '13px' }} onClick={() => { setShowAdd(null); setAddForm({}) }}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {/* Connect mode banner */}
+      {connectMode && (
+        <div style={{ padding: '10px 16px', marginBottom: '12px', background: 'var(--amber-pale)', borderRadius: '8px', border: '1px solid var(--amber-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '13px', color: 'var(--amber)' }}>
+            {connectFrom
+              ? `Source selected. Click a target node to connect.`
+              : 'Click any node to start drawing a connection.'}
+          </span>
+          <button onClick={() => { setConnectMode(false); setConnectFrom(null) }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '18px', color: 'var(--amber)', lineHeight: 1, padding: '0 2px' }}>
+            &times;
+          </button>
+        </div>
+      )}
+
+      {scenes.length === 0 && characters.length === 0 ? (
+        <div className="empty-state" style={{ marginTop: '24px' }}>
+          <h3>Nothing to map yet</h3>
+          <p>Add scenes and characters in their tabs. They auto-map here.</p>
+        </div>
+      ) : (
+        <>
+          {/* Canvas */}
+          <div style={{ border: '1px solid var(--border)', borderRadius: '14px', overflow: 'hidden', background: '#FAFAF9' }}>
+            <svg
+              ref={svgRef}
+              width="100%"
+              height={canvasH}
+              style={{
+                display: 'block',
+                cursor: dragging ? 'grabbing' : connectMode ? 'crosshair' : 'default',
+                userSelect: 'none',
+              }}
+              onMouseMove={onSvgMouseMove}
+              onMouseUp={onSvgMouseUp}
+              onMouseLeave={onSvgMouseUp}
+              onClick={() => { if (!connectMode) setSelected(null) }}
+            >
+              <defs>
+                {/* Dot grid pattern */}
+                <pattern id="smgrid" width="26" height="26" patternUnits="userSpaceOnUse">
+                  <circle cx="1.5" cy="1.5" r="1.4" fill="#C8BEB5" opacity="0.5" />
+                </pattern>
+                {/* Arrow markers */}
+                <marker id="sm-arrow"       markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#94A3B8" />
+                </marker>
+                <marker id="sm-arrow-green" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="var(--green)" />
+                </marker>
+                <marker id="sm-arrow-amber" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#B5700A" />
+                </marker>
+              </defs>
+
+              {/* Dot background */}
+              <rect width="100%" height="100%" fill="url(#smgrid)" />
+
+              {/* Act zone backgrounds */}
+              {actZones.map(zone => {
+                const z = ACT_ZONE[zone.act] || ACT_ZONE[1]
+                return (
+                  <g key={`zone-${zone.act}`}>
+                    <rect x={zone.x} y={zone.y} width={zone.w} height={zone.h}
+                      fill={z.fill} stroke={z.stroke} strokeWidth="1" rx="14" />
+                    <text x={zone.x + 12} y={zone.y + 17}
+                      style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', fill: '#888', letterSpacing: '0.09em', textTransform: 'uppercase' }}>
+                      ACT {zone.act}
+                    </text>
+                  </g>
+                )
+              })}
+
+              {/* Edges */}
+              {edges.map(edge => {
+                const fp = positions[edge.from], tp = positions[edge.to]
+                if (!fp || !tp) return null
+                const fc = smCenter(fp, edge.from), tc = smCenter(tp, edge.to)
+                const isSel     = selected === `edge-${edge.id}`
+                const isActBrk  = edge.type === 'act-break'
+                const isCustom  = edge.type === 'custom'
+                const color     = isSel ? 'var(--green)' : isActBrk ? '#B5700A' : '#94A3B8'
+                const markerId  = isSel ? 'sm-arrow-green' : isActBrk ? 'sm-arrow-amber' : 'sm-arrow'
+                const d         = smPath(fc, tc)
+                return (
+                  <g key={edge.id} onClick={e => { e.stopPropagation(); setSelected(`edge-${edge.id}`) }} style={{ cursor: 'pointer' }}>
+                    <path d={d} fill="none" stroke="transparent" strokeWidth="14" />
+                    <path d={d} fill="none" stroke={color}
+                      strokeWidth={isSel ? 2.5 : 1.8}
+                      strokeDasharray={isCustom ? '6,4' : 'none'}
+                      markerEnd={`url(#${markerId})`}
+                      opacity={isSel ? 1 : 0.75}
+                    />
+                    {edge.label && (
+                      <text x={(fc.x + tc.x) / 2} y={(fc.y + tc.y) / 2 - 7}
+                        textAnchor="middle"
+                        style={{ fontSize: '9px', fontFamily: 'var(--font-mono)', fill: color, letterSpacing: '0.07em', pointerEvents: 'none' }}>
+                        {edge.label.toUpperCase()}
+                      </text>
+                    )}
+                  </g>
+                )
+              })}
+
+              {/* Connect preview line */}
+              {connectMode && connectFrom && positions[connectFrom] && (() => {
+                const fp = positions[connectFrom]
+                const fc = smCenter(fp, connectFrom)
+                return (
+                  <path d={smPath(fc, mousePos)}
+                    fill="none" stroke="var(--green)" strokeWidth="1.8"
+                    strokeDasharray="7,4" markerEnd="url(#sm-arrow-green)" opacity="0.65" />
+                )
+              })()}
+
+              {/* Nodes */}
+              {allNodes.map(node => {
+                const pos = positions[node.key]
+                if (!pos) return null
+                const nt  = SM_NODE[node.type] || SM_NODE.scene
+                const isSel     = selected  === node.key
+                const isConnSrc = connectFrom === node.key
+                const truncLabel = node.label.length > 17 ? node.label.slice(0, 16) + '\u2026' : node.label
+                const truncSub   = node.sub   ? (node.sub.length > 20 ? node.sub.slice(0, 19) + '\u2026' : node.sub) : ''
+                const midY       = truncSub ? nt.h / 2 - 5 : nt.h / 2 + 5
+
+                return (
+                  <g key={node.key}
+                    transform={`translate(${pos.x},${pos.y})`}
+                    onMouseDown={e => onNodeMouseDown(e, node.key)}
+                    onClick={e => onNodeClick(e, node.key)}
+                    style={{ cursor: connectMode ? 'pointer' : 'grab' }}
+                  >
+                    {/* Drop shadow */}
+                    <rect x="3" y="4" width={nt.w} height={nt.h} rx={nt.rx} fill="rgba(0,0,0,0.10)" />
+                    {/* Body */}
+                    <rect width={nt.w} height={nt.h} rx={nt.rx}
+                      fill={nt.bg}
+                      stroke={isSel || isConnSrc ? '#fff' : nt.stroke}
+                      strokeWidth={isSel || isConnSrc ? 2.5 : 1.5}
+                    />
+                    {/* Selection / connect ring */}
+                    {(isSel || isConnSrc) && (
+                      <rect x="-3.5" y="-3.5" width={nt.w + 7} height={nt.h + 7} rx={nt.rx + 4}
+                        fill="none"
+                        stroke={isConnSrc ? '#FCD34D' : 'var(--green)'}
+                        strokeWidth="2.2" strokeDasharray="5,3"
+                      />
+                    )}
+                    {/* Primary label */}
+                    <text x={nt.w / 2} y={midY}
+                      textAnchor="middle"
+                      style={{ fontSize: '12px', fontWeight: '700', fill: nt.fg, fontFamily: 'var(--font-ui)', pointerEvents: 'none' }}>
+                      {truncLabel}
+                    </text>
+                    {/* Sub-label */}
+                    {truncSub && (
+                      <text x={nt.w / 2} y={nt.h / 2 + 12}
+                        textAnchor="middle"
+                        style={{ fontSize: '9px', fill: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', pointerEvents: 'none' }}>
+                        {truncSub.toUpperCase()}
+                      </text>
+                    )}
+                  </g>
+                )
+              })}
+            </svg>
+          </div>
+
+          {/* Edge selected: delete action */}
+          {selected?.startsWith('edge-') && (
+            <div style={{ marginTop: '12px', padding: '10px 16px', background: '#FEF3E2', borderRadius: '8px', border: '1px solid var(--amber-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+              <span style={{ fontSize: '13px', color: 'var(--amber)', fontWeight: '500' }}>Connection selected</span>
+              <button
+                onClick={() => deleteEdge(selected.replace('edge-', ''))}
+                style={{ background: '#FEE2E2', border: '1px solid #FECACA', borderRadius: '6px', color: '#DC2626', fontSize: '12px', padding: '5px 14px', cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600' }}>
+                Delete
+              </button>
+            </div>
+          )}
+
+          {/* Legend + hint */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '14px', flexWrap: 'wrap' }}>
+            {[
+              { color: '#0D9488', label: 'Scene' },
+              { color: '#7C3AED', label: 'Character' },
+              { color: '#2D5016', label: 'Theme' },
+              { color: '#B5700A', label: 'Subplot' },
+            ].map(({ color, label }) => (
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: color, flexShrink: 0 }} />
+                {label}
+              </div>
+            ))}
+            <span style={{ marginLeft: 'auto', fontSize: '11px', color: 'var(--text-soft)' }}>
+              Drag to move &middot; Draw line to connect &middot; Click line to delete
+            </span>
+          </div>
         </>
       )}
     </div>
