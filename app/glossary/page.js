@@ -547,7 +547,6 @@ export default function GlossaryPage() {
       </div>
 
     </div>
-      </div>
     </div>
   )
 }

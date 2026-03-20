@@ -136,7 +136,6 @@ export default function LessonColorPsychology() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

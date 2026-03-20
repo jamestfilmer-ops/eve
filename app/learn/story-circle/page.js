@@ -116,7 +116,6 @@ export default function LessonStoryCircle() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

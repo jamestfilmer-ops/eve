@@ -227,26 +227,26 @@ export default function FrameworksPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '88px 24px 72px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '20px' }}>Story Structure</p>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
-            11 screenwriting frameworks, compared honestly
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '12px' }}>Story Structure</p>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
+            11 frameworks. Pick the one that fits how you think.
           </h1>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.6)', maxWidth: '580px', margin: '0 auto 32px' }}>
-            Save the Cat or Hero&apos;s Journey? Story Circle or Sequence Approach? What each framework actually does, what it is best for, and when to use something else.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.7', color: 'rgba(255,255,255,0.75)', maxWidth: '520px', marginBottom: '20px' }}>
+            Save the Cat or Hero&apos;s Journey? Story Circle or Sequence Approach? Here&apos;s what each one actually does — and when to reach for something else instead.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>
-            Try all 7 frameworks in Eve —free
+          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', padding: '9px 22px', borderRadius: '8px', textDecoration: 'none' }}>
+            Try any framework in your project — free
           </Link>
         </div>
       </section>
 
       {/* Quick nav */}
-      <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '16px 24px', position: 'sticky', top: '60px', zIndex: 10 }}>
+      <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '12px 24px', position: 'sticky', top: '52px', zIndex: 10 }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '2px' }}>
           {frameworks.map(f => (
-            <a key={f.slug} href={`#${f.slug}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '6px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
+            <a key={f.slug || f.id} href={`#${f.slug || f.id}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 12px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
               {f.name}
             </a>
           ))}
@@ -254,28 +254,27 @@ export default function FrameworksPage() {
       </section>
 
       {/* Framework cards */}
-      <section style={{ padding: '64px 24px', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+      <section style={{ padding: '40px 24px', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
           {frameworks.map((f, i) => (
-            <div key={f.slug} id={f.slug} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden' }}>
+            <div key={f.slug || f.id} id={f.slug || f.id} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden' }}>
               {/* Header */}
-              <div style={{ padding: '32px 36px 24px', borderBottom: '1px solid var(--border)' }}>
+              <div style={{ padding: '24px 28px 20px', borderBottom: '1px solid var(--border)' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', margin: 0 }}>{f.name}</h2>
-                      <span style={{ display: 'inline-block', padding: '3px 10px', borderRadius: '12px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{f.difficulty}</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
+                      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', margin: 0 }}>{f.name}</h2>
                     </div>
-                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
                       {f.creator} · {f.year}{f.acts ? ` · ${f.acts} acts` : ''}{f.beats ? ` · ${f.beats} beats` : ''}
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                    <Link href={`/learn/${f.slug}`} style={{ display: 'inline-block', padding: '9px 18px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: 'var(--green)', textDecoration: 'none' }}>
+                    <Link href={`/learn/${f.slug || f.id}`} style={{ display: 'inline-block', padding: '8px 16px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: 'var(--green)', textDecoration: 'none' }}>
                       Read the lesson →
                     </Link>
                     {f.bookUrl && (
-                      <a href={f.bookUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '9px 18px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
+                      <a href={f.bookUrl} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '8px 16px', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '8px', fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
                         {f.bookTitle} ↗
                       </a>
                     )}
@@ -284,7 +283,7 @@ export default function FrameworksPage() {
               </div>
 
               {/* Body */}
-              <div className="framework-card-grid" style={{ padding: '28px 36px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
+              <div className="framework-card-grid" style={{ padding: '24px 28px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
                 <div>
                   <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-mid)', marginBottom: '20px' }}>{f.summary}</p>
                   <div style={{ marginBottom: '16px' }}>
@@ -327,15 +326,15 @@ export default function FrameworksPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '72px 24px', background: 'var(--green-pale)', borderTop: '1px solid var(--green-border)', textAlign: 'center' }}>
-        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Try all 7 frameworks in your next project
+      <section style={{ padding: '48px 24px', background: 'var(--green-pale)', borderTop: '1px solid var(--green-border)' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px' }}>
+            A framework is only useful when it meets a real story.
           </h2>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '28px' }}>
-            Eve lets you pick your framework when you create a project —or switch anytime. Beat auto-fill, scene tracking, PDF export. Free to start.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '20px', maxWidth: '480px' }}>
+            Eve lets you pick your framework when you start a project — and switch anytime. Beat prompts, scene tracking, PDF export. Free to start.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '14px 36px', borderRadius: '8px', textDecoration: 'none' }}>Create free account</Link>
+          <Link href="/auth" style={{ display: 'inline-block', background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '8px', textDecoration: 'none' }}>Create free account</Link>
         </div>
       </section>
 

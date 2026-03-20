@@ -143,7 +143,6 @@ export default function LessonSopranosDrama() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

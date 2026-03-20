@@ -142,24 +142,24 @@ export default function ForBeginners() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '88px 24px 80px' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '5px 14px', marginBottom: '24px' }}>
-            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Start Here</span>
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '4px 13px', marginBottom: '14px' }}>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Start Here</span>
           </div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, 5vw, 52px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '24px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
             How to start writing.<br />
-            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>What nobody tells you first.</em>
+            <em style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.72)' }}>What nobody tells you first.</em>
           </h1>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '560px', margin: '0 auto 36px' }}>
-            Every writer starts somewhere. This is where Eve starts you —with the things that actually matter before anything else: finishing, fear, story, and the wisdom of the writers who figured it out before you.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.7', color: 'rgba(255,255,255,0.75)', maxWidth: '500px', marginBottom: '22px' }}>
+            Every writer starts somewhere. This is where to begin — finishing, fear, story, and what the writers who figured it out before you actually say.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn/how-to-start" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            <Link href="/learn/how-to-start" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', padding: '9px 22px', borderRadius: '8px', textDecoration: 'none' }}>
               Start the first lesson
             </Link>
-            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
-              Begin your story —free
+            <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', padding: '9px 22px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.35)' }}>
+              Begin your story — free
             </Link>
           </div>
         </div>
@@ -262,16 +262,16 @@ export default function ForBeginners() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: 'var(--green)', margin: '72px 0 0', padding: '80px 24px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: '700', color: '#fff', marginBottom: '16px' }}>
+      <section style={{ background: 'var(--green)', margin: '48px 0 0', padding: '48px 24px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: '700', color: '#fff', marginBottom: '10px', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
             The best time to start was yesterday.
           </h2>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75', marginBottom: '32px' }}>
-            Eve gives you a workspace built around the same frameworks the masters use —free, without AI, without shortcuts. Start your first project today.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.7', marginBottom: '20px', maxWidth: '440px' }}>
+            Read the lessons here. Then open a project and put them to work. That&apos;s the whole process.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', padding: '14px 32px', borderRadius: '8px', textDecoration: 'none' }}>
-            Start writing —free
+          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '8px', textDecoration: 'none' }}>
+            Start writing — free
           </Link>
         </div>
       </section>

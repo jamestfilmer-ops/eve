@@ -86,7 +86,6 @@ export default function LessonSnowflake() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

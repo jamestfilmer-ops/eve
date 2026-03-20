@@ -207,27 +207,24 @@ export default function LearnPage() {
       {/* Hero */}
       <section style={{
         background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)',
-        padding: '72px 24px 60px',
+        padding: '44px 24px 40px',
       }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }} className="fade-up">
-          <div className="badge" style={{
-            marginBottom: '16px', background: 'rgba(255,255,255,0.15)',
-            color: '#fff', border: '1px solid rgba(255,255,255,0.25)',
-          }}>Craft library</div>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div className="badge" style={{ marginBottom: '12px', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Craft Library</div>
           <h1 style={{
-            fontSize: 'clamp(28px, 4vw, 44px)', marginBottom: '16px',
+            fontSize: 'clamp(26px, 3.5vw, 38px)', marginBottom: '12px',
             lineHeight: '1.15', color: '#fff',
+            textShadow: '0 2px 12px rgba(0,0,0,0.25)',
           }}>
-            Learn the craft.
+            Everything you need to know<br/>before you write a word.
           </h1>
-          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.75', maxWidth: '560px', marginBottom: '32px' }}>
-            Short lessons on screenwriting, novel writing, and short fiction—drawn from master classes, craft books, and the writers who figured this out before us.
+          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.7', maxWidth: '520px', marginBottom: '24px' }}>
+            Short, honest lessons on screenwriting, novels, and short fiction. Drawn from the writers who already figured this out. Read here, then go write.
           </p>
-          {/* Stats pills */}
-          <div className="fade-up fade-up-delay-1" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="stat-pill">
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5L8 5h3.5L9 7.5l1 3.5-3.5-2L3 11l1-3.5L1.5 5H5z" fill="currentColor"/></svg>
-              {writtenCount} lessons written
+              {writtenCount} lessons available
             </span>
             <span className="stat-pill">{totalLessons} total planned</span>
             <span className="stat-pill">{lessons.length} categories</span>
@@ -235,25 +232,8 @@ export default function LearnPage() {
         </div>
       </section>
 
-      {/* Level legend */}
-      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '12px 24px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Level</span>
-          {Object.entries(LEVEL_COLORS).filter(([k]) => ['Beginner','Intermediate','Advanced'].includes(k)).map(([level, c]) => (
-            <div key={level} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: c.bg, border: `1px solid ${c.color}` }} />
-              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-mid)' }}>{level}</span>
-            </div>
-          ))}
-          <div style={{ flex: 1 }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>
-            Click a category to expand
-          </span>
-        </div>
-      </div>
-
       {/* Category accordions */}
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '36px 24px 80px' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '32px 24px 72px' }}>
         <CategoryList lessons={lessons} writtenSlugs={writtenSlugs} />
       </div>
     </div>

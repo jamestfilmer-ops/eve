@@ -102,7 +102,6 @@ export default function LessonSaveTheCat() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import TracksClient from './TracksClient'
 
 export const metadata = {
   title: "Learning Paths —Eve Craft Library",
@@ -128,122 +129,39 @@ export default function TracksPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '80px 24px 72px' }}>
-        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '5px 14px', marginBottom: '20px' }}>
-            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Learning Paths</span>
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '20px', padding: '4px 13px', marginBottom: '14px' }}>
+            <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)' }}>Learning Paths</span>
           </div>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '20px' }}>
-            Five paths through the craft library.
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
+            Pick your path. Start where you are.
           </h1>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.8', color: 'rgba(255,255,255,0.72)', maxWidth: '540px', margin: '0 auto 28px' }}>
-            Each path is a curated sequence —ordered so that each lesson builds on the last. Pick the one that fits where you are, or browse the full library.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.7', color: 'rgba(255,255,255,0.75)', maxWidth: '500px', marginBottom: '20px' }}>
+            Five curated sequences through the craft library. Each lesson builds on the last. Follow a path or browse freely — either works.
           </p>
-          <Link href="/learn" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', padding: '9px 20px', borderRadius: '8px', textDecoration: 'none' }}>
+          <Link href="/learn" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', padding: '8px 18px', borderRadius: '8px', textDecoration: 'none' }}>
             Browse the full library →
           </Link>
         </div>
       </section>
 
-      {/* Tracks */}
-      <main className="tracks-main" style={{ maxWidth: '900px', margin: '0 auto', padding: '56px 24px 80px', display: 'flex', flexDirection: 'column', gap: '40px' }}>
-        {tracks.map(track => (
-          <section key={track.id} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden' }}>
-
-            {/* Track header */}
-            <div style={{ padding: '28px 32px 24px', borderBottom: '1px solid var(--border)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px', flexWrap: 'wrap' }}>
-                <span style={{
-                  fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', fontWeight: '700',
-                  letterSpacing: '0.1em', textTransform: 'uppercase',
-                  padding: '3px 10px', borderRadius: '20px',
-                  background: `${track.levelColor}15`, color: track.levelColor,
-                  border: `1px solid ${track.levelColor}30`,
-                }}>{track.level}</span>
-                <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>{track.time}</span>
-              </div>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.5vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '8px' }}>
-                {track.title}
-              </h2>
-              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', lineHeight: '1.65', maxWidth: '560px' }}>
-                {track.description}
-              </p>
-            </div>
-
-            {/* Lesson list */}
-            <div>
-              {track.lessons.map((lesson, i) => (
-                <Link key={lesson.slug} href={`/learn/${lesson.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '16px',
-                    padding: '14px 32px',
-                    borderBottom: i < track.lessons.length - 1 ? '1px solid var(--border)' : 'none',
-                    transition: 'background 0.12s',
-                  }}
-                    className="track-lesson-row"
-                  >
-                    {/* Step number */}
-                    <span style={{
-                      width: '24px', height: '24px', borderRadius: '50%', flexShrink: 0,
-                      background: 'var(--green-pale)', border: '1px solid var(--green-border)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', fontWeight: '700', color: 'var(--green)',
-                    }}>{i + 1}</span>
-
-                    {/* Lesson info */}
-                    <div style={{ flex: 1 }}>
-                      <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '500', color: 'var(--text-dark)' }}>
-                        {lesson.title}
-                      </span>
-                      {lesson.note && (
-                        <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', marginLeft: '10px' }}>
-                          —{lesson.note}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Time + arrow */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
-                      <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>{lesson.time}</span>
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path d="M5 3l4 4-4 4" stroke="var(--text-soft)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {/* Start CTA */}
-            <div style={{ padding: '16px 32px', borderTop: '1px solid var(--border)', background: 'var(--off-white)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-soft)' }}>
-                {track.lessons.length} lessons · {track.time}
-              </span>
-              <Link href={`/learn/${track.lessons[0].slug}`} style={{ textDecoration: 'none' }}>
-                <button style={{
-                  background: 'var(--green)', color: '#fff',
-                  fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px',
-                  padding: '8px 18px', borderRadius: '7px', border: 'none', cursor: 'pointer',
-                }}>
-                  Start this path →
-                </button>
-              </Link>
-            </div>
-          </section>
-        ))}
+      {/* Tracks — client component for progress bars */}
+      <main className="tracks-main" style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 24px 72px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <TracksClient tracks={tracks} />
       </main>
 
       {/* Bottom CTA */}
-      <section style={{ background: 'var(--green)', padding: '72px 24px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '540px', margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 34px)', fontWeight: '700', color: '#fff', marginBottom: '14px' }}>
-            Reading is half of writing.
+      <section style={{ background: 'var(--green)', padding: '48px 24px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: '700', color: '#fff', marginBottom: '10px', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+            Now put it to work.
           </h2>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.75', marginBottom: '28px' }}>
-            The other half is putting the lessons to work on a real project. Eve gives you the workspace to do exactly that.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.7', marginBottom: '20px', maxWidth: '440px' }}>
+            The lessons only matter when they meet a real project. Eve is the workspace between the lesson and the first draft.
           </p>
-          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>
-            Start writing —free
+          <Link href="/auth" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '10px 24px', borderRadius: '8px', textDecoration: 'none' }}>
+            Start a project — free
           </Link>
         </div>
       </section>

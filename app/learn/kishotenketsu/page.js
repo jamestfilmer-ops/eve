@@ -145,7 +145,6 @@ export default function LessonKishotenketsu() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

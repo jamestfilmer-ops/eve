@@ -139,7 +139,6 @@ export default function LessonSequenceApproach() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

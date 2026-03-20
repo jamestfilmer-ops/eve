@@ -137,7 +137,6 @@ export default function LessonFichteanCurve() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

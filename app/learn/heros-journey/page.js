@@ -99,7 +99,6 @@ export default function LessonHerosJourney() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

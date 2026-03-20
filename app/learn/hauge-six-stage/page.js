@@ -90,7 +90,6 @@ export default function LessonHauge() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

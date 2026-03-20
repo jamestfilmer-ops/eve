@@ -445,44 +445,43 @@ export default function Home() {
       <section className="hero-grid" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '100px 24px 80px',
+        padding: '64px 24px 56px',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: '80px',
+        gap: '64px',
         alignItems: 'center',
       }}>
         <div className="fade-up">
-          <div className="badge" style={{ marginBottom: '20px' }}>Screenwriting & Story Craft</div>
+          <div className="badge" style={{ marginBottom: '16px' }}>Screenwriting & Story Craft</div>
           <h1 style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(36px, 5vw, 58px)',
+            fontSize: 'clamp(30px, 4vw, 48px)',
             fontWeight: '700',
             lineHeight: '1.15',
             color: 'var(--green)',
-            marginBottom: '24px',
+            marginBottom: '18px',
             letterSpacing: '-0.01em',
           }}>
-            The craft platform<br />
-            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>for serious writers.</em>
+            Figure out your story<br />
+            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>before you write a word.</em>
           </h1>
           <p style={{
-            fontSize: '18px',
+            fontSize: '16px',
             color: 'var(--text-mid)',
             lineHeight: '1.75',
-            marginBottom: '36px',
-            maxWidth: '460px',
-            fontFamily: 'Source Sans 3, sans-serif',
+            marginBottom: '28px',
+            maxWidth: '440px',
           }}>
-            Free lessons on screenwriting, novel writing, and short fiction —plus a workspace built around the frameworks that actually work. No AI. No shortcuts.
+            Learn the craft. Map your structure. Develop your characters. Then take your organized story into Final Draft, Scrivener, or wherever you write. Eve is the thinking space between idea and first draft.
           </p>
-          <div className="hero-cta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div className="hero-cta-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-              <button className="btn-primary" style={{ fontSize: '15px', padding: '12px 28px' }}>
+              <button className="btn-primary" style={{ fontSize: '14px', padding: '10px 24px' }}>
                 Start your first story
               </button>
             </Link>
             <Link href="/learn" style={{ textDecoration: 'none' }}>
-              <button className="btn-ghost" style={{ fontSize: '15px', padding: '12px 24px' }}>
+              <button className="btn-ghost" style={{ fontSize: '14px', padding: '10px 22px' }}>
                 Learn the craft
               </button>
             </Link>
@@ -596,10 +595,10 @@ export default function Home() {
       <section className="split-grid section-fade" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '80px 24px',
+        padding: '56px 24px',
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: '80px',
+        gap: '64px',
         alignItems: 'center',
       }}>
         <div className="fade-up">
@@ -688,12 +687,12 @@ export default function Home() {
       </section>
 
       {/* Frameworks */}
-      <section className="section-fade" style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '80px 24px' }}>
+      <section className="section-fade" style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '52px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ maxWidth: '560px', marginBottom: '48px' }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3vw, 34px)', marginBottom: '12px' }}>Choose your framework</h2>
-            <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
-              Every project in Eve starts with a structure choice. Not sure which? Read the descriptions —you will know.
+          <div style={{ maxWidth: '560px', marginBottom: '40px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', marginBottom: '10px' }}>Choose your framework</h2>
+            <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
+              Every project starts with a structure choice. Pick the framework that fits how you think — or skip the template entirely and build your own.
             </p>
           </div>
           {/* Scroll hint arrows */}
@@ -753,28 +752,31 @@ export default function Home() {
       <PricingSection />
 
       {/* CTA */}
-      <section className="section-fade" style={{ background: 'var(--green)', padding: '80px 24px', textAlign: 'center' }}>
-        <h2 style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(28px, 4vw, 42px)',
-          color: '#fff', marginBottom: '16px',
-        }}>Your story is waiting.</h2>
-        <p style={{
-          color: 'rgba(255,255,255,0.72)', fontSize: '17px', marginBottom: '36px',
-          maxWidth: '420px', margin: '0 auto 36px', lineHeight: '1.7',
-        }}>
-          Start with whatever you have. A scene, a name, a feeling. Eve holds the rest.
-        </p>
-        <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
-          <button style={{
-            background: '#fff', color: 'var(--green)',
-            fontFamily: 'Source Sans 3, sans-serif', fontWeight: '700',
-            fontSize: '15px', padding: '14px 36px', borderRadius: '8px',
-            border: 'none', cursor: 'pointer', letterSpacing: '0.01em',
+      <section className="section-fade" style={{ background: 'var(--green)', padding: '52px 24px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(22px, 3vw, 32px)',
+            color: '#fff', marginBottom: '10px',
+            textShadow: '0 2px 8px rgba(0,0,0,0.2)',
+          }}>Your story is waiting.</h2>
+          <p style={{
+            color: 'rgba(255,255,255,0.75)', fontSize: '15px', marginBottom: '20px',
+            maxWidth: '400px', lineHeight: '1.7',
           }}>
-            Create your free account
-          </button>
-        </Link>
+            Start with whatever you have. A scene, a name, a feeling. Work it out here — then write.
+          </p>
+          <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+            <button style={{
+              background: '#fff', color: 'var(--green)',
+              fontFamily: 'var(--font-ui)', fontWeight: '700',
+              fontSize: '14px', padding: '10px 24px', borderRadius: '8px',
+              border: 'none', cursor: 'pointer',
+            }}>
+              Create your free account
+            </button>
+          </Link>
+        </div>
       </section>
 
       {/* Footer */}

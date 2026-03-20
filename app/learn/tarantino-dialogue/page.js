@@ -144,7 +144,6 @@ export default function LessonTarantinoDialogue() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

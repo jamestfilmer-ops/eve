@@ -80,7 +80,6 @@ export default function LessonSevenPoint() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

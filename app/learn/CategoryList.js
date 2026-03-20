@@ -1,144 +1,177 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-
-const LEVEL_COLORS = {
-  'Beginner':     { bg: '#EFF6E7', color: '#2D5016' },
-  'Intermediate': { bg: '#FEF3E2', color: '#B5700A' },
-  'Advanced':     { bg: '#F0F2FF', color: '#3D52C4' },
-  'Essentials':   { bg: '#EFF6E7', color: '#2D5016' },
-  'Short Story':  { bg: '#F5F0FF', color: '#7C3AED' },
-}
 
 function ChevronIcon({ open }) {
   return (
-    <svg
-      width="16" height="16" viewBox="0 0 16 16" fill="none"
-      style={{
-        flexShrink: 0,
-        transition: 'transform 0.28s cubic-bezier(0.22,1,0.36,1)',
-        transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-        color: open ? 'var(--green)' : 'var(--text-soft)',
-      }}
-    >
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+      style={{ flexShrink:0, transition:'transform 0.32s cubic-bezier(0.22,1,0.36,1)', transform:open?'rotate(180deg)':'rotate(0deg)', color:open?'var(--green)':'var(--text-soft)' }}>
       <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
 
-function LessonCard({ item, writtenSlugs }) {
+function ProgressBar({ read, total }) {
+  const pct = total === 0 ? 0 : Math.round((read / total) * 100)
+  const done = pct === 100
+  return (
+    <div style={{ display:'flex', alignItems:'center', gap:'8px', flexShrink:0 }}>
+      <div style={{ width:'72px', height:'4px', borderRadius:'2px', background:'var(--border)', overflow:'hidden' }}>
+        <div style={{
+          height:'100%', borderRadius:'2px',
+          background: done ? 'var(--green)' : 'linear-gradient(90deg, var(--green-light), var(--green))',
+          width:`${pct}%`,
+          transition:'width 0.5s var(--ease-out)',
+        }}/>
+      </div>
+      <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color: done ? 'var(--green)' : 'var(--text-soft)', fontWeight: done ? '700' : '400', minWidth:'28px' }}>
+        {pct}%
+      </span>
+    </div>
+  )
+}
+
+function LessonCard({ item, writtenSlugs, isRead, onRead }) {
   const isWritten = writtenSlugs.includes(item.slug)
-  const levelStyle = LEVEL_COLORS[item.level] || LEVEL_COLORS['Beginner']
 
   if (!isWritten) {
     return (
-      <div style={{
-        background: '#fff',
-        border: '1px solid var(--border)',
-        borderRadius: '12px',
-        padding: '16px 18px',
-        opacity: 0.52,
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 0,
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-          <span style={{
-            fontSize: '10px', fontWeight: '600', fontFamily: 'var(--font-mono)',
-            letterSpacing: '0.06em', textTransform: 'uppercase',
-            padding: '2px 8px', borderRadius: '4px',
-            background: levelStyle.bg, color: levelStyle.color,
-          }}>
-            {item.level}
-          </span>
-          <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{item.time}</span>
+      <div style={{ background:'#fff', border:'1px solid var(--border)', borderRadius:'12px', padding:'16px 18px', opacity:0.45, height:'100%', display:'flex', flexDirection:'column', gap:0 }}>
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'8px' }}>
+          <span style={{ fontSize:'11px', color:'var(--text-soft)', fontFamily:'var(--font-mono)' }}>{item.time}</span>
         </div>
-        <h3 style={{ fontSize: '13px', fontFamily: 'var(--font-display)', color: 'var(--text-mid)', lineHeight: '1.4', marginBottom: '6px', flex: 0 }}>
-          {item.title}
-        </h3>
-        <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', marginTop: 'auto' }}>Coming soon</span>
+        <h3 style={{ fontSize:'13px', fontFamily:'var(--font-display)', color:'var(--text-mid)', lineHeight:'1.4', marginBottom:'6px', flex:0 }}>{item.title}</h3>
+        <span style={{ fontSize:'11px', color:'var(--text-soft)', fontFamily:'var(--font-mono)', marginTop:'auto' }}>Coming soon</span>
       </div>
     )
   }
 
   return (
-    <Link href={`/learn/${item.slug}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+    <Link href={`/learn/${item.slug}`} style={{ textDecoration:'none', display:'block', height:'100%' }} onClick={() => onRead(item.slug)}>
       <div className="card" style={{
-        padding: '16px 18px',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 0,
+        padding:'16px 18px', height:'100%', display:'flex', flexDirection:'column', gap:0,
+        borderLeft: isRead ? '3px solid var(--green)' : '3px solid transparent',
       }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-          <span style={{
-            fontSize: '10px', fontWeight: '600', fontFamily: 'var(--font-mono)',
-            letterSpacing: '0.06em', textTransform: 'uppercase',
-            padding: '2px 8px', borderRadius: '4px',
-            background: levelStyle.bg, color: levelStyle.color,
-          }}>
-            {item.level}
-          </span>
-          <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{item.time}</span>
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:'8px' }}>
+          <div style={{ display:'flex', alignItems:'center', gap:'6px' }}>
+            {isRead && (
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style={{ flexShrink:0 }}>
+                <circle cx="6.5" cy="6.5" r="5.5" fill="var(--green-pale)" stroke="var(--green)" strokeWidth="1"/>
+                <path d="M4 6.5l1.8 1.8L9 4.5" stroke="var(--green)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            )}
+            <span style={{ fontSize:'11px', color: isRead ? 'var(--green)' : 'var(--text-soft)', fontFamily:'var(--font-mono)', fontWeight: isRead ? '600' : '400' }}>
+              {isRead ? 'Read' : item.time}
+            </span>
+          </div>
+          {!isRead && <span style={{ fontSize:'11px', color:'var(--text-soft)', fontFamily:'var(--font-mono)' }}>{item.time}</span>}
         </div>
-        <h3 style={{
-          fontSize: '13px', fontFamily: 'var(--font-display)',
-          color: 'var(--text-dark)', lineHeight: '1.4',
-          marginBottom: '6px', flex: 0,
-        }}>
-          {item.title}
-        </h3>
-        <p style={{ fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.55', flex: 1, margin: 0 }}>
-          {item.preview}
-        </p>
-        <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', margin: '12px 0 0' }}>
-          Read &rarr;
-        </p>
+        <h3 style={{ fontSize:'13px', fontFamily:'var(--font-display)', color:'var(--text-dark)', lineHeight:'1.4', marginBottom:'6px', flex:0 }}>{item.title}</h3>
+        <p style={{ fontSize:'12px', color:'var(--text-soft)', lineHeight:'1.55', flex:1, margin:0 }}>{item.preview}</p>
+        <p style={{ fontSize:'12px', color:'var(--green)', fontWeight:'600', margin:'10px 0 0' }}>Read &rarr;</p>
       </div>
     </Link>
   )
 }
 
+// Animated accordion body using CSS max-height
+function AccordionBody({ isOpen, children }) {
+  const ref = useRef(null)
+  const [height, setHeight] = useState(0)
+
+  useEffect(() => {
+    if (!ref.current) return
+    if (isOpen) {
+      setHeight(ref.current.scrollHeight)
+    } else {
+      setHeight(0)
+    }
+  }, [isOpen])
+
+  // When open, update height if children change (re-render)
+  useEffect(() => {
+    if (isOpen && ref.current) {
+      const ro = new ResizeObserver(() => {
+        if (ref.current) setHeight(ref.current.scrollHeight)
+      })
+      ro.observe(ref.current)
+      return () => ro.disconnect()
+    }
+  }, [isOpen])
+
+  return (
+    <div style={{
+      overflow:'hidden',
+      maxHeight: isOpen ? `${height}px` : '0px',
+      transition:'max-height 0.38s cubic-bezier(0.22,1,0.36,1)',
+    }}>
+      <div ref={ref}>
+        {children}
+      </div>
+    </div>
+  )
+}
+
+const STORAGE_KEY = 'eve_read_lessons'
+
 export default function CategoryList({ lessons, writtenSlugs }) {
-  // Default: first category open, rest closed
   const [openCats, setOpenCats] = useState(() => {
     const init = {}
     lessons.forEach((cat, i) => { init[i] = i === 0 })
     return init
   })
+  const [readSlugs, setReadSlugs] = useState([])
 
-  const toggle = (i) => {
-    setOpenCats(prev => ({ ...prev, [i]: !prev[i] }))
+  // Load read lessons from localStorage
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+      setReadSlugs(stored)
+    } catch {}
+  }, [])
+
+  function markRead(slug) {
+    setReadSlugs(prev => {
+      if (prev.includes(slug)) return prev
+      const next = [...prev, slug]
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
+      return next
+    })
   }
 
-  const expandAll = () => {
-    const all = {}
-    lessons.forEach((_, i) => { all[i] = true })
-    setOpenCats(all)
-  }
+  const toggle = (i) => setOpenCats(prev => ({ ...prev, [i]: !prev[i] }))
 
-  const collapseAll = () => {
-    const none = {}
-    lessons.forEach((_, i) => { none[i] = false })
-    setOpenCats(none)
-  }
-
+  const expandAll  = () => { const all = {}; lessons.forEach((_,i) => { all[i]=true  }); setOpenCats(all) }
+  const collapseAll= () => { const none= {}; lessons.forEach((_,i) => { none[i]=false}); setOpenCats(none) }
   const anyOpen = Object.values(openCats).some(Boolean)
+
+  const totalWritten  = writtenSlugs.length
+  const totalRead     = readSlugs.filter(s => writtenSlugs.includes(s)).length
+  const overallPct    = totalWritten === 0 ? 0 : Math.round((totalRead / totalWritten) * 100)
 
   return (
     <div>
-      {/* Expand/collapse all controls */}
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginBottom: '20px' }}>
-        <button
-          onClick={anyOpen ? collapseAll : expandAll}
-          style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
-            color: 'var(--green)', padding: '4px 0',
-            display: 'flex', alignItems: 'center', gap: '5px',
-          }}
-        >
+      {/* Overall progress */}
+      {totalRead > 0 && (
+        <div style={{ background:'var(--green-pale)', border:'1px solid var(--green-border)', borderRadius:'10px', padding:'12px 18px', marginBottom:'20px', display:'flex', alignItems:'center', gap:'16px', flexWrap:'wrap' }}>
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style={{ flexShrink:0 }}>
+            <path d="M7.5 1L9.3 5.5H14L10.5 8.3 11.9 13 7.5 10.2 3.1 13l1.4-4.7L1 5.5h4.7z" fill="var(--green)"/>
+          </svg>
+          <span style={{ fontFamily:'var(--font-ui)', fontSize:'13px', color:'var(--text-dark)', fontWeight:'600' }}>
+            {totalRead} of {totalWritten} lessons read
+          </span>
+          <div style={{ flex:1, minWidth:'120px' }}>
+            <div style={{ height:'5px', borderRadius:'3px', background:'var(--green-border)', overflow:'hidden' }}>
+              <div style={{ height:'100%', borderRadius:'3px', background:'var(--green)', width:`${overallPct}%`, transition:'width 0.5s var(--ease-out)' }}/>
+            </div>
+          </div>
+          <span style={{ fontFamily:'var(--font-mono)', fontSize:'11px', color:'var(--green)', fontWeight:'700' }}>{overallPct}%</span>
+        </div>
+      )}
+
+      {/* Expand/collapse controls */}
+      <div style={{ display:'flex', gap:'12px', justifyContent:'flex-end', marginBottom:'16px' }}>
+        <button onClick={anyOpen ? collapseAll : expandAll} style={{ background:'none', border:'none', cursor:'pointer', fontFamily:'var(--font-ui)', fontSize:'12px', fontWeight:'600', color:'var(--green)', padding:'4px 0', display:'flex', alignItems:'center', gap:'5px' }}>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             {anyOpen
               ? <path d="M2 4l4-3 4 3M2 8l4 3 4-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -150,108 +183,61 @@ export default function CategoryList({ lessons, writtenSlugs }) {
       </div>
 
       {/* Category accordions */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      <div style={{ display:'flex', flexDirection:'column', gap:'8px' }}>
         {lessons.map((cat, ci) => {
           const isOpen = openCats[ci]
           const writtenInCat = cat.items.filter(i => writtenSlugs.includes(i.slug)).length
-          const totalInCat = cat.items.length
+          const readInCat    = cat.items.filter(i => readSlugs.includes(i.slug) && writtenSlugs.includes(i.slug)).length
 
           return (
-            <div
-              key={ci}
-              className="reveal"
-              style={{
-                background: '#fff',
-                border: '1px solid',
-                borderColor: isOpen ? 'var(--green-border)' : 'var(--border)',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                transition: 'border-color 0.22s ease, box-shadow 0.22s ease',
-                boxShadow: isOpen ? '0 2px 12px rgba(45,80,22,0.08)' : 'var(--shadow-xs)',
-              }}
-            >
+            <div key={ci} className="reveal" style={{
+              background:'#fff',
+              border:'1px solid',
+              borderColor: isOpen ? 'var(--green-border)' : 'var(--border)',
+              borderRadius:'12px',
+              overflow:'hidden',
+              transition:'border-color 0.22s ease, box-shadow 0.22s ease',
+              boxShadow: isOpen ? '0 2px 12px rgba(45,80,22,0.08)' : 'var(--shadow-xs)',
+            }}>
               {/* Accordion trigger */}
-              <button
-                onClick={() => toggle(ci)}
-                style={{
-                  width: '100%',
-                  background: isOpen ? 'var(--green-pale)' : 'transparent',
-                  border: 'none',
-                  padding: '16px 20px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  textAlign: 'left',
-                  transition: 'background 0.18s ease',
-                }}
-              >
-                {/* Green bar */}
-                <div style={{
-                  width: '3px', height: '20px',
-                  background: 'var(--green)',
-                  borderRadius: '2px', flexShrink: 0,
-                  opacity: isOpen ? 1 : 0.5,
-                  transition: 'opacity 0.18s ease',
-                }} />
-
-                {/* Category name */}
-                <span style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '16px',
-                  fontWeight: '700',
-                  color: isOpen ? 'var(--green)' : 'var(--text-dark)',
-                  flex: 1,
-                  transition: 'color 0.18s ease',
-                }}>
+              <button onClick={() => toggle(ci)} style={{
+                width:'100%',
+                background: isOpen ? 'var(--green-pale)' : 'transparent',
+                border:'none', padding:'15px 20px', cursor:'pointer',
+                display:'flex', alignItems:'center', gap:'12px',
+                textAlign:'left',
+                transition:'background 0.18s ease',
+              }}>
+                <div style={{ width:'3px', height:'20px', background:'var(--green)', borderRadius:'2px', flexShrink:0, opacity:isOpen?1:0.4, transition:'opacity 0.18s ease' }}/>
+                <span style={{ fontFamily:'var(--font-display)', fontSize:'15px', fontWeight:'700', color:isOpen?'var(--green)':'var(--text-dark)', flex:1, transition:'color 0.18s ease' }}>
                   {cat.category}
                 </span>
-
-                {/* Written count */}
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '11px',
-                  color: 'var(--text-soft)',
-                  flexShrink: 0,
-                }}>
-                  {writtenInCat}/{totalInCat}
+                <ProgressBar read={readInCat} total={writtenInCat} />
+                <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-soft)', flexShrink:0 }}>
+                  {writtenInCat}/{cat.items.length}
                 </span>
-
-                {/* Badge */}
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
-                  fontWeight: '600',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  padding: '2px 8px',
-                  borderRadius: '4px',
-                  background: isOpen ? 'var(--green)' : 'var(--off-white)',
-                  color: isOpen ? '#fff' : 'var(--text-soft)',
-                  border: '1px solid',
-                  borderColor: isOpen ? 'var(--green)' : 'var(--border)',
-                  flexShrink: 0,
-                  transition: 'all 0.18s ease',
-                }}>
+                <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', fontWeight:'600', letterSpacing:'0.06em', textTransform:'uppercase', padding:'2px 8px', borderRadius:'4px', background:isOpen?'var(--green)':'var(--off-white)', color:isOpen?'#fff':'var(--text-soft)', border:'1px solid', borderColor:isOpen?'var(--green)':'var(--border)', flexShrink:0, transition:'all 0.18s ease' }}>
                   {cat.badge}
                 </span>
-
                 <ChevronIcon open={isOpen} />
               </button>
 
-              {/* Accordion body */}
-              {isOpen && (
-                <div style={{ padding: '0 20px 20px', borderTop: '1px solid var(--green-border)' }}>
-                  <div
-                    className="card-grid"
-                    style={{ marginTop: '16px' }}
-                  >
+              {/* Animated body */}
+              <AccordionBody isOpen={isOpen}>
+                <div style={{ padding:'0 20px 20px', borderTop:'1px solid var(--green-border)' }}>
+                  <div className="card-grid" style={{ marginTop:'16px' }}>
                     {cat.items.map((item, i) => (
-                      <LessonCard key={i} item={item} writtenSlugs={writtenSlugs} />
+                      <LessonCard
+                        key={i}
+                        item={item}
+                        writtenSlugs={writtenSlugs}
+                        isRead={readSlugs.includes(item.slug)}
+                        onRead={markRead}
+                      />
                     ))}
                   </div>
                 </div>
-              )}
+              </AccordionBody>
             </div>
           )
         })}

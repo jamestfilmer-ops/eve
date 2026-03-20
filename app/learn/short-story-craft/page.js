@@ -111,7 +111,6 @@ export default function LessonShortStoryCraft() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }

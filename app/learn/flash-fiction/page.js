@@ -130,7 +130,6 @@ export default function LessonFlashFiction() {
         </div>
       </div>
     </div>
-      </div>
     </div>
   )
 }
