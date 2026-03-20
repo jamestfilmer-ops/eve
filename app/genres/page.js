@@ -467,12 +467,12 @@ function GenreCard({ genre }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="reveal" style={{
+    <div style={{
       background: '#fff',
       border: '1px solid var(--border)',
       borderRadius: '12px',
       overflow: 'hidden',
-      transition: 'box-shadow 0.15s',
+      transition: 'box-shadow 0.15s, border-color 0.15s',
     }}>
       {/* Header—always visible */}
       <button
@@ -693,18 +693,18 @@ export default function GenresPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '80px 24px 64px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1e3a0c 0%, var(--green) 55%, #3a6b1c 100%)', padding: '44px 24px 40px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '16px' }}>
             Reference
           </p>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(30px, 5vw, 48px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '20px' }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
             Genre Guide
           </h1>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '17px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '520px', margin: '0 auto 28px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.7', color: 'rgba(255,255,255,0.75)', maxWidth: '520px', marginBottom: '20px' }}>
             {genres.length} genres and subgenres. History, defining characteristics, common tropes, and the key works that defined or redefined each form.
           </p>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link href="/learn" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '11px 24px', borderRadius: '8px', textDecoration: 'none' }}>
               Craft lessons
             </Link>
@@ -716,7 +716,7 @@ export default function GenresPage() {
       </section>
 
       {/* Controls */}
-      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '60px', zIndex: 10 }}>
+      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '52px', zIndex: 10 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             {types.map(t => (

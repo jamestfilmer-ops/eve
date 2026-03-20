@@ -169,16 +169,17 @@ input, textarea, select, button {
   color: #fff;
   border: none;
   border-radius: var(--radius-btn);
-  padding: 11px 22px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.005em;
+  letter-spacing: 0.01em;
+  font-family: var(--font-ui);
   box-shadow: var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.10);
   transition:
     background 0.2s ease,
     box-shadow 0.22s ease,
-    transform 0.15s var(--ease-spring); /* was 0.18s */
+    transform 0.15s var(--ease-spring);
   position: relative;
   overflow: hidden;
 }
@@ -192,10 +193,10 @@ input, textarea, select, button {
 .btn-primary:hover {
   background: var(--green-mid);
   box-shadow: var(--shadow-green);
-  transform: translateY(-1px); /* was -2px — dialed back */
+  transform: translateY(-1px);
 }
 .btn-primary:active {
-  transform: translateY(0px) scale(0.99); /* was scale(0.98) */
+  transform: translateY(0px) scale(0.99);
   box-shadow: var(--shadow-xs);
 }
 
@@ -203,27 +204,33 @@ input, textarea, select, button {
   background: transparent;
   color: var(--text-mid);
   border: 1px solid var(--border);
-  border-radius: 9px;
-  padding: 11px 22px;
-  font-size: 15px;
+  border-radius: var(--radius-btn);
+  padding: 10px 22px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  font-family: var(--font-ui);
   transition:
     border-color 0.2s,
     color 0.2s,
     background 0.2s,
     box-shadow 0.2s,
-    transform 0.15s var(--ease-spring); /* was 0.18s */
+    transform 0.15s var(--ease-spring);
 }
 .btn-ghost:hover {
   border-color: var(--green-border);
   color: var(--green);
   background: var(--green-pale);
   box-shadow: var(--shadow-xs);
-  /* no translateY — ghost buttons stay grounded */
 }
 .btn-ghost:active {
-  transform: scale(0.99); /* was translateY(0) scale(0.98) */
+  transform: scale(0.99);
+}
+
+/* ─── Small button variant ───────────────────────────────────── */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
 }
 
 /* ─── Inputs ─────────────────────────────────────────────────── */

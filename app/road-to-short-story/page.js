@@ -288,7 +288,7 @@ export default function RoadToShortStory() {
       </section>
 
       {/* Stage nav */}
-      <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '60px', zIndex: 10 }}>
+      <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '14px 24px', position: 'sticky', top: '52px', zIndex: 10 }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '6px', overflowX: 'auto', paddingBottom: '2px' }}>
           {stages.map(s => (
             <a key={s.id} href={`#stage-${s.id}`} style={{ display: 'inline-block', whiteSpace: 'nowrap', padding: '5px 14px', borderRadius: '20px', background: 'var(--off-white)', border: '1px solid var(--border)', fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '500', color: 'var(--text-mid)', textDecoration: 'none' }}>

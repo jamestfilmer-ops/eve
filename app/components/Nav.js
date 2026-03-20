@@ -147,14 +147,21 @@ export default function Nav() {
 
             <NavLink href="/dashboard" active={isActive('/dashboard')}>Projects</NavLink>
             <NavLink href="/ideas"     active={isActive('/ideas')}>Ideas</NavLink>
-            <NavLink href="/profile"   active={isActive('/profile')}>Profile</NavLink>
             <NavLink href="/pricing"   active={isActive('/pricing')}>Pricing</NavLink>
           </div>
 
           <div className="nav-desktop" style={{ display:'flex',alignItems:'center',gap:'10px',flexShrink:0 }}>
             {user ? (
               <>
-                <span style={{ fontSize:'13px',color:'var(--text-soft)',maxWidth:'160px',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap' }}>{user.email}</span>
+                <Link href="/profile" style={{ textDecoration:'none' }}>
+                  <button className="btn-ghost" style={{ fontSize:'13px',padding:'6px 14px', display:'flex', alignItems:'center', gap:'6px' }}>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <circle cx="7" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.4"/>
+                      <path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                    </svg>
+                    Profile
+                  </button>
+                </Link>
                 <button onClick={handleSignOut} className="btn-ghost" style={{ fontSize:'13px',padding:'6px 14px' }}>Sign out</button>
               </>
             ) : (
