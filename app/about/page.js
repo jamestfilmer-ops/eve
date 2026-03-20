@@ -93,7 +93,7 @@ export default function AboutPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'var(--text-dark)', padding: '96px 24px 80px', textAlign: 'center' }}>
+      <section style={{ background: 'var(--text-dark)', padding: '44px 24px 40px', textAlign: 'center' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '24px' }}>About Eve</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '28px' }}>
