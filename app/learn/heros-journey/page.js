@@ -38,7 +38,7 @@ export default function LessonHerosJourney() {
         </div>
       </div>
 
-      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             The Hero's Journey
@@ -73,7 +73,7 @@ export default function LessonHerosJourney() {
           {stages.map((s, i) => (
             <div key={i} style={{ display: 'flex', gap: '0', borderBottom: i < stages.length - 1 ? '1px solid var(--border)' : 'none' }}>
               <div style={{ width: '36px', flexShrink: 0, background: i < 5 ? 'var(--green-pale)' : i < 9 ? '#FFF7ED' : '#EEF2FF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '700', color: i < 5 ? 'var(--green)' : i < 9 ? '#B5700A' : '#6366F1' }}>{s.n}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '700', color: i < 5 ? 'var(--green)' : i < 9 ? '#8BA5A0' : '#6366F1' }}>{s.n}</span>
               </div>
               <div style={{ padding: '13px 16px', flex: 1 }}>
                 <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '3px', fontFamily: 'var(--font-ui)' }}>{s.world}</p>

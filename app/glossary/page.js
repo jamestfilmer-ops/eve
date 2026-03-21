@@ -490,7 +490,7 @@ export default function GlossaryPage() {
   return (
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
-      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '72px 24px 60px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '72px 24px 60px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }} className="fade-up">
           <div className="badge" style={{ marginBottom: '14px', background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }}>Reference</div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '16px' }}>

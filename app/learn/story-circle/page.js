@@ -34,7 +34,7 @@ export default function LessonStoryCircle() {
         </div>
       </div>
 
-      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             Dan Harmon's Story Circle
@@ -84,7 +84,7 @@ export default function LessonStoryCircle() {
             ].map(s => (
               <g key={s.n}>
                 <circle cx={s.x} cy={s.y} r="14" fill={s.n <= 2 || s.n === 8 ? 'var(--green-pale)' : s.n >= 5 ? '#F3E8FF' : '#FFF7ED'} stroke={s.n <= 2 || s.n === 8 ? 'var(--green-border)' : s.n >= 5 ? '#DDD6FE' : '#F5C57A'} strokeWidth="1"/>
-                <text x={s.x} y={s.y - 2} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" fontWeight="700" fill={s.n <= 2 || s.n === 8 ? 'var(--green)' : s.n >= 5 ? '#7C3AED' : '#B5700A'}>{s.n}</text>
+                <text x={s.x} y={s.y - 2} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" fontWeight="700" fill={s.n <= 2 || s.n === 8 ? 'var(--green)' : s.n >= 5 ? '#7C3AED' : '#8BA5A0'}>{s.n}</text>
                 <text x={s.x} y={s.y + 8} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="7" fill="var(--text-soft)">{s.label}</text>
               </g>
             ))}
@@ -98,7 +98,7 @@ export default function LessonStoryCircle() {
           {steps.map(s => (
             <div key={s.n} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
               <div style={{ width: '30px', height: '30px', borderRadius: '50%', flexShrink: 0, background: s.n <= 2 || s.n === 8 ? 'var(--green-pale)' : s.n >= 5 ? '#F3E8FF' : '#FFF7ED', border: `1px solid ${s.n <= 2 || s.n === 8 ? 'var(--green-border)' : s.n >= 5 ? '#DDD6FE' : '#F5C57A'}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: '700', color: s.n <= 2 || s.n === 8 ? 'var(--green)' : s.n >= 5 ? '#7C3AED' : '#B5700A' }}>{s.n}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: '700', color: s.n <= 2 || s.n === 8 ? 'var(--green)' : s.n >= 5 ? '#7C3AED' : '#8BA5A0' }}>{s.n}</span>
               </div>
               <div style={{ paddingTop: '4px' }}>
                 <p style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '3px', fontFamily: 'var(--font-ui)' }}>{s.label}</p>

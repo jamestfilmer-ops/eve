@@ -3,48 +3,48 @@
 
 /* ─── Design Tokens ──────────────────────────────────────────── */
 :root {
-  /* ── Primary gold scale ── */
-  --green:        #e8a800;
-  --green-mid:    #c08010;
-  --green-light:  #d4a000;
-  --green-pale:   #F8E890;
-  --green-border: #e8c84a;
-  --green-glow:   rgba(232,168,0,0.18);
-  --green-glow-strong: rgba(232,168,0,0.32);
+  /* ── Nautical primary: sea glass teal ── */
+  --green:        #4A8C8C;   /* sea glass teal — primary */
+  --green-mid:    #3A7070;   /* deeper teal — hover */
+  --green-light:  #5BA0A0;   /* lighter teal — accents */
+  --green-pale:   #E4F0F0;   /* pale teal tint */
+  --green-border: #9ECECE;   /* teal borders */
+  --green-glow:   rgba(74,140,140,0.18);
+  --green-glow-strong: rgba(74,140,140,0.30);
 
-  /* ── Secondary / amber ── */
-  --amber:        #c08010;
-  --amber-pale:   #f8f0d8;
-  --amber-border: #e8c84a;
+  /* ── Secondary: fog grey ── */
+  --amber:        #8BA5A0;   /* fog — secondary accent */
+  --amber-pale:   #EEF4F3;   /* pale fog */
+  --amber-border: #B8CECA;   /* fog borders */
 
-  /* ── Neutrals ── */
-  --warm-white:   #FFFFFF;
-  --off-white:    #f8f0d8;
-  --paper:        #fdf8ec;
-  --border:       #e8d89a;
-  --border-mid:   #d4b840;
+  /* ── Surfaces ── */
+  --warm-white:   #F2EDE4;   /* sailcloth — page background */
+  --off-white:    #EAE4DA;   /* slightly deeper sailcloth */
+  --paper:        #F7F3EC;   /* lightest sailcloth — card bg */
+  --border:       #D4C8B8;   /* warm canvas border */
+  --border-mid:   #BEB0A0;   /* stronger border */
 
   /* ── Text ── */
-  --text-dark:    #0A0A0A;
-  --text-mid:     #3D3018;
-  --text-soft:    #7A6840;
+  --text-dark:    #1B3A4B;   /* deep sea ink — primary text */
+  --text-mid:     #3D5560;   /* mid ocean — secondary text */
+  --text-soft:    #7A9099;   /* sea mist — muted labels */
 
   /* ── Typography ── */
   --font-display: 'EB Garamond', Georgia, serif;
   --font-ui:      'Lato', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
-  /* ── Shadows ── */
-  --shadow-xs:    0 1px 2px rgba(10,10,0,0.07);
-  --shadow-sm:    0 1px 3px rgba(10,10,0,0.06), 0 4px 14px rgba(10,10,0,0.05);
-  --shadow-md:    0 2px 6px rgba(10,10,0,0.07), 0 10px 32px rgba(10,10,0,0.08);
-  --shadow-lg:    0 4px 12px rgba(10,10,0,0.09), 0 20px 56px rgba(10,10,0,0.10);
-  --shadow-xl:    0 8px 24px rgba(10,10,0,0.11), 0 32px 72px rgba(10,10,0,0.12);
-  --shadow-green: 0 4px 20px rgba(232,168,0,0.32), 0 1px 4px rgba(232,168,0,0.20);
+  /* ── Shadows — cool sea-tinted ── */
+  --shadow-xs:    0 1px 2px rgba(27,58,75,0.07);
+  --shadow-sm:    0 1px 3px rgba(27,58,75,0.06), 0 4px 14px rgba(27,58,75,0.05);
+  --shadow-md:    0 2px 6px rgba(27,58,75,0.07), 0 10px 32px rgba(27,58,75,0.08);
+  --shadow-lg:    0 4px 12px rgba(27,58,75,0.09), 0 20px 56px rgba(27,58,75,0.10);
+  --shadow-xl:    0 8px 24px rgba(27,58,75,0.11), 0 32px 72px rgba(27,58,75,0.12);
+  --shadow-green: 0 4px 20px rgba(74,140,140,0.28), 0 1px 4px rgba(74,140,140,0.18);
   --shadow-dark:
-    inset 0 1px 0 rgba(255,255,255,0.10),
-    0 4px 20px rgba(10,10,0,0.22),
-    0 1px 4px rgba(10,10,0,0.14);
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 4px 20px rgba(27,58,75,0.22),
+    0 1px 4px rgba(27,58,75,0.14);
 
   /* ── Easing ── */
   --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
@@ -72,7 +72,6 @@
   --gap-5:  24px;
   --gap-6:  32px;
   --gap-7:  48px;
-
   --section-hero-py:  72px;
   --section-std-py:   56px;
 }
@@ -103,7 +102,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em;
 }
 
-/* EB Garamond reads optically larger — adjusted clamp */
 h1 { font-size: clamp(34px, 4vw, 52px); }
 h2 { font-size: clamp(24px, 3vw, 34px); }
 h3 { font-size: clamp(19px, 2.5vw, 24px); }
@@ -115,7 +113,7 @@ input, textarea, select, button { font-family: var(--font-ui); }
 
 /* ─── Cards ──────────────────────────────────────────────────── */
 .card {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -124,14 +122,14 @@ input, textarea, select, button { font-family: var(--font-ui); }
 .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--green-border); }
 
 .card-static {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
 
 .card-elevated {
-  background: #fff;
+  background: var(--paper);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
@@ -141,8 +139,8 @@ input, textarea, select, button { font-family: var(--font-ui); }
 
 /* ─── Buttons ────────────────────────────────────────────────── */
 .btn-primary {
-  background: var(--green);
-  color: var(--text-dark);
+  background: var(--text-dark);
+  color: var(--warm-white);
   border: none;
   border-radius: var(--radius-btn);
   padding: 10px 22px;
@@ -151,21 +149,13 @@ input, textarea, select, button { font-family: var(--font-ui); }
   cursor: pointer;
   letter-spacing: 0.01em;
   font-family: var(--font-ui);
-  box-shadow: var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.18);
+  box-shadow: var(--shadow-xs);
   transition: background 0.2s ease, box-shadow 0.22s ease, transform 0.15s var(--ease-spring);
   position: relative;
   overflow: hidden;
 }
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.10) 0%, transparent 100%);
-  pointer-events: none;
-}
 .btn-primary:hover {
-  background: var(--green-mid);
-  color: #fff;
+  background: var(--green);
   box-shadow: var(--shadow-green);
   transform: translateY(-1px);
 }
@@ -183,9 +173,8 @@ input, textarea, select, button { font-family: var(--font-ui); }
   font-family: var(--font-ui);
   transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s, transform 0.15s var(--ease-spring);
 }
-.btn-ghost:hover { border-color: var(--green-border); color: var(--green-mid); background: var(--green-pale); box-shadow: var(--shadow-xs); }
+.btn-ghost:hover { border-color: var(--green-border); color: var(--green); background: var(--green-pale); box-shadow: var(--shadow-xs); }
 .btn-ghost:active { transform: scale(0.99); }
-
 .btn-sm { padding: 6px 14px; font-size: 13px; }
 
 /* ─── Inputs ─────────────────────────────────────────────────── */
@@ -196,13 +185,13 @@ input, textarea, select, button { font-family: var(--font-ui); }
   border-radius: 9px;
   font-size: 15px;
   color: var(--text-dark);
-  background: var(--warm-white);
+  background: var(--paper);
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
   resize: vertical;
   line-height: 1.6;
 }
-.input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(232,168,0,0.14); background: #fff; }
+.input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(74,140,140,0.13); background: var(--warm-white); }
 .input::placeholder { color: var(--text-soft); }
 
 /* ─── Card title ─────────────────────────────────────────────── */
@@ -293,7 +282,7 @@ input, textarea, select, button { font-family: var(--font-ui); }
   background: linear-gradient(90deg, var(--green-light), var(--green));
   border-radius: 3px;
   transition: width 0.7s var(--ease-out);
-  box-shadow: 0 0 6px rgba(232,168,0,0.35);
+  box-shadow: 0 0 6px rgba(74,140,140,0.30);
 }
 
 /* ─── Empty state ────────────────────────────────────────────── */
@@ -350,14 +339,14 @@ input, textarea, select, button { font-family: var(--font-ui); }
 .link-grow::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 0; height: 1px; background: currentColor; transition: width 0.25s var(--ease-out); }
 .link-grow:hover::after { width: 100%; }
 
-/* ─── Gold accent line ───────────────────────────────────────── */
+/* ─── Teal accent line ───────────────────────────────────────── */
 .section-header { display: flex; align-items: center; gap: 12px; }
 .section-header::before {
   content: '';
   display: block;
   width: 4px;
   height: 26px;
-  background: linear-gradient(180deg, var(--green), var(--green-mid));
+  background: linear-gradient(180deg, var(--green-light), var(--green));
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -469,8 +458,7 @@ input, textarea, select, button { font-family: var(--font-ui); }
 .framework-carousel:active { cursor: grabbing; }
 .track-lesson-row { transition: background 0.12s; }
 .track-lesson-row:hover { background: var(--off-white); }
-
-.lesson-section { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; box-shadow: var(--shadow-sm); }
+.lesson-section { background: var(--paper); border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; box-shadow: var(--shadow-sm); }
 
 .accordion-trigger { width: 100%; background: none; border: none; cursor: pointer; text-align: left; display: flex; align-items: center; justify-content: space-between; padding: 0; font-family: var(--font-display); color: var(--text-dark); }
 .accordion-trigger:hover .accordion-icon { color: var(--green); }
@@ -485,25 +473,25 @@ input, textarea, select, button { font-family: var(--font-ui); }
 .lesson-card-hover { transition: box-shadow 0.28s var(--ease-out), transform 0.28s var(--ease-out), border-color 0.2s ease; }
 .lesson-card-hover:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--green-border); }
 
-/* ─── Gold hero gradient ─────────────────────────────────────── */
+/* ─── Hero gradient — deep sea to teal ──────────────────────── */
 .hero-green {
-  background: linear-gradient(160deg, #a07010 0%, var(--green) 50%, #c08010 100%);
+  background: linear-gradient(160deg, #112839 0%, #1B3A4B 50%, #2A5068 100%);
 }
-
 .green-grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
+/* ─── Stat pill ──────────────────────────────────────────────── */
 .stat-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(10,10,0,0.10);
-  border: 1px solid rgba(10,10,0,0.16);
+  background: rgba(27,58,75,0.10);
+  border: 1px solid rgba(27,58,75,0.18);
   border-radius: 20px;
   padding: 5px 14px;
   font-family: var(--font-ui);
   font-size: 13px;
-  color: rgba(10,10,0,0.80);
+  color: rgba(27,58,75,0.80);
   backdrop-filter: blur(4px);
 }

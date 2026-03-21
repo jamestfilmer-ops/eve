@@ -24,7 +24,7 @@ export default function LessonSaveTheCat() {
     { act: 3, beat: 'Final Image', page: '110', desc: 'The mirror of the Opening Image. Proof that change is real and permanent.' },
   ]
 
-  const actColor = { 1: { bg: '#EBF5E4', border: '#6AAF3D', text: '#e8a800' }, '1→2': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 2: { bg: '#FFF7ED', border: '#B5700A', text: '#78350F' }, '2→3': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 3: { bg: '#EEF2FF', border: '#6366F1', text: '#4338CA' } }
+  const actColor = { 1: { bg: '#E4F0F0', border: '#6AAF3D', text: '#4A8C8C' }, '1→2': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 2: { bg: '#FFF7ED', border: '#8BA5A0', text: '#78350F' }, '2→3': { bg: '#FEF9EE', border: '#D4A017', text: '#92400E' }, 3: { bg: '#EEF2FF', border: '#6366F1', text: '#4338CA' } }
 
   return (
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
@@ -43,7 +43,7 @@ export default function LessonSaveTheCat() {
         </div>
       </div>
 
-      <section style={{ background: 'linear-gradient(160deg, #a07010 0%, var(--green) 55%, #c08010 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             Save the Cat: Blake Snyder's 15-Beat Structure
@@ -59,7 +59,7 @@ export default function LessonSaveTheCat() {
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' }}>
           <span className="badge badge-green">Frameworks</span>
           <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>6 min</span>
-          <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 8px', borderRadius: '20px', background: '#EBF5E4', color: '#e8a800', border: '1px solid #e8c84a', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Beginner</span>
+          <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 8px', borderRadius: '20px', background: '#E4F0F0', color: '#4A8C8C', border: '1px solid #9ECECE', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>Beginner</span>
         </div>
         <h1 style={{ fontSize: 'clamp(26px, 4vw, 36px)', lineHeight: '1.2', marginBottom: '16px' }}>
           Save the Cat: Blake Snyder&#39;s 15-beat structure

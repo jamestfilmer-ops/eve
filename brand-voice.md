@@ -14,11 +14,11 @@ It is not a writing tool. It is not an AI generator. It is a **thinking tool bui
 
 **Serious.** Eve treats writers as craftspeople. No gamification, no clapping animations, no empty encouragement. The work is the point.
 
-**Literary.** EB Garamond. Careful language. The voice reads like a good editor — direct, knowing, occasionally dry.
+**Literary and nautical.** EB Garamond. Careful language. The voice reads like a good editor — direct, knowing, occasionally dry. The visual feeling: a ship's log written by someone who reads well.
 
 **Anti-AI.** This is a feature, not a disclaimer. Eve contains zero AI. It never writes a word for you. Writers who are tired of being offered shortcuts will find this genuinely refreshing. Lead with it confidently.
 
-**Calm but prestigious.** Gold + white + near-black. Nothing flashy — the design says: this is a place for serious work.
+**Calm and directional.** Like maritime charts — precise, purposeful, not decorative. The design says: you are heading somewhere.
 
 **Credible without being academic.** We reference Blake Snyder, Joseph Campbell, Dan Harmon. We explain craft plainly. We don't hide behind jargon but we don't dumb it down.
 
@@ -44,27 +44,31 @@ It is not a writing tool. It is not an AI generator. It is a **thinking tool bui
 
 ## Design Language
 
-**Primary color:** #e8a800 (gold) — buttons, active states, accents, hero sections
-**Primary dark:** #c08010 (dark gold) — hover states, strong accents
-**Light gold:** #F8E890 — pale backgrounds, tip boxes, badges
-**White:** #FFFFFF — page background (dominant)
-**Cream:** #f8f0d8 — section backgrounds, off-white surfaces
-**Near-black:** #0A0A0A — primary text, headings
-**Text mid:** #3D3018 — secondary text, body paragraphs
-**Text soft:** #7A6840 — placeholders, captions, muted labels
-**Border:** #e8d89a — card and input borders
+**Palette — Nautical: Maritime & Fog**
 
-**Font (headings):** EB Garamond — literary, authoritative, classical weight
-**Font (body/UI):** Lato — clean, readable, modern
-**Font (mono):** JetBrains Mono — labels, timestamps, code
+| Token | Hex | Use |
+|---|---|---|
+| Primary (teal) | `#4A8C8C` | Buttons (hover), active states, accents, teal italic |
+| Teal dark | `#3A7070` | Hover states |
+| Page background | `#F2EDE4` | Sailcloth — warm canvas |
+| Off-white | `#EAE4DA` | Section backgrounds |
+| Paper | `#F7F3EC` | Card surfaces |
+| Deep sea ink | `#1B3A4B` | Nav background, dark sections, primary text |
+| Text mid | `#3D5560` | Secondary text |
+| Text soft | `#7A9099` | Muted labels, captions |
+| Border | `#D4C8B8` | Card and input borders |
+| Fog grey | `#8BA5A0` | Secondary accent, stat bars |
 
-**Border radius:** 9px buttons, 12px cards. Refined, not bubbly.
+**Typography:**
+- Headers: **EB Garamond** — classical, warm, literary
+- Body/UI: **Lato** — clean, readable, modern
+- Mono: **JetBrains Mono** — labels, timestamps, code
 
-**The visual feeling:** A prestigious literary workspace. Gold and white — like Criterion packaging, The Paris Review, a well-made hardcover. Calm and tool-like. Not social, not startup.
+**Border radius:** 9px buttons, 12px cards.
+
+**The visual feeling:** A maritime chart table in a well-lit cabin. Deep ink, warm canvas, sea glass. Nothing decorative — everything purposeful.
 
 ## Framework System (Core Product Element)
-
-These must never change. They define the product's structure.
 
 | Framework | Author | Structure |
 |-----------|--------|-----------|
@@ -79,4 +83,4 @@ These must never change. They define the product's structure.
 
 **Secondary:** Writing teachers, MFA students, anyone who wants to think more clearly about story.
 
-**Investor-facing:** Eve's "no AI" positioning is a deliberate counter-product in a market being flooded with AI writing tools. Writers who reject AI slop are an underserved, high-intent audience willing to pay for something that respects their craft.
+**Investor-facing:** Eve's "no AI" positioning is a deliberate counter-product in a market flooded with AI writing tools. Writers who reject AI slop are underserved, high-intent, willing to pay for something that respects their craft.
