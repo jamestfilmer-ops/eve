@@ -564,7 +564,7 @@ export default function Home() {
       </section>
 
       {/* Content depth signal */}
-      <section className="section-fade" style={{ background: '#1B3A4B', padding: '56px 24px' }}>
+      <section className="section-fade" style={{ background: '#1A512E', padding: '56px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
@@ -752,22 +752,22 @@ export default function Home() {
       <PricingSection />
 
       {/* CTA */}
-      <section className="section-fade" style={{ background: '#1B3A4B', padding: '52px 24px' }}>
+      <section className="section-fade" style={{ background: '#1A512E', padding: '52px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 32px)',
-            color: '#F2EDE4', marginBottom: '10px',
+            color: '#F4F9F0', marginBottom: '10px',
           }}>Your story is waiting.</h2>
           <p style={{
-            color: 'rgba(242,237,228,0.70)', fontSize: '15px', marginBottom: '20px',
+            color: 'rgba(244,249,240,0.75)', fontSize: '15px', marginBottom: '20px',
             maxWidth: '400px', lineHeight: '1.7',
           }}>
             Start with whatever you have. A scene, a name, a feeling. Work it out here — then write.
           </p>
           <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
             <button style={{
-              background: 'var(--green)', color: '#F2EDE4',
+              background: 'var(--green)', color: '#F4F9F0',
               fontFamily: 'var(--font-ui)', fontWeight: '700',
               fontSize: '14px', padding: '10px 24px', borderRadius: '8px',
               border: 'none', cursor: 'pointer',

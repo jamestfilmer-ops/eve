@@ -25,7 +25,7 @@ export default function Lesson() {
         </div>
       </div>
 
-      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             Point of View: The Most Important Technical Choice in Fiction

@@ -164,7 +164,7 @@ const lessons = [
 ]
 
 const LEVEL_COLORS = {
-  'Beginner':     { bg: '#E4F0F0', color: '#4A8C8C' },
+  'Beginner':     { bg: '#C6DC93', color: '#589D62' },
   'Intermediate': { bg: '#FFF7ED', color: '#7A4C07' },
   'Advanced':     { bg: '#EEF2FF', color: '#3730A3' },
 }
@@ -206,7 +206,7 @@ export default function LearnPage() {
 
       {/* Hero */}
       <section style={{
-        background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)',
+        background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)',
         padding: '44px 24px 40px',
       }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>

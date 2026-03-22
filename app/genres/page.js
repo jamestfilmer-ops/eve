@@ -605,7 +605,7 @@ function GenreCard({ genre }) {
               <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '7px' }}>
                 {genre.tropes.map((t, i) => (
                   <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <span style={{ color: 'var(--amber, #8BA5A0)', flexShrink: 0, marginTop: '5px', fontSize: '8px' }}>
+                    <span style={{ color: 'var(--amber, #B0D2BE)', flexShrink: 0, marginTop: '5px', fontSize: '8px' }}>
                       <svg width="8" height="8" viewBox="0 0 8 8"><rect x="1" y="1" width="6" height="6" rx="1" fill="currentColor"/></svg>
                     </span>
                     <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.6' }}>{t}</span>
@@ -693,7 +693,7 @@ export default function GenresPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1B3A4B 0%, var(--green) 55%, #3A7070 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '16px' }}>
             Reference
