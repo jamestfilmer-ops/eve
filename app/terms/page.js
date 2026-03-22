@@ -14,7 +14,7 @@ export default function TermsPage() {
             fontFamily: 'Playfair Display, serif',
             fontSize: 'clamp(28px, 4vw, 40px)',
             fontWeight: '700',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             lineHeight: '1.2',
             marginBottom: '16px',
           }}>Terms of Service</h1>

@@ -12,7 +12,7 @@ export default function NotFound() {
           color: 'var(--green-pale)', lineHeight: '1', marginBottom: '8px',
           letterSpacing: '-4px',
         }}>404</p>
-        <h1 style={{ fontSize: '26px', marginBottom: '12px', color: 'var(--green)' }}>
+        <h1 style={{ fontSize: '26px', marginBottom: '12px', color: 'var(--text-dark)' }}>
           This page doesn't exist yet.
         </h1>
         <p style={{ fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.7', marginBottom: '32px' }}>

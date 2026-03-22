@@ -525,7 +525,7 @@ export default function GlossaryPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {terms.filter(t => t.term[0] === letter).map((t, i) => (
                 <div key={i} style={{ paddingBottom: '20px', borderBottom: '1px solid var(--border)' }}>
-                  <h3 style={{ fontSize: '18px', fontFamily: 'var(--font-display)', color: 'var(--green)', marginBottom: '8px' }}>{t.term}</h3>
+                  <h3 style={{ fontSize: '18px', fontFamily: 'var(--font-display)', color: 'var(--text-dark)', marginBottom: '8px' }}>{t.term}</h3>
                   <p style={{ fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.75', marginBottom: '12px' }}>{t.definition}</p>
                   {t.related && (
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>

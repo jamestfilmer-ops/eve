@@ -326,7 +326,7 @@ export default function FrameworksPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '48px 24px', background: 'var(--green-pale)', borderTop: '1px solid var(--green-border)' }}>
+      <section style={{ padding: '48px 24px', background: 'var(--off-white)', borderTop: '1px solid var(--green-border)' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px' }}>
             A framework is only useful when it meets a real story.

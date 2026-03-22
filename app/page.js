@@ -161,7 +161,7 @@ function PricingSection() {
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(30px, 4vw, 44px)',
             fontWeight: '700',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             marginBottom: '16px',
             lineHeight: '1.15',
           }}>
@@ -458,7 +458,7 @@ export default function Home() {
             fontSize: 'clamp(30px, 4vw, 48px)',
             fontWeight: '700',
             lineHeight: '1.15',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             marginBottom: '18px',
             letterSpacing: '-0.01em',
           }}>
@@ -499,7 +499,7 @@ export default function Home() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <div>
               <p style={{ fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '4px' }}>Story Project</p>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--green)' }}>The Long Road Home</h3>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--text-dark)' }}>The Long Road Home</h3>
             </div>
             <span className="badge">Act 2 of 3</span>
           </div>
@@ -544,7 +544,7 @@ export default function Home() {
 
       {/* Pillars */}
       <section className="section-fade" style={{
-        background: 'var(--green-pale)',
+        background: 'var(--off-white)',
         borderTop: '1px solid var(--green-border)',
         borderBottom: '1px solid var(--green-border)',
         padding: '52px 24px',
@@ -609,7 +609,7 @@ export default function Home() {
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(26px, 3vw, 38px)',
             fontWeight: '700',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             lineHeight: '1.2',
             marginBottom: '20px',
           }}>

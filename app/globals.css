@@ -18,9 +18,9 @@
   --amber-border: #C6DC93;   /* yellow-green border */
 
   /* ── Surfaces ── */
-  --warm-white:   #F4F9F0;   /* pale botanical green-white — page bg */
-  --off-white:    #E8F0E4;   /* slightly deeper — section bg */
-  --paper:        #EFF6EB;   /* card surfaces */
+  --warm-white:   #FFFFFF;   /* pale botanical green-white — page bg */
+  --off-white:    #F0F6F0;   /* slightly deeper — section bg */
+  --paper:        #FAFCFA;   /* card surfaces */
   --border:       #C8DCCA;   /* warm green border */
   --border-mid:   #A8C4AA;   /* stronger border */
 

@@ -124,21 +124,21 @@ export default function Nav() {
                 }}>
                   {learnGroups.map((group, gi) => (
                     <div key={gi} style={{ marginBottom: gi < learnGroups.length-1 ? '6px' : '0' }}>
-                      <div style={{ padding:'7px 13px 4px',fontSize:'10px',fontFamily:'JetBrains Mono,monospace',letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-soft)',fontWeight:'600' }}>{group.heading}</div>
+                      <div style={{ padding:'7px 13px 4px',fontSize:'10px',fontFamily:'JetBrains Mono,monospace',letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(198,220,147,0.60)',fontWeight:'600' }}>{group.heading}</div>
                       {group.links.map(l => (
                         <Link key={l.href} href={l.href} style={{ textDecoration:'none',display:'block' }}>
                           <div style={{ padding:'8px 13px',borderRadius:'7px',fontSize:'13.5px',
-                            color: pathname===l.href ? 'var(--green)' : 'var(--text-mid)',
+                            color: pathname===l.href ? '#C6DC93' : 'rgba(244,249,240,0.80)',
                             fontWeight: pathname===l.href ? '500' : '400',
                             background: pathname===l.href ? 'var(--green-pale)' : 'transparent',
                             transition:'background 0.12s,color 0.12s',cursor:'pointer',
                           }}
-                            onMouseEnter={e=>{if(pathname!==l.href){e.currentTarget.style.background='var(--off-white)';e.currentTarget.style.color='var(--text-dark)'}}}
+                            onMouseEnter={e=>{if(pathname!==l.href){e.currentTarget.style.background='rgba(255,255,255,0.10)';e.currentTarget.style.color='rgba(244,249,240,1)'}}}
                             onMouseLeave={e=>{if(pathname!==l.href){e.currentTarget.style.background='transparent';e.currentTarget.style.color='rgba(244,249,240,0.70)'}}}
                           >{l.label}</div>
                         </Link>
                       ))}
-                      {gi < learnGroups.length-1 && <div style={{ height:'1px',background:'var(--border)',margin:'6px 6px 0' }}/>}
+                      {gi < learnGroups.length-1 && <div style={{ height:'1px',background:'rgba(255,255,255,0.10)',margin:'6px 6px 0' }}/>}
                     </div>
                   ))}
                 </div>
@@ -195,7 +195,7 @@ export default function Nav() {
       {menuOpen && (
         <div className="nav-mobile" style={{ position:'fixed',top:'53px',left:0,right:0,bottom:0,background:'rgba(26,81,46,0.99)',backdropFilter:'blur(20px)',WebkitBackdropFilter:'blur(20px)',zIndex:99,overflowY:'auto',padding:'16px 20px 48px',display:'flex',flexDirection:'column',gap:'4px' }}>
           <div style={{ marginBottom:'8px',paddingBottom:'12px',borderBottom:'1px solid var(--border)' }}>
-            <p style={{ fontSize:'11px',fontFamily:'var(--font-mono)',letterSpacing:'0.07em',textTransform:'uppercase',color:'var(--text-soft)',marginBottom:'8px',paddingLeft:'14px' }}>Learn</p>
+            <p style={{ fontSize:'11px',fontFamily:'var(--font-mono)',letterSpacing:'0.07em',textTransform:'uppercase',color:'rgba(198,220,147,0.60)',marginBottom:'8px',paddingLeft:'14px' }}>Learn</p>
             {learnLinks.map(l => <MobileNavLink key={l.href} href={l.href} active={pathname===l.href}>{l.label}</MobileNavLink>)}
           </div>
           <MobileNavLink href="/dashboard" active={isActive('/dashboard')}>Projects</MobileNavLink>
@@ -203,7 +203,7 @@ export default function Nav() {
           <MobileNavLink href="/profile"   active={isActive('/profile')}>Profile</MobileNavLink>
           <div style={{ marginTop:'auto',paddingTop:'28px',borderTop:'1px solid var(--border)' }}>
             {user ? (
-              <div><p style={{ fontSize:'13px',color:'var(--text-soft)',marginBottom:'12px',paddingLeft:'4px' }}>{user.email}</p>
+              <div><p style={{ fontSize:'13px',color:'rgba(198,220,147,0.60)',marginBottom:'12px',paddingLeft:'4px' }}>{user.email}</p>
                 <button onClick={handleSignOut} className="btn-ghost" style={{ width:'100%' }}>Sign out</button>
               </div>
             ) : (

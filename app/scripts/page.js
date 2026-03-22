@@ -728,7 +728,7 @@ export default function FamousScripts() {
       {/* How to read a script —SEO content block */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '56px 24px 0' }}>
         <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '32px 36px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--green)', marginBottom: '14px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--text-dark)', marginBottom: '14px' }}>
             How to read a screenplay
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '12px' }}>

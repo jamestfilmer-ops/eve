@@ -945,7 +945,7 @@ function renderBody(body) {
       <p key={i} style={{ fontSize: '16px', color: 'var(--text-dark)', lineHeight: '1.85', marginBottom: '22px', fontFamily: 'Source Sans 3, sans-serif' }}>{block.text}</p>
     )
     if (block.type === 'h3') return (
-      <h3 key={i} style={{ fontSize: '19px', fontFamily: 'var(--font-display)', color: 'var(--green)', marginTop: '36px', marginBottom: '14px' }}>{block.text}</h3>
+      <h3 key={i} style={{ fontSize: '19px', fontFamily: 'var(--font-display)', color: 'var(--text-dark)', marginTop: '36px', marginBottom: '14px' }}>{block.text}</h3>
     )
     if (block.type === 'rule') return (
       <div key={i} style={{ margin: '28px 0', padding: '20px 26px', borderLeft: '4px solid var(--green)', background: 'var(--green-pale)', borderRadius: '0 10px 10px 0' }}>

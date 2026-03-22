@@ -141,13 +141,13 @@ export default function AboutPage() {
       </section>
 
       {/* What Eve believes */}
-      <section style={{ padding: '72px 24px', background: 'var(--green-pale)', borderTop: '1px solid var(--green-border)', borderBottom: '1px solid var(--green-border)' }}>
+      <section style={{ padding: '72px 24px', background: 'var(--off-white)', borderTop: '1px solid var(--green-border)', borderBottom: '1px solid var(--green-border)' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3.5vw, 34px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '48px', textAlign: 'center' }}>What Eve believes</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '36px' }}>
             {values.map((v, i) => (
               <div key={i}>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--green)', marginBottom: '10px' }}>{v.title}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px' }}>{v.title}</h3>
                 <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-mid)' }}>{v.body}</p>
               </div>
             ))}

@@ -115,7 +115,7 @@ export default function LensesAndDepthLesson() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   {lens.examples.map((ex) => (
                     <div key={ex.film} style={{ display: 'flex', gap: '10px', background: 'var(--green-pale)', borderRadius: '6px', padding: '8px 12px' }}>
-                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '12px', fontWeight: '700', color: 'var(--green)', flexShrink: 0 }}>{ex.film}</span>
+                      <span style={{ fontFamily: 'var(--font-display)', fontSize: '12px', fontWeight: '700', color: 'var(--text-dark)', flexShrink: 0 }}>{ex.film}</span>
                       <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-mid)', lineHeight: '1.55' }}>{ex.note}</span>
                     </div>
                   ))}
@@ -145,7 +145,7 @@ export default function LensesAndDepthLesson() {
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
             Camera Movement
           </Link>
-          <Link href="/learn/composition-and-meaning" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--green)', textDecoration: 'none' }}>
+          <Link href="/learn/composition-and-meaning" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)', textDecoration: 'none' }}>
             Next: Composition
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </Link>

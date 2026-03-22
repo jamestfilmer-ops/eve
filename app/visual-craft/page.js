@@ -376,8 +376,8 @@ export default function VisualCraftPage() {
         </section>
 
         {/* How to use this as a writer */}
-        <section style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '14px', padding: '36px 32px', marginBottom: '48px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--green)', marginBottom: '16px' }}>
+        <section style={{ background: 'var(--off-white)', border: '1px solid var(--green-border)', borderRadius: '14px', padding: '36px 32px', marginBottom: '48px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '16px' }}>
             How to use visual craft if you are a writer, not a director
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>

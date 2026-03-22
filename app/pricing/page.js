@@ -160,7 +160,7 @@ export default function PricingPage() {
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(32px, 5vw, 52px)',
             fontWeight: '700',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             marginBottom: '18px',
             lineHeight: '1.15',
           }}>
@@ -428,7 +428,7 @@ export default function PricingPage() {
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 30px)',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             textAlign: 'center',
             marginBottom: '32px',
           }}>Full feature comparison</h2>
@@ -495,7 +495,7 @@ export default function PricingPage() {
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 28px)',
-            color: 'var(--green)',
+            color: 'var(--text-dark)',
             textAlign: 'center',
             marginBottom: '36px',
           }}>Common questions</h2>

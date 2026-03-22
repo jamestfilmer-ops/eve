@@ -135,8 +135,8 @@ export default function MiseEnSceneLesson() {
           </div>
         </section>
 
-        <section style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '14px', padding: '28px 28px', marginBottom: '48px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--green)', marginBottom: '14px' }}>
+        <section style={{ background: 'var(--off-white)', border: '1px solid var(--green-border)', borderRadius: '14px', padding: '28px 28px', marginBottom: '48px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
             What mise-en-scene means for writers
           </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', lineHeight: '1.8', color: 'var(--text-dark)', marginBottom: '12px' }}>

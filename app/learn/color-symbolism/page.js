@@ -125,7 +125,7 @@ export default function ColorSymbolismLesson() {
         </div>
 
         <div style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '12px', padding: '24px 26px', marginBottom: '48px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--green)', marginBottom: '10px' }}>The principle</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px' }}>The principle</h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', lineHeight: '1.8', color: 'var(--text-dark)', margin: 0 }}>{principleForWriters}</p>
         </div>
 
