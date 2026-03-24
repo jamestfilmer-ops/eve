@@ -186,10 +186,14 @@ const readingList = [
 ]
 
 const writtenSlugs = [
+  'what-is-a-story', 'character-before-plot', 'the-first-page',
+  'how-to-start', 'fear-and-writing', 'finding-your-story',
+  'vonnegut-craft', 'king-on-writing', 'leonard-on-craft', 'pixar-story-rules',
   'what-a-scene-does', 'midpoint', 'want-vs-need', 'dialogue-subtext', 'theme',
   'act-breaks', 'all-is-lost', 'ghost', 'antagonist', 'subtext', 'arguments',
   'plant-payoff', 'motifs', 'secondary-characters', 'the-lie', 'character-arc',
   'flaw-vs-wound', 'character-voice', 'relationship-pairs',
+  'structure-basics', 'stakes', 'opening-image',
   'color-psychology', 'tarantino-dialogue', 'sopranos-drama',
   'sequence-approach', 'kishotenketsu', 'fichtean-curve',
   'enter-late-leave-early', 'scene-turn', 'tension-without-action',

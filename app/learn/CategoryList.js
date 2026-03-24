@@ -66,13 +66,13 @@ function LessonCard({ item, writtenSlugs, isRead, onRead }) {
           </div>
           {!isRead && <span style={{ fontSize:'11px', color:'var(--text-soft)', fontFamily:'var(--font-mono)' }}>{item.time}</span>}
         </div>
-        <div style={{ display:'flex', alignItems:'flex-start', gap:'6px', marginBottom:'6px' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:'6px', marginBottom:'6px' }}>
           <h3 style={{ fontSize:'13px', fontFamily:'var(--font-display)', color:'var(--text-dark)', lineHeight:'1.4', flex:1, margin:0 }}>{item.title}</h3>
           {!FREE_SLUGS.has(item.slug) && (
-            <span title="Writer tier" style={{ flexShrink:0, marginTop:'1px', display:'inline-flex', alignItems:'center', justifyContent:'center', width:'16px', height:'16px', borderRadius:'3px', background:'var(--green-pale)', border:'1px solid var(--green-border)' }}>
-              <svg width="8" height="9" viewBox="0 0 8 9" fill="none">
-                <rect x="1" y="4" width="6" height="5" rx="1" fill="var(--green)"/>
-                <path d="M2.5 4V3a1.5 1.5 0 013 0v1" stroke="var(--green)" strokeWidth="1" strokeLinecap="round"/>
+            <span title="Writer tier" style={{ flexShrink:0, display:'inline-flex', alignItems:'center', justifyContent:'center', width:'18px', height:'18px', borderRadius:'4px', background:'var(--green-pale)', border:'1px solid var(--green-border)' }}>
+              <svg width="9" height="10" viewBox="0 0 9 10" fill="none">
+                <rect x="1" y="4.5" width="7" height="5" rx="1.2" fill="var(--green)"/>
+                <path d="M3 4.5V3.2a1.5 1.5 0 013 0v1.3" stroke="var(--green)" strokeWidth="1.1" strokeLinecap="round" fill="none"/>
               </svg>
             </span>
           )}
@@ -127,6 +127,7 @@ function AccordionBody({ isOpen, children }) {
 const STORAGE_KEY = 'eve_read_lessons'
 
 const FREE_SLUGS = new Set([
+  'what-is-a-story', 'character-before-plot', 'the-first-page',
   'how-to-start', 'fear-and-writing', 'finding-your-story', 'vonnegut-craft',
   'what-a-scene-does', 'want-vs-need', 'the-lie', 'dialogue-subtext',
   'the-rewrite', 'act-breaks',
@@ -230,13 +231,15 @@ export default function CategoryList({ lessons, writtenSlugs }) {
                 <span style={{ fontFamily:'var(--font-display)', fontSize:'15px', fontWeight:'700', color:isOpen?'var(--green)':'var(--text-dark)', flex:1, transition:'color 0.18s ease' }}>
                   {cat.category}
                 </span>
-                <ProgressBar read={readInCat} total={writtenInCat} />
-                <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-soft)', flexShrink:0 }}>
-                  {writtenInCat}/{cat.items.length}
-                </span>
-                <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', fontWeight:'600', letterSpacing:'0.06em', textTransform:'uppercase', padding:'2px 8px', borderRadius:'4px', background:isOpen?'var(--green)':'var(--off-white)', color:isOpen?'#fff':'var(--text-soft)', border:'1px solid', borderColor:isOpen?'var(--green)':'var(--border)', flexShrink:0, transition:'all 0.18s ease' }}>
-                  {cat.badge}
-                </span>
+                <div style={{ display:'flex', alignItems:'center', gap:'10px', flexShrink:0 }}>
+                  <ProgressBar read={readInCat} total={writtenInCat} />
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-soft)', whiteSpace:'nowrap' }}>
+                    {writtenInCat}/{cat.items.length}
+                  </span>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', fontWeight:'600', letterSpacing:'0.06em', textTransform:'uppercase', padding:'2px 8px', borderRadius:'4px', background:isOpen?'var(--green)':'var(--off-white)', color:isOpen?'#fff':'var(--text-soft)', border:'1px solid', borderColor:isOpen?'var(--green)':'var(--border)', transition:'all 0.18s ease', whiteSpace:'nowrap' }}>
+                    {cat.badge}
+                  </span>
+                </div>
                 <ChevronIcon open={isOpen} />
               </button>
 

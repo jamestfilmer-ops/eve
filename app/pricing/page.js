@@ -222,7 +222,7 @@ export default function PricingPage() {
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '20px',
-          alignItems: 'start',
+          alignItems: 'stretch',
         }}>
           {plans.map(plan => {
             const price = billing === 'annual' ? plan.annual : plan.monthly
