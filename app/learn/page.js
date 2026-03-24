@@ -52,7 +52,9 @@ const lessons = [
     category: 'Structure',
     badge: 'Structure',
     items: [
-      { title: 'What a scene actually does', slug: 'what-a-scene-does', time: '6 min', level: 'Beginner', preview: 'Every scene must do at least two things simultaneously. If it only does one, it is a candidate for the cutting room floor.' },
+
+      { title: 'Story structure: what it is and why you need it', slug: 'structure-basics', time: '8 min', level: 'Beginner', preview: 'Structure is not a formula. It describes how stories work. Understanding it gives you the ability to diagnose what is broken in your own.' },
+      { title: 'Stakes: why the reader has to care what happens', slug: 'stakes', time: '7 min', level: 'Beginner', preview: 'Stakes are not explosions or death threats. They are the cost of failure. Getting them right is the difference between grip and slide.' },      { title: 'What a scene actually does', slug: 'what-a-scene-does', time: '6 min', level: 'Beginner', preview: 'Every scene must do at least two things simultaneously. If it only does one, it is a candidate for the cutting room floor.' },
       { title: 'The midpoint is the spine', slug: 'midpoint', time: '6 min', level: 'Intermediate', preview: 'Remove your midpoint and your story collapses. It is not a scene in the middle —it is the event that divides your story into a before and an after.' },
       { title: 'Act breaks: what they are and why they matter', slug: 'act-breaks', time: '7 min', level: 'Beginner', preview: 'An act break is a point of no return. Something must change so completely that your story can never go back to what it was.' },
       { title: 'The All Is Lost beat', slug: 'all-is-lost', time: '6 min', level: 'Beginner', preview: 'Before your hero can win, they must lose everything. If your hero can recover without changing, the beat is not working.' },
@@ -90,7 +92,8 @@ const lessons = [
     category: 'Dialogue',
     badge: 'Dialogue',
     items: [
-      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '7 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
+
+      { title: 'How to write dialogue: the basics that actually matter', slug: 'how-to-write-dialogue', time: '8 min', level: 'Beginner', preview: 'Characters should almost never say what they mean. Here is what dialogue actually is and how to build the ear for writing it.' },      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '7 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
       { title: 'Subtext: what is not being said', slug: 'subtext', time: '6 min', level: 'Beginner', preview: 'The best dialogue is an iceberg. What is spoken is ten percent. Two people talking about the weather can break your heart.' },
       { title: 'How to write an argument that feels real', slug: 'arguments', time: '7 min', level: 'Intermediate', preview: 'Real arguments are not about what people are arguing about. They are about what people are afraid of. Write the fear, not the fight.' },
     ],
@@ -123,7 +126,8 @@ const lessons = [
     category: 'Craft',
     badge: 'Craft',
     items: [
-      { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane —because that specificity is who they are.' },
+
+      { title: 'Writing the ending: how to finish what you started', slug: 'writing-the-ending', time: '7 min', level: 'Intermediate', preview: 'An ending needs to feel inevitable. Here is how to find the one true answer to the question your story has been asking.' },      { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane —because that specificity is who they are.' },
       { title: "The Sopranos and the dramatic pause", slug: 'sopranos-drama', time: '8 min', level: 'Advanced', preview: 'The Sopranos is a masterclass in what not to rush. Silence, domesticity, and the space between scenes —that is where the show lives.' },
       { title: 'Pacing and rhythm: how stories breathe', slug: 'pacing-rhythm', time: '6 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight. The allocation of space is meaning.' },
       { title: 'The rewrite: what first drafts are actually for', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },
