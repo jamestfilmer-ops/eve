@@ -452,7 +452,7 @@ export default function Home() {
         alignItems: 'center',
       }}>
         <div className="fade-up">
-          <div className="badge" style={{ marginBottom: '16px' }}>Screenwriting & Story Craft</div>
+          <div className="badge" style={{ marginBottom: '16px' }}>For writers who mean it</div>
           <h1 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(30px, 4vw, 48px)',
@@ -462,8 +462,8 @@ export default function Home() {
             marginBottom: '18px',
             letterSpacing: '-0.01em',
           }}>
-            Figure out your story<br />
-            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>before you write a word.</em>
+            The story in your head<br />
+            <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>deserves to make it to the page.</em>
           </h1>
           <p style={{
             fontSize: '16px',
@@ -477,7 +477,7 @@ export default function Home() {
           <div className="hero-cta-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
               <button className="btn-primary" style={{ fontSize: '14px', padding: '10px 24px' }}>
-                Start your first story
+                Start here — it's free
               </button>
             </Link>
             <Link href="/learn" style={{ textDecoration: 'none' }}>
