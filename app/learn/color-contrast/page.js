@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage, ImagePair } from '../../components/CraftImage'
+import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Contrast in Film—Warm vs Cool, Saturated vs Desaturated | Eve',
@@ -16,7 +16,7 @@ const contrastTypes = [
       { film: 'Parasite (2019)', note: "The Kim family's cramped apartment: warm amber and dirty yellow. The Park family's glass house: cool grey-green and clinical white. Every scene where a Kim character enters Park space is warm vs cool on screen, class made visible." },
       { film: 'Mad Max: Fury Road (2015)', note: "The burning orange desert against the cool blue night sequences. The color contrast encodes day as hostile and active, night as respite. The Wives in white are the only cool elements in the daytime scenes—marking them as different, as something the world wants to consume." },
     ],
-    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Warm golden light against cool blue shadow—the fundamental contrast of cinema' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Nosferatu_Orlok.jpg/900px-Nosferatu_Orlok.jpg', alt: 'Nosferatu (1922) — extreme value contrast, chiaroscuro expressionism', caption: "Nosferatu (1922): Count Orlok's silhouette against the light — value contrast creates dread before a single word of context", credit: 'Prana Film / Public domain' },
   },
   {
     name: 'Saturated vs Desaturated',
@@ -38,7 +38,7 @@ const contrastTypes = [
       { film: 'Drive (2011)', note: "Nicolas Winding Refn uses the neon pink-magenta of Los Angeles nightlife against blue-green shadows. The Driver himself is often in amber tones against cool backgrounds. The complementary contrasts give the film its hypnotic, artificial beauty—a real city made to look like a fever dream." },
       { film: 'The Matrix (1999)', note: "The teal-green Matrix against the warm, desaturated real world is a complementary contrast that encodes the artificial versus the real. The Matrix looks like the inside of a computer terminal; the real world looks like the inside of a bruise." },
     ],
-    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Complementary contrast—the subject pops against a complementary background' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/The_Cabinet_of_Dr_Caligari_1920.jpg/900px-The_Cabinet_of_Dr_Caligari_1920.jpg', alt: 'The Cabinet of Dr. Caligari (1920) — expressionist contrast and shape', caption: "The Cabinet of Dr. Caligari (1920): distorted geometry and painted shadows — contrast used not to describe space but to externalize psychology", credit: 'Decla-Bioscop / Public domain' },
   },
   {
     name: 'Light vs Dark (Value Contrast)',
@@ -48,7 +48,7 @@ const contrastTypes = [
       { film: 'The Godfather (1972)', note: "Gordon Willis, called 'The Prince of Darkness,' kept his fill light extremely low—often just a key light and nothing else. The result is that characters exist partly in shadow, partly withheld. The visual argument is that this world does not fully reveal itself." },
       { film: 'La La Land (2016)', note: "Low value contrast throughout—soft, diffused, uniformly lit. The world of the film is gentle, accessible, and warm. When the final fantasy sequence arrives in its highest value contrast—deep shadows and vivid spotlights—it signals that we have crossed from the real into the imagined." },
     ],
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'High value contrast—the light-dark ratio determines what is revealed and what is withheld' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Seventh_Seal.jpg/900px-The_Seventh_Seal.jpg', alt: 'The Seventh Seal (1957) Bergman — stark black and white contrast', caption: "The Seventh Seal (1957), dir. Ingmar Bergman: Gunnar Fischer's cinematography uses pure black-white opposition to make the abstract literal — Death is the absence of grey", credit: 'Svensk Filmindustri / Public domain in many jurisdictions' },
   },
   {
     name: 'Simultaneous Contrast',
@@ -108,7 +108,7 @@ export default function ColorContrastLesson() {
 
               {type.photo && (
                 <div style={{ marginBottom: '16px' }}>
-                  <UnsplashImage id={type.photo.id} alt={type.photo.caption} credit={type.photo.credit} creditUrl={type.photo.creditUrl} caption={type.photo.caption} aspectRatio="16/9" />
+                  <WikiImage src={type.photo.src} alt={type.photo.alt}  caption={type.photo.caption} aspectRatio="16/9" />
                 </div>
               )}
 

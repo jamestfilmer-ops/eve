@@ -138,126 +138,41 @@ const stages = [
 ]
 
 const topMarkets = [
-  {
-    name: "The New Yorker",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://www.newyorker.com/about/fiction-submissions",
-    note: "Exclusive submissions only. Extremely competitive. Career-defining if accepted.",
-  },
-  {
-    name: "Paris Review",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://theparisreview.submittable.com/submit",
-    note: "No simultaneous submissions. Response time: 3-6 months.",
-  },
-  {
-    name: "Tin House",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://tinhouse.com/submissions/",
-    note: "Open reading periods (fall and winter only). Strong prestige.",
-  },
-  {
-    name: "One Story",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://one-story.com/submissions/",
-    note: "Publishes one story per issue—highly curated. Reading fee applies.",
-  },
-  {
-    name: "The Sun Magazine",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://www.thesunmagazine.org/about/submissions",
-    note: "Personal essays and short fiction. No simultaneous submissions. Slow response time.",
-  },
-  {
-    name: "Ploughshares",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://ploughshares.org/pages/for-writers",
-    note: "Guest-edited issues. Check current editor focus before submitting.",
-  },
-  {
-    name: "Narrative Magazine",
-    tier: "Tier 2",
-    pays: true,
-    genre: "Literary",
-    url: "https://www.narrativemagazine.com/submittingwork",
-    note: "Online only. Reading fee. Fast response on shorter work.",
-  },
-  {
-    name: "Zoetrope: All-Story",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Literary",
-    url: "https://www.all-story.com/",
-    note: "Francis Ford Coppola's literary magazine. Annual short story contest.",
-  },
-  {
-    name: "Fantasy and Science Fiction",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Genre: SFF",
-    url: "https://www.sfsite.com/fsf/glines.htm",
-    note: "One of the oldest SFF magazines. SFWA qualifying market.",
-  },
-  {
-    name: "Clarkesworld",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Genre: SFF",
-    url: "https://clarkesworldmagazine.com/submissions/",
-    note: "Online SFF. Hugo-winning. Fast response. SFWA qualifying market.",
-  },
-  {
-    name: "Tor.com",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Genre: SFF",
-    url: "https://www.tor.com/submissions/",
-    note: "Novelette and novella focus. Very competitive. SFWA qualifying.",
-  },
-  {
-    name: "Ellery Queen Mystery Magazine",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Genre: Mystery",
-    url: "https://www.elleryqueenmysterymagazine.com/submission-guidelines/",
-    note: "Oldest mystery magazine in the US. Edgar Award feeder publication.",
-  },
-  {
-    name: "Alfred Hitchcock Mystery Magazine",
-    tier: "Tier 1",
-    pays: true,
-    genre: "Genre: Mystery",
-    url: "https://www.alfredhitchcockmysterymagazine.com/submission-guidelines/",
-    note: "Sister publication to Ellery Queen. Edgar Award feeder.",
-  },
-  {
-    name: "Beneath Ceaseless Skies",
-    tier: "Tier 2",
-    pays: true,
-    genre: "Genre: SFF",
-    url: "https://www.beneath-ceaseless-skies.com/submissions/",
-    note: "Literary adventure fantasy. Excellent editorial quality. SFWA qualifying.",
-  },
-  {
-    name: "Strange Horizons",
-    tier: "Tier 2",
-    pays: true,
-    genre: "Genre: SFF",
-    url: "https://strangehorizons.com/submit/fiction-submissions/",
-    note: "Free online SFF. Hugo-winning. Pays SFWA rates.",
-  },
+  // LITERARY
+  { name: "The New Yorker", tier: "Tier 1", pays: true, genre: "Literary", url: "https://www.newyorker.com/about/fiction-submissions", note: "Exclusive submissions only. Extremely competitive. Career-defining if accepted." },
+  { name: "Paris Review", tier: "Tier 1", pays: true, genre: "Literary", url: "https://theparisreview.submittable.com/submit", note: "No simultaneous submissions. Response time: 3-6 months." },
+  { name: "Tin House", tier: "Tier 1", pays: true, genre: "Literary", url: "https://tinhouse.com/submissions/", note: "Open reading periods (fall and winter only). Strong prestige." },
+  { name: "Ploughshares", tier: "Tier 1", pays: true, genre: "Literary", url: "https://ploughshares.org/pages/for-writers", note: "Guest-edited issues. Check current editor focus before submitting." },
+  { name: "Zoetrope: All-Story", tier: "Tier 1", pays: true, genre: "Literary", url: "https://www.all-story.com/", note: "Francis Ford Coppola's literary magazine. Annual short story contest." },
+  { name: "The Sun Magazine", tier: "Tier 1", pays: true, genre: "Literary", url: "https://www.thesunmagazine.org/about/submissions", note: "Personal essays and short fiction. No simultaneous submissions." },
+  { name: "One Story", tier: "Tier 2", pays: true, genre: "Literary", url: "https://one-story.com/submissions/", note: "One story per issue—highly curated. Reading fee applies." },
+  { name: "Narrative Magazine", tier: "Tier 2", pays: true, genre: "Literary", url: "https://www.narrativemagazine.com/submittingwork", note: "Online only. Reading fee. Fast response on shorter work." },
+  { name: "Granta", tier: "Tier 1", pays: true, genre: "Literary", url: "https://granta.com/submissions/", note: "UK literary magazine. Highly selective. Prestige equivalent to Paris Review." },
+  { name: "McSweeney's", tier: "Tier 2", pays: true, genre: "Literary", url: "https://www.mcsweeneys.net/pages/submission-guidelines", note: "Dave Eggers' quarterly. Strong voice-driven fiction." },
+  { name: "Kenyon Review", tier: "Tier 2", pays: true, genre: "Literary", url: "https://kenyonreview.submittable.com/submit", note: "University-affiliated. Long-established prestige. Online and print." },
+  { name: "Missouri Review", tier: "Tier 2", pays: true, genre: "Literary", url: "https://moreview.submittable.com/submit", note: "Strong literary fiction program. Annual contest." },
+  { name: "Glimmer Train", tier: "Tier 2", pays: true, genre: "Literary", url: "https://www.glimmertrain.com/bulletins/", note: "Closed 2019. Archive only—useful to read back issues for style." },
+  { name: "Third Coast", tier: "Tier 3", pays: false, genre: "Literary", url: "https://thirdcoastmagazine.com/submit/", note: "Western Michigan University. Prestige MFA feeder market." },
+  { name: "Gettysburg Review", tier: "Tier 3", pays: true, genre: "Literary", url: "https://www.gettysburgreview.com/submissions/", note: "Strong literary fiction. Slow response time, worth the wait." },
+  // SFF
+  { name: "Fantasy and Science Fiction", tier: "Tier 1", pays: true, genre: "SFF", url: "https://www.sfsite.com/fsf/glines.htm", note: "One of the oldest SFF magazines. SFWA qualifying market." },
+  { name: "Clarkesworld", tier: "Tier 1", pays: true, genre: "SFF", url: "https://clarkesworldmagazine.com/submissions/", note: "Online SFF. Hugo-winning. Fast response. SFWA qualifying market." },
+  { name: "Tor.com", tier: "Tier 1", pays: true, genre: "SFF", url: "https://www.tor.com/submissions/", note: "Novelette and novella focus. Very competitive. SFWA qualifying." },
+  { name: "Asimov's Science Fiction", tier: "Tier 1", pays: true, genre: "SFF", url: "https://www.asimovs.com/contact-info/submission-guidelines/", note: "Legendary SF magazine. SFWA qualifying. Long submission history." },
+  { name: "Beneath Ceaseless Skies", tier: "Tier 2", pays: true, genre: "SFF", url: "https://www.beneath-ceaseless-skies.com/submissions/", note: "Literary adventure fantasy. Excellent editorial quality. SFWA qualifying." },
+  { name: "Strange Horizons", tier: "Tier 2", pays: true, genre: "SFF", url: "https://strangehorizons.com/submit/fiction-submissions/", note: "Free online SFF. Hugo-winning. Pays SFWA rates." },
+  { name: "Lightspeed Magazine", tier: "Tier 2", pays: true, genre: "SFF", url: "https://www.lightspeedmagazine.com/about/submissions/", note: "SF and Fantasy split. John Joseph Adams. SFWA qualifying." },
+  { name: "The Dark Magazine", tier: "Tier 3", pays: true, genre: "SFF", url: "https://www.thedarkmagazine.com/submissions/", note: "Dark fiction and horror. Sean Wallace. Growing prestige." },
+  { name: "Nightmare Magazine", tier: "Tier 2", pays: true, genre: "SFF", url: "https://www.nightmare-magazine.com/about/submissions/", note: "Horror. Sister publication to Lightspeed. SFWA qualifying." },
+  // MYSTERY / CRIME
+  { name: "Ellery Queen Mystery Magazine", tier: "Tier 1", pays: true, genre: "Mystery", url: "https://www.elleryqueenmysterymagazine.com/submission-guidelines/", note: "Oldest mystery magazine in the US. Edgar Award feeder publication." },
+  { name: "Alfred Hitchcock Mystery Magazine", tier: "Tier 1", pays: true, genre: "Mystery", url: "https://www.alfredhitchcockmysterymagazine.com/submission-guidelines/", note: "Sister publication to Ellery Queen. Edgar Award feeder." },
+  { name: "Black Cat Mystery Magazine", tier: "Tier 2", pays: true, genre: "Mystery", url: "https://www.blackcatmysterymagazine.com/submissions", note: "New but growing. Traditional mystery focus." },
+  { name: "Mystery Magazine", tier: "Tier 3", pays: true, genre: "Mystery", url: "https://www.mysterymagazine.com/submissions", note: "Broad mystery fiction. Good entry-level market." },
+  // HORROR
+  { name: "Cemetery Dance", tier: "Tier 1", pays: true, genre: "Horror", url: "https://www.cemeterydance.com/pages/submission-guidelines", note: "Premier horror magazine. Stephen King, Peter Straub territory." },
+  { name: "Bourbon Penn", tier: "Tier 2", pays: true, genre: "Horror", url: "http://www.bourbonpenn.com/submissions.html", note: "Quirky, literary dark fiction. Strong voice welcome." },
+  { name: "Apex Magazine", tier: "Tier 2", pays: true, genre: "Horror", url: "https://www.apexbookcompany.com/pages/submissions", note: "Dark SFF and horror. SFWA qualifying." },
 ]
 
 export default function RoadToShortStory() {
@@ -265,7 +180,7 @@ export default function RoadToShortStory() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px', textAlign: 'left' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
             Short Fiction
@@ -273,10 +188,10 @@ export default function RoadToShortStory() {
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(32px, 6vw, 54px)', fontWeight: '700', color: '#fff', lineHeight: '1.12', marginBottom: '24px' }}>
             Road to Short Story Publication
           </h1>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', margin: '0 auto 32px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.72)', maxWidth: '580px', marginBottom: '32px' }}>
             A practical guide from first draft to published fiction. Markets, cover letters, rejection, rights—everything the craft books skip.
           </p>
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link href="/learn" style={{ display: 'inline-block', background: '#fff', color: 'var(--green)', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '13px 28px', borderRadius: '8px', textDecoration: 'none' }}>
               Read the craft lessons
             </Link>
@@ -366,25 +281,7 @@ export default function RoadToShortStory() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {topMarkets.map((m, i) => (
-              <a key={i} href={m.url} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textDecoration: 'none', background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '10px', padding: '18px 20px' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
-                  <div style={{ flex: 1, minWidth: '200px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>
-                      <span style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', fontWeight: '700', color: 'var(--text-dark)' }}>{m.name}</span>
-                      <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', padding: '2px 8px', borderRadius: '4px', background: m.tier === 'Tier 1' ? 'var(--green)' : 'var(--border)', color: m.tier === 'Tier 1' ? '#fff' : 'var(--text-mid)', fontWeight: '600', letterSpacing: '0.05em' }}>{m.tier}</span>
-                      <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)', padding: '2px 8px', background: '#fff', borderRadius: '4px', border: '1px solid var(--border)' }}>{m.genre}</span>
-                    </div>
-                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)', margin: 0, lineHeight: '1.6' }}>{m.note}</p>
-                  </div>
-                  <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--green)', fontWeight: '600', whiteSpace: 'nowrap', paddingTop: '2px' }}>
-                    {m.pays ? 'Pays' : 'Non-paying'} &rarr;
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+          <MarketsClient markets={topMarkets} />
 
           <div style={{ marginTop: '32px', padding: '20px 24px', background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderRadius: '10px' }}>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-dark)', lineHeight: '1.7', margin: 0 }}>

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage, WikiImage, ImagePair } from '../../components/CraftImage'
+import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Lighting as Storytelling—Hard Light, Soft Light, Shadow | Eve',
@@ -10,7 +10,7 @@ export const metadata = {
 const lightingConcepts = [
   {
     name: 'Hard Light vs Soft Light',
-    photo: { type: 'pair', hard: { id: 'photo-1493863641943-9b68992a8d07', credit: 'Tomas Jasovsky', creditUrl: 'https://unsplash.com/@tomasjasovsky', caption: 'Hard light—sharp-edged shadows, every surface revealed' }, soft: { id: 'photo-1438761681033-6461ffad8d80', credit: 'Andy Beales', creditUrl: 'https://unsplash.com/@andy_beales', caption: 'Soft light—gradual shadows, warmth, the world made kinder' } },
+    photo: { type: 'pair', hard: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Nosferatu_Orlok.jpg/480px-Nosferatu_Orlok.jpg', alt: 'Nosferatu (1922) hard expressionist light', caption: 'Hard light in Nosferatu (1922): every shadow has a knife edge, creating a world where threat is geometrically visible' }, soft: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Buster_Keaton_in_The_General_%281926%29.jpg/480px-Buster_Keaton_in_The_General_%281926%29.jpg', alt: 'The General (1926) natural location light', caption: 'The General (1926): open, natural light that does not dramatize — the world simply exists in even illumination' } },
     category: 'Foundational',
     description: 'The quality of light—whether its edge is sharp or diffused—is the most fundamental lighting choice in cinematography.',
     detail: 'Hard light comes from a small, direct source (a bare bulb, the midday sun, a spotlight). It creates crisp, defined shadows with sharp edges. Hard light reveals—it shows every pore, every crease, every line. It is honest, harsh, and unforgiving. Soft light comes from a large, diffused source (an overcast sky, a light bounced through a silk, a window on a grey day). It wraps around surfaces, creating gradual shadow transitions. Soft light flatters—it makes skin look smooth, rooms look comfortable, the world look kinder than it is. The choice between hard and soft light is a choice about the emotional temperature of the world. Noir lives in hard light. Romantic comedies live in soft light. The horror film that uses soft light is making an argument: this world looks safe, and that appearance is a lie.',
@@ -33,7 +33,7 @@ const lightingConcepts = [
   },
   {
     name: 'Chiaroscuro',
-    photo: { type: 'single', id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Chiaroscuro—extreme contrast of light and dark, the face half-revealed' },
+    photo: { type: 'single', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/M_1931_film.jpg/900px-M_1931_film.jpg', alt: 'M (1931) Fritz Lang chiaroscuro', caption: 'M (1931), dir. Fritz Lang: chiaroscuro used to externalize guilt — half the face in light, half in shadow, neither wholly innocent nor wholly condemned' },
     category: 'Style',
     description: 'The dramatic use of contrasting light and dark—deep shadow and bright highlight in the same frame.',
     detail: 'Chiaroscuro (Italian: "light-dark") originated in Renaissance painting—Caravaggio and Rembrandt are its masters. In cinema, it is the defining visual grammar of film noir and horror. A chiaroscuro frame does not describe the whole scene: it selects what to reveal and what to hide. The characters exist at the edge of darkness; what they are doing can only be partially seen. This is not just atmosphere—it is information management. A face half in shadow is a face with secrets. A room where the source of danger cannot be seen is a room that is more threatening than one where everything is visible. The darkest shadow in a frame is not emptiness—it is potential. Something could be there.',
@@ -77,7 +77,7 @@ const lightingConcepts = [
   },
   {
     name: 'Colored Light',
-    photo: { type: 'single', id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Colored light—expressionistic, communicating emotional register before dialogue' },
+    photo: { type: 'single', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/The_Cabinet_of_Dr_Caligari_1920.jpg/900px-The_Cabinet_of_Dr_Caligari_1920.jpg', alt: 'The Cabinet of Dr. Caligari (1920) expressionist lighting', caption: 'The Cabinet of Dr. Caligari (1920): light painted onto the set itself — psychological state made literal, interiority externalized through illumination' },
     category: 'Expression',
     description: 'Light with a distinct color cast, either from the source itself or from gels placed over lights.',
     detail: 'Colored light in film is almost always expressionistic—it says "this is not how things look, but this is how things feel." The blue light of a cold, empty bedroom. The red light of danger or passion. The green-yellow of sickness or the uncanny. The golden light of memory and warmth. When a filmmaker uses colored light, they are adding a second layer of emotional information—the scene is not just happening, it is happening in a particular emotional key. The risk is that colored light can feel like obvious emotional instruction. The skill is using it with enough restraint and specificity that it feels earned rather than imposed.',
@@ -168,13 +168,13 @@ export default function LightingAndStoryLesson() {
 
               {concept.photo && concept.photo.type === 'single' && (
                 <div style={{ marginBottom: '16px' }}>
-                  <UnsplashImage id={concept.photo.id} alt={concept.photo.caption} credit={concept.photo.credit} creditUrl={concept.photo.creditUrl} caption={concept.photo.caption} aspectRatio="16/9" />
+                  <WikiImage src={concept.photo.src} alt={concept.photo.caption}  caption={concept.photo.caption} aspectRatio="16/9" />
                 </div>
               )}
               {concept.photo && concept.photo.type === 'pair' && (
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '16px' }}>
-                  <UnsplashImage id={concept.photo.hard.id} alt={concept.photo.hard.caption} credit={concept.photo.hard.credit} creditUrl={concept.photo.hard.creditUrl} caption={concept.photo.hard.caption} aspectRatio="4/3" />
-                  <UnsplashImage id={concept.photo.soft.id} alt={concept.photo.soft.caption} credit={concept.photo.soft.credit} creditUrl={concept.photo.soft.creditUrl} caption={concept.photo.soft.caption} aspectRatio="4/3" />
+                  <WikiImage src={concept.photo.hard.src} alt={concept.photo.hard.caption}  caption={concept.photo.hard.caption} aspectRatio="4/3" />
+                  <WikiImage src={concept.photo.soft.src} alt={concept.photo.soft.caption}  caption={concept.photo.soft.caption} aspectRatio="4/3" />
                 </div>
               )}
 

@@ -501,6 +501,7 @@ function GenreCard({ genre }) {
             }}>
               {genre.name}
             </h2>
+            {selectedType === 'All' && (
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: '10px',
@@ -515,6 +516,7 @@ function GenreCard({ genre }) {
             }}>
               {genre.type}
             </span>
+            )}
           </div>
           <p style={{
             fontFamily: 'var(--font-ui)',

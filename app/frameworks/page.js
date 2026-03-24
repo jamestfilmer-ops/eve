@@ -229,7 +229,7 @@ export default function FrameworksPage() {
       {/* Hero */}
       <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '12px' }}>Story Structure</p>
+          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '12px' }}>Story Structure</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>
             11 frameworks. Pick the one that fits how you think.
           </h1>

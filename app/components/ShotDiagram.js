@@ -16,10 +16,10 @@ export function ShotScaleDiagram() {
       <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '14px' }}>
         Shot Scale: Extreme Wide Shot to Extreme Close-Up
       </p>
-      <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
+      <svg viewBox="0 0 750 200" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: 'auto', display: 'block' }}>
         {shots.map((shot, i) => {
-          const x = 10 + i * 115
-          const w = 108
+          const x = 8 + i * 122
+          const w = 114
           // Frame gets progressively tighter (simulated with a figure crop)
           const figH = 140 - (i * 16)
           const figY = (140 - figH) / 2 + 20

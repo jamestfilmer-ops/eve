@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage } from '../../components/CraftImage'
+import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Mise-en-Scene: The Frame as Total Argument | Eve',

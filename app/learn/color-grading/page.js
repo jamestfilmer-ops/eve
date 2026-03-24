@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage } from '../../components/CraftImage'
+import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Grading as Storytelling | Eve',
@@ -22,7 +22,7 @@ const gradingStyles = [
       { film: 'Most MCU films (2008-2022)', note: 'The house style. Each film is individually graded but the teal-orange signature is consistent across the franchise—a visual brand rather than a story-specific choice.' },
       { film: 'The Dark Knight (2008)', note: "Wally Pfister uses a desaturated, naturalistic palette—explicitly resisting the teal-orange trend for a more grounded look. Nolan's insistence on practical effects extended to refusing the standard digital grade." },
     ],
-    photo: { id: 'photo-1542204165-65bf26472b9b', credit: 'Roberto Nickson', creditUrl: 'https://unsplash.com/@rpnickson', caption: 'The warm-cool complementary relationship that the teal-orange blockbuster grade exploits—faces pop against cool environments' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Citizen_Kane_trailer2.jpg/900px-Citizen_Kane_trailer2.jpg', alt: 'Citizen Kane (1941) — deep focus cinematography by Gregg Toland', caption: "Citizen Kane (1941): Gregg Toland's deep focus keeps every plane sharp simultaneously, making spatial relationships carry meaning", credit: 'RKO Radio Pictures / Public domain' },
   },
   {
     name: 'Bleach Bypass / Silver Retention',
@@ -40,7 +40,7 @@ const gradingStyles = [
       { film: 'Se7en (1995)', note: "Darius Khondji's bleach bypass for the rainy, oppressive city. The crushed blacks and bleached skin tones give the film its specific grimy texture." },
       { film: '1917 (2019)', note: "Roger Deakins uses a naturalistic palette rather than bleach bypass for the WWI film—a deliberate choice to make the beauty of the landscape visible alongside its horror." },
     ],
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Bleach bypass: crushed blacks, bleached highlights, stripped saturation—the look of harsh reality, war, unvarnished truth' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/M_1931_film.jpg/900px-M_1931_film.jpg', alt: 'M (1931) Fritz Lang — expressionist low-key lighting', caption: "M (1931), dir. Fritz Lang: desaturated, high-contrast cinematography creates the look of moral ambiguity and urban dread", credit: 'Nero-Film AG / Public domain' },
   },
   {
     name: 'Hyper-Saturation',
@@ -58,7 +58,7 @@ const gradingStyles = [
       { film: 'Oldboy (2003)', note: "Park Chan-wook's lush palette places graphic violence inside gorgeous compositions. The beauty does not soften the violence—it makes both elements more disturbing." },
       { film: 'Amélie (2001)', note: "Bruno Delbonnel and Jeunet removed blues and whites, leaving only the warm spectrum. The result is a Paris that exists in Amélie's imagination rather than reality—hyper-saturation as the visualization of a specific interior world." },
     ],
-    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Hyper-saturation pushes color beyond naturalism—the world becomes more vivid than reality, signaling fairy tale, memory, or heightened desire' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', alt: 'Metropolis (1927) Fritz Lang — hyper-stylized visual world', caption: "Metropolis (1927), dir. Fritz Lang: every visual element is pushed beyond naturalism — architecture, light, and crowd become pure expressionist argument", credit: 'UFA / Public domain' },
   },
   {
     name: 'Naturalistic / Available Light Grade',
@@ -76,7 +76,7 @@ const gradingStyles = [
       { film: 'The Revenant (2015)', note: "Shot entirely in natural light. The winter palette shifts with the actual weather. The beauty is earned by waiting for the right light." },
       { film: 'Moonlight (2016)', note: "James Laxton and Jody Lee Lipes use naturalistic, warm Miami light throughout—the warmth is the actual warmth of that climate. The grade honors the specific quality of light in the specific place." },
     ],
-    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Naturalistic grade—the specific light of the actual location, preserved rather than overwritten by post-production' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Buster_Keaton_in_The_General_%281926%29.jpg/900px-Buster_Keaton_in_The_General_%281926%29.jpg', alt: 'Buster Keaton in The General (1926) — naturalistic location photography', caption: "The General (1926), dir. Buster Keaton: location photography at actual scale — no studio artifice, the world as found", credit: 'United Artists / Public domain' },
   },
 ]
 
@@ -125,7 +125,7 @@ export default function ColorGradingLesson() {
 
               {style.photo && (
                 <div style={{ marginBottom: '14px' }}>
-                  <UnsplashImage id={style.photo.id} alt={style.photo.caption} credit={style.photo.credit} creditUrl={style.photo.creditUrl} caption={style.photo.caption} aspectRatio="16/9" />
+                  <WikiImage src={style.photo.src} alt={style.photo.alt}  caption={style.photo.caption} aspectRatio="16/9" />
                 </div>
               )}
 

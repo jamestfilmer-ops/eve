@@ -136,7 +136,7 @@ export default function RoadToPublishing() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px', textAlign: 'left' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
             The Publishing Guide

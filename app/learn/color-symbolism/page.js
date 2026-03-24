@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage } from '../../components/CraftImage'
+import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Symbolism Across Cultures | Eve',
@@ -16,7 +16,7 @@ const colorSystems = [
       { film: 'The Ring (2002)', note: 'Verbinski translates Japanese horror conventions for Western audiences—the white ghostly pallor codes as death in both systems, but the mechanism is different.' },
       { film: 'Black Swan (2010)', note: 'The white Swan is coded as purity and innocence in Western ballet tradition—which is exactly why its corruption is so disturbing. The white must be violated for the black to emerge.' },
     ],
-    photo: { id: 'photo-1555529771-7888783a18d3', credit: 'Pawel Czerwinski', creditUrl: 'https://unsplash.com/@pawel_czerwinski', caption: 'White carries opposite meanings across cultures—purity in the West, mourning and the supernatural in East Asian traditions' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/The_Cabinet_of_Dr_Caligari_1920.jpg/900px-The_Cabinet_of_Dr_Caligari_1920.jpg', alt: 'The Cabinet of Dr. Caligari (1920) — white as clinical menace', caption: "The Cabinet of Dr. Caligari (1920): white used not as purity but as clinical emptiness — the asylum's white walls absorb identity rather than representing innocence", credit: 'Decla-Bioscop / Public domain' },
   },
   {
     color: 'Red',
@@ -27,7 +27,7 @@ const colorSystems = [
       { film: 'Raise the Red Lantern (1991)', note: "Zhang Yimou uses the red lanterns as symbols of desire, privilege, and doom simultaneously—both the celebratory Chinese red and the blood-danger Western red." },
       { film: 'Crouching Tiger Hidden Dragon (2000)', note: 'The red of the wedding sequences codes as both Chinese celebration and Western danger. The film exists in both registers at once.' },
     ],
-    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Red is danger and passion in the West; luck and celebration in East Asian traditions—films exploit both registers' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Battleship_Potemkin_-_Odessa_steps.jpg/900px-Battleship_Potemkin_-_Odessa_steps.jpg', alt: 'Battleship Potemkin (1925) Eisenstein — Odessa Steps sequence', caption: "Battleship Potemkin (1925), dir. Eisenstein: Eisenstein hand-colored the revolutionary flag red in an otherwise grey print — the only color in the film, carrying the full weight of political meaning", credit: 'Mosfilm / Public domain' },
   },
   {
     color: 'Black',
@@ -38,7 +38,7 @@ const colorSystems = [
       { film: 'Black Panther (2018)', note: "Ryan Coogler uses black as power and pride rather than menace—the suit, the nation, the identity. The film recodes black's Western symbolism within an Afrofuturist framework." },
       { film: 'The Handmaiden (2016)', note: "Park Chan-wook uses black against white in ways that collide Western elegance/death associations with Korean cultural contexts around mourning and corruption." },
     ],
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'Black carries different symbolic weights across cultures—death in some traditions, neutrality or water in others' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/M_1931_film.jpg/900px-M_1931_film.jpg', alt: 'M (1931) Fritz Lang — shadow and silhouette', caption: "M (1931), dir. Fritz Lang: black as the moral void — the killer's shadow precedes him, making visual what the story cannot say directly", credit: 'Nero-Film AG / Public domain' },
   },
   {
     color: 'Yellow / Gold',
@@ -49,7 +49,7 @@ const colorSystems = [
       { film: 'Hero (2002)', note: "Zhang Yimou uses yellow for the flashback kingdom scenes—imperial authority, also the color of desert and the eternal. The yellow segments are both the most visually spectacular and the most morally ambiguous." },
       { film: 'Kill Bill (2003)', note: "Tarantino dresses the Bride in yellow—simultaneously cowardice/warning and the yellow of Bruce Lee's tracksuit (homage/strength). He is deliberately colliding both Western associations." },
     ],
-    photo: { id: 'photo-1506905925346-21bda4d32df4', credit: 'Samuel Ferrara', creditUrl: 'https://unsplash.com/@samuelferrara', caption: 'Yellow and gold—cowardice in Western tradition, imperial and sacred authority in East Asian contexts' },
+    photo: { type: 'wiki', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', alt: 'Metropolis (1927) Fritz Lang — gold and machine imagery', caption: "Metropolis (1927): the city's golden machine aesthetic codes industrial capitalism as imperial and sacred — gold as the color of false gods", credit: 'UFA / Public domain' },
   },
 ]
 
@@ -108,7 +108,7 @@ export default function ColorSymbolismLesson() {
 
               {cs.photo && (
                 <div style={{ marginBottom: '14px' }}>
-                  <UnsplashImage id={cs.photo.id} alt={cs.photo.caption} credit={cs.photo.credit} creditUrl={cs.photo.creditUrl} caption={cs.photo.caption} aspectRatio="16/9" />
+                  <WikiImage src={cs.photo.src} alt={cs.photo.alt}  caption={cs.photo.caption} aspectRatio="16/9" />
                 </div>
               )}
 

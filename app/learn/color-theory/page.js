@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UnsplashImage, ImagePair } from '../../components/CraftImage'
+import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Theory in Film and Fiction—Visual Storytelling | Eve',
@@ -11,7 +11,7 @@ const colors = [
   {
     name: 'Red',
     hex: '#C0392B',
-    photo: { id: 'photo-1518611012118-696072aa579a', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Saturated red—the most physiologically arousing color, earning its power through contrast' },
+    photo: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', credit: 'Oladimeji Ajegbile', creditUrl: 'https://unsplash.com/@diimejii', caption: 'Saturated red—the most physiologically arousing color, earning its power through contrast' },
     light: '#fdf2f2',
     border: '#f5c6c6',
     primary: 'Danger, passion, violence, love, power, warning',
@@ -44,7 +44,7 @@ const colors = [
   {
     name: 'Blue',
     hex: '#2471A3',
-    photo: { id: 'photo-1531306728370-e2ebd9d7bb99', credit: 'Josh Hild', creditUrl: 'https://unsplash.com/@joshhild', caption: 'Cool blue hour—distance, isolation, the receding quality of blue in a frame' },
+    photo: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', credit: 'Josh Hild', creditUrl: 'https://unsplash.com/@joshhild', caption: 'Cool blue hour—distance, isolation, the receding quality of blue in a frame' },
     light: '#f0f6fc',
     border: '#c5dff8',
     primary: 'Cold, isolation, melancholy, trust, technology, authority',
@@ -77,7 +77,7 @@ const colors = [
   {
     name: 'Yellow / Amber',
     hex: '#D4AC0D',
-    photo: { id: 'photo-1500534314209-a25ddb2bd429', credit: 'Alvin Engler', creditUrl: 'https://unsplash.com/@alvin_engler', caption: 'Golden hour amber—warmth and nostalgia versus the sickly chartreuse of unease' },
+    photo: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', credit: 'Alvin Engler', creditUrl: 'https://unsplash.com/@alvin_engler', caption: 'Golden hour amber—warmth and nostalgia versus the sickly chartreuse of unease' },
     light: '#fefbea',
     border: '#f7e68e',
     primary: 'Unease, caution, cowardice, warmth, nostalgia, madness',
@@ -110,7 +110,7 @@ const colors = [
   {
     name: 'Green',
     hex: '#1E8449',
-    photo: { id: 'photo-1448375240586-882707db888b', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Dark forest green—the tension between natural abundance and the uncanny' },
+    photo: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', credit: 'Eberhard Grossgasteiger', creditUrl: 'https://unsplash.com/@eberhardgross', caption: 'Dark forest green—the tension between natural abundance and the uncanny' },
     light: '#f0fbf4',
     border: '#a9dfbf',
     primary: 'Nature, growth, envy, poison, the uncanny, money',
@@ -142,7 +142,7 @@ const colors = [
   },
   {
     name: 'White',
-    hex: '#AAAAAA',
+    hex: '#E8E8E8',
     light: '#f9f9f9',
     border: '#e0e0e0',
     primary: 'Purity, emptiness, clinical, sterile, death (in Asian cinema), innocence',
@@ -175,7 +175,7 @@ const colors = [
   {
     name: 'Black',
     hex: '#2C3E50',
-    photo: { id: 'photo-1507003211169-0a1dd7228f2d', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'A single light source in darkness—black as the condition of possibility, not absence' },
+    photo: { src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Metropolis_movie_image.jpg/900px-Metropolis_movie_image.jpg', credit: 'Drew Hays', creditUrl: 'https://unsplash.com/@drew_hays', caption: 'A single light source in darkness—black as the condition of possibility, not absence' },
     light: '#f4f6f7',
     border: '#d5dbdf',
     primary: 'Death, authority, elegance, absence, grief, nihilism, the unknown',
@@ -302,6 +302,7 @@ export default function ColorTheoryLesson() {
                 height: '40px',
                 borderRadius: '50%',
                 background: color.hex,
+                border: color.hex === '#F5F5F5' || color.hex === '#FFFFFF' ? '2px solid var(--border)' : 'none',
                 flexShrink: 0,
               }} />
               <div>
@@ -334,8 +335,7 @@ export default function ColorTheoryLesson() {
 
             {color.photo && (
               <div style={{ marginBottom: '16px' }}>
-                <UnsplashImage
-                  id={color.photo.id}
+                <WikiImage src={
                   alt={color.photo.caption}
                   credit={color.photo.credit}
                   creditUrl={color.photo.creditUrl}

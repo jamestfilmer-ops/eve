@@ -173,7 +173,7 @@ export default function ForBeginners() {
         <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.6', maxWidth: '560px', marginBottom: '40px' }}>
           These are not platitudes. Each one is grounded in what professional writers —from King to Vonnegut to the Pixar story team —have said about the craft from the inside.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
           {truths.map(t => (
             <div key={t.number} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '28px 28px 24px' }}>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--green)', letterSpacing: '0.1em', marginBottom: '12px' }}>{t.number}</div>
