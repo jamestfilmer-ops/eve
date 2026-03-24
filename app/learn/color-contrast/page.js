@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
@@ -95,6 +96,7 @@ export default function ColorContrastLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', marginBottom: '52px' }}>
           {contrastTypes.map((type, i) => (
@@ -138,6 +140,7 @@ export default function ColorContrastLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

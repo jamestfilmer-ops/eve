@@ -66,9 +66,21 @@ function LessonCard({ item, writtenSlugs, isRead, onRead }) {
           </div>
           {!isRead && <span style={{ fontSize:'11px', color:'var(--text-soft)', fontFamily:'var(--font-mono)' }}>{item.time}</span>}
         </div>
-        <h3 style={{ fontSize:'13px', fontFamily:'var(--font-display)', color:'var(--text-dark)', lineHeight:'1.4', marginBottom:'6px', flex:0 }}>{item.title}</h3>
+        <div style={{ display:'flex', alignItems:'flex-start', gap:'6px', marginBottom:'6px' }}>
+          <h3 style={{ fontSize:'13px', fontFamily:'var(--font-display)', color:'var(--text-dark)', lineHeight:'1.4', flex:1, margin:0 }}>{item.title}</h3>
+          {!FREE_SLUGS.has(item.slug) && (
+            <span title="Writer tier" style={{ flexShrink:0, marginTop:'1px', display:'inline-flex', alignItems:'center', justifyContent:'center', width:'16px', height:'16px', borderRadius:'3px', background:'var(--green-pale)', border:'1px solid var(--green-border)' }}>
+              <svg width="8" height="9" viewBox="0 0 8 9" fill="none">
+                <rect x="1" y="4" width="6" height="5" rx="1" fill="var(--green)"/>
+                <path d="M2.5 4V3a1.5 1.5 0 013 0v1" stroke="var(--green)" strokeWidth="1" strokeLinecap="round"/>
+              </svg>
+            </span>
+          )}
+        </div>
         <p style={{ fontSize:'12px', color:'var(--text-soft)', lineHeight:'1.55', flex:1, margin:0 }}>{item.preview}</p>
-        <p style={{ fontSize:'12px', color:'var(--green)', fontWeight:'600', margin:'10px 0 0' }}>Read &rarr;</p>
+        <p style={{ fontSize:'12px', color:'var(--green)', fontWeight:'600', margin:'10px 0 0' }}>
+          {FREE_SLUGS.has(item.slug) ? 'Read →' : 'Unlock →'}
+        </p>
       </div>
     </Link>
   )
@@ -113,6 +125,12 @@ function AccordionBody({ isOpen, children }) {
 }
 
 const STORAGE_KEY = 'eve_read_lessons'
+
+const FREE_SLUGS = new Set([
+  'how-to-start', 'fear-and-writing', 'finding-your-story', 'vonnegut-craft',
+  'what-a-scene-does', 'want-vs-need', 'the-lie', 'dialogue-subtext',
+  'the-rewrite', 'act-breaks',
+])
 
 export default function CategoryList({ lessons, writtenSlugs }) {
   const [openCats, setOpenCats] = useState(() => {

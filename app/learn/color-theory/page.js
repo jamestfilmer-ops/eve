@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
@@ -265,6 +266,7 @@ export default function ColorTheoryLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         {/* Intro */}
@@ -402,6 +404,7 @@ export default function ColorTheoryLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

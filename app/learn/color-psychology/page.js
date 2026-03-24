@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Color Psychology in Film and Fiction | Eve',
@@ -34,6 +35,7 @@ export default function Lesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '44px 24px 80px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
         <div className="reveal reveal-delay-1" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -118,6 +120,7 @@ export default function Lesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

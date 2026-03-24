@@ -57,20 +57,20 @@ const frameworks = [
 
 const pillars = [
   {
-    title: "Start anywhere",
-    body: "A single line of dialogue is enough to begin. Eve helps you build outward from any seed —scene, character, or feeling."
+    title: "Start with whatever you've got",
+    body: "A character name. A feeling. One line of dialogue that won't leave you alone. That's enough. Eve helps you build from there."
   },
   {
-    title: "Characters first",
-    body: "Structure without character is furniture. Build who your people are before you decide what happens to them."
+    title: "Know your people",
+    body: "The best stories are powered by character. Figure out who they are, what they want, and what they're afraid to admit — before you decide what happens to them."
   },
   {
-    title: "Track what's missing",
-    body: "Plot holes are normal. Flag them, name them, return to them. Every first draft has them —tracking is the cure."
+    title: "Catch what's broken early",
+    body: "Plot holes aren't failure. They're information. Flag them as you go, name what's missing, and come back when you're ready. That's how real stories get fixed."
   },
   {
-    title: "Pick up where you left off",
-    body: "Eve is built for writers who work in sessions. Come back to exactly where you were, every time."
+    title: "Pick up right where you stopped",
+    body: "Writing happens in stolen hours. Eve remembers exactly where you left off — no scrolling, no re-reading, no lost momentum."
   },
 ]
 
@@ -91,41 +91,41 @@ function PricingSection() {
       monthly: 0,
       annual: 0,
       annualTotal: null,
-      sub: 'Start here. No card needed.',
+      sub: 'Get started. No card, no catch.',
       cta: 'Start free',
       ctaStyle: 'ghost',
       features: [
-        '1 active project',
+        '1 story project',
+        'Core craft lessons (10 lessons)',
         'Save the Cat framework',
-        'Full craft library —all lessons',
-        'Glossary and reading list',
-        '25 saved ideas',
-        'Character builder',
-        'Scene tracker',
-        'Plot hole log',
+        'Basic character builder',
+        'Scene tracker (up to 10 scenes)',
+        'Story glossary',
+        'Up to 4 ideas saved',
+        '3–4 nodes on Themes Map',
       ],
     },
     {
-      id: 'studio',
-      name: 'Studio',
-      badge: 'Most popular',
+      id: 'writer',
+      name: 'Writer',
+      badge: 'Popular',
       badgeClass: 'popular',
-      monthly: 4.99,
-      annual: 2.50,
-      annualTotal: 30,
-      sub: 'For writers actively working on their stories.',
-      cta: 'Get Studio',
+      monthly: 1.99,
+      annual: 1.00,
+      annualTotal: 12,
+      sub: 'Everything unlocked. Less than a coffee.',
+      cta: 'Unlock everything',
       ctaStyle: 'primary',
       popular: true,
       features: [
         { label: 'Everything in Free', dim: true },
+        'All 65 craft lessons',
+        'All 7 story frameworks',
         'Unlimited projects',
-        'All 7 frameworks',
-        'Unlimited saved ideas',
+        'Unlimited scenes, characters & ideas',
+        'Full Themes Map canvas',
         'Beat sheet auto-fill',
         'PDF export',
-        'Timeline view',
-        'Themes Map canvas',
       ],
     },
     {
@@ -133,19 +133,19 @@ function PricingSection() {
       name: 'Professional',
       badge: 'Pro',
       badgeClass: 'pro',
-      monthly: 12,
-      annual: 7.50,
-      annualTotal: 90,
-      sub: 'For coaches, consultants, and working pros.',
+      monthly: 9.99,
+      annual: 5.00,
+      annualTotal: 60,
+      sub: 'For coaches, instructors, and working pros.',
       cta: 'Get Professional',
       ctaStyle: 'inverted',
       features: [
-        { label: 'Everything in Studio', dim: true },
+        { label: 'Everything in Writer', dim: true },
+        'Multiple client workspaces',
         'Priority support',
         'Early access to new features',
-        'Multiple client projects',
         'Usage analytics',
-        'Dedicated workspace',
+        'PDF export for clients',
       ],
     },
   ]
@@ -165,10 +165,10 @@ function PricingSection() {
             marginBottom: '16px',
             lineHeight: '1.15',
           }}>
-            Start free. Upgrade when you're ready.
+            Start for free. Pay when it's worth it.
           </h2>
           <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 28px', lineHeight: '1.75' }}>
-            Every writer gets the full craft library free forever. Tools unlock as your story demands them.
+            Read every lesson. Build your first story. No card required. Upgrade when you want the full toolkit.
           </p>
 
           {/* Billing toggle */}
@@ -279,7 +279,7 @@ function PricingSection() {
                     fontFamily: 'JetBrains Mono, monospace',
                     whiteSpace: 'nowrap',
                     boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
-                  }}>Most popular</div>
+                  }}>Popular</div>
                 )}
 
                 {/* Tier header */}
@@ -472,7 +472,7 @@ export default function Home() {
             marginBottom: '28px',
             maxWidth: '440px',
           }}>
-            Learn the craft. Map your structure. Develop your characters. Then take your organized story into Final Draft, Scrivener, or wherever you write. Eve is the thinking space between idea and first draft.
+            You've got the idea. Now what? Eve walks you through the same story principles the best writers use — scene by scene, character by character — so you actually understand what you're building before you write it.
           </p>
           <div className="hero-cta-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
@@ -613,13 +613,13 @@ export default function Home() {
             lineHeight: '1.2',
             marginBottom: '20px',
           }}>
-            Your voice.<br />Not a prompt.
+            Your story.<br />Your words.
           </h2>
           <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '16px' }}>
-            Every AI writing tool makes the same promise: faster stories. What they deliver is the same story, told a thousand ways by a machine that has never lived anything.
+            Every AI writing tool promises to make it faster. What they actually do is make it theirs. The sentences come out smooth and hollow, and somewhere in the middle of it you stop recognizing the story as yours.
           </p>
           <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '28px' }}>
-            Eve contains no AI. No autocomplete. No suggestions. No generation. Just your ideas, organized by the same structural principles that produced the greatest stories ever told.
+            Eve has no AI. No autocomplete. No generation. It's a thinking tool — the kind your best friend in film school would hand you before your first serious project. The ideas stay yours. We just help you figure out what they mean.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[

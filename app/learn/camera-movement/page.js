@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Camera Movement and Emotional Meaning | Eve',
@@ -140,6 +141,7 @@ export default function CameraMovementLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '52px' }}>
@@ -200,6 +202,7 @@ export default function CameraMovementLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

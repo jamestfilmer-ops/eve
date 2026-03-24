@@ -225,18 +225,22 @@ export default function IdeasPage() {
               </button>
             </div>
             <div style={{ borderTop: '1px solid var(--border)', paddingTop: '28px', marginTop: '8px' }}>
-              <p style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '16px', textAlign: 'center' }}>
+              <p style={{ fontSize: '11px', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px', textAlign: 'center' }}>
                 Need a spark? React to one of these.
               </p>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
+                <button
+                  onClick={() => setSparkOffset(prev => (prev + 6) % allSparks.length)}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', background: 'transparent', border: '1px solid var(--border)', borderRadius: '20px', padding: '4px 14px', cursor: 'pointer', transition: 'color 0.15s, border-color 0.15s' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--green)'; e.currentTarget.style.borderColor = 'var(--green-border)' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-soft)'; e.currentTarget.style.borderColor = 'var(--border)' }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M10 2.5A4.5 4.5 0 002.5 6M2 2.5V2h.5M2 2.5H2.5M2 9.5A4.5 4.5 0 009.5 6M10 9.5V10h-.5M10 9.5H9.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
+                  Different sparks
+                </button>
+              </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '10px' }}>
-                {[
-                  { type: 'Character', spark: 'Someone who is very good at the wrong thing.' },
-                  { type: 'One-liner', spark: 'Two strangers who share a secret that should destroy their relationship but instead saves it.' },
-                  { type: 'Scene', spark: 'A conversation where both people are lying, and both know the other is lying, and neither says so.' },
-                  { type: 'Theme', spark: 'What does it cost to be the person everyone needs you to be?' },
-                  { type: 'Character', spark: 'Someone trying to escape a version of themselves they no longer believe in.' },
-                  { type: 'One-liner', spark: 'A person who finally gets what they have wanted for twenty years —on the day it no longer matters.' },
-                ].map((spark, i) => {
+                {allSparks.slice(sparkOffset, sparkOffset + 6).concat(sparkOffset + 6 > allSparks.length ? allSparks.slice(0, (sparkOffset + 6) % allSparks.length) : []).map((spark, i) => {
                   const col = typeColors[spark.type] || { bg: 'var(--green-pale)', color: 'var(--green)' }
                   return (
                     <button

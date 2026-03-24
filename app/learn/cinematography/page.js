@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { ShotScaleDiagram } from '../../components/ShotDiagram'
 import { WikiImage } from '../../components/CraftImage'
 
@@ -216,6 +217,7 @@ export default function CinematographyLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '920px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         {/* Shot types */}
@@ -370,6 +372,7 @@ export default function CinematographyLesson() {
         </div>
 
       </div>
+    </PaywallBlur>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Writing for Color—How to Indicate Visual Intent Without Directing | Eve',
@@ -76,6 +77,7 @@ export default function WritingForColorLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
           {techniques.map((t) => (
@@ -104,6 +106,7 @@ export default function WritingForColorLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

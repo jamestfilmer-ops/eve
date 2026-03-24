@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import TracksClient from './TracksClient'
 
 export const metadata = {
@@ -153,7 +154,8 @@ export default function TracksPage() {
 
       {/* Bottom CTA */}
       <section style={{ background: 'var(--green)', padding: '48px 24px' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <PaywallBlur>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: '700', color: '#fff', marginBottom: '10px', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
             Now put it to work.
           </h2>
@@ -166,6 +168,7 @@ export default function TracksPage() {
         </div>
       </section>
 
+    </PaywallBlur>
     </div>
   )
 }

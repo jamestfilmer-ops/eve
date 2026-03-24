@@ -15,58 +15,57 @@ const plans = [
     monthly: 0,
     annual: 0,
     annualTotal: null,
-    sub: 'Everything you need to start your first story.',
+    sub: 'Get started. No card, no catch.',
     cta: 'Start free',
     ctaStyle: 'ghost',
     features: [
-      '1 active project',
+      '1 story project',
+      'Core craft lessons (10 lessons)',
       'Save the Cat framework',
-      'Full craft library —all lessons',
-      'Story glossary and reading list',
-      '25 saved ideas',
-      'Character builder',
-      'Scene tracker',
-      'Plot hole log',
+      'Basic character builder',
+      'Scene tracker (up to 10 scenes)',
+      'Story glossary',
+      'Up to 4 ideas saved',
+      '3–4 nodes on Themes Map',
     ],
   },
   {
-    id: 'studio',
-    name: 'Studio',
-    monthly: 4.99,
-    annual: 2.50,
-    annualTotal: 30,
-    sub: 'For writers actively working on their stories.',
-    cta: 'Get Studio',
+    id: 'writer',
+    name: 'Writer',
+    monthly: 1.99,
+    annual: 1.00,
+    annualTotal: 12,
+    sub: 'Everything unlocked. Less than a coffee.',
+    cta: 'Unlock everything',
     ctaStyle: 'primary',
     popular: true,
     features: [
       { label: 'Everything in Free', dim: true },
+      'All 65 craft lessons',
+      'All 7 story frameworks',
       'Unlimited projects',
-      'All 7 frameworks',
-      'Unlimited saved ideas',
+      'Unlimited scenes, characters & ideas',
+      'Full Themes Map canvas',
       'Beat sheet auto-fill',
       'PDF export',
-      'Timeline view',
-      'Themes Map canvas',
     ],
   },
   {
     id: 'pro',
     name: 'Professional',
-    monthly: 12,
-    annual: 7.50,
-    annualTotal: 90,
-    sub: 'For coaches, consultants, and working professionals.',
+    monthly: 9.99,
+    annual: 5.00,
+    annualTotal: 60,
+    sub: 'For coaches, instructors, and working pros.',
     cta: 'Get Professional',
     ctaStyle: 'inverted',
     features: [
-      { label: 'Everything in Studio', dim: true },
+      { label: 'Everything in Writer', dim: true },
+      'Multiple client workspaces',
       'Priority support',
       'Early access to new features',
-      'Multiple client projects',
-      'Advanced export formats',
       'Usage analytics',
-      'Dedicated workspace',
+      'PDF export for clients',
     ],
   },
 ]
@@ -164,7 +163,7 @@ export default function PricingPage() {
             marginBottom: '18px',
             lineHeight: '1.15',
           }}>
-            Start free. Upgrade when you're ready.
+            Start for free. Upgrade when it's worth it.
           </h1>
           <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 32px', lineHeight: '1.75' }}>
             Every writer gets the full craft library free forever. Tools unlock as your story demands them.
@@ -280,7 +279,7 @@ export default function PricingPage() {
                     fontFamily: 'JetBrains Mono, monospace',
                     whiteSpace: 'nowrap',
                     boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
-                  }}>Most popular</div>
+                  }}>Popular</div>
                 )}
 
                 <div style={{ marginBottom: '24px' }}>
@@ -543,7 +542,7 @@ export default function PricingPage() {
             color: '#fff',
             marginBottom: '14px',
             lineHeight: '1.2',
-          }}>Your first story starts now.</h2>
+          }}>Your story's waiting.</h2>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', marginBottom: '28px', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.7' }}>
             Free forever. No card required. Every lesson included.
           </p>

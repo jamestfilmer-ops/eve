@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Writing Short Stories—Craft, Form, and Getting Published | Eve',
@@ -46,6 +47,7 @@ export default function LessonShortStoryCraft() {
       </section>
 
       {/* Content */}
+      <PaywallBlur>
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '44px 24px 80px' }}>
 <div className="fade-up">
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' }}>
@@ -111,6 +113,7 @@ export default function LessonShortStoryCraft() {
         </div>
       </div>
     </div>
+    </PaywallBlur>
     </div>
   )
 }

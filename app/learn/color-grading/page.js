@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
@@ -112,6 +113,7 @@ export default function ColorGradingLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '48px' }}>
           {gradingStyles.map((style) => (
@@ -157,6 +159,7 @@ export default function ColorGradingLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

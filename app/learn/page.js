@@ -19,7 +19,7 @@ export const metadata = {
 const lessons = [
   {
     category: 'Start Here',
-    badge: 'Beginner',
+    badge: 'Free',
     items: [
       { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything —not because they lack talent, but because they start wrong. Here is how to actually begin.' },
       { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of —and how to write through it instead of around it.' },
@@ -216,10 +216,10 @@ export default function LearnPage() {
             lineHeight: '1.15', color: '#fff',
             textShadow: '0 2px 12px rgba(0,0,0,0.25)',
           }}>
-            Everything you need to know<br/>before you write a word.
+            Learn the craft that makes stories work.
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.7', maxWidth: '520px', marginBottom: '24px' }}>
-            Short, honest lessons on screenwriting, novels, and short fiction. Drawn from the writers who already figured this out. Read here, then go write.
+            Short, honest lessons drawn from writers who actually figured it out. Structure, character, dialogue, craft. Start free, stay as long as you need.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="stat-pill">

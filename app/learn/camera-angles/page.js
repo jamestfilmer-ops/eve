@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { AngleDiagram, DutchAngleDiagram } from '../../components/ShotDiagram'
 import { WikiImage } from '../../components/CraftImage'
 
@@ -155,6 +156,7 @@ export default function CameraAnglesLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         {/* The 7 angles */}
@@ -272,6 +274,7 @@ export default function CameraAnglesLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Adaptation: How to Translate a Story Between Forms | Eve',
@@ -36,6 +37,7 @@ export default function Lesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '44px 24px 80px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
         <div className="reveal reveal-delay-1" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
@@ -91,6 +93,7 @@ export default function Lesson() {
           <Link href="/learn/point-of-view" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "600", color: "var(--green)", textDecoration: "none" }}>Next<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

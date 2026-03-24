@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Color Palettes and Emotional Arcs in Film | Eve',
@@ -139,6 +140,7 @@ export default function ColorPalettesLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
 
         {/* Film palette studies */}
@@ -221,6 +223,7 @@ export default function ColorPalettesLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Flash Fiction—Writing Stories Under 1000 Words | Eve',
@@ -37,6 +38,7 @@ export default function LessonFlashFiction() {
       </section>
 
       {/* Content */}
+      <PaywallBlur>
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '44px 24px 80px' }}>
 <div className="fade-up">
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' }}>
@@ -130,6 +132,7 @@ export default function LessonFlashFiction() {
         </div>
       </div>
     </div>
+    </PaywallBlur>
     </div>
   )
 }

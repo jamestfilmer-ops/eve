@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PaywallBlur from '../../components/PaywallBlur'
 import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
@@ -84,6 +85,7 @@ export default function CompositionLesson() {
         </div>
       </section>
 
+      <PaywallBlur>
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '52px 24px 80px' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', marginBottom: '52px' }}>
           {principles.map((p, i) => (
@@ -117,6 +119,7 @@ export default function CompositionLesson() {
           </Link>
         </div>
       </div>
+    </PaywallBlur>
     </div>
   )
 }
