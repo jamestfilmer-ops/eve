@@ -501,7 +501,7 @@ function GenreCard({ genre }) {
             }}>
               {genre.name}
             </h2>
-            {selectedType === 'All' && (
+            {filter === 'All' && (
             <span style={{
               fontFamily: 'JetBrains Mono, monospace',
               fontSize: '10px',
