@@ -335,10 +335,9 @@ export default function ColorTheoryLesson() {
 
             {color.photo && (
               <div style={{ marginBottom: '16px' }}>
-                <WikiImage src={
-                  alt={color.photo.caption}
-                  credit={color.photo.credit}
-                  creditUrl={color.photo.creditUrl}
+                <WikiImage
+                  src={color.photo.src}
+                  alt={color.photo.alt || color.photo.caption}
                   caption={color.photo.caption}
                   aspectRatio="16/9"
                 />
