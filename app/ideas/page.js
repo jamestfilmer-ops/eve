@@ -39,6 +39,40 @@ export default function IdeasPage() {
   const [filter,    setFilter]    = useState('All')
   const [showForm,  setShowForm]  = useState(false)
   const [newIdea,   setNewIdea]   = useState({ type: 'One-liner', text: '' })
+  const [sparkOffset, setSparkOffset] = useState(0)
+
+  const allSparks = [
+    { type: 'Character', spark: 'Someone who is very good at the wrong thing.' },
+    { type: 'One-liner', spark: 'Two strangers who share a secret that should destroy their relationship — but instead it saves it.' },
+    { type: 'Scene', spark: 'A conversation where both people are lying, and both know the other is lying, and neither says so.' },
+    { type: 'Theme', spark: 'What does it cost to be the person everyone needs you to be?' },
+    { type: 'Character', spark: 'Someone trying to escape a version of themselves they no longer believe in.' },
+    { type: 'One-liner', spark: 'A person finally gets what they wanted for twenty years — on the day it no longer matters.' },
+    { type: 'Scene', spark: 'Two people saying goodbye, neither admitting it might be permanent.' },
+    { type: 'Character', spark: 'Someone who has been lying to protect everyone — until the lie becomes the truth.' },
+    { type: 'Theme', spark: 'Is loyalty a virtue or a cage?' },
+    { type: 'One-liner', spark: 'A child who understands something about their parent that the parent will never say out loud.' },
+    { type: 'Scene', spark: 'The first meal shared after a falling-out. Nobody mentions what happened.' },
+    { type: 'Character', spark: 'A person who is always the most capable one in the room — and has never once felt safe.' },
+    { type: 'Theme', spark: 'What do we owe the people who made us who we are?' },
+    { type: 'One-liner', spark: 'Someone who burned their life down and is now genuinely unsure if it was a mistake.' },
+    { type: 'Scene', spark: 'A job interview where the interviewer is clearly more nervous than the applicant.' },
+    { type: 'Character', spark: 'Someone who became the villain of their own story so slowly they never noticed.' },
+    { type: 'Theme', spark: 'Can you forgive someone who is not sorry?' },
+    { type: 'One-liner', spark: 'The wrong person is saved. The right one is not. Both have to keep living.' },
+    { type: 'Scene', spark: 'Two old friends meeting after a decade — neither is who the other remembers.' },
+    { type: 'Character', spark: 'Someone who stopped caring about being liked and has no idea what to do with the freedom.' },
+    { type: 'Theme', spark: 'How much of who we are is just who people expected us to be?' },
+    { type: 'One-liner', spark: 'A family reunion where one person knows a truth that would destroy everyone — and has not decided yet.' },
+    { type: 'Scene', spark: 'The last night in a place being torn down. Two people who never spoke.' },
+    { type: 'Character', spark: 'Someone trying to be a better person than the one who raised them, with no idea how.' },
+    { type: 'Theme', spark: 'What do you do when the thing you fought your whole life for turns out to be wrong?' },
+    { type: 'One-liner', spark: 'A mentor realizes the student surpassed them years ago and has been pretending not to know.' },
+    { type: 'Scene', spark: 'An apology that arrives thirty years too late — and is still exactly what was needed.' },
+    { type: 'Character', spark: 'Someone with nothing left to lose who suddenly discovers one thing they cannot afford to.' },
+    { type: 'Theme', spark: 'Is there a difference between surviving and living?' },
+    { type: 'One-liner', spark: 'Two people who were in love, then were not, got everything they wanted — and kept thinking about each other.' },
+  ]
   const [search,    setSearch]    = useState('')
   const [promoteId, setPromoteId] = useState(null)
   const [saving,    setSaving]    = useState(false)
