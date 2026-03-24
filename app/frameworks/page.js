@@ -20,9 +20,9 @@ const frameworks = [
     acts: 3,
     beats: 15,
     difficulty: 'Beginner',
-    diffColor: '#589D62',
-    diffBg: '#C6DC93',
-    diffBorder: '#B0D2BE',
+    diffColor: '#2D5016',
+    diffBg: '#EFF6E7',
+    diffBorder: '#C3D9A8',
     bestFor: 'Feature films, genre films, first screenplays',
     notFor: 'Experimental work, non-Western stories, literary drama',
     summary: 'The most popular and most criticized framework in Hollywood. Snyder mapped 15 specific beats with precise page numbers onto three-act structure. Formulaic —and useful precisely because it is formulaic. Knowing the formula is how you break it intelligently.',
@@ -40,8 +40,8 @@ const frameworks = [
     acts: 3,
     beats: 12,
     difficulty: 'Intermediate',
-    diffColor: '#B0D2BE',
-    diffBg: '#E4F0E8',
+    diffColor: '#C3D9A8',
+    diffBg: '#FEF3E2',
     diffBorder: '#F5C57A',
     bestFor: 'Myth-driven narratives, fantasy, adventure, coming-of-age',
     notFor: 'Intimate character studies, ensemble films, non-hero-centered stories',
@@ -60,9 +60,9 @@ const frameworks = [
     acts: 2,
     beats: 8,
     difficulty: 'Beginner',
-    diffColor: '#589D62',
-    diffBg: '#C6DC93',
-    diffBorder: '#B0D2BE',
+    diffColor: '#2D5016',
+    diffBg: '#EFF6E7',
+    diffBorder: '#C3D9A8',
     bestFor: 'Television episodes, short stories, contained narratives',
     notFor: 'Epic narratives, multiple protagonist stories',
     summary: "Harmon's distillation of Campbell into 8 steps arranged in a circle —you go around once per episode. Community was built on it. Rick and Morty uses it almost mechanically. The Story Circle is the fastest framework to learn and the most useful for episodic television. Each episode is its own complete circle.",
@@ -80,8 +80,8 @@ const frameworks = [
     acts: 3,
     beats: 8,
     difficulty: 'Intermediate',
-    diffColor: '#B0D2BE',
-    diffBg: '#E4F0E8',
+    diffColor: '#C3D9A8',
+    diffBg: '#FEF3E2',
     diffBorder: '#F5C57A',
     bestFor: 'Writers who find three-act structure too broad, complex plots',
     notFor: 'Simple narratives, writers new to structure',
@@ -227,7 +227,7 @@ export default function FrameworksPage() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--amber)', marginBottom: '12px' }}>Story Structure</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '12px', textShadow: '0 2px 12px rgba(0,0,0,0.25)' }}>

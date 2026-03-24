@@ -25,7 +25,7 @@ export default function LessonSevenPoint() {
       </div>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             Dan Wells' Seven-Point Story Structure

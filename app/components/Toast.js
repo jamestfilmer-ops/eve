@@ -45,8 +45,8 @@ export function useToast() {
 function IconSuccess() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="7" fill="rgba(45,80,22,0.15)" stroke="#589D62" strokeWidth="1.25"/>
-      <path d="M5 8l2 2 4-4" stroke="#589D62" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="8" cy="8" r="7" fill="rgba(45,80,22,0.15)" stroke="#2D5016" strokeWidth="1.25"/>
+      <path d="M5 8l2 2 4-4" stroke="#2D5016" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -61,9 +61,9 @@ function IconError() {
 function IconWarning() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="7" fill="rgba(181,112,10,0.12)" stroke="#B0D2BE" strokeWidth="1.25"/>
-      <path d="M8 5v4" stroke="#B0D2BE" strokeWidth="1.5" strokeLinecap="round"/>
-      <circle cx="8" cy="11" r="0.75" fill="#B0D2BE"/>
+      <circle cx="8" cy="8" r="7" fill="rgba(181,112,10,0.12)" stroke="#C3D9A8" strokeWidth="1.25"/>
+      <path d="M8 5v4" stroke="#C3D9A8" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="8" cy="11" r="0.75" fill="#C3D9A8"/>
     </svg>
   )
 }
@@ -85,9 +85,9 @@ function IconClose() {
 }
 
 const variants = {
-  success: { border: '#B0D2BE', accent: '#589D62', iconComp: IconSuccess },
+  success: { border: '#C3D9A8', accent: '#2D5016', iconComp: IconSuccess },
   error:   { border: '#FECDD3', accent: '#9F1239', iconComp: IconError   },
-  warning: { border: '#F5C57A', accent: '#B0D2BE', iconComp: IconWarning },
+  warning: { border: '#F5C57A', accent: '#C3D9A8', iconComp: IconWarning },
   info:    { border: '#BFDBFE', accent: '#1D4ED8', iconComp: IconInfo    },
 }
 
@@ -129,14 +129,14 @@ function ToastItem({ toast, onDismiss }) {
         : 'toastIn 0.32s cubic-bezier(0.22,1,0.36,1) both',
     }}>
       <div style={{ flexShrink: 0, marginTop: '1px' }}><Icon /></div>
-      <p style={{ flex: 1, fontSize: '14px', lineHeight: '1.55', color: '#1A512E', margin: 0, fontFamily: 'var(--font-ui, DM Sans, system-ui, sans-serif)' }}>
+      <p style={{ flex: 1, fontSize: '14px', lineHeight: '1.55', color: '#2D5016', margin: 0, fontFamily: 'var(--font-ui, DM Sans, system-ui, sans-serif)' }}>
         {toast.message}
       </p>
       <button
         onClick={() => onDismiss(toast.id)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '1px', color: '#6B9E72', flexShrink: 0, display: 'flex', alignItems: 'center', borderRadius: '4px', transition: 'color 0.15s' }}
-        onMouseEnter={e => e.currentTarget.style.color = '#1A512E'}
-        onMouseLeave={e => e.currentTarget.style.color = '#6B9E72'}
+        style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '1px', color: '#8A837C', flexShrink: 0, display: 'flex', alignItems: 'center', borderRadius: '4px', transition: 'color 0.15s' }}
+        onMouseEnter={e => e.currentTarget.style.color = '#2D5016'}
+        onMouseLeave={e => e.currentTarget.style.color = '#8A837C'}
         aria-label="Dismiss"
       >
         <IconClose />

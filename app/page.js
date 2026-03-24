@@ -458,7 +458,7 @@ export default function Home() {
             fontSize: 'clamp(30px, 4vw, 48px)',
             fontWeight: '700',
             lineHeight: '1.15',
-            color: 'var(--text-dark)',
+            color: 'var(--green)',
             marginBottom: '18px',
             letterSpacing: '-0.01em',
           }}>
@@ -494,7 +494,7 @@ export default function Home() {
           border: '1px solid var(--border)',
           borderRadius: '16px',
           padding: '28px',
-          boxShadow: '0 8px 40px rgba(45,80,22,0.10)',
+          boxShadow: '0 8px 40px rgba(26,81,46,0.10)',
         }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
             <div>
@@ -564,7 +564,7 @@ export default function Home() {
       </section>
 
       {/* Content depth signal */}
-      <section className="section-fade" style={{ background: '#1A512E', padding: '56px 24px' }}>
+      <section className="section-fade" style={{ background: '#2D5016', padding: '56px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
@@ -752,12 +752,12 @@ export default function Home() {
       <PricingSection />
 
       {/* CTA */}
-      <section className="section-fade" style={{ background: '#1A512E', padding: '52px 24px' }}>
+      <section className="section-fade" style={{ background: '#2D5016', padding: '52px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 32px)',
-            color: '#F4F9F0', marginBottom: '10px',
+            color: '#FDFCF9', marginBottom: '10px',
           }}>Your story is waiting.</h2>
           <p style={{
             color: 'rgba(244,249,240,0.75)', fontSize: '15px', marginBottom: '20px',
@@ -767,7 +767,7 @@ export default function Home() {
           </p>
           <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
             <button style={{
-              background: 'var(--green)', color: '#F4F9F0',
+              background: 'var(--green)', color: '#FDFCF9',
               fontFamily: 'var(--font-ui)', fontWeight: '700',
               fontSize: '14px', padding: '10px 24px', borderRadius: '8px',
               border: 'none', cursor: 'pointer',

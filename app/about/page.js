@@ -13,9 +13,9 @@ export const metadata = {
 const tracks = [
   {
     level: 'New to screenwriting',
-    color: '#589D62',
-    bg: '#C6DC93',
-    border: '#B0D2BE',
+    color: '#2D5016',
+    bg: '#EFF6E7',
+    border: '#C3D9A8',
     headline: 'Start with the fundamentals',
     description: 'Every professional writer learned the same foundations. Three things before anything else.',
     steps: [
@@ -28,8 +28,8 @@ const tracks = [
   },
   {
     level: 'Writing but stuck',
-    color: '#B0D2BE',
-    bg: '#E4F0E8',
+    color: '#C3D9A8',
+    bg: '#FEF3E2',
     border: '#F5C57A',
     headline: 'Diagnose what is not working',
     description: 'Most stuck writers have the same three problems. These lessons identify them.',
@@ -103,7 +103,7 @@ export default function AboutPage() {
             Eve is a craft platform and story workspace. The lessons are free. The tools are worth paying for. There is no AI anywhere in the product.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/learn" style={{ display: 'inline-block', background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
+            <Link href="/learn" style={{ display: 'inline-block', background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
             <Link href="/auth" style={{ display: 'inline-block', background: 'transparent', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none', border: '1px solid rgba(255,255,255,0.2)' }}>Create free account</Link>
           </div>
         </div>

@@ -1122,8 +1122,8 @@ function ErrorState({ message }) {
 
 function TimelineTab({ scenes }) {
   const ACT_COLORS = {
-    1: { bg: '#C6DC93', border: '#6AAF3D', label: 'Act 1' },
-    2: { bg: '#FFF7ED', border: '#B0D2BE', label: 'Act 2' },
+    1: { bg: '#EFF6E7', border: '#6AAF3D', label: 'Act 1' },
+    2: { bg: '#FFF7ED', border: '#C3D9A8', label: 'Act 2' },
     3: { bg: '#EEF2FF', border: '#6366F1', label: 'Act 3' },
   }
 
@@ -1397,8 +1397,8 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
   }
 
   const THEME_COLORS = {
-    theme:    { bg: '#589D62', text: '#fff', border: '#1A3009' },
-    motif:    { bg: '#B0D2BE', text: '#fff', border: '#7A4C07' },
+    theme:    { bg: '#2D5016', text: '#fff', border: '#1A3009' },
+    motif:    { bg: '#C3D9A8', text: '#fff', border: '#7A4C07' },
     question: { bg: '#4F46E5', text: '#fff', border: '#3730A3' },
     symbol:   { bg: '#0F766E', text: '#fff', border: '#0D5E57' },
   }
@@ -1652,12 +1652,12 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
 const SM_NODE = {
   scene:     { w: 148, h: 48, rx: 8,  bg: '#0D9488', stroke: '#0F766E', fg: '#fff' },
   character: { w: 136, h: 44, rx: 22, bg: '#7C3AED', stroke: '#6D28D9', fg: '#fff' },
-  theme:     { w: 128, h: 40, rx: 6,  bg: '#589D62', stroke: '#1A3009', fg: '#fff' },
-  subplot:   { w: 136, h: 44, rx: 6,  bg: '#B0D2BE', stroke: '#7A4C07', fg: '#fff' },
+  theme:     { w: 128, h: 40, rx: 6,  bg: '#2D5016', stroke: '#1A3009', fg: '#fff' },
+  subplot:   { w: 136, h: 44, rx: 6,  bg: '#C3D9A8', stroke: '#7A4C07', fg: '#fff' },
 }
 
 const ACT_ZONE = {
-  1: { fill: 'rgba(239,246,231,0.7)', stroke: '#B0D2BE' },
+  1: { fill: 'rgba(239,246,231,0.7)', stroke: '#C3D9A8' },
   2: { fill: 'rgba(254,243,226,0.7)', stroke: '#F5C57A' },
   3: { fill: 'rgba(238,242,255,0.7)', stroke: '#C7D2FE' },
 }
@@ -2062,7 +2062,7 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
                   <polygon points="0 0, 9 3.5, 0 7" fill="var(--green)" />
                 </marker>
                 <marker id="sm-arrow-amber" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                  <polygon points="0 0, 9 3.5, 0 7" fill="#B0D2BE" />
+                  <polygon points="0 0, 9 3.5, 0 7" fill="#C3D9A8" />
                 </marker>
               </defs>
 
@@ -2092,7 +2092,7 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
                 const isSel     = selected === `edge-${edge.id}`
                 const isActBrk  = edge.type === 'act-break'
                 const isCustom  = edge.type === 'custom'
-                const color     = isSel ? 'var(--green)' : isActBrk ? '#B0D2BE' : '#94A3B8'
+                const color     = isSel ? 'var(--green)' : isActBrk ? '#C3D9A8' : '#94A3B8'
                 const markerId  = isSel ? 'sm-arrow-green' : isActBrk ? 'sm-arrow-amber' : 'sm-arrow'
                 const d         = smPath(fc, tc)
                 return (
@@ -2182,7 +2182,7 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
 
           {/* Edge selected: delete action */}
           {selected?.startsWith('edge-') && (
-            <div style={{ marginTop: '12px', padding: '10px 16px', background: '#E4F0E8', borderRadius: '8px', border: '1px solid var(--amber-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+            <div style={{ marginTop: '12px', padding: '10px 16px', background: '#FEF3E2', borderRadius: '8px', border: '1px solid var(--amber-border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
               <span style={{ fontSize: '13px', color: 'var(--amber)', fontWeight: '500' }}>Connection selected</span>
               <button
                 onClick={() => deleteEdge(selected.replace('edge-', ''))}
@@ -2197,8 +2197,8 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
             {[
               { color: '#0D9488', label: 'Scene' },
               { color: '#7C3AED', label: 'Character' },
-              { color: '#589D62', label: 'Theme' },
-              { color: '#B0D2BE', label: 'Subplot' },
+              { color: '#2D5016', label: 'Theme' },
+              { color: '#C3D9A8', label: 'Subplot' },
             ].map(({ color, label }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
                 <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: color, flexShrink: 0 }} />

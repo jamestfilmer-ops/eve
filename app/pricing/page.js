@@ -202,7 +202,7 @@ export default function PricingPage() {
                 {b === 'annual' && (
                   <span style={{
                     marginLeft: '6px',
-                    background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)',
+                    background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)',
                     color: '#fff',
                     fontSize: '10px',
                     fontWeight: '700',

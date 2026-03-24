@@ -16,7 +16,7 @@ export default function Lesson() {
             All lessons
           </Link>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#C6DC93', color: '#589D62' }}>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#EFF6E7', color: '#2D5016' }}>
               Start Here
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
@@ -25,7 +25,7 @@ export default function Lesson() {
         </div>
       </div>
 
-      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             How to Start: The First Thing Every Beginner Needs to Know

@@ -114,7 +114,7 @@ export default function ProfilePage() {
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <div style={{
               width: '64px', height: '64px', borderRadius: '50%',
-              background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', display: 'flex', alignItems: 'center',
+              background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', display: 'flex', alignItems: 'center',
               justifyContent: 'center', fontFamily: 'var(--font-display)',
               fontSize: '26px', fontWeight: '700', color: '#fff', flexShrink: 0,
             }}>

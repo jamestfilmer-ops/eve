@@ -70,9 +70,9 @@ from reportlab.platypus import (
 )
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
 
-GREEN      = colors.HexColor('#589D62')
-GREEN_PALE = colors.HexColor('#C6DC93')
-AMBER      = colors.HexColor('#B0D2BE')
+GREEN      = colors.HexColor('#2D5016')
+GREEN_PALE = colors.HexColor('#EFF6E7')
+AMBER      = colors.HexColor('#C3D9A8')
 TEXT_DARK  = colors.HexColor('#1A140F')
 TEXT_MID   = colors.HexColor('#5C4A37')
 TEXT_SOFT  = colors.HexColor('#9C836A')

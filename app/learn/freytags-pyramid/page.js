@@ -25,7 +25,7 @@ export default function LessonFreytag() {
       </div>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
             Freytag's Pyramid: The Original Dramatic Structure
@@ -55,11 +55,11 @@ export default function LessonFreytag() {
         <div style={{ background: 'var(--off-white)', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px', marginBottom: '28px' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2px', height: '80px', marginBottom: '12px' }}>
             {[
-              { h: 30, label: 'Exposition', color: '#B0D2BE' },
+              { h: 30, label: 'Exposition', color: '#C3D9A8' },
               { h: 55, label: 'Rising Action', color: '#6AAF3D' },
-              { h: 80, label: 'Climax', color: '#589D62' },
+              { h: 80, label: 'Climax', color: '#2D5016' },
               { h: 45, label: 'Falling Action', color: '#6AAF3D' },
-              { h: 20, label: 'Denouement', color: '#B0D2BE' },
+              { h: 20, label: 'Denouement', color: '#C3D9A8' },
             ].map((s, i) => (
               <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '80px' }}>
                 <div style={{ width: '100%', height: s.h + 'px', background: s.color, borderRadius: '4px 4px 0 0' }} />

@@ -16,7 +16,7 @@ const stages = [
     number: "01",
     title: "Write a script worth sending",
     subtitle: "The one nobody skips",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "Every conversation about agents, competitions, and query letters is irrelevant until you have a script that works. Not one that is finished. One that works. There is a difference.",
       "The test: Would you pay $15 to see this in a theater? Would you watch it twice? Would you tell three people about it afterward? If not, the script is not ready. Fix the script first.",
@@ -35,7 +35,7 @@ const stages = [
     number: "02",
     title: "Format it like a professional",
     subtitle: "Readers notice immediately",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "Screenplay format is not arbitrary. It evolved to communicate specific information to specific departments —production, casting, locations, budget. A script that is formatted incorrectly signals that the writer does not understand the industry they are trying to enter.",
       "The industry standard: 12-point Courier font, specific margin widths, slug lines in caps, action in present tense, no directing on the page. One page roughly equals one minute of screen time. A feature screenplay is 90-120 pages. A one-hour television drama is 45-65 pages.",
@@ -54,7 +54,7 @@ const stages = [
     number: "03",
     title: "Learn the industry structure",
     subtitle: "Agents, managers, producers —who does what",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "Hollywood has a specific professional structure that is not intuitive. Getting it wrong in a query letter marks you as an outsider immediately.",
       "Agents are licensed by the state and regulated by the WGA. They submit your work to buyers, negotiate deals, and take 10%. They work on commission only. They are hard to get without credits. They are the goal, not the starting point.",
@@ -73,7 +73,7 @@ const stages = [
     number: "04",
     title: "Write a query letter that gets read",
     subtitle: "One paragraph. One chance.",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "A query letter is a one-page letter asking an agent or manager to read your script. It has three parts: the hook, the logline, and the brief bio. Nothing else.",
       "The hook is one sentence that explains why this script is worth reading right now. It might reference a comparable film, a current trend, or a specific angle that makes the material urgent. It should not explain your creative process or why you wrote this story.",
@@ -91,7 +91,7 @@ const stages = [
     number: "05",
     title: "Enter the right competitions",
     subtitle: "Shortcuts that actually work",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "Screenwriting competitions are not vanity. The top competitions are actively read by agents and managers who use the finalist lists as a scouting tool. Placing in the right competition is one of the fastest ways to get legitimate industry attention as an unrepresented writer.",
       "The competitions that matter: The Nicholl Fellowship is the most prestigious —run by the Academy of Motion Picture Arts and Sciences, it produces more industry attention per placement than almost anything else. Austin Film Festival is the most industry-connected —winners and finalists are invited to pitch meetings as part of the festival. The Black List annual survey identifies the most liked unproduced scripts in circulation and makes them visible to the industry.",
@@ -110,7 +110,7 @@ const stages = [
     number: "06",
     title: "Build an online presence that helps you",
     subtitle: "What industry people actually check",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "When a manager or producer Googles your name after receiving a query, they will find what you have put there. Make that work for you.",
       "A minimal, clean personal site with your bio, a brief description of your work (no loglines or PDFs —you do not want unsolicited submissions policy issues), and a contact form. That is all you need.",
@@ -127,7 +127,7 @@ const stages = [
     number: "07",
     title: "Understand what 'getting made' actually means",
     subtitle: "The real path from script to screen",
-    color: "#589D62",
+    color: "#2D5016",
     content: [
       "The path from finished script to produced film is long, nonlinear, and survivable if you understand it clearly.",
       "Most scripts are optioned, not purchased. An option is a bet. The producer is betting they can get the script made. Most options expire without producing anything. This is normal. An optioned script is a working script —it is in the game.",
@@ -150,7 +150,7 @@ export default function RoadToHollywood() {
     <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
 
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(160deg, #1A512E 0%, var(--green) 55%, #62A81E 100%)', padding: '44px 24px 40px', textAlign: 'center' }}>
+      <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px', textAlign: 'center' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: '20px' }}>
             The Industry Guide
