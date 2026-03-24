@@ -240,7 +240,7 @@ export default function PricingPage() {
                     ? '1px solid rgba(255,255,255,0.12)'
                     : '1px solid var(--border)',
                   borderRadius: '18px',
-                  padding: isPopular ? '38px 30px 30px' : '32px 30px 28px',
+                  padding: '32px 30px 28px',
                   display: 'flex',
                   flexDirection: 'column',
                   boxShadow: isPopular
@@ -250,11 +250,11 @@ export default function PricingPage() {
                     : 'var(--shadow-sm)',
                   position: 'relative',
                   transition: 'box-shadow 0.28s ease, transform 0.28s ease',
-                  transform: isPopular ? 'translateY(-8px)' : 'none',
+                  transform: 'none',
                 }}
                 className={isPopular ? 'pricing-card-popular' : ''}
                 onMouseEnter={e => {
-                  e.currentTarget.style.transform = isPopular ? 'translateY(-14px)' : 'translateY(-6px)'
+                  e.currentTarget.style.transform = 'translateY(-6px)'
                   e.currentTarget.style.boxShadow = isPopular
                     ? '0 20px 60px rgba(45,80,22,0.22), 0 4px 16px rgba(45,80,22,0.14)'
                     : isPro
@@ -262,7 +262,7 @@ export default function PricingPage() {
                     : 'var(--shadow-lg)'
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.transform = isPopular ? 'translateY(-8px)' : 'none'
+                  e.currentTarget.style.transform = 'none'
                   e.currentTarget.style.boxShadow = isPopular
                     ? '0 8px 40px rgba(45,80,22,0.18), 0 2px 8px rgba(45,80,22,0.10)'
                     : isPro
@@ -270,17 +270,19 @@ export default function PricingPage() {
                     : 'var(--shadow-sm)'
                 }}
               >
-                {isPopular && (
-                  <div style={{
-                    position: 'absolute', top: '-13px', left: '50%', transform: 'translateX(-50%)',
-                    background: 'var(--green)', color: '#fff',
-                    fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
-                    padding: '4px 14px', borderRadius: '20px',
-                    fontFamily: 'JetBrains Mono, monospace',
-                    whiteSpace: 'nowrap',
-                    boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
-                  }}>Popular</div>
-                )}
+                {/* Popular label — in-flow so all cards align */}
+                <div style={{ height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '12px' }}>
+                  {isPopular && (
+                    <div style={{
+                      background: 'var(--green)', color: '#fff',
+                      fontSize: '10px', fontWeight: '700', letterSpacing: '0.08em', textTransform: 'uppercase',
+                      padding: '4px 14px', borderRadius: '20px',
+                      fontFamily: 'JetBrains Mono, monospace',
+                      whiteSpace: 'nowrap',
+                      boxShadow: '0 2px 8px rgba(45,80,22,0.25)',
+                    }}>Popular</div>
+                  )}
+                </div>
 
                 <div style={{ marginBottom: '24px' }}>
                   <div style={{ marginBottom: '18px' }}>

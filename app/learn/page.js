@@ -21,8 +21,11 @@ const lessons = [
     category: 'Start Here',
     badge: 'Free',
     items: [
-      { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything —not because they lack talent, but because they start wrong. Here is how to actually begin.' },
-      { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of —and how to write through it instead of around it.' },
+      { title: 'What is a story? The simplest honest answer', slug: 'what-is-a-story', time: '5 min', level: 'Beginner', preview: 'A person who wants something, and the difficulty of getting it. Before structure, before character, the definition that actually holds up.' },
+      { title: 'Character before plot: why it has to come first', slug: 'character-before-plot', time: '7 min', level: 'Beginner', preview: 'Plot is furniture. Character is the person in the room. Get this order wrong and nothing works, no matter how clever the story is.' },
+      { title: 'The first page: what your opening actually has to do', slug: 'the-first-page', time: '6 min', level: 'Beginner', preview: 'Your opening page does not need a hook. It needs a world. Here is what the first page is actually for and what kills most of them.' },
+      { title: 'How to start: the first thing every beginner needs to know', slug: 'how-to-start', time: '7 min', level: 'Beginner', preview: 'Most beginning writers never finish anything not because they lack talent, but because they start wrong. Here is how to actually begin.' },
+      { title: 'Fear and writing: why most writers stop and how not to', slug: 'fear-and-writing', time: '6 min', level: 'Beginner', preview: 'Fear is at the root of most bad writing. Here is what writers are actually afraid of and how to write through it instead of around it.' },
       { title: 'Finding your story: where ideas actually come from', slug: 'finding-your-story', time: '6 min', level: 'Beginner', preview: 'The question every writer gets asked. The honest answer is: everywhere and nowhere. Here is how to develop the habit of noticing.' },
     ],
   },
