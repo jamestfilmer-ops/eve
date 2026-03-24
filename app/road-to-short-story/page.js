@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MarketsClient from './MarketsClient'
 
 export const metadata = {
   title: "Road to Short Story Publication—Eve",
