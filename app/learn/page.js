@@ -92,10 +92,12 @@ const lessons = [
     category: 'Dialogue',
     badge: 'Dialogue',
     items: [
-
-      { title: 'How to write dialogue: the basics that actually matter', slug: 'how-to-write-dialogue', time: '8 min', level: 'Beginner', preview: 'Characters should almost never say what they mean. Here is what dialogue actually is and how to build the ear for writing it.' },      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '7 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
+      { title: 'How to write dialogue: the basics that actually matter', slug: 'how-to-write-dialogue', time: '8 min', level: 'Beginner', preview: 'Characters should almost never say what they mean. Here is what dialogue actually is and how to build the ear for writing it.' },
+      { title: 'Nobody talks to have a conversation', slug: 'dialogue-subtext', time: '7 min', level: 'Beginner', preview: 'Real people talk to get something. Every line of dialogue is a transaction. If no one wants anything, the scene is dead.' },
       { title: 'Subtext: what is not being said', slug: 'subtext', time: '6 min', level: 'Beginner', preview: 'The best dialogue is an iceberg. What is spoken is ten percent. Two people talking about the weather can break your heart.' },
       { title: 'How to write an argument that feels real', slug: 'arguments', time: '7 min', level: 'Intermediate', preview: 'Real arguments are not about what people are arguing about. They are about what people are afraid of. Write the fear, not the fight.' },
+      { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane —because that specificity is who they are.' },
+      { title: 'The Sopranos and the dramatic pause', slug: 'sopranos-drama', time: '8 min', level: 'Advanced', preview: 'The Sopranos is a masterclass in what not to rush. Silence, domesticity, and the space between scenes —that is where the show lives.' },
     ],
   },
   {
@@ -126,13 +128,11 @@ const lessons = [
     category: 'Craft',
     badge: 'Craft',
     items: [
-
-      { title: 'Writing the ending: how to finish what you started', slug: 'writing-the-ending', time: '7 min', level: 'Intermediate', preview: 'An ending needs to feel inevitable. Here is how to find the one true answer to the question your story has been asking.' },      { title: "Tarantino's dialogue: how specificity creates character", slug: 'tarantino-dialogue', time: '7 min', level: 'Advanced', preview: 'Tarantino does not write small talk. His characters talk about pop culture, food, and the mundane —because that specificity is who they are.' },
-      { title: "The Sopranos and the dramatic pause", slug: 'sopranos-drama', time: '8 min', level: 'Advanced', preview: 'The Sopranos is a masterclass in what not to rush. Silence, domesticity, and the space between scenes —that is where the show lives.' },
+      { title: 'Writing the ending: how to finish what you started', slug: 'writing-the-ending', time: '7 min', level: 'Intermediate', preview: 'An ending needs to feel inevitable. Here is how to find the one true answer to the question your story has been asking.' },
       { title: 'Pacing and rhythm: how stories breathe', slug: 'pacing-rhythm', time: '6 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight. The allocation of space is meaning.' },
       { title: 'The rewrite: what first drafts are actually for', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },
       { title: "Show, don't tell", slug: 'show-dont-tell', time: '6 min', level: 'Beginner', preview: 'The most repeated instruction in writing and the least understood. What it actually means: let the reader do the work.' },
-      { title: 'How to end a story', slug: 'the-ending', time: '7 min', level: 'Intermediate', preview: 'Endings prove what the story was about. Resolution wraps the plot. Conclusion answers the question.' }
+      { title: 'How to end a story', slug: 'the-ending', time: '7 min', level: 'Intermediate', preview: 'Endings prove what the story was about. Resolution wraps the plot. Conclusion answers the question.' },
     ],
   },
   {
@@ -194,6 +194,8 @@ const writtenSlugs = [
   'plant-payoff', 'motifs', 'secondary-characters', 'the-lie', 'character-arc',
   'flaw-vs-wound', 'character-voice', 'relationship-pairs',
   'structure-basics', 'stakes', 'opening-image',
+  'how-to-write-dialogue', 'writing-the-ending', 'show-dont-tell',
+  'shakespeare-structure',
   'color-psychology', 'tarantino-dialogue', 'sopranos-drama',
   'sequence-approach', 'kishotenketsu', 'fichtean-curve',
   'enter-late-leave-early', 'scene-turn', 'tension-without-action',
@@ -206,6 +208,8 @@ const writtenSlugs = [
   'lenses-and-depth', 'composition-and-meaning', 'mise-en-scene',
   'tracks', 'story-circle', 'save-the-cat', 'hauge-six-stage',
   'snowflake-method', 'heros-journey', 'seven-point-story', 'freytags-pyramid',
+  'pacing-rhythm', 'the-rewrite', 'the-ending', 'writing-villains',
+  'point-of-view', 'chapter-structure', 'adaptation',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
