@@ -15,18 +15,13 @@ function ProgressBar({ read, total }) {
   const pct = total === 0 ? 0 : Math.round((read / total) * 100)
   const done = pct === 100
   return (
-    <div style={{ display:'flex', alignItems:'center', gap:'8px', flexShrink:0 }}>
-      <div style={{ width:'72px', height:'4px', borderRadius:'2px', background:'var(--border)', overflow:'hidden' }}>
-        <div style={{
-          height:'100%', borderRadius:'2px',
-          background: done ? 'var(--green)' : 'linear-gradient(90deg, var(--green-light), var(--green))',
-          width:`${pct}%`,
-          transition:'width 0.5s var(--ease-out)',
-        }}/>
-      </div>
-      <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color: done ? 'var(--green)' : 'var(--text-soft)', fontWeight: done ? '700' : '400', minWidth:'28px' }}>
-        {pct}%
-      </span>
+    <div style={{ width:'64px', height:'4px', borderRadius:'2px', background:'var(--border)', overflow:'hidden', flexShrink:0 }}>
+      <div style={{
+        height:'100%', borderRadius:'2px',
+        background: done ? 'var(--green)' : 'linear-gradient(90deg, var(--green-light), var(--green))',
+        width:`${pct}%`,
+        transition:'width 0.5s var(--ease-out)',
+      }}/>
     </div>
   )
 }
@@ -222,10 +217,11 @@ export default function CategoryList({ lessons, writtenSlugs }) {
               <button onClick={() => toggle(ci)} style={{
                 width:'100%',
                 background: isOpen ? 'var(--green-pale)' : 'transparent',
-                border:'none', padding:'15px 20px', cursor:'pointer',
+                border:'none', padding:'14px 20px', cursor:'pointer',
                 display:'flex', alignItems:'center', gap:'12px',
                 textAlign:'left',
                 transition:'background 0.18s ease',
+                lineHeight: 1,
               }}>
                 <div style={{ width:'3px', height:'20px', background:'var(--green)', borderRadius:'2px', flexShrink:0, opacity:isOpen?1:0.4, transition:'opacity 0.18s ease' }}/>
                 <span style={{ fontFamily:'var(--font-display)', fontSize:'15px', fontWeight:'700', color:isOpen?'var(--green)':'var(--text-dark)', flex:1, transition:'color 0.18s ease' }}>
@@ -233,10 +229,10 @@ export default function CategoryList({ lessons, writtenSlugs }) {
                 </span>
                 <div style={{ display:'flex', alignItems:'center', gap:'10px', flexShrink:0 }}>
                   <ProgressBar read={readInCat} total={writtenInCat} />
-                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-soft)', whiteSpace:'nowrap' }}>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', color:'var(--text-soft)', whiteSpace:'nowrap', lineHeight:1 }}>
                     {writtenInCat}/{cat.items.length}
                   </span>
-                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', fontWeight:'600', letterSpacing:'0.06em', textTransform:'uppercase', padding:'2px 8px', borderRadius:'4px', background:isOpen?'var(--green)':'var(--off-white)', color:isOpen?'#fff':'var(--text-soft)', border:'1px solid', borderColor:isOpen?'var(--green)':'var(--border)', transition:'all 0.18s ease', whiteSpace:'nowrap' }}>
+                  <span style={{ fontFamily:'var(--font-mono)', fontSize:'10px', fontWeight:'600', letterSpacing:'0.06em', textTransform:'uppercase', padding:'2px 8px', borderRadius:'4px', background:isOpen?'var(--green)':'var(--off-white)', color:isOpen?'#fff':'var(--text-soft)', border:'1px solid', borderColor:isOpen?'var(--green)':'var(--border)', transition:'all 0.18s ease', whiteSpace:'nowrap', lineHeight:1 }}>
                     {cat.badge}
                   </span>
                 </div>
