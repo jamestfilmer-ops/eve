@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Stakes: Why the Reader Has to Care What Happens | Eve',
-  description: 'Stakes are not explosions or death threats. They are what the character loses if they fail. How to build personal, emotional stakes that make readers care.'t.',
+  description: 'Stakes are not explosions or death threats. They are what the character loses if they fail. How to build personal, emotional stakes that make readers care.',
 }
 
 export default function Lesson() {

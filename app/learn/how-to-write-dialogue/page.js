@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'How to Write Dialogue: The Basics That Actually Matter | Eve',
-  description: 'Characters who say exactly what they mean kill scenes. Learn the five fundamentals of dialogue that works: subtext, specificity, rhythm, silence, behavior.'t say what they mean. How to write subtext, rhythm, and voice—five fundamentals every writer needs.',
+  description: 'Characters who say exactly what they mean kill scenes. Learn the five fundamentals of dialogue that works: subtext, specificity, rhythm, silence, behavior.',
 }
 
 export default function Lesson() {
