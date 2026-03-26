@@ -5,101 +5,163 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
 
-const steps = [
+const MEDIA = [
   {
-    id: 'hello',
-    title: "Welcome to Eve.",
-    subtitle: "The craft platform for serious writers.",
-    body: "Eve is two things: a craft library and a story workspace. You can use both for free. This takes 60 seconds —then you'll be writing.",
-    cta: "Let's go",
+    id: 'screenplay',
+    label: 'Screenplay',
+    sub: 'Feature, short, or pilot',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect x="4" y="2" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+        <path d="M7 7h8M7 11h8M7 15h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+      </svg>
+    ),
   },
   {
-    id: 'learn',
-    title: "Start with the craft library.",
-    subtitle: "45+ lessons. No AI. No fluff.",
-    body: "Every lesson on Eve is grounded in what the best writers —King, Vonnegut, Pixar, Sorkin —have said about how stories actually work. Read a lesson, then put it into practice in your project.",
-    cta: "Got it",
-    links: [
-      { label: 'If you have never written before', href: '/for-beginners', desc: 'Start Here' },
-      { label: 'If you know your medium', href: '/learn/tracks', desc: 'Pick a learning path' },
-      { label: 'If you want to explore', href: '/learn', desc: 'Browse the full library' },
-    ],
+    id: 'novel',
+    label: 'Novel',
+    sub: 'Literary or genre fiction',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M4 4h14v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" stroke="currentColor" strokeWidth="1.6"/>
+        <path d="M4 4a2 2 0 012-2h10a2 2 0 012 2" stroke="currentColor" strokeWidth="1.6"/>
+        <path d="M9 10h6M9 14h4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+      </svg>
+    ),
   },
   {
-    id: 'workspace',
-    title: "Your story workspace.",
-    subtitle: "Built around frameworks that actually work.",
-    body: "When you create a project, you choose a framework —Save the Cat, Hero's Journey, Story Circle, and four more. Eve organizes your scenes, characters, and plot holes around that framework automatically.",
-    cta: "Makes sense",
-    features: [
-      { icon: '⬡', label: 'Characters', desc: 'Want, need, ghost, arc —for every character' },
-      { icon: '⬡', label: 'Scenes', desc: 'Organized by act, with framework beat labels' },
-      { icon: '⬡', label: 'Plot Holes', desc: 'Track and close the gaps as you draft' },
-      { icon: '⬡', label: 'Themes Map', desc: 'Visual canvas for the ideas underneath your story' },
-    ],
+    id: 'short',
+    label: 'Short story',
+    sub: 'Fiction under 10,000 words',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M5 5h12M5 9h12M5 13h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        <circle cx="16" cy="16" r="4" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M16 14.5v1.5l1 1" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+      </svg>
+    ),
   },
   {
-    id: 'start',
-    title: "What do you want to do first?",
-    subtitle: "You can always change your mind.",
-    body: null,
-    cta: null,
-    choices: [
-      {
-        icon: '📖',
-        label: 'Learn the craft',
-        desc: 'Start with the beginner path —nine lessons, 55 minutes.',
-        href: '/for-beginners',
-        primary: false,
-      },
-      {
-        icon: '✍️',
-        label: 'Start a project',
-        desc: 'Create your first story and choose a framework.',
-        href: '/projects/new',
-        primary: true,
-      },
-      {
-        icon: '💡',
-        label: 'Capture an idea',
-        desc: 'You have something. Get it down before it disappears.',
-        href: '/ideas',
-        primary: false,
-      },
-    ],
+    id: 'exploring',
+    label: 'Still deciding',
+    sub: 'Browsing, learning, figuring it out',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.6"/>
+        <path d="M11 7v.5M11 10.5c0-1 1.5-1.5 1.5-3a2.5 2.5 0 00-5 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="11" cy="15" r=".8" fill="currentColor"/>
+      </svg>
+    ),
   },
 ]
 
+const STAGE = [
+  { id: 'idea', label: 'I have an idea', sub: 'But nothing is written yet' },
+  { id: 'drafting', label: 'I\'m mid-draft', sub: 'A first draft is underway' },
+  { id: 'revising', label: 'I\'m revising', sub: 'A draft exists, now fixing it' },
+  { id: 'learning', label: 'Just learning', sub: 'Not working on anything specific' },
+]
+
+const GOAL = [
+  {
+    id: 'craft',
+    label: 'Learn the craft',
+    sub: 'Start with lessons on structure, character, and dialogue',
+    href: '/learn',
+    primary: false,
+  },
+  {
+    id: 'project',
+    label: 'Start a project',
+    sub: 'Create a workspace and pick a story framework',
+    href: '/projects/new',
+    primary: true,
+  },
+  {
+    id: 'idea',
+    label: 'Capture an idea',
+    sub: 'Get something down before it disappears',
+    href: '/ideas',
+    primary: false,
+  },
+]
+
+function OptionCard({ selected, onClick, children, sub, label, icon }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        display: 'flex', alignItems: 'center', gap: '14px',
+        width: '100%', textAlign: 'left',
+        padding: '14px 18px', borderRadius: '12px',
+        border: selected ? '2px solid var(--green)' : '1.5px solid var(--border)',
+        background: selected ? 'var(--green-pale)' : '#fff',
+        cursor: 'pointer', transition: 'all 0.15s ease',
+      }}
+      onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'var(--green-border)' }}
+      onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'var(--border)' }}
+    >
+      {icon && (
+        <span style={{ color: selected ? 'var(--green)' : 'var(--text-soft)', flexShrink: 0 }}>
+          {icon}
+        </span>
+      )}
+      <div style={{ flex: 1 }}>
+        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: selected ? 'var(--green)' : 'var(--text-dark)', marginBottom: '2px' }}>
+          {label}
+        </p>
+        {sub && <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', margin: 0 }}>{sub}</p>}
+      </div>
+      {selected && (
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ flexShrink: 0 }}>
+          <circle cx="9" cy="9" r="8" fill="var(--green)"/>
+          <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      )}
+    </button>
+  )
+}
+
 export default function WelcomePage() {
   const router = useRouter()
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0) // 0=hello, 1=medium, 2=stage, 3=goal
   const [name, setName] = useState('')
+  const [medium, setMedium] = useState(null)
+  const [stage, setStage] = useState(null)
   const [animating, setAnimating] = useState(false)
 
   useEffect(() => {
-    // Get user name if available
     supabase.auth.getUser().then(({ data: { user } }) => {
-      if (!user) {
-        router.push('/auth')
-        return
-      }
-      const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || ''
-      setName(displayName)
+      if (!user) { router.push('/auth'); return }
+      const n = user.user_metadata?.full_name || user.email?.split('@')[0] || ''
+      setName(n)
     })
   }, [])
 
-  function advance() {
-    if (step < steps.length - 1) {
-      setAnimating(true)
-      setTimeout(() => {
-        setStep(s => s + 1)
-        setAnimating(false)
-      }, 200)
-    }
+  function goNext() {
+    setAnimating(true)
+    setTimeout(() => { setStep(s => s + 1); setAnimating(false) }, 180)
   }
 
-  const current = steps[step]
+  async function saveAndGo(href) {
+    // Save preferences to profile
+    try {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        await supabase.from('profiles').upsert({
+          id: user.id,
+          writing_medium: medium,
+          writing_stage: stage,
+          onboarding_done: true,
+          updated_at: new Date().toISOString(),
+        }, { onConflict: 'id' })
+      }
+    } catch {}
+    router.push(href)
+  }
+
   const firstName = name.split(' ')[0]
+  const totalSteps = 4
 
   return (
     <div style={{
@@ -107,139 +169,164 @@ export default function WelcomePage() {
       background: 'var(--off-white)', padding: '24px',
     }}>
       <div style={{
-        width: '100%', maxWidth: '540px',
+        width: '100%', maxWidth: '520px',
         opacity: animating ? 0 : 1,
-        transform: animating ? 'translateY(8px)' : 'translateY(0)',
-        transition: 'opacity 0.2s, transform 0.2s',
+        transform: animating ? 'translateY(6px)' : 'none',
+        transition: 'opacity 0.18s ease, transform 0.18s ease',
       }}>
 
-        {/* Step dots */}
-        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', marginBottom: '40px' }}>
-          {steps.map((_, i) => (
+        {/* Progress dots */}
+        <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', marginBottom: '36px' }}>
+          {Array.from({ length: totalSteps }).map((_, i) => (
             <div key={i} style={{
-              width: i === step ? '24px' : '6px', height: '6px', borderRadius: '3px',
-              background: i === step ? 'var(--green)' : i < step ? 'var(--green-light)' : 'var(--border)',
+              height: '5px', borderRadius: '3px',
+              width: i === step ? '28px' : '8px',
+              background: i <= step ? 'var(--green)' : 'var(--border)',
               transition: 'all 0.3s ease',
             }} />
           ))}
         </div>
 
-        {/* Card */}
         <div style={{
-          background: '#fff', border: '1px solid var(--border)',
-          borderRadius: '20px', padding: '40px',
-          boxShadow: '0 4px 24px rgba(26,20,15,0.08)',
+          background: '#fff', border: '1px solid var(--border)', borderRadius: '20px',
+          padding: '36px 40px', boxShadow: '0 4px 28px rgba(26,20,15,0.07)',
         }}>
 
-          {/* Badge */}
-          <div style={{ marginBottom: '20px' }}>
-            <span style={{
-              fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em',
-              textTransform: 'uppercase', color: 'var(--green)',
-              background: 'var(--green-pale)', border: '1px solid var(--green-border)',
-              padding: '4px 10px', borderRadius: '20px',
-            }}>
-              {step === 0 && firstName ? `Hello, ${firstName}` : `Step ${step + 1} of ${steps.length}`}
-            </span>
-          </div>
-
-          {/* Title */}
-          <h1 style={{
-            fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 30px)',
-            fontWeight: '700', color: 'var(--text-dark)', lineHeight: '1.2',
-            marginBottom: '8px',
-          }}>
-            {current.title}
-          </h1>
-          <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '12px', color: 'var(--text-soft)', marginBottom: '20px' }}>
-            {current.subtitle}
-          </p>
-
-          {current.body && (
-            <p style={{
-              fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8',
-              color: 'var(--text-mid)', marginBottom: '24px',
-            }}>
-              {current.body}
-            </p>
+          {/* ── STEP 0: Hello ── */}
+          {step === 0 && (
+            <>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'linear-gradient(160deg, #2D5016, var(--green))', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: '700', color: 'var(--text-dark)', lineHeight: '1.2', marginBottom: '12px' }}>
+                {firstName ? `Welcome, ${firstName}.` : 'Welcome to Eve.'}
+              </h1>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '28px' }}>
+                Eve is a craft library and a story workspace — built for writers who take the work seriously. Two quick questions and you are in.
+              </p>
+              <button onClick={goNext} style={{ width: '100%', background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '10px', padding: '14px', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
+                Let&apos;s go
+              </button>
+            </>
           )}
 
-          {/* Links (step 2) */}
-          {current.links && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-              {current.links.map((link, i) => (
-                <Link key={i} href={link.href} style={{ textDecoration: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', border: '1px solid var(--border)', borderRadius: '10px', background: 'var(--off-white)' }}>
-                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)' }}>{link.label}</span>
-                  <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--green)' }}>{link.desc} →</span>
-                </Link>
-              ))}
-            </div>
+          {/* ── STEP 1: Medium ── */}
+          {step === 1 && (
+            <>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '14px' }}>Question 1 of 2</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>
+                What are you working on?
+              </h2>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', marginBottom: '22px' }}>Pick the one that fits best.</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                {MEDIA.map(m => (
+                  <OptionCard
+                    key={m.id}
+                    selected={medium === m.id}
+                    onClick={() => setMedium(m.id)}
+                    label={m.label}
+                    sub={m.sub}
+                    icon={m.icon}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={goNext}
+                disabled={!medium}
+                style={{ width: '100%', background: medium ? 'var(--green)' : 'var(--border)', color: medium ? '#fff' : 'var(--text-soft)', border: 'none', borderRadius: '10px', padding: '14px', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', cursor: medium ? 'pointer' : 'not-allowed', transition: 'all 0.2s' }}>
+                Continue
+              </button>
+            </>
           )}
 
-          {/* Features (step 3) */}
-          {current.features && (
-            <div className="welcome-features-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '24px' }}>
-              {current.features.map((feat, i) => (
-                <div key={i} style={{ padding: '14px', border: '1px solid var(--border)', borderRadius: '10px', background: 'var(--off-white)' }}>
-                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', marginBottom: '4px' }}>{feat.label}</p>
-                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{feat.desc}</p>
+          {/* ── STEP 2: Stage ── */}
+          {step === 2 && (
+            <>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '14px' }}>Question 2 of 2</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>
+                Where are you in the process?
+              </h2>
+              <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', marginBottom: '22px' }}>No wrong answer.</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                {STAGE.map(s => (
+                  <OptionCard
+                    key={s.id}
+                    selected={stage === s.id}
+                    onClick={() => setStage(s.id)}
+                    label={s.label}
+                    sub={s.sub}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={goNext}
+                disabled={!stage}
+                style={{ width: '100%', background: stage ? 'var(--green)' : 'var(--border)', color: stage ? '#fff' : 'var(--text-soft)', border: 'none', borderRadius: '10px', padding: '14px', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', cursor: stage ? 'pointer' : 'not-allowed', transition: 'all 0.2s' }}>
+                Continue
+              </button>
+            </>
+          )}
+
+          {/* ── STEP 3: Goal / routing ── */}
+          {step === 3 && (
+            <>
+              <div style={{ marginBottom: '20px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                  <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--green)' }} />
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--green)' }}>You&apos;re all set</span>
                 </div>
-              ))}
-            </div>
-          )}
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>
+                  Where do you want to start?
+                </h2>
+                <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-soft)', margin: 0 }}>You can always change course.</p>
+              </div>
 
-          {/* Choices (step 4) */}
-          {current.choices && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '8px' }}>
-              {current.choices.map((choice, i) => (
-                <Link key={i} href={choice.href} style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '16px',
-                    padding: '16px 20px', borderRadius: '12px',
-                    border: choice.primary ? '2px solid var(--green)' : '1px solid var(--border)',
-                    background: choice.primary ? 'var(--green-pale)' : '#fff',
-                    cursor: 'pointer', transition: 'box-shadow 0.15s',
-                  }}>
-                    <span style={{ fontSize: '22px', flexShrink: 0 }}>{choice.icon}</span>
-                    <div>
-                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: choice.primary ? 'var(--green)' : 'var(--text-dark)', marginBottom: '2px' }}>{choice.label}</p>
-                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.4' }}>{choice.desc}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
+                {GOAL.map(g => (
+                  <button
+                    key={g.id}
+                    onClick={() => saveAndGo(g.href)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '16px',
+                      width: '100%', textAlign: 'left',
+                      padding: '16px 20px', borderRadius: '12px',
+                      border: g.primary ? '2px solid var(--green)' : '1.5px solid var(--border)',
+                      background: g.primary ? 'var(--green-pale)' : '#fff',
+                      cursor: 'pointer', transition: 'box-shadow 0.15s',
+                    }}
+                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 2px 12px rgba(45,80,22,0.12)'}
+                    onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+                  >
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: g.primary ? 'var(--green)' : 'var(--text-dark)', marginBottom: '3px' }}>{g.label}</p>
+                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', margin: 0, lineHeight: '1.4' }}>{g.sub}</p>
                     </div>
-                  </div>
-                </Link>
-              ))}
-              <Link href="/dashboard" style={{ textDecoration: 'none', textAlign: 'center', display: 'block', paddingTop: '4px' }}>
-                <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)' }}>Or go to the dashboard →</span>
-              </Link>
-            </div>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ flexShrink: 0, color: g.primary ? 'var(--green)' : 'var(--text-soft)' }}>
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                ))}
+              </div>
+
+              <button onClick={() => saveAndGo('/dashboard')} style={{ width: '100%', background: 'transparent', border: 'none', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-soft)', cursor: 'pointer', padding: '8px' }}>
+                Take me to the dashboard
+              </button>
+            </>
           )}
 
-          {/* CTA button */}
-          {current.cta && (
-            <button
-              onClick={advance}
-              style={{
-                width: '100%', background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', color: '#fff',
-                border: 'none', borderRadius: '10px', padding: '14px',
-                fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px',
-                cursor: 'pointer', transition: 'opacity 0.15s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
-              onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-            >
-              {current.cta}
-            </button>
-          )}
         </div>
 
         {/* Skip */}
-        {step < steps.length - 1 && (
-          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+        {step > 0 && step < 3 && (
+          <div style={{ textAlign: 'center', marginTop: '14px' }}>
             <Link href="/dashboard" style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', textDecoration: 'none' }}>
-              Skip intro → go to dashboard
+              Skip and go to dashboard
             </Link>
           </div>
         )}
+
       </div>
     </div>
   )
