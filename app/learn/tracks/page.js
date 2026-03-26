@@ -3,7 +3,7 @@ import TracksClient from './TracksClient'
 
 export const metadata = {
   title: "Learning Paths —Eve Craft Library",
-  description: "Structured learning paths for screenwriters, novelists, and beginning writers. Follow a curated sequence of lessons from intro to advanced —or build your own path through the craft library.",
+  description: 'Structured learning paths for screenwriters, novelists, and beginning writers. From first draft to finished story, follow the path that fits where you are.',
   keywords: "screenwriting learning path, how to learn screenwriting, novel writing course free, story structure course, beginner writer lessons, screenplay structure tutorial",
   openGraph: {
     title: "Learning Paths —Eve Craft Library",

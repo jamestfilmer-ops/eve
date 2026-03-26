@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: "Show, Don't Tell: What It Actually Means | Eve",
-  description: "The most quoted and most misunderstood piece of writing advice. It means: do not tell the reader what to feel—show them the evidence and let them arrive at the feeling themselves.",
+  description: 'The most quoted and most misunderstood writing rule. What it actually means, when to break it, and how to use it to write scenes with real emotional force.',
 }
 
 export default function Lesson() {

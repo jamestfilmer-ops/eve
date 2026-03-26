@@ -4,7 +4,7 @@ import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Grading as Storytelling | Eve',
-  description: 'What the digital intermediate suite does to meaning. Teal-orange, bleach-bypass, hyper-saturation, silver retention—how post-production color decisions rewrite a film.',
+  description: 'How color grading shapes mood, genre, and character in film. The teal-orange look, desaturation, bleach bypass, and what each grade communicates to audiences.',
 }
 
 const gradingStyles = [

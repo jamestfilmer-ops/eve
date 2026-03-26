@@ -4,7 +4,7 @@ import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Lighting as Storytelling—Hard Light, Soft Light, Shadow | Eve',
-  description: 'How lighting communicates character, genre, and emotional truth in film and fiction. Hard light, soft light, high-key, low-key, and practical lighting explained.',
+  description: 'How lighting communicates character and emotional truth. Hard light, soft light, high-key, low-key, and practical lighting as storytelling tools.',
   keywords: 'film lighting storytelling, hard light soft light film, chiaroscuro cinema, Rembrandt lighting film, motivated light film, noir lighting, cinematography lighting meaning',
 }
 
