@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Finding Your Story: Where Ideas Actually Come From | Eve',
-  description: 'Where do ideas come from? Everywhere and nowhere is the honest answer. But the more useful answer is: from paying attention differently to the world you already inhabit.',
+  description: 'Where ideas actually come from and how to find yours. Paying attention differently, following obsession, and building the habit of noticing story fragments.',
 }
 
 export default function Lesson() {

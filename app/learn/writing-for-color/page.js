@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Writing for Color—How to Indicate Visual Intent Without Directing | Eve',
-  description: 'How to write a world that demands specific color choices without writing a shooting script. The techniques screenwriters and novelists use to embed visual intent in prose.',
+  description: 'How to write visual and emotional color into prose and screenplays without over-directing. Techniques for embedding color meaning through character perception.',
 }
 
 const techniques = [

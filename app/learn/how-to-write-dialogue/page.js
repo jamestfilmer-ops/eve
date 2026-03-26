@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'How to Write Dialogue: The Basics That Actually Matter | Eve',
-  description: 'Most dialogue problems come from one mistake: characters saying what they mean. Real dialogue is what people say instead of what they mean — and learning that changes everything.',
+  description: 'Most dialogue problems come from characters saying what they mean. Learn the five fundamentals of dialogue that works: subtext, specificity, rhythm, silence, and behavior.'t say what they mean. How to write subtext, rhythm, and voice—five fundamentals every writer needs.',
 }
 
 export default function Lesson() {

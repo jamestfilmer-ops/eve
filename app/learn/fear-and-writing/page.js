@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Fear and Writing: Why Most Writers Stop and How Not To | Eve',
-  description: 'Fear is at the root of most bad writing. Not lack of talent, not lack of time—fear. Understanding what writers are actually afraid of is the first step to writing through it.',
+  description: 'Fear is at the root of most bad writing. Understanding what writers are actually afraid of is the first step to writing through it.'s what writers are afraid of and how to write through it.',
 }
 
 export default function Lesson() {

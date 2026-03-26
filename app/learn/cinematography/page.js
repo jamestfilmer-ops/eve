@@ -5,7 +5,7 @@ import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Cinematography: Shot Types, Angles and Camera Movement | Eve',
-  description: 'A complete guide to shot types, camera angles, camera movement, and what each communicates emotionally. For screenwriters, novelists, and anyone who wants to understand how cinema works.',
+  description: 'Shot types, camera angles, camera movement, and what each communicates to the audience. A practical guide to visual storytelling for writers and filmmakers.',
   keywords: 'shot types film, camera angles storytelling, close up meaning film, wide shot meaning, cinematography for writers, camera movement emotion, film grammar',
 }
 

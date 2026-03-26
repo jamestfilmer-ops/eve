@@ -4,7 +4,7 @@ import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Theory in Film and Fiction—Visual Storytelling | Eve',
-  description: 'How color functions as storytelling language in film and fiction. Red, blue, yellow, green, white, black—what each communicates, famous examples, and how to use color deliberately in your writing.',
+  description: 'How color functions as storytelling language. Red, blue, yellow, and the psychological associations that make color one of the fastest communicators in film.',
   keywords: 'color theory film, color symbolism storytelling, color psychology cinema, color in film narrative, red in film meaning, blue in film meaning',
 }
 

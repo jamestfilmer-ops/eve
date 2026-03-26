@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Color Psychology in Film and Fiction | Eve',
-  description: 'Color is not decoration. Every deliberate color choice in a story communicates meaning before a single word is spoken. Here is how the best storytellers use it.',
+  description: 'Color is not decoration. Every deliberate color choice communicates meaning before a word is spoken. How the best storytellers use it.',
 }
 
 export default function Lesson() {

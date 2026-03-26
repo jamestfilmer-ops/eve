@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'How to Start: The First Thing Every Beginner Needs to Know | Eve',
-  description: 'Most beginning writers never finish anything—not because they lack talent, but because they start wrong. The problem is almost never ability. It is almost always approach.',
+  description: 'Most beginning writers start wrong. Learn where scenes actually begin, how to write a first draft nobody reads, and how to build the daily practice that gets you there.',
 }
 
 export default function Lesson() {

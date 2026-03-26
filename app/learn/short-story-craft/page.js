@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Writing Short Stories—Craft, Form, and Getting Published | Eve',
-  description: 'How short stories work. The compressed form, the single effect, the ending that recontextualizes everything. A guide to writing and publishing short fiction.',
+  description: 'How short fiction works differently from novels and screenplays. Compression, the single moment of change, and the techniques that make short stories land.',
 }
 
 export default function LessonShortStoryCraft() {

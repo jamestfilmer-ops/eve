@@ -4,7 +4,7 @@ import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Composition and Meaning—Framing, Rule of Thirds, Negative Space | Eve',
-  description: 'How where a character sits in the frame tells a story. Rule of thirds, headroom, lead room, symmetry, negative space—the grammar of visual composition in film and photography.',
+  description: 'How framing communicates power, isolation, and longing. Rule of thirds, headroom, lead room, and the compositions that give scenes meaning without dialogue.',
 }
 
 const principles = [

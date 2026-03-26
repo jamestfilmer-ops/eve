@@ -4,7 +4,7 @@ import { WikiImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Mise-en-Scene: The Frame as Total Argument | Eve',
-  description: 'Mise-en-scene is everything visible in the frame working together—costume, set, light, performance, composition, camera. How the greatest directors use the whole frame as a single controlled argument.',
+  description: 'How mise-en-scene works as storytelling language. Costume, set design, lighting, and framing as tools for revealing character and meaning before anyone speaks.',
 }
 
 const elements = [

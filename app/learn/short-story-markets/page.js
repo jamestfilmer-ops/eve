@@ -3,7 +3,7 @@ import PaywallBlur from '../../components/PaywallBlur'
 
 export const metadata = {
   title: 'Where to Publish Short Stories—Literary Magazines & Markets | Eve',
-  description: 'The top literary magazines accepting short fiction, from the Paris Review to Tin House. Submission guidelines, pay rates, and what each publication actually wants.',
+  description: 'Where to publish short fiction. Literary magazines, genre markets, and online publications that pay writers at every stage of their career.',
 }
 
 export default function LessonShortStoryMarkets() {

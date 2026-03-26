@@ -4,7 +4,7 @@ import { UnsplashImage } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Lenses, Depth of Field, and Character | Eve',
-  description: 'How focal length and depth of field communicate psychological states. Wide lenses exaggerate distance, long lenses compress and isolate, shallow depth separates characters from their world.',
+  description: 'How focal length and depth of field communicate psychological states. Wide lenses, telephoto compression, and shallow focus as tools for character and mood.',
 }
 
 const lensTypes = [

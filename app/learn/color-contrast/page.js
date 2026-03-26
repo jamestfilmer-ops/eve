@@ -4,7 +4,7 @@ import { WikiImage, ImagePair } from '../../components/CraftImage'
 
 export const metadata = {
   title: 'Color Contrast in Film—Warm vs Cool, Saturated vs Desaturated | Eve',
-  description: 'How color contrast creates dramatic tension. Warm vs cool, saturated vs desaturated, complementary colors—the mechanics of visual conflict and what they communicate emotionally.',
+  description: 'How color contrast creates dramatic tension. Warm versus cool, saturated versus desaturated, and the deliberate oppositions that give scenes visual and emotional power.',
 }
 
 const contrastTypes = [
