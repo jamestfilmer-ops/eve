@@ -566,11 +566,11 @@ export default function Home() {
 
       {/* Content depth signal */}
       <section className="section-fade" style={{ background: '#2D5016', padding: '56px 24px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1300px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '2px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '12px' }}>
             {[
               { number: '58+', label: 'Craft lessons', sub: 'Screenwriting, novels, and short fiction', href: '/learn' },
               { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
@@ -579,7 +579,7 @@ export default function Home() {
               { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading list', href: '/road-to-hollywood' },
               { number: '53+', label: 'Famous scripts', sub: 'With direct links to every source', href: '/scripts' },
             ].map((s, i) => (
-              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '20px 24px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
+              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '24px 20px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
                 onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
               >
