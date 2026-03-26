@@ -221,7 +221,7 @@ function PricingSection() {
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '20px',
-          alignItems: 'start',
+          alignItems: 'stretch',
         }}>
           {plans.map((plan, idx) => {
             const price = billing === 'annual' ? plan.annual : plan.monthly
@@ -350,7 +350,7 @@ function PricingSection() {
                 <div style={{ height: '1px', background: isPro ? 'rgba(255,255,255,0.12)' : 'var(--border)', marginBottom: '22px' }} />
 
                 {/* Features */}
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '11px', marginBottom: '28px' }}>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '11px', marginBottom: '0' }}>
                   {plan.features.map((f, fi) => {
                     const isDim = typeof f === 'object' && f.dim
                     const text = typeof f === 'object' ? f.label : f
@@ -388,6 +388,7 @@ function PricingSection() {
                 </div>
 
                 {/* CTA button */}
+                <div style={{ marginTop: '28px' }}>
                 {plan.ctaStyle === 'ghost' && (
                   <a href="/auth?signup=true" style={{ textDecoration: 'none' }}>
                     <button className="btn-ghost" style={{ width: '100%', padding: '12px', fontSize: '14px', fontWeight: '600' }}>
@@ -420,6 +421,7 @@ function PricingSection() {
                     >{plan.cta}</button>
                   </a>
                 )}
+                </div>
               </div>
             )
           })}
