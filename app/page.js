@@ -696,54 +696,40 @@ export default function Home() {
               Every project starts with a structure choice. Pick the framework that fits how you think — or skip the template entirely and build your own.
             </p>
           </div>
-          {/* Scroll hint arrows */}
-          <div style={{ position: 'relative' }}>
-            <div style={{
-              display: 'flex',
-              gap: '20px',
-              overflowX: 'auto',
-              paddingBottom: '16px',
-              scrollSnapType: 'x mandatory',
-              scrollBehavior: 'smooth',
-              msOverflowStyle: 'none',
-              scrollbarWidth: 'none',
-              cursor: 'grab',
-            }}
-              className="framework-carousel"
-            >
-              {frameworks.map((f, i) => (
-                <div key={i} className="card" style={{
-                  padding: '26px',
-                  minWidth: '290px',
-                  maxWidth: '290px',
-                  scrollSnapAlign: 'start',
-                  flexShrink: 0,
-                }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                    <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)' }}>{f.name}</h3>
-                    <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0, marginLeft: '8px' }}>{f.acts}</span>
-                  </div>
-                  <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
-                  <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '14px' }}>{f.description}</p>
-                  <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '16px',
+            marginBottom: '16px',
+          }}>
+            {frameworks.slice(0, 4).map((f, i) => (
+              <div key={i} className="card" style={{ padding: '26px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
+                  <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3' }}>{f.name}</h3>
+                  <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>
                 </div>
-              ))}
-            </div>
-            {/* Fade right edge hint */}
-            <div style={{
-              position: 'absolute', top: 0, right: 0, bottom: '16px',
-              width: '60px', pointerEvents: 'none',
-              background: 'linear-gradient(to right, transparent, var(--off-white))',
-            }} />
+                <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
+                <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '14px', flex: 1 }}>{f.description}</p>
+                <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
+              </div>
+            ))}
           </div>
-          <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--text-soft)' }}>
-              <path d="M9 4l-4 3 4 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>Scroll to see all 7</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--text-soft)' }}>
-              <path d="M5 4l4 3-4 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '16px',
+          }}>
+            {frameworks.slice(4).map((f, i) => (
+              <div key={i} className="card" style={{ padding: '26px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
+                  <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3' }}>{f.name}</h3>
+                  <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>
+                </div>
+                <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '10px' }}>by {f.author}</p>
+                <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '14px', flex: 1 }}>{f.description}</p>
+                <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
