@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'What Pixar Teaches About Story That Applies to Everything | Eve',
@@ -22,6 +23,7 @@ export default function Lesson() {
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>6 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+                      <LessonProgress slug="pixar-story-rules" />
           </div>
         </div>
       </div>

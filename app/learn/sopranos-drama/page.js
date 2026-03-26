@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: "The Sopranos and the Pause: What Not to Rush | Eve",
@@ -20,6 +21,7 @@ export default function Lesson() {
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#EFF6E7', color: '#2D5016' }}>Craft</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>8 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Advanced</span>
+                      <LessonProgress slug="sopranos-drama" />
           </div>
         </div>
       </div>

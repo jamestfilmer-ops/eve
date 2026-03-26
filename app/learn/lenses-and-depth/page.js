@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { UnsplashImage } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Lenses, Depth of Field, and Character | Eve',
@@ -77,6 +78,7 @@ export default function LensesAndDepthLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>11 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Advanced</span>
+                      <LessonProgress slug="lenses-and-depth" />
           </div>
         </div>
       </div>

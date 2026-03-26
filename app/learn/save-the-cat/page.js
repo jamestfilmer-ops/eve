@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: "Save the Cat: Blake Snyder's 15-Beat Structure —Eve",
@@ -39,6 +40,7 @@ export default function LessonSaveTheCat() {
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#F0F2FF', color: '#3D52C4' }}>Framework</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>9 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+                      <LessonProgress slug="save-the-cat" />
           </div>
         </div>
       </div>

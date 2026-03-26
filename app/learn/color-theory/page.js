@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage, ImagePair } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Color Theory in Film and Fiction—Visual Storytelling | Eve',
@@ -249,6 +250,7 @@ export default function ColorTheoryLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>12 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Intermediate</span>
+                      <LessonProgress slug="color-theory" />
           </div>
         </div>
       </div>

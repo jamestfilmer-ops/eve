@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: "Kishōtenketsu: Story Without Conflict | Eve",
@@ -19,6 +20,7 @@ export default function Lesson() {
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#EFF6E7', color: '#2D5016' }}>Structure</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>5 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Advanced</span>
+                      <LessonProgress slug="kishotenketsu" />
           </div>
         </div>
       </div>

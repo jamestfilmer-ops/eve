@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Pacing and Rhythm: How to Control the Speed of a Story | Eve',
@@ -22,6 +23,7 @@ export default function Lesson() {
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>8 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Intermediate</span>
+                      <LessonProgress slug="pacing-rhythm" />
           </div>
         </div>
       </div>

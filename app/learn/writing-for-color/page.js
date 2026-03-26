@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Writing for Color—How to Indicate Visual Intent Without Directing | Eve',
@@ -62,6 +63,7 @@ export default function WritingForColorLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Advanced</span>
+                      <LessonProgress slug="writing-for-color" />
           </div>
         </div>
       </div>

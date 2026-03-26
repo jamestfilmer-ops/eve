@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'The First Page: What Your Opening Actually Has to Do | Eve',
@@ -20,6 +21,7 @@ export default function Lesson() {
               Start Here
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>6 min</span>
+                      <LessonProgress slug="the-first-page" />
           </div>
         </div>
       </div>

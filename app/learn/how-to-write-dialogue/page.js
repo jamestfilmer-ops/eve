@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'How to Write Dialogue: The Basics That Actually Matter | Eve',
@@ -18,6 +19,7 @@ export default function Lesson() {
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', background: 'var(--green-pale)', color: 'var(--green)', border: '1px solid var(--green-border)', padding: '3px 8px', borderRadius: '4px' }}>Dialogue</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>8 min</span>
+                      <LessonProgress slug="how-to-write-dialogue" />
           </div>
         </div>
       </div>

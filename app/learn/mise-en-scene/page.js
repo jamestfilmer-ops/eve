@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Mise-en-Scene: The Frame as Total Argument | Eve',
@@ -81,6 +82,7 @@ export default function MiseEnSceneLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>15 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Advanced</span>
+                      <LessonProgress slug="mise-en-scene" />
           </div>
         </div>
       </div>

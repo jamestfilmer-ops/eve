@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage, ImagePair } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Lighting as Storytelling—Hard Light, Soft Light, Shadow | Eve',
@@ -118,6 +119,7 @@ export default function LightingAndStoryLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>13 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Intermediate</span>
+                      <LessonProgress slug="lighting-and-story" />
           </div>
         </div>
       </div>

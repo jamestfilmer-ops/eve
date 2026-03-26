@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'What Kurt Vonnegut Knew That Every Beginner Needs to Hear | Eve',
@@ -21,6 +22,7 @@ export default function Lesson() {
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>6 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+                      <LessonProgress slug="vonnegut-craft" />
           </div>
         </div>
       </div>

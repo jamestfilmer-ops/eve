@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Writing the Ending: How to Finish What You Started | Eve',
@@ -18,6 +19,7 @@ export default function Lesson() {
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.08em', textTransform: 'uppercase', background: 'var(--green-pale)', color: 'var(--green)', border: '1px solid var(--green-border)', padding: '3px 8px', borderRadius: '4px' }}>Craft</span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
+                      <LessonProgress slug="writing-the-ending" />
           </div>
         </div>
       </div>

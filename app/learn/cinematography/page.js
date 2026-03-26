@@ -2,6 +2,7 @@ import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { ShotScaleDiagram } from '../../components/ShotDiagram'
 import { WikiImage } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Cinematography: Shot Types, Angles and Camera Movement | Eve',
@@ -200,6 +201,7 @@ export default function CinematographyLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>14 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+                      <LessonProgress slug="cinematography" />
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { AngleDiagram, DutchAngleDiagram } from '../../components/ShotDiagram'
 import { WikiImage } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Camera Angles and Power—Visual Storytelling | Eve',
@@ -140,6 +141,7 @@ export default function CameraAnglesLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>10 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
+                      <LessonProgress slug="camera-angles" />
           </div>
         </div>
       </div>

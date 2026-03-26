@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PaywallBlur from '../../components/PaywallBlur'
 import { WikiImage, ImagePair } from '../../components/CraftImage'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Color Contrast in Film—Warm vs Cool, Saturated vs Desaturated | Eve',
@@ -81,6 +82,7 @@ export default function ColorContrastLesson() {
             <span className="badge">Visual</span>
             <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)' }}>9 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Intermediate</span>
+                      <LessonProgress slug="color-contrast" />
           </div>
         </div>
       </div>

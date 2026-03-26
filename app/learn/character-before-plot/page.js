@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'Character Before Plot: Why It Has to Come First | Eve',
@@ -20,6 +21,7 @@ export default function Lesson() {
               Start Here
             </span>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
+                      <LessonProgress slug="character-before-plot" />
           </div>
         </div>
       </div>
