@@ -8,6 +8,9 @@ import { useState, useEffect } from 'react'
 // this page is client-only so metadata is set in the parent route's head.
 // SEO is handled through rich content, semantic HTML, and structured data below.
 
+// Further reading books per lesson slug — extend as needed
+const lessonBooks = {}
+
 const lessons = {
   'what-is-a-story': {
     title: 'What is a story? The simplest honest answer',
