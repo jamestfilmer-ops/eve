@@ -360,7 +360,7 @@ function SessionInner() {
         <div className="card" style={{ padding: '48px 40px' }}>
           <h2 style={{ fontSize: '22px', marginBottom: '12px' }}>Sign in to use Session Mode</h2>
           <p style={{ color: 'var(--text-mid)', marginBottom: '24px', lineHeight: '1.65' }}>
-            Session mode saves your beat answers to your project so you can pick up exactly where you left off.
+            Session mode works through your story beat by beat. Every answer saves to your project so you can stop and pick up exactly where you left off.
           </p>
           <button className="btn-primary" onClick={() => router.push('/auth')}>Sign in</button>
         </div>
@@ -569,7 +569,7 @@ function SessionInner() {
       {pct === 100 && (
         <div className="fade-up" style={{ marginTop: '32px', textAlign: 'center', padding: '32px', background: 'var(--green-pale)', borderRadius: '12px', border: '1px solid var(--green-border)' }}>
           <p style={{ fontSize: '18px', fontFamily: 'var(--font-display)', color: 'var(--green)', marginBottom: '8px' }}>Session complete.</p>
-          <p style={{ fontSize: '14px', color: 'var(--text-mid)', marginBottom: '20px' }}>All beats answered. Time to write.</p>
+          <p style={{ fontSize: '14px', color: 'var(--text-mid)', marginBottom: '20px' }}>Every beat is answered. The structural work is done — now write.</p>
           <Link href={`/projects/${projectId}`} style={{ textDecoration: 'none' }}>
             <button className="btn-primary">Back to project →</button>
           </Link>

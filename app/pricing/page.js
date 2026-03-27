@@ -15,7 +15,7 @@ const plans = [
     monthly: 0,
     annual: 0,
     annualTotal: null,
-    sub: 'Get started. No card, no catch.',
+    sub: 'Every lesson. One project. No card.',
     cta: 'Start free',
     ctaStyle: 'ghost',
     features: [
@@ -35,7 +35,7 @@ const plans = [
     monthly: 1.99,
     annual: 1.00,
     annualTotal: 12,
-    sub: 'Everything unlocked. Less than a coffee.',
+    sub: 'Unlimited everything. Less than a coffee a month.',
     cta: 'Unlock everything',
     ctaStyle: 'primary',
     popular: true,
@@ -56,7 +56,7 @@ const plans = [
     monthly: 9.99,
     annual: 5.00,
     annualTotal: 60,
-    sub: 'For coaches, instructors, and working pros.',
+    sub: 'For writing coaches, instructors, and working pros.',
     cta: 'Get Professional',
     ctaStyle: 'inverted',
     features: [
@@ -163,10 +163,10 @@ export default function PricingPage() {
             marginBottom: '18px',
             lineHeight: '1.15',
           }}>
-            Start for free. Upgrade when it's worth it.
+            Start free. Pay when it&apos;s worth it.
           </h1>
           <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 32px', lineHeight: '1.75' }}>
-            Every writer gets the full craft library free forever. Tools unlock as your story demands them.
+            All 65 craft lessons are free, forever. The workspace tools unlock when your story is ready for them.
           </p>
 
           {/* Billing toggle */}
@@ -544,9 +544,9 @@ export default function PricingPage() {
             color: '#fff',
             marginBottom: '14px',
             lineHeight: '1.2',
-          }}>Your story's waiting.</h2>
+          }}>Ready when you are.</h2>
           <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', marginBottom: '28px', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.7' }}>
-            Free forever. No card required. Every lesson included.
+            Start free. No card. Every lesson included from day one.
           </p>
           <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
             <button style={{

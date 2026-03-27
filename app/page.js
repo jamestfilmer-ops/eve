@@ -57,20 +57,20 @@ const frameworks = [
 
 const pillars = [
   {
-    title: "Start with whatever you've got",
-    body: "A character name. A feeling. One line of dialogue that won't leave you alone. That's enough. Eve helps you build from there."
+    title: "One line is enough to start",
+    body: "A name. A feeling. A scene you keep returning to. You don't need a full outline — you need somewhere to put what you already have. Eve is that place."
   },
   {
-    title: "Know your people",
-    body: "The best stories are powered by character. Figure out who they are, what they want, and what they're afraid to admit — before you decide what happens to them."
+    title: "Character before everything",
+    body: "Most stories stall because the writer started with plot. What does your protagonist want? What are they afraid of? What do they need that they'd never admit? Answer those three things and the story starts moving."
   },
   {
-    title: "Catch what's broken early",
-    body: "Plot holes aren't failure. They're information. Flag them as you go, name what's missing, and come back when you're ready. That's how real stories get fixed."
+    title: "Name what's broken",
+    body: "Every draft has holes. The ones you ignore become the ones that sink the story. Eve gives you a place to flag them while they're small — before they're structural."
   },
   {
-    title: "Pick up right where you stopped",
-    body: "Writing happens in stolen hours. Eve remembers exactly where you left off — no scrolling, no re-reading, no lost momentum."
+    title: "Pick up without losing the thread",
+    body: "Real writing happens in twenty-minute gaps between everything else. Eve keeps your scenes, characters, and structure exactly where you left them — so the next session costs nothing to start."
   },
 ]
 
@@ -91,7 +91,7 @@ function PricingSection() {
       monthly: 0,
       annual: 0,
       annualTotal: null,
-      sub: 'Get started. No card, no catch.',
+      sub: 'Every lesson. One project. No card.',
       cta: 'Start free',
       ctaStyle: 'ghost',
       features: [
@@ -113,7 +113,7 @@ function PricingSection() {
       monthly: 1.99,
       annual: 1.00,
       annualTotal: 12,
-      sub: 'Everything unlocked. Less than a coffee.',
+      sub: 'Unlimited everything. Less than a coffee a month.',
       cta: 'Unlock everything',
       ctaStyle: 'primary',
       popular: true,
@@ -136,7 +136,7 @@ function PricingSection() {
       monthly: 9.99,
       annual: 5.00,
       annualTotal: 60,
-      sub: 'For coaches, instructors, and working pros.',
+      sub: 'For writing coaches, instructors, and working pros.',
       cta: 'Get Professional',
       ctaStyle: 'inverted',
       features: [
@@ -168,7 +168,7 @@ function PricingSection() {
             Start for free. Pay when it's worth it.
           </h2>
           <p style={{ fontSize: '17px', color: 'var(--text-mid)', maxWidth: '480px', margin: '0 auto 28px', lineHeight: '1.75' }}>
-            Read every lesson. Build your first story. No card required. Upgrade when you want the full toolkit.
+            All 65 lessons are free. The project tools unlock when your story is ready for them. No card required to start.
           </p>
 
           {/* Billing toggle */}
@@ -455,7 +455,7 @@ export default function Home() {
         alignItems: 'center',
       }}>
         <div className="fade-up">
-          <div className="badge" style={{ marginBottom: '16px' }}>For writers who mean it</div>
+          <div className="badge" style={{ marginBottom: '16px' }}>Free to start. No AI. No fluff.</div>
           <h1 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(30px, 4vw, 48px)',
@@ -475,7 +475,7 @@ export default function Home() {
             marginBottom: '28px',
             maxWidth: '440px',
           }}>
-            You've got the idea. Now what? Eve walks you through the same story principles the best writers use — scene by scene, character by character — so you actually understand what you're building before you write it.
+            You have an idea. Maybe a whole story. What you need is the craft to get it out of your head and onto the page — and a place to think it through. That&apos;s Eve.
           </p>
           <div className="hero-cta-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
@@ -574,12 +574,12 @@ export default function Home() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '12px' }}>
             {[
-              { number: '58+', label: 'Craft lessons', sub: 'Screenwriting, novels, and short fiction', href: '/learn' },
-              { number: '11', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
+              { number: '65+', label: 'Craft lessons', sub: 'Structure, character, dialogue, craft', href: '/learn' },
+              { number: '7', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
               { number: '87+', label: 'Glossary terms', sub: 'Screenwriting, novels, and short fiction', href: '/glossary' },
-              { number: '5', label: 'Learning paths', sub: 'Beginner to advanced', href: '/learn/tracks' },
-              { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading list', href: '/road-to-hollywood' },
-              { number: '53+', label: 'Famous scripts', sub: 'With direct links to every source', href: '/scripts' },
+              { number: '5', label: 'Learning paths', sub: 'Beginner to advanced, by medium', href: '/learn/tracks' },
+              { number: '4', label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading', href: '/road-to-hollywood' },
+              { number: '53+', label: 'Famous scripts', sub: 'Every one linked to its source', href: '/scripts' },
             ].map((s, i) => (
               <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '24px 20px', borderRadius: '10px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
@@ -627,9 +627,9 @@ export default function Home() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
               'Eve never writes a word for you',
-              'Eve never suggests what happens next',
+              'No autocomplete. No suggestions. No generation.',
               'Your content is never used to train any model',
-              'No shortcuts. No shortcuts. No shortcuts.',
+              'The ideas stay yours — all of them, always',
             ].map((item, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                 <div style={{
@@ -684,7 +684,7 @@ export default function Home() {
           </div>
           <div style={{ height: '1px', background: 'rgba(255,255,255,0.12)' }} />
           <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.72)', lineHeight: '1.75' }}>
-            Eve is a thinking tool. It holds your structure so your mind stays free for the only thing that matters —the work.
+            Eve is a thinking tool. It holds your structure so your mind is free for the only thing that actually matters — the writing.
           </p>
         </div>
       </section>
@@ -693,9 +693,9 @@ export default function Home() {
       <section className="section-fade" style={{ background: 'var(--off-white)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '52px 24px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ maxWidth: '560px', marginBottom: '40px' }}>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', marginBottom: '10px' }}>Choose your framework</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(22px, 3vw, 30px)', marginBottom: '10px' }}>Pick a framework. Or don&apos;t.</h2>
             <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.75' }}>
-              Every project starts with a structure choice. Pick the framework that fits how you think — or skip the template entirely and build your own.
+              Every project starts with a structure choice. Save the Cat, Hero&apos;s Journey, Story Circle, and four others — each one a different way of thinking about how stories work. Not sure? Read the descriptions. You&apos;ll know.
             </p>
           </div>
           <div style={{
@@ -747,12 +747,12 @@ export default function Home() {
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(22px, 3vw, 32px)',
             color: '#FDFCF9', marginBottom: '10px',
-          }}>Your story is waiting.</h2>
+          }}>The story won&apos;t write itself.</h2>
           <p style={{
             color: 'rgba(244,249,240,0.75)', fontSize: '15px', marginBottom: '20px',
             maxWidth: '400px', lineHeight: '1.7',
           }}>
-            Start with whatever you have. A scene, a name, a feeling. Work it out here — then write.
+            But it will get written if you have somewhere to work it out. Start free — no card, no catch.
           </p>
           <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
             <button style={{
@@ -784,7 +784,7 @@ export default function Home() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '600', color: '#fff' }}>Eve</span>
             </div>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.7', maxWidth: '260px' }}>
-              A story workspace for writers who believe structure serves the work —not the other way around. No AI. No shortcuts.
+              A craft library and story workspace. No AI. No autocomplete. Just the work.
             </p>
           </div>
 

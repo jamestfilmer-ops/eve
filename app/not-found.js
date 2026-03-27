@@ -13,10 +13,10 @@ export default function NotFound() {
           letterSpacing: '-4px',
         }}>404</p>
         <h1 style={{ fontSize: '26px', marginBottom: '12px', color: 'var(--text-dark)' }}>
-          This page doesn't exist yet.
+          This page doesn&apos;t exist.
         </h1>
         <p style={{ fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.7', marginBottom: '32px' }}>
-          Like a scene with no characters —there's nothing here to follow. Head back and find your story.
+          Nothing here. Try heading back to the dashboard or the craft library.
         </p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/dashboard" style={{ textDecoration: 'none' }}>

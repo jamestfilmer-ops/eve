@@ -204,7 +204,7 @@ export default function WelcomePage() {
                 {firstName ? `Welcome, ${firstName}.` : 'Welcome to Eve.'}
               </h1>
               <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.8', color: 'var(--text-mid)', marginBottom: '28px' }}>
-                Eve is a craft library and a story workspace — built for writers who take the work seriously. Two quick questions and you are in.
+                Eve is a craft library and a story workspace. Lessons on the left, your project on the right. Two quick questions so we know where to point you — then you&apos;re in.
               </p>
               <button onClick={goNext} style={{ width: '100%', background: 'var(--green)', color: '#fff', border: 'none', borderRadius: '10px', padding: '14px', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', cursor: 'pointer' }}>
                 Let&apos;s go

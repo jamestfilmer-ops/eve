@@ -88,13 +88,13 @@ export default function PaywallBlur({ children }) {
           fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.5vw, 22px)',
           fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px', lineHeight: '1.3',
         }}>
-          Keep reading for $1.99/month.
+          The full lesson is for Writer members.
         </p>
         <p style={{
           fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)',
           maxWidth: '360px', margin: '0 auto 24px', lineHeight: '1.7',
         }}>
-          All 65 lessons. All 7 frameworks. Unlimited projects. Less than a coffee.
+          $1.99/month unlocks all 65 lessons, all 7 frameworks, and unlimited projects. Less than a coffee.
         </p>
 
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>

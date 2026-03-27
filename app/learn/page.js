@@ -231,10 +231,10 @@ export default function LearnPage() {
             lineHeight: '1.15', color: '#fff',
             textShadow: '0 2px 12px rgba(0,0,0,0.25)',
           }}>
-            Learn the craft that makes stories work.
+            The craft library.
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.7', maxWidth: '520px', marginBottom: '24px' }}>
-            Short, honest lessons drawn from writers who actually figured it out. Structure, character, dialogue, craft. Start free, stay as long as you need.
+            65 lessons on structure, character, dialogue, and everything else that separates a story that works from one that doesn&apos;t. Written from first principles. No AI. No filler.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="stat-pill">

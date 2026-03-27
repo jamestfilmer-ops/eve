@@ -27,12 +27,12 @@ export default function Error({ error, reset }) {
           fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: '700',
           color: 'var(--text-dark)', marginBottom: '10px',
         }}>
-          Something went wrong
+          Something broke.
         </h1>
         <p style={{
           fontSize: '15px', color: 'var(--text-soft)', lineHeight: '1.7', marginBottom: '32px',
         }}>
-          An unexpected error occurred. Your work is safe — this is just a display issue.
+          Your work is saved. This is a display error — try again or go back to the dashboard.
         </p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <button

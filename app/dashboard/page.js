@@ -109,7 +109,7 @@ function DashboardInner() {
         <div>
           <h1 style={{ fontSize: '32px', marginBottom: '6px' }}>Your Stories</h1>
           <p style={{ color: 'var(--text-soft)', fontSize: '15px' }}>
-            {projects.length === 0 ? 'No projects yet. Start your first story.' : 'Pick up where you left off, or start something new.'}
+            {projects.length === 0 ? 'No projects yet.' : 'Pick up where you left off.'}
           </p>
         </div>
         <Link href="/projects/new" style={{ textDecoration: 'none' }}>
@@ -134,7 +134,7 @@ function DashboardInner() {
       {projects.length === 0 && (
         <div className="fade-up fade-up-delay-2 empty-state card" style={{ padding: '64px 24px' }}>
           <h3>No stories yet</h3>
-          <p>Every story starts somewhere small. Create your first project and give it a home.</p>
+          <p>You don&apos;t have any projects yet. Create one, pick a framework, and start building.</p>
           <Link href="/projects/new" style={{ textDecoration: 'none' }}>
             <button className="btn-primary">Start your first story</button>
           </Link>

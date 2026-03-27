@@ -140,8 +140,8 @@ export default function ProjectsPage() {
       {!loading && projects.length === 0 && (
         <div style={{ textAlign: 'center', padding: '80px 24px' }}>
           <p style={{ fontFamily: 'Playfair Display, serif', fontSize: '24px', color: 'var(--text-mid)', marginBottom: '10px' }}>No projects yet.</p>
-          <p style={{ fontSize: '14px', color: 'var(--text-soft)', marginBottom: '8px' }}>Every story starts with a single decision to begin.</p>
-          <p style={{ fontSize: '13px', color: 'var(--text-soft)', marginBottom: '28px' }}>Create your first project and choose a framework to build around.</p>
+          <p style={{ fontSize: '14px', color: 'var(--text-soft)', marginBottom: '8px' }}>No projects yet.</p>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)', marginBottom: '28px' }}>Create one, pick a framework, and start building your story.</p>
           <Link href="/projects/new" style={{ textDecoration: 'none' }}>
             <button className="btn-primary" style={{ fontSize: '15px', padding: '12px 28px' }}>Start your first project</button>
           </Link>
