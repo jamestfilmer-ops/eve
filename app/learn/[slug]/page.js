@@ -1049,8 +1049,6 @@ const lessons = {
   'ford-landscape': [
     { title: 'John Ford', author: 'Joseph McBride & Michael Wilmington', url: 'https://www.amazon.com/John-Ford-Joseph-McBride/dp/0306806983', note: 'Ford\'s visual grammar and how landscape became character in the Western' },
   ],
-}
-
   'hitchcock-suspense': {
     title: 'Hitchcock on suspense: the bomb under the table',
     category: 'Directors on Craft',
@@ -1479,6 +1477,7 @@ const lessons = {
       { type: 'tip', text: 'Write a paragraph describing the setting of your story not as backdrop but as a force. What does this place want from the people who live in it? What does it reward and what does it punish? What kind of person could not survive here? Write the setting as a character with its own values and demands, and then ask how your protagonist fits or fails to fit those demands.' },
     ],
   },
+}
 
 function renderBody(body) {
   return body.map((block, i) => {
