@@ -160,6 +160,37 @@ const lessons = [
     ],
   },
   {
+    category: 'Directors on Craft',
+    badge: 'Directors',
+    items: [
+      { title: 'Hitchcock on suspense: the bomb under the table', slug: 'hitchcock-suspense', time: '7 min', level: 'Intermediate', preview: 'Two people talk at a table. Under the table, a bomb. The audience knows. The characters do not. Suspense is not surprise — it is the gap between what the audience knows and what the characters do.' },
+      { title: 'Kubrick on control: every frame as a statement', slug: 'kubrick-control', time: '7 min', level: 'Advanced', preview: 'Every element of a scene communicates simultaneously. If any element contradicts the intended meaning, the work is damaged at a level the audience feels without being able to name.' },
+      { title: 'Kurosawa on character: the truth under pressure', slug: 'kurosawa-character', time: '7 min', level: 'Intermediate', preview: 'People reveal who they are under pressure, not in comfort. Rashomon is four incompatible truths — because each witness is protecting something. Write the cost, and the character will reveal itself.' },
+      { title: 'Spielberg on empathy: the camera as guide', slug: 'spielberg-empathy', time: '6 min', level: 'Beginner', preview: 'You do not earn empathy by telling the audience someone matters. You earn it by making them feel the weight of existing as that person. Specificity before danger — always.' },
+      { title: 'Tarantino on nonlinear structure: chronology is not story', slug: 'tarantino-structure', time: '7 min', level: 'Intermediate', preview: 'Audiences do not need chronology. They need causation. As long as they understand why one thing leads to another, you can arrange events in any order you choose.' },
+      { title: 'Scorsese on theme: guilt is not a subplot', slug: 'scorsese-theme', time: '7 min', level: 'Advanced', preview: 'Theme is not a message attached to a story. It is the question that drives you personally. The films that last are the ones where the director cannot stop asking.' },
+      { title: 'The Coen Brothers on tone: tragedy and comedy are the same story', slug: 'coen-tone', time: '6 min', level: 'Intermediate', preview: 'Tone is not mood. It is the relationship between what is happening and how the storyteller treats it. Fargo is funny and horrifying at the same time. Change the treatment and you change the genre.' },
+      { title: 'Terrence Malick on subjectivity: the world as felt', slug: 'malick-subjectivity', time: '7 min', level: 'Advanced', preview: 'Story can be the record of a mind experiencing the world. Not events, not cause and effect — perception, memory, longing, loss. What is felt rather than what happened.' },
+      { title: 'Bergman on psychology: two faces are a landscape', slug: 'bergman-psychology', time: '8 min', level: 'Advanced', preview: 'Cinema\'s greatest advantage is the ability to photograph a human being thinking. Not performing thought — actually thinking, with all the ambiguity and terror that involves.' },
+      { title: 'David Lynch on intuition: ideas as caught things', slug: 'lynch-intuition', time: '6 min', level: 'Intermediate', preview: 'Ideas are fish. You do not create them. You catch them. The idea that comes with a feeling attached is the one worth following — the feeling knows more than the rational mind does.' },
+      { title: 'David Fincher on precision: control as care', slug: 'fincher-precision', time: '6 min', level: 'Advanced', preview: 'The first way of doing something is the most expected way. Precision means refusing the acceptable version and waiting — through fifty takes, through every draft — for the true one.' },
+      { title: 'Wes Anderson on detail: the geometry of feeling', slug: 'anderson-wes-detail', time: '6 min', level: 'Intermediate', preview: 'Style is not chosen after the story is decided. Style is how the story says what it cannot say directly. Anderson\'s symmetry holds grief at one remove — which is how most people actually experience grief.' },
+      { title: 'Christopher Nolan on time: structure as theme', slug: 'nolan-time', time: '7 min', level: 'Advanced', preview: 'When structure and theme are the same thing, the story achieves a unity unreachable any other way. Memento gives you Leonard\'s condition rather than describing it. The form is the argument.' },
+      { title: 'Billy Wilder on clarity: the audience is your collaborator', slug: 'wilder-clarity', time: '6 min', level: 'Beginner', preview: 'The audience is working alongside you, trying to understand what is happening. Your job is to give them enough to work with and trust them to do the work. The last line is a structural necessity.' },
+      { title: 'John Cassavetes on truth: the camera never lies, it only misleads', slug: 'cassavetes-truth', time: '7 min', level: 'Advanced', preview: 'The most honest moment in a scene is the one the actor did not plan. Structure must be loose enough to let the unplanned truth arrive. The safest version of a scene is rarely the truest one.' },
+      { title: 'Sergio Leone on silence: the scene that does not speak', slug: 'leone-silence', time: '6 min', level: 'Intermediate', preview: 'The opening of Once Upon a Time in the West is fifteen minutes before a line is spoken. Silence is not absence — it is the space where dread lives, where the audience\'s imagination does the heaviest work.' },
+      { title: 'Jacques Tati on observation: the comedy of the world as it is', slug: 'tati-observation', time: '6 min', level: 'Intermediate', preview: 'The truest comedy is not invented. It is observed. Watch the world long enough and it will show you something funnier than anything you could make up. Tati\'s subject was always life, seen clearly.' },
+      { title: 'Park Chan-wook on revenge: justice and the cost of getting it', slug: 'park-chanwook-revenge', time: '7 min', level: 'Advanced', preview: 'There is no satisfaction in revenge. The Vengeance Trilogy shows revenge fulfilled, completely, and reveals what it actually costs. The most powerful argument against an impulse is showing it through.' },
+      { title: 'Richard Linklater on time: the longest subject', slug: 'linklater-time', time: '6 min', level: 'Intermediate', preview: 'Time is not the backdrop of a story. It can be the story. The passage of it, the specific feeling of an hour or a decade, the awareness that this particular moment is already ending — these are dramatic subjects.' },
+      { title: 'Robert Altman on ensemble: no one is the story', slug: 'altman-ensemble', time: '6 min', level: 'Intermediate', preview: 'The protagonist is a convention, not a requirement. Nashville has twenty-four characters and no center. Ensemble storytelling demands that every character has a complete inner life — it is just distributed.' },
+      { title: 'Tarkovsky on poetry: cinema as sculpted time', slug: 'tarkovsky-poetry', time: '8 min', level: 'Advanced', preview: 'An image that creates a feeling before a meaning is doing what only cinema can do. Explanation is the enemy of the image. Do not explain your images. Write them fully, and trust the reader.' },
+      { title: 'Kieslowski on theme: chance, fate, and the lives we almost lived', slug: 'kieslowski-theme', time: '7 min', level: 'Advanced', preview: 'The theme that has lasted thousands of years has lasted because it is not resolved. If your story\'s theme is resolved by the end, you may have answered the wrong question.' },
+      { title: 'Robert Bresson on restraint: the model, not the actor', slug: 'bresson-restraint', time: '7 min', level: 'Advanced', preview: 'The actor who shows you the emotion is doing your work for you. The figure who simply exists and allows the emotion to come from the audience is doing something more powerful.' },
+      { title: 'Federico Fellini on autobiography: the self as infinite subject', slug: 'fellini-autobiography', time: '6 min', level: 'Intermediate', preview: 'The self is not a narrow subject. The specificity of your own experience, fully rendered, is more interesting than any general truth. The most personal work is often the most widely felt.' },
+      { title: 'John Ford on landscape: the land is always a character', slug: 'ford-landscape', time: '6 min', level: 'Beginner', preview: 'Where a story takes place is not a setting. It is a statement about the people who live there and the forces that shape them. The landscape is always making an argument about what it costs to survive here.' },
+    ],
+  },
+  {
     category: 'Novel Writing',
     badge: 'Novel',
     items: [
@@ -210,6 +241,13 @@ const writtenSlugs = [
   'snowflake-method', 'heros-journey', 'seven-point-story', 'freytags-pyramid',
   'pacing-rhythm', 'the-rewrite', 'the-ending', 'writing-villains',
   'point-of-view', 'chapter-structure', 'adaptation',
+  'hitchcock-suspense', 'kubrick-control', 'kurosawa-character', 'spielberg-empathy',
+  'tarantino-structure', 'scorsese-theme', 'coen-tone', 'malick-subjectivity',
+  'bergman-psychology', 'lynch-intuition', 'fincher-precision', 'anderson-wes-detail',
+  'nolan-time', 'wilder-clarity', 'cassavetes-truth', 'leone-silence',
+  'tati-observation', 'park-chanwook-revenge', 'linklater-time', 'altman-ensemble',
+  'tarkovsky-poetry', 'kieslowski-theme', 'bresson-restraint', 'fellini-autobiography',
+  'ford-landscape',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
@@ -234,7 +272,7 @@ export default function LearnPage() {
             The craft library.
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.7', maxWidth: '520px', marginBottom: '24px' }}>
-            65 lessons on structure, character, dialogue, and everything else that separates a story that works from one that doesn&apos;t. Written from first principles. No AI. No filler.
+            65+ lessons on structure, character, dialogue, directors on craft, and everything else that separates a story that works from one that doesn&apos;t. Written from first principles. No AI. No filler.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="stat-pill">
