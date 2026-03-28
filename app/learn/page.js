@@ -33,7 +33,7 @@ const lessons = [
     category: 'Masters on Craft',
     badge: 'Essentials',
     items: [
-      { title: 'Vonnegut's rules', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box —the most useful craft checklist ever written, examined rule by rule.' },
+      { title: "Vonnegut's rules", slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules from Bagombo Snuff Box —the most useful craft checklist ever written, examined rule by rule.' },
       { title: 'King on writing', slug: 'king-on-writing', time: '7 min', level: 'Beginner', preview: 'From On Writing: the toolbox, the closed door, the daily practice, and why story always precedes theme.' },
       { title: 'Leonard on invisible prose', slug: 'leonard-on-craft', time: '6 min', level: 'Intermediate', preview: 'Ten rules that add up to one: if it sounds like writing, rewrite it. The case for prose that gets out of the way.' },
       { title: "Pixar's story rules", slug: 'pixar-story-rules', time: '6 min', level: 'Beginner', preview: "The 22 story rules that circulated inside Pixar —the ones that actually matter, examined from a writer's angle." },
