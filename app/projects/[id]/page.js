@@ -195,7 +195,7 @@ export default function ProjectPage() {
         {tab === 'Characters'  && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
         {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
-        {tab === 'Timeline'    && <TimelineTab    scenes={scenes} />}
+        {tab === 'Timeline'    && <TimelineTab    scenes={scenes} setScenes={setScenes} toast={toast} projectId={id} />}
         {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}
         {tab === 'Story Map'   && <StoryMapTab    projectId={id} project={project} scenes={scenes} setScenes={setScenes} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} onUpdateProject={updateProject} toast={toast} />}
       </div>
@@ -1120,11 +1120,34 @@ function ErrorState({ message }) {
 
 // ─── Timeline Tab ─────────────────────────────────────────────────────────────
 
-function TimelineTab({ scenes }) {
+function TimelineTab({ scenes, setScenes, toast, projectId }) {
   const ACT_COLORS = {
-    1: { bg: '#EFF6E7', border: '#6AAF3D', label: 'Act 1' },
-    2: { bg: '#FFF7ED', border: '#C3D9A8', label: 'Act 2' },
-    3: { bg: '#EEF2FF', border: '#6366F1', label: 'Act 3' },
+    1: { bg: '#EFF6E7', border: '#6AAF3D', text: '#2D5016', label: 'Act 1' },
+    2: { bg: '#FFF7ED', border: '#F59E0B', text: '#92400E', label: 'Act 2' },
+    3: { bg: '#EEF2FF', border: '#6366F1', text: '#4338CA', label: 'Act 3' },
+  }
+
+  const [expanded, setExpanded] = useState(null)
+  const [toggling, setToggling] = useState(null)
+
+  async function toggleStatus(scene) {
+    if (toggling === scene.id) return
+    setToggling(scene.id)
+    const newStatus = scene.status === 'complete' ? 'draft' : 'complete'
+    try {
+      const { data, error } = await supabase
+        .from('scenes')
+        .update({ status: newStatus })
+        .eq('id', scene.id)
+        .select()
+        .single()
+      if (error) throw error
+      setScenes(prev => prev.map(s => s.id === scene.id ? { ...s, status: newStatus } : s))
+    } catch {
+      toast.error('Could not update scene.')
+    } finally {
+      setToggling(null)
+    }
   }
 
   const byAct = scenes.reduce((acc, s) => {
@@ -1135,6 +1158,8 @@ function TimelineTab({ scenes }) {
   }, {})
 
   const acts = Object.keys(byAct).map(Number).sort()
+  const totalDone = scenes.filter(s => s.status === 'complete').length
+  const pct = scenes.length ? Math.round((totalDone / scenes.length) * 100) : 0
 
   if (scenes.length === 0) {
     return (
@@ -1143,147 +1168,170 @@ function TimelineTab({ scenes }) {
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
         </svg>
         <h3>No scenes yet</h3>
-        <p>Add scenes in the Scenes tab —they&apos;ll appear here on the timeline.</p>
+        <p>Add scenes in the Scenes tab — they will appear here on the timeline.</p>
       </div>
     )
   }
 
   return (
-    <div style={{ paddingTop: '8px', paddingBottom: '40px' }}>
-      <div style={{ marginBottom: '28px' }}>
-        <h2 style={{ fontSize: '18px', marginBottom: '6px' }}>Story Timeline</h2>
-        <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
-          {scenes.length} scene{scenes.length !== 1 ? 's' : ''} across {acts.length} act{acts.length !== 1 ? 's' : ''} · {scenes.filter(s => s.status === 'complete').length} complete
-        </p>
-      </div>
+    <div style={{ paddingTop: '8px', paddingBottom: '60px' }}>
 
-      {/* Legend */}
-      <div style={{ display: 'flex', gap: '16px', marginBottom: '28px', flexWrap: 'wrap' }}>
-        {[
-          { color: 'var(--green)', label: 'Complete' },
-          { color: 'var(--border)', label: 'Draft' },
-        ].map(({ color, label }) => (
-          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: 'var(--text-soft)' }}>
-            <div style={{ width: '12px', height: '12px', borderRadius: '3px', background: color }} />
-            {label}
+      {/* Header + progress */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
+        <div>
+          <h2 style={{ fontSize: '18px', marginBottom: '4px' }}>Story Timeline</h2>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
+            {scenes.length} scene{scenes.length !== 1 ? 's' : ''} &middot; {acts.length} act{acts.length !== 1 ? 's' : ''} &middot; {totalDone} complete
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ width: '120px', height: '6px', borderRadius: '3px', background: 'var(--border)', overflow: 'hidden' }}>
+            <div style={{ height: '100%', borderRadius: '3px', background: 'var(--green)', width: `${pct}%`, transition: 'width 0.4s ease' }} />
           </div>
-        ))}
+          <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', whiteSpace: 'nowrap' }}>{pct}%</span>
+        </div>
       </div>
 
-      {/* Act lanes */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      {/* Act sections */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
         {acts.map(act => {
           const actScenes = byAct[act] || []
-          const col = ACT_COLORS[act] || { bg: '#F5F5F5', border: '#999', label: `Act ${act}` }
+          const col = ACT_COLORS[act] || { bg: '#F5F5F5', border: '#999', text: '#555', label: `Act ${act}` }
+          const actDone = actScenes.filter(s => s.status === 'complete').length
           return (
             <div key={act}>
-              {/* Act label */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+              {/* Act header */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
                 <div style={{
-                  padding: '3px 10px', borderRadius: '20px', fontSize: '11px', fontWeight: '600',
-                  fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', textTransform: 'uppercase',
-                  background: col.bg, color: col.border, border: `1px solid ${col.border}`,
+                  padding: '3px 12px', borderRadius: '20px', fontSize: '11px', fontWeight: '700',
+                  fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase',
+                  background: col.bg, color: col.text, border: `1px solid ${col.border}`,
                 }}>
                   {col.label}
                 </div>
-                <span style={{ fontSize: '12px', color: 'var(--text-soft)' }}>{actScenes.length} scene{actScenes.length !== 1 ? 's' : ''}</span>
+                <span style={{ fontSize: '12px', color: 'var(--text-soft)' }}>
+                  {actDone}/{actScenes.length} complete
+                </span>
                 <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
               </div>
 
-              {/* Scene track */}
-              <div style={{ overflowX: 'auto', paddingBottom: '8px' }}>
-                <div style={{ display: 'flex', gap: '10px', minWidth: 'max-content', paddingBottom: '4px' }}>
-                  {actScenes.map((scene, idx) => {
-                    const done = scene.status === 'complete'
-                    return (
-                      <div
-                        key={scene.id}
-                        title={scene.notes || scene.title}
-                        style={{
-                          width: '140px', flexShrink: 0,
-                          borderRadius: '8px', padding: '12px',
-                          background: done ? 'var(--green-pale)' : 'var(--off-white)',
-                          border: `1.5px solid ${done ? 'var(--green)' : 'var(--border)'}`,
-                          position: 'relative',
-                          transition: 'transform 0.15s',
-                          cursor: 'default',
-                        }}
-                      >
-                        {/* Scene number badge */}
+              {/* Scene list — vertical */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+                {actScenes.map((scene, idx) => {
+                  const done = scene.status === 'complete'
+                  const isExpanded = expanded === scene.id
+                  const isToggling = toggling === scene.id
+                  return (
+                    <div key={scene.id} style={{ display: 'flex', gap: '0', position: 'relative' }}>
+                      {/* Timeline spine */}
+                      <div style={{ width: '40px', flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        {/* Node */}
                         <div style={{
-                          position: 'absolute', top: '-9px', left: '10px',
-                          background: done ? 'var(--green)' : 'var(--text-soft)',
-                          color: '#fff', fontSize: '10px', fontWeight: '700',
-                          fontFamily: 'var(--font-mono)', borderRadius: '4px',
-                          padding: '1px 6px', letterSpacing: '0.04em',
-                        }}>
-                          {idx + 1}
+                          width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+                          background: done ? 'var(--green)' : '#fff',
+                          border: `2px solid ${done ? 'var(--green)' : 'var(--border)'}`,
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          zIndex: 1, marginTop: '14px',
+                          transition: 'all 0.2s ease',
+                          cursor: 'pointer',
+                        }}
+                          onClick={() => toggleStatus(scene)}
+                          title={done ? 'Mark incomplete' : 'Mark complete'}
+                        >
+                          {isToggling ? (
+                            <div style={{ width: '10px', height: '10px', borderRadius: '50%', border: '2px solid', borderColor: done ? '#fff' : 'var(--text-soft)', borderTopColor: 'transparent', animation: 'spin 0.6s linear infinite' }} />
+                          ) : done ? (
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                              <path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          ) : (
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: '700', color: 'var(--text-soft)' }}>{idx + 1}</span>
+                          )}
                         </div>
-
                         {/* Connector line */}
                         {idx < actScenes.length - 1 && (
-                          <div style={{
-                            position: 'absolute', right: '-11px', top: '50%',
-                            width: '10px', height: '2px',
-                            background: done ? 'var(--green-light)' : 'var(--border)',
-                            zIndex: 1,
-                          }} />
-                        )}
-
-                        <p style={{
-                          fontSize: '12px', fontWeight: '600', lineHeight: '1.4',
-                          color: done ? 'var(--green)' : 'var(--text-dark)',
-                          marginBottom: scene.beat_label ? '6px' : '0',
-                          overflow: 'hidden', display: '-webkit-box',
-                          WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-                        }}>
-                          {scene.title}
-                        </p>
-                        {scene.beat_label && (
-                          <p style={{
-                            fontSize: '10px', color: 'var(--text-soft)',
-                            fontFamily: 'var(--font-mono)', letterSpacing: '0.03em',
-                            overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
-                          }}>
-                            {scene.beat_label}
-                          </p>
-                        )}
-
-                        {/* Complete checkmark */}
-                        {done && (
-                          <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                            <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                              <path d="M2 6l3 3 5-5" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                            <span style={{ fontSize: '10px', color: 'var(--green)', fontWeight: '600' }}>Done</span>
-                          </div>
+                          <div style={{ flex: 1, width: '2px', background: done ? 'var(--green-border)' : 'var(--border)', minHeight: '16px' }} />
                         )}
                       </div>
-                    )
-                  })}
-                </div>
+
+                      {/* Scene card */}
+                      <div style={{ flex: 1, paddingBottom: idx < actScenes.length - 1 ? '0' : '0', paddingTop: '8px', paddingLeft: '12px', paddingRight: '4px', paddingBottom: '16px' }}>
+                        <div
+                          style={{
+                            border: `1px solid ${done ? 'var(--green-border)' : 'var(--border)'}`,
+                            borderRadius: '10px',
+                            background: done ? 'var(--green-pale)' : '#fff',
+                            overflow: 'hidden',
+                            transition: 'border-color 0.2s',
+                          }}
+                        >
+                          {/* Scene header row */}
+                          <div
+                            style={{ padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
+                            onClick={() => setExpanded(isExpanded ? null : scene.id)}
+                          >
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <p style={{
+                                fontSize: '14px', fontWeight: '600', lineHeight: '1.35',
+                                color: done ? 'var(--green)' : 'var(--text-dark)',
+                                margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                              }}>
+                                {scene.title}
+                              </p>
+                              {scene.beat_label && (
+                                <p style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', margin: '2px 0 0', letterSpacing: '0.03em' }}>
+                                  {scene.beat_label}
+                                </p>
+                              )}
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                              {done && (
+                                <span style={{ fontSize: '10px', fontWeight: '700', color: 'var(--green)', fontFamily: 'var(--font-mono)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>Done</span>
+                              )}
+                              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ color: 'var(--text-soft)', transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                                <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </div>
+                          </div>
+
+                          {/* Expanded notes */}
+                          {isExpanded && (
+                            <div style={{ padding: '0 16px 14px', borderTop: '1px solid var(--border)' }}>
+                              {scene.notes ? (
+                                <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.7', margin: '12px 0 0' }}>
+                                  {scene.notes}
+                                </p>
+                              ) : (
+                                <p style={{ fontSize: '13px', color: 'var(--text-soft)', fontStyle: 'italic', margin: '12px 0 0' }}>
+                                  No notes for this scene.
+                                </p>
+                              )}
+                              <button
+                                onClick={() => toggleStatus(scene)}
+                                disabled={isToggling}
+                                style={{
+                                  marginTop: '12px', padding: '6px 14px', borderRadius: '6px', fontSize: '12px', fontWeight: '600',
+                                  fontFamily: 'var(--font-ui)', cursor: 'pointer', border: 'none',
+                                  background: done ? 'var(--off-white)' : 'var(--green)',
+                                  color: done ? 'var(--text-mid)' : '#fff',
+                                  transition: 'all 0.15s',
+                                }}
+                              >
+                                {done ? 'Mark incomplete' : 'Mark complete'}
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           )
         })}
       </div>
-
-      {/* Progress bar */}
-      <div style={{ marginTop: '36px', padding: '20px', borderRadius: '12px', border: '1px solid var(--border)', background: 'var(--off-white)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)' }}>Overall progress</span>
-          <span style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)' }}>
-            {scenes.filter(s => s.status === 'complete').length} / {scenes.length}
-          </span>
-        </div>
-        <div style={{ height: '8px', borderRadius: '4px', background: 'var(--border)', overflow: 'hidden' }}>
-          <div style={{
-            height: '100%', borderRadius: '4px', background: 'var(--green)',
-            width: `${scenes.length ? (scenes.filter(s => s.status === 'complete').length / scenes.length) * 100 : 0}%`,
-            transition: 'width 0.4s ease',
-          }} />
-        </div>
-      </div>
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   )
 }
