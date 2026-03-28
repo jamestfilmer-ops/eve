@@ -1,10 +1,16 @@
 // PaywallBlur — checks Supabase session + plan before gating content
+// Set DEV_MODE to true to disable the paywall during development
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 
+const DEV_MODE = true
+
 export default function PaywallBlur({ children }) {
+  // DEV_MODE: bypass all paywall logic
+  if (DEV_MODE) return <>{children}</>
+
   const [status, setStatus] = useState('loading') // 'loading' | 'free' | 'paid' | 'guest'
 
   useEffect(() => {
