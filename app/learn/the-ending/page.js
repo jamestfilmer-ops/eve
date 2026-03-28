@@ -4,7 +4,7 @@ import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
   title: 'How to End a Story | Eve',
-  description: 'Endings are the hardest part. Not because they require the most invention but because they require the most precision. The ending is the las',
+  description: 'Endings are hard not because you need a brilliant idea but because you need precision. The ending is the last thing in the room after everything else leaves.',
 }
 
 export default function Lesson() {
@@ -18,12 +18,10 @@ export default function Lesson() {
             All lessons
           </Link>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#FEF3E2', color: '#C3D9A8' }}>
-              Craft
-            </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#FEF3E2', color: '#C3D9A8' }}>Craft</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>8 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Intermediate</span>
-                      <LessonProgress slug="the-ending" />
+            <LessonProgress slug="the-ending" />
           </div>
         </div>
       </div>
@@ -34,7 +32,7 @@ export default function Lesson() {
             How to End a Story
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            Endings are the hardest part. Not because they require the most invention but because they require the most precision. The ending is the last thing the reader experiences, and it is what the story becomes in memory.
+            Most writers get stuck at the ending because they&apos;re waiting for something brilliant to arrive. The ending doesn&apos;t need to be brilliant. It needs to be true — the only honest answer to the question your story has been asking.
           </p>
         </div>
       </section>
@@ -44,58 +42,90 @@ export default function Lesson() {
 
         <div className="reveal reveal-delay-1" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Resolution vs conclusion
+            Your story has been asking a question
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            Every story sets up a central question early — will she get out? will they find each other? can he become someone different? — and the ending is where that question gets answered. Not necessarily the way the character hoped, but completely. The answer has to land.
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Not all stories need to be resolved. Resolution means the central conflict is answered—the detective solves the case, the lovers unite or part, the war ends. Conclusion means the story has arrived at a point of rest—the reader understands what has changed and what the story was about. A story can conclude without resolving. The best short fiction often works this way: the situation does not change, but something is understood that was not understood before.
+            When an ending feels wrong, it&apos;s usually one of two things: the question was never clearly set up, or the ending dodges the real answer. Find the question your story is actually asking. Then answer it. That&apos;s most of the work.
           </p>
         </div>
+
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            The ending the story earns
+            Two kinds of endings
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            The character changes, or the character doesn&apos;t. Both are valid. Most mainstream stories end with the character transformed — they got what they needed, even if not what they wanted. Tragedy ends with the character refusing to change until the story destroys them for it.
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            An ending must be earned by what precedes it. A happy ending after insufficient struggle feels false. A tragic ending that has not been prepared for feels arbitrary. The test is: has everything in the story been building toward this? Not telegraphing it, not making it inevitable in advance, but building the conditions under which this ending is the only honest outcome. Readers will accept a devastating ending if it is true to the characters and story. They will reject a comfortable ending that has not been earned.
+            The Sopranos ends with Tony Soprano unchanged — he had six seasons of chances and took none of them. That&apos;s the point. The Wire ends with the systems unchanged and the individuals ground up inside them. Both are honest endings because the whole story was building toward exactly that. Your ending doesn&apos;t have to be happy. It has to be true to what the story was saying.
           </p>
         </div>
-        <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
+
+        <div className="reveal" style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderLeft: '3px solid var(--green)', borderRadius: '10px', padding: '18px 22px' }}>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '8px', fontWeight: '600' }}>Worth writing down</p>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-dark)', margin: 0, fontWeight: '500' }}>
+            An ending needs to feel inevitable and slightly surprising at the same time. Not telegraphed — earned. The reader shouldn&apos;t see it coming, but once it arrives they shouldn&apos;t be able to imagine anything else.
+          </p>
+        </div>
+
+        <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
+            End one beat after the climax
+          </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            Most writers end too late. The climax lands, then they keep going — wrapping up side plots, showing us what each character is doing six months later, writing an extra scene to make sure we understood the theme. Stop earlier than you think you should.
+          </p>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
+            Chekhov cut the first and last paragraphs of everything he wrote. He believed writers always took too long to start and too long to stop. Apply that to your draft. Find where the story actually ends. It&apos;s usually earlier than the last page you wrote.
+          </p>
+        </div>
+
+        <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
             The circular ending
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            One of the most satisfying moves in fiction: end where you started, but changed. Same place, same words, same situation — but the story has shifted what it means. The image that opened the story returns at the close, and now it carries everything that happened in between.
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            One of the most satisfying structural moves is returning to the opening image or situation at the end—but transformed. The same place, the same words, the same situation, but the story has changed what it means. The circular ending pays off what the opening established and tells the reader: you have been changed by this story in the way the protagonist was changed. It only works when the change is genuine.
+            It works because it asks the reader to hold both versions at once — who this person was, who they are now — and feel the distance between them. It only works when the change is real. A circular ending with no actual transformation is just a cheap echo.
           </p>
         </div>
-        <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
+
+        <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
             The last line
           </h2>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            The last line of a story is doing more work than any other single sentence. It is the note the story ends on, and it is the note that will echo in the reader's memory. The last line should be in some tension with the ending—not contradiction, but complexity. If the ending is hopeful, the last line might contain something that acknowledges the fragility of the hope. The last line should feel inevitable and slightly surprising simultaneously.
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            The last line is doing more work than any other sentence in the story. It&apos;s the note that lingers. It&apos;s what the reader carries with them when they close the book or leave the theatre.
           </p>
-        </div>
-        <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Open endings and their dangers
-          </h2>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Open endings—endings that deliberately refuse to resolve—require more skill than closed endings, not less. A closed ending that answers all questions is easy to write badly but harder to write well. An open ending that raises questions without answering them requires that the questions be the right questions, precisely stated, with enough weight that the reader cares about living with them. The open ending that feels like the writer ran out of story is not an open ending. It is an unfinished draft.
+            The best last lines contain something slightly unresolved — not the ending undone, but a small complication in it. If the ending is hopeful, let the last line carry a trace of what it cost. If it&apos;s a loss, let there be one thing that didn&apos;t get destroyed. The last line is not where you summarize the story. It&apos;s where you leave the reader slightly off-balance, in the best possible way.
           </p>
         </div>
 
         <div className="reveal" style={{ background: 'var(--green)', borderRadius: '12px', padding: '24px 28px', marginTop: '8px' }}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '10px' }}>Key takeaway</p>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '10px' }}>Before you move on</p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: '#fff', margin: 0, fontWeight: '500' }}>
-            Resolve what needs resolving; conclude what needs concluding. Earn the ending. Consider the circular return. Write the last line as the note the reader will carry.
+            Find the question your story is asking. Answer it honestly. End one beat after the climax. Write the last line as the note you want to leave ringing.
           </p>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', paddingTop: '28px', borderTop: '1px solid var(--border)' }}>
-          <Link href="/learn/show-dont-tell" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "600", color: "var(--text-mid)", textDecoration: "none" }}><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>Previous</Link>
-          <Link href="/learn/writing-villains" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "600", color: "var(--green)", textDecoration: "none" }}>Next<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></Link>
+          <Link href="/learn/show-dont-tell" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            Previous
+          </Link>
+          <Link href="/learn/writing-villains" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--green)', textDecoration: 'none' }}>
+            Next
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </Link>
         </div>
       </div>
-    </PaywallBlur>
+      </PaywallBlur>
     </div>
   )
 }

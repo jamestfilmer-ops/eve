@@ -35,12 +35,6 @@ const books = [
   },
 ]
 
-const podcasts = [
-  { name: 'Scriptnotes', hosts: 'John August & Craig Mazin', description: 'Two working Hollywood screenwriters discuss the craft and business of screenwriting. Hundreds of episodes covering everything from structure to contracts. Essential listening.' },
-  { name: 'The Secrets of Story', hosts: 'Matt Bird', description: 'Based on Bird\'s book of the same name. Deep dives into story structure, character, and the mechanics of what makes stories work or fail.' },
-  { name: 'Writing Excuses', hosts: 'Brandon Sanderson, Mary Robinette Kowal & others', description: 'Genre fiction focused. Short episodes (15 minutes) covering specific craft topics. Excellent for novel writers.' },
-  { name: 'The Tim Ferriss Show', hosts: 'Tim Ferriss', description: 'Not writing-specific, but Ferriss regularly interviews novelists, screenwriters, and playwrights about their process. Useful for writers who want to understand process at a high level.' },
-]
 
 export default function ResourcesPage() {
   return (
@@ -50,7 +44,7 @@ export default function ResourcesPage() {
         <div className="badge" style={{ marginBottom: '14px' }}>Resources</div>
         <h1 style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '12px' }}>Reading List & Resources</h1>
         <p style={{ fontSize: '16px', color: 'var(--text-mid)', lineHeight: '1.75', maxWidth: '620px' }}>
-          The books, podcasts, and reference material worth your time. Curated for writers who are serious about the craft —whether you are writing your first short story or your third screenplay.
+          The books worth reading. Organized by what they teach — not by prestige. Each one has a verdict so you know where to start.
         </p>
       </div>
 
@@ -85,12 +79,7 @@ export default function ResourcesPage() {
         </div>
       ))}
 
-      {/* Podcasts */}
-      <div className="fade-up" style={{ marginBottom: '48px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-          <div style={{ width: '4px', height: '24px', background: 'var(--green)', borderRadius: '2px' }} />
-          <h2 style={{ fontSize: '20px' }}>Podcasts</h2>
-        </div>
+      {/* Podcasts removed - books only */
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
           {podcasts.map((p, i) => (
             <div key={i} className="card" style={{ padding: '18px 22px' }}>
@@ -112,7 +101,7 @@ export default function ResourcesPage() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {[
-            { label: 'Craft Library', href: '/learn', desc: '13 lessons on structure, character, dialogue, and theme' },
+            { label: 'Craft Library', href: '/learn', desc: '65 lessons on structure, character, dialogue, and theme' },
             { label: 'Story Glossary', href: '/glossary', desc: '25+ terms defined for working writers' },
             { label: 'Session Mode', href: '/session', desc: 'Work through your story beat by beat' },
           ].map((l, i) => (

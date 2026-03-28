@@ -3,8 +3,8 @@ import PaywallBlur from '../../components/PaywallBlur'
 import LessonProgress from '../../components/LessonProgress'
 
 export const metadata = {
-  title: 'What Pixar Teaches About Story That Applies to Everything | Eve',
-  description: 'The 22 story rules that circulated through every writers room in Hollywood. Not all 22 are equally important, but the ones that are importan',
+  title: "Pixar's Story Rules | Eve",
+  description: "In 2011, a Pixar story artist tweeted 22 rules that had been drilled into her over years. A handful of them are worth tattooing on your hand.",
 }
 
 export default function Lesson() {
@@ -18,12 +18,10 @@ export default function Lesson() {
             All lessons
           </Link>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#EFF6E7', color: '#2D5016' }}>
-              Essentials
-            </span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>6 min</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '600', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: '#EFF6E7', color: '#2D5016' }}>Essentials</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)' }}>7 min</span>
             <span style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'var(--text-soft)' }}>Beginner</span>
-                      <LessonProgress slug="pixar-story-rules" />
+            <LessonProgress slug="pixar-story-rules" />
           </div>
         </div>
       </div>
@@ -31,10 +29,10 @@ export default function Lesson() {
       <section style={{ background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', padding: '44px 24px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }} className="fade-up">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 38px)', fontWeight: '700', color: '#fff', lineHeight: '1.2', marginBottom: '16px' }}>
-            What Pixar Teaches About Story That Applies to Everything
+            Pixar&apos;s Story Rules
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '16px', lineHeight: '1.75', color: 'rgba(255,255,255,0.75)', maxWidth: '580px', margin: 0 }}>
-            The 22 story rules that circulated through every writers room in Hollywood. Not all 22 are equally important, but the ones that are important are foundational.
+            In 2011 a Pixar story artist named Emma Coats tweeted 22 rules that had been drilled into her over years in the story department. They went everywhere. Not all 22 hold up equally — but the ones that do are worth reading slowly.
           </p>
         </div>
       </section>
@@ -44,58 +42,89 @@ export default function Lesson() {
 
         <div className="reveal reveal-delay-1" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Admire someone more than the outcome
+            You admire the trying, not the succeeding
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            Rule 1 says: you admire a character for trying more than for their successes. Think about why that&apos;s true. Competence doesn&apos;t make us care — effort does, especially effort that fails. The character who keeps going anyway, who tries again after it falls apart, is the one we attach to.
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            You admire a character for trying more than for their successes. This is the rule that explains why competent, successful characters are often less interesting than flawed, struggling ones. Competence does not generate empathy—effort generates empathy, especially effort that fails. The character who tries and fails, who tries again and fails differently, who keeps going anyway—that is the character the audience attaches to.
+            Wall-E can&apos;t speak. He has one expression. He&apos;s been alone for 700 years sorting garbage. We love him within five minutes. Not because he&apos;s impressive — because he keeps trying to connect with something in a world that has nothing left to connect with.
           </p>
         </div>
+
         <div className="reveal reveal-delay-2" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
             The story spine
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            This is the most practical tool in the list. Fill in these blanks and you have a story:
+          </p>
+          <div style={{ background: 'var(--off-white)', borderRadius: '8px', padding: '18px 20px', marginBottom: '14px', border: '1px solid var(--border)' }}>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', lineHeight: '2', color: 'var(--text-dark)', margin: 0 }}>
+              Once upon a time ___.<br/>
+              Every day ___.<br/>
+              One day ___.<br/>
+              Because of that ___.<br/>
+              Because of that ___.<br/>
+              Until finally ___.<br/>
+              Ever since then ___.
+            </p>
+          </div>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Once upon a time there was blank. Every day blank. One day blank. Because of that blank. Because of that blank. Until finally blank. Ever since then blank. This is the Pixar story spine, and it forces you to find the causality. One day is the inciting incident. Because of that repeated—each consequence leading to the next—is the plot. Until finally is the climax. This structure works because it describes how causality actually functions in story.
+            &ldquo;One day&rdquo; is your inciting incident. &ldquo;Because of that, because of that&rdquo; — repeated — is your plot. Each consequence leads causally to the next. That&apos;s the whole trick. Stories fall apart when scenes happen rather than cause each other. This structure forces causality.
           </p>
         </div>
+
         <div className="reveal reveal-delay-3" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            What your character wants vs needs
+            Figure out your ending before you figure out your middle
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            This is rule 7, and it&apos;s the one most writers argue with. You don&apos;t have to know every beat before you start — but Pixar is saying: know where you&apos;re going. Because if you don&apos;t, you can&apos;t plant anything. You can&apos;t foreshadow. You can&apos;t build toward a payoff that doesn&apos;t exist yet.
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Come up with your ending before you figure out your middle. Endings are hard—get yours working up front. This rule is related to a deeper Pixar principle: the difference between what a character wants and what they need. In most Pixar films, what the character wants is not the same as what they need. The story is the journey from wanting the wrong thing to understanding the right thing. That journey requires an ending that honors the need, not just the want.
+            Even if you&apos;re a pantser who discovers the story as you write — write a bad ending first. A placeholder. Something to write toward. You can change it later. A wrong destination is still more useful than no destination at all.
           </p>
         </div>
-        <div className="reveal reveal-delay-4" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Discount your first idea
-          </h2>
-          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            Your first idea is the easy one—the one everyone would think of. Push past it. What is the second idea? The third? The most distinctive material usually comes from the ideas that required more work to reach. Emma Coats: Rule 11 says putting it on paper lets you start fixing it. If it stays in your head, a perfect idea, you will never share it with anyone. The idea that is never written is the idea that is never improved.
+
+        <div className="reveal" style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', borderLeft: '3px solid var(--green)', borderRadius: '10px', padding: '18px 22px' }}>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '8px', fontWeight: '600' }}>The try-fail cycle</p>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: 'var(--text-dark)', margin: 0, fontWeight: '500' }}>
+            Give your character a goal. Then make them fail. Then make them fail differently. The sequence of try-fail-try again is how character gets revealed under pressure. It&apos;s also how the audience stays invested — each failure raises the question of whether they&apos;ll ever break through.
           </p>
         </div>
+
         <div className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '24px 28px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '14px' }}>
-            Try, fail, try again
+            Your first idea is probably not your best one
           </h2>
+          <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: '0 0 14px' }}>
+            Rule 11: putting it on paper lets you start fixing it. If it stays in your head, perfect, you&apos;ll never share it with anyone. But the surrounding rule is about your first idea being the obvious one — the one anyone would think of. Push past it. What&apos;s the second idea? The third?
+          </p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.85', color: 'var(--text-dark)', margin: 0 }}>
-            What are the stakes? Give us reason to root for the character. What happens if they don't succeed? Stack the odds against them. This is the structure of every Pixar film's second act: the character tries to solve the problem, fails, tries differently, fails worse, tries again—the attempts and failures compressing the story toward the point where the character must finally change to break through. The sequence of try-fail cycles is the mechanism by which character is revealed under pressure.
+            Up starts with an old man who lost his wife and turns his house into a balloon-powered aircraft to fulfill a childhood promise. That is not someone&apos;s first idea. That is someone&apos;s twelfth idea. The first idea was probably &ldquo;old man goes on an adventure.&rdquo; The work is in the narrowing.
           </p>
         </div>
 
         <div className="reveal" style={{ background: 'var(--green)', borderRadius: '12px', padding: '24px 28px', marginTop: '8px' }}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '10px' }}>Key takeaway</p>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '10px' }}>Before you move on</p>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '15px', lineHeight: '1.75', color: '#fff', margin: 0, fontWeight: '500' }}>
-            Admire the trying, not the success. Use the story spine to find causality. The character wants the wrong thing and needs the right thing. Try, fail, try again. Write it down before it is perfect.
+            Try the story spine on your current project. Fill in all seven blanks. If you can&apos;t fill in &ldquo;because of that&rdquo; twice — you don&apos;t have causality yet. Start there.
           </p>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap', paddingTop: '28px', borderTop: '1px solid var(--border)' }}>
-          <Link href="/learn/leonard-on-craft" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "600", color: "var(--text-mid)", textDecoration: "none" }}><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>Previous</Link>
-          <Link href="/learn/what-a-scene-does" style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-ui)", fontSize: "14px", fontWeight: "600", color: "var(--green)", textDecoration: "none" }}>Next<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></Link>
+          <Link href="/learn/leonard-on-craft" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--text-mid)', textDecoration: 'none' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            Previous
+          </Link>
+          <Link href="/learn/what-a-scene-does" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '600', color: 'var(--green)', textDecoration: 'none' }}>
+            Next
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </Link>
         </div>
       </div>
-    </PaywallBlur>
+      </PaywallBlur>
     </div>
   )
 }

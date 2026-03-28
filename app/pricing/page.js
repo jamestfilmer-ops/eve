@@ -71,23 +71,23 @@ const plans = [
 ]
 
 const comparisonRows = [
-  { feature: 'Active projects',        free: '1',        studio: 'Unlimited', pro: 'Unlimited' },
-  { feature: 'Frameworks',             free: 'Save the Cat only', studio: 'All 7', pro: 'All 7' },
-  { feature: 'Craft library (lessons)',free: true,        studio: true,        pro: true },
-  { feature: 'Story glossary',         free: true,        studio: true,        pro: true },
-  { feature: 'Saved ideas',            free: '25',        studio: 'Unlimited', pro: 'Unlimited' },
-  { feature: 'Character builder',      free: true,        studio: true,        pro: true },
-  { feature: 'Scene tracker',          free: true,        studio: true,        pro: true },
-  { feature: 'Plot hole log',          free: true,        studio: true,        pro: true },
-  { feature: 'Beat sheet auto-fill',   free: false,       studio: true,        pro: true },
-  { feature: 'PDF export',             free: false,       studio: true,        pro: true },
-  { feature: 'Timeline view',          free: false,       studio: true,        pro: true },
-  { feature: 'Themes Map canvas',      free: false,       studio: true,        pro: true },
-  { feature: 'Multiple client projects',free: false,      studio: false,       pro: true },
-  { feature: 'Priority support',       free: false,       studio: false,       pro: true },
-  { feature: 'Early access',           free: false,       studio: false,       pro: true },
-  { feature: 'Advanced export formats',   free: false,       studio: true,        pro: true },
-  { feature: 'Usage analytics',        free: false,       studio: false,       pro: true },
+  { feature: 'Active projects',        free: '1',        writer: 'Unlimited', pro: 'Unlimited' },
+  { feature: 'Frameworks',             free: 'Save the Cat only', writer: 'All 7', pro: 'All 7' },
+  { feature: 'Craft library (lessons)',free: true,        writer: true,        pro: true },
+  { feature: 'Story glossary',         free: true,        writer: true,        pro: true },
+  { feature: 'Saved ideas',            free: '25',        writer: 'Unlimited', pro: 'Unlimited' },
+  { feature: 'Character builder',      free: true,        writer: true,        pro: true },
+  { feature: 'Scene tracker',          free: true,        writer: true,        pro: true },
+  { feature: 'Plot hole log',          free: true,        writer: true,        pro: true },
+  { feature: 'Beat sheet auto-fill',   free: false,       writer: true,        pro: true },
+  { feature: 'PDF export',             free: false,       writer: true,        pro: true },
+  { feature: 'Timeline view',          free: false,       writer: true,        pro: true },
+  { feature: 'Themes Map canvas',      free: false,       writer: true,        pro: true },
+  { feature: 'Multiple client projects',free: false,      writer: false,       pro: true },
+  { feature: 'Priority support',       free: false,       writer: false,       pro: true },
+  { feature: 'Early access',           free: false,       writer: false,       pro: true },
+  { feature: 'Advanced export formats',   free: false,       writer: true,        pro: true },
+  { feature: 'Usage analytics',        free: false,       writer: false,       pro: true },
 ]
 
 function Check({ yes, text }) {
@@ -450,7 +450,7 @@ export default function PricingPage() {
               padding: '0',
             }}>
               <div style={{ padding: '16px 20px', fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Feature</div>
-              {['Free', 'Studio', 'Professional'].map((t, i) => (
+              {['Free', 'Writer', 'Professional'].map((t, i) => (
                 <div key={t} style={{
                   padding: '16px 20px',
                   textAlign: 'center',
@@ -474,7 +474,7 @@ export default function PricingPage() {
                 background: ri % 2 === 0 ? '#fff' : 'var(--off-white)',
               }}>
                 <div style={{ padding: '13px 20px', fontSize: '14px', color: 'var(--text-dark)' }}>{row.feature}</div>
-                {(['free', 'studio', 'pro']).map((tier, ti) => (
+                {(['free', 'writer', 'pro']).map((tier, ti) => (
                   <div key={tier} style={{
                     padding: '13px 20px',
                     display: 'flex',
@@ -508,10 +508,10 @@ export default function PricingPage() {
             },
             {
               q: 'What happens to my project if I downgrade?',
-              a: 'Your data is never deleted. If you downgrade from Studio to Free, your additional projects are archived and accessible but not editable until you re-subscribe. You keep your first project.',
+              a: 'Your data is never deleted. If you downgrade from Writer to Free, your additional projects are archived and accessible but not editable until you re-subscribe. You keep your first project.',
             },
             {
-              q: 'Is there a free trial for Studio or Professional?',
+              q: 'Can I try Writer before paying?',
               a: 'We offer a 7-day free trial on both paid tiers —no credit card required to start. If you\'re not satisfied, cancel any time and your projects remain accessible on the Free tier.',
             },
             {

@@ -73,7 +73,7 @@ const values = [
   },
   {
     title: 'Education is always free.',
-    body: 'The entire Craft Library —every lesson, the glossary, the frameworks —is free forever. The tools are what the Studio tier funds. You should never have to pay to learn.',
+    body: 'The entire Craft Library — every lesson, the glossary, the frameworks — is free forever. The tools are what the Writer tier funds. You should never have to pay to learn.',
   },
 ]
 
@@ -97,10 +97,10 @@ export default function AboutPage() {
         <div style={{ maxWidth: '720px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--green)', marginBottom: '24px' }}>About Eve</p>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(34px, 6vw, 58px)', fontWeight: '700', color: '#fff', lineHeight: '1.15', marginBottom: '28px' }}>
-            Built for writers who couldn&apos;t afford film school
+            Built for the writer who just needs to get the story out
           </h1>
           <p style={{ fontFamily: 'var(--font-ui)', fontSize: '18px', lineHeight: '1.75', color: 'rgba(255,255,255,0.65)', maxWidth: '540px', margin: '0 auto 36px' }}>
-            Eve is a craft platform and story workspace. The lessons are free. The tools are worth paying for. There is no AI anywhere in the product.
+            Eve is a craft library and story workspace. Screenplays, novels, short fiction — all of it. The lessons are free. The tools are worth paying for. No AI anywhere.
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/learn" style={{ display: 'inline-block', background: 'linear-gradient(160deg, #2D5016 0%, var(--green) 55%, #4a8a24 100%)', color: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', textDecoration: 'none' }}>Browse the Craft Library</Link>
