@@ -159,8 +159,14 @@ const lessons = [
     category: 'Literary Craft',
     badge: 'Literary',
     items: [
-      { title: 'Shakespeare on structure', slug: 'shakespeare-structure', time: '8 min', level: 'Intermediate', preview: 'Shakespeare did not invent dramatic structure —he refined it into something so practically useful that four hundred years later it still underlies almost every story told in any medium.' },
-      { title: 'How adaptation works', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapters job is not to preserve the source —it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
+      { title: 'Shakespeare on structure', slug: 'shakespeare-structure', time: '8 min', level: 'Intermediate', preview: 'Shakespeare did not invent dramatic structure — he refined it into something so practically useful that four hundred years later it still underlies almost every story told in any medium.' },
+      { title: 'How adaptation works', slug: 'adaptation', time: '8 min', level: 'Intermediate', preview: 'Adaptation is translation, not transcription. The adapter\'s job is not to preserve the source — it is to find what the story essentially is and rebuild it from scratch in the new medium.' },
+      { title: 'Theme vs. message', slug: 'theme-vs-message', time: '6 min', level: 'Intermediate', preview: 'A message is a conclusion dressed as a story. A theme is a question the story is genuinely trying to answer. The distinction separates meaningful fiction from lectures.' },
+      { title: 'How to carry theme through character', slug: 'theme-through-character', time: '7 min', level: 'Intermediate', preview: 'Theme does not live in dialogue. It lives in characters — in what they want, what they believe, and what it costs them. The most powerful thematic statements are made through action and consequence.' },
+      { title: 'Symbol and motif', slug: 'symbol-and-motif', time: '7 min', level: 'Intermediate', preview: 'A symbol that has to be explained is not working. The craft is planting the image early, letting it recur, and trusting the accumulation to carry meaning without speech.' },
+      { title: 'Irony in fiction', slug: 'irony-in-fiction', time: '7 min', level: 'Intermediate', preview: 'The gap between what a character believes and what the audience knows is dramatic tension. Close it too early and you lose the story. Close it at the right moment and it produces catharsis.' },
+      { title: 'Vonnegut on craft', slug: 'vonnegut-craft', time: '6 min', level: 'Beginner', preview: 'Eight rules. The best one: every sentence must do one of two things — reveal character or advance the action. Everything else is waste.' },
+      { title: 'King on writing', slug: 'king-on-writing', time: '8 min', level: 'Beginner', preview: 'What the most commercially successful fiction writer alive actually believes about craft. Most of it contradicts what writing programs teach — and most of it is right.' },
     ],
   },
   {
@@ -260,6 +266,7 @@ const writtenSlugs = [
   'tati-observation', 'park-chanwook-revenge', 'linklater-time', 'altman-ensemble',
   'tarkovsky-poetry', 'kieslowski-theme', 'bresson-restraint', 'fellini-autobiography',
   'ford-landscape',
+  'theme-vs-message', 'theme-through-character', 'symbol-and-motif', 'irony-in-fiction',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
@@ -284,7 +291,7 @@ export default function LearnPage() {
             The craft library.
           </h1>
           <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.7', maxWidth: '520px', marginBottom: '24px' }}>
-            65+ lessons on structure, character, dialogue, directors on craft, and everything else that separates a story that works from one that doesn&apos;t. Written from first principles. No AI. No filler.
+            100+ lessons on structure, character, dialogue, directors on craft, and everything else that separates a story that works from one that doesn&apos;t. Written from first principles. No AI. No filler.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <span className="stat-pill">
