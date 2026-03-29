@@ -102,85 +102,157 @@ function DashboardInner() {
     </div>
   )
 
+  // Pick a daily lesson tip — rotates by day of month
+  const dailyTips = [
+    { slug: 'want-vs-need', label: 'Want vs. Need', tip: 'The gap between what your protagonist wants and what they actually need is where the theme lives.' },
+    { slug: 'character-before-plot', label: 'Character before plot', tip: 'Plot is furniture. Character is the person in the room. Build the person first.' },
+    { slug: 'what-a-scene-does', label: 'What a scene does', tip: 'Every scene must change something. If the end of a scene is the same as the beginning, cut it.' },
+    { slug: 'dialogue-subtext', label: 'Dialogue subtext', tip: 'Characters should almost never say exactly what they mean. The meaning lives underneath the words.' },
+    { slug: 'the-first-page', label: 'The first page', tip: 'You have one page to make a reader believe you know what you are doing. Not to explain. To prove.' },
+    { slug: 'midpoint', label: 'The midpoint', tip: 'The midpoint is either a false victory or a false defeat. After it, nothing is the same.' },
+    { slug: 'ghost', label: 'The ghost', tip: 'What happened to your protagonist before the story started? That wound drives everything they do in it.' },
+    { slug: 'vonnegut-craft', label: 'Vonnegut on craft', tip: '"Every sentence must do one of two things — reveal character or advance the action." Cut the rest.' },
+  ]
+  const todaysTip = dailyTips[new Date().getDate() % dailyTips.length]
+  const firstName = user?.email?.split('@')[0]?.split('.')?.[0] || null
+  const greeting = firstName ? `Good to see you, ${firstName}.` : 'Good to see you.'
+  const mostRecent = projects[0] || null
+
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '48px 24px' }}>
+    <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '48px 24px' }}>
 
-      <div className="fade-up" style={{ marginBottom: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <div>
-          <h1 style={{ fontSize: '32px', marginBottom: '6px' }}>Your Stories</h1>
-          <p style={{ color: 'var(--text-soft)', fontSize: '15px' }}>
-            {projects.length === 0 ? 'No projects yet.' : 'Pick up where you left off.'}
-          </p>
-        </div>
-        <Link href="/projects/new" style={{ textDecoration: 'none' }}>
-          <button className="btn-primary">+ New Project</button>
-        </Link>
-      </div>
-
-      <div className="fade-up fade-up-delay-1 stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
-        {[
-          { label: 'Projects',        value: stats.projects   },
-          { label: 'Scenes written',  value: stats.scenes     },
-          { label: 'Characters',      value: stats.characters },
-          { label: 'Plot holes open', value: stats.plotHoles  },
-        ].map((s, i) => (
-          <div key={i} className="card" style={{ padding: '20px 24px' }}>
-            <p style={{ fontSize: '30px', fontFamily: 'var(--font-display)', color: 'var(--green)', fontWeight: '700', marginBottom: '4px' }}>{s.value}</p>
-            <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>{s.label}</p>
+        {/* Welcome row */}
+        <div className="fade-up" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '36px', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <h1 style={{ fontSize: 'clamp(24px, 3vw, 32px)', marginBottom: '6px', color: 'var(--text-dark)' }}>{greeting}</h1>
+            <p style={{ color: 'var(--text-soft)', fontSize: '15px' }}>
+              {projects.length === 0 ? 'Start your first story.' : projects.length === 1 ? '1 story in progress.' : `${projects.length} stories in progress.`}
+            </p>
           </div>
-        ))}
-      </div>
-
-      {projects.length === 0 && (
-        <div className="fade-up fade-up-delay-2 empty-state card" style={{ padding: '64px 24px' }}>
-          <h3>No stories yet</h3>
-          <p>You don&apos;t have any projects yet. Create one, pick a framework, and start building.</p>
           <Link href="/projects/new" style={{ textDecoration: 'none' }}>
-            <button className="btn-primary">Start your first story</button>
+            <button className="btn-primary">+ New project</button>
           </Link>
         </div>
-      )}
 
-      {projects.length > 0 && (
-        <div className="fade-up fade-up-delay-2" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {projects.map(p => {
-            const status = p.status || 'seed'
-            const sc2    = statusColor[status] || statusColor['seed']
-            return (
-              <Link key={p.id} href={`/projects/${p.id}`} style={{ textDecoration: 'none' }}>
-                <div className="card" style={{ padding: '24px 28px', cursor: 'pointer' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
-                    <div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
-                        <h2 style={{ fontSize: '19px' }}>{p.title}</h2>
-                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '500', letterSpacing: '0.06em', textTransform: 'uppercase', padding: '2px 8px', borderRadius: '4px', background: sc2.bg, color: sc2.color, border: `1px solid ${sc2.border}` }}>
-                          {statusLabel[status] || 'Seed'}
-                        </span>
-                      </div>
-                      <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
-                        {p.type}&ensp;&middot;&ensp;{frameworkLabel[p.framework] || p.framework}&ensp;&middot;&ensp;Updated {timeAgo(p.updated_at)}
-                      </p>
-                    </div>
-                    <button className="btn-primary" style={{ fontSize: '13px', padding: '8px 16px', flexShrink: 0 }} onClick={e => e.preventDefault()}>
-                      Resume &rarr;
-                    </button>
-                  </div>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    {[
-                      `${p.characterCount} character${p.characterCount !== 1 ? 's' : ''}`,
-                      `${p.sceneCount} scene${p.sceneCount !== 1 ? 's' : ''}`,
-                      `${p.plotHoleCount} plot hole${p.plotHoleCount !== 1 ? 's' : ''}`,
-                    ].map((label, i) => (
-                      <span key={i} style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-mid)', background: 'var(--off-white)', border: '1px solid var(--border)', padding: '3px 10px', borderRadius: '20px' }}>{label}</span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+        {/* Stats row */}
+        <div className="fade-up fade-up-delay-1" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginBottom: '36px' }}>
+          {[
+            { label: 'Projects',   value: stats.projects,   href: '/projects' },
+            { label: 'Scenes',     value: stats.scenes,     href: null },
+            { label: 'Characters', value: stats.characters, href: null },
+            { label: 'Plot holes', value: stats.plotHoles,  href: null },
+          ].map((s, i) => (
+            <div key={i} className="card" style={{ padding: '18px 20px', cursor: s.href ? 'pointer' : 'default' }}
+              onClick={() => s.href && (window.location.href = s.href)}>
+              <p style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: 'var(--green)', fontWeight: '700', marginBottom: '2px', lineHeight: 1 }}>{s.value}</p>
+              <p style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{s.label}</p>
+            </div>
+          ))}
         </div>
-      )}
 
+        {/* Two-column layout: projects + sidebar */}
+        <div className="fade-up fade-up-delay-2" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 280px', gap: '24px', alignItems: 'start' }}>
+
+          {/* Projects column */}
+          <div>
+            {projects.length === 0 ? (
+              <div className="empty-state card" style={{ padding: '56px 24px' }}>
+                <h3>No stories yet</h3>
+                <p>Create a project, pick a framework, and start building. Eve keeps track of everything while you write.</p>
+                <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+                  <button className="btn-primary">Start your first story</button>
+                </Link>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {projects.map(p => {
+                  const status = p.status || 'seed'
+                  const sc2    = statusColor[status] || statusColor['seed']
+                  return (
+                    <Link key={p.id} href={`/projects/${p.id}`} style={{ textDecoration: 'none' }}>
+                      <div className="card" style={{ padding: '22px 26px', cursor: 'pointer', transition: 'box-shadow 0.15s, border-color 0.15s' }}
+                        onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(26,20,15,0.08)'; e.currentTarget.style.borderColor = 'var(--green-border)' }}
+                        onMouseLeave={e => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = '' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '3px', flexWrap: 'wrap' }}>
+                              <h2 style={{ fontSize: '17px', margin: 0, color: 'var(--text-dark)' }}>{p.title}</h2>
+                              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', fontWeight: '600', letterSpacing: '0.07em', textTransform: 'uppercase', padding: '2px 7px', borderRadius: '4px', background: sc2.bg, color: sc2.color, border: `1px solid ${sc2.border}`, flexShrink: 0 }}>
+                                {statusLabel[status] || 'Seed'}
+                              </span>
+                            </div>
+                            <p style={{ fontSize: '12px', color: 'var(--text-soft)', margin: 0 }}>
+                              {p.type}&ensp;&middot;&ensp;{frameworkLabel[p.framework] || p.framework}&ensp;&middot;&ensp;{timeAgo(p.updated_at)}
+                            </p>
+                          </div>
+                          <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: '600', color: 'var(--green)', paddingLeft: '16px', flexShrink: 0 }}>Resume &rarr;</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                          {[
+                            { val: p.characterCount, label: 'character' },
+                            { val: p.sceneCount,     label: 'scene' },
+                            { val: p.plotHoleCount,  label: 'plot hole' },
+                          ].map(({ val, label }) => (
+                            <span key={label} style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-mid)', background: 'var(--off-white)', border: '1px solid var(--border)', padding: '2px 8px', borderRadius: '20px' }}>
+                              {val} {label}{val !== 1 ? 's' : ''}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </Link>
+                  )
+                })}
+                <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+                  <div style={{ padding: '16px 20px', borderRadius: '10px', border: '1.5px dashed var(--border)', textAlign: 'center', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '13px', fontFamily: 'var(--font-sans)', transition: 'border-color 0.15s, color 0.15s' }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.color = 'var(--green)' }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-soft)' }}>
+                    + Start a new story
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+            {/* Today's lesson */}
+            <div className="card" style={{ padding: '20px 22px' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '10px' }}>Today</p>
+              <p style={{ fontFamily: 'var(--font-display)', fontSize: '15px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px', lineHeight: '1.3' }}>{todaysTip.label}</p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.65', marginBottom: '14px', fontStyle: 'italic' }}>&ldquo;{todaysTip.tip}&rdquo;</p>
+              <Link href={`/learn/${todaysTip.slug}`} style={{ textDecoration: 'none' }}>
+                <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 14px', width: '100%' }}>Read the lesson &rarr;</button>
+              </Link>
+            </div>
+
+            {/* Quick links */}
+            <div className="card" style={{ padding: '20px 22px' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '12px' }}>Quick links</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                {[
+                  { label: 'Craft library', href: '/learn', sub: '100+ lessons' },
+                  { label: 'Idea capture', href: '/ideas', sub: 'Sparks and fragments' },
+                  { label: 'Frameworks', href: '/frameworks', sub: '7 story structures' },
+                  { label: 'Glossary', href: '/glossary', sub: '87+ terms defined' },
+                ].map(link => (
+                  <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 10px', borderRadius: '6px', transition: 'background 0.12s', cursor: 'pointer' }}
+                      onMouseEnter={e => e.currentTarget.style.background = 'var(--off-white)'}
+                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)' }}>{link.label}</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)' }}>{link.sub}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }

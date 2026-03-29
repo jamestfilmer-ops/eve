@@ -107,6 +107,10 @@ const lessons = [
       { title: "Theme isn't a message —it's a question", slug: 'theme', time: '6 min', level: 'Beginner', preview: 'The moment your story has a clear answer, it has become a lecture. The best stories ask a question and let the audience wrestle with it.' },
       { title: 'Plant and payoff', slug: 'plant-payoff', time: '6 min', level: 'Beginner', preview: 'A payoff without a plant feels cheap. A plant without a payoff is dead weight. The art is burying the plant so the payoff feels inevitable.' },
       { title: 'Motifs', slug: 'motifs', time: '6 min', level: 'Intermediate', preview: 'A motif is a recurring image or idea that accumulates meaning as your story progresses. Used right, a single object can carry your entire theme.' },
+      { title: 'Theme versus message: the difference matters', slug: 'theme-vs-message', time: '6 min', level: 'Beginner', preview: 'Readers can tell when a story has a message. They usually do not enjoy it. A story with a theme is different — it asks questions rather than answers them.' },
+      { title: 'How to develop theme through character', slug: 'theme-through-character', time: '7 min', level: 'Intermediate', preview: 'Theme that lives in the plot is fragile. Theme embedded in character — in who these people are, what they want, what they are wrong about — cannot be extracted from the story.' },
+      { title: 'Symbol and motif: the hidden architecture of meaning', slug: 'symbol-and-motif', time: '7 min', level: 'Intermediate', preview: 'Symbols and motifs are structural elements — recurring images that gather meaning and release it at moments of maximum effect. Used well, they are invisible to casual readers and unforgettable to careful ones.' },
+      { title: 'Irony: what it is and how to use it', slug: 'irony-in-fiction', time: '6 min', level: 'Intermediate', preview: 'Irony is the gap between what is said and what is meant, between what characters believe and what the reader knows. It is one of literature\'s most powerful tools — and one of its most abused.' },
     ],
   },
   {
@@ -196,6 +200,14 @@ const lessons = [
     items: [
       { title: 'Point of view', slug: 'point-of-view', time: '7 min', level: 'Beginner', preview: 'POV is not a technical choice about pronouns. It is a decision about where consciousness lives in your story —and every other craft decision is downstream of it.' },
       { title: 'Chapter structure', slug: 'chapter-structure', time: '7 min', level: 'Beginner', preview: 'A chapter is not a unit of time or a unit of plot. It is a unit of experience. If a chapter ends and nothing has shifted, the chapter has not done its job.' },
+      { title: 'Writing villains', slug: 'writing-villains', time: '6 min', level: 'Intermediate', preview: 'A villain who is purely evil is not a villain — they are a plot device. The best antagonists believe they are right. That belief is what makes them dangerous.' },
+      { title: 'The rewrite', slug: 'the-rewrite', time: '8 min', level: 'Intermediate', preview: 'The first draft is not a failure to be fixed. It is reconnaissance. You write it to find out what the story actually is — then you write the real thing.' },
+      { title: 'Show, don\'t tell', slug: 'show-dont-tell', time: '6 min', level: 'Beginner', preview: 'The rule is real and almost universally misunderstood. It is not about cutting adjectives. It is about where you put the reader\'s consciousness in a scene.' },
+      { title: 'Pacing and rhythm', slug: 'pacing-rhythm', time: '7 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight — knowing when to linger and when to cut.' },
+      { title: 'The ending', slug: 'the-ending', time: '7 min', level: 'Intermediate', preview: 'Endings prove what the story was about. Resolution wraps the plot. Conclusion answers the question the story has been asking all along.' },
+      { title: 'Writing the ending', slug: 'writing-the-ending', time: '5 min', level: 'Intermediate', preview: 'Most writers know their ending too early or too late. Here is how to find it and how to know when you have.' },
+      { title: 'Adaptation', slug: 'adaptation', time: '7 min', level: 'Advanced', preview: 'Adapting a novel into a screenplay is not translation. It is a complete reimagining of what the story is — finding the film hiding inside the book.' },
+      { title: 'The Snowflake Method', slug: 'snowflake-method', time: '5 min', level: 'Beginner', preview: 'Start with one sentence. Expand to a paragraph. Expand to a page. The Snowflake builds a novel from the inside out, one layer at a time.' },
     ],
   },
 
