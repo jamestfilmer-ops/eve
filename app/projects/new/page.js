@@ -410,7 +410,7 @@ export default function NewProject() {
               style={{ flex: 1, opacity: (form.title.trim() && !saving) ? 1 : 0.45, fontSize: '15px', padding: '12px' }}
               onClick={handleCreate}
             >
-              {saving ? 'Creating…' : 'Create project \u2192'}
+              {saving ? 'Creating…' : 'Create project →'}
             </button>
           </div>
         </div>
