@@ -1996,7 +1996,6 @@ const lessons = {
       { title: 'The Art of Time in Fiction', author: 'Joan Silber', note: 'The only book-length study of fictional time written specifically for practitioners.' },
     ],
   },
-}
 
   'theme-vs-message': {
     title: 'Theme vs. message: why they are not the same thing',
@@ -2075,7 +2074,9 @@ const lessons = {
     ],
   },
 
-  'irony-in-fiction': {
+  'iro
+}
+ny-in-fiction': {
     title: 'Irony in fiction: the gap that generates meaning',
     subtitle: 'Why the most powerful moments in storytelling are almost never direct',
     category: 'Theme',
@@ -2099,6 +2100,7 @@ const lessons = {
       { title: 'Aspects of the Novel', author: 'E.M. Forster', note: 'Forster\'s chapter on "round" characters is implicitly a treatment of irony — the character who contains contradictions that the reader must hold simultaneously.' },
     ],
   },
+}
 
 function renderBody(body) {
   return body.map((block, i) => {

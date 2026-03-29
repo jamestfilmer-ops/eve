@@ -155,13 +155,270 @@ const frameworks = [
 
 export default function NewProject() {
   const router = useRouter()
+  const toast  = useToast()
   const [selected, setSelected] = useState(null)
   const [step,     setStep]     = useState(1)
-  const [form,     setForm]     = useState({ title: '', type: 'Novel', logline: '' })
+  const [form,     setForm]     = useState({ title: '', type: 'Screenplay', logline: '' })
   const [saving,   setSaving]   = useState(false)
   const [saveErr,  setSaveErr]  = useState(null)
 
   const fw = frameworks.find(f => f.id === selected)
+
+  async function handleCreate() {
+    if (!form.title.trim() || !selected) return
+    setSaving(true)
+    setSaveErr(null)
+
+    const { data: { user }, error: authErr } = await supabase.auth.getUser()
+    if (authErr || !user) {
+      setSaveErr('You need to be signed in to create a project.')
+      setSaving(false)
+      return
+    }
+
+    let data, error
+    try {
+      const result = await Promise.race([
+        supabase
+          .from('projects')
+          .insert({
+            user_id:   user.id,
+            title:     form.title.trim(),
+            type:      form.type,
+            logline:   form.logline.trim() || null,
+            framework: selected,
+            status:    'seed',
+          })
+          .select()
+          .single(),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('timeout')), 8000)
+        ),
+      ])
+      data  = result.data
+      error = result.error
+    } catch (e) {
+      setSaveErr(
+        e.message === 'timeout'
+          ? 'Request timed out. Check your connection and try again.'
+          : 'Something went wrong. Try again.'
+      )
+      setSaving(false)
+      return
+    }
+
+    if (error) {
+      console.error('Supabase insert error:', error)
+      setSaveErr(`Could not save: ${error.message}`)
+      setSaving(false)
+      return
+    }
+
+    toast.success('Project created.')
+    router.push(`/projects/${data.id}`)
+  }
+
+  return (
+    <div style={{ background: 'var(--off-white)', minHeight: '100vh' }}>
+    <div style={{ maxWidth: '680px', margin: '0 auto', padding: '48px 20px 80px' }}>
+
+      {/* Header */}
+      <div className="fade-up" style={{ marginBottom: '36px' }}>
+        <p style={{ fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
+          Step {step} of 2
+        </p>
+        <h1 style={{ fontSize: 'clamp(24px, 4vw, 32px)', marginBottom: '8px', color: 'var(--text-dark)' }}>
+          {step === 1 ? 'Choose your framework' : `Set up "${form.title || 'your story'}"`}
+        </h1>
+        <p style={{ color: 'var(--text-mid)', fontSize: '15px', lineHeight: '1.6' }}>
+          {step === 1
+            ? 'Read the descriptions. Pick the one that feels right. You can change it later.'
+            : 'Just the basics — you can fill everything else in as you go.'}
+        </p>
+      </div>
+
+      {/* Step 1 — Framework picker */}
+      {step === 1 && (
+        <>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '28px' }}>
+            {frameworks.map(f => (
+              <div
+                key={f.id}
+                onClick={() => setSelected(f.id)}
+                className="card"
+                style={{
+                  padding: '20px 22px', cursor: 'pointer',
+                  border: selected === f.id ? '2px solid var(--green)' : '1.5px solid var(--border)',
+                  background: selected === f.id ? 'var(--green-pale)' : '#fff',
+                  transition: 'border-color 0.15s, background 0.15s',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{
+                      width: '34px', height: '34px', borderRadius: '8px',
+                      background: selected === f.id ? 'var(--green)' : 'var(--green-pale)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: selected === f.id ? '#fff' : 'var(--green)', flexShrink: 0,
+                    }}>
+                      <FrameworkIcon id={f.id} size={17} />
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '16px', marginBottom: '1px', color: 'var(--text-dark)' }}>{f.name}</h3>
+                      <p style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{f.author} · {f.acts}</p>
+                    </div>
+                  </div>
+                  <div style={{
+                    width: '18px', height: '18px', borderRadius: '50%', flexShrink: 0, marginTop: '2px',
+                    border: selected === f.id ? 'none' : '2px solid var(--border)',
+                    background: selected === f.id ? 'var(--green)' : 'transparent',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    {selected === f.id && (
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                        <path d="M2 5l2.5 2.5L8 3" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </div>
+                </div>
+
+                <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.6', marginBottom: selected === f.id ? '10px' : '0' }}>
+                  {f.description}
+                </p>
+
+                {selected === f.id && (
+                  <>
+                    <div style={{ fontSize: '12px', color: 'var(--green)', background: 'rgba(45,80,22,0.08)', borderRadius: '6px', padding: '8px 12px', marginBottom: '10px', lineHeight: '1.55' }}>
+                      <strong>Tip:</strong> {f.tip}
+                    </div>
+                    {f.beats.length > 0 && (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+                        {f.beats.map((b, i) => (
+                          <span key={i} style={{
+                            padding: '2px 7px', borderRadius: '4px', fontSize: '11px',
+                            background: '#fff', border: '1px solid var(--green-border)',
+                            color: 'var(--text-mid)', fontFamily: 'var(--font-mono)',
+                          }}>{b}</span>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <button
+            className="btn-primary"
+            disabled={!selected}
+            onClick={() => setStep(2)}
+            style={{ opacity: selected ? 1 : 0.4, cursor: selected ? 'pointer' : 'not-allowed', fontSize: '15px', padding: '12px 28px', width: '100%' }}
+          >
+            Continue with {fw?.name || '...'} &rarr;
+          </button>
+        </>
+      )}
+
+      {/* Step 2 — Project details */}
+      {step === 2 && (
+        <div className="fade-up">
+          <div className="card" style={{ padding: '24px 26px', marginBottom: '20px' }}>
+            {/* Framework summary */}
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: '10px',
+              marginBottom: '20px', paddingBottom: '16px', borderBottom: '1px solid var(--border)',
+            }}>
+              <div style={{
+                width: '30px', height: '30px', borderRadius: '6px',
+                background: 'var(--green)', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', color: '#fff', flexShrink: 0,
+              }}>
+                <FrameworkIcon id={fw.id} size={15} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontSize: '13px', fontWeight: '600', color: 'var(--green)', lineHeight: 1 }}>{fw.name}</p>
+                <p style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', marginTop: '2px' }}>{fw.acts}</p>
+              </div>
+              <button
+                onClick={() => setStep(1)}
+                style={{ fontSize: '12px', color: 'var(--text-soft)', background: 'none', border: 'none', cursor: 'pointer', textDecoration: 'underline', flexShrink: 0 }}
+              >
+                Change
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <div>
+                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '6px' }}>
+                  Story title <span style={{ color: 'var(--text-soft)', fontWeight: '400' }}>(can be a working title)</span>
+                </label>
+                <input
+                  className="input"
+                  placeholder="e.g. The Long Road Home"
+                  value={form.title}
+                  autoFocus
+                  onChange={e => setForm({ ...form, title: e.target.value })}
+                  onKeyDown={e => { if (e.key === 'Enter' && form.title.trim()) handleCreate() }}
+                />
+              </div>
+
+              <div>
+                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '6px' }}>Format</label>
+                <select className="input" value={form.type} onChange={e => setForm({ ...form, type: e.target.value })}>
+                  {['Screenplay', 'Novel', 'Short Story', 'TV Pilot', 'Novella', 'Memoir', 'Other'].map(t => (
+                    <option key={t}>{t}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '4px' }}>
+                  Logline <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(optional — one sentence)</span>
+                </label>
+                <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '6px' }}>
+                  Who wants what, and what stands in the way?
+                </p>
+                <textarea
+                  className="input"
+                  placeholder="e.g. A disgraced war correspondent returns to her hometown to care for a dying father she hasn't spoken to in twenty years."
+                  value={form.logline}
+                  onChange={e => setForm({ ...form, logline: e.target.value })}
+                  rows={3}
+                  style={{ resize: 'vertical', fontFamily: 'var(--font-sans)' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="tip-box" style={{ marginBottom: '20px' }}>
+            <strong>Don&apos;t overthink the title or logline.</strong> Both can change. The point is to give your story a home so you can keep building it.
+          </div>
+
+          {saveErr && (
+            <p style={{ fontSize: '13px', color: '#991B1B', marginBottom: '16px', padding: '10px 14px', background: '#FEF2F2', borderRadius: '8px', border: '1px solid #FECACA' }}>
+              {saveErr}
+            </p>
+          )}
+
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button className="btn-ghost" onClick={() => { setStep(1); setSaveErr(null) }} disabled={saving}>
+              &larr; Back
+            </button>
+            <button
+              className="btn-primary"
+              disabled={!form.title.trim() || saving}
+              style={{ flex: 1, opacity: (form.title.trim() && !saving) ? 1 : 0.45, fontSize: '15px', padding: '12px' }}
+              onClick={handleCreate}
+            >
+              {saving ? 'Creating…' : 'Create project \u2192'}
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+    </div>
+  )
+}
 
   async function handleCreate() {
     if (!form.title || !selected) return
