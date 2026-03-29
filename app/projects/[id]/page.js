@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '../../../lib/supabase'
 import { useToast } from '../../components/Toast'
+import { PRO_TABS } from '../../../lib/planUtils'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -61,18 +62,20 @@ export default function ProjectPage() {
   const [themes,     setThemes]     = useState([])
   const [loading,    setLoading]    = useState(true)
   const [error,      setError]      = useState(null)
+  const [userPlan,   setUserPlan]   = useState('free')
 
   // ── Load project + all related data ──────────────────────────────────────
   const load = useCallback(async () => {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { setError('Sign in to view this project.'); setLoading(false); return }
 
-    const [projRes, charRes, sceneRes, holeRes, themeRes] = await Promise.all([
+    const [projRes, charRes, sceneRes, holeRes, themeRes, profileRes] = await Promise.all([
       supabase.from('projects').select('*').eq('id', id).eq('user_id', user.id).single(),
       supabase.from('characters').select('*').eq('project_id', id).order('created_at'),
       supabase.from('scenes').select('*').eq('project_id', id).order('act_number').order('order_index'),
       supabase.from('plot_holes').select('*').eq('project_id', id).order('created_at'),
       supabase.from('themes').select('*').eq('project_id', id).order('created_at'),
+      supabase.from('profiles').select('plan').eq('id', user.id).single(),
     ])
 
     if (projRes.error || !projRes.data) {
@@ -91,6 +94,8 @@ export default function ProjectPage() {
     setScenes(sceneRes.data || [])
     setPlotHoles(holeRes.data || [])
     setThemes(themeRes.data || [])
+    const plan = profileRes.data?.plan
+    setUserPlan(plan && plan !== 'free' ? 'pro' : 'free')
     setLoading(false)
   }, [id])
 
@@ -162,31 +167,42 @@ export default function ProjectPage() {
       {/* ── Tabs ── */}
       <div className="fade-up fade-up-delay-1" style={{
         display: 'flex', gap: '2px', borderBottom: '1px solid var(--border)',
-        marginBottom: '32px',
+        marginBottom: '32px', overflowX: 'auto',
       }}>
-        {TABS.map(t => (
-          <button key={t} onClick={() => setTab(t)} style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            padding: '10px 16px', fontSize: '14px',
-            fontFamily: 'var(--font-ui)',
-            fontWeight: tab === t ? '600' : '400',
-            color: tab === t ? 'var(--green)' : 'var(--text-mid)',
-            borderBottom: tab === t ? '2px solid var(--green)' : '2px solid transparent',
-            marginBottom: '-1px',
-            transition: 'color 0.15s',
-          }}>
-            {t}
-            {t === 'Plot Holes' && plotHoles.filter(h => h.status === 'open').length > 0 && (
-              <span style={{
-                marginLeft: '6px', fontSize: '10px', fontFamily: 'var(--font-mono)',
-                background: 'var(--amber-pale)', color: 'var(--amber)',
-                border: '1px solid var(--amber-border)', padding: '1px 6px', borderRadius: '10px',
-              }}>
-                {plotHoles.filter(h => h.status === 'open').length}
-              </span>
-            )}
-          </button>
-        ))}
+        {TABS.map(t => {
+          const locked = userPlan === 'free' && PRO_TABS.includes(t)
+          const isActive = tab === t
+          return (
+            <button key={t} onClick={() => setTab(t)} style={{
+              background: 'none', border: 'none', cursor: locked ? 'default' : 'pointer',
+              padding: '10px 16px', fontSize: '14px', whiteSpace: 'nowrap',
+              fontFamily: 'var(--font-ui)',
+              fontWeight: isActive ? '600' : '400',
+              color: locked ? 'var(--text-soft)' : isActive ? 'var(--green)' : 'var(--text-mid)',
+              borderBottom: isActive ? '2px solid var(--green)' : '2px solid transparent',
+              marginBottom: '-1px',
+              transition: 'color 0.15s',
+              opacity: locked ? 0.55 : 1,
+            }}>
+              {t}
+              {locked && (
+                <svg width="10" height="10" viewBox="0 0 10 10" style={{ marginLeft: '5px', verticalAlign: 'middle', opacity: 0.6 }}>
+                  <rect x="2" y="4.5" width="6" height="5" rx="1" fill="currentColor"/>
+                  <path d="M3.5 4.5V3a1.5 1.5 0 013 0v1.5" stroke="currentColor" strokeWidth="1.1" fill="none"/>
+                </svg>
+              )}
+              {t === 'Plot Holes' && !locked && plotHoles.filter(h => h.status === 'open').length > 0 && (
+                <span style={{
+                  marginLeft: '6px', fontSize: '10px', fontFamily: 'var(--font-mono)',
+                  background: 'var(--amber-pale)', color: 'var(--amber)',
+                  border: '1px solid var(--amber-border)', padding: '1px 6px', borderRadius: '10px',
+                }}>
+                  {plotHoles.filter(h => h.status === 'open').length}
+                </span>
+              )}
+            </button>
+          )
+        })}
       </div>
 
       {/* ── Tab content ── */}
@@ -194,11 +210,74 @@ export default function ProjectPage() {
         {tab === 'Overview'    && <OverviewTab    project={project} characters={characters} scenes={scenes} plotHoles={plotHoles} onUpdate={updateProject} />}
         {tab === 'Characters'  && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
-        {tab === 'Plot Holes'  && <PlotHolesTab   projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />}
-        {tab === 'Timeline'    && <TimelineTab    scenes={scenes} setScenes={setScenes} toast={toast} projectId={id} />}
-        {tab === 'Themes Map'  && <ThemesMapTab   projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />}
-        {tab === 'Story Map'   && <StoryMapTab    projectId={id} project={project} scenes={scenes} setScenes={setScenes} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} onUpdateProject={updateProject} toast={toast} />}
+        {tab === 'Plot Holes'  && (userPlan === 'pro'
+          ? <PlotHolesTab projectId={id} plotHoles={plotHoles} setPlotHoles={setPlotHoles} toast={toast} />
+          : <ProTabGate tabName="Plot Holes" />
+        )}
+        {tab === 'Timeline'    && (userPlan === 'pro'
+          ? <TimelineTab scenes={scenes} setScenes={setScenes} toast={toast} projectId={id} />
+          : <ProTabGate tabName="Timeline" />
+        )}
+        {tab === 'Themes Map'  && (userPlan === 'pro'
+          ? <ThemesMapTab projectId={id} scenes={scenes} themes={themes} setThemes={setThemes} toast={toast} />
+          : <ProTabGate tabName="Themes Map" />
+        )}
+        {tab === 'Story Map'   && (userPlan === 'pro'
+          ? <StoryMapTab projectId={id} project={project} scenes={scenes} setScenes={setScenes} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} onUpdateProject={updateProject} toast={toast} />
+          : <ProTabGate tabName="Story Map" />
+        )}
       </div>
+    </div>
+  )
+}
+
+// ─── Pro Tab Gate ──────────────────────────────────────────────────────────────
+
+function ProTabGate({ tabName }) {
+  const descriptions = {
+    'Plot Holes':  'Track every unresolved story problem, continuity error, and logic gap in one place. Flag them by severity. Close them when fixed.',
+    'Timeline':    'See your entire story on a vertical spine. Every scene in order, by act, with inline status and expandable notes.',
+    'Themes Map':  'A visual canvas to map your themes, motifs, and symbols — and connect them to the scenes where they live.',
+    'Story Map':   'Drag-and-drop your scenes, characters, and themes onto a single canvas. See the whole story at once.',
+  }
+  return (
+    <div style={{
+      marginTop: '48px', padding: '56px 32px', textAlign: 'center',
+      border: '1.5px dashed var(--border)', borderRadius: '16px',
+      background: 'var(--white)',
+    }}>
+      <div style={{
+        width: '44px', height: '44px', borderRadius: '12px',
+        background: 'var(--green-pale)', border: '1px solid var(--green-border)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        margin: '0 auto 20px',
+      }}>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="3" y="8" width="12" height="9" rx="2" fill="none" stroke="var(--green)" strokeWidth="1.5"/>
+          <path d="M6 8V5.5a3 3 0 016 0V8" stroke="var(--green)" strokeWidth="1.5" fill="none"/>
+        </svg>
+      </div>
+      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '10px' }}>
+        Pro feature
+      </p>
+      <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px' }}>
+        {tabName}
+      </h3>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--text-mid)', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.75' }}>
+        {descriptions[tabName] || 'Upgrade to Pro to unlock this tool.'}
+      </p>
+      <Link href="/pricing" style={{ textDecoration: 'none' }}>
+        <button style={{
+          background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-sans)',
+          fontWeight: '700', fontSize: '14px', padding: '12px 32px',
+          borderRadius: '8px', border: 'none', cursor: 'pointer',
+        }}>
+          Upgrade to Pro &rarr;
+        </button>
+      </Link>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--text-soft)', marginTop: '14px' }}>
+        $8 / month &middot; Cancel anytime
+      </p>
     </div>
   )
 }

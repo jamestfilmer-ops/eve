@@ -1,27 +1,21 @@
-// PaywallBlur — checks Supabase session + plan before gating content
-// Set DEV_MODE to true to disable the paywall during development
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 
-const DEV_MODE = true
+// PaywallBlur — wraps lesson body content for paid-only lessons.
+// Free users and guests see the first ~400px then hit an upgrade gate.
+// Pass slug prop so free lessons can bypass the check entirely.
 
-export default function PaywallBlur({ children }) {
-  // DEV_MODE: bypass all paywall logic
-  if (DEV_MODE) return <>{children}</>
-
-  const [status, setStatus] = useState('loading') // 'loading' | 'free' | 'paid' | 'guest'
+export default function PaywallBlur({ children, slug }) {
+  const [status, setStatus] = useState('loading') // loading | free | pro | guest
 
   useEffect(() => {
     let mounted = true
-    async function checkAccess() {
+    async function check() {
       try {
         const { data: { session } } = await supabase.auth.getSession()
-        if (!session) {
-          if (mounted) setStatus('guest')
-          return
-        }
+        if (!session) { if (mounted) setStatus('guest'); return }
         const { data: profile } = await supabase
           .from('profiles')
           .select('plan')
@@ -29,112 +23,96 @@ export default function PaywallBlur({ children }) {
           .single()
         if (!mounted) return
         const plan = profile?.plan
-        if (plan && plan !== 'free') {
-          setStatus('paid')
-        } else {
-          setStatus('free')
-        }
+        setStatus(plan && plan !== 'free' ? 'pro' : 'free')
       } catch {
         if (mounted) setStatus('guest')
       }
     }
-    checkAccess()
+    check()
     return () => { mounted = false }
   }, [])
 
-  // Paid users — render everything immediately
-  if (status === 'paid') return <>{children}</>
+  // Pro users always get full content
+  if (status === 'pro') return <>{children}</>
 
-  // Still checking — show faded preview, no gate yet (avoids flash)
+  // Loading state — show blurred preview to avoid layout flash
   if (status === 'loading') {
     return (
       <div style={{ position: 'relative' }}>
-        <div style={{ maxHeight: '520px', overflow: 'hidden', position: 'relative' }}>
+        <div style={{ maxHeight: '400px', overflow: 'hidden', position: 'relative', pointerEvents: 'none' }}>
           {children}
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: '280px',
-            background: 'linear-gradient(to bottom, rgba(245,242,236,0) 0%, rgba(245,242,236,0.6) 40%, var(--off-white) 75%)',
-            pointerEvents: 'none',
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: '260px',
+            background: 'linear-gradient(to bottom, rgba(245,242,236,0) 0%, rgba(245,242,236,0.75) 50%, var(--off-white) 80%)',
           }} />
         </div>
         <div style={{ textAlign: 'center', padding: '48px 24px', background: 'var(--off-white)' }}>
-          <div style={{
-            width: '24px', height: '24px', borderRadius: '50%',
-            border: '2px solid var(--green-border)', borderTopColor: 'var(--green)',
-            animation: 'spin 0.7s linear infinite', margin: '0 auto',
-          }} />
+          <div style={{ width: '22px', height: '22px', borderRadius: '50%', border: '2px solid var(--green-border)', borderTopColor: 'var(--green)', animation: 'spin 0.7s linear infinite', margin: '0 auto' }} />
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
     )
   }
 
-  // Free or guest — show paywall gate
+  // Free or guest — paywall gate
   const isGuest = status === 'guest'
 
   return (
     <div style={{ position: 'relative' }}>
-      <div style={{ maxHeight: '520px', overflow: 'hidden', position: 'relative' }}>
+      <div style={{ maxHeight: '400px', overflow: 'hidden', position: 'relative', pointerEvents: 'none' }}>
         {children}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, height: '280px',
-          background: 'linear-gradient(to bottom, rgba(245,242,236,0) 0%, rgba(245,242,236,0.6) 40%, var(--off-white) 75%)',
-          pointerEvents: 'none',
+          position: 'absolute', bottom: 0, left: 0, right: 0, height: '260px',
+          background: 'linear-gradient(to bottom, rgba(245,242,236,0) 0%, rgba(245,242,236,0.75) 50%, var(--off-white) 80%)',
         }} />
       </div>
 
-      <div style={{ textAlign: 'center', padding: '20px 24px 40px', background: 'var(--off-white)' }}>
-        <p style={{
-          fontFamily: 'var(--font-ui)', fontSize: '13px', letterSpacing: '0.06em',
-          textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '12px',
-        }}>
-          Writer tier
+      <div style={{ textAlign: 'center', padding: '32px 24px 48px', background: 'var(--off-white)' }}>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '12px' }}>
+          Pro lesson
         </p>
-        <p style={{
-          fontFamily: 'var(--font-display)', fontSize: 'clamp(18px, 2.5vw, 22px)',
-          fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px', lineHeight: '1.3',
-        }}>
-          The full lesson is for Writer members.
-        </p>
-        <p style={{
-          fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)',
-          maxWidth: '360px', margin: '0 auto 24px', lineHeight: '1.7',
-        }}>
-          $1.99/month unlocks all 65 lessons, all 7 frameworks, and unlimited projects. Less than a coffee.
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '10px', lineHeight: '1.3' }}>
+          The rest of this lesson is for Pro members.
+        </h3>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--text-mid)', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.75' }}>
+          {isGuest
+            ? 'Create a free account to read 10 lessons. Upgrade to Pro for all lessons, every framework, and the full project workspace.'
+            : '$8 a month unlocks every lesson, all 7 frameworks, and unlimited projects. Less than one coffee.'}
         </p>
 
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link
-            href={isGuest ? '/auth?signup=true&plan=writer' : '/pricing'}
-            style={{ textDecoration: 'none' }}
-          >
-            <button style={{
-              background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-ui)',
-              fontWeight: '700', fontSize: '14px', padding: '11px 28px',
-              borderRadius: '8px', border: 'none', cursor: 'pointer', letterSpacing: '0.01em',
-            }}>
-              {isGuest ? 'Get started free' : 'Upgrade to Writer'}
-            </button>
-          </Link>
-        </div>
-
-        <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', marginTop: '16px' }}>
           {isGuest ? (
-            <>Already have an account?{' '}
-              <Link href="/auth" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>
-                Sign in
+            <>
+              <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+                <button style={{ background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-sans)', fontWeight: '700', fontSize: '14px', padding: '12px 28px', borderRadius: '8px', border: 'none', cursor: 'pointer' }}>
+                  Start free
+                </button>
+              </Link>
+              <Link href="/auth" style={{ textDecoration: 'none' }}>
+                <button style={{ background: 'transparent', color: 'var(--text-dark)', fontFamily: 'var(--font-sans)', fontWeight: '600', fontSize: '14px', padding: '12px 20px', borderRadius: '8px', border: '1.5px solid var(--border)', cursor: 'pointer' }}>
+                  Sign in
+                </button>
               </Link>
             </>
           ) : (
-            <>Free accounts include 10 core lessons.{' '}
-              <Link href="/learn" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>
-                Browse free lessons
-              </Link>
-            </>
+            <Link href="/pricing" style={{ textDecoration: 'none' }}>
+              <button style={{ background: 'var(--green)', color: '#fff', fontFamily: 'var(--font-sans)', fontWeight: '700', fontSize: '14px', padding: '12px 32px', borderRadius: '8px', border: 'none', cursor: 'pointer' }}>
+                Upgrade to Pro &rarr;
+              </button>
+            </Link>
           )}
-        </p>
-      </div>
+        </div>
 
+        {!isGuest && (
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--text-soft)', marginTop: '16px' }}>
+            Your 10 free lessons are in the{' '}
+            <Link href="/learn" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>
+              Start Here
+            </Link>{' '}
+            category.
+          </p>
+        )}
+      </div>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   )

@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import PaywallBlur from '../../components/PaywallBlur'
+import { FREE_SLUGS } from '../../../lib/planUtils'
 
 // Per-lesson SEO metadata —injected as meta tags at build time via parent layout
 // Note: dynamic metadata via generateMetadata requires a server component; 
@@ -1726,7 +1728,13 @@ export default function LessonPage() {
       </div>
 
       <div className="fade-up fade-up-delay-1">
-        {renderBody(activeBody)}
+        {FREE_SLUGS.includes(slug) ? (
+          renderBody(activeBody)
+        ) : (
+          <PaywallBlur slug={slug}>
+            {renderBody(activeBody)}
+          </PaywallBlur>
+        )}
       </div>
 
             {/* Books cited */}
