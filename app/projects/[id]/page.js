@@ -1339,30 +1339,29 @@ function TimelineTab({ scenes, setScenes, toast, projectId }) {
 // ─── Themes Map Tab ────────────────────────────────────────────────────────────
 
 function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
-  const [adding,    setAdding]    = useState(false)
-  const [newLabel,  setNewLabel]  = useState('')
-  const [newType,   setNewType]   = useState('theme')
-  const [saving,    setSaving]    = useState(false)
-  const [selected,  setSelected]  = useState(null) // { type: 'theme'|'scene', id }
-  const [links,     setLinks]     = useState([])   // [{ theme_id, scene_id }]
-  const [positions, setPositions] = useState({})   // { 'theme-id': {x,y}, 'scene-id': {x,y} }
-  const [dragging,  setDragging]  = useState(null) // { nodeKey, ox, oy }
+  const [adding,      setAdding]      = useState(false)
+  const [newLabel,    setNewLabel]    = useState('')
+  const [newType,     setNewType]     = useState('theme')
+  const [newNotes,    setNewNotes]    = useState('')
+  const [saving,      setSaving]      = useState(false)
+  const [selected,    setSelected]    = useState(null)   // theme id | null
+  const [links,       setLinks]       = useState([])     // [{ theme_id, scene_id }]
+  const [positions,   setPositions]   = useState({})
+  const [dragging,    setDragging]    = useState(null)
+  const [editingId,   setEditingId]   = useState(null)
+  const [editNotes,   setEditNotes]   = useState('')
   const svgRef = useRef(null)
 
-  // Load saved positions + links from themes metadata
   useEffect(() => {
-    // Build initial grid positions if none saved
     const pos = {}
     themes.forEach((t, i) => {
       const saved = t.canvas_x != null ? { x: t.canvas_x, y: t.canvas_y } : null
-      pos[`theme-${t.id}`] = saved || { x: 120 + (i % 3) * 220, y: 80 + Math.floor(i / 3) * 160 }
+      pos[`theme-${t.id}`] = saved || { x: 100 + (i % 3) * 240, y: 60 + Math.floor(i / 3) * 110 }
     })
     scenes.forEach((s, i) => {
-      pos[`scene-${s.id}`] = { x: 120 + (i % 5) * 160, y: 420 + Math.floor(i / 5) * 120 }
+      pos[`scene-${s.id}`] = { x: 80 + (i % 4) * 200, y: 380 + Math.floor(i / 4) * 100 }
     })
     setPositions(pos)
-
-    // Links stored as JSON in theme.linked_scenes —e.g. ["scene-id-1","scene-id-2"]
     const allLinks = []
     themes.forEach(t => {
       const linked = t.linked_scenes ? JSON.parse(t.linked_scenes) : []
@@ -1376,12 +1375,13 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
     setSaving(true)
     const { data, error } = await supabase
       .from('themes')
-      .insert({ project_id: projectId, label: newLabel.trim(), type: newType, linked_scenes: '[]', canvas_x: null, canvas_y: null })
+      .insert({ project_id: projectId, label: newLabel.trim(), type: newType, notes: newNotes.trim() || null, linked_scenes: '[]', canvas_x: null, canvas_y: null })
       .select().single()
     setSaving(false)
     if (error) { toast.error('Failed to add theme'); return }
     setThemes(prev => [...prev, data])
     setNewLabel('')
+    setNewNotes('')
     setAdding(false)
     toast.success('Theme added')
   }
@@ -1391,7 +1391,13 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
     if (error) { toast.error('Failed to delete'); return }
     setThemes(prev => prev.filter(t => t.id !== id))
     setLinks(prev => prev.filter(l => l.theme_id !== id))
+    if (selected === id) setSelected(null)
     toast.success('Theme removed')
+  }
+
+  async function saveNotes(themeId, notes) {
+    await supabase.from('themes').update({ notes }).eq('id', themeId)
+    setThemes(prev => prev.map(t => t.id === themeId ? { ...t, notes } : t))
   }
 
   async function savePosition(themeId, x, y) {
@@ -1407,15 +1413,13 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
       newLinks = [...links, { theme_id: themeId, scene_id: sceneId }]
     }
     setLinks(newLinks)
-
-    // Save back to themes table
     const themeLinks = newLinks.filter(l => l.theme_id === themeId).map(l => l.scene_id)
     await supabase.from('themes').update({ linked_scenes: JSON.stringify(themeLinks) }).eq('id', themeId)
   }
 
-  // Drag handlers
   function onNodeMouseDown(e, nodeKey) {
     e.preventDefault()
+    e.stopPropagation()
     const svg = svgRef.current
     if (!svg) return
     const rect = svg.getBoundingClientRect()
@@ -1428,14 +1432,13 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
     const svg = svgRef.current
     if (!svg) return
     const rect = svg.getBoundingClientRect()
-    const x = e.clientX - rect.left - dragging.ox
-    const y = e.clientY - rect.top - dragging.oy
+    const x = Math.max(0, e.clientX - rect.left - dragging.ox)
+    const y = Math.max(0, e.clientY - rect.top - dragging.oy)
     setPositions(prev => ({ ...prev, [dragging.nodeKey]: { x, y } }))
   }
 
   function onSvgMouseUp() {
     if (!dragging) return
-    // Save if it's a theme node
     if (dragging.nodeKey.startsWith('theme-')) {
       const themeId = dragging.nodeKey.replace('theme-', '')
       const pos = positions[dragging.nodeKey]
@@ -1445,13 +1448,17 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
   }
 
   const THEME_COLORS = {
-    theme:    { bg: '#2D5016', text: '#fff', border: '#1A3009' },
-    motif:    { bg: '#C3D9A8', text: '#fff', border: '#7A4C07' },
-    question: { bg: '#4F46E5', text: '#fff', border: '#3730A3' },
-    symbol:   { bg: '#0F766E', text: '#fff', border: '#0D5E57' },
+    theme:    { bg: '#2D5016', text: '#e8f4d4', border: '#1A3009', label: 'Theme' },
+    motif:    { bg: '#7A4C07', text: '#fff7ed', border: '#5a3605', label: 'Motif' },
+    question: { bg: '#3730A3', text: '#eef2ff', border: '#2e27a0', label: 'Question' },
+    symbol:   { bg: '#0F766E', text: '#f0fdfa', border: '#0c6b64', label: 'Symbol' },
   }
 
-  const selectedTheme = selected?.type === 'theme' ? themes.find(t => t.id === selected.id) : null
+  const selectedTheme = selected ? themes.find(t => t.id === selected) : null
+
+  // Calculate canvas height based on node positions
+  const maxY = Object.values(positions).reduce((m, p) => Math.max(m, p.y + 100), 500)
+  const canvasH = Math.max(560, maxY + 80)
 
   return (
     <div style={{ paddingTop: '8px', paddingBottom: '40px' }}>
@@ -1460,37 +1467,47 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
         <div>
           <h2 style={{ fontSize: '18px', marginBottom: '4px' }}>Themes Map</h2>
           <p style={{ fontSize: '13px', color: 'var(--text-soft)' }}>
-            Drag theme nodes. Click a theme, then click scenes to link them.
+            Add themes, motifs, and symbols. Drag to arrange. Click a theme node to link it to scenes.
           </p>
         </div>
         <button className="btn-primary" onClick={() => setAdding(true)} style={{ flexShrink: 0 }}>
-          + Add theme
+          + Add
         </button>
       </div>
 
-      {/* Add theme form */}
+      {/* Add form */}
       {adding && (
-        <div className="card" style={{ padding: '18px', marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
-          <div style={{ flex: 1, minWidth: '160px' }}>
-            <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Label</label>
-            <input className="input" placeholder="e.g. Identity, Redemption…" value={newLabel}
-              onChange={e => setNewLabel(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && addTheme()}
-              autoFocus
-            />
+        <div className="card" style={{ padding: '18px', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'flex-end', marginBottom: '10px' }}>
+            <div style={{ flex: 1, minWidth: '160px' }}>
+              <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Label</label>
+              <input className="input" placeholder="e.g. Identity, Guilt, The Watch…" value={newLabel}
+                onChange={e => setNewLabel(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && addTheme()}
+                autoFocus
+              />
+            </div>
+            <div style={{ minWidth: '140px' }}>
+              <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Type</label>
+              <select className="input" value={newType} onChange={e => setNewType(e.target.value)}>
+                <option value="theme">Theme</option>
+                <option value="motif">Motif</option>
+                <option value="question">Question</option>
+                <option value="symbol">Symbol</option>
+              </select>
+            </div>
           </div>
-          <div style={{ minWidth: '140px' }}>
-            <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Type</label>
-            <select className="input" value={newType} onChange={e => setNewType(e.target.value)}>
-              <option value="theme">Theme</option>
-              <option value="motif">Motif</option>
-              <option value="question">Question</option>
-              <option value="symbol">Symbol</option>
-            </select>
+          <div style={{ marginBottom: '12px' }}>
+            <label style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '6px' }}>Notes (optional)</label>
+            <textarea className="input" placeholder="How does this theme manifest in the story?" value={newNotes}
+              onChange={e => setNewNotes(e.target.value)}
+              rows={2}
+              style={{ resize: 'vertical', fontFamily: 'var(--font-sans)' }}
+            />
           </div>
           <div style={{ display: 'flex', gap: '8px' }}>
             <button className="btn-primary" onClick={addTheme} disabled={saving}>{saving ? 'Adding…' : 'Add'}</button>
-            <button className="btn-ghost" onClick={() => { setAdding(false); setNewLabel('') }}>Cancel</button>
+            <button className="btn-ghost" onClick={() => { setAdding(false); setNewLabel(''); setNewNotes('') }}>Cancel</button>
           </div>
         </div>
       )}
@@ -1500,55 +1517,70 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
         {Object.entries(THEME_COLORS).map(([type, c]) => (
           <div key={type} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
             <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: c.bg }} />
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            {c.label}
           </div>
         ))}
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
           <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--off-white)', border: '1.5px solid var(--border)' }} />
           Scene
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
-          <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: 'var(--green-pale)', border: '1.5px solid var(--green)' }} />
-          Linked scene
-        </div>
       </div>
 
       {themes.length === 0 && scenes.length === 0 ? (
         <div className="empty-state" style={{ marginTop: '20px' }}>
           <h3>Nothing here yet</h3>
-          <p>Add themes above, then add scenes in the Scenes tab.</p>
+          <p>Add themes above, then add scenes in the Scenes tab — they will appear here to link.</p>
         </div>
       ) : (
         <>
           {/* Canvas */}
-          <div style={{ border: '1px solid var(--border)', borderRadius: '12px', background: 'var(--off-white)', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ border: '1px solid var(--border)', borderRadius: '12px', background: '#f8f9f4', overflow: 'auto', position: 'relative' }}>
             <svg
               ref={svgRef}
-              width="100%"
-              style={{ display: 'block', minHeight: '520px', cursor: dragging ? 'grabbing' : 'default', userSelect: 'none' }}
+              width="900"
+              height={canvasH}
+              style={{ display: 'block', cursor: dragging ? 'grabbing' : 'default', userSelect: 'none', minWidth: '100%' }}
               onMouseMove={onSvgMouseMove}
               onMouseUp={onSvgMouseUp}
               onMouseLeave={onSvgMouseUp}
             >
-              {/* Grid dots */}
+              {/* Dot grid */}
               <defs>
-                <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="1" fill="var(--border)" />
+                <pattern id="tmgrid" width="28" height="28" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="#d4ddc8" />
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
+              <rect width="100%" height="100%" fill="url(#tmgrid)" />
 
-              {/* Links (lines between theme nodes and scene nodes) */}
+              {/* Zone labels */}
+              {themes.length > 0 && (
+                <text x="14" y="22" style={{ fontSize: '10px', fill: '#9aab8a', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  THEMES
+                </text>
+              )}
+              {scenes.length > 0 && (
+                <text x="14" y="368" style={{ fontSize: '10px', fill: '#9aab8a', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  SCENES
+                </text>
+              )}
+              {/* Divider line between zones */}
+              {themes.length > 0 && scenes.length > 0 && (
+                <line x1="0" y1="355" x2="900" y2="355" stroke="#d4ddc8" strokeWidth="1" strokeDasharray="6,5" />
+              )}
+
+              {/* Links */}
               {links.map(link => {
                 const tp = positions[`theme-${link.theme_id}`]
                 const sp = positions[`scene-${link.scene_id}`]
                 if (!tp || !sp) return null
+                const theme = themes.find(t => t.id === link.theme_id)
+                const col = theme ? (THEME_COLORS[theme.type] || THEME_COLORS.theme) : THEME_COLORS.theme
                 return (
                   <line
                     key={`${link.theme_id}-${link.scene_id}`}
-                    x1={tp.x + 56} y1={tp.y + 18}
+                    x1={tp.x + 60} y1={tp.y + 22}
                     x2={sp.x + 56} y2={sp.y + 18}
-                    stroke="var(--green)" strokeWidth="1.5" strokeDasharray="5,4" opacity="0.6"
+                    stroke={col.bg} strokeWidth="2" strokeDasharray="6,4" opacity="0.55"
                   />
                 )
               })}
@@ -1559,7 +1591,6 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
                 const isLinked = selectedTheme
                   ? links.some(l => l.theme_id === selectedTheme.id && l.scene_id === scene.id)
                   : false
-                const isAnyLinked = links.some(l => l.scene_id === scene.id)
                 return (
                   <g
                     key={scene.id}
@@ -1572,18 +1603,18 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
                   >
                     <rect
                       width="112" height="36" rx="6"
-                      fill={isLinked ? 'var(--green-pale)' : 'white'}
-                      stroke={isLinked ? 'var(--green)' : isAnyLinked ? '#aaa' : 'var(--border)'}
-                      strokeWidth="1.5"
+                      fill={isLinked ? '#e8f4d4' : 'white'}
+                      stroke={isLinked ? '#2D5016' : 'var(--border)'}
+                      strokeWidth={isLinked ? '2' : '1.5'}
                     />
+                    {selectedTheme && !isLinked && (
+                      <rect width="112" height="36" rx="6" fill="rgba(45,80,22,0.04)" />
+                    )}
                     <text x="56" y="23" textAnchor="middle"
-                      style={{ fontSize: '11px', fill: isLinked ? 'var(--green)' : 'var(--text-dark)', fontFamily: 'var(--font-sans)', fontWeight: isLinked ? '600' : '400' }}
+                      style={{ fontSize: '11px', fill: isLinked ? '#2D5016' : 'var(--text-dark)', fontFamily: 'var(--font-sans)', fontWeight: isLinked ? '600' : '400', pointerEvents: 'none' }}
                     >
                       {scene.title.length > 14 ? scene.title.slice(0, 13) + '…' : scene.title}
                     </text>
-                    {selectedTheme && (
-                      <rect width="112" height="36" rx="6" fill="rgba(45,80,22,0.06)" />
-                    )}
                   </g>
                 )
               })}
@@ -1592,40 +1623,40 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
               {themes.map(theme => {
                 const pos = positions[`theme-${theme.id}`] || { x: 0, y: 0 }
                 const col = THEME_COLORS[theme.type] || THEME_COLORS.theme
-                const isSelected = selected?.type === 'theme' && selected?.id === theme.id
+                const isSelected = selected === theme.id
                 const linkedCount = links.filter(l => l.theme_id === theme.id).length
                 return (
                   <g
                     key={theme.id}
                     transform={`translate(${pos.x}, ${pos.y})`}
                     onMouseDown={e => onNodeMouseDown(e, `theme-${theme.id}`)}
-                    onClick={() => setSelected(isSelected ? null : { type: 'theme', id: theme.id })}
+                    onClick={() => setSelected(isSelected ? null : theme.id)}
                     style={{ cursor: 'grab' }}
                   >
                     <rect
-                      width="112" height="40" rx="8"
+                      width="120" height="44" rx="10"
                       fill={col.bg}
                       stroke={isSelected ? '#fff' : col.border}
-                      strokeWidth={isSelected ? 3 : 1.5}
+                      strokeWidth={isSelected ? '2.5' : '1.5'}
                     />
                     {isSelected && (
-                      <rect width="112" height="40" rx="8" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4,3" />
+                      <rect width="120" height="44" rx="10" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeDasharray="4,3" />
                     )}
-                    <text x="56" y="16" textAnchor="middle"
-                      style={{ fontSize: '10px', fill: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase' }}
+                    <text x="60" y="16" textAnchor="middle"
+                      style={{ fontSize: '9px', fill: 'rgba(255,255,255,0.55)', fontFamily: 'var(--font-mono)', letterSpacing: '0.09em', textTransform: 'uppercase', pointerEvents: 'none' }}
                     >
-                      {theme.type}
+                      {col.label}
                     </text>
-                    <text x="56" y="31" textAnchor="middle"
-                      style={{ fontSize: '12px', fontWeight: '600', fill: col.text, fontFamily: 'var(--font-sans)' }}
+                    <text x="60" y="33" textAnchor="middle"
+                      style={{ fontSize: '12px', fontWeight: '600', fill: col.text, fontFamily: 'var(--font-sans)', pointerEvents: 'none' }}
                     >
-                      {theme.label.length > 13 ? theme.label.slice(0, 12) + '…' : theme.label}
+                      {theme.label.length > 14 ? theme.label.slice(0, 13) + '…' : theme.label}
                     </text>
                     {linkedCount > 0 && (
                       <>
-                        <circle cx="100" cy="8" r="9" fill="white" />
-                        <text x="100" y="12" textAnchor="middle"
-                          style={{ fontSize: '10px', fontWeight: '700', fill: col.bg, fontFamily: 'var(--font-mono)' }}
+                        <circle cx="108" cy="8" r="9" fill="white" />
+                        <text x="108" y="12" textAnchor="middle"
+                          style={{ fontSize: '9px', fontWeight: '700', fill: col.bg, fontFamily: 'var(--font-mono)', pointerEvents: 'none' }}
                         >{linkedCount}</text>
                       </>
                     )}
@@ -1635,54 +1666,94 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
             </svg>
           </div>
 
-          {/* Instruction / selected theme panel */}
+          {/* Linking instruction bar */}
           {selectedTheme ? (
-            <div style={{ marginTop: '16px', padding: '14px 18px', borderRadius: '10px', background: 'var(--green-pale)', border: '1px solid var(--green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-              <div>
+            <div style={{ marginTop: '14px', padding: '12px 18px', borderRadius: '10px', background: 'var(--green-pale)', border: '1px solid var(--green)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '2px', background: (THEME_COLORS[selectedTheme.type] || THEME_COLORS.theme).bg, flexShrink: 0 }} />
                 <span style={{ fontSize: '13px', fontWeight: '600', color: 'var(--green)' }}>
                   Linking: &ldquo;{selectedTheme.label}&rdquo;
                 </span>
-                <span style={{ fontSize: '13px', color: 'var(--text-mid)', marginLeft: '8px' }}>
-                  Click scene nodes above to connect them. Click the theme again to deselect.
+                <span style={{ fontSize: '13px', color: 'var(--text-mid)' }}>
+                  &mdash; click scene nodes above to connect or disconnect
                 </span>
               </div>
               <button className="btn-ghost" style={{ fontSize: '12px', padding: '6px 12px' }} onClick={() => setSelected(null)}>
-                Done linking
+                Done
               </button>
             </div>
           ) : (
-            <p style={{ marginTop: '12px', fontSize: '12px', color: 'var(--text-soft)', textAlign: 'center' }}>
-              Click a theme node to start linking it to scenes &middot; Drag any node to reposition
+            <p style={{ marginTop: '10px', fontSize: '12px', color: 'var(--text-soft)', textAlign: 'center' }}>
+              Click a theme node to link scenes &middot; Drag any node to reposition
             </p>
           )}
 
-          {/* Theme list sidebar */}
+          {/* Theme list */}
           {themes.length > 0 && (
-            <div style={{ marginTop: '24px' }}>
+            <div style={{ marginTop: '28px' }}>
               <p style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
-                All themes ({themes.length})
+                All entries ({themes.length})
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {themes.map(t => {
                   const col = THEME_COLORS[t.type] || THEME_COLORS.theme
                   const linkedScenes = links.filter(l => l.theme_id === t.id)
+                  const isEditing = editingId === t.id
                   return (
-                    <div key={t.id} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border)', background: 'var(--white)' }}>
-                      <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: col.bg, flexShrink: 0 }} />
-                      <div style={{ flex: 1 }}>
-                        <span style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)' }}>{t.label}</span>
-                        <span style={{ fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px', fontFamily: 'var(--font-mono)' }}>{t.type}</span>
+                    <div key={t.id} style={{ padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--white)' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: col.bg, flexShrink: 0 }} />
+                        <div style={{ flex: 1 }}>
+                          <span style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)' }}>{t.label}</span>
+                          <span style={{ fontSize: '11px', color: 'var(--text-soft)', marginLeft: '8px', fontFamily: 'var(--font-mono)' }}>{col.label.toLowerCase()}</span>
+                        </div>
+                        <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                          {linkedScenes.length} scene{linkedScenes.length !== 1 ? 's' : ''}
+                        </span>
+                        <button
+                          className="btn-ghost"
+                          style={{ fontSize: '11px', padding: '4px 10px' }}
+                          onClick={() => {
+                            if (isEditing) {
+                              setEditingId(null)
+                            } else {
+                              setEditingId(t.id)
+                              setEditNotes(t.notes || '')
+                            }
+                          }}
+                        >
+                          {isEditing ? 'Close' : 'Notes'}
+                        </button>
+                        <button
+                          className="btn-danger"
+                          style={{ fontSize: '11px', padding: '4px 10px' }}
+                          onClick={() => deleteTheme(t.id)}
+                        >
+                          Remove
+                        </button>
                       </div>
-                      <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
-                        {linkedScenes.length} scene{linkedScenes.length !== 1 ? 's' : ''}
-                      </span>
-                      <button
-                        className="btn-danger"
-                        style={{ fontSize: '11px', padding: '4px 10px' }}
-                        onClick={() => deleteTheme(t.id)}
-                      >
-                        Remove
-                      </button>
+                      {isEditing && (
+                        <div style={{ marginTop: '10px' }}>
+                          <textarea
+                            className="input"
+                            value={editNotes}
+                            onChange={e => setEditNotes(e.target.value)}
+                            placeholder="How does this theme manifest? What scenes carry it? What does it mean for the story?"
+                            rows={3}
+                            style={{ resize: 'vertical', fontFamily: 'var(--font-sans)', fontSize: '13px' }}
+                          />
+                          <button
+                            className="btn-primary"
+                            style={{ marginTop: '8px', fontSize: '12px', padding: '6px 14px' }}
+                            onClick={() => { saveNotes(t.id, editNotes); setEditingId(null); toast.success('Notes saved') }}
+                          >
+                            Save notes
+                          </button>
+                        </div>
+                      )}
+                      {!isEditing && t.notes && (
+                        <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--text-mid)', lineHeight: '1.6', paddingLeft: '20px' }}>{t.notes}</p>
+                      )}
                     </div>
                   )
                 })}
