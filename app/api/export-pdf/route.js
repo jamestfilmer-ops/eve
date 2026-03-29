@@ -41,10 +41,10 @@ export async function POST(request) {
     const tmpPy  = join(tmpdir(), `eve_export_${projectId}.py`)
     const tmpPdf = join(tmpdir(), `eve_export_${projectId}.pdf`)
 
-    const escapedTitle   = (project.title  || 'Untitled').replace(/'/g, "\\'")
-    const escapedLogline = (project.logline || '').replace(/'/g, "\\'").replace(/\n/g, ' ')
-    const escapedGenre   = (project.genre   || '').replace(/'/g, "\\'")
-    const escapedFW      = (project.framework || '').replace(/-/g, ' ').replace(/'/g, "\\'")
+    const escapedTitle   = (project.title  || 'Untitled').replace(/'/g, "\'")
+    const escapedLogline = (project.logline || '').replace(/'/g, "\'").replace(/\n/g, ' ')
+    const escapedGenre   = (project.genre   || '').replace(/'/g, "\'")
+    const escapedFW      = (project.framework || '').replace(/-/g, ' ').replace(/'/g, "\'")
 
     const scenesByAct = scenes.reduce((acc, s) => {
       const a = s.act_number || 1

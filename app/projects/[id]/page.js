@@ -2331,8 +2331,8 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
                 const nt  = SM_NODE[node.type] || SM_NODE.scene
                 const isSel     = selected  === node.key
                 const isConnSrc = connectFrom === node.key
-                const truncLabel = node.label.length > 17 ? node.label.slice(0, 16) + '\u2026' : node.label
-                const truncSub   = node.sub   ? (node.sub.length > 20 ? node.sub.slice(0, 19) + '\u2026' : node.sub) : ''
+                const truncLabel = node.label.length > 17 ? node.label.slice(0, 16) + '…' : node.label
+                const truncSub   = node.sub   ? (node.sub.length > 20 ? node.sub.slice(0, 19) + '…' : node.sub) : ''
                 const midY       = truncSub ? nt.h / 2 - 5 : nt.h / 2 + 5
 
                 return (
