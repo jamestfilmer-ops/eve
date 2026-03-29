@@ -2074,32 +2074,7 @@ const lessons = {
     ],
   },
 
-  'iro
-}
-ny-in-fiction': {
-    title: 'Irony in fiction: the gap that generates meaning',
-    subtitle: 'Why the most powerful moments in storytelling are almost never direct',
-    category: 'Theme',
-    intro: 'Irony is the gap between what is said and what is meant, between what a character believes and what the audience knows, between what is expected and what occurs. It is one of the most powerful tools in fiction because it generates meaning from distance — the space between the surface and what lies beneath it is where the story\'s real work happens.',
-    body: [
-      { type: 'h3', text: 'The three kinds of irony' },
-      { type: 'p', text: 'Verbal irony is when what is said contradicts what is meant. A character says "lovely day" in a rainstorm, or praises someone they despise. Used well, verbal irony is characterization — it reveals how a person manages the gap between what they feel and what they perform. Used as a tic, it becomes deflection that prevents the story from accessing real feeling.' },
-      { type: 'p', text: 'Situational irony is when events contradict expectation — when the outcome is the opposite of what the situation seemed to be building toward. The irony of a fire station burning down, or of a marriage counselor whose own marriage fails. Situational irony is the basis of tragedy: Oedipus\'s investigation to find the killer concludes with the discovery that he is the killer. The very action taken to prevent the outcome produces it.' },
-      { type: 'p', text: 'Dramatic irony — the most powerful kind in fiction — is when the audience knows something the characters do not. The bomb under the table that only the viewer can see. The letter that arrives one scene too late. The audience watches a character make a decision knowing more than the character does about its consequences. Dramatic irony creates unbearable tension from information asymmetry.' },
-      { type: 'rule', text: 'The gap between what the audience knows and what the character knows is dramatic tension. Close the gap too early and you lose the tension. Close it at exactly the right moment and it produces catharsis.' },
-      { type: 'h3', text: 'Dramatic irony as structure' },
-      { type: 'p', text: 'The most effective use of dramatic irony is structural — not a single moment but an extended state of audience awareness. In Breaking Bad, the audience knows Walt is building a drug empire long before his family does. Every scene in which Skyler believes Walt\'s explanations plays in two registers simultaneously: the surface of what the characters understand and the depth of what the audience knows. The gap between those two registers is the source of the show\'s unbearable tension.' },
-      { type: 'p', text: 'Building structural dramatic irony requires giving the audience information the protagonist does not have — or giving the protagonist information the other characters lack. Either creates a privileged perspective that generates anxiety and engagement. The audience is implicated in the gap: they know something is coming, they cannot warn the character, and they watch the collision approach.' },
-      { type: 'h3', text: 'The irony of character belief' },
-      { type: 'p', text: 'One of fiction\'s most productive ironies is the gap between what a character believes about themselves and what the story shows about them. An unreliable narrator who believes themselves to be reliable. A hero whose actions undermine the values they claim. A villain who believes they are the story\'s moral center. The audience reads the surface — what the character says and believes — against the deeper evidence the story provides.' },
-      { type: 'p', text: 'This kind of irony produces the richest characterization because it creates characters who are simultaneously sympathetic and self-deceived. We understand why they believe what they believe while seeing clearly what they cannot see. The reader\'s awareness of the gap is the source of both compassion and tragic weight.' },
-      { type: 'tip', text: 'Find one scene in your story where a character says something they fully believe — but the reader should be able to see that it is not true, or is only half-true. Do not correct the character in the scene. Do not add narration explaining the gap. Let the gap exist and trust the reader to feel it. Then ask: what is the earliest moment in the story where you planted the information that allows the reader to see what the character cannot?' },
-    ],
-    books: [
-      { title: 'The Rhetoric of Fiction', author: 'Wayne Booth', note: 'Booth\'s treatment of the unreliable narrator and ironic distance is the foundational academic text on how irony functions in fiction.' },
-      { title: 'Aspects of the Novel', author: 'E.M. Forster', note: 'Forster\'s chapter on "round" characters is implicitly a treatment of irony — the character who contains contradictions that the reader must hold simultaneously.' },
-    ],
-  },
+
 }
 
 function renderBody(body) {
