@@ -40,7 +40,7 @@ export default function IdeasPage() {
   const [filter,    setFilter]    = useState('All')
   const [showForm,  setShowForm]  = useState(false)
   const [newIdea,   setNewIdea]   = useState({ type: 'One-liner', text: '' })
-  const [sparkOffset, setSparkOffset] = useState(() => Math.floor(Math.random() * 150))
+  const [sparkOffset, setSparkOffset] = useState(() => Math.floor(Math.random() * 100))
 
   const allSparks = [
     // ── Character ────────────────────────────────────────────────────────────
@@ -385,10 +385,8 @@ export default function IdeasPage() {
               <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
                 <button
                   onClick={() => setSparkOffset(prev => {
-                    // Jump to a random position at least 6 away from current
-                    const len = allSparks.length
                     let next = prev
-                    while (Math.abs(next - prev) < 6) next = Math.floor(Math.random() * len)
+                    while (next === prev) next = Math.floor(Math.random() * 100)
                     return next
                   })}
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', background: 'transparent', border: '1px solid var(--border)', borderRadius: '20px', padding: '4px 14px', cursor: 'pointer', transition: 'color 0.15s, border-color 0.15s' }}
@@ -400,7 +398,23 @@ export default function IdeasPage() {
                 </button>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '10px' }}>
-                {allSparks.slice(sparkOffset, sparkOffset + 6).concat(sparkOffset + 6 > allSparks.length ? allSparks.slice(0, (sparkOffset + 6) % allSparks.length) : []).map((spark, i) => {
+                {(() => {
+                  // Seeded shuffle so same offset always gives same 6, but types are mixed
+                  // Group sparks by type
+                  const byType = {}
+                  allSparks.forEach(s => { if (!byType[s.type]) byType[s.type] = []; byType[s.type].push(s) })
+                  const types = Object.keys(byType)
+                  // Pick one from each type in rotation, offset by sparkOffset
+                  const result = []
+                  const typeCount = types.length // 5
+                  for (let i = 0; i < 6; i++) {
+                    const type = types[(i + sparkOffset) % typeCount]
+                    const pool = byType[type]
+                    const item = pool[(sparkOffset * 7 + i * 13) % pool.length]
+                    result.push(item)
+                  }
+                  return result
+                })().map((spark, i) => {
                   const col = typeColors[spark.type] || { bg: 'var(--green-pale)', color: 'var(--green)' }
                   return (
                     <button
