@@ -200,6 +200,7 @@ export default function Nav() {
           </div>
           <MobileNavLink href="/dashboard" active={isActive('/dashboard')}>Projects</MobileNavLink>
           <MobileNavLink href="/ideas"     active={isActive('/ideas')}>Ideas</MobileNavLink>
+          <MobileNavLink href="/pricing"   active={isActive('/pricing')}>Pricing</MobileNavLink>
           <MobileNavLink href="/profile"   active={isActive('/profile')}>Profile</MobileNavLink>
           <div style={{ marginTop:'auto',paddingTop:'28px',borderTop:'1px solid var(--border)' }}>
             {user ? (

@@ -293,7 +293,7 @@ export default function Home() {
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', textAlign: 'center', marginBottom: '32px' }}>
             What's inside the library
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '12px' }}>
+          <div className="library-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '12px' }}>
             {[
               { number: '100+', label: 'Craft lessons', sub: 'Structure, character, dialogue, directors', href: '/learn' },
               { number: '7', label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
@@ -419,7 +419,7 @@ export default function Home() {
               Every project starts with a structure choice. Save the Cat, Hero&apos;s Journey, Story Circle, and four others — each one a different way of thinking about how stories work. Not sure? Read the descriptions. You&apos;ll know.
             </p>
           </div>
-          <div style={{
+          <div className="hp-framework-grid-4" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '16px',
@@ -437,7 +437,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div style={{
+          <div className="hp-framework-grid-3" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '16px',

@@ -1087,3 +1087,108 @@ input, textarea, select, button {
   color: rgba(255,255,255,0.88);
   backdrop-filter: blur(4px);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE-NATIVE PASS — every inline grid that lacked a class
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Homepage: "What's inside the library" 6-col → 2x3 on mobile ── */
+@media (max-width: 767px) {
+  .library-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .library-stats-grid a {
+    padding: 18px 14px !important;
+  }
+}
+@media (max-width: 380px) {
+  .library-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Homepage: framework cards 4-col → 2x2, 3-col → 1-col ── */
+@media (max-width: 900px) {
+  .hp-framework-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .hp-framework-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 560px) {
+  .hp-framework-grid-4,
+  .hp-framework-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Genres page: detail 2-col → 1-col ── */
+@media (max-width: 640px) {
+  .genre-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+
+/* ── Homepage pricing: minmax(300px) can overflow on 320px screens ── */
+@media (max-width: 380px) {
+  .pricing-grid,
+  section > div > div[style*="minmax(300px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Safe area insets for iPhone notch/dynamic island ── */
+@supports (padding: env(safe-area-inset-top)) {
+  nav {
+    padding-top: env(safe-area-inset-top);
+  }
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  /* Footer bottom safe area */
+  footer, .footer-wrap {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  /* Mobile nav overlay: respect bottom inset */
+  .nav-mobile[style*="position:fixed"] {
+    padding-bottom: max(48px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ── Road-to pages: resource links need larger touch targets ── */
+@media (max-width: 767px) {
+  .road-resource-link {
+    min-height: 52px !important;
+    padding: 16px 18px !important;
+  }
+}
+
+/* ── All CTA buttons: full-width stacked on very small screens ── */
+@media (max-width: 480px) {
+  .cta-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .cta-row a,
+  .cta-row button {
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+
+/* ── Visual-craft master profiles: ensure cards don't overflow ── */
+@media (max-width: 560px) {
+  .visual-masters-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Prevent text truncation on small screens ── */
+@media (max-width: 380px) {
+  h1 { word-break: break-word; }
+  .badge { font-size: 9px !important; padding: 3px 8px !important; }
+}
