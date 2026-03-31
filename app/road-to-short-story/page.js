@@ -56,7 +56,7 @@ const stages = [
     title: "Research the Markets",
     summary: "Publishing is a matching problem. The right story in the wrong magazine is still a rejection.",
     body: [
-      "Literary magazines range from the Paris Review and Ploughshares (highly competitive, career-defining) to mid-tier journals like Glimmer Train (now closed), One Story, and Narrative, to hundreds of smaller journals with smaller readerships but real editorial standards and genuine prestige within their communities.",
+      "Literary magazines range from the Paris Review and Ploughshares (highly competitive, career-defining) to mid-tier journals like One Story and Narrative, to hundreds of smaller journals with smaller readerships but real editorial standards and genuine prestige within their communities.",
       "Read before you submit. This is not optional. Read at least three issues of any magazine before sending them work. You are looking for: the kind of sentences they favor, the types of endings they publish, whether they skew experimental or traditional, and whether your story fits what they are actually buying.",
       "Duotrope and The Submission Grinder are the two primary databases for tracking literary markets. Both let you filter by genre, word count, response time, and pay rate. Duotrope charges a subscription fee; The Submission Grinder is free. Both are worth using.",
       "Pay attention to the difference between paying markets and non-paying markets. The Science Fiction Writers of America (SFWA) maintains a list of qualifying professional markets for genre fiction—payment of at least 8 cents per word. These matter for award eligibility and career signaling in genre fiction.",
@@ -152,7 +152,7 @@ const topMarkets = [
   { name: "McSweeney's", tier: "Tier 2", pays: true, genre: "Literary", url: "https://www.mcsweeneys.net/pages/submission-guidelines", note: "Dave Eggers' quarterly. Strong voice-driven fiction." },
   { name: "Kenyon Review", tier: "Tier 2", pays: true, genre: "Literary", url: "https://kenyonreview.submittable.com/submit", note: "University-affiliated. Long-established prestige. Online and print." },
   { name: "Missouri Review", tier: "Tier 2", pays: true, genre: "Literary", url: "https://moreview.submittable.com/submit", note: "Strong literary fiction program. Annual contest." },
-  { name: "Glimmer Train", tier: "Tier 2", pays: true, genre: "Literary", url: "https://www.glimmertrain.com/bulletins/", note: "Closed 2019. Archive only—useful to read back issues for style." },
+  { name: "Glimmer Train", tier: "Historical", pays: true, genre: "Literary", url: "https://www.glimmertrain.com/bulletins/", note: "Closed 2019. Archive only—useful to read back issues for style." },
   { name: "Third Coast", tier: "Tier 3", pays: false, genre: "Literary", url: "https://thirdcoastmagazine.com/submit/", note: "Western Michigan University. Prestige MFA feeder market." },
   { name: "Gettysburg Review", tier: "Tier 3", pays: true, genre: "Literary", url: "https://www.gettysburgreview.com/submissions/", note: "Strong literary fiction. Slow response time, worth the wait." },
   // SFF

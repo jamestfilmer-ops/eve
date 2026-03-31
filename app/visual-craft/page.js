@@ -130,7 +130,7 @@ const cinematographyLessons = [
     time: '15 min',
     level: 'Advanced',
     status: 'live',
-    preview: 'Mise-en-scene is the total visual argument of a frame: set, costume, performance, lighting, composition, camera. The directors who master it—Kubrick, Tati, Kubrick, Wes Anderson—cannot be imitated because every element is inseparable.',
+    preview: 'Mise-en-scene is the total visual argument of a frame: set, costume, performance, lighting, composition, camera. The directors who master it—Kubrick, Tati, Wes Anderson—cannot be imitated because every element is inseparable.',
   },
 ]
 

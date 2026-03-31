@@ -7,7 +7,7 @@ export const metadata = {
   keywords: "free screenwriting lessons, how to write a screenplay, story structure lessons, character arc, dialogue writing, how to write a novel, point of view fiction, adaptation screenwriting, save the cat beats, hero journey steps, screenwriting course free, film school alternative online",
   openGraph: {
     title: "Free Screenwriting & Story Craft Lessons",
-    description: "35+ lessons on structure, character, dialogue, theme, POV, and adaptation. For screenwriters and novelists. Free forever.",
+    description: "100+ lessons on structure, character, dialogue, theme, directors on craft, visual storytelling, and frameworks. For screenwriters, novelists, and short story writers. Free to start.",
     url: "https://eve-screenwriting.vercel.app/learn",
   },
   alternates: {
@@ -136,7 +136,6 @@ const lessons = [
       { title: 'Pacing and rhythm', slug: 'pacing-rhythm', time: '6 min', level: 'Intermediate', preview: 'Pacing is not the speed at which things happen. It is the relationship between speed and weight. The allocation of space is meaning.' },
       { title: 'The rewrite', slug: 'the-rewrite', time: '6 min', level: 'Intermediate', preview: 'The first draft is not the work. It is the material from which the work is made. Most writers only learn this by writing a bad first draft and discovering the story hiding inside it.' },
       { title: "Show, don't tell", slug: 'show-dont-tell', time: '6 min', level: 'Beginner', preview: 'The most repeated instruction in writing and the least understood. What it actually means: let the reader do the work.' },
-      { title: 'How to end a story', slug: 'the-ending', time: '7 min', level: 'Intermediate', preview: 'Endings prove what the story was about. Resolution wraps the plot. Conclusion answers the question.' },
     ],
   },
   {

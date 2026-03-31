@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Nav from '../components/Nav'
+// Nav is rendered by root layout — do not import here
 
 const COMPARISON = [
   { feature: 'Craft lessons',         free: '10 Start Here lessons',  pro: 'All lessons (100+)'       },
@@ -29,7 +29,6 @@ export default function PricingPage() {
 
   return (
     <>
-      <Nav />
       <div style={{ background: 'var(--off-white)', minHeight: '100vh', paddingBottom: '80px' }}>
 
         <div style={{ maxWidth: '720px', margin: '0 auto', padding: '72px 24px 48px', textAlign: 'center' }}>

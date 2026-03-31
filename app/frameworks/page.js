@@ -135,8 +135,8 @@ const frameworks = [
   {
     slug: 'freeform',
     name: 'Freeform',
-    creator: ' --',
-    year: ' --',
+    creator: null,
+    year: null,
     acts: null,
     beats: null,
     difficulty: 'Any level',
@@ -266,7 +266,7 @@ export default function FrameworksPage() {
                       <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: '700', color: 'var(--text-dark)', margin: 0 }}>{f.name}</h2>
                     </div>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em' }}>
-                      {f.creator} · {f.year}{f.acts ? ` · ${f.acts} acts` : ''}{f.beats ? ` · ${f.beats} beats` : ''}
+                      {[f.creator, f.year, f.acts ? `${f.acts} acts` : null, f.beats ? `${f.beats} beats` : null].filter(Boolean).join(' · ')}
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
