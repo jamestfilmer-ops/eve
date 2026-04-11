@@ -31,7 +31,15 @@ const genres = [
       { title: 'The Girl with the Dragon Tattoo', year: 2005, medium: 'Novel', note: 'Investigative thriller with procedural depth. Larsson showed that thriller could carry serious social critique without losing pace.' },
       { title: 'Rear Window', year: 1954, medium: 'Film', note: 'Constraint as engine. Hitchcock builds maximum tension from a completely static protagonist. The most instructive thriller ever made.' },
     ],
-    subgenres: ['Psychological Thriller', 'Legal Thriller', 'Medical Thriller', 'Spy Thriller', 'Political Thriller', 'Tech Thriller', 'Domestic Thriller'],
+    subgenres: [
+      { name: 'Psychological Thriller', note: 'Threat comes from inside—the mind, a relationship, or the perception of reality itself becomes unreliable.' },
+      { name: 'Legal Thriller', note: 'The courtroom as arena of life-and-death stakes, where procedure and revelation arrive simultaneously.' },
+      { name: 'Medical Thriller', note: 'Hospital, lab, or epidemic as setting; the body and science become the source of escalating dread.' },
+      { name: 'Spy Thriller', note: 'Deception, tradecraft, and divided loyalty in a world where every ally may be an enemy.' },
+      { name: 'Political Thriller', note: 'Power, conspiracy, and the machinery of government weaponized against the protagonist.' },
+      { name: 'Tech Thriller', note: 'Surveillance, AI, or biotech as the engine of existential threat; the system designed to help becomes the danger.' },
+      { name: 'Domestic Thriller', note: 'Danger hidden inside ordinary home life; the family and the house become the source of dread.' },
+    ],
   },
   {
     id: 'horror',
@@ -62,7 +70,17 @@ const genres = [
       { title: 'Get Out', year: 2017, medium: 'Film', note: 'Social horror. Peele embeds critique inside genre so completely that removing either destroys the other. Plant-and-payoff executed at a level few genre films achieve.' },
       { title: 'Annihilation', year: 2014, medium: 'Novel', note: 'Weird fiction meets literary horror. VanderMeer generates dread through refusal to explain. The mystery deepens rather than resolves—the questions are the horror.' },
     ],
-    subgenres: ['Psychological Horror', 'Supernatural Horror', 'Body Horror', 'Cosmic Horror (Lovecraftian)', 'Gothic Horror', 'Slasher', 'Haunted House', 'Folk Horror', 'Quiet Horror'],
+    subgenres: [
+      { name: 'Psychological Horror', note: 'The monster may not be real—ambiguity about whether the threat is external or a product of the mind.' },
+      { name: 'Supernatural Horror', note: 'The threat is definitively paranormal: ghosts, demons, entities that exist beyond rational explanation.' },
+      { name: 'Body Horror', note: 'The body itself becomes monstrous—transformation, contamination, and loss of physical autonomy.' },
+      { name: 'Cosmic Horror', note: 'The universe is indifferent and incomprehensible; human insignificance in the face of the unknowable is the horror.' },
+      { name: 'Gothic Horror', note: 'Atmosphere, decay, and ancestral guilt; the past pressing inward on the present through crumbling architecture.' },
+      { name: 'Slasher', note: 'A killer, a weapon, a group of victims, and systematic elimination with physical stakes front and center.' },
+      { name: 'Haunted House', note: 'Architecture as antagonist; a location with memory that acts on the people inside it.' },
+      { name: 'Folk Horror', note: 'Community, ritual, and rural isolation; the horror rises from tradition and the land itself.' },
+      { name: 'Quiet Horror', note: 'Dread without violence—unease sustained through atmosphere, implication, and restraint.' },
+    ],
   },
   {
     id: 'scifi',
@@ -93,7 +111,18 @@ const genres = [
       { title: 'Never Let Me Go', year: 2005, medium: 'Novel', note: 'Ishiguro uses SF premise to examine how humans comply with their own destruction. Not a genre novel in feel—a Booker-shortlisted literary novel that happens to have a speculative premise.' },
       { title: 'Arrival', year: 2016, medium: 'Film', note: 'The SF premise (nonlinear language reshaping perception of time) IS the emotional argument. When structure and theme are this fused, the film is doing what only SF can do.' },
     ],
-    subgenres: ['Hard SF (scientific accuracy)', 'Space Opera', 'Cyberpunk', 'Climate Fiction (Cli-Fi)', 'Biopunk', 'Solarpunk', 'Military SF', 'Time Travel', 'Afrofuturism', 'Post-Apocalyptic'],
+    subgenres: [
+      { name: 'Hard SF', note: 'Extrapolates from real or plausible science; the rigor of the idea is the attraction, not just the setting.' },
+      { name: 'Space Opera', note: 'Epic scale, galactic scope, and melodrama; character and conflict bigger than any single planet.' },
+      { name: 'Cyberpunk', note: 'High technology, low life; corporate dystopia, hacker protagonists, neon decay, and the body as hardware.' },
+      { name: 'Climate Fiction', note: 'The ecological crisis as setting, theme, or antagonist; the future Earth shaped by what humanity has already done.' },
+      { name: 'Biopunk', note: 'Biotechnology as the dominant power system; genetic engineering and corporate biology reshape who gets to be human.' },
+      { name: 'Solarpunk', note: 'Optimistic speculation about sustainable futures; technology in cooperation with ecology rather than opposition.' },
+      { name: 'Military SF', note: 'War in space or future settings; tactics, hierarchy, and the ethics of combat at civilizational scale.' },
+      { name: 'Time Travel', note: 'Temporal displacement as premise; causality, paradox, and the question of whether the past can or should be changed.' },
+      { name: 'Afrofuturism', note: 'Black experience and African tradition as the lens for speculative world-building; reclaiming the future.' },
+      { name: 'Post-Apocalyptic', note: 'Civilization after collapse; survival, community, and what values endure when all systems fail.' },
+    ],
   },
   {
     id: 'fantasy',
@@ -124,7 +153,17 @@ const genres = [
       { title: 'The Name of the Wind', year: 2007, medium: 'Novel', note: "Rothfuss establishes character voice as fantasy's primary pleasure. Kvothe's unreliable autobiography is one of the most original narrative structures the genre has produced." },
       { title: 'Jonathan Strange and Mr Norrell', year: 2004, medium: 'Novel', note: "Clarke writes Regency fantasy as a fully realized alternative history with academic footnotes. The most literary fantasy novel of its era—Booker Prize longlist." },
     ],
-    subgenres: ['Epic Fantasy', 'Dark Fantasy', 'Grimdark', 'Urban Fantasy', 'Fairy Tale Retelling', 'Mythic Fantasy', 'Low Fantasy', 'Portal Fantasy', 'Romantic Fantasy'],
+    subgenres: [
+      { name: 'Epic Fantasy', note: 'Secondary world at civilizational scale; the fate of kingdoms and the nature of good and evil as the subject.' },
+      { name: 'Dark Fantasy', note: 'Secondary world without guarantees of salvation; moral complexity and real consequence.' },
+      { name: 'Grimdark', note: 'Fantasy without heroism\'s idealism; suffering is real, power is corrupt, and survival is not guaranteed.' },
+      { name: 'Urban Fantasy', note: 'Magic operating inside a contemporary real-world city; two world-systems in collision on familiar streets.' },
+      { name: 'Fairy Tale Retelling', note: 'Classical fairy tale or myth restructured through a modern, subversive, or politically conscious lens.' },
+      { name: 'Mythic Fantasy', note: 'Draws directly on world mythology—Norse, Greek, West African, Japanese—as source material and structure.' },
+      { name: 'Low Fantasy', note: 'Magic is rare, muted, or absent; character and consequence carry more weight than the impossible.' },
+      { name: 'Portal Fantasy', note: 'Protagonist crosses from the ordinary world into a secondary world; the crossing and its cost IS the story.' },
+      { name: 'Romantic Fantasy', note: 'Love story at the center; the secondary world frames and pressures rather than drives the emotional arc.' },
+    ],
   },
   {
     id: 'mystery',
@@ -155,7 +194,17 @@ const genres = [
       { title: 'And Then There Were None', year: 1939, medium: 'Novel', note: "Christie's best-selling mystery novel of all time. The closed circle taken to its logical extreme. Every subsequent closed-location mystery is in its debt." },
       { title: 'Knives Out', year: 2019, medium: 'Film', note: "Rian Johnson inverts Agatha Christie: solves the mystery in act one and spends acts two and three on what that means. A masterclass in genre self-awareness." },
     ],
-    subgenres: ['Cozy Mystery', 'Hardboiled / Noir', 'Police Procedural', 'Legal Thriller', 'Amateur Sleuth', 'Locked Room Mystery', 'Heist', 'True Crime (narrative nonfiction)', 'Nordic Noir'],
+    subgenres: [
+      { name: 'Cozy Mystery', note: 'Murder without menace; amateur detective, contained setting, social comedy alongside the crime.' },
+      { name: 'Hardboiled / Noir', note: 'The detective as moral witness to a corrupt world; urban decay, ambiguity, no clean resolution.' },
+      { name: 'Police Procedural', note: 'Investigation through institutional process; accuracy of method matters as much as the final revelation.' },
+      { name: 'Legal Thriller', note: 'Courtroom as the arena where truth and justice are revealed to be different things.' },
+      { name: 'Amateur Sleuth', note: 'Non-professional detective drawn in by circumstance; outsider logic sees what insiders have learned not to look for.' },
+      { name: 'Locked Room Mystery', note: 'The impossible crime as puzzle; the pleasure is the architecture of the solution.' },
+      { name: 'Heist', note: 'The crime itself as the subject rather than its investigation; planning, execution, and the inevitable betrayal.' },
+      { name: 'True Crime', note: 'Real events narrated with literary technique; the crime illuminates a social or systemic failure.' },
+      { name: 'Nordic Noir', note: 'Scandinavian landscape and social welfare systems as the setting; the contrast between surface order and hidden rot.' },
+    ],
   },
   {
     id: 'romance',
@@ -186,7 +235,16 @@ const genres = [
       { title: 'Crazy Rich Asians', year: 2013, medium: 'Novel/Film', note: "Kevin Kwan uses romantic comedy to examine class, family pressure, and cultural identity. Genre as vehicle for something the plain realist novel would handle more clumsily." },
       { title: 'When Harry Met Sally', year: 1989, medium: 'Film', note: "The definitive romantic comedy screenplay. Nora Ephron's dialogue is the craft model. The structural question (can men and women be friends) is answered at exactly the right moment." },
     ],
-    subgenres: ['Contemporary Romance', 'Historical Romance', 'Paranormal Romance', 'Romantic Comedy (Rom-Com)', 'Romantic Suspense', 'Sports Romance', 'Small Town Romance', 'Dark Romance'],
+    subgenres: [
+      { name: 'Contemporary Romance', note: 'Love story set in the present day; stakes are entirely emotional, no historical or fantastical scaffolding.' },
+      { name: 'Historical Romance', note: 'Period setting as atmosphere and obstacle; courtship rules and class structures do the work conflict usually does.' },
+      { name: 'Paranormal Romance', note: 'The love interest is supernatural—vampire, fae, shifter; desire complicated by the inhuman.' },
+      { name: 'Romantic Comedy', note: 'Comedy of errors, miscommunication, and mistaken identity; the obstacles are social and the tone is light.' },
+      { name: 'Romantic Suspense', note: 'Romance fused with thriller; the couple must survive a genuine external threat to reach each other.' },
+      { name: 'Sports Romance', note: 'Athletic competition and team dynamics as the pressure cooker for emotional conflict.' },
+      { name: 'Small Town Romance', note: 'Community, homecoming, and the intimacy of a world where everyone knows your name and your history.' },
+      { name: 'Dark Romance', note: 'Morally compromised protagonists; power, danger, and consent as part of the emotional landscape rather than obstacles to it.' },
+    ],
   },
   {
     id: 'literary',
@@ -216,7 +274,15 @@ const genres = [
       { title: 'Middlemarch', year: 1871, medium: 'Novel', note: "George Eliot's masterpiece. The broadest, most compassionate view of human limitation in English fiction. Virginia Woolf called it 'one of the few English novels written for grown-up people.'" },
       { title: 'The Remains of the Day', year: 1989, medium: 'Novel', note: "Ishiguro's Booker winner. The most precise study of self-deception in literary fiction. Stevens tells you one story; the evidence of another accumulates silently around him." },
     ],
-    subgenres: ['Modernist Fiction', 'Postmodern Fiction', 'Domestic Fiction', 'Campus Novel', 'Autofiction', 'Short Story Collection', 'Novellas'],
+    subgenres: [
+      { name: 'Modernist Fiction', note: 'Stream of consciousness, fractured chronology, and interiority over event; the form enacts the meaning.' },
+      { name: 'Postmodern Fiction', note: 'Self-aware about its own fictionality; narrative reliability questioned, reality and representation interrogated.' },
+      { name: 'Domestic Fiction', note: 'The household, the marriage, the family as the site of all meaningful conflict—private life at full political weight.' },
+      { name: 'Campus Novel', note: 'The university as social microcosm; intellectual vanity, power, and the coming-of-age of ideas.' },
+      { name: 'Autofiction', note: 'The narrator is clearly the author; the boundary between memoir and novel deliberately blurred and examined.' },
+      { name: 'Short Story Collection', note: 'A sequence of stories with thematic, geographical, or character continuity—a form with its own distinct architecture.' },
+      { name: 'Novella', note: 'The middle length that demands compression; every sentence load-bearing, no space for digression.' },
+    ],
   },
   {
     id: 'western',
@@ -247,7 +313,14 @@ const genres = [
       { title: 'Lonesome Dove', year: 1985, medium: 'Novel', note: "McMurtry's Pulitzer winner. The revisionist Western as epic elegy—the myth acknowledged, examined, and mourned. The most novelistically ambitious Western in the tradition." },
       { title: 'True Grit', year: 1968, medium: 'Novel', note: "Portis gives the Western to a fourteen-year-old girl narrator and everything changes. The Coen Brothers adaptation (2010) is the finest recent Western film." },
     ],
-    subgenres: ['Classic Western', 'Revisionist Western', 'Spaghetti Western', 'Neo-Western', 'Contemporary Western', 'Weird West'],
+    subgenres: [
+      { name: 'Classic Western', note: 'The frontier as moral arena; the lone hero bringing order where law has not yet reached.' },
+      { name: 'Revisionist Western', note: 'The mythology of the West interrogated; whose story was erased, whose heroism was violence.' },
+      { name: 'Spaghetti Western', note: 'Italian production, operatic visual style, moral ambiguity; Leone defines the register.' },
+      { name: 'Neo-Western', note: 'Western codes and archetypes transposed to the present; the frontier becomes a suburb, a border, a city.' },
+      { name: 'Contemporary Western', note: 'Set in the present American West; the landscape, its economies, and its silences are the subject.' },
+      { name: 'Weird West', note: 'Frontier setting invaded by horror, fantasy, or SF; the genre\'s conventions made strange and uncanny.' },
+    ],
   },
   {
     id: 'historical',
@@ -277,7 +350,16 @@ const genres = [
       { title: 'Beloved', year: 1987, medium: 'Novel', note: "Morrison's historical fiction about slavery as Gothic haunting. The past refuses to stay past—structurally and literally." },
       { title: 'The Name of the Rose', year: 1980, medium: 'Novel', note: "Eco embeds semiotics and medieval intellectual history inside a murder mystery. The most rigorously researched popular novel ever written." },
     ],
-    subgenres: ['Ancient World', 'Medieval', 'Tudor / Elizabethan', 'Regency', 'Victorian', 'World War Fiction', 'Post-Colonial Historical', 'Historical Mystery'],
+    subgenres: [
+      { name: 'Ancient World', note: 'Greece, Rome, Egypt, Mesopotamia; civilizations whose distance allows examination of what is universal about power and survival.' },
+      { name: 'Medieval', note: 'Feudal hierarchy, religious authority, plague, and warfare; the precariousness of life before modernity arrived.' },
+      { name: 'Tudor / Elizabethan', note: 'Courts, succession crises, and the collision of reformation with power; Hilary Mantel territory.' },
+      { name: 'Regency', note: 'Austen\'s era; property, marriage, and social performance in a rigid class system with high personal stakes.' },
+      { name: 'Victorian', note: 'Empire, industrialization, and repression; surface respectability laid over enormous social violence.' },
+      { name: 'World War Fiction', note: 'WWI or WWII as setting; the experience of soldiers, civilians, and the machinery of mass death.' },
+      { name: 'Post-Colonial Historical', note: 'Empire and its aftermath narrated from the perspective of the colonized rather than the colonizer.' },
+      { name: 'Historical Mystery', note: 'Crime in a period setting; the investigative form used to expose what a historical society deliberately concealed.' },
+    ],
   },
   {
     id: 'comedy',
@@ -307,7 +389,16 @@ const genres = [
       { title: 'Wodehouse—The Code of the Woosters', year: 1938, medium: 'Novel', note: "Wodehouse's prose style is the comedy. Bertie Wooster's narration is simultaneously the funniest and most technically accomplished in English comic fiction." },
       { title: 'Groundhog Day', year: 1993, medium: 'Film', note: "The premise IS the moral argument. Phil's improvement through the loop is the comedy of self-revision—the funniest film about character transformation ever made." },
     ],
-    subgenres: ['Romantic Comedy', 'Satire', 'Farce', 'Dark Comedy / Black Comedy', 'Screwball Comedy', 'Parody', 'Absurdist Comedy', 'Tragicomedy'],
+    subgenres: [
+      { name: 'Romantic Comedy', note: 'Mismatched partners, an obstacle course of misunderstandings, and a union that feels earned rather than given.' },
+      { name: 'Satire', note: 'Social or political targets attacked through irony and exaggeration; laughter with a specific target.' },
+      { name: 'Farce', note: 'Situations escalate past all control; physical comedy, mistaken identity, doors opening at the worst moment.' },
+      { name: 'Dark Comedy', note: 'Comedy derived from subjects that are not funny—death, illness, failure—without flinching from any of it.' },
+      { name: 'Screwball Comedy', note: 'Rapid-fire dialogue, class collision, and gender warfare at an impossible speed; 1930s Hollywood as the peak.' },
+      { name: 'Parody', note: 'A specific genre, text, or cultural style imitated to expose and deflate its conventions.' },
+      { name: 'Absurdist Comedy', note: 'Logic taken to its illogical conclusion; the world operates by different, internally consistent rules.' },
+      { name: 'Tragicomedy', note: 'Equal parts tragedy and comedy; the form refuses to resolve into either register and is richer for it.' },
+    ],
   },
   {
     id: 'war',
@@ -337,7 +428,15 @@ const genres = [
       { title: 'Slaughterhouse-Five', year: 1969, medium: 'Novel', note: "Vonnegut uses science fiction (time travel) to write about the Dresden firebombing. The non-linear structure IS the trauma—PTSD before the term existed." },
       { title: 'The Hurt Locker', year: 2009, medium: 'Film', note: "Bigelow's film refuses to explain the war politically. Bomb disposal as the ultimate present-tense experience. The quietest anti-war film since Paths of Glory." },
     ],
-    subgenres: ['WWI Fiction', 'WWII Fiction', 'Vietnam War Fiction', 'Contemporary War Fiction', 'Military Thriller', 'Anti-War Satire', 'Home Front Fiction'],
+    subgenres: [
+      { name: 'WWI Fiction', note: 'The war that destroyed the 19th century\'s faith in progress; futility, mud, and the industrial machinery of death.' },
+      { name: 'WWII Fiction', note: 'The moral clarity of the "good war" complicated by civilian experience, the Holocaust, and questions of complicity.' },
+      { name: 'Vietnam War Fiction', note: 'Disillusionment, moral injury, and the gap between official narrative and what soldiers actually experienced.' },
+      { name: 'Contemporary War Fiction', note: 'Iraq, Afghanistan, the wars without clear ends; PTSD, civilian casualties, and objectives that keep shifting.' },
+      { name: 'Military Thriller', note: 'Tactics, technology, and the mechanics of combat as both subject and pleasure.' },
+      { name: 'Anti-War Satire', note: 'War depicted as systemic absurdity; Catch-22 and Slaughterhouse-Five define the poles.' },
+      { name: 'Home Front Fiction', note: 'The war from civilian perspective; rationing, grief, and waiting as the primary experience of conflict.' },
+    ],
   },
   {
     id: 'coming_of_age',
@@ -367,7 +466,13 @@ const genres = [
       { title: 'Stand by Me', year: 1986, medium: 'Film', note: "King's novella (The Body) adapted. Four boys and a dead body—the journey makes them understand death, friendship, and who they will become. The coming-of-age structure at its most transparent." },
       { title: 'Great Expectations', year: 1861, medium: 'Novel', note: "Dickens's Pip is the template for the protagonist who must unlearn his ambitions to understand what actually matters. The plot is the disassembly of false values." },
     ],
-    subgenres: ['YA (Young Adult)', 'School Story', 'Campus Novel', 'Teen Film', 'Road Novel as Formation'],
+    subgenres: [
+      { name: 'YA (Young Adult)', note: 'Protagonist 14-18; the stakes of identity, acceptance, and first experience feel absolute because they are.' },
+      { name: 'School Story', note: 'The institution as the entire world; hierarchy, friendship, and social learning in a fully contained environment.' },
+      { name: 'Campus Novel', note: 'University as second coming-of-age; intellectual and personal formation in an enclosed adult community.' },
+      { name: 'Teen Film', note: 'The high school social hierarchy as the universe; genre conventions established by John Hughes and constantly revised.' },
+      { name: 'Road Novel as Formation', note: 'The journey as the education; departure from home, encounter with otherness, and a changed return.' },
+    ],
   },
   {
     id: 'noir',
@@ -398,7 +503,14 @@ const genres = [
       { title: 'LA Confidential', year: 1990, medium: 'Novel', note: "Ellroy's most accessible noir novel. Three cops, all compromised, in 1950s Los Angeles. The city is the villain and no one gets out clean." },
       { title: 'Blade Runner', year: 1982, medium: 'Film', note: "Sci-fi noir. The rain, the shadows, the corporate corruption—all transposed to 2019. The question of whether Deckard is human is also a question about whether noir's moral world has any ground at all." },
     ],
-    subgenres: ['Classic Film Noir', 'Neo-Noir', 'Nordic Noir', 'Hardboiled Fiction', 'Tech Noir', 'Surreal Noir'],
+    subgenres: [
+      { name: 'Classic Film Noir', note: '1940s-50s visual style; chiaroscuro, femme fatale, cynical detective, and moral rot beneath prosperity.' },
+      { name: 'Neo-Noir', note: 'Noir sensibility and visual codes applied to contemporary settings; the corruption has just changed address.' },
+      { name: 'Nordic Noir', note: 'Scandinavian landscapes and social democracies as the backdrop for systemic moral failure.' },
+      { name: 'Hardboiled Fiction', note: 'The literary antecedent; Hammett and Chandler\'s prose style and moral vision before film got hold of it.' },
+      { name: 'Tech Noir', note: 'Noir aesthetics fused with science fiction technology; Blade Runner as the defining text.' },
+      { name: 'Surreal Noir', note: 'The genre\'s logic taken past realism; dream logic, impossible spaces, and fractured chronology.' },
+    ],
   },
   {
     id: 'memoir',
@@ -428,7 +540,14 @@ const genres = [
       { title: 'I Know Why the Caged Bird Sings', year: 1969, medium: 'Memoir', note: "Angelou's coming-of-age memoir in the Jim Crow South. A book that redefined what autobiography could address and whose stories were worth telling." },
       { title: 'In Cold Blood', year: 1966, medium: 'Narrative Nonfiction', note: "Capote's true crime narrative invented the nonfiction novel as a serious form. The question of how much he shaped his material to fit the story is the genre's central ethical problem." },
     ],
-    subgenres: ['Personal Essay', 'Travel Writing', 'Immersion Journalism', 'True Crime (narrative)', 'Auto-biography', 'Essay Collection'],
+    subgenres: [
+      { name: 'Personal Essay', note: 'The writer\'s own experience as the subject and instrument; Montaigne invented the form, everyone else has been catching up.' },
+      { name: 'Travel Writing', note: 'Place as the vehicle for examining the writer\'s interiority and assumptions about the world.' },
+      { name: 'Immersion Journalism', note: 'The journalist enters the subject\'s world to report from inside it; participation as the method.' },
+      { name: 'True Crime', note: 'Real crime narrated with literary technique; the crime illuminates a social or institutional failure.' },
+      { name: 'Memoir', note: 'A life or period of a life narrated by its subject; the selection of what to include IS the argument.' },
+      { name: 'Essay Collection', note: 'Essays in sequence that accumulate into a larger argument no single piece could carry alone.' },
+    ],
   },
   {
     id: 'speculative',
@@ -459,7 +578,14 @@ const genres = [
       { title: 'Brave New World', year: 1932, medium: 'Novel', note: "Huxley's dystopia is about pleasure, not pain, as the mechanism of control. More prescient than Orwell for the contemporary West—the critique of comfort, not oppression." },
       { title: 'Station Eleven', year: 2014, medium: 'Novel', note: "Mandel's post-pandemic novel is dystopian in premise but not in spirit—what survives is art. The structure (non-linear, jumping time) enacts the novel's argument about memory." },
     ],
-    subgenres: ['Political Dystopia', 'Climate Dystopia', 'Technological Dystopia', 'YA Dystopia', 'Post-Apocalyptic', 'Utopian Fiction (counter-dystopia)'],
+    subgenres: [
+      { name: 'Political Dystopia', note: 'A totalitarian state as the setting; surveillance, language control, and the systematic suppression of individuality.' },
+      { name: 'Climate Dystopia', note: 'Ecological collapse as the world the protagonist inherits; what human society does to itself in the aftermath.' },
+      { name: 'Technological Dystopia', note: 'Technology serving control rather than liberation; automation, surveillance, and digital dependency as the cage.' },
+      { name: 'YA Dystopia', note: 'Coming-of-age inside a collapsed or authoritarian society; the protagonist\'s formation IS the revolution.' },
+      { name: 'Post-Apocalyptic', note: 'After the fall; what survives, who rebuilds, and on whose terms the new world gets organized.' },
+      { name: 'Utopian Fiction', note: 'The imagined good society as argument; what we would have to become—and sacrifice—to actually build it.' },
+    ],
   },
 ]
 
@@ -644,22 +770,19 @@ function GenreCard({ genre }) {
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
               color: 'var(--text-soft)',
-              marginBottom: '10px',
+              marginBottom: '12px',
             }}>Subgenres</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px' }}>
               {genre.subgenres.map((s, i) => (
-                <span key={i} style={{
-                  fontFamily: 'var(--font-ui)',
-                  fontSize: '12px',
-                  fontWeight: '500',
-                  color: 'var(--text-mid)',
+                <div key={i} style={{
                   background: 'var(--off-white)',
                   border: '1px solid var(--border)',
-                  padding: '4px 10px',
-                  borderRadius: '20px',
+                  borderRadius: '8px',
+                  padding: '10px 14px',
                 }}>
-                  {s}
-                </span>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--text-dark)', margin: '0 0 4px' }}>{s.name}</p>
+                  <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-mid)', lineHeight: '1.5', margin: 0 }}>{s.note}</p>
+                </div>
               ))}
             </div>
           </div>
