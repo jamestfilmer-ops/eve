@@ -32,13 +32,13 @@ const genres = [
       { title: 'Rear Window', year: 1954, medium: 'Film', note: 'Constraint as engine. Hitchcock builds maximum tension from a completely static protagonist. The most instructive thriller ever made.' },
     ],
     subgenres: [
-      { name: 'Psychological Thriller', note: 'Threat comes from inside—the mind, a relationship, or the perception of reality itself becomes unreliable.' },
+      { name: 'Psychological Thriller', note: 'Threat comes from inside—the mind, a relationship, or the perception of reality itself becomes unreliable.', distinction: 'Where the standard thriller puts the protagonist in physical danger from an external force, the psychological thriller makes the danger internal or uncertain. The reader cannot trust the narrator\'s account of events. Paranoia, gaslighting, and unreliable perception replace car chases and assassins. The most disturbing question is not "will they survive?" but "what is actually real?"', examples: ['Gone Girl', 'The Talented Mr. Ripley', 'Black Swan', 'Shutter Island'] },
       { name: 'Legal Thriller', note: 'The courtroom as arena of life-and-death stakes, where procedure and revelation arrive simultaneously.' },
       { name: 'Medical Thriller', note: 'Hospital, lab, or epidemic as setting; the body and science become the source of escalating dread.' },
-      { name: 'Spy Thriller', note: 'Deception, tradecraft, and divided loyalty in a world where every ally may be an enemy.' },
+      { name: 'Spy Thriller', note: 'Deception, tradecraft, and divided loyalty in a world where every ally may be an enemy.', distinction: 'The thriller genre assumes the protagonist is innocent and reactive — they\'ve been dragged into danger. The spy thriller inverts this: the protagonist is the professional danger, trained and complicit. The moral weight shifts entirely. The question is not survival but loyalty — to country, to handler, to self — and these three are almost never the same thing.', examples: ['Tinker Tailor Soldier Spy', 'The Spy Who Came in from the Cold', 'Three Days of the Condor', 'The Americans'] },
       { name: 'Political Thriller', note: 'Power, conspiracy, and the machinery of government weaponized against the protagonist.' },
       { name: 'Tech Thriller', note: 'Surveillance, AI, or biotech as the engine of existential threat; the system designed to help becomes the danger.' },
-      { name: 'Domestic Thriller', note: 'Danger hidden inside ordinary home life; the family and the house become the source of dread.' },
+      { name: 'Domestic Thriller', note: 'Danger hidden inside ordinary home life; the family and the house become the source of dread.', distinction: 'The domestic thriller is a post-2010 mutation that weaponizes the suburb. Where classic thrillers use exotic locations and external villains, the domestic thriller finds its menace inside the marriage, the neighbourhood, the book club. It is also largely written by and for women, which shifts whose perspective is treated as reliable and whose as hysterical — and the genre exploits that dynamic deliberately.', examples: ['Gone Girl', 'The Woman in the Window', 'Big Little Lies', 'Behind Closed Doors'] },
     ],
   },
   {
@@ -73,12 +73,12 @@ const genres = [
     subgenres: [
       { name: 'Psychological Horror', note: 'The monster may not be real—ambiguity about whether the threat is external or a product of the mind.' },
       { name: 'Supernatural Horror', note: 'The threat is definitively paranormal: ghosts, demons, entities that exist beyond rational explanation.' },
-      { name: 'Body Horror', note: 'The body itself becomes monstrous—transformation, contamination, and loss of physical autonomy.' },
-      { name: 'Cosmic Horror', note: 'The universe is indifferent and incomprehensible; human insignificance in the face of the unknowable is the horror.' },
+      { name: 'Body Horror', note: 'The body itself becomes monstrous—transformation, contamination, and loss of physical autonomy.', distinction: 'Most horror threatens the body from outside. Body horror puts the threat inside the skin itself. The protagonist\'s own flesh is the antagonist — transforming, betraying, dissolving. This makes escape impossible in the most literal way. Cronenberg codified the form in film; it connects to anxieties about disease, pregnancy, surgery, and the basic unreliability of the body we live in.', examples: ['The Fly', 'Annihilation', 'Titane', 'Kafka\'s The Metamorphosis'] },
+      { name: 'Cosmic Horror', note: 'The universe is indifferent and incomprehensible; human insignificance in the face of the unknowable is the horror.' , distinction: 'Every other horror subgenre implicitly believes humans matter — the monster wants to kill you, which means you are worth targeting. Cosmic horror removes that comfort. The entities in Lovecraftian fiction are not malevolent; they are simply operating at a scale where human existence does not register. Madness is the only rational response to genuine comprehension of the universe\'s indifference. This makes it philosophically distinct from every other horror form.', examples: ['The Call of Cthulhu', 'Annihilation', 'Color Out of Space', 'The Ritual'] },
       { name: 'Gothic Horror', note: 'Atmosphere, decay, and ancestral guilt; the past pressing inward on the present through crumbling architecture.' },
       { name: 'Slasher', note: 'A killer, a weapon, a group of victims, and systematic elimination with physical stakes front and center.' },
       { name: 'Haunted House', note: 'Architecture as antagonist; a location with memory that acts on the people inside it.' },
-      { name: 'Folk Horror', note: 'Community, ritual, and rural isolation; the horror rises from tradition and the land itself.' },
+      { name: 'Folk Horror', note: 'Community, ritual, and rural isolation; the horror rises from tradition and the land itself.', distinction: 'Urban horror fears the stranger, the unknown, the thing from outside. Folk horror inverts this: the community IS the threat. The horror is ancient, local, and believed in by everyone around you. Isolation removes outside help, but more importantly it removes the framework that would let you call what is happening wrong. The scariest element is how rational the community\'s logic is on its own terms.', examples: ['Midsommar', 'The Wicker Man', 'Hereditary', 'The Witch'] },
       { name: 'Quiet Horror', note: 'Dread without violence—unease sustained through atmosphere, implication, and restraint.' },
     ],
   },
@@ -112,15 +112,15 @@ const genres = [
       { title: 'Arrival', year: 2016, medium: 'Film', note: 'The SF premise (nonlinear language reshaping perception of time) IS the emotional argument. When structure and theme are this fused, the film is doing what only SF can do.' },
     ],
     subgenres: [
-      { name: 'Hard SF', note: 'Extrapolates from real or plausible science; the rigor of the idea is the attraction, not just the setting.' },
+      { name: 'Hard SF', note: 'Extrapolates from real or plausible science; the rigor of the idea is the attraction, not just the setting.', distinction: 'Most SF uses science as window dressing — the technology justifies the setting. Hard SF treats the science as the actual subject. The story is a thought experiment: if this physics is true, what follows? Character and plot are in service of the idea, not the reverse. This creates a different contract with the reader — they come for the intellectual pleasure of the extrapolation, not primarily for emotional identification.', examples: ['The Martian', 'Seveneves', 'Rendezvous with Rama', 'Tau Zero'] },
       { name: 'Space Opera', note: 'Epic scale, galactic scope, and melodrama; character and conflict bigger than any single planet.' },
-      { name: 'Cyberpunk', note: 'High technology, low life; corporate dystopia, hacker protagonists, neon decay, and the body as hardware.' },
+      { name: 'Cyberpunk', note: 'High technology, low life; corporate dystopia, hacker protagonists, neon decay, and the body as hardware.', distinction: 'Science fiction before cyberpunk largely imagined technology as neutral or beneficial — the problem was always human nature. Cyberpunk made technology itself the oppressor, concentrating power in corporations rather than states. The protagonists are not heroes or scientists but criminals, hackers, and outcasts. The aesthetic — neon, rain, decay alongside high tech — is an argument: progress makes the rich richer and everyone else more surveilled.', examples: ['Neuromancer', 'Blade Runner', 'Ghost in the Shell', 'The Matrix'] },
       { name: 'Climate Fiction', note: 'The ecological crisis as setting, theme, or antagonist; the future Earth shaped by what humanity has already done.' },
       { name: 'Biopunk', note: 'Biotechnology as the dominant power system; genetic engineering and corporate biology reshape who gets to be human.' },
       { name: 'Solarpunk', note: 'Optimistic speculation about sustainable futures; technology in cooperation with ecology rather than opposition.' },
       { name: 'Military SF', note: 'War in space or future settings; tactics, hierarchy, and the ethics of combat at civilizational scale.' },
       { name: 'Time Travel', note: 'Temporal displacement as premise; causality, paradox, and the question of whether the past can or should be changed.' },
-      { name: 'Afrofuturism', note: 'Black experience and African tradition as the lens for speculative world-building; reclaiming the future.' },
+      { name: 'Afrofuturism', note: 'Black experience and African tradition as the lens for speculative world-building; reclaiming the future.', distinction: 'Mainstream SF has historically imagined futures that either erased Black people entirely or kept existing racial hierarchies in place. Afrofuturism is a corrective and an act of imagination: it centers African diaspora experience, draws on African cosmology and aesthetics, and asks what futures look like when the people who were written out of history write themselves back in. It is not a subgenre by content alone but by perspective and political intention.', examples: ['Black Panther', 'Kindred', 'The Fifth Season', 'Everything Is Everything (Janelle Monáe)'] },
       { name: 'Post-Apocalyptic', note: 'Civilization after collapse; survival, community, and what values endure when all systems fail.' },
     ],
   },
@@ -156,8 +156,8 @@ const genres = [
     subgenres: [
       { name: 'Epic Fantasy', note: 'Secondary world at civilizational scale; the fate of kingdoms and the nature of good and evil as the subject.' },
       { name: 'Dark Fantasy', note: 'Secondary world without guarantees of salvation; moral complexity and real consequence.' },
-      { name: 'Grimdark', note: 'Fantasy without heroism\'s idealism; suffering is real, power is corrupt, and survival is not guaranteed.' },
-      { name: 'Urban Fantasy', note: 'Magic operating inside a contemporary real-world city; two world-systems in collision on familiar streets.' },
+      { name: 'Grimdark', note: 'Fantasy without heroism\'s idealism; suffering is real, power is corrupt, and survival is not guaranteed.', distinction: 'Epic fantasy assumes that good and evil are distinguishable and that the right side can win. Grimdark strips both assumptions. Power corrupts without exception, heroism produces atrocity, and the most honest characters are the most compromised. It emerged as a direct reaction to Tolkien\'s moral clarity — and to the sanitized versions of it that dominated commercial fantasy through the 1980s and 90s. The argument is that fantasy with real consequence is more honest than fantasy with guaranteed salvation.', examples: ['A Song of Ice and Fire', 'The First Law trilogy', 'Prince of Thorns', 'The Broken Empire'] },
+      { name: 'Urban Fantasy', note: 'Magic operating inside a contemporary real-world city; two world-systems in collision on familiar streets.', distinction: 'Secondary-world fantasy requires the reader to accept an invented world on its own terms. Urban fantasy inverts the leverage — the reader knows the world already, and the magic is the intrusion. This creates a different kind of tension: not wonder at a new world but the uncanny displacement of the familiar. The choice of city matters. London versus New York versus Lagos changes what the magic means and who the story is about.', examples: ['American Gods', 'Jonathan Strange & Mr Norrell', 'The Dresden Files', 'Rivers of London'] },
       { name: 'Fairy Tale Retelling', note: 'Classical fairy tale or myth restructured through a modern, subversive, or politically conscious lens.' },
       { name: 'Mythic Fantasy', note: 'Draws directly on world mythology—Norse, Greek, West African, Japanese—as source material and structure.' },
       { name: 'Low Fantasy', note: 'Magic is rare, muted, or absent; character and consequence carry more weight than the impossible.' },
@@ -195,12 +195,12 @@ const genres = [
       { title: 'Knives Out', year: 2019, medium: 'Film', note: "Rian Johnson inverts Agatha Christie: solves the mystery in act one and spends acts two and three on what that means. A masterclass in genre self-awareness." },
     ],
     subgenres: [
-      { name: 'Cozy Mystery', note: 'Murder without menace; amateur detective, contained setting, social comedy alongside the crime.' },
-      { name: 'Hardboiled / Noir', note: 'The detective as moral witness to a corrupt world; urban decay, ambiguity, no clean resolution.' },
+      { name: 'Cozy Mystery', note: 'Murder without menace; amateur detective, contained setting, social comedy alongside the crime.', distinction: 'The cozy mystery is a genre of controlled stakes. Death occurs but it does not disturb. The detective is unthreatened, the community is reassuring, and the pleasure is purely intellectual — a puzzle to be solved before the last page. This is a deliberate inversion of hardboiled noir, which uses crime to expose social rot. The cozy uses crime to confirm social order. Neither is more honest; they are arguments about what mystery fiction is for.', examples: ['Agatha Christie\'s Miss Marple series', 'The Thursday Murder Club', 'Richard Osman\'s novels', 'Grantchester'] },
+      { name: 'Hardboiled / Noir', note: 'The detective as moral witness to a corrupt world; urban decay, ambiguity, no clean resolution.', distinction: 'Golden Age mystery (Agatha Christie, Dorothy Sayers) assumed that society was fundamentally ordered and crime was an aberration a clever detective could correct. Hardboiled fiction, born in Dashiell Hammett and Raymond Chandler\'s Depression-era pulp writing, argued the opposite: corruption is systemic, the law serves money, and the detective\'s only asset is a private code of honour that society no longer shares. The case is rarely "solved" — it is merely survived.', examples: ['The Big Sleep', 'The Maltese Falcon', 'Chinatown', 'L.A. Confidential'] },
       { name: 'Police Procedural', note: 'Investigation through institutional process; accuracy of method matters as much as the final revelation.' },
       { name: 'Legal Thriller', note: 'Courtroom as the arena where truth and justice are revealed to be different things.' },
       { name: 'Amateur Sleuth', note: 'Non-professional detective drawn in by circumstance; outsider logic sees what insiders have learned not to look for.' },
-      { name: 'Locked Room Mystery', note: 'The impossible crime as puzzle; the pleasure is the architecture of the solution.' },
+      { name: 'Locked Room Mystery', note: 'The impossible crime as puzzle; the pleasure is the architecture of the solution.', distinction: 'The locked room mystery is the most formally demanding subgenre — it requires the writer to build an elaborate logical structure in which the crime appears impossible, then dismantle it with a solution that is surprising but rigorously fair. The reader must have all the information needed to solve it. This places craft above all else; the characters and setting are almost secondary to the puzzle\'s internal geometry.', examples: ['And Then There Were None', 'The Name of the Rose', 'House of Leaves', 'Knives Out'] },
       { name: 'Heist', note: 'The crime itself as the subject rather than its investigation; planning, execution, and the inevitable betrayal.' },
       { name: 'True Crime', note: 'Real events narrated with literary technique; the crime illuminates a social or systemic failure.' },
       { name: 'Nordic Noir', note: 'Scandinavian landscape and social welfare systems as the setting; the contrast between surface order and hidden rot.' },
@@ -237,13 +237,13 @@ const genres = [
     ],
     subgenres: [
       { name: 'Contemporary Romance', note: 'Love story set in the present day; stakes are entirely emotional, no historical or fantastical scaffolding.' },
-      { name: 'Historical Romance', note: 'Period setting as atmosphere and obstacle; courtship rules and class structures do the work conflict usually does.' },
-      { name: 'Paranormal Romance', note: 'The love interest is supernatural—vampire, fae, shifter; desire complicated by the inhuman.' },
+      { name: 'Historical Romance', note: 'Period setting as atmosphere and obstacle; courtship rules and class structures do the work conflict usually does.', distinction: 'Historical romance uses the constraints of a past era as the engine of romantic tension. In a Regency novel, a woman cannot simply declare her feelings — property law, social expectation, and family interest stand between her and the person she wants. The period restrictions are not decoration but structural necessity. When those restrictions are removed by modernity, the form loses its scaffolding. This is why Regency and Victorian settings dominate: they have the richest constraints.', examples: ['Pride and Prejudice', 'Outlander', 'Bridgerton', 'An Offer from a Gentleman'] },
+      { name: 'Paranormal Romance', note: 'The love interest is supernatural—vampire, fae, shifter; desire complicated by the inhuman.', distinction: 'Paranormal romance uses the supernatural love interest to literalize the danger and power differential that romance has always trafficked in. A vampire is immortal, physically dominant, and operating from a completely different moral framework. The "will they or won\'t they" tension is now also "will he kill her or not." This makes the genre more honest about the anxieties inside conventional romance while giving them a safe, fantastical container.', examples: ['Twilight', 'Interview with the Vampire', 'A Court of Thorns and Roses', 'Dark Lover'] },
       { name: 'Romantic Comedy', note: 'Comedy of errors, miscommunication, and mistaken identity; the obstacles are social and the tone is light.' },
       { name: 'Romantic Suspense', note: 'Romance fused with thriller; the couple must survive a genuine external threat to reach each other.' },
       { name: 'Sports Romance', note: 'Athletic competition and team dynamics as the pressure cooker for emotional conflict.' },
       { name: 'Small Town Romance', note: 'Community, homecoming, and the intimacy of a world where everyone knows your name and your history.' },
-      { name: 'Dark Romance', note: 'Morally compromised protagonists; power, danger, and consent as part of the emotional landscape rather than obstacles to it.' },
+      { name: 'Dark Romance', note: 'Morally compromised protagonists; power, danger, and consent as part of the emotional landscape rather than obstacles to it.', distinction: 'Standard romance resolves all power imbalances by the final act — the dangerous man is tamed, the relationship equalised. Dark romance refuses this resolution. The power differential is the point. This places it in direct tension with the genre\'s core convention (the HEA — Happily Ever After) while still technically delivering it. Whether this is a subversion of the genre or a fulfillment of its most honest impulses is genuinely contested.', examples: ['Icebreaker', 'Corrupt', 'Haunting Adeline', 'Convenience Store Woman (adjacent)'] },
     ],
   },
   {
@@ -275,13 +275,13 @@ const genres = [
       { title: 'The Remains of the Day', year: 1989, medium: 'Novel', note: "Ishiguro's Booker winner. The most precise study of self-deception in literary fiction. Stevens tells you one story; the evidence of another accumulates silently around him." },
     ],
     subgenres: [
-      { name: 'Modernist Fiction', note: 'Stream of consciousness, fractured chronology, and interiority over event; the form enacts the meaning.' },
+      { name: 'Modernist Fiction', note: 'Stream of consciousness, fractured chronology, and interiority over event; the form enacts the meaning.', distinction: 'Pre-modernist fiction assumed a stable narrator with reliable access to events. Modernism broke that contract — consciousness is fragmented, time is not linear, and the reader must work to assemble meaning from competing perspectives. The form is the argument: a fractured narrative is not a failure of technique but a claim that experience is genuinely fractured. Woolf, Joyce, and Faulkner each developed different solutions to the same problem — how do you represent consciousness honestly?', examples: ['Mrs Dalloway', 'Ulysses', 'The Sound and the Fury', 'To the Lighthouse'] },
       { name: 'Postmodern Fiction', note: 'Self-aware about its own fictionality; narrative reliability questioned, reality and representation interrogated.' },
       { name: 'Domestic Fiction', note: 'The household, the marriage, the family as the site of all meaningful conflict—private life at full political weight.' },
       { name: 'Campus Novel', note: 'The university as social microcosm; intellectual vanity, power, and the coming-of-age of ideas.' },
-      { name: 'Autofiction', note: 'The narrator is clearly the author; the boundary between memoir and novel deliberately blurred and examined.' },
+      { name: 'Autofiction', note: 'The narrator is clearly the author; the boundary between memoir and novel deliberately blurred and examined.', distinction: 'Traditional literary fiction maintains plausible deniability — the author insists the work is invented. Autofiction removes this: the narrator shares the author\'s name, biography, and circumstances. But it is not memoir, because events are shaped, compressed, and sometimes invented for effect. The form asks a genuine question — does it matter what really happened if the emotional truth is accurate? Karl Ove Knausgaard and Rachel Cusk built entire careers on refusing to answer it.', examples: ['My Struggle (Knausgaard)', 'Outline trilogy (Cusk)', 'The Bell Jar', 'Hunger (Roxane Gay)'] },
       { name: 'Short Story Collection', note: 'A sequence of stories with thematic, geographical, or character continuity—a form with its own distinct architecture.' },
-      { name: 'Novella', note: 'The middle length that demands compression; every sentence load-bearing, no space for digression.' },
+      { name: 'Novella', note: 'The middle length that demands compression; every sentence load-bearing, no space for digression.', distinction: 'The novel allows digression, world-building, and subplot. The short story demands compression but permits incompleteness. The novella occupies a precise middle position: long enough for full character development and structural complexity, short enough that every scene must earn its place. There is no fat. This makes it formally the most demanding prose length — and the one most likely to be a single sustained, perfect argument.', examples: ['Of Mice and Men', 'The Old Man and the Sea', 'A River Runs Through It', 'The Metamorphosis'] },
     ],
   },
   {
@@ -315,9 +315,9 @@ const genres = [
     ],
     subgenres: [
       { name: 'Classic Western', note: 'The frontier as moral arena; the lone hero bringing order where law has not yet reached.' },
-      { name: 'Revisionist Western', note: 'The mythology of the West interrogated; whose story was erased, whose heroism was violence.' },
-      { name: 'Spaghetti Western', note: 'Italian production, operatic visual style, moral ambiguity; Leone defines the register.' },
-      { name: 'Neo-Western', note: 'Western codes and archetypes transposed to the present; the frontier becomes a suburb, a border, a city.' },
+      { name: 'Revisionist Western', note: 'The mythology of the West interrogated; whose story was erased, whose heroism was violence.', distinction: 'The classic Western presented westward expansion as moral progress — civilisation defeating savagery. The revisionist Western treats that mythology as the problem to be examined. Native American displacement, violence against women and minorities, and the brutal economics of land theft become the actual subject. The hero of the classic Western is often the villain of the revisionist one. Clint Eastwood\'s own career traces this arc, from Man with No Name to Unforgiven.', examples: ['Unforgiven', 'Dances with Wolves', 'Bone Tomahawk', 'Blood Meridian'] },
+      { name: 'Spaghetti Western', note: 'Italian production, operatic visual style, moral ambiguity; Leone defines the register.', distinction: 'American Westerns operated on moral clarity — the hero wore white, the villain wore black, and the law was ultimately affirmed. Leone\'s Italian productions stripped all of this. Every character is motivated by greed. Violence is operatic and consequence-free. The landscape is hostile rather than promising. The morality is not revised but simply absent — and the resulting nihilism reads as more honest about what the West actually was than the American version ever managed.', examples: ['The Good, the Bad and the Ugly', 'Once Upon a Time in the West', 'Django', 'A Fistful of Dollars'] },
+      { name: 'Neo-Western', note: 'Western codes and archetypes transposed to the present; the frontier becomes a suburb, a border, a city.', distinction: 'The Neo-Western does not set stories in the 19th century but imports the genre\'s moral grammar into the present. The lone sheriff becomes a small-town cop. The outlaw becomes a drug cartel enforcer. The frontier becomes the US-Mexico border or the Texas oil fields. This works because the Western\'s core tensions — law versus violence, civilisation versus wilderness, individual versus community — are not historical. They are permanent.', examples: ['No Country for Old Men', 'Wind River', 'Hell or High Water', 'Sicario'] },
       { name: 'Contemporary Western', note: 'Set in the present American West; the landscape, its economies, and its silences are the subject.' },
       { name: 'Weird West', note: 'Frontier setting invaded by horror, fantasy, or SF; the genre\'s conventions made strange and uncanny.' },
     ],
@@ -353,11 +353,11 @@ const genres = [
     subgenres: [
       { name: 'Ancient World', note: 'Greece, Rome, Egypt, Mesopotamia; civilizations whose distance allows examination of what is universal about power and survival.' },
       { name: 'Medieval', note: 'Feudal hierarchy, religious authority, plague, and warfare; the precariousness of life before modernity arrived.' },
-      { name: 'Tudor / Elizabethan', note: 'Courts, succession crises, and the collision of reformation with power; Hilary Mantel territory.' },
+      { name: 'Tudor / Elizabethan', note: 'Courts, succession crises, and the collision of reformation with power; Hilary Mantel territory.', distinction: 'The Tudor period offers historical fiction its most concentrated cocktail: dynastic violence, religious revolution, and the machinery of royal power operating at full speed. Mantel\'s Wolf Hall trilogy demonstrated what the period could do at the highest literary level — using the historical record as a skeleton and imagining the connective tissue of motive, loyalty, and fear that made it move. The present-tense, close-third narration she invented for Cromwell is now the template.', examples: ['Wolf Hall', 'Bring Up the Bodies', 'The Other Boleyn Girl', 'Hilary Mantel\'s The Mirror and the Light'] },
       { name: 'Regency', note: 'Austen\'s era; property, marriage, and social performance in a rigid class system with high personal stakes.' },
       { name: 'Victorian', note: 'Empire, industrialization, and repression; surface respectability laid over enormous social violence.' },
-      { name: 'World War Fiction', note: 'WWI or WWII as setting; the experience of soldiers, civilians, and the machinery of mass death.' },
-      { name: 'Post-Colonial Historical', note: 'Empire and its aftermath narrated from the perspective of the colonized rather than the colonizer.' },
+      { name: 'World War Fiction', note: 'WWI or WWII as setting; the experience of soldiers, civilians, and the machinery of mass death.', distinction: 'War fiction set in WWI and WWII carries a specific moral weight that contemporary war fiction does not: the reader already knows the outcome. This dramatic irony is the genre\'s most powerful tool. Characters who believe the war will be over by Christmas, soldiers who don\'t know they are walking into a slaughter — the reader\'s foreknowledge creates unbearable dramatic tension without a single plot twist. The genre must work against sentimentality while still earning its grief.', examples: ['All Quiet on the Western Front', 'The Naked and the Dead', 'Atonement', 'A Farewell to Arms'] },
+      { name: 'Post-Colonial Historical', note: 'Empire and its aftermath narrated from the perspective of the colonized rather than the colonizer.', distinction: 'Most historical fiction set during the era of empire took the colonizer\'s perspective as the default — explorers, administrators, soldiers. Post-colonial historical fiction is a deliberate counter-archive: it recovers the experience of the colonized, names what was destroyed, and refuses the civilising-mission framing that conventional historical fiction often absorbed uncritically. It treats the historical record itself as a site of power — asking not just what happened, but who was allowed to write it down.', examples: ['Things Fall Apart', 'Beloved', 'Midnight\'s Children', 'The God of Small Things'] },
       { name: 'Historical Mystery', note: 'Crime in a period setting; the investigative form used to expose what a historical society deliberately concealed.' },
     ],
   },
@@ -391,12 +391,12 @@ const genres = [
     ],
     subgenres: [
       { name: 'Romantic Comedy', note: 'Mismatched partners, an obstacle course of misunderstandings, and a union that feels earned rather than given.' },
-      { name: 'Satire', note: 'Social or political targets attacked through irony and exaggeration; laughter with a specific target.' },
+      { name: 'Satire', note: 'Social or political targets attacked through irony and exaggeration; laughter with a specific target.', distinction: 'Most comedy seeks laughs. Satire has a weapon concealed inside the laugh — the target is a real institution, ideology, or person, and the comedy is the delivery mechanism for genuine critique. The satirist\'s gamble is that the audience will find the right things funny — that the laughter is directed, not indiscriminate. When it works, satire changes how people see power. When it fails, the target simply adopts the joke and defuses it.', examples: ['Dr. Strangelove', 'Catch-22', 'Parasite', 'The Death of Stalin'] },
       { name: 'Farce', note: 'Situations escalate past all control; physical comedy, mistaken identity, doors opening at the worst moment.' },
-      { name: 'Dark Comedy', note: 'Comedy derived from subjects that are not funny—death, illness, failure—without flinching from any of it.' },
+      { name: 'Dark Comedy', note: 'Comedy derived from subjects that are not funny—death, illness, failure—without flinching from any of it.', distinction: 'Standard comedy asks audiences to laugh at situations with no real stakes. Dark comedy insists on real stakes — death, disease, moral failure — and asks the audience to laugh anyway. The comedy and the horror are not in conflict; they are the same thing. This makes it the most technically demanding comic form, because the tonal balance between genuine distress and laughter is razor-thin. A degree too far in either direction destroys both.', examples: ['Four Weddings and a Funeral', 'In Bruges', 'M*A*S*H', 'Fleabag'] },
       { name: 'Screwball Comedy', note: 'Rapid-fire dialogue, class collision, and gender warfare at an impossible speed; 1930s Hollywood as the peak.' },
       { name: 'Parody', note: 'A specific genre, text, or cultural style imitated to expose and deflate its conventions.' },
-      { name: 'Absurdist Comedy', note: 'Logic taken to its illogical conclusion; the world operates by different, internally consistent rules.' },
+      { name: 'Absurdist Comedy', note: 'Logic taken to its illogical conclusion; the world operates by different, internally consistent rules.', distinction: 'Most comedy is grounded in recognisable reality — we laugh because we recognise the situation. Absurdist comedy builds an entirely different reality with its own internal logic, then applies that logic rigorously. The humour is in the gap between the absurd premise and the perfectly rational behaviour within it. Monty Python, Kafka, and Beckett all operate here — the horror and the comedy are the same realisation: the world has no obligation to make sense.', examples: ['The Trial', 'Waiting for Godot', 'Monty Python and the Holy Grail', 'The Hitchhiker\'s Guide to the Galaxy'] },
       { name: 'Tragicomedy', note: 'Equal parts tragedy and comedy; the form refuses to resolve into either register and is richer for it.' },
     ],
   },
@@ -429,12 +429,12 @@ const genres = [
       { title: 'The Hurt Locker', year: 2009, medium: 'Film', note: "Bigelow's film refuses to explain the war politically. Bomb disposal as the ultimate present-tense experience. The quietest anti-war film since Paths of Glory." },
     ],
     subgenres: [
-      { name: 'WWI Fiction', note: 'The war that destroyed the 19th century\'s faith in progress; futility, mud, and the industrial machinery of death.' },
+      { name: 'WWI Fiction', note: 'The war that destroyed the 19th century\'s faith in progress; futility, mud, and the industrial machinery of death.', distinction: 'WWI fiction operates under a specific dramatic irony unavailable to fiction about other wars: the soldiers who fought it believed it would be short, heroic, and worth it. The reader knows it lasted four years and killed seventeen million people. This gap between expectation and reality is the genre\'s engine. The best WWI fiction does not explain the war — it recreates the experience of people who had no framework for what was happening to them, and trusts the reader\'s knowledge to supply the horror.', examples: ['All Quiet on the Western Front', 'Birdsong', 'Regeneration', 'Goodbye to All That'] },
       { name: 'WWII Fiction', note: 'The moral clarity of the "good war" complicated by civilian experience, the Holocaust, and questions of complicity.' },
-      { name: 'Vietnam War Fiction', note: 'Disillusionment, moral injury, and the gap between official narrative and what soldiers actually experienced.' },
+      { name: 'Vietnam War Fiction', note: 'Disillusionment, moral injury, and the gap between official narrative and what soldiers actually experienced.', distinction: 'Vietnam War fiction is defined by a fracture between public narrative and private experience that did not exist in earlier American war literature. WWII fiction could, however ambivalently, frame sacrifice as meaningful. Vietnam fiction could not — the war\'s political illegitimacy was visible in real time. The result is a body of work obsessed with the difference between what happened and what the official record said happened, and with the psychological cost of carrying that gap.', examples: ['The Things They Carried', 'Apocalypse Now', 'Full Metal Jacket', 'Born on the Fourth of July'] },
       { name: 'Contemporary War Fiction', note: 'Iraq, Afghanistan, the wars without clear ends; PTSD, civilian casualties, and objectives that keep shifting.' },
       { name: 'Military Thriller', note: 'Tactics, technology, and the mechanics of combat as both subject and pleasure.' },
-      { name: 'Anti-War Satire', note: 'War depicted as systemic absurdity; Catch-22 and Slaughterhouse-Five define the poles.' },
+      { name: 'Anti-War Satire', note: 'War depicted as systemic absurdity; Catch-22 and Slaughterhouse-Five define the poles.', distinction: 'Straightforward war fiction must contend with the charge that representing violence glamourises it. Anti-war satire resolves this by making the machinery of war too ridiculous to admire. Heller and Vonnegut both used the comic novel to say things about WWII that a serious treatment could not — that the institutions running the war were as dangerous to their own soldiers as the enemy, that survival required a kind of strategic insanity, that heroism was indistinguishable from stupidity at scale.', examples: ['Catch-22', 'Slaughterhouse-Five', 'M*A*S*H', 'Dr. Strangelove'] },
       { name: 'Home Front Fiction', note: 'The war from civilian perspective; rationing, grief, and waiting as the primary experience of conflict.' },
     ],
   },
@@ -467,11 +467,11 @@ const genres = [
       { title: 'Great Expectations', year: 1861, medium: 'Novel', note: "Dickens's Pip is the template for the protagonist who must unlearn his ambitions to understand what actually matters. The plot is the disassembly of false values." },
     ],
     subgenres: [
-      { name: 'YA (Young Adult)', note: 'Protagonist 14-18; the stakes of identity, acceptance, and first experience feel absolute because they are.' },
+      { name: 'YA (Young Adult)', note: 'Protagonist 14-18; the stakes of identity, acceptance, and first experience feel absolute because they are.', distinction: 'YA is often dismissed as a lesser category, but its formal constraint is genuinely difficult: the protagonist cannot draw on experience, institutional power, or fully formed judgement. Every decision is made with incomplete information under social pressure. This is not a limitation — it is the condition that generates maximum dramatic tension. The stakes feel total because for the protagonist, they are. Loss of friendship, parental approval, or first love are not trivial stakes; they are the entire world the character has ever known.', examples: ['The Catcher in the Rye', 'The Perks of Being a Wallflower', 'Speak', 'The Outsiders'] },
       { name: 'School Story', note: 'The institution as the entire world; hierarchy, friendship, and social learning in a fully contained environment.' },
       { name: 'Campus Novel', note: 'University as second coming-of-age; intellectual and personal formation in an enclosed adult community.' },
       { name: 'Teen Film', note: 'The high school social hierarchy as the universe; genre conventions established by John Hughes and constantly revised.' },
-      { name: 'Road Novel as Formation', note: 'The journey as the education; departure from home, encounter with otherness, and a changed return.' },
+      { name: 'Road Novel as Formation', note: 'The journey as the education; departure from home, encounter with otherness, and a changed return.', distinction: 'Most coming-of-age stories confine the protagonist to a single institution — school, family, town. The road novel uses physical movement as the engine of formation. Leaving home is not incidental to the story; it is the story. Each new place and person functions as a test of the protagonist\'s emerging identity. The return — if there is one — confirms the change. What you leave behind and what you carry is the whole argument.', examples: ['On the Road', 'The Motorcycle Diaries', 'Wild', 'Into the Wild'] },
     ],
   },
   {
@@ -504,11 +504,11 @@ const genres = [
       { title: 'Blade Runner', year: 1982, medium: 'Film', note: "Sci-fi noir. The rain, the shadows, the corporate corruption—all transposed to 2019. The question of whether Deckard is human is also a question about whether noir's moral world has any ground at all." },
     ],
     subgenres: [
-      { name: 'Classic Film Noir', note: '1940s-50s visual style; chiaroscuro, femme fatale, cynical detective, and moral rot beneath prosperity.' },
-      { name: 'Neo-Noir', note: 'Noir sensibility and visual codes applied to contemporary settings; the corruption has just changed address.' },
+      { name: 'Classic Film Noir', note: '1940s-50s visual style; chiaroscuro, femme fatale, cynical detective, and moral rot beneath prosperity.', distinction: 'Film noir was not named by its makers — French critics coined the term after the war when American crime films arrived in a batch. The style emerged from the collision of German Expressionist emigre cinematographers (Lang, Siodmak, Wilder) with hard-boiled American source material and post-war anxieties. The visual grammar — low-key lighting, deep shadows, canted angles — was not decorative but expressive: the world is unstable and corrupt, and the frame says so before a word of dialogue is spoken.', examples: ['Double Indemnity', 'The Maltese Falcon', 'Sunset Boulevard', 'Out of the Past'] },
+      { name: 'Neo-Noir', note: 'Noir sensibility and visual codes applied to contemporary settings; the corruption has just changed address.', distinction: 'Classic noir was rooted in a specific post-war American moment. Neo-noir keeps the moral grammar — cynicism, betrayal, the guilty protagonist, the city as moral landscape — but relocates it. The contemporary city, the corporate world, the digital age all offer their own versions of the corruption noir requires. What makes it neo-noir rather than just crime fiction is the visual and tonal inheritance: the shadows are still there, even in daylight.', examples: ['Chinatown', 'Blade Runner', 'Drive', 'Brick'] },
       { name: 'Nordic Noir', note: 'Scandinavian landscapes and social democracies as the backdrop for systemic moral failure.' },
       { name: 'Hardboiled Fiction', note: 'The literary antecedent; Hammett and Chandler\'s prose style and moral vision before film got hold of it.' },
-      { name: 'Tech Noir', note: 'Noir aesthetics fused with science fiction technology; Blade Runner as the defining text.' },
+      { name: 'Tech Noir', note: 'Noir aesthetics fused with science fiction technology; Blade Runner as the defining text.', distinction: 'Tech Noir asks what noir\'s central question — who can you trust in a corrupt world? — looks like when the corruption is embedded in the technology you cannot live without. Surveillance, AI, digital identity, and corporate data are the new corrupt institutions replacing the police department and the mob. The femme fatale is now an algorithm. The private eye is now a hacker. The rain-slicked streets now glow with the light of screens.', examples: ['Blade Runner', 'Ghost in the Shell', 'Dark City', 'Minority Report'] },
       { name: 'Surreal Noir', note: 'The genre\'s logic taken past realism; dream logic, impossible spaces, and fractured chronology.' },
     ],
   },
@@ -541,10 +541,10 @@ const genres = [
       { title: 'In Cold Blood', year: 1966, medium: 'Narrative Nonfiction', note: "Capote's true crime narrative invented the nonfiction novel as a serious form. The question of how much he shaped his material to fit the story is the genre's central ethical problem." },
     ],
     subgenres: [
-      { name: 'Personal Essay', note: 'The writer\'s own experience as the subject and instrument; Montaigne invented the form, everyone else has been catching up.' },
+      { name: 'Personal Essay', note: 'The writer\'s own experience as the subject and instrument; Montaigne invented the form, everyone else has been catching up.', distinction: 'The personal essay is not autobiography — it does not narrate a life. It uses a single experience, observation, or idea as a lens to examine something larger. The writer is present not as the subject but as the thinking instrument. The reader follows the mind working through a problem in real time. This makes the form uniquely honest: the conclusion is not predetermined, and the essay earns its insight by actually earning it on the page.', examples: ['Essays of Montaigne', 'Consider the Lobster (David Foster Wallace)', 'Notes of a Native Son (James Baldwin)', 'Slouching Towards Bethlehem (Joan Didion)'] },
       { name: 'Travel Writing', note: 'Place as the vehicle for examining the writer\'s interiority and assumptions about the world.' },
-      { name: 'Immersion Journalism', note: 'The journalist enters the subject\'s world to report from inside it; participation as the method.' },
-      { name: 'True Crime', note: 'Real crime narrated with literary technique; the crime illuminates a social or institutional failure.' },
+      { name: 'Immersion Journalism', note: 'The journalist enters the subject\'s world to report from inside it; participation as the method.', distinction: 'Conventional journalism maintains distance from the subject — the reporter observes. Immersion journalism removes that distance deliberately. The journalist joins a community, institution, or world to report it from inside. This produces richer material and more honest empathy, but raises a genuine ethical question: at what point does participation compromise the observer? The best immersion journalism holds both the closeness and the critical distance simultaneously, which is very difficult.', examples: ['Fast Food Nation', 'Nickel and Dimed', 'The Warmth of Other Suns', 'Black Hawk Down'] },
+      { name: 'True Crime', note: 'Real crime narrated with literary technique; the crime illuminates a social or institutional failure.', distinction: 'True crime is the most ethically contested nonfiction genre because its subject is real people — victims, perpetrators, and the families of both — whose suffering is the engine of the reader\'s entertainment. The best true crime acknowledges this tension and uses it. The crime is not the point; the crime is the aperture through which a broken institution, a failed community, or a systemic injustice becomes visible. When it works, the genre is social investigation. When it fails, it is voyeurism dressed as journalism.', examples: ['In Cold Blood', 'I\'ll Be Gone in the Dark', 'Helter Skelter', 'Mindhunter'] },
       { name: 'Memoir', note: 'A life or period of a life narrated by its subject; the selection of what to include IS the argument.' },
       { name: 'Essay Collection', note: 'Essays in sequence that accumulate into a larger argument no single piece could carry alone.' },
     ],
@@ -579,12 +579,12 @@ const genres = [
       { title: 'Station Eleven', year: 2014, medium: 'Novel', note: "Mandel's post-pandemic novel is dystopian in premise but not in spirit—what survives is art. The structure (non-linear, jumping time) enacts the novel's argument about memory." },
     ],
     subgenres: [
-      { name: 'Political Dystopia', note: 'A totalitarian state as the setting; surveillance, language control, and the systematic suppression of individuality.' },
+      { name: 'Political Dystopia', note: 'A totalitarian state as the setting; surveillance, language control, and the systematic suppression of individuality.', distinction: 'Political dystopia is the genre\'s founding form — Zamyatin, Orwell, and Huxley all wrote in direct response to specific political threats they were watching develop in real time. The formal challenge is making oppression feel lived-in rather than instructional. The best political dystopias put the reader inside a consciousness that has already been partially shaped by the system — so the horror is not just what the state does, but what the protagonist has already accepted as normal before the story begins.', examples: ['Nineteen Eighty-Four', 'Brave New World', 'We', 'The Handmaid\'s Tale'] },
       { name: 'Climate Dystopia', note: 'Ecological collapse as the world the protagonist inherits; what human society does to itself in the aftermath.' },
-      { name: 'Technological Dystopia', note: 'Technology serving control rather than liberation; automation, surveillance, and digital dependency as the cage.' },
-      { name: 'YA Dystopia', note: 'Coming-of-age inside a collapsed or authoritarian society; the protagonist\'s formation IS the revolution.' },
+      { name: 'Technological Dystopia', note: 'Technology serving control rather than liberation; automation, surveillance, and digital dependency as the cage.', distinction: 'Where political dystopia fears the state, technological dystopia fears the tool. The threat is not a dictator but a system — one that no single person controls or intended, but that produces oppression as a byproduct of optimization. This makes it harder to dramatize because there is no villain to confront. The most sophisticated technological dystopias locate the horror in the protagonist\'s own complicity: they use the system because it is convenient, and cannot stop even after they understand the cost.', examples: ['Black Mirror', 'The Circle', 'Her', 'Never Let Me Go'] },
+      { name: 'YA Dystopia', note: 'Coming-of-age inside a collapsed or authoritarian society; the protagonist\'s formation IS the revolution.', distinction: 'YA dystopia fuses two formal advantages: the coming-of-age genre\'s guaranteed internal stakes (identity formation is always dramatic) with the dystopia\'s external stakes (the system is actively trying to prevent that formation). The protagonist is at the exact age when the system most needs to complete their indoctrination — and the story is the failure of that project. This gives YA dystopia a structural clarity that adult dystopia often lacks: the personal and political are the same conflict.', examples: ['The Hunger Games', 'Divergent', 'The Giver', 'Legend'] },
       { name: 'Post-Apocalyptic', note: 'After the fall; what survives, who rebuilds, and on whose terms the new world gets organized.' },
-      { name: 'Utopian Fiction', note: 'The imagined good society as argument; what we would have to become—and sacrifice—to actually build it.' },
+      { name: 'Utopian Fiction', note: 'The imagined good society as argument; what we would have to become—and sacrifice—to actually build it.', distinction: 'Utopian fiction is the most unfashionable speculative form because optimism reads as naive and happy societies are dramatically inert. The best utopian fiction solves this by making the cost of the good society visible — what had to be surrendered, who had to be excluded, what freedoms had to be traded. It is not a dream but an argument: here is what a better world requires, and here is what that means. Le Guin\'s The Dispossessed is the genre\'s peak because it refuses to let the utopia be comfortable.', examples: ['The Dispossessed (Le Guin)', 'News from Nowhere', 'Ecotopia', 'A Psalm for the Wild-Built'] },
     ],
   },
 ]
@@ -772,8 +772,47 @@ function GenreCard({ genre }) {
               color: 'var(--text-soft)',
               marginBottom: '12px',
             }}>Subgenres</p>
+
+            {/* Featured subgenres — expanded treatment */}
+            {genre.subgenres.some(s => s.distinction) && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '12px' }}>
+                {genre.subgenres.filter(s => s.distinction).map((s, i) => (
+                  <div key={i} style={{
+                    background: '#fff',
+                    border: '1px solid var(--green-border)',
+                    borderLeft: '3px solid var(--green)',
+                    borderRadius: '8px',
+                    padding: '14px 16px',
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                      <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '700', color: 'var(--green)', margin: 0 }}>{s.name}</p>
+                    </div>
+                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.6', margin: '0 0 8px' }}>{s.note}</p>
+                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600', color: 'var(--text-dark)', margin: '0 0 4px' }}>What sets it apart</p>
+                    <p style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.6', margin: '0 0 10px' }}>{s.distinction}</p>
+                    <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', margin: '0 0 6px' }}>Famous examples</p>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      {s.examples.map((ex, j) => (
+                        <span key={j} style={{
+                          fontFamily: 'var(--font-ui)',
+                          fontSize: '12px',
+                          fontWeight: '500',
+                          color: 'var(--text-dark)',
+                          background: 'var(--green-pale)',
+                          border: '1px solid var(--green-border)',
+                          padding: '3px 10px',
+                          borderRadius: '20px',
+                        }}>{ex}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Standard subgenres — compact grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px' }}>
-              {genre.subgenres.map((s, i) => (
+              {genre.subgenres.filter(s => !s.distinction).map((s, i) => (
                 <div key={i} style={{
                   background: 'var(--off-white)',
                   border: '1px solid var(--border)',
