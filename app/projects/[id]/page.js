@@ -446,10 +446,75 @@ function LoglineEditor({ project, onUpdate }) {
 
 // ─── Characters Tab ────────────────────────────────────────────────────────────
 
+// ─── Character section definitions ────────────────────────────────────────────
+
+const CHAR_SECTIONS = [
+  {
+    key: 'identity',
+    label: 'Identity',
+    hint: 'Who they are in the world — the facts that shaped them before the story began.',
+    fields: [
+      { key: 'age',         label: 'Age',               placeholder: 'e.g. 34, or "late thirties"',          col: true },
+      { key: 'gender',      label: 'Gender / Pronouns', placeholder: 'e.g. she/her, nonbinary, he/him',      col: true },
+      { key: 'ethnicity',   label: 'Ethnicity',         placeholder: 'How they identify or are perceived',   col: true },
+      { key: 'nationality', label: 'Nationality',       placeholder: 'Where they are from',                  col: true },
+      { key: 'faith',       label: 'Faith / Religion',  placeholder: 'Belief system — or its absence',       col: true },
+      { key: 'class',       label: 'Class / Income',    placeholder: 'Economic position, past or present',   col: true },
+      { key: 'occupation',  label: 'Occupation',        placeholder: 'What they do for money or meaning',    col: true },
+      { key: 'appearance',  label: 'Appearance',        placeholder: 'How others first read them physically', col: false },
+    ],
+  },
+  {
+    key: 'psychology',
+    label: 'Psychology',
+    hint: 'The inner machinery — what drives them, what they hide, and what the story will force to the surface.',
+    fields: [
+      { key: 'want',   label: 'Want',          placeholder: 'Conscious goal — what they believe they need',      col: true },
+      { key: 'need',   label: 'Need',          placeholder: 'True need — what they actually need to grow',        col: true },
+      { key: 'ghost',  label: 'Ghost / Wound', placeholder: 'The past event that still shapes everything',        col: true },
+      { key: 'fear',   label: 'Core Fear',     placeholder: 'What they would do almost anything to avoid',        col: true },
+      { key: 'mask',   label: 'Mask',          placeholder: 'How they present themselves to the world',           col: true },
+      { key: 'desire', label: 'Deeper Desire', placeholder: 'What they secretly long for beneath the want',       col: true },
+      { key: 'flaw',   label: 'Flaw',          placeholder: 'The behaviour pattern that gets them in trouble',    col: true },
+      { key: 'arc',    label: 'Arc',           placeholder: 'How they change — or refuse to',                     col: true },
+    ],
+  },
+  {
+    key: 'background',
+    label: 'Background',
+    hint: 'The facts, relationships, and events that explain why they are the way they are.',
+    fields: [
+      { key: 'family',          label: 'Family',                  placeholder: 'Family structure, key relationships, losses',      col: false },
+      { key: 'education',       label: 'Education',               placeholder: 'Formal or informal — how did they learn?',         col: true },
+      { key: 'formative_event', label: 'Formative Event',         placeholder: 'The single event that made them who they are',     col: false },
+      { key: 'secret',          label: 'Secret',                  placeholder: 'What they have never told anyone',                 col: false },
+      { key: 'self_view',       label: 'How They See Themselves', placeholder: 'Their own narrative — accurate or not',            col: false },
+      { key: 'other_view',      label: 'How Others See Them',     placeholder: 'What people assume about them on first read',      col: false },
+    ],
+  },
+  {
+    key: 'craft',
+    label: 'Craft',
+    hint: 'Story-level thinking — what this character does for the narrative, thematically and structurally.',
+    fields: [
+      { key: 'voice',          label: 'Voice',             placeholder: 'If you hid the names, how would you know it was them?',       col: false },
+      { key: 'story_function', label: 'Story Function',    placeholder: 'What narrative job do they perform?',                        col: true },
+      { key: 'thematic_role',  label: 'Thematic Role',     placeholder: "Which side of the story's argument do they represent?",     col: true },
+      { key: 'relationships',  label: 'Key Relationships', placeholder: 'Who do they need, compete with, or change?',                 col: false },
+      { key: 'notes',          label: 'Notes',             placeholder: 'Anything else worth knowing',                                col: false },
+    ],
+  },
+]
+
+function dGet(character, key) {
+  if (character[key] !== undefined && character[key] !== null && character[key] !== '') return character[key]
+  return character.details?.[key] || ''
+}
+
 function CharactersTab({ projectId, characters, setCharacters, toast }) {
   const [expanded, setExpanded] = useState(null)
   const [adding,   setAdding]   = useState(false)
-  const [form,     setForm]     = useState({ name: '', role: '', want: '', need: '', ghost: '', arc: '' })
+  const [form,     setForm]     = useState({ name: '', role: '' })
   const [saving,   setSaving]   = useState(false)
 
   async function addCharacter() {
@@ -457,13 +522,14 @@ function CharactersTab({ projectId, characters, setCharacters, toast }) {
     setSaving(true)
     const { data } = await supabase
       .from('characters')
-      .insert({ project_id: projectId, ...form, name: form.name.trim() })
+      .insert({ project_id: projectId, name: form.name.trim(), role: form.role.trim() })
       .select().single()
     if (data) {
       setCharacters(prev => [...prev, data])
-      setForm({ name: '', role: '', want: '', need: '', ghost: '', arc: '' })
+      setForm({ name: '', role: '' })
       setAdding(false)
-      toast.success('Character added.')
+      setExpanded(data.id)
+      toast.success('Character added — fill in their details below.')
     } else {
       toast.error('Could not add character.')
     }
@@ -494,50 +560,31 @@ function CharactersTab({ projectId, characters, setCharacters, toast }) {
         </button>
       </div>
 
-      {/* Add form */}
       {adding && (
         <div className="card-static" style={{ padding: '22px', marginBottom: '20px', borderColor: 'var(--green-border)' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '16px' }}>New Character</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '12px' }}>
             <div>
               <label style={labelStyle}>Name *</label>
               <input className="input" value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Character name" />
             </div>
             <div>
               <label style={labelStyle}>Role</label>
-              <input className="input" value={form.role} onChange={e => setForm({...form, role: e.target.value})} placeholder="e.g. Protagonist, Mentor" />
-            </div>
-            <div>
-              <label style={labelStyle}>Want <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(conscious goal)</span></label>
-              <input className="input" value={form.want} onChange={e => setForm({...form, want: e.target.value})} placeholder="What do they think they need?" />
-            </div>
-            <div>
-              <label style={labelStyle}>Need <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(true need)</span></label>
-              <input className="input" value={form.need} onChange={e => setForm({...form, need: e.target.value})} placeholder="What do they actually need?" />
-            </div>
-            <div>
-              <label style={labelStyle}>Ghost <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(wound / backstory)</span></label>
-              <input className="input" value={form.ghost} onChange={e => setForm({...form, ghost: e.target.value})} placeholder="What happened to them before the story?" />
-            </div>
-            <div>
-              <label style={labelStyle}>Arc</label>
-              <input className="input" value={form.arc} onChange={e => setForm({...form, arc: e.target.value})} placeholder="How do they change?" />
-              <label style={labelStyle}>Flaw <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(surface behaviour)</span></label>
-              <input className="input" value={form.flaw || ''} onChange={e => setForm({...form, flaw: e.target.value})} placeholder="What bad habit or pattern gets them in trouble?" />
-              <label style={labelStyle}>Voice <span style={{ fontWeight: '400', color: 'var(--text-soft)' }}>(how they speak)</span></label>
-              <input className="input" value={form.voice || ''} onChange={e => setForm({...form, voice: e.target.value})} placeholder="If you covered the names, how would you know it was them?" />
+              <input className="input" value={form.role} onChange={e => setForm({...form, role: e.target.value})} placeholder="e.g. Protagonist, Antagonist, Mentor" />
             </div>
           </div>
+          <p style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginBottom: '16px', lineHeight: '1.5' }}>
+            Start with a name. Age, faith, psychology, background — all get filled in the expanded card.
+          </p>
           <div style={{ display: 'flex', gap: '8px' }}>
             <button className="btn-primary" onClick={addCharacter} disabled={!form.name.trim() || saving} style={{ fontSize: '13px', padding: '8px 16px', opacity: form.name.trim() ? 1 : 0.4 }}>
-              {saving ? 'Saving…' : 'Add character'}
+              {saving ? 'Saving...' : 'Add character'}
             </button>
             <button className="btn-ghost" onClick={() => setAdding(false)} style={{ fontSize: '13px', padding: '8px 16px' }}>Cancel</button>
           </div>
         </div>
       )}
 
-      {/* Character list */}
       {characters.length === 0 && !adding && (
         <div className="empty-state">
           <h3>No characters yet</h3>
@@ -562,86 +609,173 @@ function CharactersTab({ projectId, characters, setCharacters, toast }) {
 }
 
 function CharacterCard({ character, expanded, onToggle, onUpdate, onDelete }) {
+  const [section, setSection] = useState('identity')
   const [editing, setEditing] = useState(false)
-  const [form,    setForm]    = useState({ ...character })
+  const [form,    setForm]    = useState({})
   const [saving,  setSaving]  = useState(false)
+
+  function startEdit() {
+    const flat = { name: character.name || '', role: character.role || '' }
+    CHAR_SECTIONS.forEach(sec => {
+      sec.fields.forEach(f => { flat[f.key] = dGet(character, f.key) })
+    })
+    setForm(flat)
+    setEditing(true)
+  }
+
+  function setField(key, val) {
+    setForm(prev => ({ ...prev, [key]: val }))
+  }
 
   async function save() {
     setSaving(true)
-    await onUpdate(form)
+    const topLevel = { name: form.name, role: form.role, want: form.want, need: form.need, ghost: form.ghost, arc: form.arc, flaw: form.flaw, voice: form.voice }
+    const detailKeys = ['age','gender','ethnicity','nationality','faith','class','occupation','appearance','fear','mask','desire','family','education','formative_event','secret','self_view','other_view','story_function','thematic_role','relationships','notes']
+    const details = {}
+    detailKeys.forEach(k => { if (form[k] !== undefined) details[k] = form[k] })
+    await onUpdate({ ...topLevel, details })
     setSaving(false)
     setEditing(false)
   }
 
+  const activeSec = CHAR_SECTIONS.find(s => s.key === section)
+
+  const allFields = CHAR_SECTIONS.flatMap(s => s.fields)
+  const filled = allFields.filter(f => { const v = dGet(character, f.key); return v && v.toString().trim() }).length
+  const pct = Math.round((filled / allFields.length) * 100)
+
+  const age        = dGet(character, 'age')
+  const ethnicity  = dGet(character, 'ethnicity')
+  const faith      = dGet(character, 'faith')
+  const occupation = dGet(character, 'occupation')
+
   return (
     <div className="card" style={{ padding: '18px 22px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }} onClick={onToggle}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
           <div style={{
-            width: '36px', height: '36px', borderRadius: '50%',
+            width: '38px', height: '38px', borderRadius: '50%', flexShrink: 0,
             background: 'var(--green-pale)', border: '1px solid var(--green-border)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontFamily: 'var(--font-display)', fontWeight: '600', fontSize: '16px', color: 'var(--green)',
+            fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: '16px', color: 'var(--green)',
           }}>
-            {character.name[0].toUpperCase()}
+            {character.name?.[0]?.toUpperCase() || '?'}
           </div>
-          <div>
-            <p style={{ fontWeight: '600', fontSize: '15px' }}>{character.name}</p>
-            {character.role && <p style={{ fontSize: '12px', color: 'var(--text-soft)' }}>{character.role}</p>}
+          <div style={{ minWidth: 0 }}>
+            <p style={{ fontWeight: '600', fontSize: '15px', marginBottom: '3px' }}>{character.name}</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', alignItems: 'center' }}>
+              {character.role && <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-ui)' }}>{character.role}</span>}
+              {age        && <span style={{ fontSize: '11px', background: '#F3F4F6', color: '#374151', borderRadius: '4px', padding: '1px 6px', fontFamily: 'var(--font-ui)' }}>{age}</span>}
+              {ethnicity  && <span style={{ fontSize: '11px', background: '#F3F4F6', color: '#374151', borderRadius: '4px', padding: '1px 6px', fontFamily: 'var(--font-ui)' }}>{ethnicity}</span>}
+              {faith      && <span style={{ fontSize: '11px', background: 'var(--green-pale)', color: 'var(--green)', borderRadius: '4px', padding: '1px 6px', fontFamily: 'var(--font-ui)' }}>{faith}</span>}
+              {occupation && <span style={{ fontSize: '11px', background: '#F3F4F6', color: '#374151', borderRadius: '4px', padding: '1px 6px', fontFamily: 'var(--font-ui)' }}>{occupation}</span>}
+            </div>
           </div>
         </div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', color: 'var(--text-soft)', flexShrink: 0 }}>
-          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+          <div title={pct + '% complete'} style={{ position: 'relative', width: '28px', height: '28px' }}>
+            <svg width="28" height="28" viewBox="0 0 28 28" style={{ transform: 'rotate(-90deg)' }}>
+              <circle cx="14" cy="14" r="11" fill="none" stroke="var(--border)" strokeWidth="2.5" />
+              <circle cx="14" cy="14" r="11" fill="none" stroke="var(--green)" strokeWidth="2.5"
+                strokeDasharray={2 * Math.PI * 11}
+                strokeDashoffset={2 * Math.PI * 11 * (1 - pct / 100)}
+                strokeLinecap="round" />
+            </svg>
+            <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', fontWeight: '700', color: 'var(--green)', fontFamily: 'var(--font-ui)' }}>
+              {pct}
+            </span>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s', color: 'var(--text-soft)' }}>
+            <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
       </div>
 
       {expanded && (
         <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
+          <div style={{ display: 'flex', gap: '4px', marginBottom: '16px', flexWrap: 'wrap' }}>
+            {CHAR_SECTIONS.map(s => {
+              const sectionFilled = s.fields.filter(f => { const v = dGet(character, f.key); return v && v.toString().trim() }).length
+              const isActive = s.key === section
+              return (
+                <button key={s.key} onClick={() => { setSection(s.key); setEditing(false) }}
+                  style={{
+                    padding: '5px 13px', borderRadius: '16px', cursor: 'pointer', fontSize: '12px',
+                    fontFamily: 'var(--font-ui)', fontWeight: isActive ? '700' : '500',
+                    background: isActive ? 'var(--green)' : '#F9FAFB',
+                    color: isActive ? '#fff' : 'var(--text-soft)',
+                    border: isActive ? '1px solid var(--green)' : '1px solid var(--border)',
+                    transition: 'all 0.15s',
+                  }}>
+                  {s.label}
+                  {sectionFilled > 0 && !isActive && <span style={{ marginLeft: '5px', fontSize: '10px', color: 'var(--green)', fontWeight: '700' }}>·</span>}
+                </button>
+              )
+            })}
+          </div>
+
+          <p style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', marginBottom: '16px', lineHeight: '1.55', fontStyle: 'italic' }}>
+            {activeSec?.hint}
+          </p>
+
           {editing ? (
             <div>
-              <div className="form-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '12px' }}>
-                {[
-                  { key: 'name',  label: 'Name' },
-                  { key: 'role',  label: 'Role' },
-                  { key: 'want',  label: 'Want' },
-                  { key: 'need',  label: 'Need' },
-                  { key: 'ghost', label: 'Ghost' },
-                  { key: 'arc',   label: 'Arc' },
-                  { key: 'flaw',  label: 'Flaw' },
-                  { key: 'voice', label: 'Voice' },
-                ].map(f => (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
+                {section === 'identity' && (
+                  <>
+                    <div>
+                      <label style={labelStyle}>Name</label>
+                      <input className="input" value={form.name || ''} onChange={e => setField('name', e.target.value)} />
+                    </div>
+                    <div>
+                      <label style={labelStyle}>Role</label>
+                      <input className="input" value={form.role || ''} onChange={e => setField('role', e.target.value)} />
+                    </div>
+                  </>
+                )}
+                {activeSec?.fields.filter(f => f.col).map(f => (
                   <div key={f.key}>
                     <label style={labelStyle}>{f.label}</label>
-                    <input className="input" value={form[f.key] || ''} onChange={e => setForm({...form, [f.key]: e.target.value})} />
+                    <input className="input" placeholder={f.placeholder} value={form[f.key] || ''} onChange={e => setField(f.key, e.target.value)} />
+                  </div>
+                ))}
+                {activeSec?.fields.filter(f => !f.col).map(f => (
+                  <div key={f.key} style={{ gridColumn: '1 / -1' }}>
+                    <label style={labelStyle}>{f.label}</label>
+                    <textarea className="input" rows={2} placeholder={f.placeholder} value={form[f.key] || ''} onChange={e => setField(f.key, e.target.value)}
+                      style={{ resize: 'vertical', fontFamily: 'var(--font-body)', lineHeight: '1.55', minHeight: '60px' }} />
                   </div>
                 ))}
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button className="btn-primary" onClick={save} disabled={saving} style={{ fontSize: '13px', padding: '7px 14px' }}>{saving ? 'Saving…' : 'Save'}</button>
-                <button className="btn-ghost"   onClick={() => { setEditing(false); setForm({...character}) }} style={{ fontSize: '13px', padding: '7px 14px' }}>Cancel</button>
+                <button className="btn-primary" onClick={save} disabled={saving} style={{ fontSize: '13px', padding: '7px 14px' }}>{saving ? 'Saving...' : 'Save'}</button>
+                <button className="btn-ghost" onClick={() => setEditing(false)} style={{ fontSize: '13px', padding: '7px 14px' }}>Cancel</button>
               </div>
             </div>
           ) : (
             <div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '16px' }}>
-                {[
-                  { label: 'Want',  value: character.want },
-                  { label: 'Need',  value: character.need },
-                  { label: 'Ghost', value: character.ghost },
-                  { label: 'Arc',   value: character.arc },
-                  character.flaw  && { label: 'Flaw',  value: character.flaw },
-                  character.voice && { label: 'Voice', value: character.voice },
-                ].map((f, i) => (
-                  <div key={i}>
-                    <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>{f.label}</p>
-                    <p style={{ fontSize: '13px', color: f.value ? 'var(--text-mid)' : 'var(--text-soft)', fontStyle: f.value ? 'normal' : 'italic' }}>
-                      {f.value || 'Not set'}
-                    </p>
-                  </div>
-                ))}
+                {activeSec?.fields.filter(f => f.col).map(f => {
+                  const val = dGet(character, f.key)
+                  return (
+                    <div key={f.key}>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>{f.label}</p>
+                      <p style={{ fontSize: '13px', color: val ? 'var(--text-mid)' : 'var(--text-soft)', fontStyle: val ? 'normal' : 'italic', lineHeight: '1.5' }}>{val || '—'}</p>
+                    </div>
+                  )
+                })}
+                {activeSec?.fields.filter(f => !f.col).map(f => {
+                  const val = dGet(character, f.key)
+                  return (
+                    <div key={f.key} style={{ gridColumn: '1 / -1' }}>
+                      <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '4px' }}>{f.label}</p>
+                      <p style={{ fontSize: '13px', color: val ? 'var(--text-mid)' : 'var(--text-soft)', fontStyle: val ? 'normal' : 'italic', lineHeight: '1.6' }}>{val || '—'}</p>
+                    </div>
+                  )
+                })}
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button className="btn-ghost" onClick={() => setEditing(true)} style={{ fontSize: '12px', padding: '6px 12px' }}>Edit</button>
+                <button className="btn-ghost" onClick={startEdit} style={{ fontSize: '12px', padding: '6px 12px' }}>Edit</button>
                 <button onClick={onDelete} style={{ background: 'none', border: 'none', fontSize: '12px', color: '#991B1B', cursor: 'pointer', padding: '6px 12px', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Delete</button>
               </div>
             </div>
