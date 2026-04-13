@@ -9,7 +9,7 @@ import { PRO_TABS } from '../../../lib/planUtils'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map', 'Story Map']
+const TABS = ['Overview', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map', 'Story Map', 'World']
 
 const frameworkLabel = {
   'save-the-cat':  'Save the Cat',
@@ -226,6 +226,10 @@ export default function ProjectPage() {
           ? <StoryMapTab projectId={id} project={project} scenes={scenes} setScenes={setScenes} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} onUpdateProject={updateProject} toast={toast} />
           : <ProTabGate tabName="Story Map" />
         )}
+        {tab === 'World'      && (userPlan === 'pro'
+          ? <WorldTab projectId={id} project={project} toast={toast} />
+          : <ProTabGate tabName="World" />
+        )}
       </div>
     </div>
   )
@@ -239,6 +243,7 @@ function ProTabGate({ tabName }) {
     'Timeline':    'See your entire story on a vertical spine. Every scene in order, by act, with inline status and expandable notes.',
     'Themes Map':  'A visual canvas to map your themes, motifs, and symbols — and connect them to the scenes where they live.',
     'Story Map':   'Drag-and-drop your scenes, characters, and themes onto a single canvas. See the whole story at once.',
+    'World':       'Build your world bible — factions, locations, political systems, cultural quirks, eras, and language. Export a formatted World Bible PDF to share with collaborators.',
   }
   return (
     <div style={{
@@ -2407,6 +2412,419 @@ function StoryMapTab({ projectId, project, scenes, setScenes, characters, setCha
               Drag to move &middot; Draw line to connect &middot; Click line to delete
             </span>
           </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+// ─── World Tab ────────────────────────────────────────────────────────────────
+
+const WORLD_SECTIONS = [
+  {
+    key: 'factions',
+    label: 'Factions',
+    icon: '⚔',
+    description: 'Groups with shared goals willing to take coordinated action. Every faction needs a goal, a fear, a hard limit, and an enemy.',
+    fields: [
+      { key: 'name',      label: 'Faction Name',      placeholder: 'e.g. The Iron Council' },
+      { key: 'goal',      label: 'Core Goal',          placeholder: 'What do they concretely want?' },
+      { key: 'fear',      label: 'Core Fear',          placeholder: 'What would they do anything to prevent losing?' },
+      { key: 'limit',     label: 'Hard Limit',         placeholder: 'What would they never do, even to win?' },
+      { key: 'enemy',     label: 'Natural Enemy',      placeholder: 'Who must they destroy or absorb?' },
+      { key: 'mythos',    label: 'Public Mythology',   placeholder: 'What do they claim to stand for?' },
+      { key: 'reality',   label: 'Actual Behavior',    placeholder: 'What do they actually do?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+  {
+    key: 'locations',
+    label: 'Locations',
+    icon: '◎',
+    description: 'Key places in your world. Every location needs one specific detail that exists nowhere else.',
+    fields: [
+      { key: 'name',      label: 'Location Name',      placeholder: 'e.g. The Sunken Market' },
+      { key: 'role',      label: 'Story Role',         placeholder: 'What does this location do in the story?' },
+      { key: 'detail',    label: 'Specific Detail',    placeholder: 'The one thing only this place has' },
+      { key: 'center',    label: 'Center or Margin?',  placeholder: 'Is this a center of power or a margin?' },
+      { key: 'feel',      label: 'Atmosphere',         placeholder: 'What does it feel like to be here?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+  {
+    key: 'politics',
+    label: 'Politics',
+    icon: '⚖',
+    description: 'The rules of the game — who decides what happens and what happens to people who disagree.',
+    fields: [
+      { key: 'name',      label: 'System Name',        placeholder: 'e.g. The Compact of Governors' },
+      { key: 'question',  label: 'Political Question', placeholder: 'What is the story asking about power?' },
+      { key: 'official',  label: 'Official Rules',     placeholder: 'What does the law or custom say?' },
+      { key: 'actual',    label: 'Actual Rules',       placeholder: 'What do people who know the system understand?' },
+      { key: 'enforcer',  label: 'Who Enforces',       placeholder: 'Who maintains the system and benefits most?' },
+      { key: 'exempt',    label: 'Who Is Exempt',      placeholder: 'Who operates above the rules?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+  {
+    key: 'eras',
+    label: 'Eras & Technology',
+    icon: '◷',
+    description: 'When and at what technological level your story takes place — this determines what threats exist and what solutions are possible.',
+    fields: [
+      { key: 'name',      label: 'Era Name',           placeholder: 'e.g. The Third Reconstruction' },
+      { key: 'period',    label: 'Time Period',         placeholder: 'When does the story take place?' },
+      { key: 'tech',      label: 'Technology Level',   placeholder: 'What can people do? What cannot exist yet?' },
+      { key: 'change',    label: 'What Changed',       placeholder: 'What is the most important recent historical shift?' },
+      { key: 'wound',     label: 'Historical Wound',   placeholder: 'What event still shapes the present conflict?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+  {
+    key: 'culture',
+    label: 'Language & Culture',
+    icon: '◈',
+    description: 'How people talk, what they value, what the taboos are. Culture is the invisible hand shaping every conversation.',
+    fields: [
+      { key: 'name',      label: 'Culture / Group',    placeholder: 'e.g. The River People' },
+      { key: 'naming',    label: 'Naming Rule',         placeholder: 'One consistent rule about how people are named' },
+      { key: 'taboo',     label: 'Core Taboo',         placeholder: 'What is forbidden, and what does that reveal?' },
+      { key: 'greeting',  label: 'Greeting Ritual',    placeholder: 'How do people greet each other, and when does it break down?' },
+      { key: 'idiom',     label: 'Distinctive Idiom',  placeholder: 'A phrase or saying specific to this culture' },
+      { key: 'value',     label: 'Core Value',         placeholder: 'What does this culture believe most?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+  {
+    key: 'quirks',
+    label: 'Quirks & Rituals',
+    icon: '✦',
+    description: 'The specific, strange, particular details that make a world feel real. One good quirk is worth ten pages of lore.',
+    fields: [
+      { key: 'name',      label: 'Quirk / Ritual',     placeholder: 'e.g. Covering the eyes when entering a home' },
+      { key: 'who',       label: 'Who Does This',       placeholder: 'Which group, class, or culture?' },
+      { key: 'origin',    label: 'Logical Root',        placeholder: 'What historical or practical reason explains this?' },
+      { key: 'story',     label: 'Story Use',           placeholder: 'How does this create a scene, tension, or misunderstanding?' },
+      { key: 'notes',     label: 'Notes',              placeholder: 'Anything else worth remembering', multiline: true },
+    ],
+  },
+]
+
+function WorldTab({ projectId, project, toast }) {
+  const [section, setSection]       = useState('factions')
+  const [elements, setElements]     = useState({})
+  const [loading, setLoading]       = useState(true)
+  const [form, setForm]             = useState(null)      // null = list view, object = edit view
+  const [saving, setSaving]         = useState(false)
+  const [exporting, setExporting]   = useState(false)
+
+  useEffect(() => { loadElements() }, [projectId])
+
+  async function loadElements() {
+    setLoading(true)
+    const { data } = await supabase
+      .from('world_elements')
+      .select('*')
+      .eq('project_id', projectId)
+      .order('created_at', { ascending: true })
+
+    if (data) {
+      const grouped = {}
+      WORLD_SECTIONS.forEach(s => { grouped[s.key] = [] })
+      data.forEach(el => {
+        if (grouped[el.category] !== undefined) grouped[el.category].push(el)
+      })
+      setElements(grouped)
+    }
+    setLoading(false)
+  }
+
+  async function saveElement() {
+    if (!form) return
+    setSaving(true)
+    const payload = {
+      project_id: projectId,
+      category: section,
+      fields: form.fields || {},
+      name: form.fields?.name || 'Untitled',
+    }
+    if (form.id) {
+      await supabase.from('world_elements').update(payload).eq('id', form.id)
+    } else {
+      await supabase.from('world_elements').insert(payload)
+    }
+    await loadElements()
+    setForm(null)
+    setSaving(false)
+    toast?.success('Saved')
+  }
+
+  async function deleteElement(id) {
+    if (!confirm('Delete this entry?')) return
+    await supabase.from('world_elements').delete().eq('id', id)
+    await loadElements()
+    toast?.success('Deleted')
+  }
+
+  function openNew() {
+    setForm({ fields: {} })
+  }
+
+  function openEdit(el) {
+    setForm({ id: el.id, fields: { ...el.fields } })
+  }
+
+  async function exportBible() {
+    setExporting(true)
+    try {
+      // Build plain-text world bible
+      const lines = []
+      lines.push(`WORLD BIBLE`)
+      lines.push(`${project?.title || 'Untitled Project'}`)
+      lines.push(`Generated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}`)
+      lines.push('')
+      lines.push('─'.repeat(60))
+      lines.push('')
+
+      WORLD_SECTIONS.forEach(sec => {
+        const items = elements[sec.key] || []
+        if (items.length === 0) return
+        lines.push(sec.label.toUpperCase())
+        lines.push('─'.repeat(sec.label.length))
+        lines.push('')
+        items.forEach((el, i) => {
+          lines.push(`${i + 1}. ${el.name || 'Untitled'}`)
+          sec.fields.forEach(f => {
+            const val = el.fields?.[f.key]
+            if (val && val.trim()) lines.push(`   ${f.label}: ${val}`)
+          })
+          lines.push('')
+        })
+        lines.push('')
+      })
+
+      const blob = new Blob([lines.join('\n')], { type: 'text/plain' })
+      const url  = URL.createObjectURL(blob)
+      const a    = document.createElement('a')
+      a.href     = url
+      a.download = `${(project?.title || 'world').replace(/\s+/g, '-').toLowerCase()}-world-bible.txt`
+      a.click()
+      URL.revokeObjectURL(url)
+      toast?.success('World Bible exported')
+    } catch(e) {
+      toast?.error('Export failed')
+    }
+    setExporting(false)
+  }
+
+  const activeSec   = WORLD_SECTIONS.find(s => s.key === section)
+  const activeItems = elements[section] || []
+
+  if (loading) return (
+    <div style={{ padding: '48px', textAlign: 'center', color: 'var(--text-soft)', fontFamily: 'var(--font-ui)', fontSize: '14px' }}>
+      Loading world…
+    </div>
+  )
+
+  return (
+    <div style={{ padding: '24px 0' }}>
+
+      {/* Header */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+        <div>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text)', marginBottom: '4px' }}>World Bible</h2>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', margin: 0 }}>
+            Build the world your story lives in. Everything here informs the writing — most of it never appears on screen directly.
+          </p>
+        </div>
+        <button
+          onClick={exportBible}
+          disabled={exporting}
+          style={{
+            background: 'var(--green)', color: '#fff', border: 'none',
+            borderRadius: '8px', padding: '9px 18px', cursor: 'pointer',
+            fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px',
+            opacity: exporting ? 0.7 : 1, flexShrink: 0,
+          }}>
+          {exporting ? 'Exporting…' : 'Export World Bible'}
+        </button>
+      </div>
+
+      {/* Section nav */}
+      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '24px' }}>
+        {WORLD_SECTIONS.map(s => {
+          const count = (elements[s.key] || []).length
+          const active = s.key === section
+          return (
+            <button
+              key={s.key}
+              onClick={() => { setSection(s.key); setForm(null) }}
+              style={{
+                display: 'flex', alignItems: 'center', gap: '6px',
+                padding: '7px 14px', borderRadius: '20px', cursor: 'pointer',
+                fontFamily: 'var(--font-ui)', fontWeight: active ? '700' : '500', fontSize: '13px',
+                background: active ? 'var(--green)' : '#fff',
+                color: active ? '#fff' : 'var(--text-soft)',
+                border: active ? '1px solid var(--green)' : '1px solid var(--border)',
+                transition: 'all 0.15s',
+              }}>
+              <span style={{ fontSize: '11px' }}>{s.icon}</span>
+              {s.label}
+              {count > 0 && (
+                <span style={{
+                  background: active ? 'rgba(255,255,255,0.25)' : 'var(--green-pale)',
+                  color: active ? '#fff' : 'var(--green)',
+                  borderRadius: '10px', padding: '1px 7px', fontSize: '11px', fontWeight: '700',
+                }}>{count}</span>
+              )}
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Section description */}
+      <div style={{
+        background: 'var(--green-pale)', border: '1px solid var(--green-border)',
+        borderRadius: '10px', padding: '14px 18px', marginBottom: '20px',
+        fontSize: '13px', color: 'var(--text)', fontFamily: 'var(--font-body)', lineHeight: '1.6',
+      }}>
+        <strong style={{ fontFamily: 'var(--font-ui)', color: 'var(--green)' }}>{activeSec?.label}: </strong>
+        {activeSec?.description}
+      </div>
+
+      {/* Form or list */}
+      {form ? (
+        <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--text)', margin: 0 }}>
+              {form.id ? 'Edit' : 'New'} {activeSec?.label.replace(/s$/, '')}
+            </h3>
+            <button onClick={() => setForm(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '20px', lineHeight: 1 }}>×</button>
+          </div>
+          <div style={{ display: 'grid', gap: '16px' }}>
+            {activeSec?.fields.map(f => (
+              <div key={f.key}>
+                <label style={{ display: 'block', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '12px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
+                  {f.label}
+                </label>
+                {f.multiline ? (
+                  <textarea
+                    rows={3}
+                    placeholder={f.placeholder}
+                    value={form.fields?.[f.key] || ''}
+                    onChange={e => setForm(prev => ({ ...prev, fields: { ...prev.fields, [f.key]: e.target.value } }))}
+                    style={{
+                      width: '100%', borderRadius: '8px', border: '1px solid var(--border)',
+                      padding: '10px 12px', fontSize: '14px', fontFamily: 'var(--font-body)',
+                      color: 'var(--text)', background: '#fff', resize: 'vertical',
+                      outline: 'none', boxSizing: 'border-box', lineHeight: '1.6',
+                    }}
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    placeholder={f.placeholder}
+                    value={form.fields?.[f.key] || ''}
+                    onChange={e => setForm(prev => ({ ...prev, fields: { ...prev.fields, [f.key]: e.target.value } }))}
+                    style={{
+                      width: '100%', borderRadius: '8px', border: '1px solid var(--border)',
+                      padding: '10px 12px', fontSize: '14px', fontFamily: 'var(--font-body)',
+                      color: 'var(--text)', background: '#fff',
+                      outline: 'none', boxSizing: 'border-box',
+                    }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+          <div style={{ display: 'flex', gap: '10px', marginTop: '24px' }}>
+            <button
+              onClick={saveElement}
+              disabled={saving}
+              style={{
+                background: 'var(--green)', color: '#fff', border: 'none',
+                borderRadius: '8px', padding: '10px 22px', cursor: 'pointer',
+                fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px',
+                opacity: saving ? 0.7 : 1,
+              }}>
+              {saving ? 'Saving…' : 'Save'}
+            </button>
+            <button
+              onClick={() => setForm(null)}
+              style={{
+                background: '#fff', color: 'var(--text-soft)', border: '1px solid var(--border)',
+                borderRadius: '8px', padding: '10px 18px', cursor: 'pointer',
+                fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '14px',
+              }}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          {/* Entry list */}
+          {activeItems.length > 0 && (
+            <div style={{ display: 'grid', gap: '12px', marginBottom: '16px' }}>
+              {activeItems.map(el => (
+                <div key={el.id} style={{
+                  background: '#fff', border: '1px solid var(--border)', borderRadius: '10px',
+                  padding: '18px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px',
+                }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '15px', color: 'var(--text)', marginBottom: '6px' }}>
+                      {el.name || 'Untitled'}
+                    </div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                      {activeSec?.fields.filter(f => f.key !== 'name' && f.key !== 'notes' && el.fields?.[f.key]).slice(0, 3).map(f => (
+                        <span key={f.key} style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)' }}>
+                          <strong style={{ color: 'var(--text)', fontFamily: 'var(--font-ui)' }}>{f.label}:</strong> {el.fields[f.key]}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+                    <button
+                      onClick={() => openEdit(el)}
+                      style={{ background: 'var(--green-pale)', border: '1px solid var(--green-border)', color: 'var(--green)', borderRadius: '6px', padding: '5px 12px', cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '12px' }}>
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => deleteElement(el.id)}
+                      style={{ background: '#FEE2E2', border: '1px solid #FECACA', color: '#DC2626', borderRadius: '6px', padding: '5px 12px', cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '12px' }}>
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Empty state */}
+          {activeItems.length === 0 && (
+            <div style={{
+              textAlign: 'center', padding: '56px 32px',
+              border: '1.5px dashed var(--border)', borderRadius: '12px',
+              marginBottom: '16px',
+            }}>
+              <div style={{ fontSize: '28px', marginBottom: '12px' }}>{activeSec?.icon}</div>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: '700', color: 'var(--text)', marginBottom: '6px' }}>
+                No {activeSec?.label.toLowerCase()} yet
+              </div>
+              <div style={{ fontSize: '13px', color: 'var(--text-soft)', fontFamily: 'var(--font-body)', maxWidth: '360px', margin: '0 auto 20px' }}>
+                {activeSec?.description}
+              </div>
+            </div>
+          )}
+
+          <button
+            onClick={openNew}
+            style={{
+              background: '#fff', border: '1.5px dashed var(--green)',
+              color: 'var(--green)', borderRadius: '8px', padding: '10px 20px',
+              cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px',
+            }}>
+            + Add {activeSec?.label.replace(/s$/, '')}
+          </button>
         </>
       )}
     </div>

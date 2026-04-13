@@ -200,6 +200,18 @@ const lessons = [
     ],
   },
   {
+    category: 'World-Building',
+    badge: 'World',
+    items: [
+      { title: 'World-building foundations', slug: 'world-building-foundations', time: '7 min', level: 'Intermediate', preview: 'What world-building actually means for screenwriters — and why the novelist\'s approach will sink your script. The shift from "what is true about this world" to "what does the world do to characters."' },
+      { title: 'Building factions', slug: 'building-factions', time: '8 min', level: 'Intermediate', preview: 'Factions are not decoration. They are the machinery of conflict. The four questions every faction needs, and how divided loyalties are your protagonist\'s most useful problem.' },
+      { title: 'Political systems in story', slug: 'political-systems-in-story', time: '7 min', level: 'Intermediate', preview: 'How political structure shapes character behavior, creates stakes, and generates conflict — without turning your script into a lecture. The gap between official rules and actual rules is where your story lives.' },
+      { title: 'World geography and location', slug: 'world-geography-and-location', time: '6 min', level: 'Beginner', preview: 'Terrain is character. Desert cultures are not like island cultures. The John Ford principle: pick the landscape that is most true to what your story is arguing.' },
+      { title: 'Language and culture', slug: 'language-and-culture', time: '7 min', level: 'Intermediate', preview: 'How dialect, naming conventions, taboo, and cultural quirks make a world feel inhabited. You do not need a constructed language. You need one consistent naming rule and one good taboo.' },
+      { title: 'The world bible', slug: 'the-world-bible', time: '8 min', level: 'Advanced', preview: 'What a world bible is, what belongs in it, and how professional writers use it as a living document. The distinction between communicating your world and performing it is the mark of a professional.' },
+    ],
+  },
+  {
     category: 'Novel Writing',
     badge: 'Novel',
     items: [
@@ -266,6 +278,8 @@ const writtenSlugs = [
   'tarkovsky-poetry', 'kieslowski-theme', 'bresson-restraint', 'fellini-autobiography',
   'ford-landscape',
   'theme-vs-message', 'theme-through-character', 'symbol-and-motif', 'irony-in-fiction',
+  'world-building-foundations', 'building-factions', 'political-systems-in-story',
+  'world-geography-and-location', 'language-and-culture', 'the-world-bible',
 ]
 
 const totalLessons = lessons.reduce((sum, cat) => sum + cat.items.length, 0)
