@@ -8,6 +8,9 @@ import { supabase } from '../../lib/supabase'
 // Pass slug prop so free lessons can bypass the check entirely.
 
 export default function PaywallBlur({ children, slug }) {
+  // ⚠️  TESTING MODE — paywall disabled. Re-enable before Stripe launch.
+  return <>{children}</>
+
   const [status, setStatus] = useState('loading') // loading | free | pro | guest
 
   useEffect(() => {
