@@ -1022,6 +1022,11 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
         </div>
       )}
 
+      {/* Framework progress bar */}
+      {scenes.length > 0 && stubs.length > 0 && (
+        <FrameworkProgressBar framework={framework} scenes={scenes} stubs={stubs} />
+      )}
+
       {/* Scenes grouped by act */}
       {Object.entries(byAct).sort(([a],[b]) => a - b).map(([act, actScenes]) => (
         <div key={act} style={{ marginBottom: '28px' }}>
@@ -1030,7 +1035,7 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {actScenes.map(scene => (
-              <SceneRow key={scene.id} scene={scene} onUpdate={(f) => updateScene(scene.id, f)} onDelete={() => deleteScene(scene.id)} />
+              <SceneRow key={scene.id} scene={scene} framework={framework} onUpdate={(f) => updateScene(scene.id, f)} onDelete={() => deleteScene(scene.id)} />
             ))}
           </div>
         </div>
@@ -1039,7 +1044,7 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
   )
 }
 
-function SceneRow({ scene, onUpdate, onDelete }) {
+function SceneRow({ scene, framework, onUpdate, onDelete }) {
   const [expanded, setExpanded] = useState(false)
   const [editing,  setEditing]  = useState(false)
   const [form,     setForm]     = useState({ ...scene })
@@ -1114,7 +1119,8 @@ function SceneRow({ scene, onUpdate, onDelete }) {
           ) : (
             <div>
               {scene.notes && <p style={{ fontSize: '13px', color: 'var(--text-mid)', marginBottom: '12px', lineHeight: '1.6' }}>{scene.notes}</p>}
-              <div style={{ display: 'flex', gap: '8px' }}>
+              {scene.beat_label && <BeatGuidancePanel framework={framework} beatLabel={scene.beat_label} />}
+              <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
                 <button className="btn-ghost" onClick={() => setEditing(true)} style={{ fontSize: '12px', padding: '6px 12px' }}>Edit</button>
                 <button onClick={onDelete} style={{ background: 'none', border: 'none', fontSize: '12px', color: '#991B1B', cursor: 'pointer', padding: '6px 12px', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Delete</button>
               </div>
@@ -1122,6 +1128,470 @@ function SceneRow({ scene, onUpdate, onDelete }) {
           )}
         </div>
       )}
+    </div>
+  )
+}
+
+
+// ─── Beat guidance (Level 1 — detail panels) ─────────────────────────────────
+// Keyed by framework slug → beat_label → { page, guidance, mistake, question }
+
+const BEAT_GUIDANCE = {
+  'save-the-cat': {
+    'Opening Image': {
+      page: 'p. 1',
+      guidance: 'A single image that captures the protagonist\'s problem — their world before anything changes. It should be the opposite of the Final Image. The audience doesn\'t know that yet, but you do.',
+      mistake: 'Making it action or intrigue instead of character. The opening image is a still life, not a hook. It establishes tone and emotional register, not plot.',
+      question: 'If this image were the only thing you showed, what would the audience feel about the world your protagonist inhabits?',
+    },
+    'Theme Stated': {
+      page: 'p. 5',
+      guidance: 'Someone — usually not the protagonist — says something to them that is the thematic argument of the entire film. The protagonist doesn\'t understand it yet. They may even dismiss it. By the end, they will have lived the answer.',
+      mistake: 'Having the protagonist say it. The protagonist cannot state the theme because they haven\'t earned the understanding yet. It must come from outside.',
+      question: 'What is the one thing your protagonist needs to learn? Now put it in someone else\'s mouth as an offhand remark.',
+    },
+    'Set-Up': {
+      page: 'pp. 1–10',
+      guidance: 'Introduce every character, flaw, and circumstance that needs to be addressed by the end. Everything planted here must pay off. Everything that pays off at the end must be planted here.',
+      mistake: 'Setting up things that never pay off, or paying off things that were never set up. The set-up and the finale are mirror images. Build them together.',
+      question: 'What six things in the protagonist\'s ordinary world are going to be transformed, fixed, or destroyed by the end?',
+    },
+    'Catalyst': {
+      page: 'p. 12',
+      guidance: 'The life-changing event that disrupts the protagonist\'s world. Done TO them — not by them. It is a door opening, not a choice to walk through. The choice comes later.',
+      mistake: 'Making it an active decision by the protagonist. At the Catalyst, the world acts on the protagonist. Their response is the Debate. Their choice is the Break into Two.',
+      question: 'What happens to your protagonist that makes it impossible for them to continue their ordinary life unchanged?',
+    },
+    'Debate': {
+      page: 'pp. 12–25',
+      guidance: 'The protagonist hesitates. Should they take the challenge? They ask the thematic question in its most practical form. This is the last moment of the old life.',
+      mistake: 'Skipping it in the name of pace. The Debate is what makes the Break into Two meaningful. Without genuine hesitation, the choice has no weight.',
+      question: 'What is the last thing holding your protagonist back — and what finally tips them across the line?',
+    },
+    'Break into Two': {
+      page: 'p. 25',
+      guidance: 'The protagonist makes an active choice to enter Act 2. Not pushed, not dragged — they choose. This is the most structural beat in the script. It must be a decision the protagonist makes, not something done to them.',
+      mistake: 'Making it passive. If the protagonist is carried into Act 2 by circumstances rather than choice, the audience loses their investment. We need to see them decide.',
+      question: 'What exactly does your protagonist do — physically, specifically — to cross the threshold into Act 2?',
+    },
+    'B Story': {
+      page: 'p. 30',
+      guidance: 'A new character or relationship enters who will carry the theme. The B Story is usually a love story, but it doesn\'t have to be romantic. It is the relationship through which the protagonist will learn what the theme stated.',
+      mistake: 'Treating it as subplot decoration. The B Story character is your thematic mirror. They show the protagonist — and the audience — what change is possible.',
+      question: 'Who enters the protagonist\'s life at this point, and what do they represent that the protagonist currently lacks?',
+    },
+    'Fun and Games': {
+      page: 'pp. 30–55',
+      guidance: 'The promise of the premise delivered. This is what the audience came for. The protagonist explores the upside of the new world before the downside arrives. If your movie is a comedy, this is where the jokes live. If it\'s a thriller, this is where the cool set pieces live.',
+      mistake: 'Rushing past it to get to the conflict. Fun and Games is not filler. It is the payoff of your concept. Linger here.',
+      question: 'What is the most entertaining version of your premise? Are you actually showing that in this section?',
+    },
+    'Midpoint': {
+      page: 'p. 55',
+      guidance: 'False victory or false defeat. The stakes are raised. After this beat, the protagonist becomes fully active — no longer reacting, now initiating. Everything in Act 2B will be driven by the protagonist, not by circumstances.',
+      mistake: 'Treating it as just another scene. The Midpoint is the hinge of the whole second act. Something must genuinely shift here — the protagonist\'s understanding, the external stakes, or both.',
+      question: 'What happens at the midpoint that makes everything that follows feel more dangerous or more urgent?',
+    },
+    'Bad Guys Close In': {
+      page: 'pp. 55–75',
+      guidance: 'External pressure mounts while internal doubt grows. The team the protagonist assembled in Fun and Games begins to fracture. The antagonistic forces — external and internal — start dismantling what was built.',
+      mistake: 'Only having external bad guys. The real threat in this section is internal: the protagonist\'s flaw is the bad guy closing in on their soul.',
+      question: 'What combination of external attack and internal doubt is threatening to destroy the protagonist right now?',
+    },
+    'All Is Lost': {
+      page: 'p. 75',
+      guidance: 'The lowest point. Something must die here — literal, figurative, or symbolic. The whiff of death is mandatory. The protagonist has lost everything they gained in Act 2.',
+      mistake: 'Softening it. All Is Lost needs to feel genuinely catastrophic. If the audience doesn\'t believe the protagonist is truly beaten, the Dark Night and the Finale will ring hollow.',
+      question: 'What specific thing dies here — a relationship, a dream, a belief, or a literal life — that the protagonist cannot simply recover?',
+    },
+    'Dark Night of the Soul': {
+      page: 'pp. 75–85',
+      guidance: 'The protagonist sits in the ashes of All Is Lost and wonders how they could have been so wrong. The answer to their problem must come from within them — not from outside help. This is where the theme is internalized.',
+      mistake: 'Having someone else solve it. If a mentor or ally shows up with the answer, the protagonist\'s arc is broken. They must find the answer themselves, even if it\'s triggered by something external.',
+      question: 'What does your protagonist realize here that they couldn\'t have understood at the beginning of the story?',
+    },
+    'Break into Three': {
+      page: 'p. 85',
+      guidance: 'The A Story and B Story merge. The protagonist has a new idea — and it comes from the B Story relationship. The thematic lesson becomes a practical solution.',
+      mistake: 'Having the idea come from plot logic alone. The Break into Three must feel earned emotionally, not just logically. The relationship must be the source of the new understanding.',
+      question: 'How does what your protagonist learned from the B Story relationship give them the key to solving the A Story problem?',
+    },
+    'Finale': {
+      page: 'pp. 85–110',
+      guidance: 'Execute the new plan using everything learned. Mirror the Set-Up, but with the protagonist transformed. Every thread introduced in Act 1 must be addressed. The old world is dismantled; the new world is built.',
+      mistake: 'Resolving only the plot. The finale must resolve the character\'s inner wound as well. Both the external problem and the internal flaw must be addressed.',
+      question: 'How does your protagonist use their new understanding to defeat the antagonist AND heal their inner wound simultaneously?',
+    },
+    'Final Image': {
+      page: 'p. 110',
+      guidance: 'The opposite of the Opening Image. Proof that change is real and permanent. The same world, but transformed — because the protagonist has been transformed.',
+      mistake: 'Making it action or resolution. Like the Opening Image, this is a still life. It is the emotional proof of the journey, not the plot resolution.',
+      question: 'What single image would prove to the audience that your protagonist has genuinely changed — not just succeeded?',
+    },
+  },
+  'heros-journey': {
+    'Ordinary World': {
+      page: 'Act 1 open',
+      guidance: 'Establish the hero in their normal world before the adventure begins. Show us who they are, what they value, and crucially — what they stand to lose. The Ordinary World is the emotional baseline everything else is measured against.',
+      mistake: 'Making it boring in the name of contrast. The Ordinary World should be appealing enough that we understand why the hero is reluctant to leave it.',
+      question: 'What specific thing about the hero\'s ordinary world will they mourn the loss of — and eventually return to changed?',
+    },
+    'Call to Adventure': {
+      page: 'Act 1',
+      guidance: 'The hero\'s world is disrupted. A problem, challenge, or opportunity appears that will launch the journey. It presents the central question of the story.',
+      mistake: 'Making it too abstract. The call should be concrete and personal — not "the world is in danger" but "someone specific needs this specific thing from you specifically."',
+      question: 'What is the specific challenge that only this hero, in this moment, can answer?',
+    },
+    'Refusal': {
+      page: 'Act 1',
+      guidance: 'The hero hesitates. They have reasons not to go — fear, obligation, disbelief. The refusal makes the eventual commitment meaningful.',
+      mistake: 'Skipping it for pace. The refusal defines what the hero values above adventure. Without it, we don\'t understand what\'s at stake in the choice to go.',
+      question: 'What specifically does the hero stand to lose by saying yes — and what does that tell us about their values?',
+    },
+    'Mentor': {
+      page: 'Act 1',
+      guidance: 'The hero receives guidance, wisdom, or a tool from someone who has been where they are going. The mentor equips the hero for the journey ahead, then steps back.',
+      mistake: 'Making the mentor too available. The mentor cannot do the journey for the hero — they can only prepare them. At some point the mentor must be absent, or the hero will never grow.',
+      question: 'What specific gift — knowledge, object, or belief — does the mentor give the hero that they will use at the critical moment?',
+    },
+    'Threshold': {
+      page: 'Act 1 end',
+      guidance: 'The hero commits to the adventure. Point of no return. The ordinary world is left behind — physically, emotionally, or both. There is now a before and an after.',
+      mistake: 'Being vague about what changes. The threshold crossing should be a specific moment — a door, a departure, a decision — not a gradual drift.',
+      question: 'What is the exact moment the hero cannot go back — and do they know it at the time?',
+    },
+    'Tests / Allies': {
+      page: 'Act 2 open',
+      guidance: 'The hero learns the rules of the Special World. They face initial tests, make allies, and identify enemies. This section builds the hero\'s team and establishes the world\'s logic.',
+      mistake: 'Making it episodic without consequence. Each test should reveal character and raise stakes — not just demonstrate competence.',
+      question: 'What does each test here reveal about the hero that they didn\'t know about themselves?',
+    },
+    'Approach': {
+      page: 'Act 2 middle',
+      guidance: 'The hero prepares for the central ordeal. Plans are made, the team assembles, and the inmost cave is approached with growing tension.',
+      mistake: 'Rushing to the ordeal. The approach builds dread and raises the emotional stakes. Earn the ordeal by making the preparation feel genuinely dangerous.',
+      question: 'What does the hero have to face inside themselves before they can face the external ordeal?',
+    },
+    'Ordeal': {
+      page: 'Act 2 midpoint',
+      guidance: 'The supreme crisis. The hero faces their greatest fear and must "die" — symbolically or literally — to be reborn with new knowledge. This is the emotional center of the story.',
+      mistake: 'Making it only an external battle. The ordeal\'s real drama is internal — what the hero must sacrifice or surrender to pass through.',
+      question: 'What does the hero lose here that they thought they couldn\'t survive losing — and how does losing it free them?',
+    },
+    'Reward': {
+      page: 'Act 2 end',
+      guidance: 'The hero survives the ordeal and claims their reward — the sword, the knowledge, the treasure, the person. Celebrate the victory, but seeds of the final challenge are already present.',
+      mistake: 'Making the reward feel complete. The reward should feel hard-won but also temporary — the road back threatens to take it away.',
+      question: 'What has the hero genuinely earned — and what will they have to risk to keep it?',
+    },
+    'Road Back': {
+      page: 'Act 3 open',
+      guidance: 'The hero must return to the ordinary world with their reward. New urgency appears — a final threat, a ticking clock, a personal obligation. The choice to return is made.',
+      mistake: 'Treating the road back as logistics. It is a renewed commitment to the journey\'s purpose after the ordeal\'s victory. The hero chooses to complete the cycle.',
+      question: 'What renewed motivation drives the hero back — is it the same thing that started the journey, or something new they\'ve found?',
+    },
+    'Resurrection': {
+      page: 'Act 3 climax',
+      guidance: 'Final test. The hero is "killed" and reborn one last time, with everything at stake. They must use everything learned on the journey to survive. The transformation must be demonstrated, not just stated.',
+      mistake: 'Having the hero succeed through skill alone. The resurrection proves transformation — it must require the hero to apply their new self, not just their new abilities.',
+      question: 'How does the hero\'s inner transformation — not just their external skills — determine the outcome here?',
+    },
+    'Return': {
+      page: 'Act 3 end',
+      guidance: 'The hero returns with the elixir — the gift of wisdom, freedom, or healing — that benefits the ordinary world. The journey is complete. The wound is healed. Show how both worlds are changed.',
+      mistake: 'Treating the return as epilogue. The return is proof of the journey\'s meaning. What the hero brings back must visibly change something in the world they left.',
+      question: 'What specific thing is different in the ordinary world because this hero made this journey?',
+    },
+  },
+  'story-circle': {
+    'You': {
+      page: 'Opening',
+      guidance: 'Establish the character in their zone of comfort. Show us who they are, what their world feels like from the inside, and crucially — what they lack without knowing they lack it.',
+      mistake: 'Making the comfort zone obviously wrong or bad. The character should genuinely belong here. The journey becomes meaningful only if leaving costs something.',
+      question: 'What does normal feel like for this character — and what quiet dissatisfaction exists beneath the surface?',
+    },
+    'Need': {
+      page: 'Act 1',
+      guidance: 'Establish what the character wants or needs — something they cannot satisfy in their current world. This creates the engine of the story.',
+      mistake: 'Making the need too abstract. "She wants love" is not a need. "She needs to prove to her father she can succeed without him" is a need.',
+      question: 'What is the specific thing this character wants that their current world cannot provide?',
+    },
+    'Go': {
+      page: 'Act 1 end',
+      guidance: 'The character crosses into an unfamiliar situation. They leave their zone of comfort, willingly or not. The threshold is crossed.',
+      mistake: 'Making the crossing passive. Even if pushed by circumstances, the character should make some active choice at the moment of crossing.',
+      question: 'What is the exact moment the character steps into the unfamiliar — and what do they tell themselves they\'re doing it for?',
+    },
+    'Search': {
+      page: 'Act 2 open',
+      guidance: 'Road of trials. The character searches for what they need in the new, unfamiliar world. They adapt, struggle, make alliances, and encounter obstacles.',
+      mistake: 'Making the search feel random. Each trial should test a specific dimension of the character — their courage, their values, their relationships.',
+      question: 'What is the character learning about themselves through each failed attempt to get what they need?',
+    },
+    'Find': {
+      page: 'Act 2 midpoint',
+      guidance: 'The character finds what they were seeking — or something that resembles it. This is a false or complicated victory: they have it, but not in the way they expected.',
+      mistake: 'Making the find too clean. What the character finds should complicate the journey, not resolve it. Getting what you want is the beginning of the real problem.',
+      question: 'What does the character get here, and why does getting it create a new and harder problem?',
+    },
+    'Take': {
+      page: 'Act 2 end',
+      guidance: 'To take the thing fully — to keep it — the character must pay a price. Something must be sacrificed. This is the true cost of the journey.',
+      mistake: 'Making the price too abstract. The sacrifice should be concrete and specific — a relationship, a belief, a former self.',
+      question: 'What specifically must the character give up to keep what they found — and are they willing to pay that price?',
+    },
+    'Return': {
+      page: 'Act 3 open',
+      guidance: 'The character returns to the familiar world, changed. The return tests whether the change is real — can they re-enter the world they came from, as the person they have become?',
+      mistake: 'Making the return frictionless. Re-entry should be difficult. The old world pushes back. The change must be defended, not just declared.',
+      question: 'What specifically in the familiar world challenges or tests the change the character has made?',
+    },
+    'Change': {
+      page: 'Closing',
+      guidance: 'The circle closes. The character is in their world again — but not the same world, because they are not the same person. Show the transformation through behavior and relationship, not through statement.',
+      mistake: 'Stating the change instead of showing it. Don\'t have the character explain who they are now. Show them doing something they couldn\'t have done at the start.',
+      question: 'What single action at the end proves the character has changed — something they could not have done, or would not have done, in the opening scene?',
+    },
+  },
+  'sequence-approach': {
+    'Sequence 1': {
+      page: 'pp. 1–15',
+      guidance: 'Establish the protagonist and their world. Introduce the status quo and the first disruption — the inciting incident — that sets the story in motion.',
+      mistake: 'Front-loading backstory. The first sequence establishes present circumstances, not history. History is revealed only when it serves present action.',
+      question: 'What is the protagonist\'s world at the start, and what specific event at the end of this sequence makes it impossible for them to continue unchanged?',
+    },
+    'Sequence 2': {
+      page: 'pp. 15–30',
+      guidance: 'The protagonist responds to the inciting incident. Ends at the first act break — the major dramatic question is now fully established and the protagonist commits to Act 2.',
+      mistake: 'Letting the protagonist drift into Act 2. The end of Sequence 2 should be a clear, active commitment — a choice with real stakes.',
+      question: 'What decision does the protagonist make here that defines the entire Act 2 pursuit?',
+    },
+    'Sequence 3': {
+      page: 'pp. 30–45',
+      guidance: 'First attempt. The protagonist tries their initial approach to the Act 2 problem. Old tools meet new challenges. Ends in setback.',
+      mistake: 'Making the initial approach work. Sequence 3 should reveal that the protagonist\'s current approach is inadequate — they need to grow.',
+      question: 'What does the protagonist try, and why exactly does it fail in a way that reveals a personal limitation?',
+    },
+    'Sequence 4': {
+      page: 'pp. 45–60',
+      guidance: 'Escalation and midpoint. The protagonist adjusts and tries again with higher stakes. Ends at the midpoint — a false victory or false defeat that reorients the story.',
+      mistake: 'Missing the midpoint\'s reorientation. The midpoint should fundamentally change what the protagonist thinks they\'re fighting for.',
+      question: 'What does the protagonist believe they want at the start of this sequence, and how has that belief changed by the end?',
+    },
+    'Sequence 5': {
+      page: 'pp. 60–75',
+      guidance: 'The crisis deepens. Things get genuinely worse. The protagonist\'s flaw is exposed. Allies may betray, plans may collapse. Ends approaching All Is Lost.',
+      mistake: 'Holding back. Sequence 5 is where the story must genuinely break the protagonist down. Protect nothing.',
+      question: 'What is the worst thing that can happen to the protagonist — and are you actually letting it happen here?',
+    },
+    'Sequence 6': {
+      page: 'pp. 75–90',
+      guidance: 'All Is Lost through the Dark Night. The protagonist hits bottom, confronts the real problem, and finds the inner resource they need to attempt the finale.',
+      mistake: 'Rushing the Dark Night. The protagonist must genuinely believe all is lost before they can find the new approach. Don\'t rescue them too quickly.',
+      question: 'What realization does the protagonist come to in the Dark Night that they couldn\'t have reached any other way?',
+    },
+    'Sequence 7': {
+      page: 'pp. 90–105',
+      guidance: 'The finale begins. The protagonist executes their final plan with full commitment and transformed understanding. The major dramatic question approaches its answer.',
+      mistake: 'Having the protagonist succeed through luck or help. The finale must be won through the protagonist\'s growth — the change they made must be the reason they succeed.',
+      question: 'How does the protagonist\'s transformation specifically determine the outcome — not just plot mechanics, but character?',
+    },
+    'Sequence 8': {
+      page: 'pp. 105–120',
+      guidance: 'Resolution and final image. All threads resolved. The major dramatic question is answered. The new equilibrium is established. The world is different.',
+      mistake: 'Resolving only the plot. Every emotional and thematic thread opened in the first four sequences should find its resolution here.',
+      question: 'What is different about the protagonist\'s world now — and would the protagonist at the opening of the story recognize who they\'ve become?',
+    },
+  },
+}
+
+// Get guidance for a specific beat
+function getBeatGuidance(framework, beatLabel) {
+  if (!framework || !beatLabel) return null
+  const fw = BEAT_GUIDANCE[framework]
+  if (!fw) return null
+  return fw[beatLabel] || null
+}
+
+
+// ─── Framework Progress Bar (Level 2) ────────────────────────────────────────
+
+function FrameworkProgressBar({ framework, scenes, stubs }) {
+  if (!framework || !stubs || stubs.length === 0) return null
+
+  const completedLabels = new Set(
+    scenes.filter(s => s.status === 'complete').map(s => s.beat_label).filter(Boolean)
+  )
+  const presentLabels = new Set(scenes.map(s => s.beat_label).filter(Boolean))
+  const total    = stubs.length
+  const present  = stubs.filter(s => presentLabels.has(s.beat_label)).length
+  const complete = stubs.filter(s => completedLabels.has(s.beat_label)).length
+  const pct      = Math.round((complete / total) * 100)
+
+  // Group by act
+  const acts = {}
+  stubs.forEach(s => {
+    const act = s.act_number || 1
+    if (!acts[act]) acts[act] = []
+    acts[act].push(s)
+  })
+
+  const actColors = { 1: '#2D5016', 2: 'var(--green)', 3: '#4a8a24' }
+
+  return (
+    <div style={{
+      background: '#fff', border: '1px solid var(--border)', borderRadius: '12px',
+      padding: '20px 22px', marginBottom: '20px',
+    }}>
+      {/* Header row */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+        <div>
+          <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', color: 'var(--text)' }}>
+            Framework Progress
+          </span>
+          <span style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', marginLeft: '10px' }}>
+            {complete} of {total} beats complete
+          </span>
+        </div>
+        <div style={{
+          fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px',
+          color: pct === 100 ? 'var(--green)' : 'var(--text-soft)',
+        }}>
+          {pct}%
+        </div>
+      </div>
+
+      {/* Master progress bar */}
+      <div style={{ height: '6px', background: 'var(--border)', borderRadius: '3px', marginBottom: '18px', overflow: 'hidden' }}>
+        <div style={{
+          height: '100%', width: pct + '%', borderRadius: '3px',
+          background: 'linear-gradient(90deg, #2D5016, var(--green))',
+          transition: 'width 0.4s ease',
+        }} />
+      </div>
+
+      {/* Beat dots by act */}
+      {Object.entries(acts).sort(([a],[b]) => a - b).map(([act, actStubs]) => (
+        <div key={act} style={{ marginBottom: '14px' }}>
+          <div style={{
+            fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)',
+            textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px',
+          }}>
+            Act {act}
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {actStubs.map(stub => {
+              const isPresent  = presentLabels.has(stub.beat_label)
+              const isDone     = completedLabels.has(stub.beat_label)
+              const guidance   = getBeatGuidance(framework, stub.beat_label)
+              const color      = actColors[act] || 'var(--green)'
+              return (
+                <div key={stub.beat_label}
+                  title={isDone ? stub.beat_label + ' — complete' : isPresent ? stub.beat_label + ' — in progress' : stub.beat_label + ' — not started'}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '5px',
+                    padding: '4px 10px', borderRadius: '20px', fontSize: '11px',
+                    fontFamily: 'var(--font-ui)', fontWeight: '600',
+                    background: isDone ? color : isPresent ? 'var(--green-pale)' : '#F9FAFB',
+                    color: isDone ? '#fff' : isPresent ? 'var(--green)' : 'var(--text-soft)',
+                    border: isDone ? 'none' : isPresent ? '1px solid var(--green-border)' : '1px solid var(--border)',
+                    cursor: guidance ? 'default' : 'default',
+                    transition: 'all 0.15s',
+                  }}>
+                  {isDone && (
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style={{ flexShrink: 0 }}>
+                      <path d="M1.5 4.5l2 2L7.5 2" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                  {!isDone && isPresent && (
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--green)', display: 'inline-block', flexShrink: 0 }} />
+                  )}
+                  {stub.beat_label}
+                  {guidance?.page && (
+                    <span style={{ opacity: 0.6, fontWeight: '400', marginLeft: '2px' }}>{guidance.page}</span>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      ))}
+
+      {/* Missing beats warning */}
+      {(() => {
+        const missing = stubs.filter(s => !presentLabels.has(s.beat_label)).map(s => s.beat_label)
+        if (missing.length === 0 || scenes.length === 0) return null
+        return (
+          <div style={{
+            marginTop: '12px', padding: '10px 14px', borderRadius: '8px',
+            background: '#FFFBEB', border: '1px solid #FDE68A',
+            fontSize: '12px', color: '#92400E', fontFamily: 'var(--font-body)', lineHeight: '1.55',
+          }}>
+            <strong style={{ fontFamily: 'var(--font-ui)' }}>Missing beats:</strong>{' '}
+            {missing.join(', ')}
+          </div>
+        )
+      })()}
+    </div>
+  )
+}
+
+
+// ─── Beat Guidance Panel (Level 1) ───────────────────────────────────────────
+
+function BeatGuidancePanel({ framework, beatLabel }) {
+  const guidance = getBeatGuidance(framework, beatLabel)
+  if (!guidance) return null
+
+  return (
+    <div style={{
+      marginTop: '14px', padding: '16px 18px', borderRadius: '10px',
+      background: 'var(--green-pale)', border: '1px solid var(--green-border)',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+        <span style={{
+          fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: '700',
+          color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.07em',
+        }}>
+          Beat Guide
+        </span>
+        {guidance.page && (
+          <span style={{
+            fontSize: '10px', fontFamily: 'var(--font-ui)', color: 'var(--text-soft)',
+            background: '#fff', border: '1px solid var(--border)', borderRadius: '4px',
+            padding: '1px 6px',
+          }}>{guidance.page}</span>
+        )}
+      </div>
+
+      <div style={{ display: 'grid', gap: '12px' }}>
+        <div>
+          <p style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '11px', color: 'var(--green)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '5px' }}>
+            What this beat must accomplish
+          </p>
+          <p style={{ fontSize: '13px', color: 'var(--text)', fontFamily: 'var(--font-body)', lineHeight: '1.65' }}>
+            {guidance.guidance}
+          </p>
+        </div>
+
+        <div style={{ borderTop: '1px solid var(--green-border)', paddingTop: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '11px', color: '#92400E', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '5px' }}>
+            Most common mistake
+          </p>
+          <p style={{ fontSize: '13px', color: 'var(--text)', fontFamily: 'var(--font-body)', lineHeight: '1.65' }}>
+            {guidance.mistake}
+          </p>
+        </div>
+
+        <div style={{ borderTop: '1px solid var(--green-border)', paddingTop: '12px' }}>
+          <p style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '11px', color: '#1D4ED8', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '5px' }}>
+            Ask yourself
+          </p>
+          <p style={{ fontSize: '13px', color: 'var(--text)', fontFamily: 'var(--font-body)', lineHeight: '1.65', fontStyle: 'italic' }}>
+            {guidance.question}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
