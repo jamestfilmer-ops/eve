@@ -95,7 +95,8 @@ export default function ProjectPage() {
     setPlotHoles(holeRes.data || [])
     setThemes(themeRes.data || [])
     const plan = profileRes.data?.plan
-    setUserPlan(plan && plan !== 'free' ? 'pro' : 'free')
+    setUserPlan('pro') // ⚠️ TESTING MODE — revert to line below before Stripe launch
+    // setUserPlan(plan && plan !== 'free' ? 'pro' : 'free')
     setLoading(false)
   }, [id])
 
