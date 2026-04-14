@@ -1045,10 +1045,17 @@ function ScenesTab({ projectId, scenes, setScenes, framework, toast }) {
 }
 
 function SceneRow({ scene, framework, onUpdate, onDelete }) {
-  const [expanded, setExpanded] = useState(false)
-  const [editing,  setEditing]  = useState(false)
-  const [form,     setForm]     = useState({ ...scene })
-  const [saving,   setSaving]   = useState(false)
+  const [expanded,    setExpanded]    = useState(false)
+  const [subTab,      setSubTab]      = useState('notes') // notes | draft | guide
+  const [editing,     setEditing]     = useState(false)
+  const [form,        setForm]        = useState({ ...scene })
+  const [saving,      setSaving]      = useState(false)
+  const [draftText,   setDraftText]   = useState(scene.content || '')
+  const [draftSaving, setDraftSaving] = useState(false)
+  const draftTimer = React.useRef(null)
+
+  const wordCount = draftText.trim() ? draftText.trim().split(/\s+/).length : 0
+  const hasGuidance = !!getBeatGuidance(framework, scene.beat_label)
 
   async function save() {
     setSaving(true)
@@ -1057,8 +1064,19 @@ function SceneRow({ scene, framework, onUpdate, onDelete }) {
     setEditing(false)
   }
 
+  function handleDraftChange(val) {
+    setDraftText(val)
+    if (draftTimer.current) clearTimeout(draftTimer.current)
+    draftTimer.current = setTimeout(async () => {
+      setDraftSaving(true)
+      await onUpdate({ content: val })
+      setDraftSaving(false)
+    }, 900)
+  }
+
   return (
     <div className="card" style={{ padding: '14px 18px' }}>
+      {/* Row header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', flex: 1 }} onClick={() => setExpanded(!expanded)}>
           {scene.beat_label && (
@@ -1069,6 +1087,11 @@ function SceneRow({ scene, framework, onUpdate, onDelete }) {
             }}>{scene.beat_label}</span>
           )}
           <p style={{ fontSize: '14px', fontWeight: '500' }}>{scene.title}</p>
+          {wordCount > 0 && (
+            <span style={{ fontSize: '10px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)', flexShrink: 0 }}>
+              {wordCount}w
+            </span>
+          )}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           <button
@@ -1112,18 +1135,73 @@ function SceneRow({ scene, framework, onUpdate, onDelete }) {
                 <textarea className="input" value={form.notes || ''} onChange={e => setForm({...form, notes: e.target.value})} style={{ minHeight: '60px' }} />
               </div>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button className="btn-primary" onClick={save} disabled={saving} style={{ fontSize: '12px', padding: '6px 12px' }}>{saving ? 'Saving…' : 'Save'}</button>
+                <button className="btn-primary" onClick={save} disabled={saving} style={{ fontSize: '12px', padding: '6px 12px' }}>{saving ? 'Saving...' : 'Save'}</button>
                 <button className="btn-ghost" onClick={() => { setEditing(false); setForm({...scene}) }} style={{ fontSize: '12px', padding: '6px 12px' }}>Cancel</button>
               </div>
             </div>
           ) : (
             <div>
-              {scene.notes && <p style={{ fontSize: '13px', color: 'var(--text-mid)', marginBottom: '12px', lineHeight: '1.6' }}>{scene.notes}</p>}
-              {scene.beat_label && <BeatGuidancePanel framework={framework} beatLabel={scene.beat_label} />}
-              <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
-                <button className="btn-ghost" onClick={() => setEditing(true)} style={{ fontSize: '12px', padding: '6px 12px' }}>Edit</button>
-                <button onClick={onDelete} style={{ background: 'none', border: 'none', fontSize: '12px', color: '#991B1B', cursor: 'pointer', padding: '6px 12px', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Delete</button>
+              {/* Sub-tabs */}
+              <div style={{ display: 'flex', gap: '4px', marginBottom: '14px' }}>
+                {[
+                  { key: 'notes', label: 'Notes' },
+                  { key: 'draft', label: wordCount > 0 ? `Draft (${wordCount}w)` : 'Draft' },
+                  ...(hasGuidance ? [{ key: 'guide', label: 'Beat Guide' }] : []),
+                ].map(t => (
+                  <button key={t.key} onClick={() => setSubTab(t.key)} style={{
+                    padding: '4px 12px', borderRadius: '14px', fontSize: '11px', cursor: 'pointer',
+                    fontFamily: 'var(--font-ui)', fontWeight: subTab === t.key ? '700' : '500',
+                    background: subTab === t.key ? 'var(--green)' : '#F9FAFB',
+                    color: subTab === t.key ? '#fff' : 'var(--text-soft)',
+                    border: subTab === t.key ? '1px solid var(--green)' : '1px solid var(--border)',
+                  }}>{t.label}</button>
+                ))}
+                <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <button className="btn-ghost" onClick={() => setEditing(true)} style={{ fontSize: '11px', padding: '4px 10px' }}>Edit details</button>
+                  <button onClick={onDelete} style={{ background: 'none', border: 'none', fontSize: '11px', color: '#991B1B', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '2px' }}>Delete</button>
+                </div>
               </div>
+
+              {/* Notes tab */}
+              {subTab === 'notes' && (
+                <div>
+                  {scene.notes
+                    ? <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.65' }}>{scene.notes}</p>
+                    : <p style={{ fontSize: '13px', color: 'var(--text-soft)', fontStyle: 'italic' }}>No notes yet. Use Edit details to add planning notes for this scene.</p>
+                  }
+                </div>
+              )}
+
+              {/* Draft tab */}
+              {subTab === 'draft' && (
+                <div>
+                  <textarea
+                    value={draftText}
+                    onChange={e => handleDraftChange(e.target.value)}
+                    placeholder="Write the scene here. This is your drafting space — prose, script pages, or rough notes. Auto-saves as you type."
+                    style={{
+                      width: '100%', minHeight: '220px', borderRadius: '8px',
+                      border: '1px solid var(--border)', padding: '14px 16px',
+                      fontSize: '14px', fontFamily: 'var(--font-body)', lineHeight: '1.75',
+                      color: 'var(--text)', background: '#FAFAF9', resize: 'vertical',
+                      outline: 'none', boxSizing: 'border-box',
+                    }}
+                  />
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                      {wordCount > 0 ? `${wordCount} words` : 'Start writing'}
+                    </span>
+                    <span style={{ fontSize: '11px', color: 'var(--text-soft)', fontFamily: 'var(--font-ui)' }}>
+                      {draftSaving ? 'Saving...' : wordCount > 0 ? 'Saved' : ''}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Beat guide tab */}
+              {subTab === 'guide' && scene.beat_label && (
+                <BeatGuidancePanel framework={framework} beatLabel={scene.beat_label} />
+              )}
             </div>
           )}
         </div>

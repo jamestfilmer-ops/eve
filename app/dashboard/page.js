@@ -66,17 +66,26 @@ function DashboardInner() {
 
       if (ids.length > 0) {
         const [sr, cr, hr] = await Promise.all([
-          supabase.from('scenes').select('project_id').in('project_id', ids),
+          supabase.from('scenes').select('project_id, status').in('project_id', ids),
           supabase.from('characters').select('project_id').in('project_id', ids),
           supabase.from('plot_holes').select('project_id, status').in('project_id', ids),
         ])
         ;(sr.data || []).forEach(r => { sc[r.project_id] = (sc[r.project_id] || 0) + 1 })
         ;(cr.data || []).forEach(r => { cc[r.project_id] = (cc[r.project_id] || 0) + 1 })
         ;(hr.data || []).forEach(r => { if (r.status === 'open') pc[r.project_id] = (pc[r.project_id] || 0) + 1 })
+        // track complete scene counts
+        const done = {}
+        ;(sr.data || []).forEach(r => { if (r.status === 'complete') done[r.project_id] = (done[r.project_id] || 0) + 1 })
+        ids.forEach(id => { if (!done[id]) done[id] = 0 })
+        Object.assign(sc, { __done: done })
       }
 
       const enriched = (projectRows || []).map(p => ({
-        ...p, sceneCount: sc[p.id] || 0, characterCount: cc[p.id] || 0, plotHoleCount: pc[p.id] || 0,
+        ...p,
+        sceneCount:     sc[p.id] || 0,
+        sceneDone:      (sc.__done || {})[p.id] || 0,
+        characterCount: cc[p.id] || 0,
+        plotHoleCount:  pc[p.id] || 0,
       }))
 
       setProjects(enriched)
@@ -188,7 +197,7 @@ function DashboardInner() {
                           </div>
                           <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: '600', color: 'var(--green)', paddingLeft: '16px', flexShrink: 0 }}>Resume &rarr;</span>
                         </div>
-                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: p.sceneCount > 0 ? '10px' : '0' }}>
                           {[
                             { val: p.characterCount, label: 'character' },
                             { val: p.sceneCount,     label: 'scene' },
@@ -199,6 +208,26 @@ function DashboardInner() {
                             </span>
                           ))}
                         </div>
+                        {p.sceneCount > 0 && (
+                          <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
+                              <span style={{ fontSize: '10px', fontFamily: 'var(--font-ui)', color: 'var(--text-soft)' }}>
+                                {p.sceneDone} of {p.sceneCount} scenes complete
+                              </span>
+                              <span style={{ fontSize: '10px', fontFamily: 'var(--font-ui)', fontWeight: '600', color: p.sceneDone === p.sceneCount ? 'var(--green)' : 'var(--text-soft)' }}>
+                                {Math.round((p.sceneDone / p.sceneCount) * 100)}%
+                              </span>
+                            </div>
+                            <div style={{ height: '4px', background: 'var(--border)', borderRadius: '2px', overflow: 'hidden' }}>
+                              <div style={{
+                                height: '100%', borderRadius: '2px',
+                                width: Math.round((p.sceneDone / p.sceneCount) * 100) + '%',
+                                background: 'linear-gradient(90deg, #2D5016, var(--green))',
+                                transition: 'width 0.3s ease',
+                              }} />
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </Link>
                   )
