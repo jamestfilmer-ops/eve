@@ -322,23 +322,50 @@ function OverviewTab({ project, characters, scenes, plotHoles, onUpdate }) {
     <div className="project-overview-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
 
       {/* Stats row */}
-      <div className="project-stats-row" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }}>
-        {[
-          { label: 'Characters', value: characters.length },
-          { label: 'Scenes',     value: scenes.length },
-          { label: 'Acts done',  value: `${scenes.filter(s => s.status === 'complete').length}` },
-          { label: 'Plot holes', value: openHoles, warn: openHoles > 0 },
-        ].map((s, i) => (
-          <div key={i} className="card-static" style={{ padding: '18px 20px' }}>
-            <p style={{
-              fontSize: '28px', fontFamily: 'var(--font-display)',
-              color: s.warn ? 'var(--amber)' : 'var(--green)',
-              fontWeight: '700', marginBottom: '4px',
-            }}>{s.value}</p>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{s.label}</p>
-          </div>
-        ))}
-      </div>
+      {(() => {
+        const done  = scenes.filter(s => s.status === 'complete').length
+        const total = scenes.length
+        const pct   = total > 0 ? Math.round((done / total) * 100) : 0
+        const nextScene = scenes.find(s => s.status !== 'complete')
+        return (
+          <>
+            <div className="project-stats-row" style={{ gridColumn: '1 / -1', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px' }}>
+              {[
+                { label: 'Characters', value: characters.length },
+                { label: 'Scenes',     value: total },
+                { label: 'Complete',   value: done },
+                { label: 'Plot holes', value: openHoles, warn: openHoles > 0 },
+              ].map((s, i) => (
+                <div key={i} className="card-static" style={{ padding: '18px 20px' }}>
+                  <p style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: s.warn ? 'var(--amber)' : 'var(--green)', fontWeight: '700', marginBottom: '4px' }}>{s.value}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {total > 0 && (
+              <div className="card-static" style={{ gridColumn: '1 / -1', padding: '18px 22px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-soft)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Draft progress</span>
+                  <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '13px', color: pct === 100 ? 'var(--green)' : 'var(--text-soft)' }}>{pct}%</span>
+                </div>
+                <div style={{ height: '7px', background: 'var(--off-white)', borderRadius: '4px', overflow: 'hidden', marginBottom: nextScene ? '14px' : '0' }}>
+                  <div style={{ height: '100%', width: pct + '%', borderRadius: '4px', background: 'linear-gradient(90deg, #2D5016, var(--green))', transition: 'width 0.4s ease' }} />
+                </div>
+                {nextScene && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-ui)' }}>Next up:</span>
+                    {nextScene.beat_label && (
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', padding: '2px 7px', borderRadius: '4px', background: 'var(--green-pale)', color: 'var(--green)', border: '1px solid var(--green-border)' }}>{nextScene.beat_label}</span>
+                    )}
+                    <span style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text)', fontFamily: 'var(--font-body)' }}>{nextScene.title}</span>
+                  </div>
+                )}
+              </div>
+            )}
+          </>
+        )
+      })()}
 
       {/* Logline editor */}
       <div className="card-static" style={{ padding: '22px', gridColumn: '1 / -1' }}>

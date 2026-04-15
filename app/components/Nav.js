@@ -12,6 +12,7 @@ const learnGroups = [
       { href: '/learn',             label: 'Craft Library' },
       { href: '/learn/tracks',      label: 'Learning Paths' },
       { href: '/frameworks',        label: 'Frameworks' },
+      { href: '/themes',            label: 'Theme' },
       { href: '/glossary',          label: 'Glossary' },
     ],
   },
