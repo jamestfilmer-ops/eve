@@ -58,6 +58,31 @@ const FrameworkIcon = ({ id, size = 22 }) => {
       <polyline points="2 18 6 6 10 14 14 10 18 16 22 4"/>
     </svg>
   )
+  if (id === 'romancing-the-beat') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>
+  )
+  if (id === 'virgins-promise') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+  )
+  if (id === 'mice-quotient') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+    </svg>
+  )
+  if (id === 'w-plot') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="2 4 6 18 10 8 14 18 18 8 22 4"/>
+    </svg>
+  )
+  if (id === 'harmon-pixar-hybrid') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M2 12h20"/>
+    </svg>
+  )
   // default
   return (
     <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -193,6 +218,51 @@ const frameworks = [
     description: "Shakespeare's architecture. Each act has a distinct dramatic function: Act I establishes, Act II complicates, Act III turns, Act IV darkens, Act V resolves. Slower burn than 3-act but allows deeper thematic development.",
     beats: ['Act I — Exposition', 'Act II — Rising Action', 'Act III — Climax / Turn', 'Act IV — Falling Action', 'Act V — Catastrophe or Denouement'],
     tip: "The pivot is Act III—the moment everything changes direction. In tragedy, it's when the fatal flaw becomes irreversible. In comedy, it's the farthest point from resolution. Locate it first, then build outward.",
+  },
+  {
+    id: 'romancing-the-beat',
+    name: 'Romancing the Beat',
+    author: 'Gwen Hayes',
+    acts: '2 Acts · ~20 Beats · Romance',
+    description: "The industry-standard beat sheet for romance novels and romantic screenplays. Built entirely around the relationship arc rather than external plot. Every beat tracks the emotional state between the two leads—from meeting to falling apart to earned HEA (happily ever after).",
+    beats: ['The Meet', 'Wanting', 'Misbeliefs & Wounds', 'No Way This Is Going Anywhere', 'Humming Along', 'Shiny Hoo-Ha Moment', 'Resonance', 'The Swoon', 'Deepening', 'Commitment Freakout', 'The Dark Moment', 'Groveling / Grand Gesture', 'Happily Ever After'],
+    tip: "The 'Dark Moment' is not external conflict—it's the moment the relationship looks permanently broken because of the internal wound, not plot circumstances. If external forces break them up, you've written plot. If their own fear breaks them up, you've written romance.",
+  },
+  {
+    id: 'virgins-promise',
+    name: "The Virgin's Promise",
+    author: 'Kim Hudson',
+    acts: '13 Beats · Inner creative arc',
+    description: "Hudson's counterpart to Hero's Journey: not a story of conquest but of becoming. The protagonist suppresses their authentic self to survive in a dependent world—then slowly, at great personal cost, claims their true identity. Powerful for character-driven stories about artists, outsiders, and anyone who must choose between belonging and being themselves.",
+    beats: ['Dependent World', 'Price of Conformity', 'Opportunity to Shine', 'Dresses the Part', 'Secret World', 'No Longer Fitting In', 'Mentor Appears', 'Fully Shines', 'Kingdom in Chaos', 'Wanders in the Wilderness', 'Choice to be Taken or Reclaimed', 'The Kingdom is Brighter', 'Rescue of the Prince'],
+    tip: "The 'Secret World' beat is the heart of the structure—the private space where the protagonist is fully themselves, unseen by the kingdom. Design it first. Make it specific and joyful. The whole story is the cost of eventually making that world public.",
+  },
+  {
+    id: 'mice-quotient',
+    name: 'MICE Quotient',
+    author: 'Orson Scott Card',
+    acts: '4 Types · Story classifier',
+    description: "Not a beat sheet—a diagnostic. Every story is dominated by one of four story types: Milieu (a world to explore), Inquiry (a question to answer), Character (a person to transform), or Event (a situation to resolve). The type you choose defines what promises you make to readers and what must be true for the story to feel finished.",
+    beats: ['Identify your dominant story type (M/I/C/E)', 'Milieu — Enter the world; explore it; leave or stay', 'Inquiry — Pose the question; investigate; answer or accept mystery', 'Character — Show who they are; force the change; show who they become', 'Event — Establish the normal order; disrupt it; restore or accept new order', 'Nest additional types inside the dominant frame', 'Open each nested type; close it before the outer type closes'],
+    tip: "Most failed stories fail because the writer thought they were telling one type but kept doing the work of another. Finish the diagnostic honestly: what question does your story actually answer when it ends? That's your dominant type.",
+  },
+  {
+    id: 'w-plot',
+    name: 'The W-Plot',
+    author: 'Melanie Anne Phillips',
+    acts: '2 Tracks · 4 Crossings',
+    description: "Tracks two simultaneous arcs—external plot and internal emotional journey—that cross four times to form a W shape. Popular in TV writing rooms because it forces writers to keep both dimensions in sync. A plot that moves without emotional movement is action. Emotion that moves without plot is therapy. The W forces both.",
+    beats: ['Opening State (plot + emotion established)', 'Downward: External complication begins', 'Crossing 1 — external pressure triggers internal shift', 'Upward: False hope or apparent success', 'Crossing 2 — internal wound surfaces in the plot', 'Downward: Midpoint reversal, both tracks worsen', 'Crossing 3 — darkest moment, tracks converge at crisis', 'Upward: Internal resolution enables external breakthrough', 'Crossing 4 — external victory reflects internal transformation', 'Resolution (both tracks land)'],
+    tip: "Draw the actual W on paper before you outline. Mark where each crossing happens in your story. If the crossings are all bunched together or missing, your two tracks aren't actually interacting—they're running in parallel. The crossings are the story.",
+  },
+  {
+    id: 'harmon-pixar-hybrid',
+    name: 'Harmon / Pixar Hybrid',
+    author: 'Dan Harmon + Pixar Brain Trust',
+    acts: '2 Layers · Emotional + Structural',
+    description: "A working method used by experienced TV and film writers: run Harmon's Story Circle for emotional precision, then use Save the Cat's beat timing for structural placement. The Circle tells you what the character needs to feel; the beats tell you where in the script those feelings have to land. Together they solve both the 'what happens' and 'why it matters' problems simultaneously.",
+    beats: ['Story Circle: map all 8 emotional beats first', 'Save the Cat: map 15 structural beats second', 'Align: Opening Image = You (zone of comfort)', 'Align: Catalyst = Need (want something)', 'Align: Break into Two = Go (unfamiliar situation)', 'Align: Fun & Games = Search (adapt, struggle)', 'Align: Midpoint = Find (get what they wanted)', 'Align: All Is Lost = Take (pay the price)', 'Align: Break into Three = Return (back to familiar)', 'Align: Final Image = Change (they are different)'],
+    tip: "The hybrid works because it exposes misalignments: if your Act 2 fun-and-games section doesn't also feel like 'Search / Struggle', your plot and character arc are drifting apart. Every structural beat should also be an emotional beat. If it isn't, rewrite it until it is.",
   },
 ]
 

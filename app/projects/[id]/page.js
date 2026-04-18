@@ -23,9 +23,14 @@ const frameworkLabel = {
   'freytags-pyramid':  "Freytag's Pyramid",
   'snowflake-method':  'Snowflake Method',
   'hauge-six-stage':   "Hauge's Six-Stage",
-  'heroines-journey':  "Heroine's Journey",
-  'story-spine':       'Story Spine',
-  'five-act':          'Five-Act Structure',
+  'heroines-journey':    "Heroine's Journey",
+  'story-spine':         'Story Spine',
+  'five-act':            'Five-Act Structure',
+  'romancing-the-beat':  'Romancing the Beat',
+  'virgins-promise':     "The Virgin's Promise",
+  'mice-quotient':       'MICE Quotient',
+  'w-plot':              'The W-Plot',
+  'harmon-pixar-hybrid': 'Harmon / Pixar Hybrid',
 }
 
 // Framework beats master list (used by Beat Tracker tab)
@@ -43,6 +48,11 @@ const FRAMEWORK_BEATS = {
   'heroines-journey':  ['Separation from the Feminine','Identification with the Masculine','Road of Trials','Illusory Boon of Success','Spiritual Aridity / Awakening','Initiation and Descent to the Goddess','Urgent Yearning to Reconnect','Healing the Mother/Daughter Split','Healing the Wounded Masculine','Integration of Feminine and Masculine'],
   'story-spine':       ['Once upon a time...','Every day...','Until one day...','Because of that...','Because of that... (escalate)','Until finally...','Ever since then...'],
   'five-act':          ['Act I — Exposition','Act II — Rising Action','Act III — Climax / Turn','Act IV — Falling Action','Act V — Catastrophe or Denouement'],
+  'romancing-the-beat':  ['The Meet','Wanting','Misbeliefs & Wounds','No Way This Is Going Anywhere','Humming Along','Shiny Hoo-Ha Moment','Resonance','The Swoon','Deepening','Commitment Freakout','The Dark Moment','Groveling / Grand Gesture','Happily Ever After'],
+  'virgins-promise':     ['Dependent World','Price of Conformity','Opportunity to Shine','Dresses the Part','Secret World','No Longer Fitting In','Mentor Appears','Fully Shines','Kingdom in Chaos','Wanders in the Wilderness','Choice to be Taken or Reclaimed','The Kingdom is Brighter','Rescue of the Prince'],
+  'mice-quotient':       ['Identify dominant story type (M/I/C/E)','Milieu — Enter the world; explore; leave or stay','Inquiry — Pose the question; investigate; answer it','Character — Show who they are; force the change; show who they become','Event — Establish order; disrupt it; restore or accept new order','Nest additional types inside the dominant frame','Open each nested type; close before the outer type closes'],
+  'w-plot':              ['Opening State (plot + emotion established)','Downward — External complication begins','Crossing 1 — external pressure triggers internal shift','Upward — False hope or apparent success','Crossing 2 — internal wound surfaces in the plot','Downward — Midpoint reversal, both tracks worsen','Crossing 3 — darkest moment, tracks converge at crisis','Upward — Internal resolution enables external breakthrough','Crossing 4 — external victory reflects internal transformation','Resolution (both tracks land)'],
+  'harmon-pixar-hybrid': ['Story Circle: map all 8 emotional beats first','Save the Cat: map 15 structural beats second','Align: Opening Image = You (zone of comfort)','Align: Catalyst = Need (want something)','Align: Break into Two = Go (unfamiliar situation)','Align: Fun & Games = Search (adapt, struggle)','Align: Midpoint = Find (get what they wanted)','Align: All Is Lost = Take (pay the price)','Align: Break into Three = Return (back to familiar)','Align: Final Image = Change (they are different)'],
 }
 
 const statusOptions = [
