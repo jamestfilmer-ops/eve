@@ -91,7 +91,7 @@ function DashboardInner() {
       setProjects(enriched)
       setStats({
         projects:   enriched.length,
-        scenes:     Object.values(sc).reduce((a, b) => a + b, 0),
+        scenes:     Object.entries(sc).filter(([k]) => k !== '__done').reduce((a, [, b]) => a + b, 0),
         characters: Object.values(cc).reduce((a, b) => a + b, 0),
         plotHoles:  Object.values(pc).reduce((a, b) => a + b, 0),
       })
