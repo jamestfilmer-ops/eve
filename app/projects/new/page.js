@@ -42,6 +42,22 @@ const FrameworkIcon = ({ id, size = 22 }) => {
       <polyline points="2 20 6 12 10 16 14 6 18 10 22 2"/>
     </svg>
   )
+  if (id === 'heroines-journey') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/><path d="M5.5 20a7 7 0 0 1 13 0"/>
+      <path d="M12 14v4M9 18h6"/>
+    </svg>
+  )
+  if (id === 'story-spine') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+    </svg>
+  )
+  if (id === 'five-act') return (
+    <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="2 18 6 6 10 14 14 10 18 16 22 4"/>
+    </svg>
+  )
   // default
   return (
     <svg style={style} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -150,6 +166,33 @@ const frameworks = [
     description: "Maps plot (outer journey) against character transformation (inner journey) with precise % markers. Every character hides behind an Identity and must reach their Essence. The story is that movement.",
     beats: ['Stage 1: Setup (0–10%)', 'Stage 2: New Situation (10–25%)', 'Stage 3: Progress (25–50%)', 'Stage 4: Complications (50–75%)', 'Stage 5: Final Push (75–90%)', 'Stage 6: Aftermath (90–100%)'],
     tip: "Map both journeys in parallel columns. The external events should be forcing the internal transformation —not running alongside it independently.",
+  },
+  {
+    id: 'heroines-journey',
+    name: "Heroine's Journey",
+    author: 'Maureen Murdock',
+    acts: '10 Phases · Inner transformation',
+    description: "Murdock's answer to Campbell: a journey not of conquest but of integration. The heroine separates from the feminine to succeed in a masculine world—then must return and reconcile the two. Particularly powerful for character-driven stories.",
+    beats: ['Separation from the Feminine', 'Identification with the Masculine', 'Road of Trials', 'Illusory Boon of Success', 'Awakening to Feelings of Spiritual Aridity', 'Initiation and Descent to the Goddess', 'Urgent Yearning to Reconnect', 'Healing the Mother/Daughter Split', 'Healing the Wounded Masculine', 'Integration of Feminine and Masculine'],
+    tip: "The midpoint crisis—\"Illusory Boon\"—is when the hero achieves what they thought they wanted and feels nothing. That hollowness is where the real story begins. Don't skip it.",
+  },
+  {
+    id: 'story-spine',
+    name: 'Story Spine',
+    author: 'Pixar / Brian Kern',
+    acts: '6 Steps · Causal chain',
+    description: "The structure Pixar uses to develop story pitches. Each sentence must logically cause the next. Simple enough to sketch on a napkin, powerful enough to build a feature film. Forces writers to make every story beat a consequence, not a coincidence.",
+    beats: ['Once upon a time...', 'Every day...', 'Until one day...', 'Because of that...', 'Because of that... (escalate)', 'Until finally...', 'Ever since then...'],
+    tip: "\"Because of that\" is the most important phrase in storytelling. If you can replace it with \"and then\" anywhere in your spine, you have a plot problem—not a story. Fix the causation.",
+  },
+  {
+    id: 'five-act',
+    name: 'Five-Act Structure',
+    author: 'Gustav Freytag / Shakespeare',
+    acts: '5 Acts · Classical drama',
+    description: "Shakespeare's architecture. Each act has a distinct dramatic function: Act I establishes, Act II complicates, Act III turns, Act IV darkens, Act V resolves. Slower burn than 3-act but allows deeper thematic development.",
+    beats: ['Act I — Exposition', 'Act II — Rising Action', 'Act III — Climax / Turn', 'Act IV — Falling Action', 'Act V — Catastrophe or Denouement'],
+    tip: "The pivot is Act III—the moment everything changes direction. In tragedy, it's when the fatal flaw becomes irreversible. In comedy, it's the farthest point from resolution. Locate it first, then build outward.",
   },
 ]
 
