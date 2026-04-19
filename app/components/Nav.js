@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { supabase } from '../../lib/supabase'
@@ -43,8 +43,9 @@ export default function Nav() {
   const [learnOpen, setLearnOpen] = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
   const [scrolled, setScrolled]   = useState(false)
-  const learnRef   = useRef(null)
-  const closeTimer = useRef(null)
+  const learnRef     = useRef(null)
+  const learnTrigger = useRef(null)
+  const closeTimer   = useRef(null)
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => setUser(user))
@@ -66,45 +67,79 @@ export default function Nav() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  function openLearn()    { clearTimeout(closeTimer.current); setLearnOpen(true) }
-  function scheduleClose(){ closeTimer.current = setTimeout(() => setLearnOpen(false), 120) }
-  function cancelClose()  { clearTimeout(closeTimer.current) }
+  useEffect(() => {
+    if (!learnOpen) return
+    function handleClickOutside(e) {
+      if (learnRef.current && !learnRef.current.contains(e.target)) {
+        setLearnOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [learnOpen])
+
+  const handleLearnKeyDown = useCallback((e) => {
+    if (e.key === 'Escape' && learnOpen) {
+      setLearnOpen(false)
+      learnTrigger.current?.focus()
+    }
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+      e.preventDefault()
+      setLearnOpen(v => !v)
+    }
+  }, [learnOpen])
+
+  function openLearn()     { clearTimeout(closeTimer.current); setLearnOpen(true) }
+  function scheduleClose() { closeTimer.current = setTimeout(() => setLearnOpen(false), 120) }
+  function cancelClose()   { clearTimeout(closeTimer.current) }
+  function toggleLearn()   { clearTimeout(closeTimer.current); setLearnOpen(v => !v) }
 
   async function handleSignOut() { await supabase.auth.signOut(); router.push('/') }
 
   const isActive = (href) => pathname === href || pathname.startsWith(href + '/')
   const learnActive = ['/learn','/frameworks','/for-beginners','/glossary','/road-to-hollywood','/road-to-publishing','/road-to-short-story','/reading-list','/genres','/visual-craft','/scripts'].some(p => isActive(p))
+  const panelId = 'learn-dropdown-panel'
 
   return (
     <>
-      <nav style={{
-        position:'sticky',top:0,zIndex:100,
-        background: scrolled ? 'rgba(253,252,249,0.97)' : 'rgba(253,252,249,0.90)',
-        backdropFilter:'blur(24px)', WebkitBackdropFilter:'blur(24px)',
-        borderBottom:'1px solid var(--border)',
-        boxShadow: scrolled ? '0 1px 4px rgba(26,20,15,0.07),0 6px 20px rgba(26,20,15,0.06)' : 'none',
-        transition:'box-shadow 0.35s ease,background 0.35s ease',
-      }}>
-        <div style={{ maxWidth:'1200px',margin:'0 auto',padding:'0 24px', height:'52px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
+      <nav
+        aria-label="Primary"
+        style={{
+          position:'sticky',top:0,zIndex:100,
+          background: scrolled ? 'rgba(253,252,249,0.97)' : 'rgba(253,252,249,0.90)',
+          backdropFilter:'blur(24px)', WebkitBackdropFilter:'blur(24px)',
+          borderBottom:'1px solid var(--border)',
+          boxShadow: scrolled ? '0 1px 4px rgba(26,20,15,0.07),0 6px 20px rgba(26,20,15,0.06)' : 'none',
+          transition:'box-shadow 0.35s ease,background 0.35s ease',
+        }}>
+        <div style={{ maxWidth:'1200px',margin:'0 auto',padding:'0 24px',height:'52px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>
 
           <Link href="/" style={{ textDecoration:'none',flexShrink:0 }}>
             <span style={{ fontFamily:'var(--font-display)',fontSize:'21px',fontWeight:'800',color:'var(--green)',letterSpacing:'-0.02em' }}>Eve</span>
           </Link>
 
-          {/* Desktop: Learn FIRST */}
           <div className="nav-desktop" style={{ display:'flex',alignItems:'center',gap:'2px',flex:1,paddingLeft:'22px' }}>
             <div ref={learnRef} style={{ position:'relative' }} onMouseEnter={openLearn} onMouseLeave={scheduleClose}>
-              <button style={{
-                background: learnOpen||learnActive ? 'var(--green-pale)' : 'none',
-                border:'none',cursor:'pointer',padding:'6px 10px',borderRadius:'8px',
-                fontFamily:'var(--font-ui)',fontSize:'14px',
-                fontWeight: learnActive ? '600' : '400',
-                color: learnActive||learnOpen ? 'var(--green)' : 'var(--text-mid)',
-                display:'flex',alignItems:'center',gap:'5px',
-                transition:'color 0.15s,background 0.15s',
-              }}>
+              <button
+                ref={learnTrigger}
+                id="learn-trigger"
+                aria-haspopup="true"
+                aria-expanded={learnOpen}
+                aria-controls={panelId}
+                onClick={toggleLearn}
+                onKeyDown={handleLearnKeyDown}
+                style={{
+                  background: learnOpen||learnActive ? 'var(--green-pale)' : 'none',
+                  border:'none',cursor:'pointer',padding:'6px 10px',borderRadius:'8px',
+                  fontFamily:'var(--font-ui)',fontSize:'14px',
+                  fontWeight: learnActive ? '600' : '400',
+                  color: learnActive||learnOpen ? 'var(--green)' : 'var(--text-mid)',
+                  display:'flex',alignItems:'center',gap:'5px',
+                  transition:'color 0.15s,background 0.15s',
+                }}
+              >
                 Learn
-                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"
                   style={{ transition:'transform 0.2s ease',transform:learnOpen?'rotate(180deg)':'none' }}>
                   <path d="M2.5 4l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -114,20 +149,28 @@ export default function Nav() {
                 style={{ position:'absolute',top:'100%',left:0,width:'240px',height:'12px',background:'transparent' }}/>}
 
               {learnOpen && (
-                <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose} style={{
-                  position:'absolute',top:'calc(100% + 10px)',left:0,
-                  background:'rgba(253,252,249,0.98)',
-                  backdropFilter:'blur(20px)',WebkitBackdropFilter:'blur(20px)',
-                  border:'1px solid var(--border)',borderRadius:'12px',
-                  boxShadow:'0 8px 32px rgba(26,20,15,0.13),0 2px 8px rgba(26,20,15,0.07)',
-                  padding:'8px',minWidth:'210px',zIndex:200,
-                  animation:'dropIn 0.18s var(--ease-out) both',
-                }}>
+                <div
+                  id={panelId}
+                  role="menu"
+                  aria-labelledby="learn-trigger"
+                  onMouseEnter={cancelClose}
+                  onMouseLeave={scheduleClose}
+                  onKeyDown={e => { if (e.key === 'Escape') { setLearnOpen(false); learnTrigger.current?.focus() } }}
+                  style={{
+                    position:'absolute',top:'calc(100% + 10px)',left:0,
+                    background:'rgba(253,252,249,0.98)',
+                    backdropFilter:'blur(20px)',WebkitBackdropFilter:'blur(20px)',
+                    border:'1px solid var(--border)',borderRadius:'12px',
+                    boxShadow:'0 8px 32px rgba(26,20,15,0.13),0 2px 8px rgba(26,20,15,0.07)',
+                    padding:'8px',minWidth:'210px',zIndex:200,
+                    animation:'dropIn 0.18s var(--ease-out) both',
+                  }}
+                >
                   {learnGroups.map((group, gi) => (
                     <div key={gi} style={{ marginBottom: gi < learnGroups.length-1 ? '6px' : '0' }}>
                       <div style={{ padding:'7px 13px 4px',fontSize:'10px',fontFamily:'JetBrains Mono,monospace',letterSpacing:'0.1em',textTransform:'uppercase',color:'var(--text-soft)',fontWeight:'600' }}>{group.heading}</div>
                       {group.links.map(l => (
-                        <Link key={l.href} href={l.href} style={{ textDecoration:'none',display:'block' }}>
+                        <Link key={l.href} href={l.href} role="menuitem" style={{ textDecoration:'none',display:'block' }}>
                           <div style={{ padding:'8px 13px',borderRadius:'7px',fontSize:'13.5px',
                             color: pathname===l.href ? 'var(--green)' : 'var(--text-mid)',
                             fontWeight: pathname===l.href ? '500' : '400',
@@ -155,8 +198,8 @@ export default function Nav() {
             {user ? (
               <>
                 <Link href="/profile" style={{ textDecoration:'none' }}>
-                  <button className="btn-ghost" style={{ fontSize:'13px',padding:'6px 14px', display:'flex', alignItems:'center', gap:'6px' }}>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <button className="btn-ghost" style={{ fontSize:'13px',padding:'6px 14px',display:'flex',alignItems:'center',gap:'6px' }}>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                       <circle cx="7" cy="5" r="2.5" stroke="currentColor" strokeWidth="1.4"/>
                       <path d="M2 12c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
                     </svg>
@@ -182,9 +225,12 @@ export default function Nav() {
               ? <button onClick={handleSignOut} className="btn-ghost" style={{ fontSize:'13px',padding:'6px 12px' }}>Sign out</button>
               : <Link href="/auth" style={{ textDecoration:'none' }}><button className="btn-primary" style={{ fontSize:'13px',padding:'6px 14px' }}>Get started</button></Link>
             }
-            <button onClick={() => setMenuOpen(v=>!v)}
+            <button
+              onClick={() => setMenuOpen(v=>!v)}
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               style={{ background:menuOpen?'var(--green-pale)':'transparent',border:'1px solid var(--border)',borderRadius:'9px',width:'38px',height:'38px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'5px',cursor:'pointer',padding:0,transition:'background 0.2s' }}
-              aria-label="Toggle menu">
+            >
               <span style={{ display:'block',width:'16px',height:'2px',background:menuOpen?'var(--green)':'var(--text-mid)',borderRadius:'1px',transition:'transform 0.25s,opacity 0.25s',transform:menuOpen?'translateY(7px) rotate(45deg)':'none' }}/>
               <span style={{ display:'block',width:'16px',height:'2px',background:menuOpen?'var(--green)':'var(--text-mid)',borderRadius:'1px',transition:'opacity 0.25s',opacity:menuOpen?0:1 }}/>
               <span style={{ display:'block',width:'16px',height:'2px',background:menuOpen?'var(--green)':'var(--text-mid)',borderRadius:'1px',transition:'transform 0.25s',transform:menuOpen?'translateY(-7px) rotate(-45deg)':'none' }}/>
@@ -205,7 +251,8 @@ export default function Nav() {
           <MobileNavLink href="/profile"   active={isActive('/profile')}>Profile</MobileNavLink>
           <div style={{ marginTop:'auto',paddingTop:'28px',borderTop:'1px solid var(--border)' }}>
             {user ? (
-              <div><p style={{ fontSize:'13px',color:'var(--text-soft)',marginBottom:'12px',paddingLeft:'4px' }}>{user.email}</p>
+              <div>
+                <p style={{ fontSize:'13px',color:'var(--text-soft)',marginBottom:'12px',paddingLeft:'4px' }}>{user.email}</p>
                 <button onClick={handleSignOut} className="btn-ghost" style={{ width:'100%' }}>Sign out</button>
               </div>
             ) : (
