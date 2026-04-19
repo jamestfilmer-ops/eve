@@ -1,94 +1,47 @@
-// app/sitemap.js —auto-generated sitemap for Google indexing
-// Covers every lesson, framework, and static page with accurate priorities
+// app/sitemap.js — auto-generated from lib/lessons.js
+// Covers every published lesson + all static pages
+
+import { PUBLISHED_SLUGS } from '@/lib/lessons'
 
 const BASE = 'https://eve-screenwriting.vercel.app'
 
-const lessonSlugs = [
-  'what-a-scene-does', 'midpoint', 'act-breaks', 'all-is-lost',
-  'enter-late-leave-early', 'scene-turn', 'tension-without-action',
-  'location-as-character', 'scene-endings',
-  'want-vs-need', 'ghost', 'antagonist', 'secondary-characters',
-  'the-lie', 'character-arc', 'flaw-vs-wound', 'character-voice',
-  'relationship-pairs', 'dialogue-subtext', 'subtext', 'arguments',
-  'theme', 'motifs', 'plant-payoff', 'color-psychology',
-  'tarantino-dialogue', 'sopranos-drama',
-  'shakespeare-structure', 'point-of-view', 'chapter-structure', 'adaptation',
-  'fichtean-curve', 'kishotenketsu', 'sequence-approach',
-  'seven-point-story', 'freytags-pyramid', 'snowflake-method', 'hauge-six-stage',
-  'save-the-cat', 'heros-journey', 'story-circle',
-  'show-dont-tell', 'the-ending', 'writing-villains',
-  'opening-image', 'pacing-rhythm', 'the-rewrite',
-  'how-to-start', 'fear-and-writing', 'finding-your-story',
-  'vonnegut-craft', 'king-on-writing', 'leonard-on-craft', 'pixar-story-rules',
-]
-
-const frameworkSlugs = [
-  'save-the-cat', 'heros-journey', 'story-circle',
-  'sequence-approach', 'kishotenketsu', 'fichtean-curve', 'freeform',
+const STATIC_PAGES = [
+  { path: '',                     priority: 1.0,  changeFrequency: 'weekly' },
+  { path: '/learn',               priority: 0.95, changeFrequency: 'weekly' },
+  { path: '/for-beginners',       priority: 0.95, changeFrequency: 'monthly' },
+  { path: '/frameworks',          priority: 0.9,  changeFrequency: 'monthly' },
+  { path: '/road-to-hollywood',   priority: 0.9,  changeFrequency: 'monthly' },
+  { path: '/road-to-publishing',  priority: 0.9,  changeFrequency: 'monthly' },
+  { path: '/road-to-short-story', priority: 0.9,  changeFrequency: 'monthly' },
+  { path: '/scripts',             priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/glossary',            priority: 0.85, changeFrequency: 'monthly' },
+  { path: '/reading-list',        priority: 0.8,  changeFrequency: 'monthly' },
+  { path: '/genres',              priority: 0.8,  changeFrequency: 'monthly' },
+  { path: '/visual-craft',        priority: 0.8,  changeFrequency: 'monthly' },
+  { path: '/themes',              priority: 0.8,  changeFrequency: 'monthly' },
+  { path: '/learn/tracks',        priority: 0.8,  changeFrequency: 'monthly' },
+  { path: '/pricing',             priority: 0.75, changeFrequency: 'monthly' },
+  { path: '/about',               priority: 0.6,  changeFrequency: 'yearly' },
+  { path: '/terms',               priority: 0.3,  changeFrequency: 'yearly' },
+  { path: '/privacy',             priority: 0.3,  changeFrequency: 'yearly' },
 ]
 
 export default function sitemap() {
   const now = new Date().toISOString()
 
-  const staticPages = [
-    { url: BASE,                          priority: 1.0,  changeFrequency: 'weekly' },
-    { url: `${BASE}/learn`,               priority: 0.95, changeFrequency: 'weekly' },
-    { url: `${BASE}/frameworks`,          priority: 0.9,  changeFrequency: 'monthly' },
-    { url: `${BASE}/road-to-hollywood`,   priority: 0.9,  changeFrequency: 'monthly' },
-    { url: `${BASE}/road-to-publishing`,  priority: 0.9,  changeFrequency: 'monthly' },
-    { url: `${BASE}/road-to-short-story`, priority: 0.9,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/flash-fiction`,    priority: 0.7,  changeFrequency: 'monthly' },
-    { url: `${BASE}/reading-list`,         priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/genres`,               priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/visual-craft`,         priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/color-theory`,   priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/cinematography`,    priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/camera-angles`,     priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/camera-movement`,   priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/lighting-and-story`, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/color-palettes`,         priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/color-contrast`,          priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/color-symbolism`,         priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/color-grading`,           priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/writing-for-color`,       priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/lenses-and-depth`,        priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/composition-and-meaning`, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/mise-en-scene`,            priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/how-to-start`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/fear-and-writing`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/finding-your-story`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/vonnegut-craft`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/king-on-writing`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/leonard-on-craft`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/pixar-story-rules`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/opening-image`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/writing-villains`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/pacing-rhythm`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/the-rewrite`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/show-dont-tell`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/the-ending`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/shakespeare-structure`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/adaptation`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/point-of-view`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/chapter-structure`,  priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/road-to-short-story`, priority: 0.9,  changeFrequency: 'monthly' },
-    { url: `${BASE}/for-beginners`,       priority: 0.95, changeFrequency: 'monthly' },
-    { url: `${BASE}/scripts`,             priority: 0.85, changeFrequency: 'monthly' },
-    { url: `${BASE}/glossary`,            priority: 0.85, changeFrequency: 'monthly' },
-    { url: `${BASE}/learn/tracks`,        priority: 0.8,  changeFrequency: 'monthly' },
-    { url: `${BASE}/pricing`,             priority: 0.75, changeFrequency: 'monthly' },
-    { url: `${BASE}/about`,               priority: 0.6,  changeFrequency: 'yearly' },
-  ]
+  const staticEntries = STATIC_PAGES.map(p => ({
+    url: `${BASE}${p.path}`,
+    priority: p.priority,
+    changeFrequency: p.changeFrequency,
+    lastModified: now,
+  }))
 
-  const lessonPages = lessonSlugs.map(slug => ({
+  const lessonEntries = PUBLISHED_SLUGS.map(slug => ({
     url: `${BASE}/learn/${slug}`,
     priority: 0.8,
     changeFrequency: 'monthly',
     lastModified: now,
   }))
 
-  return [
-    ...staticPages.map(p => ({ ...p, lastModified: now })),
-    ...lessonPages,
-  ]
+  return [...staticEntries, ...lessonEntries]
 }
