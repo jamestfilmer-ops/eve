@@ -1,13 +1,41 @@
 /** @type {import('next').NextConfig} */
+
+const securityHeaders = [
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=63072000; includeSubDomains; preload',
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
+  },
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+  {
+    key: 'Referrer-Policy',
+    value: 'strict-origin-when-cross-origin',
+  },
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  },
+  {
+    key: 'X-DNS-Prefetch-Control',
+    value: 'on',
+  },
+]
+
 const nextConfig = {
-  /* config options here */
-};
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ]
+  },
+}
 
-export default nextConfig;
-// cache bust 2026-03-16
-// env refresh Fri Mar 20 14:58:19 UTC 2026
-// cache bust: 2026-03-24b
-
-
-// cache bust: 2026-03-28T16:45:53Z
-// cache-bust: 1774828142
+export default nextConfig
