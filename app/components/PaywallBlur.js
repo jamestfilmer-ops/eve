@@ -8,8 +8,10 @@ import { supabase } from '../../lib/supabase'
 // Pass slug prop so free lessons can bypass the check entirely.
 
 export default function PaywallBlur({ children, slug }) {
-  // ⚠️  TESTING MODE — paywall disabled. Re-enable before Stripe launch.
-  return <>{children}</>
+  // PAYWALL_DISABLED: set NEXT_PUBLIC_PAYWALL_DISABLED=true in .env.local for testing only.
+  // Never set this in production Vercel environment variables.
+  const PAYWALL_DISABLED = process.env.NEXT_PUBLIC_PAYWALL_DISABLED === 'true'
+  if (PAYWALL_DISABLED) return <>{children}</>
 
   const [status, setStatus] = useState('loading') // loading | free | pro | guest
 
@@ -80,7 +82,7 @@ export default function PaywallBlur({ children, slug }) {
         <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--text-mid)', maxWidth: '380px', margin: '0 auto 28px', lineHeight: '1.75' }}>
           {isGuest
             ? 'Create a free account to read 10 lessons. Upgrade to Pro for all lessons, every framework, and the full project workspace.'
-            : '$8 a month unlocks every lesson, all 7 frameworks, and unlimited projects. Less than one coffee.'}
+            : '$4.99 a month unlocks every lesson, all 7 frameworks, and unlimited projects. Less than a latte.'}
         </p>
 
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>

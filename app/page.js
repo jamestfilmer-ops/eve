@@ -14,9 +14,9 @@ const frameworks = [
 
 function PricingSection() {
   const [annual, setAnnual] = React.useState(true)
-  const monthlyPrice  = 8
-  const annualMonthly = 5
-  const annualTotal   = 60
+  const monthlyPrice  = 4.99
+  const annualMonthly = 2.50
+  const annualTotal   = 30
 
   return (
     <section id="pricing" style={{ background: 'var(--off-white)', padding: '120px 24px' }}>
@@ -33,7 +33,7 @@ function PricingSection() {
             <button onClick={() => setAnnual(false)} style={{ padding: '6px 18px', borderRadius: '30px', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', background: !annual ? 'var(--green)' : 'transparent', color: !annual ? '#fff' : 'var(--text-mid)', transition: 'all 0.15s' }}>Monthly</button>
             <button onClick={() => setAnnual(true)} style={{ padding: '6px 18px', borderRadius: '30px', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', background: annual ? 'var(--green)' : 'transparent', color: annual ? '#fff' : 'var(--text-mid)', transition: 'all 0.15s', display: 'flex', alignItems: 'center', gap: '7px' }}>
               Annual
-              <span style={{ fontSize: '10px', fontWeight: '700', background: annual ? 'rgba(255,255,255,0.25)' : 'var(--green-pale)', color: annual ? '#fff' : 'var(--green)', padding: '2px 7px', borderRadius: '10px' }}>Save 38%</span>
+              <span style={{ fontSize: '10px', fontWeight: '700', background: annual ? 'rgba(255,255,255,0.25)' : 'var(--green-pale)', color: annual ? '#fff' : 'var(--green)', padding: '2px 7px', borderRadius: '10px' }}>Save 50%</span>
             </button>
           </div>
         </div>

@@ -23,9 +23,9 @@ const COMPARISON = [
 
 export default function PricingPage() {
   const [annual, setAnnual] = useState(true)
-  const monthlyPrice = 8
-  const annualMonthly = 5
-  const annualTotal = 60
+  const monthlyPrice = 4.99
+  const annualMonthly = 2.50
+  const annualTotal = 30
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function PricingPage() {
             </button>
             <button onClick={() => setAnnual(true)} style={{ padding: '7px 20px', borderRadius: '30px', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-sans)', fontWeight: '600', fontSize: '13px', background: annual ? 'var(--green)' : 'transparent', color: annual ? '#fff' : 'var(--text-mid)', transition: 'all 0.15s', display: 'flex', alignItems: 'center', gap: '8px' }}>
               Annual
-              <span style={{ fontSize: '11px', fontWeight: '700', background: annual ? 'rgba(255,255,255,0.25)' : 'var(--green-pale)', color: annual ? '#fff' : 'var(--green)', padding: '2px 8px', borderRadius: '10px' }}>Save 38%</span>
+              <span style={{ fontSize: '11px', fontWeight: '700', background: annual ? 'rgba(255,255,255,0.25)' : 'var(--green-pale)', color: annual ? '#fff' : 'var(--green)', padding: '2px 8px', borderRadius: '10px' }}>Save 50%</span>
             </button>
           </div>
         </div>

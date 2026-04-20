@@ -320,7 +320,7 @@ function ProTabGate({ tabName }) {
         </button>
       </Link>
       <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--text-soft)', marginTop: '14px' }}>
-        $8 / month &middot; Cancel anytime
+        $4.99 / month &middot; Cancel anytime
       </p>
     </div>
   )
