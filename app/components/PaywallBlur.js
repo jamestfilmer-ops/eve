@@ -8,7 +8,11 @@ import { supabase } from '../../lib/supabase'
 // Pass slug prop so free lessons can bypass the check entirely.
 
 export default function PaywallBlur({ children, slug }) {
-  // PAYWALL_DISABLED: set NEXT_PUBLIC_PAYWALL_DISABLED=true in .env.local for testing only.
+  // PAYWALL_ENFORCEMENT: disabled until Stripe is wired and users can actually purchase Pro.
+  // When Stripe is live, delete the next line. The rest of the logic is ready.
+  return <>{children}</>
+
+  // PAYWALL_DISABLED env flag: set NEXT_PUBLIC_PAYWALL_DISABLED=true in .env.local for testing.
   // Never set this in production Vercel environment variables.
   const PAYWALL_DISABLED = process.env.NEXT_PUBLIC_PAYWALL_DISABLED === 'true'
   if (PAYWALL_DISABLED) return <>{children}</>
