@@ -133,14 +133,14 @@ export default function Home() {
             You have an idea. Maybe a whole story. What you need is the craft to get it out of your head and onto the page — and a place to think it through.
           </p>
           <div className="fade-up fade-up-delay-3 hero-cta-row" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+            <Link href="/start" style={{ textDecoration: 'none' }}>
               <button className="btn-primary" style={{ fontSize: '16px', padding: '13px 30px' }}>
-                Start here — it&apos;s free
+                Start a story →
               </button>
             </Link>
-            <Link href="/learn" style={{ textDecoration: 'none' }}>
+            <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
               <button className="btn-ghost" style={{ fontSize: '16px', padding: '13px 28px' }}>
-                Browse the craft library
+                Create an account — free
               </button>
             </Link>
           </div>
@@ -362,14 +362,15 @@ export default function Home() {
           <p style={{ color: 'rgba(244,249,240,0.7)', fontSize: '18px', marginBottom: '40px', lineHeight: '1.75' }}>
             But it will get written if you have somewhere to work it out. Start free — no card, no catch.
           </p>
-          <Link href="/auth?signup=true" style={{ textDecoration: 'none' }}>
+          <Link href="/start" style={{ textDecoration: 'none' }}>
             <button style={{
               background: 'var(--green)', color: '#FDFCF9',
               fontFamily: 'var(--font-ui)', fontWeight: '700',
               fontSize: '16px', padding: '14px 32px', borderRadius: '8px',
               border: 'none', cursor: 'pointer',
+              boxShadow: '0 4px 16px rgba(74,138,36,0.35)',
             }}>
-              Create your free account
+              Start a story — free
             </button>
           </Link>
         </div>

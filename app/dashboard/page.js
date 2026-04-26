@@ -139,7 +139,7 @@ function DashboardInner() {
               {projects.length === 0 ? 'Start your first story.' : projects.length === 1 ? '1 story in progress.' : `${projects.length} stories in progress.`}
             </p>
           </div>
-          <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+          <Link href="/start" style={{ textDecoration: 'none' }}>
             <button className="btn-primary">+ New project</button>
           </Link>
         </div>
@@ -169,7 +169,7 @@ function DashboardInner() {
               <div className="empty-state card" style={{ padding: '56px 24px' }}>
                 <h3>No stories yet</h3>
                 <p>Create a project, pick a framework, and start building. Eve keeps track of everything while you write.</p>
-                <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+                <Link href="/start" style={{ textDecoration: 'none' }}>
                   <button className="btn-primary">Start your first story</button>
                 </Link>
               </div>
@@ -232,7 +232,7 @@ function DashboardInner() {
                     </Link>
                   )
                 })}
-                <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+                <Link href="/start" style={{ textDecoration: 'none' }}>
                   <div style={{ padding: '16px 20px', borderRadius: '10px', border: '1.5px dashed var(--border)', textAlign: 'center', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '13px', fontFamily: 'var(--font-sans)', transition: 'border-color 0.15s, color 0.15s' }}
                     onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.color = 'var(--green)' }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-soft)' }}>
