@@ -4,8 +4,8 @@ import Link from 'next/link'
 // Nav is rendered by root layout — do not import here
 
 const COMPARISON = [
-  { feature: 'Craft lessons',         free: '10 Start Here lessons',  pro: 'All lessons (100+)'       },
-  { feature: 'Story frameworks',      free: "Hero's Journey + Save the Cat", pro: 'All 7 frameworks'  },
+  { feature: 'Craft lessons',         free: '10 Start Here lessons',  pro: 'All lessons (119+)'       },
+  { feature: 'Story frameworks',      free: "Hero's Journey + Save the Cat", pro: 'All 11 frameworks'  },
   { feature: 'Active projects',       free: '1',                       pro: 'Unlimited'                },
   { feature: 'Characters per project',free: 'Up to 4',                 pro: 'Unlimited'                },
   { feature: 'Scenes per project',    free: 'Up to 8',                 pro: 'Unlimited'                },
@@ -84,7 +84,7 @@ export default function PricingPage() {
               <button style={{ width: '100%', padding: '13px', borderRadius: '8px', border: 'none', background: '#fff', fontFamily: 'var(--font-sans)', fontWeight: '700', fontSize: '14px', color: 'var(--green)', cursor: 'pointer' }}>Get Pro</button>
             </Link>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {['Every lesson — 100+ and growing', 'All 7 story frameworks', 'Unlimited projects', 'Plot Holes, Timeline, Themes Map', 'Story Map canvas', 'Unlimited scenes and characters', 'Cancel anytime'].map(f => (
+              {['Every lesson — 119 and growing', 'All 11 story frameworks', 'Unlimited projects', 'Plot Holes, Timeline, Themes Map', 'Story Map canvas', 'Unlimited scenes and characters', 'Cancel anytime'].map(f => (
                 <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                   <svg width="16" height="16" viewBox="0 0 16 16" style={{ flexShrink: 0, marginTop: '2px' }}><circle cx="8" cy="8" r="7" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/><path d="M5 8l2 2 4-4" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>
                   <span style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.5' }}>{f}</span>

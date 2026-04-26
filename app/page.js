@@ -9,6 +9,10 @@ const frameworks = [
   { name: "Sequence Approach", author: "Frank Daniel", description: "Three-act structure broken into 8 sequences of 10-15 pages each, every one with its own tension arc. Fixes the Act 2 sag problem by making each sequence a mini-film.", best_for: "Complex plots, writers who find 3-act too broad", acts: "3 Acts / 8 Sequences" },
   { name: "Fichtean Curve", author: "J.G. Fichte", description: "Begins in rising action, not setup. Crisis after crisis, each one raising the stakes, until the climax resolves everything at once. No slow burn allowed.", best_for: "Thrillers, short stories, high-tension drama", acts: "Rising action only" },
   { name: "Kishōtenketsu", author: "East Asian tradition", description: "Four acts: introduction, development, twist, reconciliation. No conflict required. The story turns on surprise and resonance, not opposition.", best_for: "Literary fiction, non-Western stories, experimental", acts: "4 Acts / No conflict" },
+  { name: "Seven-Point Story", author: "Dan Wells", description: "Build from the ending backward. The Hook is the mirror opposite of the Resolution. Write your ending first — then find the opening that is its opposite.", best_for: "Novelists, genre fiction, second-act problems", acts: "3 Acts / 7 Beats" },
+  { name: "Freytag's Pyramid", author: "Gustav Freytag", description: "The 1863 five-stage arc that every modern framework descended from. Most useful as a diagnostic lens — draw it over your draft to see exactly where the structural problems are.", best_for: "Diagnosing existing drafts, classical drama", acts: "5 Stages" },
+  { name: "Snowflake Method", author: "Randy Ingermanson", description: "Design outward from one sentence. Expand to paragraph, then to pages, then to a full scene list. Front-loads every hard structural decision so the actual writing is clean.", best_for: "Novelists who need scaffolding before they write", acts: "Design-first / 10 Steps" },
+  { name: "Hauge's Six-Stage", author: "Michael Hauge", description: "Maps the outer journey against the inner journey with percentage markers. Every protagonist hides behind an Identity — the story forces them toward their Essence.", best_for: "Character-driven stories, transformation arcs", acts: "6 Stages / 5 Turning Points" },
   { name: "Freeform", author: "Your instincts", description: "No template. You build the structure as you go. Eve tracks your scenes, characters, and themes — the shape is entirely yours.", best_for: "Literary fiction, experimental work", acts: "No template" },
 ]
 
@@ -39,7 +43,7 @@ function PricingSection() {
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '32px' }}>
-          <div style={{ background: 'var(--white)', border: '1.5px solid var(--border)', borderRadius: '16px', padding: '36px', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: 'var(--white)', border: '1.5px solid var(--border)', borderRadius: '16px', padding: '36px', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.9)' }}>
             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px' }}>Free</p>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '6px' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '46px', fontWeight: '700', color: 'var(--text-dark)', lineHeight: 1 }}>$0</span>
@@ -59,7 +63,8 @@ function PricingSection() {
             </div>
           </div>
 
-          <div style={{ background: 'var(--green)', border: '1.5px solid var(--green)', borderRadius: '16px', padding: '36px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: 'linear-gradient(145deg, #3a6b1e 0%, var(--green) 50%, #2d5016 100%)', border: '1.5px solid var(--green)', borderRadius: '16px', padding: '36px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow-green), inset 0 1px 0 rgba(255,255,255,0.15)' }}>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 50%)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(255,255,255,0.2)', color: '#fff', fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 9px', borderRadius: '20px' }}>Most popular</div>
             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginBottom: '8px' }}>Pro</p>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '4px' }}>
@@ -69,10 +74,10 @@ function PricingSection() {
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'rgba(255,255,255,0.55)', marginBottom: '4px' }}>{annual ? `Billed $${annualTotal}/year` : 'Billed monthly'}</p>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.8)', marginBottom: '28px', lineHeight: '1.5' }}>Everything unlocked. No limits, no friction.</p>
             <a href="/auth?signup=true&plan=pro" style={{ textDecoration: 'none', display: 'block', marginBottom: '28px' }}>
-              <button style={{ width: '100%', padding: '13px', borderRadius: '8px', border: 'none', background: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', color: 'var(--green)', cursor: 'pointer' }}>Get Pro</button>
+              <button style={{ width: '100%', padding: '13px', borderRadius: '8px', border: 'none', background: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', color: 'var(--green)', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>Get Pro</button>
             </a>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', flex: 1 }}>
-              {["Every lesson — 100+ and growing", "All 7 story frameworks", "Unlimited projects", "Plot Holes, Timeline, Themes Map", "Story Map canvas", "Unlimited scenes and characters", "Cancel anytime"].map(f => (
+              {["Every lesson — 119 and growing", "All 11 story frameworks", "Unlimited projects", "Plot Holes, Timeline, Themes Map", "Story Map canvas", "Unlimited scenes and characters", "Cancel anytime"].map(f => (
                 <div key={f} style={{ display: 'flex', gap: '9px', alignItems: 'flex-start' }}>
                   <svg width="15" height="15" viewBox="0 0 15 15" style={{ flexShrink: 0, marginTop: '2px' }}><circle cx="7.5" cy="7.5" r="6.5" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" strokeWidth="1"/><path d="M4.5 7.5l2 2 4-4" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round"/></svg>
                   <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.5' }}>{f}</span>
@@ -227,8 +232,8 @@ export default function Home() {
           </h2>
           <div className="library-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px' }}>
             {[
-              { number: '100+', label: 'Craft lessons', sub: 'Structure, character, dialogue, directors', href: '/learn' },
-              { number: '7',    label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 5 more", href: '/frameworks' },
+              { number: '119', label: 'Craft lessons', sub: 'Structure, character, dialogue, directors', href: '/learn' },
+              { number: '11',   label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 9 more", href: '/frameworks' },
               { number: '87+',  label: 'Glossary terms', sub: 'Screenwriting, novels, and short fiction', href: '/glossary' },
               { number: '5',    label: 'Learning paths', sub: 'Beginner to advanced, by medium', href: '/learn/tracks' },
               { number: '4',    label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading', href: '/road-to-hollywood' },
@@ -316,8 +321,21 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="hp-framework-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
-            {frameworks.slice(4).map((f, i) => (
+          <div hp-framework-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '16px' }}>
+            {frameworks.slice(4, 8).map((f, i) => (
+              <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
+                  <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3', color: 'var(--text-dark)' }}>{f.name}</h3>
+                  <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>
+                </div>
+                <p style={{ fontSize: '12px', color: 'var(--text-soft)', marginBottom: '12px' }}>by {f.author}</p>
+                <p style={{ fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.7', marginBottom: '16px', flex: 1 }}>{f.description}</p>
+                <p style={{ fontSize: '12px', color: 'var(--green)', fontWeight: '600', letterSpacing: '0.02em' }}>Best for: {f.best_for}</p>
+              </div>
+            ))}
+          </div>
+          <div className=hp-framework-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+            {frameworks.slice(8).map((f, i) => (
               <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
                   <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3', color: 'var(--text-dark)' }}>{f.name}</h3>

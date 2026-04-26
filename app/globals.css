@@ -132,15 +132,15 @@ input, textarea, select, button {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8);
   transition:
     box-shadow 0.32s var(--ease-out),
     transform 0.32s var(--ease-out),
     border-color 0.22s ease;
 }
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px); /* was -4px — dialed back */
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.9);
+  transform: translateY(-2px);
   border-color: var(--green-border);
 }
 
@@ -148,22 +148,22 @@ input, textarea, select, button {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
 .card-elevated {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.9);
   transition:
     box-shadow 0.32s var(--ease-out),
     transform 0.32s var(--ease-out),
     border-color 0.22s ease;
 }
 .card-elevated:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px); /* was -6px — dialed back */
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.95);
+  transform: translateY(-3px);
   border-color: var(--green-border);
 }
 
