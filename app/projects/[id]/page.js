@@ -928,6 +928,141 @@ const frameworkBeatStubs = {
     { title: 'Low Point',     act_number: 2, beat_label: 'Low Point',  notes: 'Darkest moment. What truth must now be faced?' },
     { title: 'Resolution',    act_number: 3, beat_label: 'Resolution', notes: 'What happens in the final scenes? What does the ending mean?' },
   ],
+
+  'seven-point-story': [
+    { title: 'Hook',            act_number: 1, beat_label: 'Hook',          notes: 'The starting state — who is the protagonist, and what is the mirror opposite of where they will end?' },
+    { title: 'Plot Turn 1',     act_number: 1, beat_label: 'Plot Turn 1',   notes: 'The event that propels the protagonist into the main conflict. They are now moving.' },
+    { title: 'Pinch Point 1',   act_number: 2, beat_label: 'Pinch Point 1', notes: 'The antagonist demonstrates its full power. A reminder of what the protagonist is up against.' },
+    { title: 'Midpoint',        act_number: 2, beat_label: 'Midpoint',      notes: 'The shift from reaction to action. After this, the protagonist drives events rather than responding to them.' },
+    { title: 'Pinch Point 2',   act_number: 2, beat_label: 'Pinch Point 2', notes: 'The antagonist escalates. Resources stripped. The protagonist is at maximum disadvantage.' },
+    { title: 'Plot Turn 2',     act_number: 3, beat_label: 'Plot Turn 2',   notes: 'The final piece of information or insight that enables the Resolution. How does it arrive?' },
+    { title: 'Resolution',      act_number: 3, beat_label: 'Resolution',    notes: 'The mirror of the Hook. The protagonist has become the opposite of who they were. Show it.' },
+  ],
+
+  'freytags-pyramid': [
+    { title: 'Exposition',      act_number: 1, beat_label: 'Exposition',      notes: 'Establish world, protagonist, and the fault line running through the stable order.' },
+    { title: 'Rising Action',   act_number: 2, beat_label: 'Rising Action',   notes: 'Escalating complications, each one closing an escape route and making the Climax more inevitable.' },
+    { title: 'Climax',          act_number: 2, beat_label: 'Climax',          notes: 'The single turning point. After this, the direction of the story inverts. Name the exact moment.' },
+    { title: 'Falling Action',  act_number: 3, beat_label: 'Falling Action',  notes: 'Consequences of the Climax unfold. Final attempts to recover or reconcile.' },
+    { title: 'Denouement',      act_number: 3, beat_label: 'Denouement',      notes: 'The story\'s meaning settles. Not just what happened — what it means. The last breath.' },
+  ],
+
+  'snowflake-method': [
+    { title: 'One-Sentence Summary',   act_number: 1, beat_label: 'Step 1', notes: 'One sentence: protagonist, conflict, stakes. 25 words maximum. No character names.' },
+    { title: 'One-Paragraph Expansion', act_number: 1, beat_label: 'Step 2', notes: 'Five sentences: setup, three disasters, ending. No more. This is the skeleton of your novel.' },
+    { title: 'Character Summaries',    act_number: 1, beat_label: 'Step 3', notes: 'One paragraph per major character: who they are at the start and who they are at the end.' },
+    { title: 'Expanded Synopsis',      act_number: 2, beat_label: 'Step 4', notes: 'Expand each sentence of your paragraph into one full page. Five pages total.' },
+    { title: 'Scene List',             act_number: 2, beat_label: 'Step 5', notes: 'Expand the synopsis into scenes. Each scene: POV, conflict, outcome, and how it moves the story.' },
+    { title: 'First Draft',            act_number: 3, beat_label: 'Step 6', notes: 'Write. You have a scene list. Every scene knows what it is doing. Begin.' },
+  ],
+
+  'hauge-six-stage': [
+    { title: 'Stage 1: Setup',          act_number: 1, beat_label: 'Stage 1',  notes: 'Establish the protagonist\'s Identity — the false self or defended self they present to the world. (0–10%)' },
+    { title: 'Stage 2: New Situation',  act_number: 1, beat_label: 'Stage 2',  notes: 'A new situation disrupts the Identity and begins to crack it open. (10–25%)' },
+    { title: 'Stage 3: Progress',       act_number: 2, beat_label: 'Stage 3',  notes: 'Real progress on the outer goal, with small movements toward Essence. The upside of Act 2. (25–50%)' },
+    { title: 'Stage 4: Complications',  act_number: 2, beat_label: 'Stage 4',  notes: 'The Identity reasserts itself. The wound is touched. Progress becomes harder. (50–75%)' },
+    { title: 'Stage 5: Final Push',     act_number: 3, beat_label: 'Stage 5',  notes: 'The protagonist sheds Identity and acts from Essence for the first time. The final effort. (75–90%)' },
+    { title: 'Stage 6: Aftermath',      act_number: 3, beat_label: 'Stage 6',  notes: 'The new equilibrium. The protagonist is now living from Essence. Show it in action. (90–100%)' },
+  ],
+
+  'heroines-journey': [
+    { title: 'Separation from the Feminine',          act_number: 1, beat_label: 'Separation',         notes: 'The heroine\'s rejection of the feminine world is established. Show the split in behavior.' },
+    { title: 'Identification with the Masculine',     act_number: 1, beat_label: 'Masculine ID',        notes: 'Name the achievement. Name the cost. Both are real.' },
+    { title: 'Road of Trials',                        act_number: 2, beat_label: 'Trials',              notes: 'The masculine-identified self encounters problems it cannot solve through competence alone.' },
+    { title: 'Illusory Boon of Success',              act_number: 2, beat_label: 'Illusory Boon',       notes: 'Apparent success that reinforces the old strategy — just before it collapses.' },
+    { title: 'Spiritual Aridity / Awakening',         act_number: 2, beat_label: 'Awakening',           notes: 'The moment of emptiness. Something is missing. Name it specifically.' },
+    { title: 'Initiation and Descent to the Goddess', act_number: 2, beat_label: 'Descent',             notes: 'The crossing into the deep interior. Feeling, intuition, connection — what was buried.' },
+    { title: 'Urgent Yearning to Reconnect',          act_number: 3, beat_label: 'Yearning',            notes: 'The desire to reconnect — with others, with herself — arises from the descent.' },
+    { title: 'Healing the Mother/Daughter Split',     act_number: 3, beat_label: 'Healing M/D',         notes: 'A specific reconciliation, literal or internal, begins repairing the original separation.' },
+    { title: 'Healing the Wounded Masculine',         act_number: 3, beat_label: 'Healing Masculine',   notes: 'The heroine reclaims healthy ambition and agency — without the wound driving it.' },
+    { title: 'Integration of Feminine and Masculine', act_number: 3, beat_label: 'Integration',         notes: 'Both exist simultaneously. Not balance — wholeness. Show it in the final image.' },
+  ],
+
+  'story-spine': [
+    { title: 'Once upon a time...',          act_number: 1, beat_label: 'Once upon a time',     notes: 'Establish the protagonist and their ordinary world. Who are they and what is stable?' },
+    { title: 'Every day...',                 act_number: 1, beat_label: 'Every day',             notes: 'The rhythm of ordinary existence. The repeating pattern that makes the disruption land.' },
+    { title: 'Until one day...',             act_number: 1, beat_label: 'Until one day',         notes: 'The single event that breaks the pattern. The inciting incident.' },
+    { title: 'Because of that...',           act_number: 2, beat_label: 'Because of that (1)',   notes: 'First direct consequence. Must follow causally from the disruption.' },
+    { title: 'Because of that... (escalate)', act_number: 2, beat_label: 'Because of that (2)', notes: 'Second consequence. Stakes rise. The domino effect escalates.' },
+    { title: 'Until finally...',             act_number: 3, beat_label: 'Until finally',         notes: 'The climactic moment. The escalation ends and resolution begins.' },
+    { title: 'Ever since then...',           act_number: 3, beat_label: 'Ever since then',       notes: 'The new ordinary. Not just aftermath — a changed equilibrium.' },
+  ],
+
+  'five-act': [
+    { title: 'Act I — Exposition',                   act_number: 1, beat_label: 'Act I',    notes: 'Establish world, protagonist, and the fault line in the stable order.' },
+    { title: 'Act II — Rising Action',               act_number: 2, beat_label: 'Act II',   notes: 'Escalating complications. Each step makes the Climax more inevitable.' },
+    { title: 'Act III — Climax / Turn',              act_number: 3, beat_label: 'Act III',  notes: 'Maximum tension. The point of no return. The play\'s direction inverts here.' },
+    { title: 'Act IV — Falling Action',              act_number: 4, beat_label: 'Act IV',   notes: 'Consequences of the Climax. Last attempts to recover. Threads pull taut.' },
+    { title: 'Act V — Catastrophe or Denouement',   act_number: 5, beat_label: 'Act V',    notes: 'The final cost or resolution. What the play has been about, confirmed.' },
+  ],
+
+  'romancing-the-beat': [
+    { title: 'The Meet',              act_number: 1, beat_label: 'Meet',               notes: 'How do the leads meet? What specific quality does each notice in the other?' },
+    { title: 'Wanting',               act_number: 1, beat_label: 'Wanting',            notes: 'The first honest moment of wanting — however resisted, it\'s there.' },
+    { title: 'Misbeliefs & Wounds',   act_number: 1, beat_label: 'Misbeliefs',         notes: 'What internal wound does each character carry? Show it in behavior.' },
+    { title: 'No Way This Is Going Anywhere', act_number: 1, beat_label: 'No Way',     notes: 'The conscious decision that this is not happening — while it already is.' },
+    { title: 'Humming Along',         act_number: 2, beat_label: 'Humming Along',      notes: 'Growing closeness, small vulnerabilities, guard coming down incrementally.' },
+    { title: 'Shiny Hoo-Ha Moment',   act_number: 2, beat_label: 'Shiny Hoo-Ha',      notes: 'Peak connection — the false summit that makes the Dark Moment hit harder.' },
+    { title: 'Resonance',             act_number: 2, beat_label: 'Resonance',          notes: 'True recognition. Not attraction — one person truly sees the other.' },
+    { title: 'The Swoon',             act_number: 2, beat_label: 'Swoon',              notes: 'Maximum romantic escalation. Both characters are fully, undeniably in it.' },
+    { title: 'Deepening',             act_number: 2, beat_label: 'Deepening',          notes: 'A vulnerability is shared. Something true is offered that isn\'t usually offered.' },
+    { title: 'Commitment Freakout',   act_number: 2, beat_label: 'Freakout',           notes: 'The misbelief resurfaces at the worst possible moment. One or both pull back.' },
+    { title: 'The Dark Moment',       act_number: 3, beat_label: 'Dark Moment',        notes: 'The relationship collapses. The misbeliefs are confirmed — or feel confirmed.' },
+    { title: 'Groveling / Grand Gesture', act_number: 3, beat_label: 'Grand Gesture', notes: 'A gesture that costs something and proves transformation, not just feeling.' },
+    { title: 'Happily Ever After',    act_number: 3, beat_label: 'HEA',               notes: 'Final moment. Must show the specific misbeliefs healed. Show receiving, not just giving.' },
+  ],
+
+  'virgins-promise': [
+    { title: 'Dependent World',              act_number: 1, beat_label: 'Dependent World',  notes: 'The world that defines and constrains the Virgin. Show both the love and the constriction.' },
+    { title: 'Price of Conformity',          act_number: 1, beat_label: 'Price',            notes: 'The specific cost of remaining acceptable. Show in behavior, not statement.' },
+    { title: 'Opportunity to Shine',         act_number: 1, beat_label: 'Opportunity',      notes: 'A glimpse of her full potential. May be small. It is enough to ignite something.' },
+    { title: 'Dresses the Part',             act_number: 1, beat_label: 'Dresses the Part', notes: 'Trying on the identity of who she could be — privately, tentatively.' },
+    { title: 'Secret World',                 act_number: 2, beat_label: 'Secret World',     notes: 'Where she builds and inhabits a space to fully be herself without consequence.' },
+    { title: 'No Longer Fitting In',         act_number: 2, beat_label: 'Not Fitting In',   notes: 'The double life creates friction. The Secret World leaks into the Dependent World.' },
+    { title: 'Mentor Appears',               act_number: 2, beat_label: 'Mentor',           notes: 'Someone who believes in her potential — not to rescue her, but to witness it.' },
+    { title: 'Fully Shines',                 act_number: 2, beat_label: 'Fully Shines',     notes: 'She fully expresses her potential. The world has not seen it yet. This is the zenith.' },
+    { title: 'Kingdom in Chaos',             act_number: 3, beat_label: 'Chaos',            notes: 'The Secret World\'s existence destabilizes the Dependent World. Truth is out.' },
+    { title: 'Wanders in the Wilderness',    act_number: 3, beat_label: 'Wilderness',       notes: 'Both worlds have collapsed. She doesn\'t know what she is yet. This is necessary.' },
+    { title: 'Choice to be Taken or Reclaimed', act_number: 3, beat_label: 'Choice',       notes: 'The central crisis: Dependent World\'s terms vs. her fully shining self. Both options cost something.' },
+    { title: 'The Kingdom is Brighter',      act_number: 3, beat_label: 'Kingdom Brighter', notes: 'Her choice transforms the world she came from, even if some of it falls away.' },
+    { title: 'Rescue of the Prince',         act_number: 3, beat_label: 'Rescue Prince',   notes: 'Her transformation frees someone else who was also imprisoned in the old order.' },
+  ],
+
+  'mice-quotient': [
+    { title: 'Dominant story type',                         act_number: 1, beat_label: 'Story Type',   notes: 'M, I, C, or E? Name the dominant thread and the contract it makes with the reader.' },
+    { title: 'Milieu — Enter, explore, leave or stay',      act_number: 1, beat_label: 'Milieu',       notes: 'If present: when does the protagonist enter the Milieu thread, and what does the world require?' },
+    { title: 'Inquiry — Pose, investigate, answer',         act_number: 1, beat_label: 'Inquiry',      notes: 'If present: what question is posed, and when will it be answered?' },
+    { title: 'Character — Show, force change, show new',    act_number: 2, beat_label: 'Character',    notes: 'If present: who is the protagonist before and after? What forces the change?' },
+    { title: 'Event — Establish order, disrupt, resolve',   act_number: 2, beat_label: 'Event',        notes: 'If present: what order is disrupted, and what new order is accepted at the end?' },
+    { title: 'Nest additional types',                       act_number: 2, beat_label: 'Nesting',      notes: 'Every nested thread must open before any thread closes. Map the nesting order.' },
+    { title: 'Close nested threads before dominant closes', act_number: 3, beat_label: 'Closing',      notes: 'Trace each thread to its close. The dominant type closes last.' },
+  ],
+
+  'w-plot': [
+    { title: 'Opening State',                        act_number: 1, beat_label: 'Opening',        notes: 'Establish both the external plot and the internal emotional arc at baseline.' },
+    { title: 'Downward — External complication',     act_number: 1, beat_label: 'Complication',   notes: 'External pressure begins. How does it interact with the emotional wound?' },
+    { title: 'Crossing 1 — External triggers internal', act_number: 1, beat_label: 'Crossing 1',  notes: 'First crossing: external pressure triggers an internal shift, or resolve pushes plot upward.' },
+    { title: 'Upward — False hope',                  act_number: 2, beat_label: 'False Hope',     notes: 'Apparent success on both tracks. The false summit before the collapse.' },
+    { title: 'Crossing 2 — Wound surfaces in plot',  act_number: 2, beat_label: 'Crossing 2',     notes: 'The internal wound directly causes an external setback. The wound has plot consequences.' },
+    { title: 'Downward — Midpoint reversal',         act_number: 2, beat_label: 'Midpoint',       notes: 'Both tracks hit bottom simultaneously. External failure and internal despair together.' },
+    { title: 'Crossing 3 — Darkest convergence',     act_number: 3, beat_label: 'Crossing 3',     notes: 'External failure and internal despair meet at the All Is Lost point.' },
+    { title: 'Upward — Internal resolution first',   act_number: 3, beat_label: 'Internal Res.',  notes: 'The internal track resolves first. This is what enables the external breakthrough.' },
+    { title: 'Crossing 4 — Victory reflects transformation', act_number: 3, beat_label: 'Crossing 4', notes: 'Plot victory specifically embodies the emotional transformation. Both tracks confirm.' },
+    { title: 'Resolution — Both tracks land',        act_number: 3, beat_label: 'Resolution',     notes: 'Final state of both tracks. The resolution is whole, not just external.' },
+  ],
+
+  'harmon-pixar-hybrid': [
+    { title: 'Map Story Circle (8 emotional beats)',           act_number: 1, beat_label: 'Circle Map',         notes: 'Walk all 8 Story Circle beats first. You, Need, Go, Search, Find, Take, Return, Change.' },
+    { title: 'Map Save the Cat (15 structural beats)',         act_number: 1, beat_label: 'Structure Map',      notes: 'Now map the structural beats over the emotional arc. Find the alignment.' },
+    { title: 'Opening Image = You (zone of comfort)',          act_number: 1, beat_label: 'Opening/You',        notes: 'The Opening Image is also the You beat. Show comfort zone and visual thesis simultaneously.' },
+    { title: 'Catalyst = Need (want something)',               act_number: 1, beat_label: 'Catalyst/Need',      notes: 'The Catalyst activates the character\'s Need. These are ideally the same event.' },
+    { title: 'Break into Two = Go (unfamiliar situation)',     act_number: 1, beat_label: 'B2/Go',              notes: 'The protagonist enters both the new story world and the unfamiliar territory at once.' },
+    { title: 'Fun & Games = Search (adapt, struggle)',         act_number: 2, beat_label: 'F&G/Search',         notes: 'The promise of the premise plays out while the protagonist adapts imperfectly.' },
+    { title: 'Midpoint = Find (get what they wanted)',         act_number: 2, beat_label: 'Midpoint/Find',      notes: 'The Find arrives as a false summit. They have what they wanted — and it immediately costs them.' },
+    { title: 'All Is Lost = Take (pay the price)',             act_number: 2, beat_label: 'AIL/Take',           notes: 'The most powerful alignment: structural low point and emotional cost are the same event.' },
+    { title: 'Break into Three = Return (to familiar)',        act_number: 3, beat_label: 'B3/Return',          notes: 'The protagonist moves back with new knowledge. The B Story idea maps to the Return perspective.' },
+    { title: 'Final Image = Change (they are different)',      act_number: 3, beat_label: 'FI/Change',          notes: 'Final Image must prove the Change beat. Transformation must be visible in the closing image.' },
+  ],
 }
 
 // ─── Beat Tracker Tab ──────────────────────────────────────────────────────────
