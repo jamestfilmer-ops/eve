@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 
 const frameworks = [
@@ -18,6 +18,17 @@ const frameworks = [
 
 function PricingSection() {
   const [annual, setAnnual] = React.useState(true)
+
+  // Scroll-reveal observer
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal, .stat-number')
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } }),
+      { threshold: 0.12 }
+    )
+    els.forEach(el => io.observe(el))
+    return () => io.disconnect()
+  }, [])
   const monthlyPrice  = 4.99
   const annualMonthly = 2.50
   const annualTotal   = 30
@@ -232,18 +243,18 @@ export default function Home() {
           </h2>
           <div className="library-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '16px' }}>
             {[
-              { number: '119', label: 'Craft lessons', sub: 'Structure, character, dialogue, directors', href: '/learn' },
+              { number: '119', label: 'Craft lessons', cls: 'stat-number reveal reveal-delay-1', sub: 'Structure, character, dialogue, directors', href: '/learn' },
               { number: '11',   label: 'Story frameworks', sub: "Save the Cat, Hero's Journey, and 9 more", href: '/frameworks' },
               { number: '87+',  label: 'Glossary terms', sub: 'Screenwriting, novels, and short fiction', href: '/glossary' },
               { number: '5',    label: 'Learning paths', sub: 'Beginner to advanced, by medium', href: '/learn/tracks' },
               { number: '4',    label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading', href: '/road-to-hollywood' },
               { number: '53+',  label: 'Famous scripts', sub: 'Every one linked to its source', href: '/scripts' },
             ].map((s, i) => (
-              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '32px 24px', borderRadius: '12px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.15s' }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.13)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.07)'}
+              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '32px 24px', borderRadius: '12px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.2s ease', position: 'relative', overflow: 'hidden' }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.13)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '8px' }}>{s.number}</div>
+                <div className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '8px' }}>{s.number}</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>{s.label}</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.5' }}>{s.sub}</div>
               </a>
@@ -310,7 +321,7 @@ export default function Home() {
           </div>
           <div className="hp-framework-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '16px' }}>
             {frameworks.slice(0, 4).map((f, i) => (
-              <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
+              <div key={i} className="card card-lift shine-on-hover" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
                   <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3', color: 'var(--text-dark)' }}>{f.name}</h3>
                   <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>
@@ -323,7 +334,7 @@ export default function Home() {
           </div>
           <div className="hp-framework-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '16px' }}>
             {frameworks.slice(4, 8).map((f, i) => (
-              <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
+              <div key={i} className="card card-lift shine-on-hover" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
                   <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3', color: 'var(--text-dark)' }}>{f.name}</h3>
                   <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>
@@ -336,7 +347,7 @@ export default function Home() {
           </div>
           <div className="hp-framework-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {frameworks.slice(8).map((f, i) => (
-              <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
+              <div key={i} className="card card-lift shine-on-hover" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
                   <h3 style={{ fontSize: '17px', fontFamily: 'var(--font-display)', lineHeight: '1.3', color: 'var(--text-dark)' }}>{f.name}</h3>
                   <span className="badge" style={{ fontSize: '10px', whiteSpace: 'nowrap', flexShrink: 0 }}>{f.acts}</span>

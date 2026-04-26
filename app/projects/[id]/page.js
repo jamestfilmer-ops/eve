@@ -246,7 +246,7 @@ export default function ProjectPage() {
       {/* ── Tab content ── */}
       <div className="fade-up fade-up-delay-2">
         {tab === 'Overview'      && <OverviewTab    project={project} characters={characters} scenes={scenes} plotHoles={plotHoles} onUpdate={updateProject} />}
-        {tab === 'Beat Tracker'  && <BeatTrackerTab project={project} toast={toast} />}
+        {tab === 'Beat Tracker'  && <BeatTrackerTab project={project} toast={toast} scenes={scenes} setScenes={setScenes} />}
         {tab === 'Characters'    && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
         {tab === 'Plot Holes'  && (userPlan === 'pro'
@@ -1067,12 +1067,15 @@ const frameworkBeatStubs = {
 
 // ─── Beat Tracker Tab ──────────────────────────────────────────────────────────
 
-function BeatTrackerTab({ project, toast }) {
+function BeatTrackerTab({ project, toast, scenes, setScenes }) {
   const beats    = FRAMEWORK_BEATS[project.framework] || []
   const fwName   = frameworkLabel[project.framework] || project.framework || 'Unknown'
-  const [notes,   setNotes]   = useState({})   // { beatLabel: string }
-  const [saved,   setSaved]   = useState({})   // { beatLabel: true }
-  const [loading, setLoading] = useState(true)
+  const [notes,      setNotes]      = useState({})
+  const [saved,      setSaved]      = useState({})
+  const [loading,    setLoading]    = useState(true)
+  const [addingTo,   setAddingTo]   = useState(null)   // beat label currently adding scene to
+  const [sceneForm,  setSceneForm]  = useState({ title: '', notes: '' })
+  const [savingScene, setSavingScene] = useState(false)
   const saveTimers = useRef({})
 
   useEffect(() => {
@@ -1099,121 +1102,6 @@ function BeatTrackerTab({ project, toast }) {
     saveTimers.current[beatLabel] = setTimeout(() => saveBeat(beatLabel, value), 900)
   }
 
-  async function saveBeat(beatLabel, value) {
-    const { error } = await supabase
-      .from('session_beats')
-      .upsert({ project_id: project.id, beat_label: beatLabel, notes: value }, { onConflict: 'project_id,beat_label' })
-    if (!error) setSaved(prev => ({ ...prev, [beatLabel]: true }))
-    else toast.error('Could not save beat note.')
-  }
-
-  if (project.framework === 'freeform' || !project.framework) {
-    return (
-      <div style={{ padding: '48px 24px', textAlign: 'center' }}>
-        <div style={{ maxWidth: '440px', margin: '0 auto' }}>
-          <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--amber-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-          </div>
-          <h3 style={{ fontSize: '18px', marginBottom: '10px', color: 'var(--text-dark)' }}>Beat Tracker needs a framework</h3>
-          <p style={{ color: 'var(--text-soft)', fontSize: '14px', lineHeight: 1.6 }}>
-            This project is set to <strong>Freeform</strong>. To use Beat Tracker, edit the project and switch to a structured framework like Save the Cat or Hero&apos;s Journey.
-          </p>
-        </div>
-      </div>
-    )
-  }
-
-  const completed = beats.filter(b => (notes[b] || '').trim().length > 0).length
-  const pct = beats.length > 0 ? Math.round((completed / beats.length) * 100) : 0
-
-  return (
-    <div>
-      {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
-        <div>
-          <h2 style={{ fontSize: '20px', color: 'var(--text-dark)', marginBottom: '4px' }}>Beat Tracker</h2>
-          <p style={{ color: 'var(--text-soft)', fontSize: '14px' }}>
-            {fwName} &middot; Type your notes for each beat as you develop the story
-          </p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '13px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{completed}/{beats.length} beats</span>
-          <div style={{ width: '120px', height: '6px', borderRadius: '99px', background: 'var(--border)' }}>
-            <div style={{ width: `${pct}%`, height: '100%', borderRadius: '99px', background: 'var(--green)', transition: 'width 0.4s ease' }} />
-          </div>
-          <span style={{ fontSize: '13px', color: pct === 100 ? 'var(--green)' : 'var(--text-soft)', fontFamily: 'var(--font-mono)', fontWeight: pct === 100 ? '600' : '400' }}>{pct}%</span>
-        </div>
-      </div>
-
-      {loading ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {[1,2,3,4].map(i => (
-            <div key={i} style={{ height: '110px', borderRadius: '10px', background: 'linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%)', backgroundSize: '200% 100%' }} />
-          ))}
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {beats.map((beat, idx) => {
-            const val     = notes[beat] || ''
-            const isDone  = val.trim().length > 0
-            const isSaved = saved[beat]
-            return (
-              <div key={beat} className="card" style={{
-                padding: '18px 20px',
-                borderLeft: isDone ? '3px solid var(--green)' : '3px solid var(--border)',
-                transition: 'border-color 0.2s ease',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                  {/* Beat number + status dot */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', paddingTop: '2px', flexShrink: 0 }}>
-                    <div style={{
-                      width: '26px', height: '26px', borderRadius: '50%',
-                      background: isDone ? 'var(--green)' : 'var(--border)',
-                      color: isDone ? '#fff' : 'var(--text-soft)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '600',
-                      transition: 'background 0.2s ease',
-                      flexShrink: 0,
-                    }}>{idx + 1}</div>
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <p style={{ fontSize: '14px', fontWeight: '600', color: 'var(--text-dark)', fontFamily: 'var(--font-ui)' }}>{beat}</p>
-                      {val.length > 0 && (
-                        <span style={{ fontSize: '11px', color: isSaved ? 'var(--green)' : 'var(--text-soft)', fontFamily: 'var(--font-mono)', flexShrink: 0 }}>
-                          {isSaved ? 'Saved' : 'Saving...'}
-                        </span>
-                      )}
-                    </div>
-                    <textarea
-                      value={val}
-                      onChange={e => handleChange(beat, e.target.value)}
-                      placeholder={`What happens at "${beat}" in your story?`}
-                      rows={2}
-                      style={{
-                        width: '100%', resize: 'vertical',
-                        fontFamily: 'var(--font-ui)', fontSize: '14px',
-                        color: 'var(--text-dark)', lineHeight: 1.55,
-                        border: '1px solid var(--border)', borderRadius: '7px',
-                        padding: '9px 12px', background: '#fff',
-                        outline: 'none', boxSizing: 'border-box',
-                        transition: 'border-color 0.15s',
-                      }}
-                      onFocus={e => e.target.style.borderColor = 'var(--green)'}
-                      onBlur={e => e.target.style.borderColor = 'var(--border)'}
-                    />
-                  </div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      )}
-    </div>
-  )
-}
 
 // ─── Scenes Tab ────────────────────────────────────────────────────────────────
 
