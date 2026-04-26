@@ -321,7 +321,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div hp-framework-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '16px' }}>
+          <div className="hp-framework-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '16px' }}>
             {frameworks.slice(4, 8).map((f, i) => (
               <div key={i} className="card" style={{ padding: '28px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', gap: '8px' }}>
