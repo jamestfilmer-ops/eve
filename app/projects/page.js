@@ -97,9 +97,17 @@ export default function ProjectsPage() {
             {loading ? 'Loading...' : `${projects.length} ${projects.length === 1 ? 'story' : 'stories'} in your workspace.`}
           </p>
         </div>
-        <Link href="/projects/new" style={{ textDecoration: 'none' }}>
-          <button className="btn-primary">+ New project</button>
-        </Link>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <Link href="/story-starter" style={{ textDecoration: 'none' }}>
+            <button style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '9px 18px', borderRadius: '8px', border: '1.5px solid var(--green-border)', background: 'var(--green-pale)', fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', color: 'var(--green)', cursor: 'pointer' }}>
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L11 4.6l-2.3 2.2.5 3.2-2.7-1.4L3.8 10l.5-3.2L2 4.6l3.1-.6L6.5 1z" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinejoin="round"/></svg>
+              Story Starter
+            </button>
+          </Link>
+          <Link href="/projects/new" style={{ textDecoration: 'none' }}>
+            <button className="btn-primary">+ New project</button>
+          </Link>
+        </div>
       </div>
 
       {/* Filter + sort bar */}
