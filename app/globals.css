@@ -1359,3 +1359,83 @@ input, textarea, select, button {
     transition: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   AESTHETIC POLISH — shadows, lifts, hovers
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Available lesson card — hover lift with green border */
+.lesson-card-available {
+  transition:
+    box-shadow 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    border-color 0.2s ease,
+    border-left-color 0s; /* preserve read indicator */
+}
+.lesson-card-available:hover {
+  box-shadow:
+    0 6px 24px rgba(45,80,22,0.09),
+    0 2px 6px rgba(26,20,15,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+  transform: translateY(-2px);
+  border-color: var(--green-border);
+}
+
+/* Category accordion: top-of-hover lift */
+.category-accordion {
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.28s ease,
+    transform 0.22s var(--ease-out);
+}
+.category-accordion:hover {
+  transform: translateY(-1px);
+}
+
+/* ── Mobile polish ────────────────────────────────────────────── */
+@media (max-width: 639px) {
+
+  /* Tighten card-grid gap on mobile */
+  .card-grid {
+    gap: 8px !important;
+  }
+
+  /* Category accordion header — bigger touch target */
+  .category-accordion button {
+    padding: 16px 16px !important;
+  }
+
+  /* Remove translateY lift on mobile (causes jitter during scroll) */
+  .lesson-card-available:hover,
+  .category-accordion:hover {
+    transform: none !important;
+  }
+
+  /* Mobile: active press feedback instead of hover lift */
+  .lesson-card-available:active {
+    transform: scale(0.985) !important;
+    transition: transform 0.1s ease !important;
+    box-shadow: var(--shadow-xs) !important;
+  }
+
+  /* Lesson card: a touch more padding for thumb comfort */
+  .lesson-card-available {
+    padding: 16px !important;
+  }
+}
+
+/* ── Enhanced button active states ──────────────────────────── */
+.btn-primary:focus-visible,
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* ── Nav: scrolled shadow lift ───────────────────────────────── */
+/* Already handled inline in MobileNav.js; this ensures desktop Nav.js matches */
+nav[data-scrolled="true"] {
+  box-shadow:
+    0 1px 3px rgba(26,23,20,0.07),
+    0 4px 14px rgba(26,23,20,0.06) !important;
+}
+

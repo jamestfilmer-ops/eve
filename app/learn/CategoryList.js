@@ -43,7 +43,7 @@ function LessonCard({ item, writtenSlugs, isRead, onRead }) {
 
   return (
     <Link href={`/learn/${item.slug}`} style={{ textDecoration:'none', display:'block', height:'100%' }} onClick={() => onRead(item.slug)}>
-      <div className="card" style={{
+      <div className="card card-lift lesson-card-available" style={{
         padding:'16px 18px', height:'100%', display:'flex', flexDirection:'column', gap:0,
         borderLeft: isRead ? '3px solid var(--green)' : '3px solid transparent',
       }}>
@@ -204,14 +204,16 @@ export default function CategoryList({ lessons, writtenSlugs }) {
           const readInCat    = cat.items.filter(i => readSlugs.includes(i.slug) && writtenSlugs.includes(i.slug)).length
 
           return (
-            <div key={ci} className="reveal" style={{
+            <div key={ci} className="reveal category-accordion" style={{
               background:'#fff',
               border:'1px solid',
               borderColor: isOpen ? 'var(--green-border)' : 'var(--border)',
-              borderRadius:'12px',
+              borderRadius:'14px',
               overflow:'hidden',
-              transition:'border-color 0.22s ease, box-shadow 0.22s ease',
-              boxShadow: isOpen ? '0 2px 12px rgba(45,80,22,0.08)' : 'var(--shadow-xs)',
+              transition:'border-color 0.22s ease, box-shadow 0.28s ease',
+              boxShadow: isOpen
+                ? '0 4px 20px rgba(45,80,22,0.10), 0 1px 4px rgba(26,20,15,0.06), inset 0 1px 0 rgba(255,255,255,0.9)'
+                : 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)',
             }}>
               {/* Accordion trigger */}
               <button onClick={() => toggle(ci)} style={{

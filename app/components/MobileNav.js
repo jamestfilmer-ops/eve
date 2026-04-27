@@ -212,19 +212,26 @@ export default function Nav() {
           className="nav-mobile"
           style={{
             position: 'fixed', top: '61px', left: 0, right: 0, bottom: 0,
-            background: 'rgba(253,252,249,0.98)',
-            backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)',
+            background: 'var(--off-white)',
+            backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
             zIndex: 99, overflowY: 'auto',
-            padding: '20px 20px 40px',
-            display: 'flex', flexDirection: 'column', gap: '4px',
+            padding: '16px 16px 48px',
+            display: 'flex', flexDirection: 'column', gap: '0',
           }}
         >
-          <MobileNavLink href="/dashboard" active={isActive('/dashboard')}>Projects</MobileNavLink>
-          <MobileNavLink href="/ideas" active={isActive('/ideas')}>Ideas</MobileNavLink>
-          <MobileNavLink href="/profile" active={isActive('/profile')}>Profile</MobileNavLink>
+          {/* Main nav */}
+          <div style={{ marginBottom: '8px' }}>
+            <p style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px', paddingLeft: '4px' }}>
+              Workspace
+            </p>
+            <MobileNavLink href="/dashboard" active={isActive('/dashboard')}>Projects</MobileNavLink>
+            <MobileNavLink href="/ideas" active={isActive('/ideas')}>Ideas</MobileNavLink>
+            <MobileNavLink href="/profile" active={isActive('/profile')}>Profile</MobileNavLink>
+          </div>
 
-          <div style={{ marginTop: '12px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
-            <p style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px', paddingLeft: '12px' }}>
+          {/* Craft Library */}
+          <div style={{ marginTop: '4px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
+            <p style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px', paddingLeft: '4px' }}>
               Craft Library
             </p>
             {learnLinks.map(l => (
@@ -232,19 +239,20 @@ export default function Nav() {
             ))}
           </div>
 
-          <div style={{ marginTop: 'auto', paddingTop: '28px', borderTop: '1px solid var(--border)' }}>
+          {/* Auth footer */}
+          <div style={{ marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid var(--border)' }}>
             {user ? (
               <div>
                 <p style={{ fontSize: '13px', color: 'var(--text-soft)', marginBottom: '12px', paddingLeft: '4px' }}>{user.email}</p>
-                <button onClick={handleSignOut} className="btn-ghost" style={{ width: '100%' }}>Sign out</button>
+                <button onClick={handleSignOut} className="btn-ghost" style={{ width: '100%', minHeight: '48px' }}>Sign out</button>
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
-                  <button className="btn-primary" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>Get started —free</button>
+                  <button className="btn-primary" style={{ width: '100%', padding: '14px 20px', fontSize: '15px' }}>Get started — free</button>
                 </Link>
                 <Link href="/auth" style={{ textDecoration: 'none' }}>
-                  <button className="btn-ghost" style={{ width: '100%', padding: '12px 20px', fontSize: '15px' }}>Sign in</button>
+                  <button className="btn-ghost" style={{ width: '100%', padding: '14px 20px', fontSize: '15px' }}>Sign in</button>
                 </Link>
               </div>
             )}
@@ -290,14 +298,28 @@ function MobileNavLink({ href, active, children }) {
   return (
     <Link href={href} style={{ textDecoration: 'none' }}>
       <div style={{
-        display: 'block', padding: '13px 16px', borderRadius: '10px',
+        display: 'flex', alignItems: 'center', gap: '10px',
+        padding: '14px 16px', borderRadius: '12px',
         fontSize: '16px', fontWeight: active ? '600' : '400',
         color: active ? 'var(--green)' : 'var(--text-dark)',
-        background: active ? 'var(--green-pale)' : 'transparent',
-        border: active ? '1px solid var(--green-border)' : '1px solid transparent',
-        marginBottom: '2px',
+        background: active ? 'var(--green-pale)' : '#fff',
+        border: `1px solid ${active ? 'var(--green-border)' : 'var(--border)'}`,
+        marginBottom: '6px',
+        boxShadow: active
+          ? 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.85)'
+          : 'var(--shadow-xs)',
+        transition: 'background 0.15s, border-color 0.15s',
       }}>
-        {children}
+        <span style={{
+          display: 'block', width: '3px', height: '18px',
+          background: active ? 'var(--green)' : 'var(--border)',
+          borderRadius: '2px', flexShrink: 0,
+          transition: 'background 0.15s',
+        }} />
+        <span style={{ flex: 1 }}>{children}</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ opacity: active ? 0.55 : 0.25, flexShrink: 0 }}>
+          <path d="M5.5 3.5l3.5 3.5-3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </Link>
   )
