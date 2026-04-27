@@ -758,7 +758,7 @@ export default function FamousScripts() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {cat.scripts.map(script => (
-                <article key={script.title} className="script-card" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '28px 32px' }}>
+                <article key={script.title} className="script-card card card-lift" style={{ padding: '28px 32px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '16px', flexWrap: 'wrap', marginBottom: '10px' }}>
                     <div>
                       <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '3px' }}>
@@ -813,7 +813,7 @@ export default function FamousScripts() {
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
             {scriptSources.map(s => (
-              <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="source-link" style={{ display: 'block', background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '18px 20px', textDecoration: 'none' }}>
+              <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="source-link card card-lift" style={{ display: 'block', padding: '18px 20px', textDecoration: 'none' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '6px' }}>
                   <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '600', fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.4' }}>{s.name}</span>
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0, color: 'var(--text-soft)', marginTop: '2px' }}>
