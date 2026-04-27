@@ -175,7 +175,7 @@ export default function ForBeginners() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
           {truths.map(t => (
-            <div key={t.number} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '14px', padding: '28px 28px 24px' }}>
+            <div key={t.number} className="card card-lift" style={{ padding: '28px 28px 24px' }}>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--green)', letterSpacing: '0.1em', marginBottom: '12px' }}>{t.number}</div>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '12px', lineHeight: '1.3' }}>{t.title}</h3>
               <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-mid)', lineHeight: '1.75' }}>{t.body}</p>
@@ -221,7 +221,7 @@ export default function ForBeginners() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '14px' }}>
           {masterQuotes.map((q, i) => (
-            <Link key={i} href={q.link} style={{ display: 'block', textDecoration: 'none', background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '22px 24px', transition: 'border-color 0.2s' }}
+            <Link key={i} href={q.link} className="card card-lift" style={{ display: 'block', textDecoration: 'none', padding: '22px 24px' }}
               onMouseEnter={undefined} onMouseLeave={undefined}
             >
               <p style={{ fontFamily: 'var(--font-display)', fontSize: '15px', color: 'var(--text-dark)', lineHeight: '1.65', marginBottom: '14px', fontStyle: 'italic' }}>
@@ -249,7 +249,7 @@ export default function ForBeginners() {
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '10px' }}>
           {beginnerLessons.map((l, i) => (
-            <Link key={l.slug} href={`/learn/${l.slug}`} style={{ display: 'flex', alignItems: 'center', gap: '14px', background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', padding: '14px 16px', textDecoration: 'none' }}>
+            <Link key={l.slug} href={`/learn/${l.slug}`} className="card card-lift" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 16px', textDecoration: 'none' }}>
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', color: 'var(--text-soft)', minWidth: '20px' }}>{String(i + 1).padStart(2, '0')}</span>
               <div style={{ flex: 1 }}>
                 <span style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)', display: 'block', lineHeight: '1.4' }}>{l.title}</span>

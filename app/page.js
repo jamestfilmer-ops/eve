@@ -199,7 +199,7 @@ export default function Home() {
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div style={{ width: '18px', height: '18px', borderRadius: '4px', flexShrink: 0, background: item.done ? 'var(--green)' : 'transparent', border: item.done ? 'none' : '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {item.done && <span style={{ color: '#fff', fontSize: '10px' }}>&#10003;</span>}
+                    {item.done && <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}
                   </div>
                   <span style={{ fontSize: '14px', color: item.done ? 'var(--text-soft)' : 'var(--text-dark)', textDecoration: item.done ? 'line-through' : 'none' }}>{item.text}</span>
                 </div>
@@ -216,17 +216,17 @@ export default function Home() {
       <section className="section-fade" style={{ background: 'var(--white)', padding: '120px 24px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-soft)', textAlign: 'center', marginBottom: '72px' }}>How Eve works</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '56px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
             {[
-              { title: "One line is enough to start", body: "A name. A feeling. A scene you keep returning to. You don't need a full outline — you need somewhere to put what you already have. Eve is that place." },
-              { title: "Character before everything", body: "Most stories stall because the writer started with plot. What does your protagonist want? What are they afraid of? What do they need that they'd never admit? Answer those three things and the story starts moving." },
-              { title: "Name what's broken", body: "Every draft has holes. The ones you ignore become the ones that sink the story. Eve gives you a place to flag them while they're small — before they're structural." },
+              { title: "One line is enough to start", body: "A name. A feeling. A scene you keep returning to. You don\'t need a full outline — you need somewhere to put what you already have. Eve is that place." },
+              { title: "Character before everything", body: "Most stories stall because the writer started with plot. What does your protagonist want? What are they afraid of? What do they need that they\'d never admit? Answer those three things and the story starts moving." },
+              { title: "Name what\'s broken", body: "Every draft has holes. The ones you ignore become the ones that sink the story. Eve gives you a place to flag them while they\'re small — before they\'re structural." },
               { title: "Pick up without losing the thread", body: "Real writing happens in twenty-minute gaps between everything else. Eve keeps your scenes, characters, and structure exactly where you left them — so the next session costs nothing to start." },
             ].map((p, i) => (
-              <div key={i}>
-                <div style={{ width: '28px', height: '3px', background: 'var(--green)', borderRadius: '2px', marginBottom: '20px' }} />
+              <div key={i} className="card card-lift" style={{ padding: '32px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ width: '24px', height: '3px', background: 'linear-gradient(90deg, var(--green-light), var(--green))', borderRadius: '2px', marginBottom: '20px', flexShrink: 0 }} />
                 <p style={{ fontFamily: 'var(--font-display)', fontWeight: '700', fontSize: '17px', color: 'var(--green)', marginBottom: '12px', lineHeight: '1.3' }}>{p.title}</p>
-                <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8' }}>{p.body}</p>
+                <p style={{ fontSize: '15px', color: 'var(--text-mid)', lineHeight: '1.8', margin: '0' }}>{p.body}</p>
               </div>
             ))}
           </div>
@@ -276,16 +276,16 @@ export default function Home() {
           <p style={{ fontSize: 'clamp(16px, 1.8vw, 20px)', color: 'var(--text-mid)', lineHeight: '1.8', marginBottom: '56px' }}>
             Eve has no AI. No autocomplete. No generation. It&apos;s a thinking tool — the kind your best friend in film school would hand you before your first serious project.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', textAlign: 'left' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', textAlign: 'left' }}>
             {[
               { label: 'Eve never writes a word for you', desc: 'The prose is yours, start to finish.' },
               { label: 'No autocomplete. No suggestions.', desc: 'No generation. No prompting. Nothing.' },
               { label: 'Your content trains nothing', desc: 'We never touch your work for any model.' },
               { label: 'The ideas stay yours', desc: 'All of them. Always. No exceptions.' },
             ].map((item, i) => (
-              <div key={i} style={{ background: 'var(--off-white)', borderRadius: '12px', padding: '24px' }}>
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                  <span style={{ color: '#fff', fontSize: '10px' }}>&#10003;</span>
+              <div key={i} className="card card-lift" style={{ padding: '24px' }}>
+                <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: 'var(--green)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px', flexShrink: 0 }}>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <p style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px', lineHeight: '1.4' }}>{item.label}</p>
                 <p style={{ fontSize: '13px', color: 'var(--text-mid)', lineHeight: '1.6' }}>{item.desc}</p>
@@ -374,13 +374,7 @@ export default function Home() {
             But it will get written if you have somewhere to work it out. Start free — no card, no catch.
           </p>
           <Link href="/start" style={{ textDecoration: 'none' }}>
-            <button style={{
-              background: 'var(--green)', color: '#FDFCF9',
-              fontFamily: 'var(--font-ui)', fontWeight: '700',
-              fontSize: '16px', padding: '14px 32px', borderRadius: '8px',
-              border: 'none', cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(74,138,36,0.35)',
-            }}>
+            <button className="btn-primary glow-pulse shine-on-hover" style={{ fontSize: '16px', padding: '14px 36px' }}>
               Start a story — free
             </button>
           </Link>

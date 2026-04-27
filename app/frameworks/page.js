@@ -257,7 +257,7 @@ export default function FrameworksPage() {
       <section style={{ padding: '40px 24px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
           {frameworks.map((f, i) => (
-            <div key={f.slug || f.id} id={f.slug || f.id} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden' }}>
+            <div key={f.slug || f.id} id={f.slug || f.id} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)', transition: 'box-shadow 0.28s var(--ease-out), border-color 0.22s ease' }}>
               {/* Header */}
               <div style={{ padding: '24px 28px 20px', borderBottom: '1px solid var(--border)' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap' }}>
