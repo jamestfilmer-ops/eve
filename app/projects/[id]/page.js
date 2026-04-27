@@ -1102,6 +1102,297 @@ function BeatTrackerTab({ project, toast, scenes, setScenes }) {
     saveTimers.current[beatLabel] = setTimeout(() => saveBeat(beatLabel, value), 900)
   }
 
+  async function saveBeat(beatLabel, value) {
+    const { error } = await supabase
+      .from('session_beats')
+      .upsert({ project_id: project.id, beat_label: beatLabel, notes: value }, { onConflict: 'project_id,beat_label' })
+    if (!error) setSaved(prev => ({ ...prev, [beatLabel]: true }))
+    else toast.error('Could not save beat note.')
+  }
+
+  function openAddScene(beatLabel, actNumber) {
+    setAddingTo(beatLabel)
+    setSceneForm({ title: '', notes: '', act_number: actNumber })
+  }
+
+  async function addSceneForBeat() {
+    if (!sceneForm.title.trim()) return
+    setSavingScene(true)
+    const { data, error } = await supabase
+      .from('scenes')
+      .insert({
+        project_id:  project.id,
+        title:       sceneForm.title.trim(),
+        notes:       sceneForm.notes.trim() || null,
+        beat_label:  addingTo,
+        act_number:  sceneForm.act_number || 1,
+        order_index: scenes.length,
+        status:      'draft',
+      })
+      .select()
+      .single()
+    if (data) {
+      setScenes(prev => [...prev, data])
+      toast.success('Scene added.')
+      setAddingTo(null)
+      setSceneForm({ title: '', notes: '' })
+    } else {
+      toast.error('Could not add scene.')
+      console.error(error)
+    }
+    setSavingScene(false)
+  }
+
+  if (project.framework === 'freeform' || !project.framework) {
+    return (
+      <div style={{ padding: '48px 24px', textAlign: 'center' }}>
+        <div style={{ maxWidth: '440px', margin: '0 auto' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--amber-pale)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3 style={{ fontSize: '18px', marginBottom: '10px', color: 'var(--text-dark)' }}>Beat Tracker needs a framework</h3>
+          <p style={{ color: 'var(--text-soft)', fontSize: '14px', lineHeight: 1.6 }}>
+            This project is set to <strong>Freeform</strong>. To use Beat Tracker, edit the project and switch to a structured framework like Save the Cat or Hero&apos;s Journey.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  const stubs = frameworkBeatStubs[project.framework] || []
+  function getStubNote(beatLabel) {
+    const stub = stubs.find(s => s.beat_label === beatLabel || s.title === beatLabel)
+    return stub?.notes || null
+  }
+
+  const completed = beats.filter(b => (notes[b] || '').trim().length > 0).length
+  const pct = beats.length > 0 ? Math.round((completed / beats.length) * 100) : 0
+  const beatStubList = stubs.length > 0 ? stubs : beats.map((b) => ({ beat_label: b, title: b, act_number: 1 }))
+
+  return (
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+        <div>
+          <h2 style={{ fontSize: '20px', color: 'var(--text-dark)', marginBottom: '4px' }}>Beat Tracker</h2>
+          <p style={{ color: 'var(--text-soft)', fontSize: '14px' }}>
+            {fwName} &middot; Map your beats, then add scenes under each one
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '13px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>{completed}/{beats.length} beats</span>
+          <div style={{ width: '120px', height: '6px', borderRadius: '99px', background: 'var(--border)' }}>
+            <div style={{ width: `${pct}%`, height: '100%', borderRadius: '99px', background: 'var(--green)', transition: 'width 0.4s ease' }} />
+          </div>
+          <span style={{ fontSize: '13px', color: pct === 100 ? 'var(--green)' : 'var(--text-soft)', fontFamily: 'var(--font-mono)', fontWeight: pct === 100 ? '600' : '400' }}>{pct}%</span>
+        </div>
+      </div>
+
+      {loading ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {[1,2,3,4].map(i => (
+            <div key={i} style={{ height: '110px', borderRadius: '10px', background: 'linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 50%,#f0f0f0 75%)', backgroundSize: '200% 100%' }} />
+          ))}
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {beats.map((beat, idx) => {
+            const stubData   = beatStubList.find(s => s.beat_label === beat || s.title === beat)
+            const actNumber  = stubData?.act_number || 1
+            const val        = notes[beat] || ''
+            const isDone     = val.trim().length > 0
+            const isSaved    = saved[beat]
+            const beatScenes = scenes.filter(s => s.beat_label === beat)
+            const isAdding   = addingTo === beat
+
+            return (
+              <div key={beat} style={{
+                border: `1px solid ${isDone ? 'var(--green-border)' : 'var(--border)'}`,
+                borderLeft: `4px solid ${isDone ? 'var(--green)' : 'var(--border)'}`,
+                borderRadius: '12px',
+                background: '#fff',
+                overflow: 'hidden',
+                boxShadow: isDone ? 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.9)' : 'var(--shadow-xs)',
+                transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+              }}>
+                <div style={{ padding: '16px 20px 0' }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                    <div style={{
+                      width: '28px', height: '28px', borderRadius: '50%', flexShrink: 0,
+                      background: isDone ? 'var(--green)' : 'var(--off-white)',
+                      border: `2px solid ${isDone ? 'var(--green)' : 'var(--border)'}`,
+                      color: isDone ? '#fff' : 'var(--text-soft)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: '11px', fontFamily: 'var(--font-mono)', fontWeight: '700',
+                      transition: 'all 0.2s ease',
+                    }}>
+                      {isDone
+                        ? <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round"/></svg>
+                        : idx + 1
+                      }
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                        <p style={{ fontSize: '14px', fontWeight: '700', color: 'var(--text-dark)', fontFamily: 'var(--font-ui)', lineHeight: '1.3' }}>{beat}</p>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          {val.length > 0 && (
+                            <span style={{ fontSize: '10px', color: isSaved ? 'var(--green)' : 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                              {isSaved ? 'Saved' : 'Saving…'}
+                            </span>
+                          )}
+                          <span style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--text-soft)', background: 'var(--off-white)', padding: '2px 7px', borderRadius: '4px', border: '1px solid var(--border)' }}>
+                            Act {actNumber}
+                          </span>
+                        </div>
+                      </div>
+                      {!isDone && getStubNote(beat) && (
+                        <p style={{ fontSize: '12px', color: 'var(--text-soft)', lineHeight: '1.55', marginBottom: '8px', fontStyle: 'italic' }}>
+                          {getStubNote(beat)}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={{ paddingLeft: '40px', marginBottom: '12px' }}>
+                    <textarea
+                      value={val}
+                      onChange={e => handleChange(beat, e.target.value)}
+                      placeholder={`What happens at "${beat}" in your story?`}
+                      rows={2}
+                      style={{
+                        width: '100%', resize: 'vertical',
+                        fontFamily: 'var(--font-ui)', fontSize: '14px',
+                        color: 'var(--text-dark)', lineHeight: 1.55,
+                        border: '1px solid var(--border)', borderRadius: '7px',
+                        padding: '9px 12px', background: isDone ? 'var(--green-pale)' : '#fff',
+                        outline: 'none', boxSizing: 'border-box',
+                        transition: 'border-color 0.15s, background 0.2s',
+                      }}
+                      onFocus={e => { e.target.style.borderColor = 'var(--green)'; e.target.style.background = '#fff' }}
+                      onBlur={e => { e.target.style.borderColor = 'var(--border)'; e.target.style.background = isDone ? 'var(--green-pale)' : '#fff' }}
+                    />
+                  </div>
+                </div>
+
+                {beatScenes.length > 0 && (
+                  <div style={{ paddingLeft: '60px', paddingRight: '20px', paddingBottom: '8px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {beatScenes.map(sc => (
+                      <div key={sc.id} style={{
+                        display: 'flex', alignItems: 'center', gap: '8px',
+                        padding: '7px 12px', borderRadius: '7px',
+                        background: 'var(--off-white)', border: '1px solid var(--border)',
+                      }}>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                          <rect x="1" y="1" width="10" height="10" rx="2" stroke="var(--text-soft)" strokeWidth="1.2"/>
+                          <path d="M4 4h4M4 6h4M4 8h2" stroke="var(--text-soft)" strokeWidth="1" strokeLinecap="round"/>
+                        </svg>
+                        <span style={{ fontSize: '13px', color: 'var(--text-dark)', fontFamily: 'var(--font-ui)', flex: 1 }}>{sc.title}</span>
+                        <span style={{
+                          fontSize: '10px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.05em',
+                          color: sc.status === 'complete' ? 'var(--green)' : 'var(--text-soft)',
+                          background: sc.status === 'complete' ? 'var(--green-pale)' : 'var(--border)',
+                          padding: '2px 6px', borderRadius: '4px',
+                        }}>{sc.status || 'draft'}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {isAdding && (
+                  <div style={{ margin: '0 20px 16px 60px', padding: '14px', background: 'var(--green-pale)', border: '1.5px solid var(--green-border)', borderRadius: '10px' }}>
+                    <p style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.07em', color: 'var(--green)', marginBottom: '10px' }}>
+                      New scene for &quot;{beat}&quot;
+                    </p>
+                    <input
+                      autoFocus
+                      value={sceneForm.title}
+                      onChange={e => setSceneForm(f => ({ ...f, title: e.target.value }))}
+                      placeholder="Scene title"
+                      onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); addSceneForBeat() } if (e.key === 'Escape') setAddingTo(null) }}
+                      style={{
+                        width: '100%', padding: '8px 12px', borderRadius: '6px',
+                        border: '1.5px solid var(--green-border)', background: '#fff',
+                        fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'var(--text-dark)',
+                        outline: 'none', boxSizing: 'border-box', marginBottom: '8px',
+                      }}
+                      onFocus={e => e.target.style.borderColor = 'var(--green)'}
+                      onBlur={e => e.target.style.borderColor = 'var(--green-border)'}
+                    />
+                    <textarea
+                      value={sceneForm.notes}
+                      onChange={e => setSceneForm(f => ({ ...f, notes: e.target.value }))}
+                      placeholder="Brief notes (optional)"
+                      rows={2}
+                      style={{
+                        width: '100%', padding: '8px 12px', borderRadius: '6px',
+                        border: '1.5px solid var(--green-border)', background: '#fff',
+                        fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-dark)',
+                        outline: 'none', boxSizing: 'border-box', resize: 'vertical', marginBottom: '10px',
+                      }}
+                      onFocus={e => e.target.style.borderColor = 'var(--green)'}
+                      onBlur={e => e.target.style.borderColor = 'var(--green-border)'}
+                    />
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        onClick={addSceneForBeat}
+                        disabled={savingScene || !sceneForm.title.trim()}
+                        style={{
+                          padding: '7px 16px', borderRadius: '6px', border: 'none',
+                          background: sceneForm.title.trim() ? 'var(--green)' : 'var(--border)',
+                          color: sceneForm.title.trim() ? '#fff' : 'var(--text-soft)',
+                          fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600',
+                          cursor: sceneForm.title.trim() ? 'pointer' : 'not-allowed',
+                        }}
+                      >
+                        {savingScene ? 'Adding…' : 'Add scene'}
+                      </button>
+                      <button
+                        onClick={() => setAddingTo(null)}
+                        style={{ padding: '7px 14px', borderRadius: '6px', border: '1px solid var(--border)', background: '#fff', fontFamily: 'var(--font-ui)', fontSize: '13px', color: 'var(--text-soft)', cursor: 'pointer' }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <div style={{ paddingLeft: '60px', paddingRight: '20px', paddingBottom: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  {beatScenes.length > 0 && (
+                    <span style={{ fontSize: '12px', color: 'var(--text-soft)', fontFamily: 'var(--font-mono)' }}>
+                      {beatScenes.length} scene{beatScenes.length !== 1 ? 's' : ''}
+                    </span>
+                  )}
+                  {!isAdding && (
+                    <button
+                      onClick={() => openAddScene(beat, actNumber)}
+                      style={{
+                        display: 'flex', alignItems: 'center', gap: '5px',
+                        padding: '5px 12px', borderRadius: '6px',
+                        border: '1.5px dashed var(--green-border)',
+                        background: 'transparent',
+                        fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
+                        color: 'var(--green)', cursor: 'pointer',
+                        transition: 'all 0.15s ease',
+                      }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'var(--green-pale)'; e.currentTarget.style.borderStyle = 'solid' }}
+                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderStyle = 'dashed' }}
+                    >
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path d="M6 2v8M2 6h8" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round"/>
+                      </svg>
+                      Add scene
+                    </button>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </div>
+  )
+}
 
 // ─── Scenes Tab ────────────────────────────────────────────────────────────────
 
