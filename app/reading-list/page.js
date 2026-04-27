@@ -448,7 +448,7 @@ export default function ReadingList() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {[...section.films, ...section.books].map((item) => (
-                <div key={item.title} style={{ background: "#fff", border: "1px solid var(--border)", borderRadius: "12px", padding: "24px 28px" }}>
+                <div key={item.title} className="card card-lift" style={{ padding: "24px 28px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "8px", marginBottom: "8px" }}>
                     <div>
                       <h3 style={{ fontFamily: "var(--font-display)", fontSize: "17px", fontWeight: "700", color: "var(--text-dark)", marginBottom: "4px" }}>
@@ -491,7 +491,7 @@ export default function ReadingList() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "12px" }}>
             {awardContext.map((award) => (
-              <a key={award.name} href={award.url} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "#fff", border: "1px solid var(--border)", borderRadius: "10px", padding: "20px 22px", textDecoration: "none" }}>
+              <a key={award.name} href={award.url} target="_blank" rel="noopener noreferrer" className="card card-lift" style={{ display: "block", padding: "20px 22px", textDecoration: "none" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "8px" }}>
                   <h3 style={{ fontFamily: "var(--font-ui)", fontSize: "15px", fontWeight: "700", color: "var(--text-dark)" }}>
                     {award.name}

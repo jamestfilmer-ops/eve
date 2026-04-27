@@ -180,9 +180,7 @@ function DashboardInner() {
                   const sc2    = statusColor[status] || statusColor['seed']
                   return (
                     <Link key={p.id} href={`/projects/${p.id}`} style={{ textDecoration: 'none' }}>
-                      <div className="card" style={{ padding: '22px 26px', cursor: 'pointer', transition: 'box-shadow 0.15s, border-color 0.15s' }}
-                        onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(26,20,15,0.08)'; e.currentTarget.style.borderColor = 'var(--green-border)' }}
-                        onMouseLeave={e => { e.currentTarget.style.boxShadow = ''; e.currentTarget.style.borderColor = '' }}>
+                      <div className="card card-lift" style={{ padding: '22px 26px', cursor: 'pointer' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                           <div style={{ flex: 1, minWidth: 0 }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '3px', flexWrap: 'wrap' }}>
