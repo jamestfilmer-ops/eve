@@ -598,7 +598,8 @@ function GenreCard({ genre }) {
       border: '1px solid var(--border)',
       borderRadius: '12px',
       overflow: 'hidden',
-      transition: 'box-shadow 0.15s, border-color 0.15s',
+      transition: 'box-shadow 0.22s var(--ease-out), border-color 0.22s ease',
+      boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)',
     }}>
       {/* Header—always visible */}
       <button

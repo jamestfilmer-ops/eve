@@ -400,15 +400,12 @@ function SessionInner() {
                   <button
                     key={p.id}
                     onClick={() => selectProject(p.id)}
+                    className="card card-lift"
                     style={{
                       display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                      padding: '18px 22px', borderRadius: '10px', cursor: 'pointer', textAlign: 'left',
-                      background: '#fff', border: '1px solid var(--border)',
-                      transition: 'border-color 0.15s, box-shadow 0.15s',
-                      fontFamily: 'var(--font-ui)',
+                      padding: '18px 22px', cursor: 'pointer', textAlign: 'left',
+                      fontFamily: 'var(--font-ui)', width: '100%',
                     }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(45,80,22,0.08)' }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none' }}
                   >
                     <div>
                       <p style={{ fontWeight: '600', fontSize: '15px', color: 'var(--text-dark)', marginBottom: '3px' }}>{p.title}</p>
@@ -500,6 +497,9 @@ function SessionInner() {
                   ? '1px solid var(--green-border)'
                   : isOpen ? '2px solid var(--green)' : '1px solid var(--border)',
                 background: isDone ? 'var(--green-pale)' : '#fff',
+                boxShadow: isDone
+                  ? '0 1px 6px rgba(45,80,22,0.10), inset 0 1px 0 rgba(255,255,255,0.7)'
+                  : 'var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.8)',
               }}
             >
               {/* Beat row */}

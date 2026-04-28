@@ -125,7 +125,7 @@ export default function ThemesPage() {
           <div>
             <div style={{ display: 'grid', gap: '20px', marginBottom: '40px' }}>
               {THEME_PRINCIPLES.map(p => (
-                <div key={p.title} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px 30px' }}>
+                <div key={p.title} className="card card-lift" style={{ padding: '28px 30px' }}>
                   <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: '700', color: 'var(--text)', marginBottom: '12px' }}>{p.title}</h2>
                   <p style={{ fontSize: '15px', lineHeight: '1.75', color: 'var(--text)', fontFamily: 'var(--font-body)', margin: 0 }}>{p.body}</p>
                 </div>
@@ -155,7 +155,7 @@ export default function ThemesPage() {
         {activeSection === 'examples' && (
           <div style={{ display: 'grid', gap: '20px' }}>
             {THEME_EXAMPLES.map(ex => (
-              <div key={ex.film} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px 30px' }}>
+              <div key={ex.film} className="card card-lift" style={{ padding: '28px 30px' }}>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: '700', color: 'var(--text)', marginBottom: '18px' }}>{ex.film}</div>
                 <div style={{ display: 'grid', gap: '14px' }}>
                   {[
