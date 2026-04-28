@@ -355,7 +355,7 @@ export default function VisualCraftPage() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {featuredFilmmakers.map((person) => (
-              <div key={person.name} className="reveal" style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', padding: '20px 22px' }}>
+              <div key={person.name} className="reveal card card-lift" style={{ padding: '20px 22px' }}>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '8px' }}>
                   <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '16px', fontWeight: '700', color: 'var(--text-dark)', margin: 0 }}>
                     {person.name}

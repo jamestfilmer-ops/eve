@@ -2247,8 +2247,7 @@ export default function LessonPage() {
       <div className="lesson-nav-grid" style={{ marginTop: '64px', paddingTop: '32px', borderTop: '1px solid var(--border)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
         {prevSlug && lessons[prevSlug] ? (
           <Link href={`/learn/${prevSlug}`} style={{ textDecoration: 'none' }}>
-            <div className="card" style={{ padding: '22px 24px' }}>
-              <p style={{ fontSize: '11px', color: 'var(--text-soft)', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-mono)' }}>&larr; Previous</p>
+            <div className="card card-lift" style={{ padding: '22px 24px' }}>
               <p style={{ fontSize: '16px', fontFamily: 'var(--font-display)', color: 'var(--text-dark)', lineHeight: '1.4', fontWeight: '600' }}>{lessons[prevSlug].title}</p>
             </div>
           </Link>
