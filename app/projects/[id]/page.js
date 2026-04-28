@@ -3915,7 +3915,9 @@ function WorldTab({ projectId, project, toast }) {
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--text)', margin: 0 }}>
               {form.id ? 'Edit' : 'New'} {activeSec?.label.replace(/s$/, '')}
             </h3>
-            <button onClick={() => setForm(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '20px', lineHeight: 1 }}>×</button>
+            <button onClick={() => setForm(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px', borderRadius: '4px' }}>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+              </button>
           </div>
           <div style={{ display: 'grid', gap: '16px' }}>
             {activeSec?.fields.map(f => (

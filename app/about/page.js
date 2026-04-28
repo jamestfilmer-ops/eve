@@ -119,7 +119,7 @@ export default function AboutPage() {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           {tracks.map((track, i) => (
-            <div key={i} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '16px', padding: '32px', display: 'flex', flexDirection: 'column' }}>
+            <div key={i} className="card card-lift" style={{ padding: '32px', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: track.bg, border: `1px solid ${track.border}`, borderRadius: '20px', padding: '5px 14px', marginBottom: '20px', width: 'fit-content' }}>
                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: track.color, flexShrink: 0 }} />
                 <span style={{ fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '12px', color: track.color, letterSpacing: '0.02em' }}>{track.level}</span>

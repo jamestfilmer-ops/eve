@@ -96,10 +96,11 @@ function OptionCard({ selected, onClick, children, sub, label, icon }) {
         padding: '14px 18px', borderRadius: '12px',
         border: selected ? '2px solid var(--green)' : '1.5px solid var(--border)',
         background: selected ? 'var(--green-pale)' : '#fff',
-        cursor: 'pointer', transition: 'all 0.15s ease',
+        cursor: 'pointer', transition: 'all 0.2s var(--ease-out)',
+        boxShadow: selected
+          ? '0 2px 10px rgba(45,80,22,0.13), inset 0 1px 0 rgba(255,255,255,0.7)'
+          : 'var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.8)',
       }}
-      onMouseEnter={e => { if (!selected) e.currentTarget.style.borderColor = 'var(--green-border)' }}
-      onMouseLeave={e => { if (!selected) e.currentTarget.style.borderColor = 'var(--border)' }}
     >
       {icon && (
         <span style={{ color: selected ? 'var(--green)' : 'var(--text-soft)', flexShrink: 0 }}>
@@ -294,10 +295,11 @@ export default function WelcomePage() {
                       padding: '16px 20px', borderRadius: '12px',
                       border: g.primary ? '2px solid var(--green)' : '1.5px solid var(--border)',
                       background: g.primary ? 'var(--green-pale)' : '#fff',
-                      cursor: 'pointer', transition: 'box-shadow 0.15s',
+                      cursor: 'pointer', transition: 'box-shadow 0.22s var(--ease-out), transform 0.18s var(--ease-out)',
+                      boxShadow: g.primary
+                        ? '0 2px 10px rgba(45,80,22,0.13), inset 0 1px 0 rgba(255,255,255,0.7)'
+                        : 'var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.8)',
                     }}
-                    onMouseEnter={e => e.currentTarget.style.boxShadow = '0 2px 12px rgba(45,80,22,0.12)'}
-                    onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
                   >
                     <div style={{ flex: 1 }}>
                       <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', fontWeight: '700', color: g.primary ? 'var(--green)' : 'var(--text-dark)', marginBottom: '3px' }}>{g.label}</p>

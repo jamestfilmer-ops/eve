@@ -32,7 +32,7 @@ export default function TracksClient({ tracks }) {
       {tracks.map(track => {
         const isOpen = openTrack === track.id
         return (
-          <section key={track.id} style={{ background:'#fff', border:'1px solid var(--border)', borderRadius:'16px', overflow:'hidden' }}>
+          <section key={track.id} style={{ background:'#fff', border:'1px solid var(--border)', borderRadius:'16px', overflow:'hidden', boxShadow: isOpen ? 'var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.9)' : 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)', transition:'box-shadow 0.28s var(--ease-out), border-color 0.22s ease', borderColor: isOpen ? 'var(--green-border)' : 'var(--border)' }}>
             {/* Clickable track header */}
             <button
               onClick={() => setOpenTrack(isOpen ? null : track.id)}
