@@ -2049,6 +2049,7 @@ function FrameworkProgressBar({ framework, scenes, stubs }) {
     <div style={{
       background: '#fff', border: '1px solid var(--border)', borderRadius: '12px',
       padding: '20px 22px', marginBottom: '20px',
+      boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)',
     }}>
       {/* Header row */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
@@ -2558,7 +2559,10 @@ function TimelineTab({ scenes, setScenes, toast, projectId }) {
                             borderRadius: '10px',
                             background: done ? 'var(--green-pale)' : '#fff',
                             overflow: 'hidden',
-                            transition: 'border-color 0.2s',
+                            transition: 'border-color 0.22s, box-shadow 0.22s',
+                            boxShadow: done
+                              ? '0 1px 4px rgba(45,80,22,0.10), inset 0 1px 0 rgba(255,255,255,0.7)'
+                              : 'var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.8)',
                           }}
                         >
                           {/* Scene header row */}
@@ -2996,7 +3000,7 @@ function ThemesMapTab({ projectId, scenes, themes, setThemes, toast }) {
                   const linkedScenes = links.filter(l => l.theme_id === t.id)
                   const isEditing = editingId === t.id
                   return (
-                    <div key={t.id} style={{ padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--white)' }}>
+                    <div key={t.id} style={{ padding: '12px 16px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--white)', boxShadow: 'var(--shadow-xs), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: col.bg, flexShrink: 0 }} />
                         <div style={{ flex: 1 }}>
@@ -3906,7 +3910,7 @@ function WorldTab({ projectId, project, toast }) {
 
       {/* Form or list */}
       {form ? (
-        <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px' }}>
+        <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '17px', fontWeight: '700', color: 'var(--text)', margin: 0 }}>
               {form.id ? 'Edit' : 'New'} {activeSec?.label.replace(/s$/, '')}
