@@ -51,7 +51,7 @@ export default function PricingPage() {
 
         <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
 
-          <div style={{ background: 'var(--white)', border: '1.5px solid var(--border)', borderRadius: '16px', padding: '32px' }}>
+          <div style={{ background: 'var(--white)', border: '1.5px solid var(--border)', borderRadius: '16px', padding: '32px', boxShadow: 'var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.9)', transition: 'box-shadow 0.28s var(--ease-out), border-color 0.22s ease' }}>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '8px' }}>Free</p>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '6px' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '44px', fontWeight: '700', color: 'var(--text-dark)', lineHeight: 1 }}>$0</span>
@@ -71,7 +71,7 @@ export default function PricingPage() {
             </div>
           </div>
 
-          <div style={{ background: 'var(--green)', border: '1.5px solid var(--green)', borderRadius: '16px', padding: '32px', position: 'relative', overflow: 'hidden' }}>
+          <div className="surface-dark" style={{ background: 'linear-gradient(145deg, #3a6b1e 0%, var(--green) 50%, #2d5016 100%)', border: '1.5px solid var(--green)', borderRadius: '16px', padding: '32px', position: 'relative', overflow: 'hidden', boxShadow: 'var(--shadow-green), inset 0 1px 0 rgba(255,255,255,0.12)' }}>
             <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(255,255,255,0.2)', color: '#fff', fontFamily: 'var(--font-mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '4px 10px', borderRadius: '20px' }}>Most popular</div>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginBottom: '8px' }}>Pro</p>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '6px' }}>
@@ -96,7 +96,7 @@ export default function PricingPage() {
 
         <div style={{ maxWidth: '820px', margin: '64px auto 0', padding: '0 24px' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: '700', color: 'var(--text-dark)', marginBottom: '24px', textAlign: 'center' }}>Full comparison</h2>
-          <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden' }}>
+          <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.9)' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px', borderBottom: '2px solid var(--border)' }}>
               <div style={{ padding: '14px 20px' }} />
               <div style={{ padding: '14px 20px', textAlign: 'center', fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-soft)' }}>Free</div>

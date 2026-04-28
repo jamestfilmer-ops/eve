@@ -167,7 +167,7 @@ export default function ProjectsPage() {
 
             return (
               <Link key={p.id} href={`/projects/${p.id}`} style={{ textDecoration: 'none' }}>
-                <div className="card" style={{ padding: '24px 28px', cursor: 'pointer', transition: 'box-shadow 0.2s' }}>
+                <div className="card card-lift" style={{ padding: '24px 28px', cursor: 'pointer' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px', flexWrap: 'wrap' }}>

@@ -420,13 +420,10 @@ export default function IdeasPage() {
                     <button
                       key={i}
                       onClick={() => { setNewIdea({ ...newIdea, text: spark.spark, type: spark.type }); setShowForm(true) }}
+                      className="card card-lift"
                       style={{
-                        textAlign: 'left', background: '#fff', border: '1px solid var(--border)',
-                        borderRadius: '10px', padding: '14px 16px', cursor: 'pointer',
-                        transition: 'border-color 0.15s, box-shadow 0.15s',
+                        textAlign: 'left', padding: '14px 16px', cursor: 'pointer', width: '100%',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(26,20,15,0.07)' }}
-                      onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none' }}
                     >
                       <span style={{ fontSize: '11px', fontWeight: '600', padding: '2px 7px', borderRadius: '20px', background: col.bg, color: col.color, fontFamily: 'var(--font-ui)', display: 'inline-block', marginBottom: '8px' }}>{spark.type}</span>
                       <p style={{ fontSize: '13px', color: 'var(--text-dark)', lineHeight: '1.55', margin: 0, fontStyle: 'italic' }}>{spark.spark}</p>
@@ -447,10 +444,10 @@ export default function IdeasPage() {
         {filtered.map(idea => {
           const c = typeColors[idea.type] || typeColors['One-liner']
           return (
-            <div key={idea.id} className="card" style={{
+            <div key={idea.id} className="card card-lift" style={{
               padding: '18px 20px',
-              borderLeft: idea.pinned ? '3px solid var(--green)' : '1px solid var(--border)',
-              borderRadius: idea.pinned ? '0 12px 12px 0' : '12px',
+              borderLeft: idea.pinned ? '3px solid var(--green)' : undefined,
+              borderRadius: idea.pinned ? '0 12px 12px 0' : undefined,
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{ flex: 1, minWidth: 0 }}>
