@@ -217,7 +217,7 @@ export default function RoadToPublishing() {
                 )}
 
                 {stage.resources && stage.resources.length > 0 && (
-                  <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
+                  <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
                     <div style={{ padding: '12px 18px', borderBottom: '1px solid var(--border)', background: 'var(--off-white)' }}>
                       <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', margin: 0 }}>Resources</p>
                     </div>

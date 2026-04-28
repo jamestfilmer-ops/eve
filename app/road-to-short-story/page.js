@@ -244,7 +244,7 @@ export default function RoadToShortStory() {
                 ))}
 
                 {stage.resources.length > 0 && (
-                  <div style={{ marginTop: '24px', padding: '20px 24px', background: '#fff', border: '1px solid var(--border)', borderRadius: '10px' }}>
+                  <div style={{ marginTop: '24px', padding: '20px 24px', background: '#fff', border: '1px solid var(--border)', borderRadius: '10px', boxShadow: 'var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
                     <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-soft)', marginBottom: '12px' }}>
                       Further reading
                     </p>

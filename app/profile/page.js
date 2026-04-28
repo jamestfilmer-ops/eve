@@ -175,7 +175,7 @@ export default function ProfilePage() {
           { label: 'Scenes', value: stats.scenes, href: null },
           { label: 'Characters', value: stats.characters, href: null },
         ].map((s, i) => (
-          <div key={i} className={s.href ? 'card' : 'card-static'} style={{ padding: '18px 20px', textAlign: 'center', cursor: s.href ? 'pointer' : 'default' }} onClick={() => s.href && router.push(s.href)}>
+          <div key={i} className={s.href ? 'card card-lift' : 'card-static'} style={{ padding: '18px 20px', textAlign: 'center', cursor: s.href ? 'pointer' : 'default' }} onClick={() => s.href && router.push(s.href)}>
             <p style={{ fontSize: '28px', fontFamily: 'var(--font-display)', color: 'var(--green)', fontWeight: '700', marginBottom: '4px' }}>{s.value}</p>
             <p style={{ fontSize: '12px', color: 'var(--text-soft)' }}>{s.label}</p>
           </div>
