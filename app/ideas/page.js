@@ -389,9 +389,7 @@ export default function IdeasPage() {
                     while (next === prev) next = Math.floor(Math.random() * 100)
                     return next
                   })}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'var(--text-soft)', background: 'transparent', border: '1px solid var(--border)', borderRadius: '20px', padding: '4px 14px', cursor: 'pointer', transition: 'color 0.15s, border-color 0.15s' }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--green)'; e.currentTarget.style.borderColor = 'var(--green-border)' }}
-                  onMouseLeave={e => { e.currentTarget.style.color = 'var(--text-soft)'; e.currentTarget.style.borderColor = 'var(--border)' }}
+                  className="btn-pill-ghost"
                 >
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M10 2.5A4.5 4.5 0 002.5 6M2 2.5V2h.5M2 2.5H2.5M2 9.5A4.5 4.5 0 009.5 6M10 9.5V10h-.5M10 9.5H9.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/></svg>
                   Different sparks

@@ -250,10 +250,7 @@ export default function Home() {
               { number: '4',    label: 'Industry guides', sub: 'Hollywood, publishing, short story, reading', href: '/road-to-hollywood' },
               { number: '53+',  label: 'Famous scripts', sub: 'Every one linked to its source', href: '/scripts' },
             ].map((s, i) => (
-              <a key={i} href={s.href} style={{ textDecoration: 'none', display: 'block', padding: '32px 24px', borderRadius: '12px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.2s ease', position: 'relative', overflow: 'hidden' }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.13)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}
-              >
+              <a key={i} href={s.href} className="card-dark" style={{ textDecoration: 'none', display: 'block', padding: '32px 24px', borderRadius: '12px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)', position: 'relative', overflow: 'hidden' }}>
                 <div className="reveal" style={{ fontFamily: 'var(--font-display)', fontSize: '32px', fontWeight: '700', color: '#fff', lineHeight: '1', marginBottom: '8px' }}>{s.number}</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '13px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>{s.label}</div>
                 <div style={{ fontFamily: 'var(--font-ui)', fontSize: '11px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.5' }}>{s.sub}</div>
@@ -427,10 +424,7 @@ export default function Home() {
             <div key={i}>
               <p style={{ fontSize: '11px', fontWeight: '700', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase', marginBottom: '16px' }}>{col.heading}</p>
               {col.links.map((l, j) => (
-                <a key={j} href={l.href} style={{ display: 'block', fontSize: '14px', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', marginBottom: '11px', lineHeight: '1.5', transition: 'color 0.15s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
-                >{l.label}</a>
+                <a key={j} href={l.href} className="footer-link">{l.label}</a>
               ))}
             </div>
           ))}

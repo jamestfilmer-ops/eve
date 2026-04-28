@@ -1439,3 +1439,71 @@ nav[data-scrolled="true"] {
     0 4px 14px rgba(26,23,20,0.06) !important;
 }
 
+
+/* ── Dark surface interactive card (used on green/dark bg sections) ── */
+.card-dark {
+  transition:
+    background 0.2s ease,
+    transform 0.22s var(--ease-out),
+    box-shadow 0.22s ease;
+}
+.card-dark:hover {
+  background: rgba(255,255,255,0.13) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.card-dark:active {
+  transform: translateY(0px) scale(0.99);
+}
+@media (max-width: 639px) {
+  .card-dark:hover { transform: none !important; }
+  .card-dark:active { transform: scale(0.985) !important; }
+}
+
+/* ── Footer link hover ─────────────────────────────────────────── */
+.footer-link {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  margin-bottom: 11px;
+  line-height: 1.5;
+  transition: color 0.15s;
+}
+.footer-link:hover { color: #fff; }
+
+/* ── Dashed add-item button (used in scene/beat lists) ────────── */
+.btn-dashed-add {
+  border: 1.5px dashed var(--green-border);
+  background: transparent;
+  color: var(--green);
+  transition: background 0.15s ease, border-style 0.15s ease, border-color 0.15s ease;
+}
+.btn-dashed-add:hover {
+  background: var(--green-pale);
+  border-style: solid;
+  border-color: var(--green-border);
+}
+.btn-dashed-add:active {
+  transform: scale(0.985);
+}
+
+/* ── Pill ghost button (filter chips, refresh buttons) ────────── */
+.btn-pill-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--text-soft);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.btn-pill-ghost:hover {
+  color: var(--green);
+  border-color: var(--green-border);
+}

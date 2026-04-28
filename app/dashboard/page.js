@@ -231,9 +231,7 @@ function DashboardInner() {
                   )
                 })}
                 <Link href="/start" style={{ textDecoration: 'none' }}>
-                  <div style={{ padding: '16px 20px', borderRadius: '10px', border: '1.5px dashed var(--border)', textAlign: 'center', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '13px', fontFamily: 'var(--font-sans)', transition: 'border-color 0.15s, color 0.15s' }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--green-border)'; e.currentTarget.style.color = 'var(--green)' }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-soft)' }}>
+                  <div className="btn-dashed-add" style={{ padding: '16px 20px', borderRadius: '10px', textAlign: 'center', cursor: 'pointer', color: 'var(--text-soft)', fontSize: '13px', fontFamily: 'var(--font-sans)' }}>
                     + Start a new story
                   </div>
                 </Link>
@@ -265,9 +263,7 @@ function DashboardInner() {
                   { label: 'Glossary', href: '/glossary', sub: '87+ terms defined' },
                 ].map(link => (
                   <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 10px', borderRadius: '6px', transition: 'background 0.12s', cursor: 'pointer' }}
-                      onMouseEnter={e => e.currentTarget.style.background = 'var(--off-white)'}
-                      onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
+                    <div className="track-lesson-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 10px', borderRadius: '6px', cursor: 'pointer' }}>
                       <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: '500', color: 'var(--text-dark)' }}>{link.label}</span>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-soft)' }}>{link.sub}</span>
                     </div>

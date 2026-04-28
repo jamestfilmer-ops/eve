@@ -1366,17 +1366,13 @@ function BeatTrackerTab({ project, toast, scenes, setScenes }) {
                   {!isAdding && (
                     <button
                       onClick={() => openAddScene(beat, actNumber)}
+                      className="btn-dashed-add"
                       style={{
                         display: 'flex', alignItems: 'center', gap: '5px',
                         padding: '5px 12px', borderRadius: '6px',
-                        border: '1.5px dashed var(--green-border)',
-                        background: 'transparent',
                         fontFamily: 'var(--font-ui)', fontSize: '12px', fontWeight: '600',
                         color: 'var(--green)', cursor: 'pointer',
-                        transition: 'all 0.15s ease',
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'var(--green-pale)'; e.currentTarget.style.borderStyle = 'solid' }}
-                      onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderStyle = 'dashed' }}
                     >
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                         <path d="M6 2v8M2 6h8" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round"/>
