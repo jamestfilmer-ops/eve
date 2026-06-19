@@ -31,6 +31,7 @@ const learnGroups = [
       { href: '/genres',            label: 'Genre Guide' },
       { href: '/visual-craft',      label: 'Visual Craft' },
       { href: '/scripts',           label: 'Famous Scripts' },
+      { href: '/questionnaire',     label: 'Story Questionnaire' },
     ],
   },
 ]
@@ -97,7 +98,7 @@ export default function Nav() {
   async function handleSignOut() { await supabase.auth.signOut(); router.push('/') }
 
   const isActive = (href) => pathname === href || pathname.startsWith(href + '/')
-  const learnActive = ['/learn','/frameworks','/for-beginners','/glossary','/road-to-hollywood','/road-to-publishing','/road-to-short-story','/reading-list','/genres','/visual-craft','/scripts'].some(p => isActive(p))
+  const learnActive = ['/learn','/frameworks','/for-beginners','/glossary','/road-to-hollywood','/road-to-publishing','/road-to-short-story','/reading-list','/genres','/visual-craft','/scripts','/questionnaire'].some(p => isActive(p))
   const panelId = 'learn-dropdown-panel'
 
   return (
