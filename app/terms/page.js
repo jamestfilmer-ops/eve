@@ -73,7 +73,12 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 style={h2}>10. Contact</h2>
+            <h2 style={h2}>10. Governing Law</h2>
+            <p style={p}>These Terms are governed by and construed in accordance with the laws of the United States and the State of Delaware, without regard to its conflict of law provisions. Any dispute arising under these Terms shall be resolved exclusively in the state or federal courts located in Delaware. If you are accessing Eve from outside the United States, you are responsible for compliance with your local laws.</p>
+          </section>
+
+          <section>
+            <h2 style={h2}>11. Contact</h2>
             <p style={p}>Questions about these Terms? Contact us at <a href="mailto:hello@eve-screenwriting.vercel.app" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>hello@eve-screenwriting.vercel.app</a></p>
           </section>
 

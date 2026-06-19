@@ -2,19 +2,37 @@ import { createClient } from '@supabase/supabase-js'
 import Stripe from 'stripe'
 
 const PRICES = {
-  studio_monthly:  process.env.STRIPE_PRICE_STUDIO_MONTHLY,
-  studio_annual:   process.env.STRIPE_PRICE_STUDIO_ANNUAL,
-  pro_monthly:     process.env.STRIPE_PRICE_PRO_MONTHLY,
-  pro_annual:      process.env.STRIPE_PRICE_PRO_ANNUAL,
+  studio_monthly: process.env.STRIPE_PRICE_STUDIO_MONTHLY,
+  studio_annual:  process.env.STRIPE_PRICE_STUDIO_ANNUAL,
+  pro_monthly:    process.env.STRIPE_PRICE_PRO_MONTHLY,
+  pro_annual:     process.env.STRIPE_PRICE_PRO_ANNUAL,
+}
+
+async function getAuthUser(request) {
+  const token = request.headers.get('authorization')?.split('Bearer ')[1]
+  if (!token) return null
+  const { data: { user } } = await createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ).auth.getUser(token)
+  return user ?? null
 }
 
 export async function POST(req) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
   try {
-    const { priceKey, userId, email, billing } = await req.json()
+    // ── Auth: derive userId from verified session, never from body ──
+    const user = await getAuthUser(req)
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+    const userId = user.id
+    const email  = user.email
 
-    if (!priceKey || !userId || !email) {
-      return Response.json({ error: 'Missing required fields' }, { status: 400 })
+    const { priceKey, billing } = await req.json()
+
+    if (!priceKey) {
+      return Response.json({ error: 'Missing priceKey' }, { status: 400 })
     }
 
     const priceId = PRICES[priceKey]
@@ -22,7 +40,6 @@ export async function POST(req) {
       return Response.json({ error: `Unknown price key: ${priceKey}` }, { status: 400 })
     }
 
-    // Look up or create Stripe customer
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
       process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -42,7 +59,6 @@ export async function POST(req) {
         metadata: { supabase_user_id: userId },
       })
       customerId = customer.id
-
       await supabase
         .from('profiles')
         .update({ stripe_customer_id: customerId })

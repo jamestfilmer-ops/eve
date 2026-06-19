@@ -1,14 +1,25 @@
 import { createClient } from '@supabase/supabase-js'
 import Stripe from 'stripe'
 
+async function getAuthUser(request) {
+  const token = request.headers.get('authorization')?.split('Bearer ')[1]
+  if (!token) return null
+  const { data: { user } } = await createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ).auth.getUser(token)
+  return user ?? null
+}
+
 export async function POST(req) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
   try {
-    const { userId } = await req.json()
-
-    if (!userId) {
-      return Response.json({ error: 'Missing userId' }, { status: 400 })
+    // ── Auth: derive userId from verified session, never from body ──
+    const user = await getAuthUser(req)
+    if (!user) {
+      return Response.json({ error: 'Unauthorized' }, { status: 401 })
     }
+    const userId = user.id
 
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,

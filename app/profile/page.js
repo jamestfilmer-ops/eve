@@ -199,10 +199,14 @@ export default function ProfilePage() {
               className="btn-ghost"
               style={{ fontSize: '13px', padding: '6px 14px', flexShrink: 0 }}
               onClick={async () => {
+                const { data: { session } } = await supabase.auth.getSession()
                 const res = await fetch('/api/stripe/portal', {
                   method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ userId: user.id }),
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${session?.access_token}`,
+                  },
+                  body: JSON.stringify({}),
                 })
                 const data = await res.json()
                 if (data.url) window.location.href = data.url
@@ -245,6 +249,107 @@ export default function ProfilePage() {
           ))}
         </div>
       </div>
+
+      {/* Danger zone */}
+      <div className="fade-up fade-up-delay-2" style={{ marginTop: '8px' }}>
+        <div style={{ border: '1px solid #e8d5d5', borderRadius: '12px', padding: '20px 22px', background: '#fdf8f8' }}>
+          <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#8b2020', marginBottom: '6px' }}>Delete account</h3>
+          <p style={{ fontSize: '13px', color: 'var(--text-soft)', marginBottom: '14px', lineHeight: '1.6' }}>
+            Permanently deletes your account, all projects, scenes, characters, and ideas. This cannot be undone.
+          </p>
+          <DeleteAccountButton supabase={supabase} />
+        </div>
+      </div>
+    </div>
+  )
+}
+function DeleteAccountButton({ supabase }) {
+  const [confirming, setConfirming] = useState(false)
+  const [deleting, setDeleting]     = useState(false)
+
+  async function handleDelete() {
+    setDeleting(true)
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      const res = await fetch('/api/delete-account', {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${session?.access_token}` },
+      })
+      if (!res.ok) {
+        const d = await res.json()
+        alert(d.error || 'Deletion failed. Please try again.')
+        setDeleting(false)
+        setConfirming(false)
+        return
+      }
+      // Sign out and redirect
+      await supabase.auth.signOut()
+      window.location.href = '/?deleted=1'
+    } catch (err) {
+      alert('Something went wrong. Please try again.')
+      setDeleting(false)
+      setConfirming(false)
+    }
+  }
+
+  if (!confirming) {
+    return (
+      <button
+        onClick={() => setConfirming(true)}
+        style={{
+          background: 'transparent',
+          border: '1px solid #d9a5a5',
+          borderRadius: '8px',
+          padding: '7px 16px',
+          fontSize: '13px',
+          color: '#8b2020',
+          cursor: 'pointer',
+          fontFamily: 'var(--font-ui)',
+          fontWeight: '500',
+        }}
+      >
+        Delete my account
+      </button>
+    )
+  }
+
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+      <p style={{ fontSize: '13px', color: '#8b2020', fontWeight: '500', margin: 0 }}>
+        Are you sure? This is permanent.
+      </p>
+      <button
+        onClick={handleDelete}
+        disabled={deleting}
+        style={{
+          background: '#8b2020',
+          border: 'none',
+          borderRadius: '8px',
+          padding: '7px 16px',
+          fontSize: '13px',
+          color: '#fff',
+          cursor: deleting ? 'not-allowed' : 'pointer',
+          fontFamily: 'var(--font-ui)',
+          fontWeight: '600',
+          opacity: deleting ? 0.6 : 1,
+        }}
+      >
+        {deleting ? 'Deleting...' : 'Yes, delete everything'}
+      </button>
+      <button
+        onClick={() => setConfirming(false)}
+        style={{
+          background: 'transparent',
+          border: 'none',
+          fontSize: '13px',
+          color: 'var(--text-soft)',
+          cursor: 'pointer',
+          fontFamily: 'var(--font-ui)',
+          padding: '7px 4px',
+        }}
+      >
+        Cancel
+      </button>
     </div>
   )
 }

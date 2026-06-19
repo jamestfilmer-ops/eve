@@ -338,8 +338,11 @@ function OverviewTab({ project, characters, scenes, plotHoles, onUpdate }) {
       const { data: { session } } = await supabase.auth.getSession()
       const res = await fetch('/api/export-pdf', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ projectId: project.id, userId: session?.user?.id }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session?.access_token}`,
+        },
+        body: JSON.stringify({ projectId: project.id }),
       })
       if (!res.ok) throw new Error('Export failed')
       const blob = await res.blob()
