@@ -100,7 +100,7 @@ export default function PrivacyPage() {
 
           <section>
             <h2 style={h2}>10. Contact</h2>
-            <p style={p}>Privacy questions or data requests: <a href="mailto:hello@eve-screenwriting.vercel.app" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>hello@eve-screenwriting.vercel.app</a></p>
+            <p style={p}>Privacy questions or data requests: <a href="mailto:isaacneedsacar@gmail.com" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>isaacneedsacar@gmail.com</a></p>
           </section>
 
         </div>

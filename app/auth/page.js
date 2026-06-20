@@ -95,7 +95,14 @@ function AuthForm() {
               <input className="input" type="email" placeholder="you@example.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
             </div>
             <div>
-              <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)', display: 'block', marginBottom: '5px' }}>Password</label>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '5px' }}>
+                <label style={{ fontSize: '13px', fontWeight: '600', color: 'var(--text-dark)' }}>Password</label>
+                {!isSignup && (
+                  <Link href="/auth/forgot-password" style={{ fontSize: '12px', color: 'var(--green)', textDecoration: 'none', fontWeight: '500' }}>
+                    Forgot password?
+                  </Link>
+                )}
+              </div>
               <input className="input" type="password" placeholder="••••••••" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} />
             </div>
             <button

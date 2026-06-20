@@ -79,7 +79,7 @@ export default function TermsPage() {
 
           <section>
             <h2 style={h2}>11. Contact</h2>
-            <p style={p}>Questions about these Terms? Contact us at <a href="mailto:hello@eve-screenwriting.vercel.app" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>hello@eve-screenwriting.vercel.app</a></p>
+            <p style={p}>Questions about these Terms? Contact us at <a href="mailto:isaacneedsacar@gmail.com" style={{ color: 'var(--green)', textDecoration: 'none', fontWeight: '600' }}>isaacneedsacar@gmail.com</a></p>
           </section>
 
         </div>
