@@ -76,14 +76,13 @@ function PricingSection() {
 
           <div style={{ background: 'linear-gradient(145deg, #3a6b1e 0%, var(--green) 50%, #2d5016 100%)', border: '1.5px solid var(--green)', borderRadius: '16px', padding: '32px', position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: 'var(--shadow-green), inset 0 1px 0 rgba(255,255,255,0.12)' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 50%)', pointerEvents: 'none' }} />
-            <div style={{ position: 'absolute', top: '14px', right: '14px', background: 'rgba(255,255,255,0.2)', color: '#fff', fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 9px', borderRadius: '20px' }}>Most popular</div>
             <p style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginBottom: '8px' }}>Pro</p>
             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '6px', marginBottom: '4px' }}>
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '44px', fontWeight: '700', color: '#fff', lineHeight: 1 }}>${annual ? annualMonthly : monthlyPrice}</span>
               <span style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.65)', paddingBottom: '6px' }}>/ month</span>
             </div>
             <p style={{ fontFamily: 'var(--font-ui)', fontSize: '12px', color: 'rgba(255,255,255,0.55)', marginBottom: '4px' }}>{annual ? `Billed $${annualTotal}/year` : 'Billed monthly'}</p>
-            <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.8)', marginBottom: '22px', lineHeight: '1.5' }}>Everything unlocked. No limits, no friction.</p>
+            <p style={{ fontFamily: 'var(--font-ui)', fontSize: '14px', color: 'rgba(255,255,255,0.8)', marginBottom: '22px', lineHeight: '1.5' }}>Every tool unlocked. Every framework. Every lesson in the library.</p>
             <Link href="/auth?signup=true&plan=pro" style={{ textDecoration: 'none', display: 'block', marginBottom: '22px' }}>
               <button style={{ width: '100%', padding: '12px', borderRadius: '8px', border: 'none', background: '#fff', fontFamily: 'var(--font-ui)', fontWeight: '700', fontSize: '14px', color: 'var(--green)', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}>Get Pro</button>
             </Link>
@@ -117,7 +116,7 @@ export default function Home() {
 
           {/* Left — copy */}
           <div>
-            <div className="badge fade-up" style={{ marginBottom: '18px', display: 'inline-block' }}>Free to start. No AI. No fluff.</div>
+            <div className="badge fade-up" style={{ marginBottom: '18px', display: 'inline-block' }}>No AI. No templates. No hand-holding.</div>
             <h1 className="fade-up fade-up-delay-1" style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(32px, 4.2vw, 60px)',
@@ -127,8 +126,8 @@ export default function Home() {
               marginBottom: '18px',
               letterSpacing: '-0.02em',
             }}>
-              The story in your head<br />
-              <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>deserves to make it to the page.</em>
+              Most scripts fail in Act Two.<br />
+              <em style={{ fontStyle: 'italic', color: 'var(--green-light)' }}>Eve is where you fix that.</em>
             </h1>
             <p className="fade-up fade-up-delay-2" style={{
               fontSize: 'clamp(15px, 1.5vw, 17px)',
@@ -137,7 +136,7 @@ export default function Home() {
               marginBottom: '28px',
               maxWidth: '460px',
             }}>
-              You have an idea. Maybe a whole story. What you need is the craft to get it out of your head — and a place to think it through.
+              A craft library, a story workspace, and a framework tracker — built for writers who want to understand structure, not just copy it.
             </p>
             <div className="fade-up fade-up-delay-3 hero-cta-row" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '28px' }}>
               <Link href="/start" style={{ textDecoration: 'none' }}>

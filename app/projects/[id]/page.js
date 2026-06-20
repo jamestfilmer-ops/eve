@@ -6,10 +6,11 @@ import Link from 'next/link'
 import { supabase } from '../../../lib/supabase'
 import { useToast } from '../../components/Toast'
 import { PRO_TABS } from '../../../lib/planUtils'
+import DevelopTab from '../../components/DevelopTab'
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const TABS = ['Overview', 'Beat Tracker', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map', 'Story Map', 'World']
+const TABS = ['Overview', 'Beat Tracker', 'Develop', 'Characters', 'Scenes', 'Plot Holes', 'Timeline', 'Themes Map', 'Story Map', 'World']
 
 const frameworkLabel = {
   'save-the-cat':      'Save the Cat',
@@ -247,6 +248,7 @@ export default function ProjectPage() {
       <div className="fade-up fade-up-delay-2">
         {tab === 'Overview'      && <OverviewTab    project={project} characters={characters} scenes={scenes} plotHoles={plotHoles} onUpdate={updateProject} />}
         {tab === 'Beat Tracker'  && <BeatTrackerTab project={project} toast={toast} scenes={scenes} setScenes={setScenes} />}
+        {tab === 'Develop'       && <DevelopTab projectId={id} toast={toast} characters={characters} setCharacters={setCharacters} themes={themes} setThemes={setThemes} />}
         {tab === 'Characters'    && <CharactersTab  projectId={id} characters={characters} setCharacters={setCharacters} toast={toast} />}
         {tab === 'Scenes'      && <ScenesTab      projectId={id} scenes={scenes} setScenes={setScenes} framework={project.framework} toast={toast} />}
         {tab === 'Plot Holes'  && (userPlan === 'pro'
